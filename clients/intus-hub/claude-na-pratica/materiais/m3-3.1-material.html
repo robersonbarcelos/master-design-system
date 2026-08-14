@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 3.1 · Como dar uma missão completa ao Cowork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;
+  --amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --green:#15803D;--green-bg:#DCFCE7;--green-border:#BBF7D0;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,64px);line-height:.9;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.four{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--border);border-radius:20px;padding:24px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,80,34,.75)}
+.card.navy h3{color:#fff}
+.card.navy p{color:rgba(255,255,255,.72)}
+
+/* CONTRASTE PROMPT */
+.contraste{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.contraste-lado{padding:24px}
+.contraste-lado.ruim{background:var(--bg2);border-right:1px solid var(--border)}
+.contraste-lado.bom{background:var(--navy)}
+.contraste-label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.contraste-lado.ruim .contraste-label{color:var(--muted)}
+.contraste-lado.bom .contraste-label{color:rgba(245,80,34,.8)}
+.prompt-text{font-family:var(--mono);font-size:12px;line-height:1.65;border-radius:12px;padding:14px 16px}
+.contraste-lado.ruim .prompt-text{background:var(--white);border:1px solid var(--border);color:var(--body)}
+.contraste-lado.bom .prompt-text{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#E2E8F0}
+.contraste-lado.bom .prompt-text .hi{color:#93C5FD}
+
+/* ANATOMIA 4 PARTES */
+.parte{border:1px solid var(--border);border-radius:18px;padding:20px;background:var(--white);border-top:4px solid var(--navy)}
+.parte-num{font-family:var(--mono);font-size:28px;font-weight:900;color:var(--amber);line-height:1;margin-bottom:10px}
+.parte h3{font-size:18px;letter-spacing:-.03em;margin:0 0 6px;color:var(--navy)}
+.parte p{color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 8px}
+.parte .exemplo{font-family:var(--mono);font-size:11px;color:var(--body);background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 10px}
+
+/* ANCORA */
+.ancora{border-radius:24px;padding:36px 44px;background:var(--amber-bg);border:1px solid rgba(245,80,34,.28);border-left:5px solid var(--amber)}
+.ancora .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-dark);font-weight:800;margin-bottom:10px}
+.ancora p{font-size:clamp(20px,3vw,32px);font-weight:900;letter-spacing:-.03em;color:var(--amber-text);margin:0;line-height:1.1}
+
+/* STEER */
+.steer{border:1px solid var(--green-border);border-radius:20px;padding:26px;background:var(--green-bg)}
+.steer .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
+.steer h3{margin:0 0 8px;font-size:20px;letter-spacing:-.03em;color:var(--green)}
+.steer p{color:#14532D;font-size:15px;line-height:1.52;margin:0}
+
+.note{border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;border-left:3px solid var(--amber)}
+.note strong{color:var(--amber-text)}
+.conclusao{border-radius:24px;padding:50px 44px;margin-top:14px;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.20);position:relative;overflow:hidden}
+.conclusao:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.conclusao h2{font-size:clamp(28px,4.2vw,48px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.conclusao p{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:13px 20px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .grid.two,.grid.four,.contraste{grid-template-columns:1fr}
+  .contraste-lado.ruim{border-right:0;border-bottom:1px solid var(--border)}
+  .conclusao{padding:34px 26px}
+  .statement,.ancora{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/><polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/><circle cx="60" cy="60" r="11" fill="#F55022"/></svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 3 · Aula 3.1<br>CONCEITUAL · 5 min</div>
+</header>
+
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M3 · Claude Cowork</div>
+    <h1>Missão, não <span class="accent">pergunta.</span></h1>
+    <p class="lead">O erro mais comum no Cowork é usá-lo como Chat. Esta aula ensina a anatomia de um prompt de delegação que realmente funciona.</p>
+    <div class="chips">
+      <span class="chip hot">Conceitual · 5 min</span>
+      <span class="chip">Briefing</span>
+      <span class="chip">Delegação</span>
+      <span class="chip">Steer mid-run</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Seu primeiro prompt Cowork.</strong>
+      <p>Você escreve uma missão real com as 4 partes. Usa na próxima aula para gerar um arquivo de verdade.</p>
+    </div>
+    <div class="signal">
+      <small>Frase âncora</small>
+      <strong>Fontes + Objetivo + Formato + Restrições.</strong>
+      <p>São as 4 partes obrigatórias de qualquer missão Cowork que funciona. Memorize isso.</p>
+    </div>
+    <div class="signal">
+      <small>Diferencial Cowork</small>
+      <strong>Steer mid-run.</strong>
+      <p>Você pode ajustar a missão no meio sem cancelar tudo. Isso não existe no Chat.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="statement">
+  <p>Cowork não é Chat com arquivo.<br>É um assistente que recebe <em>briefing e entrega resultado.</em></p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">01</span><h2>O erro mais comum</h2></div>
+  <div class="contraste">
+    <div class="contraste-lado ruim">
+      <div class="contraste-label">Jeito Chat (não funciona no Cowork)</div>
+      <div class="prompt-text">"Me ajuda com um relatório de marketing"</div>
+      <p style="color:var(--muted);font-size:14px;line-height:1.5;margin-top:12px">Sem arquivo, sem objetivo claro, sem formato, sem destino. O Claude não sabe o que entregar, então improvisa. O resultado não serve para nada real.</p>
+    </div>
+    <div class="contraste-lado bom">
+      <div class="contraste-label">Jeito Cowork (funciona)</div>
+      <div class="prompt-text">
+        <span class="hi">Analisa os arquivos da pasta /relatorios-maio</span> e cria um relatório executivo em Word com:<br>
+        - Resumo de resultados (máx 1 página)<br>
+        - Tabela comparativa mês a mês<br>
+        - 3 recomendações práticas<br><br>
+        Tom: formal, para apresentar a diretoria<br>
+        Entregável: salva como relatorio-maio-executivo.docx
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">02</span><h2>As 4 partes de uma missão Cowork</h2></div>
+  <div class="grid four">
+    <div class="parte">
+      <div class="parte-num">1</div>
+      <h3>Fontes</h3>
+      <p>Quais arquivos, pastas ou dados usar</p>
+      <div class="exemplo">pasta /dados, planilha vendas.xlsx</div>
+    </div>
+    <div class="parte">
+      <div class="parte-num">2</div>
+      <h3>Objetivo</h3>
+      <p>O que precisa ser feito exatamente</p>
+      <div class="exemplo">criar relatório executivo com resumo e tabela</div>
+    </div>
+    <div class="parte">
+      <div class="parte-num">3</div>
+      <h3>Formato</h3>
+      <p>Como deve ser o entregável</p>
+      <div class="exemplo">Word, máx 2 páginas, salva como nome.docx</div>
+    </div>
+    <div class="parte">
+      <div class="parte-num">4</div>
+      <h3>Restrições</h3>
+      <p>Tom, idioma, limitações</p>
+      <div class="exemplo">formal, sem jargões, para diretoria</div>
+    </div>
+  </div>
+</section>
+
+<section class="ancora" style="margin-top:52px">
+  <div class="label">Frase âncora desta aula</div>
+  <p>Fontes + Objetivo + Formato + Restrições = missão que funciona.</p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">03</span><h2>Steer mid-run: você pode ajustar no meio</h2></div>
+  <div class="grid two">
+    <div class="steer">
+      <div class="label">Diferencial do Cowork</div>
+      <h3>Intervenção sem cancelar.</h3>
+      <p>Durante uma tarefa Cowork aparece um campo para você digitar correções ou ajustes. O Claude aplica sem perder o que já fez. No Chat isso não existe: você precisaria recomeçar do zero.</p>
+    </div>
+    <article class="card navy">
+      <div class="label">Na prática</div>
+      <h3>Você viu que o tom saiu errado.</h3>
+      <p>No meio da execução você digita: "Muda o tom para mais informal, linguagem direta." O Cowork ajusta e continua. O arquivo final sai do jeito que você quer.</p>
+    </article>
+  </div>
+</section>
+
+<section class="conclusao" style="margin-top:52px">
+  <h2>Escreva sua missão.<br><span class="accent">Use na próxima aula.</span></h2>
+  <p>Antes de avançar para M3-3.2: escreva no caderno ou num doc o primeiro prompt Cowork para uma tarefa real do seu trabalho. Usando as 4 partes.</p>
+  <div class="cta-actions">
+    <span class="btn primary">Missão escrita. Pode continuar.</span>
+    <span class="btn">Próxima: M3-3.2 · Plugins oficiais</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 3 · Aula 3.1 · Como dar uma missão completa · Próxima aula: M3-3.2 · Plugins oficiais</footer>
+</main>
+</body>
+</html>

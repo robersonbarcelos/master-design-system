@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 0.1 · Como aproveitar o curso ao máximo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;
+  --bg2:#E4DFD6;
+  --white:#FAF8F4;
+  --navy:#1E3A5F;
+  --amber:#F55022;
+  --amber-dark:#C03A0E;
+  --amber-bg:#FEF0EB;
+  --amber-text:#7A2010;
+  --ink:#1A1714;
+  --body:#3D3530;
+  --muted:#7A7068;
+  --border:#D4CFC6;
+  --display:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+
+/* HEADER */
+.mast{
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  padding-bottom:20px;border-bottom:3px solid var(--navy);
+  position:relative;
+}
+.mast:after{
+  content:"";position:absolute;bottom:-3px;right:0;
+  width:40px;height:3px;background:var(--amber);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55;
+}
+
+/* HERO */
+.hero{
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;
+  margin:44px 0 32px;
+}
+.hero-main{
+  position:relative;padding:44px;border-radius:24px;overflow:hidden;
+  background:var(--navy);
+  box-shadow:0 20px 60px rgba(30,58,95,.18);
+}
+.hero-main:before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber);
+}
+.kicker{
+  font-family:var(--mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.18em;font-weight:800;margin-bottom:16px;
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;padding:5px 13px;color:rgba(255,255,255,.65);
+}
+h1{
+  font-size:clamp(38px,6vw,68px);line-height:.9;
+  letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:780px;
+}
+.accent{color:var(--amber)}
+.lead{
+  font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:640px;margin:0;
+}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);
+}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+
+/* SIDE SIGNALS */
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{
+  border:1px solid var(--border);border-radius:20px;padding:20px;
+  background:var(--white);
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  border-left:3px solid var(--amber);
+}
+.signal small{
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--amber-dark);font-weight:700;
+}
+.signal strong{display:block;font-size:20px;line-height:1;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+
+/* STATEMENT */
+.statement{
+  border-radius:24px;padding:38px 44px;margin:6px 0 40px;
+  background:var(--white);border:1px solid var(--border);
+  border-left:5px solid var(--navy);
+  box-shadow:0 4px 24px rgba(0,0,0,.07);
+}
+.statement p{
+  font-size:clamp(24px,3.8vw,46px);line-height:.96;letter-spacing:-.01em;
+  font-weight:900;margin:0;color:var(--navy);max-width:960px;
+}
+.statement p em{color:var(--amber);font-style:normal}
+
+/* SECTION */
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{
+  font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;
+  background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);
+  border-radius:8px;padding:5px 9px;
+}
+.section-title h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+
+/* GRID */
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.grid.five{grid-template-columns:repeat(5,1fr)}
+
+/* CARD */
+.card{
+  border:1px solid var(--border);border-radius:20px;padding:22px;
+  background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.card .label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin-bottom:8px;
+}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,158,11,.75)}
+.card.navy h3,.card.navy p{color:#fff}
+.card.navy p{color:rgba(255,255,255,.7)}
+
+/* MÓDULOS FLOW */
+.module{
+  border:1px solid var(--border);border-radius:18px;padding:18px;
+  background:var(--white);min-height:150px;
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.module.active{
+  border-color:var(--navy);border-top:3px solid var(--amber);
+  background:var(--navy);
+}
+.module.active .mod-tag{color:var(--amber)}
+.module.active h3,.module.active p{color:#fff}
+.module.active p{color:rgba(255,255,255,.65)}
+.mod-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--amber-dark);font-weight:800;margin-bottom:11px;
+}
+.module h3{font-size:17px;letter-spacing:-.025em;margin:0 0 8px;color:var(--ink)}
+.module p{color:var(--muted);font-size:13px;line-height:1.42;margin:0}
+
+/* TABLE */
+.table{border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.row{display:grid;grid-template-columns:.8fr 1.4fr .7fr;border-bottom:1px solid var(--border)}
+.row:last-child{border-bottom:0}
+.row>div{padding:15px 17px;border-right:1px solid var(--border);color:var(--body);line-height:1.45;font-size:14px}
+.row>div:first-child{color:var(--ink);font-weight:700}
+.row>div:last-child{border-right:0}
+.row.head>div{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);background:var(--bg2);font-weight:700}
+.pill{
+  display:inline-block;font-family:var(--mono);font-size:10px;font-weight:800;
+  padding:5px 8px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase;
+}
+.pill.conceitual{background:#EFF6FF;border:1px solid #BFDBFE;color:#1D4ED8}
+.pill.ao-vivo{background:var(--amber-bg);border:1px solid rgba(245,80,34,.28);color:var(--amber-text)}
+.pill.pratica{background:#DCFCE7;border:1px solid #BBF7D0;color:#15803D}
+.pill.entregavel{background:#F3E8FF;border:1px solid #E9D5FF;color:#7C3AED}
+
+/* FORMATO CARDS */
+.formato{
+  border:1px solid var(--border);border-radius:20px;padding:22px;
+  background:var(--white);border-top:3px solid var(--border);
+  box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.formato.conceitual{border-top-color:#2563EB}
+.formato.ao-vivo{border-top-color:var(--amber)}
+.formato.pratica{border-top-color:#16A34A}
+.formato .tipo{
+  font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.formato.conceitual .tipo{color:#2563EB}
+.formato.ao-vivo .tipo{color:var(--amber-dark)}
+.formato.pratica .tipo{color:#16A34A}
+.formato h3{font-size:20px;letter-spacing:-.03em;margin:0 0 9px;color:var(--ink)}
+.formato p{color:var(--body);font-size:15px;line-height:1.5;margin:0}
+
+/* CONQUISTAS */
+.conquistas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.conquest{
+  display:flex;align-items:flex-start;gap:12px;
+  border:1px solid var(--border);border-radius:16px;padding:15px 16px;
+  background:var(--white);
+}
+.conquest .bullet{
+  width:30px;height:30px;border-radius:10px;flex-shrink:0;
+  display:grid;place-items:center;font-size:15px;
+  background:var(--amber-bg);
+}
+.conquest p{color:var(--body);font-size:14px;line-height:1.48;margin:0;font-weight:600}
+
+/* NOTE */
+.note{
+  border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;
+  background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;
+  border-left:3px solid var(--amber);
+}
+.note strong{color:var(--amber-text)}
+
+/* CODE BLOCK */
+.code-block{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--ink)}
+.code-head{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.1);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);
+}
+.copy-btn{
+  appearance:none;border:1px solid rgba(245,158,11,.40);background:rgba(245,158,11,.12);
+  color:var(--amber);border-radius:999px;padding:6px 10px;
+  font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+}
+.copy-btn:hover{background:rgba(245,80,34,.22)}
+.copy-btn.copied{border-color:rgba(34,197,94,.40);background:rgba(34,197,94,.12);color:#16a34a}
+pre{margin:0;padding:18px;overflow:auto;color:#f8f8f2;font-size:13px;line-height:1.65;font-family:var(--mono);white-space:pre-wrap}
+
+/* CHECKLIST */
+.checklist{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.check-item{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:14px 17px;border-bottom:1px solid var(--border)}
+.check-item:last-child{border-bottom:0}
+.check-item strong{font-size:15px;color:var(--ink)}
+.ok-tag{font-family:var(--mono);font-size:10px;font-weight:800;color:#15803D;letter-spacing:.08em;text-transform:uppercase;border:1px solid #BBF7D0;background:#DCFCE7;border-radius:999px;padding:5px 9px}
+.warn-tag{font-family:var(--mono);font-size:10px;font-weight:800;color:var(--amber-text);letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(245,158,11,.32);background:var(--amber-bg);border-radius:999px;padding:5px 9px}
+
+/* FINAL CTA */
+.final{
+  border-radius:24px;padding:50px 44px;margin-top:14px;
+  background:var(--navy);
+  box-shadow:0 20px 60px rgba(30,58,95,.20);
+  position:relative;overflow:hidden;
+}
+.final:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.final h2{font-size:clamp(34px,5vw,58px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.final p{font-size:19px;color:rgba(255,255,255,.7);max-width:640px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  padding:13px 20px;border-radius:999px;text-decoration:none;cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;
+}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+
+/* FOOTER */
+.footer{
+  margin-top:56px;padding-top:16px;border-top:1px solid var(--border);
+  font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em;
+}
+
+@media(max-width:900px){
+  .mast,.hero,.grid.five{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:42px}
+  .hero-main{padding:30px}
+  .grid.two,.grid.three,.conquistas{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+  .row>div{border-right:0;border-bottom:1px solid var(--border)}
+  .row>div:last-child{border-bottom:0}
+  .final{padding:34px 26px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+<!-- HEADER -->
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/>
+      <polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/>
+      <circle cx="60" cy="60" r="11" fill="#F55022"/>
+    </svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 0 · Aula 0.1<br>CONCEITUAL · 5 min</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M0 · Boas-vindas</div>
+    <h1>Como aproveitar o curso ao <span class="accent">máximo.</span></h1>
+    <p class="lead">Antes de instalar qualquer coisa ou abrir qualquer aba, você vai entender a lógica do curso, o que vai conseguir fazer ao final e como aproveitar cada aula.</p>
+    <div class="chips">
+      <span class="chip hot">Conceitual · 5 min</span>
+      <span class="chip">5 módulos · 16 aulas</span>
+      <span class="chip">Chat → Cowork → Code → Agentes</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entrada</small>
+      <strong>Você chegou aqui.</strong>
+      <p>Essa é a primeira aula. Nenhum pré-requisito. Nenhuma instalação. Só entendimento.</p>
+    </div>
+    <div class="signal">
+      <small>Saída desta aula</small>
+      <strong>Claude.ai aberto.</strong>
+      <p>Uma conta criada e pronta para as próximas aulas.</p>
+    </div>
+    <div class="signal">
+      <small>Postura certa</small>
+      <strong>Sem pular etapa.</strong>
+      <p>Cada módulo assume que o anterior foi entendido. Resolva a dúvida antes de avançar.</p>
+    </div>
+  </aside>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <p>Este curso é para quem acompanha <em>na prática.</em><br>Abra o Claude junto e coloque a mão na massa.</p>
+</section>
+
+<!-- 01: QUEM CRIOU ESTE CURSO -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">01</span>
+    <h2>Quem está te ensinando</h2>
+  </div>
+  <div class="grid two">
+    <article class="card navy">
+      <div class="label">Instrutor · M0 e M1</div>
+      <h3>Roberson Barcelos</h3>
+      <p>Equipe Intus Hub. Responsável pelas aulas introdutórias: boas-vindas e bases do Claude. Direto ao ponto, sem enrolação.</p>
+    </article>
+    <article class="card navy">
+      <div class="label">Instrutor · Módulos Avançados</div>
+      <h3>Diego Spanevello</h3>
+      <p>Fundador do Intus Hub. Conduz os módulos avançados do curso. Testou e aprimorou o uso do Claude no trabalho real. O que você vai ver é o que funciona na prática.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 02: A LÓGICA DO CURSO -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">02</span>
+    <h2>A lógica do curso</h2>
+  </div>
+  <div class="grid five">
+    <div class="module active">
+      <div class="mod-tag">M0 · Agora</div>
+      <h3>Boas-vindas</h3>
+      <p>Como aproveitar o curso e abrir o Claude pela primeira vez.</p>
+    </div>
+    <div class="module">
+      <div class="mod-tag">M1</div>
+      <h3>Bases do Claude</h3>
+      <p>Claude vs ChatGPT, os 3 modos e setup do primeiro projeto.</p>
+    </div>
+    <div class="module">
+      <div class="mod-tag">M2</div>
+      <h3>Claude Chat</h3>
+      <p>Artifacts, projetos com memória e conectores nativos.</p>
+    </div>
+    <div class="module">
+      <div class="mod-tag">M3</div>
+      <h3>Claude Cowork</h3>
+      <p>Missões completas, plugins oficiais e arquivos reais.</p>
+    </div>
+    <div class="module">
+      <div class="mod-tag">M4 · M5</div>
+      <h3>Code + Agentes</h3>
+      <p>Desktop app, skills, time de agentes e MCPs.</p>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">
+    <strong>A progressão:</strong> Chat → Cowork → Code → Agentes. Seguidos em ordem, cada módulo apoia o próximo.
+  </div>
+</section>
+
+<!-- 03: COMO CADA AULA FUNCIONA -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">03</span>
+    <h2>Como cada aula funciona</h2>
+  </div>
+  <div class="grid three">
+    <div class="formato conceitual">
+      <div class="tipo">Conceitual</div>
+      <h3>Explicação direta</h3>
+      <p>Sem rodeio, sem slide de 40 páginas. Você entende o porquê antes de ir para a prática.</p>
+    </div>
+    <div class="formato ao-vivo">
+      <div class="tipo">Ao vivo</div>
+      <h3>Tela real sendo usada</h3>
+      <p>Você acompanha a tela ao vivo. Vê o raciocínio por trás, não só o resultado final.</p>
+    </div>
+    <div class="formato pratica">
+      <div class="tipo">Prática</div>
+      <h3>Você faz junto</h3>
+      <p>Tem entregável claro no final. Faça. Porque assistir sem praticar é perda de tempo.</p>
+    </div>
+  </div>
+  <div class="table" style="margin-top:16px">
+    <div class="row head">
+      <div>Tipo</div><div>O que acontece na aula</div><div>Entregável</div>
+    </div>
+    <div class="row">
+      <div>Conceitual</div>
+      <div>Você absorve a lógica. Nenhum Claude aberto ainda.</div>
+      <div><span class="pill conceitual">entendimento</span></div>
+    </div>
+    <div class="row">
+      <div>Ao vivo</div>
+      <div>Você acompanha a tela e anota o que faria diferente.</div>
+      <div><span class="pill ao-vivo">referência visual</span></div>
+    </div>
+    <div class="row">
+      <div>Prática</div>
+      <div>Você abre o Claude e executa a tarefa junto com a aula.</div>
+      <div><span class="pill pratica">entregável real</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04: O QUE VOCÊ VAI CONSEGUIR FAZER -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">04</span>
+    <h2>O que você vai conseguir fazer</h2>
+  </div>
+  <p style="color:var(--body);font-size:16px;margin:0 0 18px;max-width:700px">No final do curso, você consegue fazer tudo isso de verdade.</p>
+  <div class="conquistas">
+    <div class="conquest">
+      <div class="bullet">📁</div>
+      <p>Criar Projetos com memória e contexto do seu negócio</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">🧩</div>
+      <p>Gerar Artifacts: HTMLs, tabelas, relatórios direto no Claude</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">🔗</div>
+      <p>Conectar o Claude ao Google, Gmail e Airtable via conectores nativos</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">🎯</div>
+      <p>Delegar missões completas no Cowork com entregável real</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">💻</div>
+      <p>Criar páginas e automatizar tarefas com o Claude Code</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">⚙️</div>
+      <p>Instalar e usar Skills personalizadas no seu fluxo de trabalho</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">🤖</div>
+      <p>Entender agentes e colocar um time de agentes para trabalhar por você</p>
+    </div>
+    <div class="conquest">
+      <div class="bullet">🔌</div>
+      <p>Conectar ferramentas externas via MCPs</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05: AÇÃO AGORA -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">05</span>
+    <h2>Uma coisa para fazer agora</h2>
+  </div>
+  <div class="grid two">
+    <div>
+      <div class="code-block">
+        <div class="code-head">
+          <span>Abrir no navegador</span>
+          <button class="copy-btn" type="button" data-copy-target="url-claude">Copiar</button>
+        </div>
+        <pre id="url-claude">https://claude.ai</pre>
+      </div>
+      <div class="note" style="margin-top:12px">
+        <strong>Se ainda não tem conta:</strong> crie agora. É gratuito para começar. O plano Free funciona para M0, M1 e M2. A partir do M3 o Pro faz diferença.
+      </div>
+    </div>
+    <div class="checklist">
+      <div class="check-item">
+        <strong>Acesse claude.ai e faça login</strong>
+        <span class="ok-tag">Fazer agora</span>
+      </div>
+      <div class="check-item">
+        <strong>Confirme se sua conta está criada</strong>
+        <span class="ok-tag">Fazer agora</span>
+      </div>
+      <div class="check-item">
+        <strong>Observe os três modos disponíveis na interface</strong>
+        <span class="warn-tag">M1 explica</span>
+      </div>
+      <div class="check-item">
+        <strong>Veja o menu de Projetos no painel lateral</strong>
+        <span class="warn-tag">M2 explica</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" style="margin-top:50px">
+  <h2>Quando essa janela estiver aberta na sua frente, você já está pronto.<br><span class="accent">Vamos começar.</span></h2>
+  <p>A próxima aula é M1-1.1: Claude vs ChatGPT. Por que a escolha importa e o que muda na prática.</p>
+  <div class="cta-actions">
+    <a class="btn primary" href="https://claude.ai" target="_blank" rel="noopener">Abrir claude.ai</a>
+    <span class="btn">Próxima: M1-1.1 · Claude vs ChatGPT</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 0 · Aula 0.1 · Como aproveitar o curso ao máximo · Próxima aula: M1-1.1 · Claude vs ChatGPT</footer>
+
+</main>
+
+<script>
+document.querySelectorAll('[data-copy-target]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const el = document.getElementById(btn.dataset.copyTarget);
+    if (!el) return;
+    try {
+      await navigator.clipboard.writeText(el.textContent.trim());
+      btn.textContent = 'Copiado!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 1400);
+    } catch {
+      btn.textContent = 'Selecione';
+      setTimeout(() => { btn.textContent = 'Copiar'; }, 1400);
+    }
+  });
+});
+</script>
+</body>
+</html>

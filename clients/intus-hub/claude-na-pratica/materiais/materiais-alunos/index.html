@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude na Prática · Portal do Aluno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:        #EDE9E1;
+  --bg2:       #E4DFD6;
+  --white:     #FAF8F4;
+  --border:    #D4CFC6;
+  --ink:       #1A1714;
+  --body:      #3D3530;
+  --muted:     #7A7068;
+  --navy:      #1E3A5F;
+  --navy2:     #16304F;
+  --orange:    #F55022;
+  --orange-dk: #C03A0E;
+  --orange-bg: #FEF0EB;
+  --mono:      "JetBrains Mono",monospace;
+  --sans:      "Inter Tight",system-ui,sans-serif;
+  --sidebar-w: 268px;
+  --topbar-h:  52px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;font-family:var(--sans);background:var(--bg)}
+
+/* ─── TOPBAR ─── */
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:var(--topbar-h);z-index:100;
+  background:var(--navy);display:flex;align-items:center;gap:0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.topbar-brand{
+  width:var(--sidebar-w);flex-shrink:0;display:flex;align-items:center;gap:10px;
+  padding:0 20px;border-right:1px solid rgba(255,255,255,.08);
+}
+.topbar-logo{display:flex;align-items:center;gap:9px}
+.logo-svg{flex-shrink:0}
+.wordmark{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;line-height:1.3;color:rgba(255,255,255,.6)}
+.wordmark b{color:var(--orange);font-weight:900}
+.topbar-nav{display:flex;align-items:center;gap:2px;padding:0 20px}
+.mod-tab{
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.02em;
+  text-transform:uppercase;padding:6px 14px;border-radius:999px;cursor:pointer;
+  color:rgba(255,255,255,.45);border:1px solid transparent;transition:all .15s;
+  background:none;
+}
+.mod-tab:hover{color:rgba(255,255,255,.8);background:rgba(255,255,255,.07)}
+.mod-tab.active{color:#fff;background:rgba(255,80,34,.2);border-color:rgba(245,80,34,.4)}
+.topbar-right{margin-left:auto;padding:0 20px;display:flex;align-items:center;gap:10px}
+.progress-label{font-family:var(--sans);font-size:11px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:.02em}
+.progress-bar{width:80px;height:3px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;background:var(--orange);border-radius:999px;transition:width .3s}
+
+/* ─── LAYOUT ─── */
+.layout{display:flex;height:100%;padding-top:var(--topbar-h)}
+
+/* ─── SIDEBAR ─── */
+.sidebar{
+  width:var(--sidebar-w);flex-shrink:0;height:100%;overflow-y:auto;
+  background:var(--bg2);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-track{background:transparent}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.sidebar-intro{
+  padding:18px 18px 14px;border-bottom:1px solid var(--border);
+}
+.sidebar-intro-label{
+  font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+}
+.sidebar-intro p{font-size:12px;color:var(--body);line-height:1.5}
+
+.mod-group{border-bottom:1px solid var(--border)}
+.mod-header{
+  display:flex;align-items:center;gap:10px;padding:13px 18px;cursor:pointer;
+  transition:background .12s;user-select:none;
+}
+.mod-header:hover{background:rgba(0,0,0,.04)}
+.mod-header.open{background:rgba(0,0,0,.03)}
+.mod-tag{
+  font-family:var(--sans);font-size:9px;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--orange-dk);flex-shrink:0;
+  background:var(--orange-bg);border:1px solid rgba(245,80,34,.25);
+  border-radius:5px;padding:3px 7px;
+}
+.mod-name{font-size:12px;font-weight:700;color:var(--ink);flex:1;line-height:1.3}
+.mod-chevron{
+  font-size:10px;color:var(--muted);flex-shrink:0;
+  transition:transform .2s;
+}
+.mod-header.open .mod-chevron{transform:rotate(90deg)}
+
+.mod-aulas{display:none;padding:4px 0 8px}
+.mod-header.open + .mod-aulas{display:block}
+
+.aula-item{
+  display:flex;align-items:flex-start;gap:10px;padding:9px 18px 9px 24px;
+  cursor:pointer;transition:background .1s;border-left:2px solid transparent;
+  margin-left:0;
+}
+.aula-item:hover{background:rgba(0,0,0,.04)}
+.aula-item.active{
+  background:var(--orange-bg);
+  border-left-color:var(--orange);
+}
+.aula-num{
+  font-family:var(--sans);font-size:10px;font-weight:700;color:var(--muted);
+  flex-shrink:0;margin-top:1px;letter-spacing:.01em;min-width:22px;
+}
+.aula-item.active .aula-num{color:var(--orange-dk)}
+.aula-info{flex:1}
+.aula-title{font-size:12px;color:var(--body);line-height:1.4;font-weight:500}
+.aula-item.active .aula-title{color:var(--ink);font-weight:700}
+.aula-tipo{
+  font-family:var(--sans);font-size:9px;letter-spacing:.04em;text-transform:uppercase;
+  font-weight:600;margin-top:3px;
+}
+.tipo-conceitual{color:#2563EB}
+.tipo-ao-vivo{color:var(--orange-dk)}
+.tipo-pratica{color:#15803D}
+
+.sidebar-footer{
+  margin-top:auto;padding:14px 18px;border-top:1px solid var(--border);
+}
+.sidebar-footer-label{
+  font-family:var(--sans);font-size:9px;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:600;color:var(--muted);
+}
+.home-btn{
+  display:flex;align-items:center;gap:8px;padding:11px 18px;
+  cursor:pointer;border:none;background:none;width:100%;text-align:left;
+  border-bottom:1px solid var(--border);transition:background .12s;
+}
+.home-btn:hover{background:rgba(0,0,0,.04)}
+.home-btn svg{flex-shrink:0;opacity:.5}
+.home-btn span{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+.home-btn:hover span,.home-btn:hover svg{opacity:1;color:var(--ink)}
+
+/* ─── CONTENT ─── */
+.content{flex:1;height:100%;position:relative;background:var(--bg)}
+
+.content-frame{
+  width:100%;height:100%;border:none;display:block;
+  background:var(--bg);
+}
+
+.welcome-screen{
+  width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:40px;
+  text-align:center;
+}
+.welcome-hex{margin-bottom:32px}
+.welcome-screen h2{
+  font-size:42px;font-weight:900;letter-spacing:-.04em;
+  line-height:.95;color:var(--navy);margin-bottom:16px;
+}
+.welcome-screen h2 span{color:var(--orange)}
+.welcome-screen p{
+  font-size:17px;color:var(--body);max-width:480px;line-height:1.55;margin-bottom:32px;
+}
+.welcome-mods{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;max-width:600px}
+.welcome-mod{
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.02em;
+  text-transform:uppercase;padding:10px 18px;border-radius:999px;cursor:pointer;
+  background:var(--white);border:1px solid var(--border);color:var(--navy);
+  transition:all .15s;
+}
+.welcome-mod:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.welcome-mod.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.welcome-mod.primary:hover{background:var(--orange-dk);border-color:var(--orange-dk)}
+
+/* ─── NAV FOOTER (prev/next) ─── */
+.nav-bar{
+  position:fixed;bottom:0;left:var(--sidebar-w);right:0;
+  height:48px;background:var(--white);border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+  z-index:50;
+}
+.nav-btn{
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.02em;
+  text-transform:uppercase;padding:8px 16px;border-radius:999px;cursor:pointer;
+  background:transparent;border:1px solid var(--border);color:var(--muted);
+  transition:all .13s;display:flex;align-items:center;gap:6px;
+}
+.nav-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
+.nav-btn.next{background:var(--orange);border-color:var(--orange);color:#fff}
+.nav-btn.next:hover{background:var(--orange-dk);border-color:var(--orange-dk)}
+.nav-current{
+  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--muted);text-align:center;
+}
+.nav-current b{color:var(--ink)}
+
+/* ─── MOBILE ─── */
+@media(max-width:768px){
+  :root{--sidebar-w:0px}
+  .sidebar{display:none}
+  .nav-bar{left:0}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-brand" onclick="goHome()" style="cursor:pointer;transition:opacity .15s" onmouseenter="this.style.opacity='.75'" onmouseleave="this.style.opacity='1'" title="Voltar ao início">
+    <div class="topbar-logo">
+      <svg class="logo-svg" width="28" height="28" viewBox="0 0 120 120" fill="none">
+        <polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="2.4"/>
+        <polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/>
+        <circle cx="60" cy="60" r="11" fill="#F55022"/>
+      </svg>
+      <div class="wordmark">CLAUDE <b>NA PRÁTICA</b><br>INTUS HUB</div>
+    </div>
+  </div>
+  <nav class="topbar-nav" id="topNav">
+    <button class="mod-tab" data-mod="0" onclick="jumpToMod(0)">M0</button>
+    <button class="mod-tab" data-mod="1" onclick="jumpToMod(1)">M1</button>
+    <button class="mod-tab" data-mod="2" onclick="jumpToMod(2)">M2</button>
+    <button class="mod-tab" data-mod="3" onclick="jumpToMod(3)">M3</button>
+    <button class="mod-tab" data-mod="4" onclick="jumpToMod(4)">M4</button>
+    <button class="mod-tab" data-mod="5" onclick="jumpToMod(5)">M5</button>
+  </nav>
+  <div class="topbar-right">
+    <span class="progress-label" id="progressLabel">0 / 16</span>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-intro">
+      <div class="sidebar-intro-label">Portal do Aluno</div>
+      <p>5 módulos · 16 aulas · Menos de 2h</p>
+    </div>
+    <button class="home-btn" onclick="goHome()" title="Voltar à tela inicial">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+      <span>Início</span>
+    </button>
+
+    <!-- M0 -->
+    <div class="mod-group" id="mod-group-0">
+      <div class="mod-header open" onclick="toggleMod(0)">
+        <span class="mod-tag">M0</span>
+        <span class="mod-name">Boas-vindas</span>
+        <span class="mod-chevron">▶</span>
+      </div>
+      <div class="mod-aulas">
+        <div class="aula-item" data-idx="0" onclick="loadAula(0)">
+          <span class="aula-num">0.1</span>
+          <div class="aula-info">
+            <div class="aula-title">Como aproveitar o curso ao máximo</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 5 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M1 -->
+    <div class="mod-group" id="mod-group-1">
+      <div class="mod-header" onclick="toggleMod(1)">
+        <span class="mod-tag">M1</span>
+        <span class="mod-name">Bases do Claude</span>
+        <span class="mod-chevron">▶</span>
+      </div>
+      <div class="mod-aulas">
+        <div class="aula-item" data-idx="1" onclick="loadAula(1)">
+          <span class="aula-num">1.1</span>
+          <div class="aula-info">
+            <div class="aula-title">Claude vs. ChatGPT</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 6 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="2" onclick="loadAula(2)">
+          <span class="aula-num">1.2</span>
+          <div class="aula-info">
+            <div class="aula-title">Os 3 modos: Chat, Cowork e Code</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 5 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="3" onclick="loadAula(3)">
+          <span class="aula-num">1.3</span>
+          <div class="aula-info">
+            <div class="aula-title">Setup inicial: Pro vs. Free e seu primeiro Projeto</div>
+            <div class="aula-tipo tipo-pratica">Prática · 8 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="mod-group" id="mod-group-2">
+      <div class="mod-header" onclick="toggleMod(2)">
+        <span class="mod-tag">M2</span>
+        <span class="mod-name">Claude Chat</span>
+        <span class="mod-chevron">▶</span>
+      </div>
+      <div class="mod-aulas">
+        <div class="aula-item" data-idx="4" onclick="loadAula(4)">
+          <span class="aula-num">2.1</span>
+          <div class="aula-info">
+            <div class="aula-title">Artifacts: o Claude entrega resultados, não só texto</div>
+            <div class="aula-tipo tipo-ao-vivo">Ao vivo · 7 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="5" onclick="loadAula(5)">
+          <span class="aula-num">2.2</span>
+          <div class="aula-info">
+            <div class="aula-title">Projetos com memória: configure uma vez, use sempre</div>
+            <div class="aula-tipo tipo-pratica">Prática · 8 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="6" onclick="loadAula(6)">
+          <span class="aula-num">2.3</span>
+          <div class="aula-info">
+            <div class="aula-title">Conectores: Google Calendar, Gmail e Airtable</div>
+            <div class="aula-tipo tipo-ao-vivo">Ao vivo · 9 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="mod-group" id="mod-group-3">
+      <div class="mod-header" onclick="toggleMod(3)">
+        <span class="mod-tag">M3</span>
+        <span class="mod-name">Claude Cowork</span>
+        <span class="mod-chevron">▶</span>
+      </div>
+      <div class="mod-aulas">
+        <div class="aula-item" data-idx="7" onclick="loadAula(7)">
+          <span class="aula-num">3.1</span>
+          <div class="aula-info">
+            <div class="aula-title">Como dar uma missão completa ao Cowork</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 6 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="8" onclick="loadAula(8)">
+          <span class="aula-num">3.2</span>
+          <div class="aula-info">
+            <div class="aula-title">Plugins oficiais: Marketing, Design e Data</div>
+            <div class="aula-tipo tipo-ao-vivo">Ao vivo · 10 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="9" onclick="loadAula(9)">
+          <span class="aula-num">3.3</span>
+          <div class="aula-info">
+            <div class="aula-title">Cowork criando arquivos reais</div>
+            <div class="aula-tipo tipo-pratica">Prática · 9 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="mod-group" id="mod-group-4">
+      <div class="mod-header" onclick="toggleMod(4)">
+        <span class="mod-tag">M4</span>
+        <span class="mod-name">Claude Code</span>
+        <span class="mod-chevron">▶</span>
+      </div>
+      <div class="mod-aulas">
+        <div class="aula-item" data-idx="10" onclick="loadAula(10)">
+          <span class="aula-num">4.1</span>
+          <div class="aula-info">
+            <div class="aula-title">Claude Code no Desktop App: 2 cliques para começar</div>
+            <div class="aula-tipo tipo-ao-vivo">Ao vivo · 8 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="11" onclick="loadAula(11)">
+          <span class="aula-num">4.2</span>
+          <div class="aula-info">
+            <div class="aula-title">Crie sua primeira landing page sem código</div>
+            <div class="aula-tipo tipo-ao-vivo">Ao vivo · 10 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="12" onclick="loadAula(12)">
+          <span class="aula-num">4.3</span>
+          <div class="aula-info">
+            <div class="aula-title">Skills: instale, entenda e use o pack exclusivo</div>
+            <div class="aula-tipo tipo-pratica">Prática · 7 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M5 -->
+    <div class="mod-group" id="mod-group-5">
+      <div class="mod-header" onclick="toggleMod(5)">
+        <span class="mod-tag">M5</span>
+        <span class="mod-name">Agentes de IA</span>
+        <span class="mod-chevron">▶</span>
+      </div>
+      <div class="mod-aulas">
+        <div class="aula-item" data-idx="13" onclick="loadAula(13)">
+          <span class="aula-num">5.1</span>
+          <div class="aula-info">
+            <div class="aula-title">O que são agentes e como o Claude se multiplica</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 6 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="14" onclick="loadAula(14)">
+          <span class="aula-num">5.2</span>
+          <div class="aula-info">
+            <div class="aula-title">Demo ao vivo: agente pesquisador + agente escritor</div>
+            <div class="aula-tipo tipo-ao-vivo">Ao vivo · 8 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="15" onclick="loadAula(15)">
+          <span class="aula-num">5.3</span>
+          <div class="aula-info">
+            <div class="aula-title">MCPs em 3 minutos: o que são e os mais usados</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 5 min</div>
+          </div>
+        </div>
+        <div class="aula-item" data-idx="16" onclick="loadAula(16)">
+          <span class="aula-num">5.4</span>
+          <div class="aula-info">
+            <div class="aula-title">Recap + o que você já domina + convite para continuar</div>
+            <div class="aula-tipo tipo-conceitual">Conceitual · 8 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-label">Claude na Prática · Intus Hub</div>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content" id="contentArea">
+    <div class="welcome-screen" id="welcomeScreen">
+      <div class="welcome-hex">
+        <svg width="72" height="72" viewBox="0 0 120 120" fill="none">
+          <polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#D4CFC6" stroke-width="2.4"/>
+          <polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".5" stroke-width="1.7"/>
+          <circle cx="60" cy="60" r="11" fill="#F55022"/>
+        </svg>
+      </div>
+      <h2>Bem-vindo ao<br><span>Claude na Prática.</span></h2>
+      <p>Escolha uma aula no menu lateral ou comece pelo início. 16 aulas, menos de 2 horas.</p>
+      <div class="welcome-mods">
+        <button class="welcome-mod primary" onclick="loadAula(0)">Começar — M0 · 0.1</button>
+        <button class="welcome-mod" onclick="jumpToMod(1)">M1 · Bases</button>
+        <button class="welcome-mod" onclick="jumpToMod(2)">M2 · Chat</button>
+        <button class="welcome-mod" onclick="jumpToMod(3)">M3 · Cowork</button>
+        <button class="welcome-mod" onclick="jumpToMod(4)">M4 · Code</button>
+        <button class="welcome-mod" onclick="jumpToMod(5)">M5 · Agentes</button>
+      </div>
+    </div>
+    <iframe class="content-frame" id="contentFrame" style="display:none" title="Conteúdo da aula"></iframe>
+  </main>
+
+</div>
+
+<!-- NAV BAR (prev / next) -->
+<div class="nav-bar" id="navBar" style="display:none">
+  <button class="nav-btn" id="btnPrev" onclick="navigate(-1)">← Anterior</button>
+  <div class="nav-current" id="navCurrent"></div>
+  <button class="nav-btn next" id="btnNext" onclick="navigate(1)">Próxima →</button>
+</div>
+
+<script>
+const AULAS = [
+  { id:'0.1', file:'../m0-0.1-material.html',  mod:0, title:'Como aproveitar o curso ao máximo' },
+  { id:'1.1', file:'../m1-1.1-material.html',  mod:1, title:'Claude vs. ChatGPT' },
+  { id:'1.2', file:'../m1-1.2-material.html',  mod:1, title:'Os 3 modos: Chat, Cowork e Code' },
+  { id:'1.3', file:'../m1-1.3-material.html',  mod:1, title:'Setup inicial: Pro vs. Free e seu primeiro Projeto' },
+  { id:'2.1', file:'../m2-2.1-material.html',  mod:2, title:'Artifacts: o Claude entrega resultados, não só texto' },
+  { id:'2.2', file:'../m2-2.2-material.html',  mod:2, title:'Projetos com memória: configure uma vez, use sempre' },
+  { id:'2.3', file:'../m2-2.3-material.html',  mod:2, title:'Conectores: Google Calendar, Gmail e Airtable' },
+  { id:'3.1', file:'../m3-3.1-material.html',  mod:3, title:'Como dar uma missão completa ao Cowork' },
+  { id:'3.2', file:'../m3-3.2-material.html',  mod:3, title:'Plugins oficiais: Marketing, Design e Data' },
+  { id:'3.3', file:'../m3-3.3-material.html',  mod:3, title:'Cowork criando arquivos reais' },
+  { id:'4.1', file:'../m4-4.1-material.html',  mod:4, title:'Claude Code no Desktop App: 2 cliques para começar' },
+  { id:'4.2', file:'../m4-4.2-material.html',  mod:4, title:'Crie sua primeira landing page sem código' },
+  { id:'4.3', file:'../m4-4.3-material.html',  mod:4, title:'Skills: instale, entenda e use o pack exclusivo' },
+  { id:'5.1', file:'../m5-5.1-material.html',  mod:5, title:'O que são agentes e como o Claude se multiplica' },
+  { id:'5.2', file:'../m5-5.2-material.html',  mod:5, title:'Demo ao vivo: agente pesquisador + agente escritor' },
+  { id:'5.3', file:'../m5-5.3-material.html',  mod:5, title:'MCPs em 3 minutos: o que são e os mais usados' },
+  { id:'5.4', file:'../m5-5.4-material.html',  mod:5, title:'Recap + o que você já domina + convite para continuar' },
+];
+
+const MOD_NAMES = ['Boas-vindas','Bases do Claude','Claude Chat','Claude Cowork','Claude Code','Agentes de IA'];
+
+let currentIdx = -1;
+const visited = new Set();
+
+function goHome() {
+  currentIdx = -1;
+  const frame = document.getElementById('contentFrame');
+  const welcome = document.getElementById('welcomeScreen');
+  frame.style.display = 'none';
+  frame.src = '';
+  welcome.style.display = '';
+  document.getElementById('navBar').style.display = 'none';
+  document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.mod-tab').forEach(t => t.classList.remove('active'));
+  window.location.hash = '';
+}
+
+function loadAula(idx) {
+  const aula = AULAS[idx];
+  if (!aula) return;
+
+  currentIdx = idx;
+  visited.add(idx);
+
+  // iframe
+  const frame = document.getElementById('contentFrame');
+  const welcome = document.getElementById('welcomeScreen');
+  frame.style.display = 'block';
+  welcome.style.display = 'none';
+  frame.style.height = 'calc(100% - 48px)';
+  frame.src = aula.file;
+
+  // sidebar active
+  document.querySelectorAll('.aula-item').forEach(el => el.classList.remove('active'));
+  const activeEl = document.querySelector(`.aula-item[data-idx="${idx}"]`);
+  if (activeEl) {
+    activeEl.classList.add('active');
+    activeEl.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }
+
+  // open parent mod
+  openMod(aula.mod);
+
+  // top nav active
+  document.querySelectorAll('.mod-tab').forEach(t => t.classList.remove('active'));
+  const tab = document.querySelector(`.mod-tab[data-mod="${aula.mod}"]`);
+  if (tab) tab.classList.add('active');
+
+  // nav bar
+  const navBar = document.getElementById('navBar');
+  navBar.style.display = 'flex';
+
+  const prev = document.getElementById('btnPrev');
+  const next = document.getElementById('btnNext');
+  prev.disabled = idx === 0;
+  next.disabled = idx === AULAS.length - 1;
+
+  const navCurrent = document.getElementById('navCurrent');
+  navCurrent.innerHTML = `<b>Aula ${aula.id}</b> · M${aula.mod} ${MOD_NAMES[aula.mod]}`;
+
+  // progress
+  updateProgress();
+
+  // hash
+  window.location.hash = `aula-${aula.id.replace('.', '-')}`;
+}
+
+function navigate(dir) {
+  const next = currentIdx + dir;
+  if (next >= 0 && next < AULAS.length) loadAula(next);
+}
+
+function toggleMod(mod) {
+  const header = document.querySelector(`#mod-group-${mod} .mod-header`);
+  if (header) header.classList.toggle('open');
+}
+
+function openMod(mod) {
+  const header = document.querySelector(`#mod-group-${mod} .mod-header`);
+  if (header && !header.classList.contains('open')) header.classList.add('open');
+}
+
+function jumpToMod(mod) {
+  openMod(mod);
+  // load first aula of that mod
+  const first = AULAS.findIndex(a => a.mod === mod);
+  if (first >= 0) loadAula(first);
+}
+
+function updateProgress() {
+  const total = AULAS.length;
+  const done = visited.size;
+  document.getElementById('progressLabel').textContent = `${done} / ${total}`;
+  document.getElementById('progressFill').style.width = `${(done/total)*100}%`;
+}
+
+// hash routing on load
+window.addEventListener('load', () => {
+  const hash = window.location.hash;
+  if (hash && hash.startsWith('#aula-')) {
+    const id = hash.replace('#aula-', '').replace('-', '.');
+    const idx = AULAS.findIndex(a => a.id === id);
+    if (idx >= 0) loadAula(idx);
+  }
+});
+</script>
+</body>
+</html>

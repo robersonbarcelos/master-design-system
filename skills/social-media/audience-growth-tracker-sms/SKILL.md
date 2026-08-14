@@ -2,7 +2,7 @@
 name: audience-growth-tracker-sms
 description: "When the user wants to track follower growth, understand what drives new followers, or analyze audience development. Also use when the user mentions 'follower growth,' 'followers,' 'audience growth,' 'gaining followers,' 'losing followers,' 'who follows me,' or 'grow my audience.' Uses BlackTwist follower data when available. For post-level metrics, see performance-analyzer-sms. For content patterns, see content-pattern-analyzer-sms."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Audience Growth Tracker
@@ -41,6 +41,15 @@ When BlackTwist tools are available, pull data in this order:
 
 Collect all data before beginning analysis. Do not present raw numbers — interpret them.
 
+**Gate de dados escassos em Path A — verificar imediatamente após coletar:**
+
+Após o pull inicial, avaliar:
+- `get_follower_growth` retornou **menos de 4 pontos de dados** (menos de 4 semanas)? → redirecionar para **Path B-New** (conta nova ou histórico insuficiente)
+- Janela disponível é **menor que 14 dias**? → redirecionar para Path B-New
+- Conta tem **menos de 50 seguidores totais**? → redirecionar para Path B-New
+
+Se qualquer condição acima for verdadeira: informar ao usuário e aplicar o formato de output de Path B-New (plano de medição em vez de análise de crescimento). Não tentar gerar análise de padrões com dados insuficientes.
+
 ### Path B — Without BlackTwist
 
 If BlackTwist is unavailable, ask the user to provide their follower data directly:
@@ -58,6 +67,72 @@ If BlackTwist is unavailable, ask the user to provide their follower data direct
 > If you know specific posts that drove follows (e.g., a post blew up), include those too."
 
 Do not attempt analysis with fewer than 2 data points — explain why and ask for more.
+
+**Gate de conta nova — verificar antes de solicitar dados históricos:**
+
+Se o usuário mencionar qualquer um dos sinais abaixo → entrar no **Path B-New** (conta nova):
+- "acabei de criar", "conta nova", "menos de 1 mês", "primeiros seguidores", "não tenho histórico"
+- Tem menos de 4 semanas de atividade na plataforma
+- Total de seguidores é menor que 100
+
+**Path B-New — Conta com menos de 4 semanas de histórico:**
+
+> "Conta nova detectada — ótimo momento para começar a medir certo.
+>
+> Com menos de 4 semanas de dados, não tenho histórico suficiente para identificar padrões de crescimento. Mas posso fazer duas coisas agora:
+>
+> **1. Configurar sua linha de base:**
+> Me conta a situação atual:
+> - Plataforma(s) ativa(s)
+> - Data de criação da conta (ou quando começou a postar de verdade)
+> - Seguidores hoje: [N]
+> - Posts publicados até agora: [N]
+> - Tem algum post que performou melhor que os outros? (qual e por quê acha isso)
+>
+> **2. Criar seu plano de medição:**
+> Vou definir o que você deve registrar toda semana — seguidores, posts publicados, post de maior alcance — para que em 4 semanas tenhamos dados reais para analisar.
+
+**Output para conta nova:**
+
+Gerar um **Plano de Medição Semana a Semana** em vez de uma análise de crescimento:
+
+```
+## Setup de Crescimento — Conta Nova
+
+**Plataforma:** [plataforma]
+**Data de início:** [data]
+**Baseline hoje:** [N] seguidores | [N] posts publicados
+
+---
+
+### O que registrar toda semana (toda segunda-feira)
+
+| Semana | Data | Seguidores | Posts publicados | Post de maior alcance |
+|--------|------|------------|-------------------|-----------------------|
+| 1 | [data] | [N hoje] | [N hoje] | — |
+| 2 | | | | |
+| 3 | | | | |
+| 4 | | | | |
+
+---
+
+### O que observar durante a semana
+
+- Qual post gerou mais visibilidade? (mesmo que pequena)
+- Houve algum comentário, compartilhamento ou menção inesperada?
+- Em qual dia/horário o post publicado teve mais resposta?
+
+---
+
+### Quando voltar para análise real
+
+Volte ao **audience-growth-tracker-sms** após preencher 4 semanas da tabela acima.
+Com esse histórico mínimo, consigo identificar padrões, diagnósticos de estagnação e recomendações específicas para o seu perfil.
+
+### Enquanto isso — foco inicial recomendado
+
+[3 ações específicas baseadas no contexto do cliente e na plataforma declarada, para as primeiras 4 semanas — não análise, mas execução]
+```
 
 ---
 

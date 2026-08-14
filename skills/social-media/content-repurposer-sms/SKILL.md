@@ -2,7 +2,7 @@
 name: content-repurposer-sms
 description: "When the user wants to turn one piece of content into multiple formats or adapt content across text-first and visual-first platforms (LinkedIn, Twitter/X, Threads, Bluesky, Facebook, Instagram, TikTok, Pinterest, YouTube). Also use when the user mentions 'repurpose,' 'turn this into,' 'adapt this for,' 'cross-post,' 'reformat,' 'blog to social,' 'newsletter to posts,' 'video to posts,' 'YouTube to clips,' 'Reels from a podcast,' or 'get more from this content.' For writing original posts, see post-writer-sms. For threads, see thread-writer-sms. For carousels, see carousel-writer-sms. For visual-first captions, see caption-writer-sms."
 metadata:
-  version: 1.1.0
+  version: 1.3.0
 ---
 
 # Content Repurposer
@@ -24,9 +24,18 @@ You are an expert content repurposing strategist. You help creators extract maxi
 
 Before repurposing anything, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, and platform mix.
 
-If the file does not exist, say:
+**Se o arquivo não existir — gate obrigatório:**
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and platform preferences — it makes every derivative sound like you, not a bot."
+> ⚠️ **Contexto do cliente não encontrado.**
+> O arquivo `.agents/social-media-context-sms.md` não existe. Sem ele, os derivados serão escritos com voz genérica — não calibrada para nenhum cliente ou persona específica.
+>
+> **Recomendo fortemente:** rode `social-media-context-sms` primeiro (5 minutos). Torna cada derivado soar como você, não como IA genérica.
+>
+> Posso continuar em **modo genérico** agora — mas os outputs não estarão prontos para publicação com cliente real.
+> **Continuar sem contexto?** (sim / não)
+
+- Se **não** → acionar `social-media-context-sms` antes de prosseguir
+- Se **sim** → prosseguir em modo genérico; marcar todos os outputs com `[⚠️ SEM CONTEXTO DE CLIENTE — revisar voz antes de publicar]`
 
 ---
 
@@ -122,7 +131,15 @@ Apply these rules per platform:
 - **YouTube Shorts** — caption under 150 chars, include `#shorts`, soft CTA; treat the video hook as primary
 - **YouTube Community posts** — text-first, similar tone to Facebook; great for polls and audience warm-ups between video drops
 
-For deeper guidance on visual-first captions (Facebook, Instagram, TikTok, Pinterest, YouTube) use **caption-writer-sms**.
+Para captions de plataformas visuais (Facebook, Instagram, TikTok, Pinterest, YouTube) use **caption-writer-sms**.
+
+**Quando o derivado for Reel / TikTok / Short / vídeo curto → delegar para `video-script-sms`:**
+
+Este skill escreve **copy de texto** — não roteiros de vídeo. Quando o derivado identificado na Repurposing Matrix for um Reel, TikTok, Short ou qualquer formato de vídeo curto, não escrever o roteiro aqui. Fazer handoff explícito:
+
+> "O derivado de maior alavancagem é um Reel/TikTok. Vou passar para `video-script-sms` para criar o roteiro — ele inclui hook dos primeiros 3s, cenas, on-screen text e CTA. Quer que eu acione agora?"
+
+Aguardar confirmação e acionar `video-script-sms` com o contexto: tema do vídeo, duração alvo, plataforma e ângulo principal extraído do conteúdo original.
 
 ### Step 5 — Adapt Tone Per Platform
 
@@ -224,6 +241,34 @@ Threads:
 "hot take: the best hire I ever made did her interview on a Loom at midnight.
 async interviews > scheduling nightmares. every time."
 ```
+
+---
+
+## QA Gate e copy-qa-sms — obrigatório antes de entregar
+
+**QA Gate — mínimo 85/100 para entregar.** Abaixo de 85: reescrever os derivados que falharam.
+
+| Critério | Pontos |
+|---|---|
+| Cada derivado é plataforma-nativo — não é copy-paste com adaptação mínima | 25 |
+| Hook de cada derivado funciona standalone na plataforma-alvo | 20 |
+| Voz do cliente preservada em todos os derivados | 15 |
+| Sem padrões proibidos de voz | 15 |
+| Insight principal do conteúdo original está presente (não diluído) | 15 |
+| Specs de formato respeitadas (caracteres, hashtags, estrutura) | 10 |
+| **Total** | **100** |
+
+**N/A:** se `.agents/social-media-context-sms.md` ausente, redistribuir os 15 pontos de voz proporcionalmente.
+
+### copy-qa-sms Gate — obrigatório após score ≥ 85
+
+Após QA Gate ≥ 85, executar o protocolo **copy-qa-sms** em cada derivado de texto antes de entregar:
+
+- **Passo 1 — Voice Gate:** `production-rules.md` → `00-B` + padrões universais em cada derivado
+- **Passo 2 — AI Pattern Gate:** Tier 1 em qualquer derivado → reescrita automática daquele derivado. Tier 2: por parágrafo dentro de cada derivado. Estrutural: aplicar a tabela completa do `copy-qa-sms` (em-dash excessivo, bold em excesso, parágrafos uniformes, bullets sem verbo, atribuições vagas, construções "Vamos...", disclaimers de corte, hashtag stuffing, emoji em headline, contraste binário "Não é X, é Y", fragmentação estacato, abertura com "Então"/"So", wh-openers performáticos).
+- **Passo 3 — Decisão:** só entregar derivados que passaram nos 3 passos
+
+Não exibir resultado do gate ao usuário. Entregar apenas os derivados finais aprovados.
 
 ---
 

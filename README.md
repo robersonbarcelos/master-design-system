@@ -72,8 +72,8 @@ Tudo mais é executado automaticamente.
 ### 1 — Clone este repositório
 
 ```bash
-git clone https://github.com/robersonbarcelos/master-social-design-system.git
-cd master-social-design-system
+git clone https://github.com/robersonbarcelos/master-design-system-v270726.git
+cd master-design-system-v270726
 ```
 
 ### 2 — Instale o orquestrador principal
@@ -177,10 +177,10 @@ master-social-design-system/
     │       ├── copies-aprovadas.md
     │       ├── dados-ancora.md
     │       └── temas.md
-    └── [nome-cliente]/               ← Pasta por cliente (ignorada pelo .gitignore)
+    └── [nome-cliente]/               ← Pasta por cliente (versionada completa, incluindo runs/)
 ```
 
-> **Privacidade:** pastas de clientes reais são ignoradas pelo `.gitignore`. Apenas o template é versionado.
+> **Clientes ativos neste repositório:** `Carol`, `ESENCA`, `aurum-lingerie`, `intus-hub`, `mercurius`, `michele-fara`, `motofacil`, `novadax`, `super-agente-ia`, `white-label`. Todas as pastas de cliente — incluindo contexto, referências e histórico de produção em `runs/` — são versionadas neste repositório.
 
 ---
 
@@ -540,7 +540,7 @@ git pull origin main
 
 ## Versão
 
-**v1.1.0** — 2026-05-21
+**v1.3.0** — 2026-07-27
 
 Veja o [PRD.md](PRD.md) para documentação técnica completa, decisões de arquitetura, roadmap e limitações conhecidas.
 

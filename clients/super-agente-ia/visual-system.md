@@ -39,6 +39,7 @@
 - **Paleta:** Foto com rim light azul `#1E4D9B` (camiseta preta) · texto branco · acento laranja nos números
 - **Mood:** Autoridade sem arrogância, direto, sério mas humano
 - **Elementos:** Foto de Diego com rim light, speech bubble ou texto solto com aspas
+- **Referência de rosto:** sempre que o Diego aparecer, o JSON usa a foto de referência anexada pra rosto/características — o prompt só descreve pose, expressão, ângulo e roupa (ver `production-rules.md` → "Regra de referência de rosto — Diego")
 
 ### GRUPO 4 — Educativo / Carrossel
 - **Quando usar:** Conteúdo de MEIO — explicar conceito (identidade, memória, contexto, módulos)
@@ -52,7 +53,7 @@
 - **Layout:** Card de oferta escuro com âncora riscada + preço real em destaque + lista de entregáveis
 - **Paleta:** Fundo `#0a0a0a` · âncora riscada em text-muted · preço real em `#E84000` grande · verde para checkmarks
 - **Mood:** Urgente, claro, sem hype
-- **Elementos:** Âncora R$997 riscada, R$87,90 ou 6x R$16,50 em destaque, selos de garantia e acesso vitalício
+- **Elementos:** Âncora R$997 riscada, R$87,95 ou 6x R$16,50 em destaque, selos de garantia e acesso vitalício
 
 ### GRUPO 6 — Resultados / Alunos
 - **Quando usar:** Prova social — depoimentos de Denys Buso, Arcanjo, outros
@@ -66,46 +67,53 @@
 ## 03 | Workflow de Produção de Prompts
 
 1. Definir grupo visual (1-6 acima)
-2. Propor 3 ideias em texto (composição, ângulo, iluminação)
+2. Propor ideias em texto (composição, ângulo, iluminação) — **cada ideia deve incluir a alocação de copy** (onde headline/subhead/CTA ficam na cena, com o texto real), não só a descrição visual
 3. Aguardar aprovação de Diego
-4. Gerar JSON com prompt completo para a variação aprovada
-5. Revisar área de texto em Canva (nunca confiar em texto gerado pela IA)
+4. Gerar JSON com prompt completo para a variação aprovada — criativo **completo**, com copy final (headline/subhead — **sem CTA** em anúncio pago, ver "04 | Regras de Prompt"), fonte (`references/fontes-variacao.md`) e composição (`references/regras-composicao.md`) já embutidos no prompt
+5. Revisar o resultado gerado — checar tipografia, acentuação e kerming do texto renderizado antes de aprovar entrega
 
 ---
 
 ## 04 | Regras de Prompt
 
 ### SEMPRE incluir
-- Hex codes explícitos: `#E84000` e `#0a0a0a`
+- Hex codes explícitos: `#E84000` e `#0a0a0a` (ou paleta de variação aprovada em `references/paletas-variacao.md`)
 - "dark background, pure black" — sem variação
-- "NO watermark, NO text overlay, NO handle" (texto vai no Canva)
+- "NO watermark, NO handle" na imagem
+- Copy final exata — **headline + subhead apenas** (NUNCA CTA — ver "Regra de CTA em criativos de Meta Ads" abaixo), com texto, fonte (`references/fontes-variacao.md`) e posição especificados — criativo sai **completo** do prompt
 - "cinematic lighting" ou "studio lighting" — nunca iluminação plana
 - "area limpa para logo" quando relevante
+- Margem/zona inferior limpa reservada para o botão de CTA nativo do Meta (safe zones em `meta-ads-specs.md`)
+
+### Regra de CTA em criativos de Meta Ads
+NUNCA renderizar botão ou texto de CTA ("Saiba Mais", "Clique aqui", pill button, seta de CTA) dentro da arte de um criativo de **anúncio pago** (Feed Ads, Stories/Reels Ads) — o Meta Ads já exibe o botão nativo (abaixo da imagem no Feed; sobreposto na zona inferior em Stories/Reels), então um CTA desenhado na arte duplica a informação e ainda pode ser coberto pelo botão real. O criativo leva só headline + subhead; a zona inferior fica limpa conforme as safe zones documentadas em `meta-ads-specs.md`. Essa regra é específica de anúncio pago — não vale pra posts orgânicos do feed @intushub, que não têm esse overlay.
 
 ### NUNCA incluir
 - Fundo branco ou claro
-- Elementos azuis ou roxos (conflito com paleta institucional)
-- Robôs humanoides clichê de "IA" (android, circuito impresso)
+- Elementos azuis ou roxos (conflito com paleta institucional, exceto rim light do Diego)
 - "8K", "masterpiece", "ultra-realistic" — banidos como prompts clichê
-- Texto crítico no prompt (vai ficar errado — usar Canva)
+
+> Robô humanoide **liberado** (decisão explícita do cliente — deixou de ser regra de trava). Pode usar robô/mão/braço mecânico, inclusive de frente pro Diego, como representação do agente.
 
 ### Negative prompt padrão
 ```
-white background, light background, blue tones, purple tones, humanoid robot,
-android face, circuit board skin, generic AI robot, text overlay, watermark,
+white background, light background, blue tones, purple tones, text overlay, watermark,
 handle, username, logo in corner, neon cyberpunk, RGB gaming aesthetic,
 overexposed, washed out colors, stock photo look, corporate clipart style
 ```
 
 ### JSON template padrão — Super Agente de IA
+
+> ⚠️ Este é o schema simplificado — só usar quando não houver imagem de referência. Quando houver referência, seguir a regra do `CLAUDE.md` (usar a skill `json-prompt-generator`, schema completo).
+
 ```json
 {
-  "prompt": "[sujeito ou cena], dark background #0a0a0a, accent color #E84000 glow, [lighting: cinematic/rim/studio], [composição], Inter Tight aesthetic, premium dark UI feel, no watermark, no text, clean area for logo",
-  "negative_prompt": "white background, light background, blue tones, purple tones, humanoid robot, android face, circuit board skin, text overlay, watermark, neon cyberpunk, RGB gaming, overexposed",
+  "prompt": "[sujeito ou cena], dark background #0a0a0a, accent color #E84000 glow, [lighting: cinematic/rim/studio], [composição], exact headline/subhead copy rendered (SEM CTA — botão nativo do Meta cobre isso) in [fonte de fontes-variacao.md], Inter Tight aesthetic, premium dark UI feel, no watermark, clean area for logo, clean bottom margin for Meta's native CTA button",
+  "negative_prompt": "white background, light background, blue tones, purple tones, watermark, neon cyberpunk, RGB gaming, overexposed",
   "aspect_ratio": "4:5",
   "style": "premium dark product photography, cinematic lighting, #E84000 accent glow",
   "composition": {
-    "safe_area": "minimum 64px padding all sides — no text, no icons, no elements touching edges. Safe zone: 952x1222px inside 1080x1350px (feed 4:5). Stories/reels: 250px top and bottom for UI chrome, 64px sides."
+    "safe_area": "minimum 64px padding all sides — no icons or elements touching edges. Safe zone: 952x1222px inside 1080x1350px (feed 4:5). Stories/reels: 250px top and bottom for UI chrome, 64px sides."
   }
 }
 ```
@@ -122,4 +130,4 @@ overexposed, washed out colors, stock photo look, corporate clipart style
 | Âncora riscada | R$997 com linha atravessada | Só em posts de conversão |
 | Badge de garantia | "7 DIAS" em círculo laranja com anel gradiente | Só em posts de oferta/garantia |
 | Task dot | Ponto `·` ou `•` laranja | Listas de entregáveis, features, tarefas dos agentes |
-| Seta CTA | `→` no final do texto de CTA | Todo botão e chamada de ação |
+| Seta CTA | `→` no final do texto de CTA | Só em posts **orgânicos** (feed @intushub) ou em legendas/caption — NUNCA renderizado dentro da arte de criativo de anúncio pago Meta Ads (botão nativo do Meta já cobre isso, ver "Regra de CTA em criativos de Meta Ads") |

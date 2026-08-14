@@ -2,7 +2,7 @@
 name: content-calendar-sms
 description: "When the user wants to plan a posting schedule, create a content calendar, or organize when and what to post. Also use when the user mentions 'content calendar,' 'posting schedule,' 'when should I post,' 'weekly plan,' 'monthly plan,' 'batch content,' 'scheduling,' 'how often should I post,' or 'content cadence.' For deciding what topics to cover, see content-strategy-sms. For writing the actual posts, see post-writer-sms."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 ## When to Use
@@ -29,8 +29,12 @@ Before asking any questions, check if `.agents/social-media-context-sms.md` exis
 **If it exists:**
 1. Read the file in full.
 2. Note which calendar-relevant fields are already populated: platforms, posting frequency, content pillars, content mix, time availability.
-3. Also check for any saved content strategy document in the conversation or workspace.
-4. Skip any discovery questions already answered.
+3. Verificar também se `.agents/content-strategy-sms.md` existe (gerado por `content-strategy-sms`). Se existir: ler pilares, mix de formatos e frequência definidos estrategicamente — estes têm precedência sobre defaults.
+4. Verificar se há headlines geradas por `content-matrix-sms` disponíveis na sessão — se sim, usá-las como pautas prontas para os slots do calendário. **Se NÃO houver headlines disponíveis e os pilares já estiverem definidos**, oferecer antes de construir o calendário:
+   > "Posso gerar pautas específicas por pilar com o `content-matrix-sms` antes de montar o calendário — cada slot fica com um título real e ângulo definido, em vez de um tópico genérico. Quer que eu ative agora? (recomendado)"
+   - Se sim → acionar `content-matrix-sms`, usar as headlines geradas para preencher os slots
+   - Se não → seguir com tópicos genéricos por pilar, anotando que os slots podem ser preenchidos depois com o matrix
+5. Skip any discovery questions already answered.
 
 **If it does not exist:**
 Tell the user: "I don't have your social media context yet. Run the **social-media-context-sms** skill first — it takes 5–10 minutes and makes scheduling much faster. Or answer a few quick questions and I'll build your calendar now."

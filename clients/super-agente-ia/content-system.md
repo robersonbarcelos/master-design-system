@@ -86,7 +86,7 @@
 - "Por que seu agente fica genérico (e como resolver em 3 passos)"
 - "Identidade de agente não é nome. É contexto que define o que ele faz — e o que não faz."
 - "Memória persistente vs começar do zero: a diferença que ninguém explica"
-- "9 módulos. Menos de 3 horas. Um agente no ar. Aqui está o que você aprende em cada um."
+- "4 módulos. 16 aulas. Um agente no ar. Aqui está o que você aprende em cada um."
 
 **Estrutura de carrossel educativo:**
 ```
@@ -103,7 +103,7 @@ Slide 7: CTA
 **Estrutura:** Âncora de valor → preço real → garantia → CTA
 
 **Hooks aprovados:**
-- "R$997 em valor. Hoje R$87,90. 7 dias de garantia. Sem letra miúda."
+- "R$997 em valor. Hoje R$87,95. 7 dias de garantia. Sem letra miúda."
 - "Curso vitalício + Kit de Ativação + WhatsApp 12 meses. Tudo isso por 6x R$16,50."
 - "Você já perdeu tempo suficiente com agentes que não prestam."
 - "Teste por 7 dias. Se não foi pra você, devolvemos 100%."
@@ -112,7 +112,7 @@ Slide 7: CTA
 ```
 [Âncora de dor / tempo perdido]
 Valor total: R$997.
-Hoje: R$87,90 ou 6x R$16,50.
+Hoje: R$87,95 ou 6x R$16,50.
 Kit de Ativação incluso. WhatsApp 12 meses. Garantia 7 dias.
 [CTA — link direto na LP]
 ```
@@ -162,7 +162,7 @@ Por pilar:
 - D7: Story Diego + speech sobre estrutura
 
 ### Semana 3 — Oferta (conversão)
-- D1: Story âncora de preço (R$997 → R$87,90)
+- D1: Story âncora de preço (R$997 → R$87,95)
 - D3: Reel "O que você leva" (value stack)
 - D5: Story garantia 7 dias
 - D7: CTA final + urgência
@@ -182,6 +182,6 @@ Dado real usado: [ ] Sim — qual: ___ [ ] Não
 Aspira/Clóvis mencionados: [ ] Sim [ ] Não
 Preço com âncora: [ ] Sim [ ] Não (obrigatório se FUNDO)
 CTA: ___________
-Handle: @intushub ✓
+Handle/citação na arte: SUPER AGENTE IA ✓ (nunca @intushub)
 Paleta: [ ] Laranja #E84000 + Preto ✓ [ ] Azul (ERRADO para SA)
 ```

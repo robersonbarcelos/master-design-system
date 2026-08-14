@@ -12,7 +12,7 @@
 **Nome curto:** Super Agente de IA / Super Agente
 **Marca-mãe:** INTUS HUB
 **Fundador/rosto:** Diego Spanevello
-**Tipo de produto:** Curso digital low-ticket (R$87,90 / 6x R$16,50)
+**Tipo de produto:** Curso digital low-ticket (R$87,95 / 6x R$16,50)
 **Plataforma de venda:** LP própria → checkout externo
 **URL produto:** intushub.com (a confirmar checkout URL)
 
@@ -34,7 +34,7 @@
 ## Produto — O que é
 
 **Categoria:** Curso de IA aplicada — configuração de agentes de IA
-**Duração:** 9 módulos curtos — 2 a 3 horas de conteúdo total
+**Duração:** 4 módulos · 16 aulas
 **Tempo para resultado:** Menos de 5 minutos para o agente entrar no ar
 **Acesso:** Vitalício (pagamento único)
 **Suporte:** Comunidade WhatsApp 12 meses inclusos + agente Aspira respondendo
@@ -109,7 +109,7 @@
 ### Objetos de objeção trabalhados na LP
 1. "Preciso saber programar?" → Não. É estrutura e configuração
 2. "Já tentei IA antes e ficou genérico" → Faltou fundação: identidade + contexto + memória
-3. "Quanto tempo leva?" → Menos de 5 min online; 2-3h de conteúdo total
+3. "Quanto tempo leva?" → Menos de 5 min online; 4 módulos, 16 aulas no total
 4. "Vai me dar 50 agentes prontos?" → Não — você sai com UM seu, real
 5. "Custo mensal?" → R$50-150/mês (econômico) ou ~R$600/mês (robusto)
 6. "O que é o Kit de Ativação?" → Templates prontos de identidade, memória e mapa
@@ -124,7 +124,7 @@
 |-------|---------|-----------------|
 | TOPO | Conscientização do problema (agente genérico) | Contraste antes/depois, dores, relatable |
 | MEIO | Autoridade e curiosidade | Aspira/Clóvis em ação, módulos, bastidores |
-| FUNDO | Conversão | Âncora R$997 → R$87,90, garantia, kit |
+| FUNDO | Conversão | Âncora R$997 → R$87,95, garantia, kit |
 
 ---
 

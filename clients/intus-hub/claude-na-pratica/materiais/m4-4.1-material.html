@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 4.1 · Claude Code no Desktop App: 2 cliques para começar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;--amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --green:#15803D;--green-bg:#DCFCE7;--green-border:#BBF7D0;
+  --indigo:#4338CA;--indigo-bg:#EEF2FF;--indigo-border:#C7D2FE;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,64px);line-height:.9;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--border);border-radius:20px;padding:24px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,80,34,.75)}
+.card.navy h3{color:#fff}
+.card.navy p{color:rgba(255,255,255,.72)}
+
+/* LOOP */
+.loop{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.loop-etapa{padding:24px;text-align:center;border-right:1px solid var(--border)}
+.loop-etapa:last-child{border-right:0}
+.loop-num{font-family:var(--mono);font-size:32px;font-weight:900;color:var(--amber);line-height:1;margin-bottom:10px}
+.loop-etapa h3{font-size:17px;letter-spacing:-.03em;margin:0 0 8px;color:var(--navy)}
+.loop-etapa p{color:var(--body);font-size:14px;line-height:1.45;margin:0}
+
+/* PASSOS */
+.passo{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;padding:20px 22px;background:var(--white);border:1px solid var(--border);border-radius:18px}
+.passo-num{width:48px;height:48px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:16px;font-weight:900;color:var(--amber);flex-shrink:0}
+.passo h3{font-size:18px;letter-spacing:-.03em;margin:0 0 6px;color:var(--ink)}
+.passo p{color:var(--body);font-size:14px;line-height:1.5;margin:0}
+
+/* CODE BLOCK */
+.code-block{font-family:var(--mono);font-size:13px;line-height:1.65;background:var(--navy);color:#E2E8F0;padding:22px 24px;border-radius:16px;border-left:3px solid var(--amber)}
+.code-block .comment{color:rgba(245,80,34,.55)}
+.code-block .key{color:#93C5FD}
+
+/* TEASER */
+.teaser{border:1px solid var(--indigo-border);border-radius:20px;padding:24px;background:var(--indigo-bg)}
+.teaser .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--indigo);font-weight:700;margin-bottom:8px}
+.teaser h3{margin:0 0 8px;font-size:19px;letter-spacing:-.03em;color:var(--indigo)}
+.teaser p{color:#3730A3;font-size:15px;line-height:1.5;margin:0}
+
+.note{border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;border-left:3px solid var(--amber)}
+.note strong{color:var(--amber-text)}
+.conclusao{border-radius:24px;padding:50px 44px;margin-top:14px;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.20);position:relative;overflow:hidden}
+.conclusao:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.conclusao h2{font-size:clamp(28px,4.2vw,48px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.conclusao p{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:13px 20px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .grid.two,.grid.three,.loop{grid-template-columns:1fr}
+  .loop-etapa{border-right:0;border-bottom:1px solid var(--border)}
+  .loop-etapa:last-child{border-bottom:0}
+  .passo{grid-template-columns:1fr}
+  .conclusao{padding:34px 26px}
+  .statement{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/><polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/><circle cx="60" cy="60" r="11" fill="#F55022"/></svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 4 · Aula 4.1<br>PRÁTICA · 6 min</div>
+</header>
+
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M4 · Claude Code</div>
+    <h1>Claude Code: <span class="accent">2 cliques</span> para começar.</h1>
+    <p class="lead">Sem terminal, sem instalação. A aba Code do Desktop App já é o Claude Code funcionando. Você abre, seleciona uma pasta e dá o primeiro comando em menos de 2 minutos.</p>
+    <div class="chips">
+      <span class="chip hot">Prática · 6 min</span>
+      <span class="chip">Desktop App</span>
+      <span class="chip">Loop agêntico</span>
+      <span class="chip">CLAUDE.md</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Claude Code rodando.</strong>
+      <p>Pasta selecionada, primeiro arquivo criado pelo Claude e CLAUDE.md configurado com o contexto do seu projeto.</p>
+    </div>
+    <div class="signal">
+      <small>Ponto chave</small>
+      <strong>Desktop App é suficiente.</strong>
+      <p>Você não precisa do terminal para começar. A aba Code já entrega o Claude Code completo para este curso.</p>
+    </div>
+    <div class="signal">
+      <small>Próximo nível</small>
+      <strong>Terminal: Warp + Claude Code.</strong>
+      <p>Para quem quiser ir mais fundo depois deste curso. É conteúdo do Domínio Claude, não obrigatório aqui.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="statement">
+  <p>Claude Code não responde.<br>Ele <em>age no seu projeto</em> como um desenvolvedor.</p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">01</span><h2>O que o Claude Code faz diferente</h2></div>
+  <div class="grid two">
+    <article class="card">
+      <div class="label">Chat e Cowork</div>
+      <h3>Resultados em texto ou arquivo entregue.</h3>
+      <p>Chat responde na conversa. Cowork entrega um arquivo gerado. Nos dois casos, o Claude trabalha dentro de uma janela e passa o resultado para você.</p>
+    </article>
+    <article class="card navy">
+      <div class="label">Claude Code</div>
+      <h3>Agente que age diretamente no seu projeto.</h3>
+      <p>O Code abre arquivos, edita código, cria pastas, roda comandos e verifica o resultado. Ele opera dentro do seu projeto como um colaborador técnico que executa, não só sugere.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">02</span><h2>O loop agêntico: como o Claude Code trabalha</h2></div>
+  <div class="loop">
+    <div class="loop-etapa">
+      <div class="loop-num">1</div>
+      <h3>Gather context</h3>
+      <p>Lê os arquivos do projeto, entende o que existe e planeja o que vai fazer antes de agir.</p>
+    </div>
+    <div class="loop-etapa">
+      <div class="loop-num">2</div>
+      <h3>Take action</h3>
+      <p>Executa: cria, edita, deleta ou roda. Sempre mostra o plano e pede confirmação antes de agir.</p>
+    </div>
+    <div class="loop-etapa">
+      <div class="loop-num">3</div>
+      <h3>Verify results</h3>
+      <p>Confere se o resultado ficou correto. Se encontrou erro, corrige sozinho antes de marcar como pronto.</p>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">
+    <strong>Na prática:</strong> você vai ver esse loop acontecendo ao vivo durante o primeiro comando. O Claude mostra o que planejou, pede seu ok e executa.
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">03</span><h2>Abrir o Claude Code: passo a passo</h2></div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="passo">
+      <div class="passo-num">1</div>
+      <div><h3>Abra o Claude Desktop App</h3><p>Se não tiver instalado: anthropic.com/download. A aba Code aparece no menu lateral junto com Chat e Cowork.</p></div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">2</div>
+      <div><h3>Clique na aba Code</h3><p>É só clicar. Não precisa instalar mais nada. A aba Code já é o Claude Code funcionando dentro do Desktop App.</p></div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">3</div>
+      <div><h3>Selecione a pasta de trabalho</h3><p>Escolha uma pasta do seu computador: ex. ~/Documents/meu-projeto/. O Claude Code vai operar dentro dessa pasta. Todos os arquivos criados ficam ali.</p></div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">4</div>
+      <div><h3>Primeiro comando ao vivo</h3><p>Comece com algo simples para ver o loop acontecer: "Cria um arquivo chamado README.md com uma descrição simples deste projeto: [nome e objetivo]"</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">04</span><h2>CLAUDE.md: a memória do projeto</h2></div>
+  <div class="grid two">
+    <article class="card navy">
+      <div class="label">O que é</div>
+      <h3>Um arquivo de texto que define o contexto do projeto.</h3>
+      <p>O CLAUDE.md fica na raiz da pasta de trabalho. Toda vez que o Claude Code abre o projeto, ele lê esse arquivo primeiro. É a memória permanente do projeto: quem é o Claude aqui, o que pode fazer e o que não pode.</p>
+    </article>
+    <article class="card">
+      <div class="label">Exemplo criado ao vivo</div>
+      <h3>Estrutura mínima que funciona.</h3>
+      <div class="code-block" style="margin-top:10px;font-size:12px">
+        <span class="comment"># Projeto: [nome]</span><br>
+        <span class="key">## Contexto</span><br>
+        [Descrição do projeto em 2-3 linhas]<br><br>
+        <span class="key">## Regras</span><br>
+        - Sempre escreva em português<br>
+        - Arquivos gerados vão para /output<br>
+        - Não delete arquivos sem pedir confirmação
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">05</span><h2>Terminal: o próximo nível</h2></div>
+  <div class="teaser">
+    <div class="label">Para quem quiser ir além</div>
+    <h3>Warp + Claude Code pelo terminal.</h3>
+    <p>O Desktop App resolve para este curso. Quem quiser o nível profissional, com o ritmo Explore, Plan, Code e Commit, encontra esse conteúdo no Domínio Claude. Não é obrigatório aqui.</p>
+  </div>
+</section>
+
+<section class="conclusao" style="margin-top:52px">
+  <h2>Claude Code rodando.<br><span class="accent">Próxima: construir uma página.</span></h2>
+  <p>M4-4.2 é a aula de maior impacto visual: você vê o Claude Code construindo uma landing page funcional do zero. Aberta no browser, em menos de 10 minutos.</p>
+  <div class="cta-actions">
+    <span class="btn primary">CLAUDE.md criado. Pode continuar.</span>
+    <span class="btn">Próxima: M4-4.2 · Landing page</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 4 · Aula 4.1 · Claude Code no Desktop App · Próxima aula: M4-4.2 · Crie sua primeira landing page</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workflow de Produção de LP — INTUS HUB</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #080910;
+      --surface:   #0f1018;
+      --surface2:  #161822;
+      --surface3:  #1d2030;
+      --border:    #252840;
+      --gold:      #C8960A;
+      --gold-hi:   #F0B429;
+      --gold-dim:  rgba(200,150,10,0.15);
+      --gold-edge: rgba(200,150,10,0.3);
+      --accent:    #4f7fff;
+      --accent2:   #6366f1;
+      --green:     #10b981;
+      --amber:     #f59e0b;
+      --red:       #ef4444;
+      --purple:    #8b5cf6;
+      --text:      #e2e8f0;
+      --text2:     #94a3b8;
+      --text3:     #64748b;
+      --code-bg:   #0a0b10;
+      --radius:    12px;
+      --radius-sm: 8px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #080910 0%, #0d0e18 40%, #120e1f 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(200,150,10,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-dim); border: 1px solid var(--gold-edge);
+      border-radius: 999px; padding: 4px 14px;
+      font-size: 12px; font-weight: 600; color: var(--gold-hi);
+      letter-spacing: .06em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-hi); }
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 46px);
+      font-weight: 800; line-height: 1.15;
+      color: var(--text);
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--gold-hi) 0%, #e8a820 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .subtitle { margin-top: 14px; font-size: 17px; color: var(--text2); max-width: 680px; }
+    .hero-meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .meta-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 999px; padding: 5px 14px;
+      font-size: 12.5px; color: var(--text2);
+    }
+    .meta-chip .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .dot-gold   { background: var(--gold-hi); }
+    .dot-green  { background: var(--green); }
+    .dot-purple { background: var(--purple); }
+
+    /* ── TOC ──────────────────────────────────────────── */
+    .toc-wrapper {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 14px 0; position: sticky; top: 0; z-index: 100;
+    }
+    .toc { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+    .toc a {
+      color: var(--text2); text-decoration: none; font-size: 13px;
+      padding: 5px 12px; border-radius: 999px; transition: all .15s;
+    }
+    .toc a:hover { background: var(--surface2); color: var(--text); }
+    .toc-sep { color: var(--text3); font-size: 12px; }
+
+    /* ── Sections ─────────────────────────────────────── */
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+    }
+    h2 { font-size: clamp(20px, 3vw, 28px); font-weight: 700; color: var(--text); line-height: 1.25; }
+    h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+    p { color: var(--text2); margin-bottom: 12px; }
+    strong { color: var(--text); }
+    ul, ol { color: var(--text2); padding-left: 20px; }
+    ul li, ol li { margin-bottom: 6px; font-size: 13.5px; }
+
+    /* ── Cards ────────────────────────────────────────── */
+    .card-grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+    }
+    .card-icon { font-size: 24px; margin-bottom: 12px; }
+    .card h3 { font-size: 14.5px; margin-bottom: 6px; }
+    .card p { font-size: 13px; margin: 0; color: var(--text2); }
+    .card.gold   { border-color: var(--gold-edge); }
+    .card.green  { border-color: rgba(16,185,129,.3); }
+    .card.purple { border-color: rgba(139,92,246,.3); }
+    .card.amber  { border-color: rgba(245,158,11,.3); }
+    .card.blue   { border-color: rgba(79,127,255,.3); }
+    .card.red    { border-color: rgba(239,68,68,.3); }
+
+    /* ── Flow diagram ─────────────────────────────────── */
+    .flow { display: flex; flex-direction: column; gap: 0; margin-top: 32px; }
+    .flow-step { display: flex; gap: 20px; align-items: flex-start; }
+    .flow-connector { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 48px; }
+    .flow-num {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; flex-shrink: 0; z-index: 1;
+    }
+    .flow-line { width: 2px; flex: 1; min-height: 20px; background: var(--border); }
+    .flow-body {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 20px;
+      flex: 1; margin-bottom: 16px;
+    }
+    .flow-body h3 { font-size: 15px; margin-bottom: 4px; }
+    .flow-body p { font-size: 13.5px; margin: 4px 0 0; }
+    .flow-body .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11.5px; padding: 2px 10px; border-radius: 999px;
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text3);
+    }
+    .tag.skill  { background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.25); color: #a5b4fc; }
+    .tag.gate   { background: var(--gold-dim); border-color: var(--gold-edge); color: var(--gold-hi); }
+    .tag.human  { background: rgba(16,185,129,.1); border-color: rgba(16,185,129,.25); color: #6ee7b7; }
+    .tag.llm    { background: rgba(139,92,246,.12); border-color: rgba(139,92,246,.25); color: #c4b5fd; }
+    .tag.tool   { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.25); color: #fcd34d; }
+
+    .num-gold   { background: var(--gold-dim); border: 2px solid var(--gold-edge); color: var(--gold-hi); }
+    .num-blue   { background: rgba(79,127,255,.12); border: 2px solid rgba(79,127,255,.3); color: #93b4ff; }
+    .num-purple { background: rgba(139,92,246,.12); border: 2px solid rgba(139,92,246,.3); color: #c4b5fd; }
+    .num-green  { background: rgba(16,185,129,.1); border: 2px solid rgba(16,185,129,.25); color: #6ee7b7; }
+    .num-amber  { background: rgba(245,158,11,.1); border: 2px solid rgba(245,158,11,.25); color: #fcd34d; }
+    .num-red    { background: rgba(239,68,68,.1); border: 2px solid rgba(239,68,68,.25); color: #fca5a5; }
+
+    .flow-body.gate-highlight {
+      border-color: var(--gold-edge);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(200,150,10,0.04) 100%);
+    }
+
+    /* ── Gate table ───────────────────────────────────── */
+    .gate-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13.5px; }
+    .gate-table th {
+      text-align: left; padding: 10px 14px;
+      background: var(--surface2); color: var(--text2);
+      font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em;
+      border-bottom: 1px solid var(--border);
+    }
+    .gate-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+    .gate-table tr:last-child td { border-bottom: none; }
+    .gate-table tr:hover td { background: rgba(255,255,255,.02); }
+    .gate-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--gold-dim); border: 1px solid var(--gold-edge);
+      border-radius: 999px; padding: 2px 10px;
+      font-size: 11px; font-weight: 700; color: var(--gold-hi);
+      white-space: nowrap;
+    }
+    .blocker-chip {
+      display: inline-block; font-size: 11.5px; padding: 2px 8px;
+      border-radius: 4px; background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.2); color: #fca5a5;
+    }
+
+    /* ── Skills map ───────────────────────────────────── */
+    .skills-grid {
+      display: grid; gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      margin-top: 24px;
+    }
+    .skill-row {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 14px 16px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .skill-row .etapa-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .07em; color: var(--text3);
+    }
+    .skill-row .skill-name {
+      font-size: 13.5px; font-weight: 600; color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .skill-row .skill-desc { font-size: 12.5px; color: var(--text2); }
+
+    /* ── Copy rules ───────────────────────────────────── */
+    .rule-list { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+    .rule-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 14px 16px;
+    }
+    .rule-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .rule-body { flex: 1; }
+    .rule-body .rule-title { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .rule-body .rule-sub { font-size: 12.5px; color: var(--text2); }
+    .rule-item.bad  { border-color: rgba(239,68,68,.25); }
+    .rule-item.good { border-color: rgba(16,185,129,.25); }
+
+    /* ── Two col ──────────────────────────────────────── */
+    .two-col { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; margin-top: 24px; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+    .panel {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+    }
+    .panel h3 { margin-bottom: 12px; }
+    .panel ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+    .panel ul li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 13.5px; color: var(--text2);
+    }
+    .panel ul li .arrow { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+
+    /* ── Alert boxes ──────────────────────────────────── */
+    .alert {
+      border-radius: var(--radius-sm); padding: 14px 18px;
+      margin: 16px 0; display: flex; gap: 12px; align-items: flex-start; font-size: 13.5px;
+    }
+    .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .alert-body { flex: 1; }
+    .alert-body strong { display: block; margin-bottom: 4px; color: var(--text); }
+    .alert-body p { margin: 0; font-size: 13px; }
+    .alert.warning { background: rgba(245,158,11,.07); border: 1px solid rgba(245,158,11,.25); }
+    .alert.danger  { background: rgba(239,68,68,.07);  border: 1px solid rgba(239,68,68,.25); }
+    .alert.info    { background: rgba(79,127,255,.07);  border: 1px solid rgba(79,127,255,.25); }
+    .alert.success { background: rgba(16,185,129,.07);  border: 1px solid rgba(16,185,129,.25); }
+    .alert.gold    { background: var(--gold-dim); border: 1px solid var(--gold-edge); }
+
+    /* ── Code ─────────────────────────────────────────── */
+    pre {
+      background: var(--code-bg); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px 18px;
+      overflow-x: auto; margin: 14px 0; font-size: 13px; line-height: 1.6;
+    }
+    code { font-family: 'JetBrains Mono', 'Fira Code', monospace; color: #93c5fd; }
+    .ic {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 1px 6px;
+      font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #93c5fd;
+    }
+
+    /* ── Checklist ────────────────────────────────────── */
+    .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+    .check-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 13.5px; color: var(--text2);
+    }
+    .check-box {
+      width: 18px; height: 18px; border-radius: 4px;
+      border: 1.5px solid var(--border); flex-shrink: 0;
+      margin-top: 2px; display: flex; align-items: center; justify-content: center;
+    }
+    .check-box.checked { background: rgba(16,185,129,.15); border-color: rgba(16,185,129,.4); }
+    .check-box.checked::after { content: '✓'; font-size: 11px; color: var(--green); font-weight: 700; }
+
+    /* ── PageSpeed bar ────────────────────────────────── */
+    .ps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 20px; }
+    @media (max-width: 600px) { .ps-grid { grid-template-columns: repeat(2,1fr); } }
+    .ps-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px; text-align: center;
+    }
+    .ps-score {
+      font-size: 32px; font-weight: 800; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .ps-label { font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--text3); }
+    .ps-good  { color: var(--green); }
+    .ps-warn  { color: var(--amber); }
+    .ps-bad   { color: var(--red); }
+    .ps-target { font-size: 11.5px; color: var(--text3); margin-top: 6px; }
+
+    /* ── Reuse grid ───────────────────────────────────── */
+    .reuse-grid {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      margin-top: 24px;
+    }
+    .reuse-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 22px;
+    }
+    .reuse-item h3 { font-size: 14px; margin-bottom: 8px; }
+    .reuse-item p { font-size: 13px; margin: 0; }
+
+    /* ── Summary ──────────────────────────────────────── */
+    .summary-box {
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(200,150,10,0.05) 100%);
+      border: 1px solid var(--gold-edge);
+      border-radius: var(--radius); padding: 28px 32px; margin-top: 32px;
+      text-align: center;
+    }
+    .summary-box p { font-size: 17px; color: var(--text); line-height: 1.6; margin: 0; }
+    .summary-box strong { color: var(--gold-hi); }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 0 32px; }
+      section { padding: 44px 0; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge"><div class="dot"></div> INTUS HUB · Workflow Técnico</div>
+    <h1>Produção de<br><span>Landing Page</span></h1>
+    <p class="subtitle">Do briefing ao PageSpeed. 6 etapas, 5 gates obrigatórios, skills orquestradas. Nenhum código antes do Gate 3.</p>
+    <div class="hero-meta">
+      <div class="meta-chip"><div class="dot dot-gold"></div> 6 Etapas</div>
+      <div class="meta-chip"><div class="dot dot-green"></div> 5 Gates de aprovação</div>
+      <div class="meta-chip"><div class="dot dot-purple"></div> 7 Skills envolvidas</div>
+      <div class="meta-chip"><div class="dot dot-gold"></div> Score mínimo: Mobile 85+</div>
+    </div>
+  </div>
+</header>
+
+<!-- ── TOC ──────────────────────────────────────────────── -->
+<nav class="toc-wrapper">
+  <div class="container">
+    <div class="toc">
+      <a href="#visao-geral">Visão geral</a>
+      <span class="dot" style="width:3px;height:3px;background:var(--text3);border-radius:50%;display:inline-block"></span>
+      <a href="#diagrama">Diagrama</a>
+      <span class="toc-sep">·</span>
+      <a href="#etapas">Etapas e gates</a>
+      <span class="toc-sep">·</span>
+      <a href="#skills">Skills</a>
+      <span class="toc-sep">·</span>
+      <a href="#copy">Regras de copy</a>
+      <span class="toc-sep">·</span>
+      <a href="#pagespeed">PageSpeed</a>
+      <span class="toc-sep">·</span>
+      <a href="#fragilidades">Fragilidades</a>
+      <span class="toc-sep">·</span>
+      <a href="#reuso">Reuso</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── VISÃO GERAL ──────────────────────────────────────── -->
+<section id="visao-geral">
+  <div class="container">
+    <div class="section-label">01 · Visão Geral</div>
+    <h2>O que esse workflow faz</h2>
+    <p style="margin-top:14px; max-width:720px;">
+      Toda vez que Diego (ou alguém do time) diz <strong>"quero produzir uma página"</strong>, esse workflow é acionado. Ele define a sequência exata de passos, quais skills usar em cada etapa, onde o Claude deve parar e esperar aprovação humana, e o que valida que a página está pronta para ir ao ar.
+    </p>
+
+    <div class="alert gold" style="margin-top:24px;">
+      <div class="alert-icon">🔑</div>
+      <div class="alert-body">
+        <strong>Regra mais importante</strong>
+        <p>Nenhum código é escrito antes da aprovação do Gate 3. Brief + direção estética + narrativa precisam estar aprovados por Diego antes de qualquer implementação.</p>
+      </div>
+    </div>
+
+    <div class="card-grid" style="margin-top:28px;">
+      <div class="card gold">
+        <div class="card-icon">🎯</div>
+        <h3>Objetivo</h3>
+        <p>Produzir LPs que convertem visitantes, se diferenciam visualmente, e chegam a PageSpeed Mobile ≥ 85 consistentemente.</p>
+      </div>
+      <div class="card green">
+        <div class="card-icon">👥</div>
+        <h3>Quem usa</h3>
+        <p>Diego aciona o workflow. Claude orquestra as skills. O humano aprova em 5 gates. A entrega é uma LP em produção, auditada e com score documentado.</p>
+      </div>
+      <div class="card purple">
+        <div class="card-icon">🗂️</div>
+        <h3>Onde vivem os arquivos</h3>
+        <p><code class="ic">SKILLS/Master-social-design-system/skills/design/landing-page-guide-v2/</code> — workflow, referências de copy, catálogo de narrativas.</p>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">⚡</div>
+        <h3>Stack suportada</h3>
+        <p>HTML puro + CSS custom properties + Vanilla JS (mentoria, DeFi). React/Next.js (intushub-template). Escolhido no Gate 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DIAGRAMA VISUAL ───────────────────────────────────── -->
+<section id="diagrama">
+  <div class="container">
+    <div class="section-label">02 · Diagrama Visual</div>
+    <h2>Fluxo completo — Skills e Gates</h2>
+    <p style="margin-top:12px;color:var(--text2);">Visão estrutural de todas as etapas, skills acionadas e gates de aprovação. Bordas tracejadas = skills disponíveis que foram adicionadas nesta versão do workflow.</p>
+    <div style="margin-top:28px; overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); padding:24px;">
+      <svg viewBox="0 0 900 1380" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" style="width:100%;max-width:900px;display:block;margin:0 auto;">
+        <title>Workflow de Produção de LP — Skills por Etapa</title>
+        <rect width="900" height="1380" fill="#080910"/>
+        <text x="450" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#F0B429">WORKFLOW DE PRODUÇÃO DE LP</text>
+        <text x="450" y="54" text-anchor="middle" font-size="11" fill="#64748b">Skills por etapa · Análise crítica · O que cada uma entrega</text>
+        <rect x="300" y="68" width="300" height="40" rx="20" fill="#1a1a2e" stroke="#F0B429" stroke-width="2"/>
+        <text x="450" y="83" text-anchor="middle" font-size="10" fill="#F0B429" font-weight="600">"quero produzir uma página"</text>
+        <text x="450" y="97" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">TRIGGER</text>
+        <line x1="450" y1="108" x2="450" y2="126" stroke="#334155" stroke-width="2"/>
+        <polygon points="450,130 445,122 455,122" fill="#334155"/>
+        <rect x="40" y="134" width="820" height="108" rx="10" fill="#0f1520" stroke="#22c55e" stroke-width="1.5"/>
+        <rect x="40" y="134" width="4" height="108" rx="2" fill="#22c55e"/>
+        <text x="56" y="150" font-size="9" font-weight="700" fill="#22c55e" letter-spacing="1">ETAPA 1 · BRIEFING</text>
+        <text x="56" y="167" font-size="12" font-weight="700" fill="#fff">Conversa direta — nenhuma skill</text>
+        <rect x="56" y="176" width="190" height="52" rx="7" fill="#162010" stroke="#22c55e" stroke-width="1"/>
+        <text x="151" y="196" text-anchor="middle" font-size="10" font-weight="600" fill="#86efac">Produto + Público</text>
+        <text x="151" y="210" text-anchor="middle" font-size="9" fill="#64748b">objetivo, tom, stack, tipo</text>
+        <text x="151" y="222" text-anchor="middle" font-size="9" fill="#64748b">(vendas ou serviço)</text>
+        <rect x="260" y="176" width="190" height="52" rx="7" fill="#162010" stroke="#22c55e" stroke-width="1"/>
+        <text x="355" y="196" text-anchor="middle" font-size="10" font-weight="600" fill="#86efac">Referências visuais</text>
+        <text x="355" y="210" text-anchor="middle" font-size="9" fill="#64748b">mín. 3 sites/marcas</text>
+        <text x="355" y="222" text-anchor="middle" font-size="9" fill="#64748b">obrigatórias</text>
+        <rect x="464" y="176" width="190" height="52" rx="7" fill="#162010" stroke="#22c55e" stroke-width="1"/>
+        <text x="559" y="196" text-anchor="middle" font-size="10" font-weight="600" fill="#86efac">Anti-objetivos</text>
+        <text x="559" y="210" text-anchor="middle" font-size="9" fill="#64748b">o que NÃO deve parecer</text>
+        <text x="559" y="222" text-anchor="middle" font-size="9" fill="#64748b">direção errada, riscos</text>
+        <rect x="668" y="176" width="172" height="52" rx="7" fill="#162010" stroke="#22c55e" stroke-width="1"/>
+        <text x="754" y="196" text-anchor="middle" font-size="10" font-weight="600" fill="#86efac">Conteúdo disponível</text>
+        <text x="754" y="210" text-anchor="middle" font-size="9" fill="#64748b">imagens, vídeo, copy</text>
+        <text x="754" y="222" text-anchor="middle" font-size="9" fill="#64748b">depoimentos reais</text>
+        <rect x="200" y="254" width="500" height="34" rx="17" fill="#1a1a10" stroke="#F0B429" stroke-width="1.5"/>
+        <text x="230" y="267" font-size="13">🔒</text>
+        <text x="450" y="267" text-anchor="middle" font-size="10" font-weight="700" fill="#F0B429">GATE 1 · Diego aprova briefing completo</text>
+        <text x="450" y="279" text-anchor="middle" font-size="9" fill="#a16207">Sem tipo + sem 3 refs + sem anti-objetivos → não avança</text>
+        <line x1="450" y1="288" x2="450" y2="304" stroke="#334155" stroke-width="2"/>
+        <polygon points="450,308 445,300 455,300" fill="#334155"/>
+        <rect x="40" y="312" width="820" height="112" rx="10" fill="#0f1520" stroke="#3b82f6" stroke-width="1.5"/>
+        <rect x="40" y="312" width="4" height="112" rx="2" fill="#3b82f6"/>
+        <text x="56" y="328" font-size="9" font-weight="700" fill="#3b82f6" letter-spacing="1">ETAPA 2 · ANÁLISE COMPETITIVA</text>
+        <rect x="56" y="336" width="240" height="74" rx="7" fill="#0d1a2e" stroke="#3b82f6" stroke-width="1"/>
+        <text x="176" y="352" text-anchor="middle" font-size="10" font-weight="700" fill="#93c5fd">competitive-analysis</text>
+        <text x="176" y="366" text-anchor="middle" font-size="9" fill="#64748b">Abre refs no Chrome. Mapeia</text>
+        <text x="176" y="378" text-anchor="middle" font-size="9" fill="#64748b">IA/UX patterns, CTAs, seções.</text>
+        <text x="176" y="390" text-anchor="middle" font-size="9" fill="#93c5fd">→ tabela de oportunidade</text>
+        <text x="176" y="402" text-anchor="middle" font-size="9" fill="#93c5fd">→ gap de diferenciação</text>
+        <rect x="312" y="336" width="240" height="74" rx="7" fill="#0d1a2e" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="432" y="352" text-anchor="middle" font-size="10" font-weight="700" fill="#93c5fd">ux-strategy/benchmark</text>
+        <text x="432" y="362" text-anchor="middle" font-size="8" fill="#F0B429">COMPLEMENTO OPCIONAL</text>
+        <text x="432" y="376" text-anchor="middle" font-size="9" fill="#64748b">Benchmarking de UX patterns.</text>
+        <text x="432" y="388" text-anchor="middle" font-size="9" fill="#64748b">Complementa análise visual</text>
+        <text x="432" y="400" text-anchor="middle" font-size="9" fill="#93c5fd">→ padrões UX a adotar/evitar</text>
+        <rect x="568" y="336" width="270" height="74" rx="7" fill="#1a1006" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="703" y="352" text-anchor="middle" font-size="10" font-weight="700" fill="#fcd34d">Chrome extension (MCP)</text>
+        <text x="703" y="364" text-anchor="middle" font-size="8" fill="#a16207">FERRAMENTA DE SUPORTE</text>
+        <text x="703" y="378" text-anchor="middle" font-size="9" fill="#64748b">Abre URLs reais no browser.</text>
+        <text x="703" y="390" text-anchor="middle" font-size="9" fill="#64748b">Captura screenshots seção a seção.</text>
+        <text x="703" y="402" text-anchor="middle" font-size="9" fill="#fcd34d">→ evidência visual real</text>
+        <rect x="200" y="436" width="500" height="34" rx="17" fill="#1a1a10" stroke="#F0B429" stroke-width="1.5"/>
+        <text x="230" y="449" font-size="13">🔒</text>
+        <text x="450" y="449" text-anchor="middle" font-size="10" font-weight="700" fill="#F0B429">GATE 2 · Diego valida oportunidade de diferenciação</text>
+        <text x="450" y="461" text-anchor="middle" font-size="9" fill="#a16207">Sem direção clara → revisitar referências antes de avançar</text>
+        <line x1="450" y1="470" x2="450" y2="486" stroke="#334155" stroke-width="2"/>
+        <polygon points="450,490 445,482 455,482" fill="#334155"/>
+        <rect x="40" y="494" width="820" height="152" rx="10" fill="#0f1520" stroke="#a855f7" stroke-width="1.5"/>
+        <rect x="40" y="494" width="4" height="152" rx="2" fill="#a855f7"/>
+        <text x="56" y="510" font-size="9" font-weight="700" fill="#a855f7" letter-spacing="1">ETAPA 3 · DIREÇÃO ESTÉTICA + DESIGN SYSTEM + NARRATIVA</text>
+        <rect x="56" y="518" width="198" height="114" rx="7" fill="#1a0d2e" stroke="#a855f7" stroke-width="1"/>
+        <text x="155" y="534" text-anchor="middle" font-size="10" font-weight="700" fill="#d8b4fe">impeccable → shape</text>
+        <text x="155" y="546" text-anchor="middle" font-size="8" fill="#a855f7">3A — DIREÇÃO ESTÉTICA</text>
+        <text x="155" y="560" text-anchor="middle" font-size="9" fill="#64748b">Scene sentence, color strategy,</text>
+        <text x="155" y="572" text-anchor="middle" font-size="9" fill="#64748b">âncoras nomeadas, motion,</text>
+        <text x="155" y="584" text-anchor="middle" font-size="9" fill="#64748b">layout approach. Para antes</text>
+        <text x="155" y="596" text-anchor="middle" font-size="9" fill="#64748b">do código — brief escrito.</text>
+        <text x="155" y="612" text-anchor="middle" font-size="9" fill="#d8b4fe">→ direção nomeada aprovável</text>
+        <text x="155" y="624" text-anchor="middle" font-size="9" fill="#d8b4fe">→ design brief documento</text>
+        <rect x="268" y="518" width="196" height="114" rx="7" fill="#1a0d2e" stroke="#a855f7" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="366" y="534" text-anchor="middle" font-size="10" font-weight="700" fill="#d8b4fe">color-system +</text>
+        <text x="366" y="546" text-anchor="middle" font-size="10" font-weight="700" fill="#d8b4fe">typography-scale</text>
+        <text x="366" y="558" text-anchor="middle" font-size="8" fill="#F0B429">ADICIONADO NESTA VERSÃO</text>
+        <text x="366" y="572" text-anchor="middle" font-size="9" fill="#64748b">Geram paleta completa com</text>
+        <text x="366" y="584" text-anchor="middle" font-size="9" fill="#64748b">tokens CSS + escala tipo</text>
+        <text x="366" y="596" text-anchor="middle" font-size="9" fill="#64748b">modular ANTES de codificar.</text>
+        <text x="366" y="612" text-anchor="middle" font-size="9" fill="#d8b4fe">→ CSS vars prontos</text>
+        <text x="366" y="624" text-anchor="middle" font-size="9" fill="#d8b4fe">→ contraste verificado</text>
+        <rect x="478" y="518" width="178" height="114" rx="7" fill="#1a0d2e" stroke="#a855f7" stroke-width="1"/>
+        <text x="567" y="534" text-anchor="middle" font-size="10" font-weight="700" fill="#d8b4fe">catalogo-narrativa-lp</text>
+        <text x="567" y="546" text-anchor="middle" font-size="8" fill="#a855f7">3B — ESTRUTURA DE SEÇÕES</text>
+        <text x="567" y="560" text-anchor="middle" font-size="9" fill="#64748b">Sequência por tipo: Vendas</text>
+        <text x="567" y="572" text-anchor="middle" font-size="9" fill="#64748b">(PAS) ou Serviço/Mentoria.</text>
+        <text x="567" y="584" text-anchor="middle" font-size="9" fill="#64748b">Regras de cada seção,</text>
+        <text x="567" y="596" text-anchor="middle" font-size="9" fill="#64748b">o que nunca fazer.</text>
+        <text x="567" y="612" text-anchor="middle" font-size="9" fill="#d8b4fe">→ sequência aprovável</text>
+        <text x="567" y="624" text-anchor="middle" font-size="9" fill="#d8b4fe">→ papéis de cada seção</text>
+        <rect x="670" y="518" width="170" height="114" rx="7" fill="#1a0d2e" stroke="#a855f7" stroke-width="1"/>
+        <text x="755" y="534" text-anchor="middle" font-size="10" font-weight="700" fill="#d8b4fe">copy-conversao-lp</text>
+        <text x="755" y="546" text-anchor="middle" font-size="8" fill="#a855f7">3C — COPY FRAMEWORK</text>
+        <text x="755" y="560" text-anchor="middle" font-size="9" fill="#64748b">PAS, 7 dimensões CRO,</text>
+        <text x="755" y="572" text-anchor="middle" font-size="9" fill="#64748b">proibições (travessão,</text>
+        <text x="755" y="584" text-anchor="middle" font-size="9" fill="#64748b">jargão, CTAs fracos).</text>
+        <text x="755" y="596" text-anchor="middle" font-size="9" fill="#64748b">Headlines por seção.</text>
+        <text x="755" y="612" text-anchor="middle" font-size="9" fill="#d8b4fe">→ copy framework</text>
+        <text x="755" y="624" text-anchor="middle" font-size="9" fill="#d8b4fe">→ headlines aprovadas</text>
+        <rect x="160" y="658" width="580" height="36" rx="18" fill="#1f0f0f" stroke="#ef4444" stroke-width="2"/>
+        <text x="192" y="671" font-size="13">🔒</text>
+        <text x="450" y="671" text-anchor="middle" font-size="10" font-weight="700" fill="#ef4444">GATE 3 · CRÍTICO — Nenhum código antes desse gate</text>
+        <text x="450" y="683" text-anchor="middle" font-size="9" fill="#b91c1c">Brief + estética + tokens + seções + headlines aprovados por Diego explicitamente</text>
+        <line x1="450" y1="694" x2="450" y2="710" stroke="#334155" stroke-width="2"/>
+        <polygon points="450,714 445,706 455,706" fill="#334155"/>
+        <rect x="40" y="718" width="820" height="90" rx="10" fill="#0f1520" stroke="#f59e0b" stroke-width="1.5"/>
+        <rect x="40" y="718" width="4" height="90" rx="2" fill="#f59e0b"/>
+        <text x="56" y="734" font-size="9" font-weight="700" fill="#f59e0b" letter-spacing="1">ETAPA 4 · PROTOTIPAÇÃO — SEÇÕES COMPLEXAS (CONDICIONAL)</text>
+        <rect x="56" y="744" width="240" height="52" rx="7" fill="#1a1006" stroke="#f59e0b" stroke-width="1"/>
+        <text x="176" y="760" text-anchor="middle" font-size="10" font-weight="700" fill="#fcd34d">huashu-design</text>
+        <text x="176" y="774" text-anchor="middle" font-size="9" fill="#64748b">3 variações HTML de hero com motion.</text>
+        <text x="176" y="786" text-anchor="middle" font-size="9" fill="#fcd34d">→ Diego escolhe 1 variação</text>
+        <rect x="312" y="744" width="540" height="52" rx="7" fill="#131010" stroke="#475569" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="582" y="760" text-anchor="middle" font-size="10" fill="#94a3b8">Só acionada se hero exige motion/animação/interação não-trivial.</text>
+        <text x="582" y="774" text-anchor="middle" font-size="9" fill="#64748b">Se a hero for estática → Gate 4 é pulado, avança direto para Etapa 5.</text>
+        <text x="582" y="786" text-anchor="middle" font-size="9" fill="#475569">Hero simples (texto + imagem) não precisa dessa etapa.</text>
+        <rect x="200" y="820" width="500" height="34" rx="17" fill="#1a1a10" stroke="#F0B429" stroke-width="1.5"/>
+        <text x="230" y="833" font-size="13">🔒</text>
+        <text x="450" y="833" text-anchor="middle" font-size="10" font-weight="700" fill="#F0B429">GATE 4 · Diego aprova variação do protótipo visual</text>
+        <text x="450" y="845" text-anchor="middle" font-size="9" fill="#a16207">Pulado se não há seções complexas</text>
+        <line x1="450" y1="854" x2="450" y2="870" stroke="#334155" stroke-width="2"/>
+        <polygon points="450,874 445,866 455,866" fill="#334155"/>
+        <rect x="40" y="878" width="820" height="86" rx="10" fill="#0f1520" stroke="#10b981" stroke-width="1.5"/>
+        <rect x="40" y="878" width="4" height="86" rx="2" fill="#10b981"/>
+        <text x="56" y="894" font-size="9" font-weight="700" fill="#10b981" letter-spacing="1">ETAPA 5 · IMPLEMENTAÇÃO</text>
+        <rect x="56" y="902" width="210" height="50" rx="7" fill="#061a12" stroke="#10b981" stroke-width="1"/>
+        <text x="161" y="918" text-anchor="middle" font-size="10" font-weight="700" fill="#6ee7b7">landing-page-guide-v2</text>
+        <text x="161" y="930" text-anchor="middle" font-size="9" fill="#64748b">11 elementos obrigatórios.</text>
+        <text x="161" y="942" text-anchor="middle" font-size="9" fill="#6ee7b7">→ LP funcional e completa</text>
+        <rect x="280" y="902" width="560" height="50" rx="7" fill="#0a1510" stroke="#10b981" stroke-width="1"/>
+        <text x="560" y="916" text-anchor="middle" font-size="9" fill="#64748b">CSS vars do :root (tokens da E3) · fontes self-hosted woff2 · imagens webp</text>
+        <text x="560" y="928" text-anchor="middle" font-size="9" fill="#64748b">fetchpriority="high" no hero · loading="lazy" abaixo da dobra · width+height em TODAS as imgs</text>
+        <text x="560" y="940" text-anchor="middle" font-size="9" fill="#6ee7b7">Reveal on scroll via IntersectionObserver · Sem travessão em nenhum copy</text>
+        <rect x="200" y="976" width="500" height="34" rx="17" fill="#1a1a10" stroke="#F0B429" stroke-width="1.5"/>
+        <text x="230" y="989" font-size="13">🔒</text>
+        <text x="450" y="989" text-anchor="middle" font-size="10" font-weight="700" fill="#F0B429">GATE 5 · Preview no Chrome confirmado, zero erros de console</text>
+        <text x="450" y="1001" text-anchor="middle" font-size="9" fill="#a16207">Sem screenshot seção a seção → não entra na auditoria</text>
+        <line x1="450" y1="1010" x2="450" y2="1026" stroke="#334155" stroke-width="2"/>
+        <polygon points="450,1030 445,1022 455,1022" fill="#334155"/>
+        <rect x="40" y="1034" width="820" height="180" rx="10" fill="#0f1520" stroke="#ef4444" stroke-width="1.5"/>
+        <rect x="40" y="1034" width="4" height="180" rx="2" fill="#ef4444"/>
+        <text x="56" y="1050" font-size="9" font-weight="700" fill="#ef4444" letter-spacing="1">ETAPA 6 · AUDITORIA + POLISH + PAGESPEED</text>
+        <rect x="56" y="1058" width="188" height="142" rx="7" fill="#1f0808" stroke="#ef4444" stroke-width="1"/>
+        <text x="150" y="1074" text-anchor="middle" font-size="10" font-weight="700" fill="#fca5a5">critique-screen</text>
+        <text x="150" y="1086" text-anchor="middle" font-size="9" fill="#64748b">Orquestra 4 sub-skills:</text>
+        <text x="150" y="1098" text-anchor="middle" font-size="9" fill="#94a3b8">· critique-visual-hierarchy</text>
+        <text x="150" y="1110" text-anchor="middle" font-size="9" fill="#94a3b8">· critique-brand-consistency</text>
+        <text x="150" y="1122" text-anchor="middle" font-size="9" fill="#94a3b8">· critique-composition</text>
+        <text x="150" y="1134" text-anchor="middle" font-size="9" fill="#94a3b8">· critique-typography</text>
+        <text x="150" y="1150" text-anchor="middle" font-size="9" fill="#fca5a5">→ P1/P2/P3 priorizados</text>
+        <text x="150" y="1162" text-anchor="middle" font-size="9" fill="#fca5a5">→ lista de correções</text>
+        <text x="150" y="1178" text-anchor="middle" font-size="9" fill="#fca5a5">→ brand ok/fail</text>
+        <text x="150" y="1192" text-anchor="middle" font-size="9" fill="#fca5a5">→ composição ok/fail</text>
+        <rect x="258" y="1058" width="178" height="142" rx="7" fill="#1f0808" stroke="#ef4444" stroke-width="1"/>
+        <text x="347" y="1074" text-anchor="middle" font-size="10" font-weight="700" fill="#fca5a5">impeccable</text>
+        <text x="347" y="1086" text-anchor="middle" font-size="9" fill="#64748b">3 comandos em sequência:</text>
+        <text x="347" y="1102" text-anchor="middle" font-size="9" fill="#94a3b8">clarify → copy sem cara</text>
+        <text x="347" y="1114" text-anchor="middle" font-size="9" fill="#94a3b8">de IA, sem travessão</text>
+        <text x="347" y="1130" text-anchor="middle" font-size="9" fill="#94a3b8">polish → micro-detalhes</text>
+        <text x="347" y="1142" text-anchor="middle" font-size="9" fill="#94a3b8">finais de qualidade</text>
+        <text x="347" y="1158" text-anchor="middle" font-size="9" fill="#94a3b8">audit → a11y + responsive</text>
+        <text x="347" y="1170" text-anchor="middle" font-size="9" fill="#94a3b8">+ anti-patterns (score 0-20)</text>
+        <text x="347" y="1192" text-anchor="middle" font-size="9" fill="#fca5a5">→ score /20 + fix list</text>
+        <rect x="450" y="1058" width="200" height="142" rx="7" fill="#1a0f06" stroke="#f59e0b" stroke-width="1"/>
+        <text x="550" y="1074" text-anchor="middle" font-size="10" font-weight="700" fill="#fcd34d">pagespeed-audit</text>
+        <text x="550" y="1086" text-anchor="middle" font-size="8" fill="#a16207">URL PRODUÇÃO — NUNCA LOCALHOST</text>
+        <text x="550" y="1100" text-anchor="middle" font-size="9" fill="#64748b">Mobile + Desktop no</text>
+        <text x="550" y="1112" text-anchor="middle" font-size="9" fill="#64748b">pagespeed.web.dev</text>
+        <text x="550" y="1128" text-anchor="middle" font-size="9" fill="#94a3b8">Score Mobile ≥ 85</text>
+        <text x="550" y="1140" text-anchor="middle" font-size="9" fill="#94a3b8">LCP &lt; 2.5s</text>
+        <text x="550" y="1152" text-anchor="middle" font-size="9" fill="#94a3b8">CLS &lt; 0.1</text>
+        <text x="550" y="1164" text-anchor="middle" font-size="9" fill="#94a3b8">TBT &lt; 200ms</text>
+        <text x="550" y="1180" text-anchor="middle" font-size="9" fill="#fcd34d">→ scores antes/depois</text>
+        <text x="550" y="1192" text-anchor="middle" font-size="9" fill="#fcd34d">→ bloqueia se &lt; 85</text>
+        <rect x="664" y="1058" width="176" height="142" rx="7" fill="#0a1215" stroke="#475569" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="752" y="1074" text-anchor="middle" font-size="10" font-weight="700" fill="#94a3b8">Não usadas aqui</text>
+        <text x="752" y="1090" text-anchor="middle" font-size="9" fill="#475569">ui-design/visual-hierarchy</text>
+        <text x="752" y="1102" text-anchor="middle" font-size="9" fill="#475569">↔ redundante com</text>
+        <text x="752" y="1114" text-anchor="middle" font-size="9" fill="#475569">critique-visual-hierarchy</text>
+        <text x="752" y="1130" text-anchor="middle" font-size="9" fill="#475569">ui-design/layout-grid</text>
+        <text x="752" y="1142" text-anchor="middle" font-size="9" fill="#475569">↔ coberto pelo shape</text>
+        <text x="752" y="1158" text-anchor="middle" font-size="9" fill="#475569">social-media/*</text>
+        <text x="752" y="1170" text-anchor="middle" font-size="9" fill="#475569">↔ fora do escopo</text>
+        <text x="752" y="1186" text-anchor="middle" font-size="9" fill="#475569">de LP</text>
+        <rect x="40" y="1230" width="820" height="110" rx="10" fill="#0d0f14" stroke="#1e293b" stroke-width="1"/>
+        <text x="56" y="1248" font-size="9" font-weight="700" fill="#64748b" letter-spacing="1">LEGENDA</text>
+        <rect x="56" y="1258" width="12" height="12" rx="2" fill="none" stroke="#F0B429" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="75" y="1269" font-size="9" fill="#a16207">Borda tracejada dourada = skill adicionada nesta versão (color-system, typography-scale)</text>
+        <rect x="56" y="1278" width="12" height="12" rx="2" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="75" y="1289" font-size="9" fill="#475569">Borda tracejada cinza = complemento opcional ou skill excluída por redundância</text>
+        <rect x="56" y="1298" width="12" height="12" rx="2" fill="#1a1a10" stroke="#F0B429" stroke-width="1.5"/>
+        <text x="75" y="1309" font-size="9" fill="#F0B429">🔒 Gate = aprovação explícita de Diego obrigatória para avançar</text>
+        <text x="450" y="1332" text-anchor="middle" font-size="9" fill="#334155">Trigger ativo em: clients/intus-hub/CLAUDE.md — carregado automaticamente em toda sessão</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── ETAPAS E GATES ───────────────────────────────────── -->
+<section id="etapas">
+  <div class="container">
+    <div class="section-label">03 · Fluxo Ponta a Ponta</div>
+    <h2>6 Etapas · 5 Gates</h2>
+    <p style="margin-top:12px; color:var(--text2);">Cada etapa tem um entregável claro. Cada gate tem um critério explícito de bloqueio. Sem aprovação → não avança.</p>
+
+    <div class="flow" style="margin-top:36px;">
+
+      <!-- E1 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num num-gold">1</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>Briefing Completo</h3>
+          <p>Conversa direta com Diego. Coleta: produto, público, tipo de página (vendas ou serviço), tom, stack, mínimo 3 referências visuais, anti-objetivos e conteúdo disponível (imagens, vídeo, copy, depoimentos).</p>
+          <div class="tags">
+            <span class="tag human">Humano decide</span>
+            <span class="tag">Nenhuma skill acionada</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gate 1 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num" style="background:var(--gold-dim);border:2px solid var(--gold-edge);color:var(--gold-hi);font-size:18px;">🔒</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body gate-highlight">
+          <h3>Gate 1 — Briefing validado</h3>
+          <p><strong>Bloqueia se:</strong> tipo de página não definido, menos de 3 referências visuais, sem anti-objetivos declarados.</p>
+          <div class="tags">
+            <span class="tag gate">Gate obrigatório</span>
+            <span class="tag human">Aprovação: Diego</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E2 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num num-blue">2</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>Análise Competitiva</h3>
+          <p>Claude abre cada referência no Chrome. Mapeia IA/UX patterns, estrutura de seções, copy approach, CTAs. Identifica o que todos fazem igual (table stakes) e o gap de diferenciação. Produz tabela comparativa.</p>
+          <div class="tags">
+            <span class="tag skill">competitive-analysis</span>
+            <span class="tag tool">Chrome extension</span>
+            <span class="tag llm">LLM analisa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gate 2 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num" style="background:var(--gold-dim);border:2px solid var(--gold-edge);color:var(--gold-hi);font-size:18px;">🔒</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body gate-highlight">
+          <h3>Gate 2 — Oportunidade de diferenciação aprovada</h3>
+          <p><strong>Bloqueia se:</strong> Diego não confirma qual padrão competitivo adotar ou rejeitar. Sem direção clara → revisitar referências.</p>
+          <div class="tags">
+            <span class="tag gate">Gate obrigatório</span>
+            <span class="tag human">Aprovação: Diego</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E3 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num num-purple">3</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>Direção Estética + Design System + Narrativa</h3>
+          <p><strong>3A — Direção estética</strong> via <code class="ic">impeccable → shape</code>: nomeia a direção (Minimalista Refinado / Bold / Editorial / Retro-Futurista), define scene sentence, color strategy, tipografia, motion strategy, layout approach.</p>
+          <p style="margin-top:8px;"><strong>3B — Estrutura de seções</strong> via <code class="ic">catalogo-narrativa-lp.md</code>: sequência de seções aprovada por tipo (Vendas PAS ou Serviço/Mentoria).</p>
+          <p style="margin-top:8px;"><strong>3C — Copy framework</strong> via <code class="ic">copy-conversao-lp.md</code>: headlines sem travessão, sem cara de IA, CTAs com verbo+resultado.</p>
+          <div class="tags">
+            <span class="tag skill">impeccable → shape</span>
+            <span class="tag skill">catalogo-narrativa-lp</span>
+            <span class="tag skill">copy-conversao-lp</span>
+            <span class="tag llm">LLM propõe</span>
+            <span class="tag human">Diego aprova</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gate 3 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num" style="background:rgba(239,68,68,.15);border:2px solid rgba(239,68,68,.35);color:#fca5a5;font-size:18px;">🔒</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body" style="border-color:rgba(239,68,68,.3);">
+          <h3>Gate 3 — O GATE MAIS CRÍTICO</h3>
+          <p>Diego aprova: brief visual escrito, direção estética nomeada, sequência de seções, headlines principais. <strong>Nenhuma linha de código antes desse gate.</strong></p>
+          <div class="tags">
+            <span class="tag gate">Gate CRÍTICO</span>
+            <span class="tag human">Aprovação explícita: Diego</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E4 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num num-amber">4</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>Prototipação de Seções Complexas</h3>
+          <p>Apenas para heroes com motion design, animações não-triviais ou elementos visuais experimentais. Claude gera 3 variações HTML, abre no Chrome, Diego escolhe 1 direção ou hibridiza 2.</p>
+          <p style="margin-top:8px; color:var(--text3); font-size:12.5px;">Se não há seções complexas, Gate 4 é pulado — avançar direto para Etapa 5.</p>
+          <div class="tags">
+            <span class="tag skill">huashu-design</span>
+            <span class="tag tool">Chrome extension</span>
+            <span class="tag human">Diego escolhe variação</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gate 4 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num" style="background:var(--gold-dim);border:2px solid var(--gold-edge);color:var(--gold-hi);font-size:18px;">🔒</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body gate-highlight">
+          <h3>Gate 4 — Protótipo visual da hero aprovado</h3>
+          <p><strong>Bloqueia se:</strong> Diego não aprovou qual variação seguir. Pulado se não há seções complexas.</p>
+          <div class="tags">
+            <span class="tag gate">Gate obrigatório</span>
+            <span class="tag human">Aprovação: Diego</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E5 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num num-green">5</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body">
+          <h3>Implementação</h3>
+          <p>Código fiel ao brief aprovado. Design system como CSS custom properties no <code class="ic">:root</code> antes de qualquer componente. Seguir os 11 elementos essenciais (<code class="ic">11-essential-elements.md</code>). Fontes self-hosted em woff2. Imagens em webp. Reveal on scroll via IntersectionObserver.</p>
+          <div class="tags">
+            <span class="tag skill">landing-page-guide-v2</span>
+            <span class="tag skill">11-essential-elements</span>
+            <span class="tag llm">LLM implementa</span>
+            <span class="tag tool">preview no Chrome</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gate 5 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num" style="background:var(--gold-dim);border:2px solid var(--gold-edge);color:var(--gold-hi);font-size:18px;">🔒</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-body gate-highlight">
+          <h3>Gate 5 — Preview no Chrome confirmado</h3>
+          <p><strong>Bloqueia se:</strong> sem screenshot seção a seção, sem verificação de erros de console. Sem esse gate → não entra na auditoria.</p>
+          <div class="tags">
+            <span class="tag gate">Gate obrigatório</span>
+            <span class="tag tool">Chrome extension</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E6 -->
+      <div class="flow-step">
+        <div class="flow-connector">
+          <div class="flow-num num-red">6</div>
+        </div>
+        <div class="flow-body">
+          <h3>Auditoria + Polish + PageSpeed</h3>
+          <p><strong>1.</strong> <code class="ic">critique-screen</code> → 4 dimensões (hierarquia, brand, composição, tipografia).</p>
+          <p style="margin-top:6px;"><strong>2.</strong> <code class="ic">impeccable → clarify</code> → copy sem cara de IA, sem travessão, sem jargão.</p>
+          <p style="margin-top:6px;"><strong>3.</strong> <code class="ic">impeccable → polish</code> → micro-detalhes finais.</p>
+          <p style="margin-top:6px;"><strong>4.</strong> <code class="ic">impeccable → audit</code> → a11y, responsivo, anti-patterns (score 0-20).</p>
+          <p style="margin-top:6px;"><strong>5.</strong> <code class="ic">pagespeed-audit</code> → URL de produção real, scores Mobile + Desktop, correções antes/depois documentadas.</p>
+          <div class="tags">
+            <span class="tag skill">critique-screen</span>
+            <span class="tag skill">impeccable → clarify</span>
+            <span class="tag skill">impeccable → polish</span>
+            <span class="tag skill">impeccable → audit</span>
+            <span class="tag tool">pagespeed.web.dev</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /flow -->
+  </div>
+</section>
+
+<!-- ── GATES RESUMO ─────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">03 · Gates de Qualidade</div>
+    <h2>O que bloqueia cada gate</h2>
+
+    <table class="gate-table" style="margin-top:24px;">
+      <thead>
+        <tr>
+          <th>Gate</th>
+          <th>Momento</th>
+          <th>Critério de bloqueio</th>
+          <th>Quem aprova</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="gate-badge">🔒 Gate 1</span></td>
+          <td>Após briefing</td>
+          <td><span class="blocker-chip">Sem tipo definido</span> <span class="blocker-chip">menos de 3 referências</span> <span class="blocker-chip">sem anti-objetivos</span></td>
+          <td style="color:var(--text);">Diego</td>
+        </tr>
+        <tr>
+          <td><span class="gate-badge">🔒 Gate 2</span></td>
+          <td>Após análise competitiva</td>
+          <td><span class="blocker-chip">Sem oportunidade de diferenciação clara</span></td>
+          <td style="color:var(--text);">Diego</td>
+        </tr>
+        <tr>
+          <td><span class="gate-badge" style="background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#fca5a5;">🔒 Gate 3 CRÍTICO</span></td>
+          <td>Após direção estética</td>
+          <td><span class="blocker-chip">Qualquer item não aprovado</span> — brief, estética, seções, headlines</td>
+          <td style="color:var(--text);">Diego (explícito)</td>
+        </tr>
+        <tr>
+          <td><span class="gate-badge">🔒 Gate 4</span></td>
+          <td>Após protótipo hero</td>
+          <td><span class="blocker-chip">Variação não escolhida</span> — ou pulado se sem seções complexas</td>
+          <td style="color:var(--text);">Diego</td>
+        </tr>
+        <tr>
+          <td><span class="gate-badge">🔒 Gate 5</span></td>
+          <td>Após implementação</td>
+          <td><span class="blocker-chip">Sem preview no Chrome</span> <span class="blocker-chip">erros de console</span></td>
+          <td style="color:var(--text);">Claude verifica</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── SKILLS ───────────────────────────────────────────── -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">04 · Skills Orquestradas</div>
+    <h2>Qual skill, em qual etapa, para quê</h2>
+    <p style="margin-top:12px; color:var(--text2);">Todas vivem em <code class="ic">SKILLS/Master-social-design-system/skills/</code></p>
+
+    <div class="skills-grid">
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 2</div>
+        <div class="skill-name">competitive-analysis</div>
+        <div class="skill-desc">Abre referências no Chrome. Mapeia patterns, estrutura, CTAs, gaps. Gera tabela de oportunidade de diferenciação.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 3</div>
+        <div class="skill-name">impeccable → shape</div>
+        <div class="skill-desc">Discovery de direção estética. Scene sentence, color strategy, âncoras nomeadas, tipografia, motion. Para antes do código — só retorna com brief confirmado por Diego.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 3</div>
+        <div class="skill-name">catalogo-narrativa-lp</div>
+        <div class="skill-desc">Define sequência de seções por tipo: Vendas (PAS) ou Serviço/Mentoria (alto ticket). Regras de cada seção (DOR, SOLUÇÃO, RESULTADOS, FORM).</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 3</div>
+        <div class="skill-name">copy-conversao-lp</div>
+        <div class="skill-desc">7 dimensões CRO, framework PAS, tabela de CTAs, lista de proibições (travessão, "não X é Y", jargão vazio). Checklist de copy antes de publicar.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 4</div>
+        <div class="skill-name">huashu-design</div>
+        <div class="skill-desc">Prototipação HTML de seções complexas (hero com motion, animações, elementos 3D). Gera 3 variações para Diego escolher. Só acionada se a hero exige interação não-trivial.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 5</div>
+        <div class="skill-name">landing-page-guide-v2</div>
+        <div class="skill-desc">Checklist dos 11 elementos obrigatórios. Design system como CSS vars. Regras de implementação: fontes self-hosted, webp, IntersectionObserver, semântica HTML.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 6</div>
+        <div class="skill-name">critique-screen</div>
+        <div class="skill-desc">Orquestra 4 sub-skills: critique-visual-hierarchy + critique-brand-consistency + critique-composition + critique-typography. Protocolo P1/P2/P3.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 6</div>
+        <div class="skill-name">impeccable → clarify · polish · audit</div>
+        <div class="skill-desc">clarify: copy humano sem cara de IA. polish: micro-detalhes finais. audit: score 0-20 em a11y, performance, responsive, anti-patterns.</div>
+      </div>
+      <div class="skill-row">
+        <div class="etapa-label">Etapa 6</div>
+        <div class="skill-name">pagespeed-audit (protocolo)</div>
+        <div class="skill-desc">URL de produção real no pagespeed.web.dev. Score Mobile + Desktop. Critério mínimo: Mobile ≥ 85, LCP &lt; 2.5s, CLS &lt; 0.1. Scores documentados antes/depois.</div>
+      </div>
+    </div>
+
+    <div class="alert info" style="margin-top:24px;">
+      <div class="alert-icon">ℹ️</div>
+      <div class="alert-body">
+        <strong>O que é determinístico vs IA</strong>
+        <p>Gates 1-3 são decisões humanas (Diego). Etapas 2, 3, 5, 6 são trabalho do LLM (Claude). Gates 4-5 são verificações técnicas (Claude abre Chrome, vê resultado). PageSpeed é externo e determinístico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COPY RULES ───────────────────────────────────────── -->
+<section id="copy">
+  <div class="container">
+    <div class="section-label">05 · Regras de Copy</div>
+    <h2>Permanentes em todas as páginas</h2>
+    <p style="margin-top:12px; color:var(--text2);">Derivadas de <code class="ic">references/copy-conversao-lp.md</code>. Valem para 100% das LPs, sem exceção.</p>
+
+    <div class="two-col" style="margin-top:28px;">
+      <div class="panel">
+        <h3 style="color:var(--red);">❌ Nunca usar</h3>
+        <ul>
+          <li><span class="arrow">→</span> Travessão (—) em qualquer posição — substituir por ":" ou reescrever</li>
+          <li><span class="arrow">→</span> "Não X, é Y" — fórmula saturada de copy IA</li>
+          <li><span class="arrow">→</span> "Enquanto X, você Y" — genérico, poderia ser qualquer produto</li>
+          <li><span class="arrow">→</span> "Destranca", "potencializa", "revoluciona" — jargão vazio</li>
+          <li><span class="arrow">→</span> "Saiba mais", "Enviar", "Clique aqui" — CTAs fracos</li>
+          <li><span class="arrow">→</span> Urgência falsa ou contagem regressiva falsa</li>
+          <li><span class="arrow">→</span> Depoimento sem nome, foto ou número real</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 style="color:var(--green);">✅ Como escrever</h3>
+        <ul>
+          <li><span class="arrow">→</span> Frase curta antes de frase longa — cria ritmo</li>
+          <li><span class="arrow">→</span> Começar com o problema concreto, não com a empresa</li>
+          <li><span class="arrow">→</span> Números específicos: "70% menos tempo" &gt; "muito mais rápido"</li>
+          <li><span class="arrow">→</span> CTA = verbo + resultado: "Quero meu diagnóstico"</li>
+          <li><span class="arrow">→</span> Voz ativa, verbo no início da frase</li>
+          <li><span class="arrow">→</span> Contrações PT-BR: "pro time", "pra você", "a gente"</li>
+          <li><span class="arrow">→</span> 1 ideia por seção, sem mistura de mensagens</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert warning" style="margin-top:20px;">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Teste rápido antes de publicar</strong>
+        <p>Leia cada frase e pergunte: "essa frase poderia ter sido gerada por qualquer IA para qualquer produto?" Se sim, reescrever com dado específico do Diego ou do cliente real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAGESPEED ─────────────────────────────────────────── -->
+<section id="pagespeed">
+  <div class="container">
+    <div class="section-label">06 · PageSpeed Audit</div>
+    <h2>Métricas alvo e protocolo</h2>
+    <p style="margin-top:12px; color:var(--text2);">Roda na Etapa 6, após deploy em URL de produção real. Nunca em localhost — CDN, DNS e servidor afetam o resultado.</p>
+
+    <div class="ps-grid">
+      <div class="ps-card">
+        <div class="ps-score ps-good">96</div>
+        <div class="ps-label">Performance Mobile</div>
+        <div class="ps-target">Alcançado: Super Agente LP</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-score ps-good">&lt; 2.5s</div>
+        <div class="ps-label">LCP target</div>
+        <div class="ps-target">Elemento hero visível</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-score ps-good">&lt; 200ms</div>
+        <div class="ps-label">TBT target</div>
+        <div class="ps-target">Main thread desbloqueado</div>
+      </div>
+      <div class="ps-card">
+        <div class="ps-score ps-good">&lt; 0.1</div>
+        <div class="ps-label">CLS target</div>
+        <div class="ps-target">Sem layout shift</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:24px;">
+      <div class="panel">
+        <h3>Correções de maior impacto</h3>
+        <ul>
+          <li><span class="arrow">→</span> <code class="ic">fetchpriority="high"</code> + <code class="ic">loading="eager"</code> na imagem hero — reduz LCP</li>
+          <li><span class="arrow">→</span> Fontes self-hosted woff2 (não Google Fonts externo) — reduz TBT</li>
+          <li><span class="arrow">→</span> Scripts de terceiros com <code class="ic">defer</code> — reduz TBT</li>
+          <li><span class="arrow">→</span> <code class="ic">width</code> e <code class="ic">height</code> em todas as imagens — zera CLS</li>
+          <li><span class="arrow">→</span> <code class="ic">loading="lazy"</code> em tudo abaixo da dobra — reduz payload inicial</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>O que NÃO fazer (aprendizados reais)</h3>
+        <ul>
+          <li><span class="arrow">→</span> <code class="ic">requestIdleCallback</code> para fontes — causa CLS visível</li>
+          <li><span class="arrow">→</span> <code class="ic">rel="preload"</code> na hero img — pode piorar LCP</li>
+          <li><span class="arrow">→</span> Minificação CSS no Cloudflare — quebra <code class="ic">@font-face</code> e CSS vars</li>
+          <li><span class="arrow">→</span> Self-host de GTM/scripts de terceiros — viola ToS</li>
+          <li><span class="arrow">→</span> Testar no localhost — resultado não reflete produção</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert danger" style="margin-top:20px;">
+      <div class="alert-icon">🚫</div>
+      <div class="alert-body">
+        <strong>Critério de bloqueio de publicação</strong>
+        <p>Score Mobile Performance &lt; 85 bloqueia a aprovação final. A LP não é declarada pronta até esse critério ser atingido. Atacar as top 3 oportunidades do relatório antes de qualquer outra coisa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FRAGILIDADES ─────────────────────────────────────── -->
+<section id="fragilidades">
+  <div class="container">
+    <div class="section-label">07 · Fragilidades e Riscos</div>
+    <h2>O que pode dar errado</h2>
+
+    <div class="card-grid">
+      <div class="card red">
+        <div class="card-icon">⚠️</div>
+        <h3>Pular o Gate 3</h3>
+        <p>O risco mais alto. Se o Claude começar a codificar sem aprovação explícita do brief + direção estética, todo o trabalho pode precisar ser refeito. Gate 3 é inegociável.</p>
+      </div>
+      <div class="card amber">
+        <div class="card-icon">🎭</div>
+        <h3>Copy com cara de IA</h3>
+        <p>LLM tende a gerar frases que soam genéricas. O checklist do <code class="ic">copy-conversao-lp.md</code> e o comando <code class="ic">impeccable → clarify</code> existem exatamente para isso.</p>
+      </div>
+      <div class="card amber">
+        <div class="card-icon">🌑</div>
+        <h3>Contraste insuficiente</h3>
+        <p>Cards sobre fundo escuro com diferença de luminosidade &lt; 10 pontos ficam invisíveis. Mensurar com DevTools antes do Gate 5.</p>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">🖼️</div>
+        <h3>Imagens sem dimensões</h3>
+        <p>Cada imagem sem <code class="ic">width</code> e <code class="ic">height</code> gera layout shift (CLS). Causa direta de score baixo no PageSpeed Mobile.</p>
+      </div>
+      <div class="card purple">
+        <div class="card-icon">🔤</div>
+        <h3>Fontes externas bloqueando</h3>
+        <p>Google Fonts via CDN adiciona round-trip externo. Sempre migrar para self-hosted woff2 antes do Gate 5 para não descobrir o problema no PageSpeed.</p>
+      </div>
+      <div class="card green">
+        <div class="card-icon">📱</div>
+        <h3>Testar só no desktop</h3>
+        <p>Google indexa mobile-first. PageSpeed Mobile é o score que importa. Verificar no Chrome com viewport 375px antes de qualquer aprovação final.</p>
+      </div>
+    </div>
+
+    <div class="alert info" style="margin-top:24px;">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body">
+        <strong>Dívida técnica conhecida</strong>
+        <p>O workflow de auditoria (<code class="ic">critique-screen</code>) não tem uma skill standalone para performance de produção — o protocolo pagespeed é manual (abrir a URL, ler, agir). Uma automação via PageSpeed Insights API eliminaria o passo manual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REUSO ─────────────────────────────────────────────── -->
+<section id="reuso">
+  <div class="container">
+    <div class="section-label">08 · Como Reaproveitar</div>
+    <h2>Esse padrão em outros workflows</h2>
+    <p style="margin-top:12px; color:var(--text2);">A estrutura de Gates + Skills mapeadas pode ser aplicada a qualquer processo de produção de conteúdo ou artefato digital no ecossistema INTUS HUB.</p>
+
+    <div class="reuse-grid">
+      <div class="reuse-item">
+        <h3>🎨 Carrossel de redes sociais</h3>
+        <p>Gate 1: tema + referência + voz. Gate 2: roteiro aprovado. Gate 3: JSON de slides aprovado. Skills: <code class="ic">carrossel-intus</code> + <code class="ic">critique-screen</code>.</p>
+      </div>
+      <div class="reuse-item">
+        <h3>📧 Newsletter</h3>
+        <p>Gate 1: pauta + ângulo. Gate 2: estrutura de seções aprovada. Gate 3: copy final aprovado. 5 imagens obrigatórias (img1-4 corpo + img5 CTA exclusivo).</p>
+      </div>
+      <div class="reuse-item">
+        <h3>🎥 VSL / Script de vídeo</h3>
+        <p>Gate 1: objetivo + persona + duração. Gate 2: estrutura PAS aprovada. Gate 3: roteiro word-by-word aprovado. Gate 4: gravação.</p>
+      </div>
+      <div class="reuse-item">
+        <h3>🤖 Automação / Skill nova</h3>
+        <p>Gate 1: o que faz, quem usa, qual trigger. Gate 2: arquitetura aprovada. Gate 3: pseudocódigo aprovado. Gate 4: implementação + teste. Gate 5: documentação HTML.</p>
+      </div>
+    </div>
+
+    <div class="alert success" style="margin-top:24px;">
+      <div class="alert-icon">✅</div>
+      <div class="alert-body">
+        <strong>O padrão que funciona</strong>
+        <p>Qualquer produção que envolve LLM + aprovação humana pode usar essa estrutura: Trigger → Coleta → Gate humano → Proposta LLM → Gate humano → Execução → Gate técnico → Auditoria. Os gates impedem que o LLM avance na direção errada por muito tempo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CHECKLIST FINAL ───────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">09 · Checklist de Publicação</div>
+    <h2>A página está pronta quando</h2>
+
+    <div class="two-col" style="margin-top:24px;">
+      <div class="panel">
+        <h3>Design e copy</h3>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box checked"></div>Direção estética nomeada e executada consistentemente</div>
+          <div class="check-item"><div class="check-box checked"></div>Nenhum travessão (—) em todo o copy</div>
+          <div class="check-item"><div class="check-box checked"></div>CTAs com verbo + resultado (não "Enviar")</div>
+          <div class="check-item"><div class="check-box checked"></div>Variação de fundo entre seções (quebra visual)</div>
+          <div class="check-item"><div class="check-box checked"></div>Cards com contraste distinguível do fundo</div>
+          <div class="check-item"><div class="check-box checked"></div>Prova social com nome, número e contexto real</div>
+          <div class="check-item"><div class="check-box"></div>Formulário multi-step com progress indicator</div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Técnico e performance</h3>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box checked"></div>Score Mobile PageSpeed ≥ 85</div>
+          <div class="check-item"><div class="check-box checked"></div>LCP &lt; 2.5s (hero img com fetchpriority="high")</div>
+          <div class="check-item"><div class="check-box checked"></div>CLS &lt; 0.1 (width + height em todas as imagens)</div>
+          <div class="check-item"><div class="check-box checked"></div>Fontes self-hosted woff2 (sem Google Fonts externo)</div>
+          <div class="check-item"><div class="check-box checked"></div>Scripts de terceiros com defer</div>
+          <div class="check-item"><div class="check-box checked"></div>Sem erros de console</div>
+          <div class="check-item"><div class="check-box checked"></div>Scores antes/depois documentados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESUMO FINAL ──────────────────────────────────────── -->
+<section style="border-bottom:none; padding-bottom:80px;">
+  <div class="container">
+    <div class="summary-box">
+      <p>
+        Esse workflow existe para garantir que nenhum código seja escrito antes que Diego aprove a direção,
+        nenhuma página vá ao ar sem <strong>PageSpeed Mobile ≥ 85</strong>,
+        e nenhuma linha de copy passe sem ser testada contra a pergunta:
+        <strong>"isso poderia ter saído de qualquer IA para qualquer produto?"</strong>
+      </p>
+    </div>
+
+    <p style="text-align:center; margin-top:28px; font-size:12.5px; color:var(--text3);">
+      Fonte: <code class="ic">WORKFLOW-PRODUCAO-LP.md</code> · <code class="ic">copy-conversao-lp.md</code> · <code class="ic">catalogo-narrativa-lp.md</code> · <code class="ic">impeccable/SKILL.md</code> · <code class="ic">critique-screen.md</code><br>
+      Gerado em 2026-07-03 · INTUS HUB
+    </p>
+  </div>
+</section>
+
+</body>
+</html>

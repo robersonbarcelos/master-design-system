@@ -1,0 +1,26 @@
+---
+import PanelMockup from "./PanelMockup.astro";
+---
+
+<section class="relative bg-surface-alt py-24 lg:py-32">
+  <div class="divider-gradient absolute inset-x-0 top-0"></div>
+
+  <div class="reveal mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-14 lg:grid-cols-[2fr_3fr] lg:items-center lg:gap-16">
+      <div class="lg:order-2">
+        <p class="label-text mb-4 text-light-blue/70">Interface dedicada</p>
+        <h2 class="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.01em] text-white-ice">
+          Sua empresa opera o agente. Não decora comandos de terminal.
+        </h2>
+        <p class="mt-6 max-w-[55ch] text-lg leading-relaxed text-white-ice/75">
+          Construímos um painel adequado pro uso corporativo — não um bot solto no Telegram.
+          Você decide quem acessa, o que cada pessoa vê, e o que cada ação faz.
+        </p>
+      </div>
+
+      <div class="lg:order-1">
+        <PanelMockup variant="detail" />
+      </div>
+    </div>
+  </div>
+</section>

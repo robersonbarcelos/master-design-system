@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Aplicação Real — Capa Ilustrada Pato — Intus Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Anton&family=Archivo+Black&family=Big+Shoulders+Display:wght@800;900&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0D0D0D; font-family: 'Inter', sans-serif; padding: 50px; }
+  .section-label {
+    color: #E8722A;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0 0 8px 4px;
+  }
+  .section-note {
+    color: rgba(255,255,255,0.4);
+    font-size: 12px;
+    margin: 0 0 24px 4px;
+    max-width: 640px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .capa {
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #2A1500 0%, #0F0500 100%);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .capa-image-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    color: rgba(255,255,255,0.18);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    border: 1px dashed rgba(255,255,255,0.12);
+    margin: 10px;
+    border-radius: 8px;
+  }
+  .capa-header {
+    position: relative;
+    z-index: 2;
+    padding: 28px 28px 0 28px;
+  }
+  .capa-footer-space {
+    position: relative;
+    z-index: 2;
+    padding: 0 28px 34px 28px;
+  }
+  .capa-headline-block {
+    background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0) 100%);
+    padding: 60px 28px 34px 28px;
+    margin-top: auto;
+  }
+  .capa-headline {
+    color: #fff;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+  .capa-headline .accent { color: #E8722A; }
+  .capa-caption {
+    margin-top: 40px;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="section-label">Aplicação real — capa "pato" no layout do template</div>
+  <div class="section-note">3 pareamentos headline + header aplicados na estrutura de zonas real (header texto puro sem avatar / imagem full bleed / headline no terço inferior / sem footer). A área tracejada representa onde entra a ilustração do pato — ainda não é a imagem final.</div>
+
+  <div class="grid">
+
+    <div>
+      <div class="capa">
+        <div class="capa-image-placeholder">ÁREA DA ILUSTRAÇÃO<br>DO PATO (FULL BLEED)</div>
+        <div class="capa-header">
+          <div style="font-family:'Inter';font-weight:700;font-size:14px;color:#fff;letter-spacing:0.2px;">Diego Spanevello <span style="color:rgba(255,255,255,0.45);font-weight:600;">| Inteligência Artificial</span></div>
+        </div>
+        <div class="capa-headline-block">
+          <div class="capa-headline" style="font-family:'Anton';font-size:44px;">VOCÊ CONHECE<br>O <span class="accent">PATO</span>?</div>
+        </div>
+      </div>
+      <div class="capa-caption">Anton + Inter Bold</div>
+    </div>
+
+    <div>
+      <div class="capa">
+        <div class="capa-image-placeholder">ÁREA DA ILUSTRAÇÃO<br>DO PATO (FULL BLEED)</div>
+        <div class="capa-header">
+          <div style="font-family:'Space Grotesk';font-weight:700;font-size:14px;color:#fff;letter-spacing:0.2px;">Diego Spanevello <span style="color:rgba(255,255,255,0.45);font-weight:600;">| Inteligência Artificial</span></div>
+        </div>
+        <div class="capa-headline-block">
+          <div class="capa-headline" style="font-family:'Big Shoulders Display';font-weight:900;font-size:52px;">VOCÊ CONHECE<br>O <span class="accent">PATO</span>?</div>
+        </div>
+      </div>
+      <div class="capa-caption">Big Shoulders Display + Space Grotesk Bold</div>
+    </div>
+
+    <div>
+      <div class="capa">
+        <div class="capa-image-placeholder">ÁREA DA ILUSTRAÇÃO<br>DO PATO (FULL BLEED)</div>
+        <div class="capa-header">
+          <div style="font-family:'Manrope';font-weight:700;font-size:14px;color:#fff;letter-spacing:0.2px;">Diego Spanevello <span style="color:rgba(255,255,255,0.45);font-weight:600;">| Inteligência Artificial</span></div>
+        </div>
+        <div class="capa-headline-block">
+          <div class="capa-headline" style="font-family:'Bricolage Grotesque';font-weight:800;font-size:42px;">VOCÊ CONHECE<br>O <span class="accent">PATO</span>?</div>
+        </div>
+      </div>
+      <div class="capa-caption">Bricolage Grotesque + Manrope Bold</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

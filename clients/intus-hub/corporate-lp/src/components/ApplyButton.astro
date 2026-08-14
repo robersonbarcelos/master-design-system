@@ -1,0 +1,27 @@
+---
+interface Props {
+  variant?: "primary" | "ghost";
+  label?: string;
+  class?: string;
+}
+
+const { variant = "primary", label = "Aplicar", class: className = "" } = Astro.props;
+
+const base =
+  "label-text inline-flex items-center justify-center gap-2 rounded-sm px-8 py-4 transition-all duration-200 min-h-[44px] active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40";
+
+const variants = {
+  primary:
+    "bg-electric-blue text-white-ice hover:bg-intus-blue hover:shadow-glow-blue active:bg-intus-blue active:shadow-none",
+  ghost:
+    "border border-white-ice/30 text-white-ice hover:border-white-ice/60 bg-transparent active:border-white-ice/80 active:bg-white-ice/5",
+};
+---
+
+<button
+  type="button"
+  data-apply-trigger
+  class:list={[base, variants[variant], className]}
+>
+  {label}
+</button>

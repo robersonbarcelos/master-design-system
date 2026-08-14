@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M1-1.3 · Setup inicial: Pro vs. Free e seu primeiro Projeto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.entregavel ul{list-style:none;padding:0;margin-top:14px}
+.entregavel li{font-size:18px;color:#bbf7d0;line-height:1.6;padding:6px 0;display:flex;gap:10px}
+.entregavel li:before{content:"✓";color:#22c55e;flex-shrink:0}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M1 · Aula 1.3 · PRÁTICA · 5 min</span>
+  <span class="titulo">Setup inicial: Pro vs. Free e seu primeiro Projeto</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">Abertura: essa aula é prática</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Essa aula é de configuração. No final você vai ter o ambiente pronto para acompanhar todo o curso.</p>
+    <p>Dois passos: entender qual plano faz sentido pra você, e criar seu primeiro Projeto com memória.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Pro vs. Free: o que muda de verdade</span>
+    <span class="cena-tempo">1 min 30 s</span>
+  </div>
+  <div class="stage">Slide: tabela comparativa</div>
+  <div class="fala">
+    <p>Direto ao ponto: Free ou Pro?</p>
+    <p>Com o plano gratuito você já consegue acompanhar M1 e M2 inteiro. Chat, Artifacts, a maioria dos recursos básicos estão disponíveis.</p>
+    <p>O Pro custa US$20 por mês e libera duas coisas que são essenciais no curso: Cowork e Claude Code.</p>
+    <p>Se você vai usar o M3 e o M4, o Pro não é opcional.</p>
+    <p>Mas não vou te empurrar o plano agora. Você decide quando fizer sentido pro seu uso.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">O que é um Projeto e por que existe</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal ou slide simples</div>
+  <div class="fala">
+    <p>Projeto é a memória permanente do Claude.</p>
+    <p>Sem Projeto, cada conversa começa do zero. O Claude não lembra quem é você, qual é seu negócio, como você gosta de receber respostas.</p>
+    <p>Com um Projeto você configura uma vez: quem você é, qual é o seu contexto, qual tom de voz você quer. E ele lembra disso em todas as conversas dentro desse Projeto.</p>
+    <p>É como ter um colaborador que já te conhece antes de você abrir a boca.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Criar um Projeto ao vivo</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: claude.ai, criando Projeto</div>
+  <div class="fala">
+    <p>Vou criar um agora. Vai aqui em Settings, depois New Project.</p>
+  </div>
+  <div class="acao">Clicar em New Project</div>
+  <div class="fala">
+    <p>Nome do Projeto: coloca algo que faça sentido pro seu negócio. Por exemplo, "Marketing Digital" ou "Consultoria de Vendas".</p>
+    <p>Agora as instruções. Esse é o coração do Projeto. Aqui eu escrevo:</p>
+    <p>"Você está me ajudando como consultor de marketing digital. Meu negócio é [descreva aqui]. Sempre responda em português, com tom direto e prático. Não use rodeios."</p>
+    <p>Isso é o mínimo. Você pode adicionar: público-alvo, produtos, restrições de comunicação, qualquer contexto que vai importar em toda conversa.</p>
+  </div>
+  <div class="acao">Salvar e mostrar o Projeto criado</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Teste rápido</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Tela: abrindo conversa dentro do Projeto</div>
+  <div class="fala">
+    <p>Agora a prova real: vou abrir uma conversa dentro do Projeto.</p>
+  </div>
+  <div class="acao">Iniciar nova conversa no Projeto</div>
+  <div class="fala">
+    <p>Pergunta simples: "Qual é o principal desafio do meu negócio?"</p>
+    <p>Olha como ele já responde sabendo o contexto que configuramos. Não precisei repetir nada.</p>
+    <p>É isso que um Projeto faz.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno cria o primeiro Projeto com:</p>
+  <ul>
+    <li>Nome do negócio ou uso</li>
+    <li>2 a 3 linhas de instrução de tom e contexto</li>
+    <li>Uma conversa iniciada dentro do Projeto</li>
+  </ul>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Cena 2: ser honesto sobre Free vs. Pro. Não forçar upgrade.</li>
+    <li>Cena 4: usar exemplo de instrução real, não genérico. Mostrar um Projeto que pareça profissional.</li>
+    <li>Cena 5: o teste tem que funcionar ao vivo. A resposta do Claude deve mostrar claramente que ele lembrou do contexto.</li>
+    <li>Conectores (Google, Airtable): não mencionar aqui. Aparecem no M2 aula 2.3.</li>
+    <li>Encerrar o M1 com energia: "Bases prontas. No próximo módulo: Claude Chat a fundo."</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

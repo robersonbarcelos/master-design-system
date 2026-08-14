@@ -1,0 +1,54 @@
+---
+// Placeholder do popup de aplicação — no ambiente real, o conteúdo deste
+// <dialog> deve ser substituído pelo embed/script do formulário já existente
+// (Supabase + disparo Telegram). Aqui só implementamos o mecanismo de trigger
+// (abrir/fechar) e o visual, conforme o Shape aprovado.
+---
+
+<dialog
+  id="apply-modal"
+  class="m-auto w-[min(90vw,480px)] rounded-lg border border-electric-blue/20 bg-surface-alt p-0 text-white-ice backdrop:bg-hub-night/80 backdrop:backdrop-blur-sm"
+>
+  <form method="dialog" class="flex items-center justify-between border-b border-electric-blue/15 px-6 py-4">
+    <p class="label-text text-light-blue">Aplicar para Intus IA Corporate</p>
+    <button
+      type="submit"
+      aria-label="Fechar"
+      class="grid h-8 w-8 place-items-center rounded-sm text-white-ice/70 transition-colors hover:bg-electric-blue/10 hover:text-white-ice"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </button>
+  </form>
+
+  <div class="px-6 py-8 text-center">
+    <p class="font-display text-xl font-bold text-white-ice">
+      Formulário de aplicação
+    </p>
+    <p class="mt-2 text-sm leading-relaxed text-white-ice/70">
+      Este é o placeholder visual do popup. No deploy final, este espaço recebe o
+      formulário já existente (Supabase + disparo automático no Telegram).
+    </p>
+  </div>
+</dialog>
+
+<script>
+  const modal = document.getElementById("apply-modal") as HTMLDialogElement | null;
+
+  if (modal) {
+    document.addEventListener("click", (event) => {
+      const trigger = (event.target as HTMLElement)?.closest("[data-apply-trigger]");
+      if (trigger) {
+        event.preventDefault();
+        modal.showModal();
+      }
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.close();
+      }
+    });
+  }
+</script>

@@ -60,10 +60,63 @@ Use a data de hoje como nome da pasta. Se a pasta não existir, crie-a.
 
 ---
 
+## GATE DE CARROSSEL — obrigatório antes de qualquer produção de carrossel
+
+**Quando o pedido for carrossel: executar este gate completo antes de qualquer slide, ângulo ou copy.**
+
+Carregar `guia-linhas-editoriais-carrossel.md` e perguntar em sequência:
+
+---
+
+**ETAPA 1 — Linha editorial**
+
+> "Este carrossel é produto ou conteúdo?
+>
+> **PRODUTO** (termina em CTA de contato / agendar atendimento)
+> A — A Peça: material, técnica, detalhe, acabamento
+> B — O Corpo: silhueta, caimento, movimento, liberdade de uso
+> C — O Look: composições, formas de usar, versatilidade
+>
+> **CONTEÚDO** (termina em engajamento, salvar ou reflexão)
+> D — Cultura de Moda: história, silhuetas, o que move a moda
+> E — Moda Autoral: autoral vs. massa, posicionamento pela escolha
+> F — Identidade: relação da mulher com o que veste, reconhecimento"
+
+→ Aguardar escolha (A / B / C / D / E / F) antes de prosseguir.
+
+---
+
+**ETAPA 2 — Voz narrativa**
+
+> "Qual voz para este carrossel?
+>
+> ① **Carol narradora** — primeira pessoa: 'Escolhi esse tecido porque...'
+>    (seguir production-rules.md — voz da Carol, tom de amiga próxima)
+>
+> ② **Editorial impessoal** — narrador externo: 'Antes do shift dress, a silhueta...'
+>    (tom de revista/documental — Linhas D e E recomendam este)
+>
+> ③ **Íntima conversacional** — sem ser Carol, fala sobre a cliente: 'quando você encontra a peça certa...'
+>    (Linha F recomenda este — lowercase opcional)"
+
+→ Aguardar escolha (① / ② / ③) antes de prosseguir.
+
+---
+
+**ETAPA 3 — Confirmar peça ou tema**
+
+> "Qual a peça ou tema deste carrossel?"
+
+→ Só após as 3 etapas confirmadas: acionar `carousel-writer-sms` com linha + voz + tema como briefing.
+
+**Gate obrigatório: nenhum slide é escrito sem linha + voz definidos.**
+
+---
+
 ## Regras de produção
 
 - Nunca escreva copy sem executar o Gatilho Pré-Copy do `production-rules.md`
 - Nunca entregue sem confirmar a voz contra `.agents/social-media-context-sms.md`
 - Nunca use o mesmo dado âncora duas vezes na mesma semana (`references/dados-ancora.md`)
-- Vocabulário PROIBIDO: "premium", "luxo", "trends", "must-have", "fashionista", "lacrou", "empoderamento", "alfaiataria"
+- Vocabulário PROIBIDO: "premium", "luxo", "trends", "must-have", "fashionista", "lacrou", "empoderamento"
 - Se algum arquivo estiver ausente ou com placeholders não preenchidos, informe antes de produzir

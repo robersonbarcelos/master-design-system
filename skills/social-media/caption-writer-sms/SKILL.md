@@ -2,7 +2,7 @@
 name: caption-writer-sms
 description: "When the user wants to write a caption for a visual-first social media post on Facebook, Instagram, TikTok, Pinterest, or YouTube. Also use when the user mentions 'caption,' 'Instagram caption,' 'IG caption,' 'Reels caption,' 'TikTok caption,' 'Pinterest description,' 'Pinterest pin caption,' 'Facebook caption,' 'YouTube description,' 'YouTube title,' 'Shorts caption,' 'photo caption,' 'video caption,' 'description for my pin,' or shares an image/video and asks for words to go with it. For text-first standalone posts on LinkedIn, Twitter/X, Threads, or Bluesky, see post-writer-sms. For multi-slide carousels, see carousel-writer-sms. For opening lines, see hook-writer-sms."
 metadata:
-  version: 1.1.0
+  version: 1.3.0
 ---
 
 # Caption Writer
@@ -27,11 +27,18 @@ You are an expert caption writer who knows that on visual platforms, **the visua
 
 Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, content pillars, target audience, and example captions if provided. Match vocabulary, sentence rhythm, emoji habits, and emotional register.
 
-If the file does not exist, say:
+**Se o arquivo não existir — gate obrigatório:**
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it takes about 5 minutes and makes every caption I write sound like you."
+> ⚠️ **Contexto do cliente não encontrado.**
+> O arquivo `.agents/social-media-context-sms.md` não existe. Sem ele, a caption será escrita com voz genérica — não calibrada para nenhum cliente ou persona específica.
+>
+> **Recomendo fortemente:** rode `social-media-context-sms` primeiro (5 minutos). Torna cada caption soar como você, não como IA genérica.
+>
+> Posso continuar em **modo genérico** agora — mas o output não estará pronto para publicação com cliente real.
+> **Continuar sem contexto?** (sim / não)
 
-If the user wants to proceed without it, use neutral defaults and flag the limitation.
+- Se **não** → acionar `social-media-context-sms` antes de prosseguir
+- Se **sim** → prosseguir em modo genérico; marcar o output com `[⚠️ SEM CONTEXTO DE CLIENTE — revisar voz antes de publicar]`
 
 ---
 
@@ -295,6 +302,33 @@ full breakdown on the channel — link in bio
 6. **Apply hashtag rules per platform** (see specs above) — never copy the same hashtag set across platforms.
 
 7. **Generate variants if requested** — 2-3 versions with different hooks, lengths, or CTAs are useful for A/B testing.
+
+## QA Gate — obrigatório antes de entregar
+
+Pontuar internamente. Mínimo **90/100** para entregar. Abaixo de 90: reescrever os critérios que falharam.
+
+| Critério | Pontos |
+|---|---|
+| Hook — primeira linha para antes do "...more" com clareza e tensão | 20 |
+| Voz do cliente — soa como o cliente/creator, não como IA genérica | 15 |
+| CTA — claro, nativo da plataforma, posicionado no lugar certo | 15 |
+| Especificidade — detalhes concretos, não descrições genéricas do visual | 15 |
+| Formato da plataforma — specs de caracteres, hashtags, emojis corretos | 15 |
+| Sem padrões proibidos de voz — sem clichês, sem corporativo | 10 |
+| Relação com o visual — caption complementa sem duplicar o que o visual já diz | 10 |
+| **Total** | **100** |
+
+**N/A:** se `.agents/social-media-context-sms.md` ausente, redistribuir os 15 pontos de voz proporcionalmente.
+
+### copy-qa-sms Gate — obrigatório após score ≥ 90
+
+Executar o protocolo **copy-qa-sms** antes de entregar:
+
+- **Passo 1 — Voice Gate:** `production-rules.md` → `00-B` + padrões universais (adjetivo sem dado, CTA vago, trios abstratos)
+- **Passo 2 — AI Pattern Gate:** Tier 1 → reescrita automática. Tier 2: verificar por parágrafo. Estrutural: aplicar a tabela completa do `copy-qa-sms` (em-dash excessivo, bold em excesso, parágrafos uniformes, bullets sem verbo, atribuições vagas, construções "Vamos...", disclaimers de corte, hashtag stuffing, emoji em headline, contraste binário "Não é X, é Y", fragmentação estacato, abertura com "Então"/"So", wh-openers performáticos).
+- **Passo 3 — Decisão:** só entregar após aprovação completa
+
+Não exibir o resultado do gate ao usuário. Entregar apenas a caption final aprovada.
 
 ---
 

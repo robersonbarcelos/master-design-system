@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 2.2 · Projetos com memória: configure uma vez, use sempre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;
+  --amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --green:#15803D;--green-bg:#DCFCE7;--green-border:#BBF7D0;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,64px);line-height:.9;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+
+.card{border:1px solid var(--border);border-radius:20px;padding:24px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,80,34,.75)}
+.card.navy h3{color:#fff}
+.card.navy p,.card.navy li{color:rgba(255,255,255,.72)}
+
+/* CONTRASTE SEM vs COM */
+.contraste{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.contraste-lado{padding:24px}
+.contraste-lado.sem{background:var(--bg2);border-right:1px solid var(--border)}
+.contraste-lado.com{background:var(--navy)}
+.contraste-label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.contraste-lado.sem .contraste-label{color:var(--muted)}
+.contraste-lado.com .contraste-label{color:rgba(245,80,34,.8)}
+.contraste-lado h3{font-size:18px;letter-spacing:-.03em;margin:0 0 8px}
+.contraste-lado.sem h3{color:var(--ink)}
+.contraste-lado.com h3{color:#fff}
+.contraste-lado p{font-size:14px;line-height:1.5;margin:0}
+.contraste-lado.sem p{color:var(--muted)}
+.contraste-lado.com p{color:rgba(255,255,255,.68)}
+
+/* ANATOMIA PROJETO */
+.anatomia{border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.anatomia-header{padding:16px 20px;background:var(--navy);display:flex;align-items:center;gap:10px}
+.anatomia-label{font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.anatomia-title{font-size:16px;font-weight:700;color:#fff}
+.anatomia-body{padding:0}
+.anatomia-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--border)}
+.anatomia-row:last-child{border-bottom:0}
+.anatomia-campo{padding:16px 20px;background:var(--bg2);font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);border-right:1px solid var(--border)}
+.anatomia-val{padding:16px 20px;font-size:14px;color:var(--body);line-height:1.5}
+
+/* CODE BLOCK */
+.code-block{font-family:var(--mono);font-size:13px;line-height:1.65;background:var(--navy);color:#E2E8F0;padding:22px 24px;border-radius:16px;border-left:3px solid var(--amber)}
+.code-block .comment{color:rgba(245,80,34,.55)}
+.code-block .key{color:#93C5FD}
+
+/* DOC REFERÊNCIA */
+.doc-tipos{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.doc-tag{font-family:var(--mono);font-size:11px;font-weight:700;padding:7px 12px;border-radius:999px;background:var(--bg2);border:1px solid var(--border);color:var(--body)}
+
+.note{border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;border-left:3px solid var(--amber)}
+.note strong{color:var(--amber-text)}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.checklist li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--body);line-height:1.5}
+.check-box{width:20px;height:20px;border-radius:6px;border:2px solid var(--border);background:var(--white);flex-shrink:0;margin-top:1px}
+
+.conclusao{border-radius:24px;padding:50px 44px;margin-top:14px;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.20);position:relative;overflow:hidden}
+.conclusao:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.conclusao h2{font-size:clamp(28px,4.2vw,48px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.conclusao p{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:13px 20px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .grid.two,.contraste{grid-template-columns:1fr}
+  .contraste-lado.sem{border-right:0;border-bottom:1px solid var(--border)}
+  .anatomia-row{grid-template-columns:1fr}
+  .anatomia-campo{border-right:0;border-bottom:1px solid var(--border)}
+  .conclusao{padding:34px 26px}
+  .statement{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+<!-- HEADER -->
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/>
+      <polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/>
+      <circle cx="60" cy="60" r="11" fill="#F55022"/>
+    </svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 2 · Aula 2.2<br>PRÁTICA · 7 min</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M2 · Claude Chat</div>
+    <h1>Projetos: <span class="accent">configure uma vez,</span> use sempre.</h1>
+    <p class="lead">Você não vai mais precisar explicar quem você é toda vez. O Claude já sabe. Nesta aula você aprofunda as instruções do Projeto criado em M1-1.3 e vê o contraste na prática.</p>
+    <div class="chips">
+      <span class="chip hot">Prática · 7 min</span>
+      <span class="chip">Projetos</span>
+      <span class="chip">Instruções</span>
+      <span class="chip">Memória</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Projeto completo.</strong>
+      <p>Descrição do negócio, tom de voz definido e pelo menos 1 documento de referência adicionado.</p>
+    </div>
+    <div class="signal">
+      <small>O momento "wow"</small>
+      <strong>Sem vs. com Projeto.</strong>
+      <p>Você vai ver ao vivo a diferença entre uma resposta genérica e uma resposta que já conhece o seu contexto.</p>
+    </div>
+    <div class="signal">
+      <small>Diferença importante</small>
+      <strong>Chat vs. Cowork.</strong>
+      <p>Projetos no Chat guardam contexto e memória. No Cowork, o Projeto tem pasta de arquivos no computador. São usos diferentes.</p>
+    </div>
+  </aside>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <p>Você não vai mais repetir quem você é.<br>O Claude <em>já sabe antes de você abrir a boca.</em></p>
+</section>
+
+<!-- 01: O PROBLEMA -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">01</span>
+    <h2>O problema que Projetos resolvem</h2>
+  </div>
+  <div class="contraste">
+    <div class="contraste-lado sem">
+      <div class="contraste-label">Sem Projeto</div>
+      <h3>Resposta genérica de sempre.</h3>
+      <p>O Claude não sabe quem você é, qual é seu negócio, seu público ou seu tom de voz. Cada conversa começa do zero. Você repete o briefing toda hora e ainda assim a resposta sai genérica.</p>
+    </div>
+    <div class="contraste-lado com">
+      <div class="contraste-label">Com Projeto</div>
+      <h3>Resposta personalizada do início.</h3>
+      <p>As instruções do Projeto são carregadas em toda conversa dentro dele. O Claude já sabe o contexto. Você abre, pergunta, e a resposta já vem no tom certo, sobre o negócio certo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02: ANATOMIA -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">02</span>
+    <h2>Anatomia de um bom Projeto</h2>
+  </div>
+  <div class="anatomia">
+    <div class="anatomia-header">
+      <span class="anatomia-label">Estrutura</span>
+      <span class="anatomia-title">Os 4 elementos que todo Projeto precisa ter</span>
+    </div>
+    <div class="anatomia-body">
+      <div class="anatomia-row">
+        <div class="anatomia-campo">Nome</div>
+        <div class="anatomia-val">Algo que representa o uso real. "Marketing Digital", "Consultoria de Vendas", "Criação de Conteúdo". Você cria um Projeto por área de trabalho, não um só para tudo.</div>
+      </div>
+      <div class="anatomia-row">
+        <div class="anatomia-campo">Contexto</div>
+        <div class="anatomia-val">Quem você é, o que faz, qual é o seu negócio em 2-3 linhas. Quanto mais específico, melhor a resposta. "Sou consultor de marketing digital para pequenas empresas do setor de saúde" é melhor que "trabalho com marketing".</div>
+      </div>
+      <div class="anatomia-row">
+        <div class="anatomia-campo">Tom de voz</div>
+        <div class="anatomia-val">Como você quer que o Claude responda: direto, sem rodeios, linguagem acessível, sem jargão técnico, sempre em português. Esse campo elimina correções manuais toda vez.</div>
+      </div>
+      <div class="anatomia-row">
+        <div class="anatomia-campo">Formato</div>
+        <div class="anatomia-val">Preferências de estrutura: sempre use listas quando for enumerar, evite parágrafos longos, responda em tópicos quando a pergunta tiver mais de 3 itens. O Claude segue essas regras em toda conversa do Projeto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03: AO VIVO -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">03</span>
+    <h2>Editar as instruções ao vivo: exemplo real</h2>
+  </div>
+  <div class="code-block">
+    <span class="comment">// Exemplo de instruções de Projeto · usado na aula</span><br><br>
+    <span class="key">Você é meu assistente de marketing e criação de conteúdo.</span><br><br>
+    Meu negócio: [nome e descrição em 2 linhas]<br>
+    Meu público: [descrição do seu cliente ideal]<br>
+    Tom de voz: direto, sem firulas, linguagem acessível<br>
+    Formato padrão: use listas quando for enumerar, evite parágrafos longos<br>
+    Idioma: sempre português brasileiro
+  </div>
+  <div class="note" style="margin-top:14px">
+    <strong>Substitua os colchetes pelo que é real para você.</strong> Quanto mais concreto o contexto, mais útil o Claude fica. Não precisa ser longo: 5-6 linhas bem escritas valem mais que um parágrafo genérico.
+  </div>
+</section>
+
+<!-- 04: TESTE -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">04</span>
+    <h2>O teste que mostra a diferença</h2>
+  </div>
+  <div class="grid two">
+    <article class="card navy">
+      <div class="label">O que fazer agora</div>
+      <h3>Abra uma conversa nova dentro do Projeto.</h3>
+      <p>Não no chat geral. Dentro do Projeto. Faça uma pergunta que dependa do seu contexto de negócio: "Qual tipo de conteúdo eu deveria criar essa semana?"</p>
+    </article>
+    <article class="card">
+      <div class="label">O que você vai perceber</div>
+      <h3>A resposta já vem no tom certo, sobre o negócio certo.</h3>
+      <p>Sem você explicar nada. Esse é o momento que torna os Projetos insubstituíveis no uso diário. É a diferença de trabalhar com uma IA que te conhece versus uma que começa do zero toda vez.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 05: DOCUMENTOS DE REFERÊNCIA -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">05</span>
+    <h2>Dica avançada: documentos de referência</h2>
+  </div>
+  <div class="grid two">
+    <article class="card">
+      <div class="label">O que são</div>
+      <h3>Arquivos que o Claude carrega em todas as conversas do Projeto.</h3>
+      <p>Você sobe um arquivo e ele fica disponível como contexto permanente. O Claude lê quando precisar, sem você precisar colar o conteúdo toda vez.</p>
+      <div class="doc-tipos">
+        <span class="doc-tag">PDF</span>
+        <span class="doc-tag">DOCX</span>
+        <span class="doc-tag">TXT</span>
+        <span class="doc-tag">Texto colado direto</span>
+      </div>
+    </article>
+    <article class="card">
+      <div class="label">O que colocar aqui</div>
+      <h3>Tudo que você repetiria em briefings.</h3>
+      <ul>
+        <li>Guia de marca e tom de voz</li>
+        <li>Lista de produtos e preços</li>
+        <li>Personas e público-alvo detalhado</li>
+        <li>FAQ do negócio</li>
+        <li>Modelos de proposta ou contrato</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ENTREGÁVEL -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">06</span>
+    <h2>Entregável desta aula</h2>
+  </div>
+  <article class="card">
+    <div class="label">Checklist de conclusão</div>
+    <h3>Seu Projeto está pronto quando tiver:</h3>
+    <ul class="checklist">
+      <li><span class="check-box"></span>Descrição do negócio em 2-3 linhas nas instruções</li>
+      <li><span class="check-box"></span>Tom de voz definido: como o Claude deve responder</li>
+      <li><span class="check-box"></span>Preferência de formato: listas, tópicos, tamanho de resposta</li>
+      <li><span class="check-box"></span>Pelo menos 1 documento de referência adicionado (opcional, mas recomendado)</li>
+      <li><span class="check-box"></span>Uma conversa iniciada dentro do Projeto para confirmar que funciona</li>
+    </ul>
+  </article>
+</section>
+
+<!-- CONCLUSÃO -->
+<section class="conclusao" style="margin-top:52px">
+  <h2>Projeto configurado.<br><span class="accent">Próximo: conectar ferramentas reais.</span></h2>
+  <p>M2-2.3 conecta o Claude ao Google Calendar, Gmail e Airtable. Você vai ver o Claude agindo fora do chat pela primeira vez.</p>
+  <div class="cta-actions">
+    <span class="btn primary">Projeto pronto. Pode continuar.</span>
+    <span class="btn">Próxima: M2-2.3 · Conectores</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 2 · Aula 2.2 · Projetos com memória · Próxima aula: M2-2.3 · Conectores</footer>
+
+</main>
+</body>
+</html>

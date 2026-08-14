@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M2-2.3 · Conectores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.alerta{font-size:18px;color:#fca5a5;background:#1a0000;border:1px solid #3a0000;border-left:3px solid #ef4444;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M2 · Aula 2.3 · AO VIVO · 6 min</span>
+  <span class="titulo">Conectores: Google Calendar, Gmail e Airtable</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">O que são Conectores</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Até agora o Claude só falava com você. Respondia dentro do chat.</p>
+    <p>Com Conectores ele passa a agir fora do chat. Ele cria eventos no seu Google Calendar. Redige emails no Gmail. Salva tarefas no Airtable.</p>
+    <p>O Claude deixa de ser só uma IA que conversa e passa a ser um assistente que executa.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Onde ficam os Conectores</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Tela: Settings do Claude.ai</div>
+  <div class="fala">
+    <p>Para ativar: Settings, depois Integrations. Está aqui.</p>
+    <p>Muita gente não sabe onde fica. Agora você sabe.</p>
+  </div>
+  <div class="acao">Mostrar o caminho Settings › Integrations devagar</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Demo 1: Google Calendar</span>
+    <span class="cena-tempo">1 min 30 s</span>
+  </div>
+  <div class="stage">Tela: Claude Chat com Conector ativo</div>
+  <div class="fala">
+    <p>Vou conectar o Google Calendar ao vivo e pedir um evento.</p>
+  </div>
+  <div class="acao">Clicar em Connect no Google Calendar e autorizar via OAuth</div>
+  <div class="fala">
+    <p>"Cria um evento no meu Google Calendar para amanhã às 10h chamado Reunião de planejamento semanal, com duração de 1 hora."</p>
+    <p>Olha: o Claude pede confirmação antes de criar. Você aprova. O evento aparece no Calendar.</p>
+    <p>Nenhum código. Nenhum Zapier. Você falou, ele fez.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Demo 2: Gmail</span>
+    <span class="cena-tempo">1 min 30 s</span>
+  </div>
+  <div class="stage">Tela: Claude Chat</div>
+  <div class="fala">
+    <p>Agora o Gmail. Prompt:</p>
+    <p>"Redija um email profissional para um cliente adiando nossa reunião de quinta para sexta às 14h. Tom: cordial e direto."</p>
+    <p>O Claude gera o rascunho direto no Gmail. Ele não envia sem você aprovar. Você revisa, ajusta se quiser, e aí envia.</p>
+    <p>Você tem o controle. Ele só faz o trabalho pesado.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Demo 3: Airtable</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: Claude Chat</div>
+  <div class="fala">
+    <p>E o Airtable. Se você usa para gestão de tarefas:</p>
+    <p>"Adiciona na minha base Tarefas uma linha com: tarefa = Gravar aula 2.3, status = Em andamento, prazo = [data]."</p>
+    <p>Claude salva o registro. Você abre o Airtable e a tarefa já está lá.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 6</span>
+    <span class="cena-titulo">Segurança: o Claude sempre pede confirmação</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Ponto importante: o Claude nunca age sem você aprovar. Cada ação tem uma confirmação antes de executar.</p>
+    <p>Isso não é limitação. É segurança. Você está no controle o tempo todo.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Aviso</span>
+    <span class="cena-titulo">Meta Ads: não conectar direto</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="alerta">Alerta para quem trabalha com tráfego pago: nunca conecte o Claude diretamente ao Meta Ads Manager. Risco real de banimento da conta. Se precisar integrar, use Windsor.ai como intermediário. Isso não é exagero.</div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno conecta pelo menos 1 integração e faz o Claude executar 1 ação real fora do chat.</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Mostrar o caminho Settings › Integrations devagar. Muita gente não sabe onde fica.</li>
+    <li>O Claude sempre pede confirmação antes de agir. Deixar isso claro: é segurança, não limitação.</li>
+    <li>Se o aluno não tiver Airtable: mostrar como alternativa ou pular. Google Calendar e Gmail são as mais universais.</li>
+    <li>Não confundir Conectores (Chat) com MCPs (Claude Code). MCPs são abordados em M5.</li>
+    <li>Meta Ads: mencionar o aviso com clareza. É um erro comum que tem consequência grave.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

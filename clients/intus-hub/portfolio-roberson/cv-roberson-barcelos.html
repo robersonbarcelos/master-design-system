@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roberson Barcelos | Currículo</title>
+<style>
+  /* ── TOKENS ── */
+  :root {
+    --ink:        #0d1117;
+    --ink-muted:  #5a6070;
+    --ink-faint:  #9aa0af;
+    --paper:      #f5f4f0;
+    --surface:    #eeecea;
+    --rule:       #d6d3cc;
+    --accent:     #1847c8;
+    --accent-dim: #e8edf8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:        #e2e0da;
+      --ink-muted:  #9aa0af;
+      --ink-faint:  #5a6070;
+      --paper:      #13151c;
+      --surface:    #1b1e28;
+      --rule:       #2a2f3d;
+      --accent:     #4d79ff;
+      --accent-dim: #1a2240;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink:        #e2e0da;
+    --ink-muted:  #9aa0af;
+    --ink-faint:  #5a6070;
+    --paper:      #13151c;
+    --surface:    #1b1e28;
+    --rule:       #2a2f3d;
+    --accent:     #4d79ff;
+    --accent-dim: #1a2240;
+  }
+  :root[data-theme="light"] {
+    --ink:        #0d1117;
+    --ink-muted:  #5a6070;
+    --ink-faint:  #9aa0af;
+    --paper:      #f5f4f0;
+    --surface:    #eeecea;
+    --rule:       #d6d3cc;
+    --accent:     #1847c8;
+    --accent-dim: #e8edf8;
+  }
+
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── LAYOUT ── */
+  .cv {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 48px 72px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    border-left: 5px solid var(--accent);
+    padding-left: 24px;
+    margin-bottom: 48px;
+  }
+  .header-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: var(--ink);
+    text-wrap: balance;
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 20px;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    list-style: none;
+  }
+  .contact-row li {
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .contact-row a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .contact-row a:hover { text-decoration: underline; }
+  .contact-dot {
+    color: var(--ink-faint);
+    font-size: 11px;
+  }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 40px; }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── PERFIL ── */
+  .perfil p {
+    color: var(--ink);
+    margin-bottom: 12px;
+    max-width: 62ch;
+  }
+  .perfil p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* ── EXPERIÊNCIA ── */
+  .job { margin-bottom: 32px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    margin-bottom: 10px;
+  }
+  .job-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .job-company {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 1px;
+  }
+  .job-period {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    margin-top: 3px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .job-bullets li {
+    padding-left: 16px;
+    position: relative;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+  .job-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+
+  /* ── HABILIDADES ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--surface);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .skill-cat {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .skill-list {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ── FORMAÇÃO + IDIOMAS ── */
+  .edu-item, .lang-item {
+    margin-bottom: 10px;
+    font-size: 14.5px;
+  }
+  .edu-item:last-child, .lang-item:last-child { margin-bottom: 0; }
+  .edu-degree {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .edu-inst {
+    color: var(--ink-muted);
+    font-size: 13.5px;
+  }
+  .lang-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .lang-level {
+    color: var(--ink-muted);
+    font-size: 13.5px;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .cv { padding: 32px 40px 48px; }
+    :root {
+      --ink: #0d1117;
+      --ink-muted: #5a6070;
+      --ink-faint: #9aa0af;
+      --paper: #ffffff;
+      --surface: #f0efec;
+      --rule: #d0cdc6;
+      --accent: #1847c8;
+    }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cv { padding: 32px 24px 48px; }
+    .header-name { font-size: 28px; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<main class="cv" role="main">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="header-name">Roberson Barcelos</h1>
+    <p class="header-title">Estrategista de Conteúdo, Gestor de Comunidade & Especialista em IA</p>
+    <ul class="contact-row">
+      <li><a href="mailto:roberson.barcelos@gmail.com">roberson.barcelos@gmail.com</a></li>
+      <li class="contact-dot">·</li>
+      <li>+55 (55) 99686-2121</li>
+      <li class="contact-dot">·</li>
+      <li>Itaara, RS, Brasil</li>
+    </ul>
+  </header>
+
+  <!-- PERFIL PROFISSIONAL -->
+  <section class="section perfil" aria-labelledby="perfil-label">
+    <h2 class="section-label" id="perfil-label">Perfil Profissional</h2>
+    <p>Estrategista de Conteúdo e Gestor de Comunidade com mais de 15 anos de experiência em gestão empresarial, hoje focado em alavancagem de marcas e produtos digitais por meio de conteúdo de alta performance.</p>
+    <p>Especialista na aplicação de <strong>IA Generativa</strong> (Claude, ChatGPT, Higgsfield, HeyGen) para otimizar produção de conteúdo, roteiros de vídeo (Reels, Shorts, TikTok) e design visual (Thumbnails, Carrosséis). Histórico comprovado em crescimento de audiência e gestão de comunidades digitais (Discord, Infoprodutos), traduzindo visão estratégica em resultados mensuráveis, como um <strong>aumento de 233% na base de assinantes pagantes</strong> de uma comunidade de investimento em cripto e crescimento de <strong>20 mil para 42 mil seguidores no Instagram</strong> em 8 meses.</p>
+    <p>Combino o <strong>raciocínio analítico</strong> e a <strong>disciplina de gestão</strong> adquiridos em multinacionais (Shell) e operações de grande escala com a <strong>criatividade e a performance</strong> do marketing digital.</p>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section class="section" aria-labelledby="exp-label">
+    <h2 class="section-label" id="exp-label">Experiência Profissional</h2>
+
+    <article class="job">
+      <div class="job-header">
+        <div class="job-title">Gestor de Conteúdo & Comunidade</div>
+        <div class="job-company"><a href="https://www.instagram.com/diego.spanevello/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Intus Cripto Club</a></div>
+        <div class="job-period">Junho 2024 · Presente</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Construí junto ao infoprodutor as estratégias de crescimento e posicionamento que levaram o perfil do Instagram de <strong>20 mil para 42 mil seguidores</strong> em cerca de 8 meses.</li>
+        <li>Desenvolvi e executei estratégias de crescimento de comunidade, resultando em um <strong>aumento de 233% na base de assinantes pagantes</strong> (de 150 para 500 membros ativos) e expansão da newsletter para <strong>4.700 inscritos</strong> em 1 ano.</li>
+        <li>Criei conteúdo multimídia de alta conversão, incluindo roteiros de vídeo, copy para newsletters, análises técnicas e teses de investimento.</li>
+        <li>Gerenciei a equipe de pesquisa e conteúdo, triplicando o volume de análises semanais e elevando significativamente o engajamento da comunidade.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-header">
+        <div class="job-title">Consultor de Estratégia & Performance Digital</div>
+        <div class="job-company">Consultoria Independente</div>
+        <div class="job-period">Janeiro 2022 · Presente</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Prestei consultoria empresarial focada em <strong>estratégias de vendas e planejamento de conteúdo</strong> para otimizar a performance comercial de produtos físicos e digitais.</li>
+        <li>Apliquei visão orientada a ROI para garantir que as operações de conteúdo e comerciais gerassem sustentabilidade financeira de longo prazo.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-header">
+        <div class="job-title">Gerente de Operações & Logística</div>
+        <div class="job-company">Rancho Taura Distribuição de Alimentos</div>
+        <div class="job-period">Março 2011 · Janeiro 2022</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Gerenciei a expansão operacional e logística, escalando a cobertura da empresa de 2 para <strong>mais de 50 cidades</strong>.</li>
+        <li>Supervisionei uma carteira de <strong>350+ clientes</strong>, demonstrando alta capacidade de gestão de grandes bases de usuários e processos logísticos complexos, com competências diretamente transferíveis para gestão de comunidade em escala e distribuição de conteúdo.</li>
+        <li>Liderei equipes de logística e vendas, gerenciando orçamento e fluxo de caixa.</li>
+      </ul>
+    </article>
+
+    <article class="job">
+      <div class="job-header">
+        <div class="job-title">Analista de Processos & Dados</div>
+        <div class="job-company">Shell Business Center · Cracóvia, Polônia</div>
+        <div class="job-period">Janeiro 2010 · Dezembro 2010</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Atuei em ambiente multinacional e multicultural, com foco na migração e otimização de processos de crédito do Brasil para a Polônia.</li>
+        <li>Trabalhei com análise de dados financeiros e relatórios gerenciais, garantindo conformidade e eficiência operacional.</li>
+        <li>Desenvolvi forte <strong>visão analítica</strong> e habilidades de <strong>otimização de fluxos de trabalho</strong>, essenciais para gestão de performance de conteúdo e projetos.</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- HABILIDADES & FERRAMENTAS -->
+  <section class="section" aria-labelledby="skills-label">
+    <h2 class="section-label" id="skills-label">Habilidades & Ferramentas</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-cat">Estratégia de Conteúdo</div>
+        <div class="skill-list">Copywriting (Vendas & Engajamento), Brand Storytelling, Calendário Editorial, Análise de KPIs, Branding & Posicionamento Digital.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Produção Audiovisual</div>
+        <div class="skill-list">Roteirização (Reels, Shorts, Long-form), Edição & Direção de Vídeo, Thumbnails de Alta Conversão, Criativos para Redes Sociais.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Gestão de Comunidade</div>
+        <div class="skill-list">Estratégia de Engajamento (Discord & Infoprodutos), Crescimento de Audiência, Gestão de Equipes & Moderadores, Comunicação Intercultural.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Inteligência Artificial</div>
+        <div class="skill-list">Claude, ChatGPT, Higgsfield, HeyGen (Geração de Imagem & Vídeo com IA), Otimização de Fluxos com IA.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-cat">Gestão & Análise</div>
+        <div class="skill-list">Visão de ROI, Planejamento Estratégico, Gestão de Orçamento, Análise de Dados & Relatórios Gerenciais.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section class="section" aria-labelledby="edu-label">
+    <h2 class="section-label" id="edu-label">Formação Acadêmica</h2>
+    <div class="edu-item">
+      <div class="edu-degree">Bacharelado em Administração de Empresas</div>
+      <div class="edu-inst">Universidade Federal de Santa Maria (UFSM) · 2006 – 2009</div>
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section class="section" aria-labelledby="lang-label">
+    <h2 class="section-label" id="lang-label">Idiomas</h2>
+    <div class="lang-item">
+      <span class="lang-name">Português</span>
+      <span class="lang-level">· Nativo</span>
+    </div>
+    <div class="lang-item">
+      <span class="lang-name">Inglês</span>
+      <span class="lang-level">· Fluente</span>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

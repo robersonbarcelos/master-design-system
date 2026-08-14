@@ -18,14 +18,14 @@
 
 | Dado | Valor | Fonte | Melhor uso |
 |------|-------|-------|------------|
-| Preço atual | R$87,90 ou 6x R$16,50 | Checkout ativo | Conversão — sempre com âncora |
+| Preço atual | R$87,95 ou 6x R$16,50 | Checkout ativo | Conversão — sempre com âncora |
 | Preço âncora | R$997,00 | Value stack da LP | Âncora ANTES de mostrar preço real |
 | Order bump | R$57,90 (WhatsApp Vitalício) | LP OrderBump | Posts sobre suporte vitalício |
 | Valor individual do kit | R$197 (Kit de Ativação) | Value stack LP | Reforçar valor do kit |
 | Valor da comunidade | R$197 (WhatsApp 12 meses) | Value stack LP | Reforçar benefício incluso |
 | Tempo para resultado | Menos de 5 minutos online | LP / PRD | Objeção "vai demorar" |
-| Duração do conteúdo | 2 a 3 horas total | PRD / LP FAQ | Objeção "não tenho tempo" |
-| Módulos | 9 módulos curtos e práticos | LP / DS | Estrutura do produto |
+| Módulos | 4 módulos | LP / DS | Estrutura do produto |
+| Aulas | 16 aulas | LP / DS | Estrutura do produto |
 | Garantia | 7 dias incondicionais | LP Guarantee | Todo post de conversão |
 | Acesso | Vitalício (pagamento único) | LP / DS | Diferencial vs assinatura |
 | WhatsApp incluso | 12 meses | LP | Benefício incluído no preço |

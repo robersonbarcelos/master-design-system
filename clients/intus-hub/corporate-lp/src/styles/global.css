@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors — Intus IA Corporate institutional palette */
+  --color-hub-night: #050d1f;
+  --color-surface-alt: #0a1330;
+  --color-intus-blue: #0033aa;
+  --color-electric-blue: #0055ff;
+  --color-light-blue: #3399ff;
+  --color-bright-gold: #f0b429;
+  --color-signal-gold: #ffd700;
+  --color-hub-gold: #c8960a;
+  --color-white-ice: #f0f4ff;
+
+  /* Typography */
+  --font-display: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-label: "JetBrains Mono", monospace;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Glow shadows */
+  --shadow-glow-blue: 0 0 40px rgba(0, 85, 255, 0.2);
+  --shadow-glow-blue-sm: 0 0 24px rgba(0, 85, 255, 0.15);
+  --shadow-glow-gold: 0 0 32px rgba(240, 180, 41, 0.18);
+
+  /* Easing */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-hub-night);
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-hub-night);
+    color: var(--color-white-ice);
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: var(--color-electric-blue);
+    color: var(--color-white-ice);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-electric-blue);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .divider-gradient {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--color-intus-blue),
+      transparent
+    );
+  }
+
+  .label-text {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Scroll-reveal: opacity + translateY sutil, sem bounce, ease-out-quart */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s var(--ease-out-quart),
+      transform 0.7s var(--ease-out-quart);
+  }
+
+  /* will-change só é aplicado no momento em que o IntersectionObserver dispara,
+     nunca preemptivamente (motion-design.md) */
+  .reveal.will-animate {
+    will-change: opacity, transform;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Skip link — visível apenas ao receber foco via teclado */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    background-color: var(--color-electric-blue);
+    color: var(--color-white-ice);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-label);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: top 0.2s var(--ease-out-quart);
+  }
+
+  .skip-link:focus-visible {
+    top: 1rem;
+  }
+}

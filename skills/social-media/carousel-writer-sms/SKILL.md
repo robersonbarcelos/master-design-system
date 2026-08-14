@@ -2,7 +2,7 @@
 name: carousel-writer-sms
 description: "When the user wants to write content for a LinkedIn carousel, Instagram carousel, Facebook carousel, TikTok photo carousel, Pinterest Idea Pin, or any swipeable multi-slide format. Also use when the user mentions 'carousel,' 'slides,' 'LinkedIn carousel,' 'Instagram carousel,' 'IG carousel,' 'photo carousel,' 'TikTok photo carousel,' 'Idea Pin,' 'Pinterest Idea Pin,' 'swipe post,' 'slide deck,' or 'visual content.' Outputs slide-by-slide text content (not visual design). For single posts, see post-writer-sms. For threads, see thread-writer-sms. For caption copy under each slide post, see caption-writer-sms."
 metadata:
-  version: 2.0.0
+  version: 2.2.0
 ---
 
 # Carousel Writer
@@ -33,9 +33,11 @@ You output text content only, not visual design. Each slide is a unit of clear, 
 Confirmar com uma mensagem curta antes de prosseguir:
 
 > "Este carrossel vai ser produzido com o tom de voz de **[cliente]**.
-> Quer que eu proponha os **3 ângulos** para você escolher antes de desenvolver os slides?"
+> Quer que eu acione o **narrative-framework-sms** para modelar os ângulos narrativos e gerar os hooks de capa antes de escrever os slides?"
 
-→ Aguardar confirmação ("sim" / "pode ir" / "quero ver") antes de entrar na FASE 1.
+→ Aguardar confirmação antes de entrar na FASE 1.
+→ Se sim: acionar `narrative-framework-sms` com formato = carrossel. Após o usuário escolher o framework, retornar aqui com o briefing e seguir para a FASE 1.
+→ Se não (usuário quer ir direto ou já tem ângulo): prosseguir para FASE 1 com o ângulo fornecido.
 
 ### Se nenhum cliente foi declarado:
 
@@ -43,13 +45,25 @@ Perguntar antes de qualquer outra ação:
 
 > "Qual é o cliente desse carrossel? Preciso carregar o tom de voz e contexto certo antes de propor os ângulos."
 
-→ Aguardar resposta. Após identificar o cliente, carregar o arquivo `clients/[cliente]/.agents/social-media-context-sms.md`.
+→ Aguardar resposta. Após identificar o cliente, carregar o arquivo `.agents/social-media-context-sms.md`.
+
+---
+
+## Product Linkage Gate (clientes com produto separado da marca pessoal)
+
+Se o cliente tiver um produto específico separado da marca pessoal (ex: Intus Hub / Super Agente, personal brand / curso, agência / produto SaaS), verificar no `CLAUDE.md` do cliente se há instrução de gate de vinculação.
+
+Quando presente, perguntar **antes de qualquer modelagem de ângulo**:
+
+> "Este carrossel é conteúdo de autoridade pura, ou quer conectar ao [produto] no CTA final?"
+
+**Regra universal:** a conexão ao produto vai APENAS no slide final (virada) — nunca no gancho, nunca no ângulo narrativo. Se a conexão parecer forçada no briefing, o padrão é autoridade pura.
 
 ---
 
 ## Context Check
 
-Após confirmar o cliente, ler `clients/[cliente]/.agents/social-media-context-sms.md` e extrair ativamente:
+Após confirmar o cliente, ler `.agents/social-media-context-sms.md` e extrair ativamente:
 
 ```
 CONTEXTO CARREGADO — [cliente]
@@ -60,9 +74,52 @@ Tom dominante: [direto / provocativo / educativo / storytelling — baseado na v
 
 Esse briefing interno guia os ângulos propostos na FASE 1 — não precisa ser exibido ao usuário, mas deve estar ativo.
 
-Se o arquivo não existir:
+**Se o arquivo não existir — gate obrigatório:**
 
-> "Não encontrei o contexto de social media desse cliente. Me passa o tom de voz e público-alvo agora, ou crie o arquivo `social-media-context-sms.md` primeiro."
+> ⚠️ **Contexto do cliente não encontrado.**
+> O arquivo `.agents/social-media-context-sms.md` não existe. Sem ele, o carrossel será escrito com voz genérica — não calibrada para nenhum cliente ou pessoa específica.
+>
+> **Recomendo fortemente:** rode `social-media-context-sms` primeiro (5 minutos). Torna cada slide soar como o cliente, não como IA genérica.
+>
+> Posso continuar em **modo genérico** agora — mas o output não estará pronto para publicação com cliente real.
+> **Continuar sem contexto?** (sim / não)
+
+- Se **não** → acionar `social-media-context-sms` antes de prosseguir
+- Se **sim** → prosseguir em modo genérico; marcar o output com `[⚠️ SEM CONTEXTO DE CLIENTE — revisar voz antes de publicar]`
+
+---
+
+## FASE 0.5 — Pesquisa de Contexto (obrigatório antes de propor ângulos)
+
+**Este passo acontece internamente, antes de qualquer proposta ao usuário. Nunca pule.**
+
+Com base no tema fornecido, pesquise ativamente antes de propor ângulos:
+
+```
+PESQUISA INTERNA — [tema]
+
+① Dado ou estatística surpreendente
+   → Existe um número específico que reframe a percepção comum sobre esse tema?
+   → Ex: "73% dos criadores de conteúdo abandonam nos primeiros 6 meses"
+
+② Fato contrarian ou counterintuitive
+   → O que a maioria acha verdade sobre esse tema que os dados contradizem?
+   → Ex: "Consistência não cresce perfil — relevância cresce"
+
+③ Exemplo real ou case concreto
+   → Existe um nome, marca ou caso real que exemplifica o tema de forma específica?
+   → Ex: "A Netflix parou de medir views — começou a medir horas assistidas"
+
+④ Equívoco comum a desafiar
+   → O que as pessoas tipicamente erram ao abordar esse assunto?
+   → Ex: "A maioria foca em quantidade de posts quando o problema é qualidade do gancho"
+
+⑤ Angulo de identidade
+   → Existe uma afirmação sobre "tipo de pessoa" que cria identificação imediata no público?
+   → Ex: "Se você posta todo dia e não cresce, esse carrossel é para você"
+```
+
+Use os resultados dessa pesquisa para informar os ângulos da FASE 1. Ângulos informados por dados performam melhor que ângulos baseados apenas em intuição. A pesquisa não precisa ser exibida ao usuário — é o motor interno dos ângulos propostos.
 
 ---
 
@@ -91,13 +148,61 @@ Narrativa:
 
 Formato: [Listicle / Framework / Before-After / Data Storytelling / Mini Case Study / Storytelling] · [N] slides
 Virada: slide [N] — [o que acontece ali e por que esse é o momento certo]
+
+Framework narrativo sugerido: [escolher 1 — ver tabela abaixo]
 ```
 
+### Frameworks narrativos disponíveis
+
+Após propor os 3 ângulos, sugerir em qual framework cada um encaixa melhor. O usuário pode manter a sugestão ou trocar. O framework define a estrutura interna dos slides de corpo.
+
+| Framework | Estrutura | Melhor para |
+|---|---|---|
+| **PAS** | Problema → Agitar → Solução | Dores claras do público; ângulo de sofrimento antes da virada |
+| **AIDA** | Atenção → Interesse → Desejo → Ação | Carrosseis de venda ou autoridade; progressão emocional |
+| **BAB** | Before → After → Bridge | Transformações; cases; antes e depois com mecanismo de ligação |
+| **STAR** | Situation → Task → Action → Result | Cases reais; histórias de projeto; retrospectivas concretas |
+| **SLAY** | Statement → Logic → Argument → Y-factor | Ângulos contrarian; posições de nicho; diferenciação de pensamento |
+
+**Como aplicar o framework nos slides:**
+
+**PAS:**
+- Slides 2-3: Problema (o leitor se reconhece na dor)
+- Slides 4-5: Agitar (tornar o problema mais urgente com dado ou consequência)
+- Slides 6+: Solução (a virada — produto, método ou insight)
+
+**AIDA:**
+- Slide 1 (capa): Atenção
+- Slides 2-3: Interesse (por que isso importa para o leitor)
+- Slides 4-6: Desejo (resultado possível, prova, antes/depois)
+- Slide final: Ação (CTA)
+
+**BAB:**
+- Slides 2-3: Before (situação atual do leitor — específica, reconhecível)
+- Slides 4-5: After (situação futura desejada — concreta, aspiracional)
+- Slides 6+: Bridge (o caminho de um ao outro — o mecanismo)
+
+**STAR:**
+- Slide 2: Situation (contexto real — quando, onde, com quem)
+- Slide 3: Task (o desafio ou objetivo que estava em jogo)
+- Slides 4-6: Action (o que foi feito — específico, não genérico)
+- Slide 7: Result (o que aconteceu — com número se possível)
+
+**SLAY:**
+- Slide 2: Statement (a posição — declaração direta e provocadora)
+- Slide 3: Logic (a lógica — por que faz sentido, sem jargão)
+- Slides 4-6: Argument (os argumentos — dados, exemplos, contraste)
+- Slide final: Y-factor (o que torna essa perspectiva única — a assinatura do criador)
+
 **Regras das 3 variações de gancho:**
-- Cada variação usa um mecanismo diferente (dado bruto / pergunta / afirmação contrarian / identidade / urgência)
-- Todas em caixa alta — são títulos de capa, não subtítulos
+- Partir sempre da tensão real do conteúdo, não de um template ou label de ângulo
+- Headline = uma ideia, sem segunda parte. Cortar qualquer cláusula secundária.
+- Cada variação usa um mecanismo diferente (paradoxo / pergunta com tensão real / declaração factual / contraste histórico / âncora de identidade)
 - Nenhuma começa com a mesma palavra
-- O produto/cliente NUNCA aparece nos ganchos — isso é conteúdo, não anúncio
+- Zero travessão (—) em qualquer gancho
+- Abertura educacional proibida: sem "Aprenda como", "Descubra como", "Saiba como"
+- O subtítulo de cada variação ancora identidade ou promete o mecanismo, nunca repete o headline
+- O produto/cliente NUNCA aparece nos ganchos: isso é conteúdo, não anúncio
 
 **Regras dos 3 ângulos:**
 - Cada ângulo usa um tipo diferente (ex: não propor dois Storytelling)
@@ -197,7 +302,7 @@ Após confirmar o número de slides, perguntar:
 
 ---
 
-## FASE 3 — Visual Teardown (quando imagem de referência for fornecida)
+## FASE 3.5 — Visual Teardown (quando imagem de referência for fornecida)
 
 Se o usuário enviar uma imagem de referência, realize o Visual Teardown **antes de escrever qualquer slide**:
 
@@ -227,19 +332,36 @@ Mood: [observação]
 
 Every carousel has four zones: the **cover**, the **context**, the **body**, and the **CTA**. The arc is named and follows the approved ângulo narrative.
 
-### Slide 1 — Cover
+### Slide 1 — Capa (Hook)
 
-The cover slide must earn the swipe. It is your hook.
+A capa precisa parar o scroll. É o gancho. Segue a Lei do Hook do `narrative-framework-sms`.
 
-- **Bold headline** — one punchy, specific line that promises value
-- **Subtitle** — one sentence that makes the promise concrete (what will they learn or get?)
-- Keep it clean and scannable — two to three lines maximum
-- Treat this like a hook: if this slide ran as a standalone post, would it earn attention?
+**Headline:** uma ideia, sem segunda parte. Interrompe, não explica. Se surgir o impulso de adicionar uma segunda cláusula após a frase principal: cortar.
 
-**Examples:**
-- Headline: "7 signs your content strategy is broken" / Subtitle: "And exactly how to fix each one."
-- Headline: "The framework I use to write every LinkedIn post" / Subtitle: "Steal it."
-- Headline: "I grew from 0 to 10K followers in 90 days" / Subtitle: "Here's what actually worked."
+**Subtítulo:** adiciona segunda camada — ancora a identidade, promete o mecanismo ou contextualiza sem repetir o headline. Nunca repete o headline com outras palavras.
+
+**Regras:**
+- Zero travessão (—): proibido
+- Nome de empresa, pessoa ou evento real como âncora sempre que disponível
+- Não usar abertura educacional: proibido "Aprenda como", "Descubra como", "Saiba como", "Confira como"
+- O headline não entrega a resposta: cria tensão e abre loop. A resposta fica dentro do carrossel.
+
+**Exemplos validados:**
+
+```
+Headline: "O manifesto que promete um agente de IA pessoal para bilhões de pessoas saiu essa semana."
+Subtítulo: "Aqui está o que Zuckerberg está propondo."
+```
+
+```
+Headline: "Você vai ter um agente de IA trabalhando por você 24/7."
+Subtítulo: "O manifesto de Zuckerberg dono do Facebook."
+```
+
+```
+Headline: "A Meta prometeu conectar o mundo em 2004. Deu o Facebook. Agora prometeu dar um agente de IA para cada pessoa do planeta."
+Subtítulo: "O manifesto de Zuckerberg e por que a história importa aqui."
+```
 
 ---
 
@@ -578,16 +700,45 @@ Visual: Área limpa, fundo escuro sólido, espaço para logo no rodapé. Texto c
 
 Antes de mostrar o script ao usuário, verificar cada item. Se qualquer item falhar: reescrever antes de entregar.
 
+### Bloco 1 — Integridade do conteúdo
 - [ ] O copy soa como a voz do cliente — não como a referência original?
 - [ ] Alguma frase foi copiada ou adaptada mecanicamente da referência? Se sim: reescrever do zero
 - [ ] Tem dado inventado? Se sim: substituir por dado real ou remover
 - [ ] O produto aparece antes da virada? Se sim: remover
-- [ ] Tem travessão (—)? Se sim: substituir por ":" ou reescrever
-- [ ] Tem clichê ("transforme", "revolucione", "não perca", "salva esse post")? Se sim: remover
 - [ ] Cada slide ganha o próximo — o leitor tem motivo para arrastar?
 - [ ] O slide de CTA soa como conclusão natural da tensão — não como anúncio colado?
 
-Só entregar após todos os itens verificados.
+### Bloco 2 — Padrões proibidos gerais
+- [ ] Tem travessão (—)? Se sim: substituir por ":" ou reescrever
+- [ ] Tem clichê ("transforme", "revolucione", "não perca", "salva esse post")? Se sim: remover
+
+### Bloco 3 — copy-qa-sms Gate (obrigatório após Blocos 1 e 2)
+
+**Após os Blocos 1 e 2 aprovados, executar o protocolo copy-qa-sms em todo o script do carrossel.**
+
+- **Passo 1 — Voice Gate:** `production-rules.md` → `00-B | PADRÕES DE AUSÊNCIA DE VOZ` + padrões universais (abertura com "Nós somos", adjetivo sem dado, CTA vago, trios abstratos, pergunta retórica sem resposta)
+- **Passo 2 — AI Pattern Gate:** Tier 1 em qualquer slide → reescrita automática desse slide. Tier 2: verificar por slide (tratado como parágrafo). Padrão estrutural: sem em-dash (—) em nenhum slide, sem bullets de substantivos sem verbo.
+- **Passo 3 — Decisão:** só avançar para o QA Gate após copy-qa-sms aprovado
+
+Só entregar após Bloco 1 + Bloco 2 + copy-qa-sms aprovados.
+
+### QA Gate — Pontuação antes de entregar
+
+Após o checklist de 3 blocos, aplicar score interno. **Score mínimo: 90/100. Abaixo disso: reescrever automaticamente os slides reprovados sem pedir confirmação.**
+
+| Critério | Pontos |
+|---|---|
+| Hook para o scroll — não genérico, não abstrato | 20 |
+| Uma ideia por slide sem sobrecarga | 15 |
+| Virada acontece no slide correto (não cedo, não tarde demais) | 15 |
+| Voz consistente com `social-media-context-sms.md` (N/A se ausente → redistribuir) | 15 |
+| Ausência de padrões proibidos do `production-rules.md` (N/A se ausente → redistribuir) | 15 |
+| CTA é instrução direta — não sugestão vaga | 10 |
+| Cada slide ganha o próximo — lógica de arraste presente | 10 |
+
+**Total: 100 pontos | Mínimo para entrega: 90**
+
+Se aprovado (≥ 90), entregar os slides sem exibir o QA Gate. Se reprovado, reescrever e reaplicar o gate.
 
 ---
 
@@ -655,14 +806,14 @@ LEGENDA 3 — [tipo de CTA]
 Após script + CTAs + legendas aprovados, encerrar com:
 
 > "Script completo aprovado ✓
-> Diga **'gerar JSONs'** para acionar o `json-prompt-generator` — vou criar um JSON de imagem completo por slide com: cena, estilo, câmera, materiais, composição e parâmetros de qualidade."
+> Diga **'gerar JSONs'** para acionar o `anthropic-skills:json-prompt-generator` — vou criar um JSON de imagem completo por slide com: cena, estilo, câmera, materiais, composição e parâmetros de qualidade."
 
-### Processo obrigatório ao acionar o json-prompt-generator
+### Processo obrigatório ao acionar o anthropic-skills:json-prompt-generator
 
 **Passo 1 — Verificar referências de imagem:**
 Antes de gerar qualquer JSON, verificar se o usuário enviou imagens de referência visual durante a sessão.
 
-- **Se enviou referências:** acionar o `json-prompt-generator` em MODE A sobre cada referência para extrair a modelagem visual (composição, luz, câmera, texturas, atmosfera). Usar essa modelagem como base estilística para todos os prompts do carrossel.
+- **Se enviou referências:** acionar o `anthropic-skills:json-prompt-generator` em MODE A sobre cada referência para extrair a modelagem visual (composição, luz, câmera, texturas, atmosfera). Usar essa modelagem como base estilística para todos os prompts do carrossel.
 - **Se não enviou referências:** gerar os JSONs com base na direção visual de cada slide + brand-spec.md do cliente.
 
 **Passo 2 — Gerar 1 JSON por slide:**
@@ -675,37 +826,11 @@ Cada JSON combina:
 **Passo 3 — Entregar pronto para colar:**
 Cada JSON deve ser válido e pronto para colar diretamente no gerador de imagem — zero edição necessária.
 
-O `json-prompt-generator` receberá:
+O `anthropic-skills:json-prompt-generator` receberá:
 - A modelagem visual extraída das referências (quando houver)
 - A direção visual de cada slide
 - O sistema de identidade visual do cliente (carregado do `brand-spec.md`)
 - O arco narrativo do carrossel para consistência visual entre slides
-
----
-
-## REGRAS INVIOLÁVEIS — TEMPLATE TWITTER POST (Intus Hub)
-
-Ao gerar qualquer JSON para o cliente Intus Hub usando o TEMPLATE-SLIDE-TWITTER-POST:
-
-### Tipografia — TRAVADA
-
-| Elemento | Valor fixo | Proibido |
-|---|---|---|
-| Corpo do texto | **34px** regular sans-serif `#1A1A1A` | 38px, 40px, 44px ou qualquer outro |
-| Header nome | **26px** semibold sans-serif `#1A1A1A` | qualquer outro tamanho |
-| @handle | **22px** regular sans-serif `#888888` | qualquer outro tamanho |
-| Avatar | **64px** círculo | qualquer outro tamanho |
-
-### Destaque no copy — REGRA ÚNICA
-
-- **Negrito (bold) é o ÚNICO recurso de destaque permitido no corpo do texto**
-- **ZERO cor no copy** — nem laranja, nem dourado, nem azul, nem nenhuma outra cor
-- Cor existe apenas na imagem, nunca no texto
-- Slides de referência aprovados: "68% dos novos protocolos DeFi" e "Uma corretora organizou uma competição ao vivo"
-
-### Por que essa regra existe
-
-Slides gerados com fonte maior (40-44px) ou com texto laranja quebraram a consistência visual do carrossel. A análise mostrou que os slides com 34px + bold pontual + zero cor entregaram melhor leitura e identidade mais coesa.
 
 ---
 
@@ -718,10 +843,14 @@ Slides gerados com fonte maior (40-44px) ou com texto laranja quebraram a consis
 - Does not execute code or access external APIs unless BlackTwist MCP is connected
 - Does not handle scheduling or calendar planning — see **content-calendar-sms** for posting schedules
 
-## Related Skills
+## Skills relacionadas
 
-- **social-media-context-sms** — establish voice and platform preferences before writing slides
-- **hook-writer-sms** — craft a high-converting cover slide headline before building the carousel
-- **caption-writer-sms** — write the post caption that sits below the carousel on Instagram, Facebook, TikTok, and YouTube Community posts
-- **content-repurposer-sms** — turn an existing post, thread, or article into a carousel
-- **anthropic-skills:json-prompt-generator** — gera o JSON completo de imagem por slide após aprovação do script (FASE 5)
+- `social-media-context-sms` — contexto de voz e audiência do cliente
+- `narrative-framework-sms` — define o ângulo narrativo antes de escrever os slides
+- `hook-writer-sms` — variações de hook para o slide de capa
+- `copy-qa-sms` — gate universal de qualidade; roda automaticamente no Bloco 3 do checklist
+- `caption-writer-sms` — legenda otimizada para publicação junto ao carrossel
+- `content-repurposer-sms` — transforma post, thread ou artigo em carrossel
+- `production-orchestrator-sms` — ponto de entrada quando o pedido chega sem formato definido
+- `anthropic-skills:json-prompt-generator` — gera JSON de imagem completo por slide após aprovação do script (FASE 6)
+- `performance-analyzer-sms` — analisa performance de carrosseis publicados

@@ -1,7 +1,8 @@
 # PRD — Master Social Design System
 
-**Versão:** 1.1.0
-**Data:** 2026-05-21
+**Versão:** 1.3.0
+**Data:** 2026-07-27
+**Repositório:** https://github.com/robersonbarcelos/master-design-system-v270726
 **Tipo:** Sistema de orquestração de skills para produção de design e conteúdo no Claude Code
 
 ---
@@ -417,6 +418,21 @@ FASE 4 — ANÁLISE (quando tiver dados de performance)
 ├── optimization-advisor-sms → recomendações específicas de melhoria
 └── audience-growth-tracker-sms → tendência de crescimento
 ```
+
+### 5.3.1 Gates Obrigatórios embutidos na skill orquestradora (production-orchestrator-sms v1.1.0)
+
+Desde 2026-07-27, o gate de skill de criação definido no `CLAUDE.md` raiz (seção "Gate de Skill de Criação") também está **embutido diretamente** em `skills/social-media/production-orchestrator-sms/SKILL.md`, para que valha em toda produção — carrossel, artigo, post, thread, hook, roteiro de vídeo — sem depender de releitura externa do `CLAUDE.md`.
+
+| Gate | Verificação | Ação se falhar |
+|---|---|---|
+| GATE A | Formato do pedido tem skill de criação correspondente na tabela? (carrossel → carousel-writer-sms, artigo → article-writer-sms, post → post-writer-sms, thread → thread-writer-sms, legenda → caption-writer-sms, hook → hook-writer-sms, roteiro → video-script-sms, ilustração → illustration-writer-sms, repurpose → content-repurposer-sms, publicação de artigo → x-article-publisher) | STOP: pergunta ao usuário qual skill usar; nunca escreve copy "por fora" de uma skill |
+| GATE B | Ângulo/framework narrativo já definido pelo usuário? | NÃO → aciona `narrative-framework-sms` antes de prosseguir, independente do formato |
+| GATE C | `copy-qa-sms` (Voice Gate + AI Pattern Gate + padrões estruturais) executado antes da entrega? | STOP: orquestrador aciona `copy-qa-sms` manualmente antes de entregar, mesmo que a skill de criação tenha falhado em embuti-lo |
+| GATE D | Artefato final salvo em `clients/[cliente]/runs/[data]/`? | Empacotamento final — não substitui os gates A, B e C |
+
+**Exceção única (válida para os 4 gates):** o usuário pede explicitamente um rascunho sem passar pela skill/framework/QA — nesse caso o orquestrador sinaliza de forma visível: `[⚠️ COPY SEM GATE — não passou por narrative-framework-sms e/ou copy-qa-sms]`.
+
+**Por que embutido na skill (e não só no CLAUDE.md):** em 2026-07-21 um carrossel foi produzido escrevendo ângulos manualmente, pulando o gate de framework narrativo e o QA. O `CLAUDE.md` descreve a regra em nível de sistema; esta seção a torna operacional dentro do próprio fluxo de roteamento, garantindo que ela dispare mesmo se o `CLAUDE.md` não for relido na sessão.
 
 ### 5.4 CONTEXTO 3 — Roteiro de Vídeo
 
@@ -851,7 +867,13 @@ A metodologia do mestre-squad-builder (o que NÃO faz por agente, handoffs forma
 - [x] workflow 01-landing-page.md atualizado
 - [x] workflow 05-interface-design.md criado
 
-### v1.2
+### v1.2 ✅ Concluído (2026-07-27)
+- [x] Todas as pastas de cliente (incluindo `runs/`) versionadas neste repositório, sem exclusão via `.gitignore`
+- [x] Repositório republicado em `master-design-system-v270726`
+- [x] Restauração do conteúdo real de 23 skills que estavam substituídas por stubs "moved" com caminho absoluto de máquina
+- [x] Regra canônica no `CLAUDE.md`: repositório é a única fonte de verdade de skills, nunca a pasta global do usuário
+- [x] `production-orchestrator-sms` v1.1.0 — Gates Obrigatórios (A/B/C/D) embutidos diretamente na skill (ver seção 5.3.1)
+- [x] `workflows/02-social-media.md` atualizado com os 4 gates por tipo de peça, incluindo fluxo de artigo (article-writer-sms → illustration-writer-sms → x-article-publisher)
 - [ ] Integração com BlackTwist MCP para publicação direta nas plataformas
 - [ ] Template de proposta comercial para clientes
 - [ ] Skill de briefing estruturado para novos projetos

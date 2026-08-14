@@ -1,0 +1,26 @@
+{
+  "titulo": "⚖️ AGENTES DE IA VÃO PROCESSAR UM AO OUTRO, QUEM É O TRIBUNAL?",
+  "data": "2026-07-14",
+  "imagens": [
+    {
+      "id": "IMAGEM_1",
+      "posicao": "Hero — logo após o gancho de abertura",
+      "prompt": "Two AI robots facing each other in a futuristic courtroom, holographic contract floating between them, one robot pointing at a glowing evidence panel, dramatic cinematic lighting, deep navy and electric blue tones, no text, no logos, no watermarks, 16:9 widescreen, 2k resolution, IMAX dramatic lighting, extreme chiaroscuro"
+    },
+    {
+      "id": "IMAGEM_2",
+      "posicao": "Após seção principal — explicação do júri de modelos",
+      "prompt": "Five glowing AI jury members seated in a semicircle tribunal, each representing a different neural network model, voting tokens floating in the air, blockchain nodes visible in background, purple and cyan neon on dark, no text, no logos, no watermarks, 16:9 widescreen, 2k resolution, cinematic ultra-realistic dramatic lighting"
+    },
+    {
+      "id": "IMAGEM_3",
+      "posicao": "Após seção de desdobramentos — impacto no mercado",
+      "prompt": "Massive scale digital commerce ecosystem, thousands of AI agents transacting autonomously, some flagged in red indicating disputes, escrow vault glowing in center, corporate institutional tones deep navy and gold, no text, no logos, no watermarks, 16:9 widescreen, 2k resolution, cinematic blockbuster lighting"
+    },
+    {
+      "id": "IMAGEM_4",
+      "posicao": "Após seção adicional — antes dos riscos",
+      "prompt": "Broken AI agent handshake over a damaged digital contract, cracked blockchain ledger, warning signals in red and orange, tension and conflict visualization, dark red and black dramatic atmosphere, no text, no logos, no watermarks, 16:9 widescreen, 2k resolution, cinematic ultra-realistic extreme chiaroscuro"
+    }
+  ]
+}

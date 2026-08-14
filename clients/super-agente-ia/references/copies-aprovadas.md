@@ -75,7 +75,7 @@ Preencha seus dados e garanta sua vaga
 
 ### Marquee (benefícios em loop)
 ```
-Crie um Super Agente de IA · Acesso vitalício · 6x R$16,50 · Comunidade no WhatsApp · Kit de Ativação incluso · 9 módulos curtos
+Crie um Super Agente de IA · Acesso vitalício · 6x R$16,50 · Comunidade no WhatsApp · Kit de Ativação incluso · 4 módulos · 16 aulas
 ```
 
 ---
@@ -272,7 +272,7 @@ Não é um agente de demonstração. É o seu agente — funcionando de verdade.
 ## Copies da Oferta / Value Stack
 
 ```
-Curso completo · 9 módulos curtos e práticos — R$497
+Curso completo · 4 módulos · 16 aulas — R$497
 Kit de Ativação · templates prontos — R$197
 HTMLs visuais de cada aula — R$97
 Comunidade Viva no WhatsApp · 12 meses de suporte — R$197
@@ -280,7 +280,7 @@ Atualizações e novos módulos — incluso
 Garantia incondicional · 7 dias — incluso
 
 Tudo isso custaria: R$997,00
-Mas hoje você paga apenas: 6x R$16,50 ou R$87,90 à vista
+Mas hoje você paga apenas: 6x R$16,50 ou R$87,95 à vista
 ```
 
 ---
@@ -312,9 +312,9 @@ Agora é a sua vez. Em menos de 5 minutos, seu agente está no ar. No curso, voc
 ```
 
 ```
-✓ Curso vitalício (9 módulos) · ✓ Kit de Ativação incluso · ✓ WhatsApp 12 meses · ✓ Garantia 7 dias
+✓ Curso vitalício (4 módulos · 16 aulas) · ✓ Kit de Ativação incluso · ✓ WhatsApp 12 meses · ✓ Garantia 7 dias
 
-6x R$16,50 · ou R$87,90 à vista · acesso imediato
+6x R$16,50 · ou R$87,95 à vista · acesso imediato
 ```
 
 ---
@@ -333,7 +333,7 @@ O problema não era a ferramenta. Era falta de estrutura: identidade, contexto e
 
 ```
 "Quanto tempo leva?"
-Menos de 5 minutos pra estar no ar. 2-3 horas de conteúdo total.
+Menos de 5 minutos pra estar no ar. 4 módulos, 16 aulas no total.
 ```
 
 ```

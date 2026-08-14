@@ -317,6 +317,19 @@ Same voice, different register. Use your authentic perspective everywhere — ad
 
 ---
 
+## Cobertura de plataformas — importante
+
+Esta skill cobre **exclusivamente plataformas text-first**: LinkedIn, Twitter/X, Threads, Bluesky.
+
+**Não cobre plataformas visuais** (Instagram, TikTok, YouTube, Pinterest, Facebook). Para estratégia nessas plataformas, use as orientações embutidas em:
+- `caption-writer-sms` — specs e regras de cada plataforma visual
+- `hook-writer-sms` — seção "Platform-Specific Hook Guidance" com orientações por plataforma
+- `post-writer-sms` — seção "Visual-First Platforms" com formatos e comprimentos
+
+Se o usuário pedir estratégia para Instagram, TikTok ou YouTube, informar essa limitação e redirecionar para as skills acima.
+
+---
+
 ## Boundaries
 
 - Does not write posts, threads, or carousels — see **post-writer-sms**, **thread-writer-sms**, or **carousel-writer-sms** for content creation
@@ -324,7 +337,7 @@ Same voice, different register. Use your authentic perspective everywhere — ad
 - Does not analyze post performance or metrics — see **performance-analyzer-sms** for analytics
 - Does not schedule or plan a content calendar — see **content-calendar-sms** for posting schedules
 - Does not execute code or access external APIs unless BlackTwist MCP is connected
-- Does not cover Instagram, TikTok, or YouTube — focuses on LinkedIn, Twitter/X, Threads, and Bluesky only
+- Does not cover Instagram, TikTok, YouTube, Pinterest or Facebook — see caption-writer-sms and hook-writer-sms for visual platform guidance
 
 ## See also
 

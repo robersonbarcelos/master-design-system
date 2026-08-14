@@ -1,0 +1,652 @@
+[
+  {
+    "slide_numero": 1,
+    "noticia": "DeepSeek aumenta preços",
+    "slide": "slide-11",
+    "template": "carrossel-blank-style",
+    "version": "slide-11-imagem-topo-painel-solido-escuro-card-inset",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "card_frame": {
+      "outer_background": "#F7F5F1",
+      "margin": "24px",
+      "border_radius": "24px"
+    },
+    "zones": {
+      "header": { "exists": false },
+      "image": {
+        "position": "topo do card, full-width dentro do card",
+        "height": "45% do card",
+        "width": "100% do card",
+        "border_radius": "24px 24px 0px 0px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "content": {
+        "background_color": "#0D0D0D",
+        "margin_lateral": "32px",
+        "margin_top": "28px",
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "DeepSeek aumenta preços: o que muda para quem construiu em cima da API",
+            "font_family": "serif display",
+            "font_size": "30px",
+            "font_color": "#FFFFFF",
+            "line_height": 1.1,
+            "margin_bottom": "18px"
+          },
+          {
+            "id": "paragrafo-1",
+            "type": "text",
+            "content": "O DeepSeek anunciou aumento significativo de preços. Mais de 14 milhões de visualizações no Zhihu em poucos dias — e o modelo ainda é o mais barato entre os mainstream — mas por quanto tempo?",
+            "font_family": "sans-serif regular",
+            "font_size": "16px",
+            "font_color": "rgba(255,255,255,0.75)",
+            "line_height": 1.45,
+            "margin_bottom": "14px"
+          },
+          {
+            "id": "paragrafo-2",
+            "type": "text",
+            "content": "A trajetória repete um padrão clássico: preço agressivo para conquistar base de usuários, ajuste quando o mercado já depende do produto.",
+            "font_family": "sans-serif regular",
+            "font_size": "16px",
+            "font_color": "rgba(255,255,255,0.75)",
+            "line_height": 1.45,
+            "margin_bottom": "14px"
+          },
+          {
+            "id": "paragrafo-3-negrito",
+            "type": "text",
+            "content": "Para quem construiu pipelines sobre a API apostando na vantagem de custo, o aumento coloca em xeque o principal argumento de adoção.",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "16px",
+            "font_color": "#FFFFFF",
+            "line_height": 1.45
+          }
+        ]
+      },
+      "footer": { "exists": false }
+    }
+  },
+
+  {
+    "slide_numero": 2,
+    "noticia": "Google DeepMind muda liderança",
+    "slide": "slide-05",
+    "template": "carrossel-blank-style",
+    "version": "slide-05-imagem-topo-texto-interjeicao",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "zones": {
+      "header": {
+        "height": "50px",
+        "position": "top",
+        "margin_lateral": "56px",
+        "margin_top": "40px",
+        "blocks": [
+          {
+            "id": "handle",
+            "content": "Diego Spanevello",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "13px",
+            "font_color": "#1A1A1A",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          },
+          {
+            "id": "categoria",
+            "content": "| Inteligência Artificial",
+            "font_family": "sans-serif",
+            "font_weight": 600,
+            "font_size": "13px",
+            "font_color": "rgba(26,26,26,0.5)",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          }
+        ]
+      },
+      "image": {
+        "position": "logo abaixo do header, topo do frame",
+        "height": "36% do frame",
+        "margin_lateral": "56px",
+        "margin_top": "28px",
+        "margin_bottom": "28px",
+        "border_radius": "12px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "content": {
+        "position": "abaixo da imagem",
+        "margin_lateral": "56px",
+        "blocks": [
+          {
+            "id": "texto-serif-longo",
+            "type": "text",
+            "content": "Demis Hassabis deixa o cargo de CEO do Google DeepMind para assumir como Chair e Chief Scientist da Alphabet. Jeff Dean, 27 anos de Google, encerra sua passagem para fundar uma corporação de benefício público independente.",
+            "font_family": "serif display",
+            "font_size": "30px",
+            "font_style": "regular, com trecho em itálico para ênfase",
+            "font_color": "#1A1A1A",
+            "line_height": 1.2,
+            "margin_bottom": "32px"
+          },
+          {
+            "id": "interjeicao-negrito",
+            "type": "text",
+            "content": "Dois nomes centrais da IA moderna saem ao mesmo tempo.",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "22px",
+            "font_color": "#1A1A1A",
+            "margin_bottom": "20px"
+          },
+          {
+            "id": "corpo-regular",
+            "type": "text",
+            "content": "Koray Kavukcuoglu, com WaveNet e DQN no currículo, assume como SVP e herda a missão de executar com o Gemini enquanto Hassabis define a estratégia de longo prazo.",
+            "font_family": "sans-serif regular",
+            "font_size": "22px",
+            "font_color": "rgba(26,26,26,0.6)",
+            "line_height": 1.4
+          }
+        ]
+      },
+      "footer": {
+        "height": "40px",
+        "position": "bottom",
+        "margin_lateral": "56px",
+        "margin_bottom": "36px",
+        "content": "INTUS HUB",
+        "font_family": "sans-serif regular",
+        "font_size": "13px",
+        "font_color": "rgba(26,26,26,0.5)",
+        "letter_spacing": "3px",
+        "text_transform": "uppercase",
+        "position_horizontal": "esquerda"
+      }
+    }
+  },
+
+  {
+    "slide_numero": 3,
+    "noticia": "CEO da Anthropic preocupado com motivação dos funcionários",
+    "slide": "slide-04",
+    "template": "carrossel-blank-style",
+    "version": "slide-04-headline-imagem-corpo-peso-misto",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "layout_grid": {
+      "margem_lateral_global": "56px"
+    },
+    "zones": {
+      "header": {
+        "height": "50px",
+        "position": "top",
+        "margin_lateral": "56px",
+        "margin_top": "40px",
+        "blocks": [
+          {
+            "id": "handle",
+            "content": "Diego Spanevello",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "13px",
+            "font_color": "#1A1A1A",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          },
+          {
+            "id": "categoria",
+            "content": "| Inteligência Artificial",
+            "font_family": "sans-serif",
+            "font_weight": 600,
+            "font_size": "13px",
+            "font_color": "rgba(26,26,26,0.5)",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          }
+        ]
+      },
+      "content": {
+        "position": "abaixo do header",
+        "margin_lateral": "56px",
+        "margin_top": "28px",
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "Dario Amodei preocupado que funcionários da Anthropic trabalhem pelo salário e não pela missão da empresa",
+            "font_family": "serif display",
+            "font_size": "32px",
+            "font_style": "regular, com trechos em itálico para ênfase",
+            "font_color": "#1A1A1A",
+            "line_height": 1.15,
+            "margin_bottom": "28px"
+          }
+        ]
+      },
+      "image": {
+        "position": "abaixo da headline",
+        "height": "36% do frame",
+        "margin_lateral": "56px",
+        "margin_top": "0px",
+        "margin_bottom": "32px",
+        "border_radius": "12px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "body": {
+        "position": "abaixo da imagem",
+        "margin_lateral": "56px",
+        "blocks": [
+          {
+            "id": "paragrafo-1-negrito",
+            "type": "text",
+            "content": "A Anthropic é uma das empresas que mais paga no setor. O contraste entre pregar alinhamento com missão e praticar guerra de salários para atrair talentos não passou despercebido.",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "22px",
+            "font_color": "#1A1A1A",
+            "line_height": 1.4,
+            "margin_bottom": "20px"
+          },
+          {
+            "id": "paragrafo-2-regular",
+            "type": "text",
+            "content": "Quando o CEO precisa falar sobre motivação em público, algo no processo de atração e retenção está sendo testado.",
+            "font_family": "sans-serif regular",
+            "font_size": "22px",
+            "font_color": "rgba(26,26,26,0.6)",
+            "line_height": 1.4
+          }
+        ]
+      },
+      "footer": {
+        "height": "40px",
+        "position": "bottom",
+        "margin_lateral": "56px",
+        "margin_bottom": "36px",
+        "content": "INTUS HUB",
+        "font_family": "sans-serif regular",
+        "font_size": "13px",
+        "font_color": "rgba(26,26,26,0.5)",
+        "letter_spacing": "3px",
+        "text_transform": "uppercase",
+        "position_horizontal": "esquerda"
+      }
+    }
+  },
+
+  {
+    "slide_numero": 4,
+    "noticia": "Comunidades de programação rejeitando LLMs",
+    "slide": "slide-07",
+    "template": "carrossel-blank-style",
+    "version": "slide-07-headline-texto-imagem-rodape",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "layout_grid": {
+      "margem_lateral_global": "56px"
+    },
+    "zones": {
+      "header": {
+        "height": "50px",
+        "position": "top",
+        "margin_lateral": "56px",
+        "margin_top": "40px",
+        "blocks": [
+          {
+            "id": "handle",
+            "content": "Diego Spanevello",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "13px",
+            "font_color": "#1A1A1A",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          },
+          {
+            "id": "categoria",
+            "content": "| Inteligência Artificial",
+            "font_family": "sans-serif",
+            "font_weight": 600,
+            "font_size": "13px",
+            "font_color": "rgba(26,26,26,0.5)",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          }
+        ]
+      },
+      "content": {
+        "position": "abaixo do header",
+        "margin_lateral": "56px",
+        "margin_top": "32px",
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "Por que comunidades de programação artesanal estão rejeitando LLMs",
+            "font_family": "serif display",
+            "font_size": "30px",
+            "font_color": "#1A1A1A",
+            "line_height": 1.18,
+            "margin_bottom": "24px"
+          },
+          {
+            "id": "paragrafo-1",
+            "type": "text",
+            "content": "Um artigo do programador Fogus no Hacker News acumulou mais de 300 comentários. O argumento central: nessas comunidades, o processo é o produto. Código gerado por IA pode ser funcionalmente correto, mas não traz o conhecimento que vem de errar e depurar.",
+            "font_family": "sans-serif regular",
+            "font_size": "20px",
+            "font_color": "rgba(26,26,26,0.65)",
+            "line_height": 1.45,
+            "margin_bottom": "18px"
+          },
+          {
+            "id": "paragrafo-2-com-negrito-inline",
+            "type": "text",
+            "content": "A posição dessas comunidades importa porque são elas que historicamente definem padrões que chegam ao mainstream. {{A discussão não é filosófica: é sobre o que define competência técnica quando geração está disponível para todos.}}",
+            "font_family": "sans-serif regular",
+            "font_size": "20px",
+            "font_color": "rgba(26,26,26,0.65)",
+            "line_height": 1.45,
+            "margin_bottom": "28px",
+            "note": "trecho entre {{ }} renderizar em negrito #1A1A1A font_weight 700"
+          }
+        ]
+      },
+      "image": {
+        "position": "rodapé do frame, abaixo de todo o texto",
+        "height": "34% do frame",
+        "margin_lateral": "56px",
+        "margin_bottom": "80px",
+        "border_radius": "12px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "footer": {
+        "height": "40px",
+        "position": "bottom",
+        "margin_lateral": "56px",
+        "margin_bottom": "36px",
+        "content": "INTUS HUB",
+        "font_family": "sans-serif regular",
+        "font_size": "13px",
+        "font_color": "rgba(26,26,26,0.5)",
+        "letter_spacing": "3px",
+        "text_transform": "uppercase",
+        "position_horizontal": "esquerda"
+      }
+    }
+  },
+
+  {
+    "slide_numero": 5,
+    "noticia": "Modelo open-source 4B derrota GPT-5.6 com 100x de vantagem de custo",
+    "slide": "slide-11",
+    "template": "carrossel-blank-style",
+    "version": "slide-11-imagem-topo-painel-solido-escuro-card-inset",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "card_frame": {
+      "outer_background": "#F7F5F1",
+      "margin": "24px",
+      "border_radius": "24px"
+    },
+    "zones": {
+      "header": { "exists": false },
+      "image": {
+        "position": "topo do card, full-width dentro do card",
+        "height": "45% do card",
+        "width": "100% do card",
+        "border_radius": "24px 24px 0px 0px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "content": {
+        "background_color": "#0D0D0D",
+        "margin_lateral": "32px",
+        "margin_top": "28px",
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "Modelo de 4B parâmetros alcança a precisão do GPT-5.6 Sol por 100x menos",
+            "font_family": "serif display",
+            "font_size": "30px",
+            "font_color": "#FFFFFF",
+            "line_height": 1.1,
+            "margin_bottom": "18px"
+          },
+          {
+            "id": "paragrafo-1",
+            "type": "text",
+            "content": "A equipe da Neon publicou estudo mostrando que um modelo open-source de 4B parâmetros, pós-treinado com a técnica Castform em tarefas de busca agentic, alcançou a mesma precisão do GPT-5.6 Sol em bases corporativas.",
+            "font_family": "sans-serif regular",
+            "font_size": "16px",
+            "font_color": "rgba(255,255,255,0.75)",
+            "line_height": 1.45,
+            "margin_bottom": "14px"
+          },
+          {
+            "id": "paragrafo-2",
+            "type": "text",
+            "content": "Uma busca multi-etapa com GPT-5.6 Sol custa US$ 0,03 e leva mais de 10 segundos. O modelo otimizado executa a mesma tarefa por US$ 0,0003.",
+            "font_family": "sans-serif regular",
+            "font_size": "16px",
+            "font_color": "rgba(255,255,255,0.75)",
+            "line_height": 1.45,
+            "margin_bottom": "14px"
+          },
+          {
+            "id": "paragrafo-3-negrito",
+            "type": "text",
+            "content": "Para empresas com alto volume em produção, a diferença entre US$ 0,03 e US$ 0,0003 por chamada não é marginal: é a linha entre viabilidade e inviabilidade econômica do produto.",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "16px",
+            "font_color": "#FFFFFF",
+            "line_height": 1.45
+          }
+        ]
+      },
+      "footer": { "exists": false }
+    }
+  },
+
+  {
+    "slide_numero": 6,
+    "noticia": "Anthropic suspende plano de bloquear apps de terceiros no Claude",
+    "slide": "slide-07",
+    "template": "carrossel-blank-style",
+    "version": "slide-07-headline-texto-imagem-rodape",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "layout_grid": {
+      "margem_lateral_global": "56px"
+    },
+    "zones": {
+      "header": {
+        "height": "50px",
+        "position": "top",
+        "margin_lateral": "56px",
+        "margin_top": "40px",
+        "blocks": [
+          {
+            "id": "handle",
+            "content": "Diego Spanevello",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "13px",
+            "font_color": "#1A1A1A",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          },
+          {
+            "id": "categoria",
+            "content": "| Inteligência Artificial",
+            "font_family": "sans-serif",
+            "font_weight": 600,
+            "font_size": "13px",
+            "font_color": "rgba(26,26,26,0.5)",
+            "letter_spacing": "1.5px",
+            "text_transform": "uppercase"
+          }
+        ]
+      },
+      "content": {
+        "position": "abaixo do header",
+        "margin_lateral": "56px",
+        "margin_top": "32px",
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "Anthropic suspende plano de bloquear apps de terceiros no Claude",
+            "font_family": "serif display",
+            "font_size": "30px",
+            "font_color": "#1A1A1A",
+            "line_height": 1.18,
+            "margin_bottom": "24px"
+          },
+          {
+            "id": "paragrafo-1",
+            "type": "text",
+            "content": "A política previa proibir apps de terceiros de usar a cota de assinatura pessoal do Claude a partir de 15 de junho. Gerou reação forte de desenvolvedores que construíram ferramentas sobre a API. Sem data de retomada, permanece congelada.",
+            "font_family": "sans-serif regular",
+            "font_size": "20px",
+            "font_color": "rgba(26,26,26,0.65)",
+            "line_height": 1.45,
+            "margin_bottom": "18px"
+          },
+          {
+            "id": "paragrafo-2-com-negrito-inline",
+            "type": "text",
+            "content": "A reversão indica que a Anthropic subestimou o tamanho do ecossistema construído sobre o acesso pessoal ao Claude. {{Qualquer produto construído sobre acesso a um modelo de terceiro está sujeito às decisões comerciais desse terceiro, com ou sem aviso prévio.}}",
+            "font_family": "sans-serif regular",
+            "font_size": "20px",
+            "font_color": "rgba(26,26,26,0.65)",
+            "line_height": 1.45,
+            "margin_bottom": "28px",
+            "note": "trecho entre {{ }} renderizar em negrito #1A1A1A font_weight 700"
+          }
+        ]
+      },
+      "image": {
+        "position": "rodapé do frame, abaixo de todo o texto",
+        "height": "34% do frame",
+        "margin_lateral": "56px",
+        "margin_bottom": "80px",
+        "border_radius": "12px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "footer": {
+        "height": "40px",
+        "position": "bottom",
+        "margin_lateral": "56px",
+        "margin_bottom": "36px",
+        "content": "INTUS HUB",
+        "font_family": "sans-serif regular",
+        "font_size": "13px",
+        "font_color": "rgba(26,26,26,0.5)",
+        "letter_spacing": "3px",
+        "text_transform": "uppercase",
+        "position_horizontal": "esquerda"
+      }
+    }
+  },
+
+  {
+    "slide_numero": 7,
+    "noticia": "Cloudflare lança Cloudflare OS para agentes de IA",
+    "slide": "slide-11",
+    "template": "carrossel-blank-style",
+    "version": "slide-11-imagem-topo-painel-solido-escuro-card-inset",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "background_color": "#F7F5F1"
+    },
+    "card_frame": {
+      "outer_background": "#F7F5F1",
+      "margin": "24px",
+      "border_radius": "24px"
+    },
+    "zones": {
+      "header": { "exists": false },
+      "image": {
+        "position": "topo do card, full-width dentro do card",
+        "height": "45% do card",
+        "width": "100% do card",
+        "border_radius": "24px 24px 0px 0px",
+        "asset_prompt": "imagem carregada em anexo pelo usuario — pixel art isometrico 32-bit (estilo padrao Intus HUB AI News)"
+      },
+      "content": {
+        "background_color": "#0D0D0D",
+        "margin_lateral": "32px",
+        "margin_top": "28px",
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "Cloudflare lança plataforma open-source para agentes de IA dentro de empresas",
+            "font_family": "serif display",
+            "font_size": "30px",
+            "font_color": "#FFFFFF",
+            "line_height": 1.1,
+            "margin_bottom": "18px"
+          },
+          {
+            "id": "paragrafo-1",
+            "type": "text",
+            "content": "O Cloudflare OS oferece sessões de agentes com contexto persistente da empresa, runtime isolado para execução de código, controle de acesso via Gatekeepers e rastreamento de custo por equipe.",
+            "font_family": "sans-serif regular",
+            "font_size": "16px",
+            "font_color": "rgba(255,255,255,0.75)",
+            "line_height": 1.45,
+            "margin_bottom": "14px"
+          },
+          {
+            "id": "paragrafo-2",
+            "type": "text",
+            "content": "A proposta: levar agentes para além das equipes de engenharia, com apps full-stack geráveis por agentes e acessíveis pelo navegador sem necessidade de conhecimento técnico.",
+            "font_family": "sans-serif regular",
+            "font_size": "16px",
+            "font_color": "rgba(255,255,255,0.75)",
+            "line_height": 1.45,
+            "margin_bottom": "14px"
+          },
+          {
+            "id": "paragrafo-3-negrito",
+            "type": "text",
+            "content": "O que diferencia ou não o produto será a profundidade das integrações de segurança em ambientes corporativos reais, onde governança é o obstáculo principal para adoção de agentes.",
+            "font_family": "sans-serif",
+            "font_weight": 700,
+            "font_size": "16px",
+            "font_color": "#FFFFFF",
+            "line_height": 1.45
+          }
+        ]
+      },
+      "footer": { "exists": false }
+    }
+  }
+]

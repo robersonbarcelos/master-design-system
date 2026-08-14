@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M3-3.3 · Cowork criando arquivos reais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.prompt{font-family:monospace;font-size:16px;color:#aaa;background:#080808;border:1px solid #1a1a1a;border-radius:8px;padding:18px 22px;margin:16px 0 32px;line-height:1.7;white-space:pre-wrap}
+.wow{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:#F59E0B;background:#1a1200;border:2px solid #3a2600;border-radius:14px;padding:24px 32px;margin:24px 0 40px;line-height:1.35}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M3 · Aula 3.3 · PRÁTICA · 7 min</span>
+  <span class="titulo">Cowork criando arquivos reais</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">Setup: criar a pasta de trabalho</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: Finder ou Explorer</div>
+  <div class="fala">
+    <p>Essa é a aula mais mão na massa do M3. Faça junto.</p>
+    <p>Primeiro: cria uma pasta no computador para o Cowork trabalhar. Eu uso Documentos, pasta Claude-Cowork.</p>
+  </div>
+  <div class="acao">Criar pasta ~/Documents/Claude-Cowork/ ao vivo</div>
+  <div class="fala">
+    <p>Agora configure o Cowork para usar essa pasta como área de trabalho. É aqui que os arquivos vão ser salvos.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Demo 1: planilha Excel com dados e fórmulas</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Cowork aberto</div>
+  <div class="fala">
+    <p>Primeiro arquivo: controle financeiro em Excel. Prompt:</p>
+  </div>
+  <div class="prompt">Cria uma planilha de controle financeiro mensal para um criador digital. Colunas: categoria, valor previsto, valor real, diferença. Adiciona 5 categorias de exemplo com valores fictícios e uma linha de total com fórmula SUM automática. Salva como controle-financeiro-julho.xlsx</div>
+  <div class="fala">
+    <p>O Cowork executa. Vou abrir o arquivo gerado.</p>
+  </div>
+  <div class="acao">Abrir o arquivo .xlsx no Excel ao vivo</div>
+  <div class="fala">
+    <p>Isso é um arquivo real. Com dados, com fórmulas, pronto para usar. Não é uma resposta de chat.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Demo 2: documento Word formatado</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Cowork</div>
+  <div class="fala">
+    <p>Agora Word. Template de relatório:</p>
+  </div>
+  <div class="prompt">Cria um documento Word com a estrutura de um relatório de resultados mensais para meu negócio. Inclui: capa, sumário, seção de resultados, seção de próximos passos. Deixa os campos para preencher. Salva como relatorio-julho-template.docx</div>
+  <div class="acao">Abrir o arquivo .docx no Word ao vivo</div>
+  <div class="fala">
+    <p>Template pronto. Estrutura montada. Você só preenche os dados reais.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Como revisar e corrigir sem recriar</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Se o arquivo tiver algum detalhe errado — fórmula incorreta, coluna faltando, seção fora de ordem — não precisa pedir para recriar do zero.</p>
+    <p>Você digita: "Ajusta o arquivo que você criou. Adiciona uma coluna de porcentagem na planilha." Ele corrige o mesmo arquivo.</p>
+    <p>Isso é diferente de editar manualmente. Você pede, ele resolve.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Ação prática do aluno</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Sua vez: pensa em algo que você precisaria criar manualmente. Uma planilha, um relatório, um template de documento.</p>
+    <p>Escreve o prompt com as quatro partes que aprendemos: Fontes, Objetivo, Formato, Restrições. E delega.</p>
+  </div>
+  <div class="wow">Você acabou de receber um arquivo real em 2 minutos. Isso teria levado 30 minutos fazendo manualmente.</div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno delega uma tarefa real e recebe o arquivo gerado pelo Cowork na pasta local.</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Esta é a aula mais mão na massa do M3 — deixar tempo de pausa após cada demo para o aluno tentar.</li>
+    <li>Se o arquivo tiver erro: mostrar como corrigir pedindo ao Cowork, não editando manualmente.</li>
+    <li>PPT: não precisa cobrir se o tempo ficar curto. Citar como possibilidade, focar em Excel e Word.</li>
+    <li>Frase âncora do wow moment: "você acabou de receber um arquivo real em 2 minutos."</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+---
+---
+
+<section id="prova" class="relative overflow-hidden bg-surface-alt py-24 lg:py-32">
+  <div class="divider-gradient absolute inset-x-0 top-0"></div>
+
+  <svg
+    class="pointer-events-none absolute -left-40 top-1/2 h-[480px] w-[480px] -translate-y-1/2 opacity-[0.05]"
+    viewBox="0 0 100 100"
+    aria-hidden="true"
+  >
+    <polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#3399FF" stroke-width="0.6"></polygon>
+  </svg>
+
+  <div class="reveal relative mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:items-start lg:gap-20">
+      <!-- Coluna foto + citação -->
+      <div class="relative">
+        <div
+          class="flex aspect-[4/5] w-full max-w-sm items-end justify-center overflow-hidden rounded-md border border-electric-blue/20 bg-hub-night/60"
+          aria-hidden="true"
+        >
+          <span class="label-text pb-4 text-light-blue/40">Foto — Diego Spanevello</span>
+        </div>
+
+        <blockquote class="mt-6 max-w-sm border-l-0 text-lg leading-relaxed text-white-ice/85">
+          "Eu não vendo o que eu não uso. Aspira e Clóvis rodam minha operação todos os dias — o método já estava em produção antes de qualquer empresa contratar."
+          <footer class="label-text mt-3 text-light-blue/70">Diego Spanevello — Intus Hub</footer>
+        </blockquote>
+      </div>
+
+      <!-- Coluna copy + placeholder de clientes -->
+      <div>
+        <p class="label-text mb-4 text-bright-gold">Prova operacional</p>
+        <h2 class="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.01em] text-white-ice">
+          Somos o nosso próprio caso de uso.
+        </h2>
+        <p class="mt-6 max-w-[60ch] text-lg leading-relaxed text-white-ice/75">
+          Aspira e Clóvis não são demo. São os agentes que rodam a operação do Diego todos os
+          dias — antes de qualquer empresa contratar, o método já estava em produção na própria
+          Intus Hub. Hoje, empresas reais já usam a mesma base.
+        </p>
+
+        <div class="mt-10 border-t border-electric-blue/10 pt-8">
+          <p class="label-text mb-5 text-light-blue/60">Empresas que já operam com a Intus</p>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {Array.from({ length: 6 }).map(() => (
+              <div class="flex h-14 items-center justify-center rounded-sm border border-dashed border-electric-blue/15 text-white-ice/25">
+                <span class="label-text">Logo</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

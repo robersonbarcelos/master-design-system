@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preview — Paletas & Fontes de Variação | Super Agente IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Outfit:wght@500;700;800&family=Anton&family=Bevan&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page-bg:#111214;
+    --card-radius:20px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--page-bg);
+    font-family:'Inter Tight', sans-serif;
+    color:#eee;
+    padding:48px 5vw 120px;
+  }
+  h1{
+    font-size:28px;
+    margin-bottom:4px;
+    color:#fff;
+  }
+  .subtitle{
+    color:#999;
+    font-size:14px;
+    margin-bottom:8px;
+  }
+  .warning{
+    display:inline-block;
+    background:rgba(232,64,0,0.12);
+    border:1px solid rgba(232,64,0,0.4);
+    color:#ff9d70;
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:8px;
+    margin-bottom:40px;
+  }
+  section{ margin-bottom:70px; }
+  .section-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:#e84000;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .section-desc{
+    color:#aaa;
+    font-size:14px;
+    margin-bottom:28px;
+    max-width:720px;
+  }
+
+  /* ---------- PALETTE GRID ---------- */
+  .palette-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:28px;
+  }
+  .palette-card-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .palette-label{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:13px;
+  }
+  .palette-id{
+    font-weight:700;
+    color:#fff;
+    font-family:monospace;
+    background:#222;
+    padding:3px 8px;
+    border-radius:6px;
+  }
+  .palette-mood{ color:#888; font-size:12px; }
+
+  .ad-mock{
+    aspect-ratio:1/1;
+    border-radius:var(--card-radius);
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  }
+  .ad-mock .eyebrow{
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-weight:700;
+    opacity:0.85;
+  }
+  .ad-mock .headline{
+    font-family:'Outfit', sans-serif;
+    font-weight:800;
+    font-size:30px;
+    line-height:1.05;
+    margin:14px 0 0;
+  }
+  .ad-mock .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+  }
+  .ad-mock .price{
+    font-family:'Bevan', serif;
+    font-size:26px;
+  }
+  .ad-mock .price .anchor{
+    display:block;
+    font-family:'Inter Tight', sans-serif;
+    font-size:13px;
+    font-weight:500;
+    text-decoration:line-through;
+    opacity:0.6;
+    margin-bottom:2px;
+  }
+  .ad-mock .cta{
+    font-size:12px;
+    font-weight:700;
+    padding:9px 14px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .glow{
+    position:absolute;
+    width:260px;height:260px;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:0.35;
+    top:-60px; right:-60px;
+  }
+
+  /* ---------- FONT SHOWCASE ---------- */
+  .font-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:24px;
+  }
+  .font-card{
+    background:#0a0a0a;
+    border:1px solid #262626;
+    border-radius:16px;
+    padding:28px 26px;
+  }
+  .font-card .font-role{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:#e84000;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .font-card .font-name-real{
+    color:#666;
+    font-size:12px;
+    margin-bottom:18px;
+  }
+  .font-card .sample-big{
+    color:#fff;
+    line-height:1.02;
+    margin:0 0 14px;
+  }
+  .font-card .sample-note{
+    color:#777;
+    font-size:12px;
+  }
+  .f-galano .sample-big{ font-family:'Outfit', sans-serif; font-weight:800; font-size:44px; }
+  .f-atslam .sample-big{ font-family:'Anton', sans-serif; font-weight:400; font-size:52px; letter-spacing:0.01em;}
+  .f-bryson .sample-big{ font-family:'Bevan', serif; font-weight:400; font-size:42px; }
+
+  /* ---------- COMBINED MOCKUPS (1:1 e 9:16) ---------- */
+  .combo-row{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .story-mock{
+    width:260px;
+    aspect-ratio:9/16;
+    border-radius:22px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    display:flex;
+    flex-direction:column;
+  }
+  .story-mock .zone-top{
+    height:14%;
+    display:flex;
+    align-items:center;
+    padding:0 16px;
+    font-size:10px;
+    opacity:0.55;
+  }
+  .story-mock .zone-content{
+    flex:1;
+    padding:8px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:14px;
+  }
+  .story-mock .zone-content .eyebrow{
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-weight:700;
+    opacity:0.85;
+  }
+  .story-mock .zone-content .headline{
+    font-family:'Anton', sans-serif;
+    font-size:30px;
+    line-height:1.02;
+  }
+  .story-mock .zone-content .price{
+    font-family:'Bevan', serif;
+    font-size:22px;
+    margin-top:6px;
+  }
+  .story-mock .zone-bottom{
+    height:35%;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:14px;
+    font-size:10px;
+    opacity:0.4;
+  }
+  .feed-mock{
+    width:260px;
+    aspect-ratio:1/1;
+    border-radius:20px;
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  }
+  .combo-caption{
+    text-align:center;
+    font-size:12px;
+    color:#999;
+    margin-top:10px;
+  }
+  .combo-wrap{ display:flex; flex-direction:column; align-items:center; }
+
+  footer{
+    margin-top:80px;
+    color:#555;
+    font-size:12px;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<h1>Preview — Paletas de Variação &amp; Fontes de Impacto</h1>
+<div class="subtitle">Super Agente IA · Meta Ads (teste de performance) · gerado para revisão — nada aqui está aprovado ainda</div>
+<div class="warning">⚠️ Fontes premium (Galano Grotesk, AT Slam Grotesk, Bryson) não têm licença web gratuita — este preview usa aproximações livres (Outfit / Anton / Bevan) só para você avaliar a personalidade visual. As fontes reais seriam licenciadas na aprovação final.</div>
+
+<section>
+  <div class="section-title">01 — Paletas candidatas</div>
+  <div class="section-desc">4 combinações propostas + 1 opcional em dúvida (laranja+azul). Cada card simula um recorte de anúncio 1:1 com eyebrow, headline, preço âncora e CTA.</div>
+
+  <div class="palette-grid">
+
+    <div class="palette-card-wrap">
+      <div class="palette-label"><span class="palette-id">V2-verde-tech</span><span class="palette-mood">tech / IA viva</span></div>
+      <div class="ad-mock" style="background:#000000; color:#ffffff;">
+        <div class="glow" style="background:#14E08E;"></div>
+        <div class="eyebrow" style="color:#14E08E;">SUPER AGENTE IA</div>
+        <div class="headline">Isso não é agente. É promessa enrolada em ilusão.</div>
+        <div class="footer-row">
+          <div class="price" style="color:#14E08E;">
+            <span class="anchor">R$997</span>
+            R$87,95
+          </div>
+          <div class="cta" style="background:#14E08E; color:#000;">Quero o meu →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-card-wrap">
+      <div class="palette-label"><span class="palette-id">V3-lima-choque</span><span class="palette-mood">agressivo / alto contraste</span></div>
+      <div class="ad-mock" style="background:#0E0E0E; color:#ffffff;">
+        <div class="glow" style="background:#B6FF00;"></div>
+        <div class="eyebrow" style="color:#B6FF00;">SUPER AGENTE IA</div>
+        <div class="headline">Você já perdeu tempo suficiente com agentes que não prestam.</div>
+        <div class="footer-row">
+          <div class="price" style="color:#B6FF00;">
+            <span class="anchor">R$997</span>
+            R$87,95
+          </div>
+          <div class="cta" style="background:#B6FF00; color:#0E0E0E;">Quero o meu →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-card-wrap">
+      <div class="palette-label"><span class="palette-id">V4-petroleo-editorial</span><span class="palette-mood">premium / editorial</span></div>
+      <div class="ad-mock" style="background:#004741; color:#F0EDE4;">
+        <div class="glow" style="background:#F0EDE4;"></div>
+        <div class="eyebrow" style="color:#F0EDE4;">SUPER AGENTE IA</div>
+        <div class="headline">Você sai com UM Super Agente seu — identidade, memória e contexto reais.</div>
+        <div class="footer-row">
+          <div class="price" style="color:#F0EDE4;">
+            <span class="anchor" style="opacity:0.55;">R$997</span>
+            R$87,95
+          </div>
+          <div class="cta" style="background:#F0EDE4; color:#004741;">Quero o meu →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-card-wrap">
+      <div class="palette-label"><span class="palette-id">V5-lemon-urgencia</span><span class="palette-mood">urgência / oferta</span></div>
+      <div class="ad-mock" style="background:#2A323F; color:#ffffff;">
+        <div class="glow" style="background:#FEEF4C;"></div>
+        <div class="eyebrow" style="color:#FEEF4C;">ÚLTIMAS VAGAS</div>
+        <div class="headline">Garantia de 7 dias. Acesso vitalício. Agora é a sua vez.</div>
+        <div class="footer-row">
+          <div class="price" style="color:#FEEF4C;">
+            <span class="anchor">R$997</span>
+            R$87,95
+          </div>
+          <div class="cta" style="background:#FEEF4C; color:#2A323F;">Quero o meu →</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-card-wrap">
+      <div class="palette-label"><span class="palette-id">V1-laranja-azul (opcional / em dúvida)</span><span class="palette-mood">conflita com regra "nunca azul"</span></div>
+      <div class="ad-mock" style="background:#001621; color:#ffffff;">
+        <div class="glow" style="background:#FF4103;"></div>
+        <div class="eyebrow" style="color:#FF4103;">SUPER AGENTE IA</div>
+        <div class="headline">O agente de amanhã é melhor que o de hoje.</div>
+        <div class="footer-row">
+          <div class="price" style="color:#FF4103;">
+            <span class="anchor">R$997</span>
+            R$87,95
+          </div>
+          <div class="cta" style="background:#FF4103; color:#001621;">Quero o meu →</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-title">02 — Fontes candidatas</div>
+  <div class="section-desc">Aplicadas em texto real do produto, em escala grande, pra avaliar personalidade e legibilidade em headline de anúncio.</div>
+
+  <div class="font-grid">
+    <div class="font-card f-galano">
+      <div class="font-role">Headline geral — qualquer grupo</div>
+      <div class="font-name-real">Galano Grotesk (aproximação: Outfit)</div>
+      <div class="sample-big">Não é um agente de demonstração.</div>
+      <div class="sample-note">Geométrica arredondada, prima da Inter Tight — upgrade de peso sem fugir da família atual.</div>
+    </div>
+
+    <div class="font-card f-atslam">
+      <div class="font-role">Headline de impacto — Grupo 1 &amp; 5</div>
+      <div class="font-name-real">AT Slam Grotesk (aproximação: Anton)</div>
+      <div class="sample-big">VOCÊ JÁ PERDEU TEMPO SUFICIENTE</div>
+      <div class="sample-note">Ultra-condensada, pesadíssima — cabe muito texto de alto impacto no mobile.</div>
+    </div>
+
+    <div class="font-card f-bryson">
+      <div class="font-role">Números &amp; badges — preço, garantia</div>
+      <div class="font-name-real">Bryson (aproximação: Bevan)</div>
+      <div class="sample-big">R$87,95</div>
+      <div class="sample-note">Slab/blocão geométrico — dá peso de carimbo em preço, contagem e selos.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">03 — Combinações completas (paleta + fonte)</div>
+  <div class="section-desc">Duas amostras juntando paleta + tipografia nos dois formatos de produção (Feed 1:1 e Stories/Reels 9:16 com safe zones marcadas).</div>
+
+  <div class="combo-row">
+
+    <div class="combo-wrap">
+      <div class="feed-mock" style="background:#000000; color:#fff;">
+        <div class="eyebrow" style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:700; color:#14E08E;">SUPER AGENTE IA</div>
+        <div>
+          <div style="font-family:'Anton',sans-serif; font-size:34px; line-height:1.02; color:#fff;">ISSO NÃO É AGENTE.</div>
+          <div style="font-family:'Bevan',serif; font-size:22px; color:#14E08E; margin-top:10px;">R$87,95</div>
+        </div>
+        <div class="cta" style="align-self:flex-start; background:#14E08E; color:#000; font-size:12px; font-weight:700; padding:9px 14px; border-radius:999px;">Quero o meu →</div>
+      </div>
+      <div class="combo-caption">Feed 1:1 — V2-verde-tech + AT Slam / Bryson</div>
+    </div>
+
+    <div class="combo-wrap">
+      <div class="story-mock" style="background:#2A323F; color:#fff;">
+        <div class="zone-top">● perfil · Patrocinado</div>
+        <div class="zone-content">
+          <div class="eyebrow" style="color:#FEEF4C;">ÚLTIMAS VAGAS</div>
+          <div class="headline">GARANTIA DE 7 DIAS</div>
+          <div class="price" style="color:#FEEF4C;">R$87,95</div>
+        </div>
+        <div class="zone-bottom">↓ CTA nativo do Meta</div>
+      </div>
+      <div class="combo-caption">Stories/Reels 9:16 — V5-lemon-urgencia + AT Slam / Bevan</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>Preview gerado em 2026-07-09 — arquivo local, não faz parte da produção até aprovação explícita.</footer>
+
+</body>
+</html>

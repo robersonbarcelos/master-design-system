@@ -145,7 +145,7 @@
         },
         {
           "id": "produto-preco",
-          "content": "Super Agente de IA — R$87,90",
+          "content": "Super Agente de IA — R$87,95",
           "font": "Inter Regular 400",
           "size": "16px",
           "color": "rgba(255,255,255,0.55)"
@@ -157,7 +157,7 @@
       "posicao": "canto inferior direito",
       "x": "940px",
       "y": "1055px",
-      "content": "@intushub",
+      "content": "SUPER AGENTE IA",
       "font": "Inter Regular 400",
       "size": "14px",
       "color": "rgba(255,255,255,0.25)"

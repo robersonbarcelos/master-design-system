@@ -91,11 +91,21 @@ last_updated: 2026-05-21
 
 ## Tipografia
 
-### Fontes institucionais (brand INTUS HUB)
+### Fontes site institucional (mentoria.intushub.com.br — fonte real, confirmada por inspeção do CSS em produção)
 
 | Papel | Família | Peso(s) | Fonte |
 |---|---|---|---|
-| Display / Headline | Syne | 800/700/600 | Google Fonts |
+| Display / Headline | Inter | 900/700 | Google Fonts |
+| Body | Space Grotesk | 400/500/600 | Google Fonts |
+| Mono / Tags | JetBrains Mono | 400/500 | Google Fonts |
+
+**IMPORTANTE — regra atualizada em 2026-07-20:** o site institucional real usa **Inter** (não Syne) como fonte de display. Syne foi identificada como escolha equivocada em materiais anteriores — carrega assinatura visual de template genérico gerado por IA e não corresponde à identidade em produção. **Syne está proibida em qualquer peça institucional/site (Intus IA Corporate) a partir de agora.** Ela permanece restrita apenas a peças legadas de social media já publicadas, se existirem — não usar em nada novo.
+
+### Fontes institucionais (uso legado — social media, não usar em peças novas)
+
+| Papel | Família | Peso(s) | Fonte |
+|---|---|---|---|
+| Display / Headline | ~~Syne~~ (descontinuada — ver regra acima) | 800/700/600 | Google Fonts |
 | Body | Space Grotesk | 400/500/600 | Google Fonts |
 | Mono / Tags | JetBrains Mono | 400/500 | Google Fonts |
 
@@ -107,7 +117,7 @@ last_updated: 2026-05-21
 | Body | Inter Tight | 400/500 | Google Fonts |
 | Mono | JetBrains Mono | 400 | Google Fonts |
 
-**IMPORTANTE:** Inter Tight é exclusiva da LP. Conteúdo de social media usa Syne + Space Grotesk (brand institucional). Nunca misturar as duas paletas tipográficas no mesmo criativo.
+**IMPORTANTE:** Inter Tight (variante compacta) é exclusiva da campanha Super Agente — não confundir com Inter padrão, que é a fonte de display do site institucional. Nunca misturar as três paletas tipográficas (institucional/Inter, social legado/Syne, campanha/Inter Tight) no mesmo criativo.
 
 ### Escala tipográfica
 

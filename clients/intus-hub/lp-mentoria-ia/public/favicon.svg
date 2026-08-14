@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#050D1F"/>
+  <defs>
+    <linearGradient id="hg-s" x1="26" y1="15" x2="174" y2="185" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0055FF"/><stop offset="100%" stop-color="#F0B429"/>
+    </linearGradient>
+    <radialGradient id="hg-n" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD700"/><stop offset="100%" stop-color="#C8960A"/>
+    </radialGradient>
+  </defs>
+  <polygon points="100,15 173.6,57.5 173.6,142.5 100,185 26.4,142.5 26.4,57.5" fill="none" stroke="url(#hg-s)" stroke-width="3"/>
+  <polygon points="100,44.8 147.9,72.4 147.9,127.6 100,155.2 52.1,127.6 52.1,72.4" fill="#050D1F" stroke="#0033AA" stroke-width="2"/>
+  <line x1="100" y1="100" x2="100" y2="15" stroke="#0055FF" stroke-width="1.5" opacity="0.65"/>
+  <line x1="100" y1="100" x2="173.6" y2="57.5" stroke="#3399FF" stroke-width="1" opacity="0.5"/>
+  <line x1="100" y1="100" x2="173.6" y2="142.5" stroke="#0055FF" stroke-width="1.5" opacity="0.65"/>
+  <line x1="100" y1="100" x2="100" y2="185" stroke="#F0B429" stroke-width="2" opacity="0.85"/>
+  <line x1="100" y1="100" x2="26.4" y2="142.5" stroke="#0055FF" stroke-width="1.5" opacity="0.65"/>
+  <line x1="100" y1="100" x2="26.4" y2="57.5" stroke="#3399FF" stroke-width="1" opacity="0.5"/>
+  <circle cx="100" cy="15" r="7" fill="#0055FF"/>
+  <circle cx="173.6" cy="57.5" r="5" fill="#3399FF"/>
+  <circle cx="173.6" cy="142.5" r="7" fill="#0055FF"/>
+  <circle cx="100" cy="185" r="7" fill="#F0B429"/>
+  <circle cx="26.4" cy="142.5" r="7" fill="#0055FF"/>
+  <circle cx="26.4" cy="57.5" r="5" fill="#3399FF"/>
+  <circle cx="100" cy="100" r="15" fill="url(#hg-n)"/>
+</svg>

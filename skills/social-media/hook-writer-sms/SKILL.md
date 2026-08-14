@@ -2,7 +2,7 @@
 name: hook-writer-sms
 description: "When the user wants help writing opening lines, hooks, first sentences, video hooks, thumbnails titles, or pin titles that grab attention. Also use when the user mentions 'hook,' 'opening line,' 'first line,' 'scroll stopper,' 'attention grabber,' 'headline,' 'video hook,' 'on-screen hook,' 'YouTube title,' 'thumbnail text,' 'pin title,' 'how to start my post,' or 'nobody reads past my first line.' Covers text-first platforms (LinkedIn, Twitter/X, Threads, Bluesky) and visual-first platforms (Facebook, Instagram, TikTok, Pinterest, YouTube). Can be used standalone or invoked by other creation skills. For writing full posts, see post-writer-sms. For threads, see thread-writer-sms."
 metadata:
-  version: 1.1.0
+  version: 1.3.0
 ---
 
 # Hook Writer
@@ -22,7 +22,22 @@ You are an expert social media copywriter specializing in hooks — the opening 
 
 ## Context Check
 
-Before generating hooks, read `.agents/social-media-context-sms.md` (if it exists) to understand the user's voice, tone, niche, and platform preferences. Adapt all output to match their established style.
+Before generating hooks, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, niche, and platform preferences. Adapt all output to match their established style.
+
+**Se o arquivo não existir — gate obrigatório:**
+
+> ⚠️ **Contexto do cliente não encontrado.**
+> O arquivo `.agents/social-media-context-sms.md` não existe. Sem ele, os hooks serão escritos com voz genérica — não calibrados para nenhum cliente ou persona específica.
+>
+> **Recomendo fortemente:** rode `social-media-context-sms` primeiro (5 minutos). Torna cada hook soar como você, não como IA genérica.
+>
+> Posso continuar em **modo genérico** agora — mas os hooks podem precisar de ajuste de voz antes de publicar.
+> **Continuar sem contexto?** (sim / não)
+
+- Se **não** → acionar `social-media-context-sms` antes de prosseguir
+- Se **sim** → prosseguir em modo genérico; marcar o output com `[⚠️ SEM CONTEXTO DE CLIENTE — revisar voz antes de publicar]`
+
+**Exceção:** quando hook-writer-sms é invocado internamente por outra skill (post-writer-sms, thread-writer-sms, carousel-writer-sms), o gate já foi aplicado pela skill chamadora — não repetir o gate.
 
 ---
 
@@ -145,6 +160,32 @@ Before generating hooks, read `.agents/social-media-context-sms.md` (if it exist
 
 ---
 
+### 10. Authority Steal
+
+**What it does:** References a recognized name, brand, tool, or institution to immediately borrow credibility and create pattern interruption.
+
+**Examples:**
+- "Netflix stopped measuring views. They started measuring hours watched."
+- "Warren Buffett reads 500 pages a day. Here's what he says about the ones that matter."
+- "Google's internal rule for productive meetings: no agenda, no meeting. Here's how I apply it."
+
+**When it works best:** When the referenced authority is genuinely connected to your point — not just name-dropping. The observation must follow from the reference, not hang off it.
+
+---
+
+### 11. Future Shock
+
+**What it does:** Opens with a bold prediction or an imminent change — makes the reader feel like they're about to be left behind if they don't read on.
+
+**Examples:**
+- "SEO will change more in 2025 than in the last 10 years combined."
+- "In 3 years, most content managers won't be managing content."
+- "Email open rates are about to collapse. Here's what replaces them."
+
+**When it works best:** When the prediction is specific and backed by a real signal — not generic "the future is changing" filler. Vague predictions are ignored. Specific ones create urgency.
+
+---
+
 ## Platform-Specific Hook Guidance
 
 ### LinkedIn
@@ -219,7 +260,7 @@ Before generating hooks, read `.agents/social-media-context-sms.md` (if it exist
 When a user provides a topic or idea:
 
 1. **Identify the platform** (ask if unclear)
-2. **Generate 5-7 hook variants** across different patterns from the library above
+2. **Generate 5-7 hook variants** across different patterns from the library above — prioritize the 11 named patterns; the full set now includes: Contrarian, Question, Story Opener, Statistic/Data, List Preview, Bold Claim, Empathy, Before/After, Confession, Authority Steal, Future Shock
 3. **Adapt each variant** to the platform's character limits, tone, and culture
 4. **Label each hook** with its pattern name so the user can learn the system
 5. **Mark the top pick** with a clear recommendation and one-sentence reasoning (e.g., "Recommended: this one because it leads with a specific number and targets a real pain point")
@@ -281,10 +322,31 @@ Winner: Hook B — confession pattern drove 3x more comments on this topic
 - Compare engagement rates, not raw numbers (account for follower growth over time)
 - After 5-10 tests, patterns emerge — double down on what your specific audience responds to
 
-**Quick self-check before posting:**
+## Checklist de entrega — obrigatório antes de apresentar hooks ao usuário
+
+Verificar cada hook gerado contra os itens abaixo. Qualquer falha = reescrever antes de entregar.
+
+- [ ] **Standalone** — o hook funciona sem o restante do post? Um leitor que só vê essa linha sente que precisa continuar?
+- [ ] **Específico** — tem número, nome, situação ou dado concreto? (sem "muitos criadores", sem "você sabe como é")
+- [ ] **Sem padrões proibidos** — se `production-rules.md` disponível, checar `00-B | PADRÕES DE AUSÊNCIA DE VOZ`. Sem o arquivo: sem "estamos animados", sem "sinergia", sem "transformador", sem "revolucionário"
+- [ ] **Plataforma-nativo** — o tom, o comprimento e o registro são nativos para a plataforma declarada?
+- [ ] **Sem em-dash (—)** — substituir por vírgula, ponto ou reescrita
+- [ ] **Variação de padrão** — os 5-7 hooks cobrem padrões diferentes? Não entregar 3 hooks Contrarian para a mesma plataforma
+- [ ] **Voz do cliente** — soa como o cliente/creator, não como template genérico de hook?
+
+**Quick self-check antes de postar (para o usuário):**
 - Would you stop scrolling for this line if you didn't write it?
 - Does it create a question in the reader's mind that the post will answer?
 - Is it specific enough that it couldn't apply to anyone else's post?
+
+### copy-qa-sms Gate — obrigatório após checklist aprovado
+
+Após o Checklist de entrega passar em todos os itens, executar o protocolo **copy-qa-sms** em cada hook gerado antes de apresentar ao usuário:
+
+- **Passo 2 — AI Pattern Gate:** Tier 1 em qualquer hook → reescrita automática. Tier 2: verificar por hook individual. Padrões Estruturais: aplicar a tabela completa do `copy-qa-sms` (sem em-dash, sem contraste binário "Não é X, é Y", sem wh-openers performáticos, sem fragmentação estacato, sem abertura com "Então"/"So", sem emoji em headline).
+- **Passo 1 — Voice Gate:** checar padrões universais (sem adjetivo sem dado, sem formulaico genérico).
+
+Hooks só são apresentados ao usuário após aprovação no copy-qa-sms.
 
 ---
 

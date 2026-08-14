@@ -165,7 +165,7 @@
         "strike_color": "#FF3B30"
       },
       "linha_preco_final": {
-        "content": "R$87,90",
+        "content": "R$87,95",
         "font": "Inter Tight Black 900",
         "size": "48px",
         "color": "#FFFFFF",
@@ -183,7 +183,7 @@
       "posicao": "canto inferior direito",
       "x": "940px",
       "y": "1048px",
-      "content": "@intushub",
+      "content": "SUPER AGENTE IA",
       "font": "Inter Regular 400",
       "size": "14px",
       "color": "rgba(255,255,255,0.30)"
@@ -196,7 +196,7 @@
     "Poll UI como card com border-radius 14px",
     "Barra laranja #E84000 na opcao vencedora (91%)",
     "R$997 riscado com linha vermelha #FF3B30",
-    "Handle @intushub no canto inferior direito",
+    "Wordmark SUPER AGENTE IA no canto inferior direito (nunca @intushub)",
     "Sem watermark de IA na imagem de fundo",
     "Paleta laranja + preto — sem azul"
   ]

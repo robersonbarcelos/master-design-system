@@ -1,0 +1,30 @@
+{
+  "artigo": "A CLOUDFLARE VIROU UM BANCO PARA AGENTES DE IA",
+  "estilo_global": "isometric pixel art 32-bit, retro game aesthetic, vibrant colors, clean pixel grid, no text, no logos, no watermarks, 16:9 widescreen, 2k resolution",
+  "imagens": [
+    {
+      "id": "IMAGEM_1",
+      "posicao": "hero — logo após o cabeçalho, antes do TL;DR",
+      "descricao_cena": "Agente de IA tentando pagar por um serviço digital sem ter carteira — bloqueado",
+      "prompt": "Isometric pixel art 32-bit scene: a small robot figure standing in front of a glowing vending machine filled with API icons and digital services. The robot holds empty hands — no coins, no card. A red padlock floats above the machine. The environment is a futuristic server room with blue neon grids. Style: retro game aesthetic, vibrant pixels, clean isometric grid, dramatic volumetric lighting in electric blue and red. No text, no logos, no watermarks. 16:9 widescreen, 2k resolution."
+    },
+    {
+      "id": "IMAGEM_2",
+      "posicao": "após seção COMO FUNCIONA O CLOUDFLARE WALLETS",
+      "descricao_cena": "Arquitetura em dois níveis: carteira humana (grande, segura) alimentando carteira virtual de agente (menor, ativa)",
+      "prompt": "Isometric pixel art 32-bit scene: two-tier vault system. Top level: a large golden safe with a human pixel character standing guard, labeled with a key icon. Bottom level: a smaller glowing wallet module with a robot inside, coins flowing downward through a pixel pipe within a preset limit meter. Electric blue and gold color palette. Clean pixel grid, retro game aesthetic, server infrastructure in background. No text, no logos, no watermarks. 16:9 widescreen, 2k resolution."
+    },
+    {
+      "id": "IMAGEM_3",
+      "posicao": "após seção A ESCOLHA QUE REVELA A ESTRATEGIA",
+      "descricao_cena": "Cloudflare como controlador da infraestrutura HTTP — ponto de controle entre agentes e a internet",
+      "prompt": "Isometric pixel art 32-bit scene: a massive control tower at the center of a pixel city, routing glowing data packets between robot figures on the left and digital storefronts on the right. Golden coins travel along the same fiber lines as the data. The tower radiates orange and blue light. Other skyscrapers representing competitors visible in the background but smaller and darker. Retro game aesthetic, clean isometric grid, dramatic lighting. No text, no logos, no watermarks. 16:9 widescreen, 2k resolution."
+    },
+    {
+      "id": "IMAGEM_4",
+      "posicao": "após seção O QUE MUDA PARA QUEM CONSTROI COM IA, antes do bloco de riscos",
+      "descricao_cena": "Ciclo completo de agentes executando tarefas e pagando autonomamente — micropagamentos máquina-a-máquina",
+      "prompt": "Isometric pixel art 32-bit scene: a circular assembly line of robot figures, each completing a different digital task — one reads a document, one generates code, one processes an image — and passing a glowing coin to the next automatically. Tiny lightning bolt payment icons flash between each robot. The conveyor belt glows cyan. Background: dark grid with purple ambient light, small coin stacks accumulating at the edges. Retro game aesthetic, vibrant pixels, clean isometric grid. No text, no logos, no watermarks. 16:9 widescreen, 2k resolution."
+    }
+  ]
+}

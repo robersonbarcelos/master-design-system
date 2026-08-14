@@ -1,0 +1,945 @@
+{
+  "template_family": "blank-style",
+  "cliente": "Intus Hub (Diego Spanevello)",
+  "descricao": "Arquivo mestre unico do estilo 'Blank' — reune capas, slides internos e (futuramente) CTA num unico JSON, no mesmo padrao usado em TEMPLATE-SLIDE-CLARA.json e TEMPLATE-SLIDE-ESCURA.json. Toda peca desse estilo deve ser gerada a partir daqui, carregando este arquivo e acionando a variacao pelo nome (capa-01, slide-03, etc).",
+  "meta": {
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "regras_globais": [
+      "sem travessao em nenhuma peca da familia Blank",
+      "sem linha ou traco decorativo separando blocos de texto — separacao SEMPRE por espaco negativo (margin_bottom), nunca por elemento grafico. Erro recorrente ja identificado e corrigido: nao adicionar tracinhos coloridos (ex: verde) entre headline e corpo",
+      "sem avatar em nenhum header — sempre so texto (nome + categoria)",
+      "asset_prompt de imagem NUNCA baked-in no template — sempre placeholder, preenchido via skill json-prompt-generator no momento da geracao real",
+      "tratamento de cor da imagem (colorida x preto-e-branco x dessaturada) NUNCA fixo no template — sempre depende da imagem de referencia fornecida pelo usuario a cada geracao",
+      "fundo padrao off-white #F7F5F1, nunca branco puro (#FFFFFF) — excecoes documentadas apenas nos slides full-bleed/painel (slide-09, slide-10, slide-11) e nas capas (full-bleed por natureza)"
+    ]
+  },
+  "capas": {
+    "capa-01": {
+      "template": "capa-ilustrada-mascote",
+      "nome": "capa-01",
+      "estilo_visual": "render 3D fotorrealista de personagem/mascote ilustrado, fundo com textura/profundidade, headline no terço inferior sobre overlay gradiente escuro",
+      "quando_usar": "quando a imagem de capa tem fundo com variacao tonal, textura ou iluminacao de estudio (render 3D, foto, still com profundidade) — o overlay garante legibilidade do texto branco",
+      "combinacao_fonte": {
+        "headline_font": "Archivo Black",
+        "header_font": "Big Shoulders Display",
+        "referencia_headline": "Exulta",
+        "referencia_header": "At Slam Grotesk"
+      },
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "orientation": "portrait — SLIDE SEMPRE 4:5 PORTRAIT. NUNCA ALTERAR.",
+        "platform": "Instagram Feed / Carrossel Capa",
+        "dpi": 72,
+        "color_mode": "RGB"
+      },
+      "zones": {
+        "header": {
+          "height": "auto",
+          "position": "top",
+          "margin_lateral": "28px",
+          "margin_top": "28px",
+          "avatar": {
+            "exists": false,
+            "note": "SEM AVATAR — regra explicita do cliente."
+          },
+          "text_block": {
+            "content": "Diego Spanevello | Inteligência Artificial",
+            "font_family": "Big Shoulders Display",
+            "font_weight": 900,
+            "font_size": "17px",
+            "text_transform": "uppercase",
+            "letter_spacing": "0.3px",
+            "layout": "linha unica, separador pipe",
+            "color_nome": "#FFFFFF",
+            "color_categoria": "rgba(255,255,255,0.45)",
+            "note": "PROIBIDO travessao (—). Separador travado em pipe ( | )."
+          }
+        },
+        "image": {
+          "position": "full frame — full bleed",
+          "margin_lateral": "0px",
+          "border_radius": "0px",
+          "note": "EXCECAO as regras padrao — full bleed intencional, seguindo referencia 'Blank'.",
+          "color_treatment": "NAO fixo — segue a imagem de referencia carregada pelo usuario a cada geracao de capa",
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real da capa. Não baked-in no template. Manter estilo 'render 3D fotorrealista / still de moda editorial ludica, CGI de alta definicao' como direcao de estilo, mas o sujeito/cena muda a cada capa."
+        },
+        "content": {
+          "position": "terço inferior do frame, sobreposto à imagem",
+          "margin_lateral": "28px",
+          "margin_bottom": "40px",
+          "overlay": {
+            "type": "gradiente escuro",
+            "direction": "de baixo para cima",
+            "stops": [
+              { "position": "0%", "color": "rgba(0,0,0,0.78)" },
+              { "position": "55%", "color": "rgba(0,0,0,0.35)" },
+              { "position": "100%", "color": "rgba(0,0,0,0)" }
+            ],
+            "note": "overlay obrigatorio nesta capa — fundos com textura/profundidade exigem mais contraste para o texto branco nao se perder"
+          },
+          "blocks": [
+            {
+              "id": "headline",
+              "type": "text",
+              "content": "PLACEHOLDER — headline da capa, preencher a cada geração",
+              "font_family": "Archivo Black",
+              "font_size": "42px",
+              "text_transform": "uppercase",
+              "line_height": 0.95,
+              "font_color": "#FFFFFF",
+              "accent_word": "PALAVRA-CHAVE",
+              "accent_color": "#E8722A",
+              "note": "palavra ou trecho de destaque em laranja (#E8722A) dentro da headline — accent_word muda a cada geracao"
+            }
+          ]
+        },
+        "footer": { "exists": false, "note": "sem footer" }
+      },
+      "negative_rules": [
+        "NUNCA usar travessão no header",
+        "NUNCA adicionar avatar",
+        "NUNCA remover o overlay atrás da headline nesta capa — fundo com textura sempre precisa dele",
+        "NUNCA usar a headline fora do terço inferior",
+        "NUNCA adicionar footer"
+      ]
+    },
+    "capa-02": {
+      "template": "capa-ilustrada-mascote",
+      "nome": "capa-02",
+      "estilo_visual": "ilustração vetorial flat/minimalista, fundo sólido chapado (estilo sticker/ícone), headline no terço inferior direto sobre a cor, sem overlay",
+      "quando_usar": "quando a imagem de capa tem fundo em cor solida chapada, sem gradiente nem textura (ilustracao flat, vetor) — o contraste ja e suficiente sem overlay, mantendo a estetica minimalista limpa",
+      "combinacao_fonte": {
+        "headline_font": "Hanken Grotesk",
+        "header_font": "Hanken Grotesk",
+        "referencia_headline": "Rebork",
+        "referencia_header": "Rebork"
+      },
+      "ajuste_aplicado": "Remoção total do overlay/bloco atrás do headline (fundo solido ja tem contraste suficiente com texto #1A1A1A) + header aumentado de 15px para 22px para dar presença de assinatura no topo.",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "orientation": "portrait — SLIDE SEMPRE 4:5 PORTRAIT. NUNCA ALTERAR.",
+        "platform": "Instagram Feed / Carrossel Capa",
+        "dpi": 72,
+        "color_mode": "RGB"
+      },
+      "zones": {
+        "header": {
+          "height": "auto",
+          "position": "top",
+          "margin_lateral": "28px",
+          "margin_top": "28px",
+          "avatar": {
+            "exists": false,
+            "note": "SEM AVATAR — regra explicita do cliente."
+          },
+          "text_block": {
+            "content": "Diego Spanevello | Inteligência Artificial",
+            "font_family": "Hanken Grotesk",
+            "font_weight": 800,
+            "font_size": "22px",
+            "text_transform": "none",
+            "letter_spacing": "0.2px",
+            "layout": "linha unica, separador pipe",
+            "color_nome": "#1A1A1A",
+            "color_categoria": "rgba(26,26,26,0.5)",
+            "note": "PROIBIDO travessao (—). Separador pipe. Tamanho travado em 22px minimo — 15px fica fraco demais como assinatura de topo num frame 1080px de largura."
+          }
+        },
+        "image": {
+          "position": "full frame — full bleed",
+          "margin_lateral": "0px",
+          "border_radius": "0px",
+          "note": "EXCECAO as regras padrao — full bleed intencional, seguindo referencia 'Blank'. Fundo CLARO/solido — texto direto sobre o fundo, sem necessidade de overlay pois e cor chapada sem variacao tonal.",
+          "color_treatment": "NAO fixo — segue a imagem de referencia carregada pelo usuario a cada geracao de capa",
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real da capa. Não baked-in no template. Manter estilo 'ilustração vetorial flat, estilo sticker/mascote minimalista, preenchimento 100% chapado' como direcao de estilo, mas o sujeito/cena muda a cada capa."
+        },
+        "content": {
+          "position": "terço inferior do frame, sobreposto à imagem",
+          "margin_lateral": "28px",
+          "margin_bottom": "40px",
+          "overlay": {
+            "exists": false,
+            "note": "REMOVIDO — fundo solido chapado, sem variacao tonal, entao texto #1A1A1A direto ja tem contraste suficiente (WCAG AA). Nunca reintroduzir bloco/overlay nesta capa — quebra a estetica flat/minimalista."
+          },
+          "blocks": [
+            {
+              "id": "headline",
+              "type": "text",
+              "content": "PLACEHOLDER — headline da capa, preencher a cada geração",
+              "font_family": "Hanken Grotesk",
+              "font_weight": 800,
+              "font_size": "40px",
+              "text_transform": "none",
+              "line_height": 1.0,
+              "font_color": "#1A1A1A",
+              "accent_word": "PALAVRA-CHAVE",
+              "accent_color": "#E8722A",
+              "note": "cor de texto ESCURA (#1A1A1A) — sem caixa/bloco atras, direto sobre o fundo solido. accent_word muda a cada geracao"
+            }
+          ]
+        },
+        "footer": { "exists": false, "note": "sem footer" }
+      },
+      "negative_rules": [
+        "NUNCA usar travessão no header",
+        "NUNCA adicionar avatar",
+        "NUNCA adicionar bloco/overlay atrás do headline nesta variação — fundo sólido já tem contraste suficiente",
+        "NUNCA usar a headline fora do terço inferior",
+        "NUNCA adicionar footer",
+        "NUNCA adicionar textura ou gradiente na imagem — deve permanecer 100% flat",
+        "NUNCA usar header abaixo de 20px neste formato — fica fraco como assinatura"
+      ]
+    }
+  },
+  "slides": {
+    "slide-01": {
+      "nome": "slide-01",
+      "origem": "ex-Grupo 1",
+      "estilo_visual": "headline serif → imagem editorial (38%) → corpo de apoio único",
+      "quando_usar": "abertura de argumento — apresenta um contexto com apoio visual direto logo apos a headline",
+      "template": "carrossel-blank-style",
+      "version": "slide-01-headline-imagem-corpo",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": {
+        "margem_lateral_global": "56px",
+        "note": "REGRA ESTRUTURAL: todas as zonas do slide (header, headline, imagem, corpo de texto, footer) usam a MESMA margem lateral de 56px dos dois lados do frame. A largura util do texto (headline e corpo) deve ser IDENTICA a largura da imagem — nunca mais estreita. Isso e herdado, nao redefinido zona por zona."
+      },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "herda de layout_grid.margem_lateral_global (56px)", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "Diego Spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "13px", "font_color": "#1A1A1A", "letter_spacing": "1.5px", "text_transform": "uppercase" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "1.5px", "text_transform": "uppercase" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe, tracking largo em uppercase"
+        },
+        "content": {
+          "position": "abaixo do header",
+          "margin_lateral": "herda de layout_grid.margem_lateral_global (56px)",
+          "margin_top": "36px",
+          "width": "igual a largura util da imagem — mesma margem lateral dos dois lados",
+          "blocks": [
+            {
+              "id": "headline", "type": "text",
+              "content": "Manchete curta do slide aqui, pode quebrar em 2 linhas",
+              "font_family": "serif display (ex: Fraunces, Playfair Display)", "font_size": "44px",
+              "font_style": "regular, com uma palavra ou trecho em itálico para ênfase",
+              "font_color": "#1A1A1A", "line_height": "1.08", "margin_bottom": "32px",
+              "note": "headline ocupa a largura total do grid — quebra de linha natural, nao forcada por caixa mais estreita"
+            }
+          ]
+        },
+        "image": {
+          "position": "abaixo da headline", "height": "38% do frame",
+          "margin_lateral": "herda de layout_grid.margem_lateral_global (56px)", "margin_top": "0px", "margin_bottom": "32px",
+          "border_radius": "20px", "full_bleed": false,
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "note": "imagem editorial, foto documental ou still — nunca ilustração cartoon. Largura da imagem = largura do grid, referencia de alinhamento pra headline e corpo"
+        },
+        "body": {
+          "position": "abaixo da imagem",
+          "margin_lateral": "herda de layout_grid.margem_lateral_global (56px)",
+          "width": "igual a largura da imagem — MESMA margem lateral dos dois lados, texto vai ate a mesma borda direita/esquerda da imagem",
+          "blocks": [
+            {
+              "id": "texto-apoio", "type": "text",
+              "content": "Texto complementar explicando o contexto da imagem ou reforçando a headline, ocupando a largura total disponivel ate a borda da imagem.",
+              "font_family": "sans-serif regular", "font_size": "24px", "font_color": "rgba(26,26,26,0.7)", "line_height": "1.45"
+            }
+          ]
+        },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "herda de layout_grid.margem_lateral_global (56px)", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "palavra ou trecho de destaque dentro da headline serif" },
+        "color_swap": { "accent_color": "#E8722A", "usage": "uso pontual, quando o itálico não for suficiente para o destaque" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem avatar no header", "sem logomark no footer — apenas texto INTUS HUB",
+        "asset_prompt de imagem nunca baked-in no template — sempre placeholder, preenchido na geracao real",
+        "maximo 1 ideia central por slide", "imagem sempre com border_radius, nunca sem",
+        "headline sempre serif display, nunca sans-serif bold", "fundo sempre off-white, nunca branco puro (#FFFFFF)",
+        "texto (headline e corpo) deve ocupar EXATAMENTE a mesma largura da imagem — mesma margem lateral nos dois lados, nunca mais estreito que a imagem",
+        "margem lateral definida uma unica vez em layout_grid e herdada por todas as zonas — nunca redefinir margem diferente zona a zona"
+      ]
+    },
+    "slide-02": {
+      "nome": "slide-02",
+      "origem": "ex-Grupo 2",
+      "estilo_visual": "split 2 colunas — imagem à esquerda (45%) + texto à direita (55%)",
+      "quando_usar": "quando a imagem tem protagonismo igual ao texto, comparações lado a lado, ou quando quer dar respiro visual sem a imagem dominar o slide inteiro",
+      "template": "carrossel-blank-style",
+      "version": "slide-02-split-imagem-texto",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — mesmo padrão já usado na capa"
+        },
+        "content": {
+          "layout": "split-2-colunas", "position": "abaixo do header, ocupa o corpo principal do frame", "margin_top": "32px",
+          "note": "desvio do schema padrão header/image/content/footer — imagem aninhada na coluna esquerda do content",
+          "columns": [
+            {
+              "id": "coluna-imagem", "width": "45%", "position": "esquerda", "margin_lateral_externa": "56px",
+              "image": {
+                "height": "100% da altura da coluna", "border_radius": "16px", "full_bleed": false,
+                "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+                "note": "foto retrato ou still, ocupa toda a altura da coluna"
+              }
+            },
+            {
+              "id": "coluna-texto", "width": "55%", "position": "direita", "margin_lateral_interna": "32px", "margin_lateral_externa": "56px",
+              "blocks": [
+                {
+                  "id": "headline", "type": "text", "content": "Manchete ou dado de impacto",
+                  "font_family": "serif display", "font_size": "34px", "font_style": "regular, com trecho em itálico para ênfase",
+                  "font_color": "#1A1A1A", "line_height": "1.1", "margin_bottom": "28px",
+                  "note": "margin_bottom aumentado de 16px para 28px — reforca separacao por espaco negativo, sem linha"
+                },
+                {
+                  "id": "texto-apoio", "type": "text",
+                  "content": "Texto complementar, explicação ou citação relacionada à imagem ao lado.",
+                  "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": "1.4"
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "palavra ou trecho de destaque dentro da headline serif" },
+        "color_swap": { "accent_color": "#E8722A", "usage": "uso pontual, quando o itálico não for suficiente para o destaque" }
+      },
+      "negative_rules": [
+        "sem travessao",
+        "sem linha ou traco decorativo separando blocos de texto (headline/corpo) — usar APENAS espaco negativo (respiro) pra separar secoes",
+        "sem avatar no header", "sem logomark no footer — apenas texto INTUS HUB",
+        "asset_prompt de imagem nunca baked-in no template — sempre placeholder, preenchido na geracao real",
+        "maximo 1 ideia central por slide", "imagem sempre com border_radius, nunca sem",
+        "headline sempre serif display, nunca sans-serif bold", "coluna de texto nunca mais larga que 60% do frame",
+        "fundo sempre off-white, nunca branco puro (#FFFFFF)"
+      ]
+    },
+    "slide-03": {
+      "nome": "slide-03",
+      "origem": "ex-Grupo 3",
+      "estilo_visual": "texto puro, centralizado verticalmente, multi-parágrafo, sem imagem",
+      "quando_usar": "slide de reflexão/conceito onde a ideia sustenta o slide sozinha — argumentacao mais densa, sem necessidade de apoio visual",
+      "template": "carrossel-blank-style",
+      "version": "slide-03-texto-puro-multi-paragrafo",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — mesmo padrão já usado na capa"
+        },
+        "content": {
+          "position": "centralizado verticalmente no corpo do frame", "margin_lateral": "56px",
+          "blocks": [
+            {
+              "id": "pre-headline", "type": "text", "content": "Texto de contexto pequeno aqui",
+              "font_family": "sans-serif regular", "font_size": "16px", "font_color": "#E8722A",
+              "text_transform": "uppercase", "letter_spacing": "2px", "margin_bottom": "16px"
+            },
+            {
+              "id": "headline", "type": "text", "content": "Frase central do slide, pode quebrar em 2-3 linhas",
+              "font_family": "serif display", "font_size": "48px", "font_style": "regular, com trecho em itálico para ênfase",
+              "font_color": "#1A1A1A", "line_height": "1.1", "margin_bottom": "48px",
+              "note": "margin_bottom aumentado de 20px para 48px — respiro faz o papel que antes era feito pela linha divisoria, agora removida"
+            },
+            {
+              "id": "body", "type": "text",
+              "content": "Texto complementar mais leve, explicando ou aprofundando a ideia central.",
+              "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": "1.5"
+            }
+          ]
+        },
+        "image": { "exists": false, "note": "slide-03 não tem zona de imagem — slide 100% tipográfico" },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "palavra ou trecho de destaque dentro da headline serif display" },
+        "color_swap": { "accent_color": "#E8722A", "usage": "pré-headline sempre em laranja; uso pontual na headline se necessário" },
+        "underline": { "color": "#E8722A", "thickness": "3px", "usage": "reforço em frase de apoio dentro do body" }
+      },
+      "negative_rules": [
+        "sem travessao",
+        "sem linha ou traco decorativo separando blocos de texto (headline/corpo) — usar APENAS espaco negativo (respiro) pra separar secoes",
+        "sem avatar no header", "sem logomark no footer — apenas texto INTUS HUB",
+        "maximo 1 ideia central por slide", "headline sempre serif display, nunca sans-serif bold",
+        "nunca forcar uma imagem so pra preencher espaco", "respiro generoso: priorizar espaco negativo sempre que precisar separar blocos",
+        "fundo sempre off-white, nunca branco puro (#FFFFFF)"
+      ]
+    },
+    "slide-04": {
+      "nome": "slide-04",
+      "origem": "ex-Variação 1",
+      "estilo_visual": "headline longa (3-4 linhas) → imagem (36%) → corpo com peso misto (negrito + regular)",
+      "quando_usar": "quando a headline já carrega parte da argumentação (quase um parágrafo de abertura) e a imagem serve pra contextualizar, com o corpo reforçando com dois níveis de ênfase",
+      "template": "carrossel-blank-style",
+      "version": "slide-04-headline-imagem-corpo-peso-misto",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": { "margem_lateral_global": "56px", "note": "headline, imagem e corpo compartilham a mesma largura util — mesma margem lateral nos dois lados" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — padrão aprovado"
+        },
+        "content": {
+          "position": "abaixo do header", "margin_lateral": "56px", "margin_top": "28px",
+          "blocks": [
+            {
+              "id": "headline", "type": "text",
+              "content": "PLACEHOLDER — headline longa, 3-4 linhas, quase como um parágrafo de abertura",
+              "font_family": "serif display (ex: Fraunces, Playfair Display)", "font_size": "32px",
+              "font_style": "regular, com trechos em itálico para ênfase (pode ocorrer mais de uma vez)",
+              "font_color": "#1A1A1A", "line_height": "1.15", "margin_bottom": "28px",
+              "note": "headline mais longa, funciona quase como um parágrafo de abertura — mais de uma palavra em itálico ao longo do texto"
+            }
+          ]
+        },
+        "image": {
+          "position": "abaixo da headline", "height": "36% do frame", "margin_lateral": "56px", "margin_top": "0px", "margin_bottom": "32px",
+          "border_radius": "12px", "full_bleed": false,
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "note": "foto documental/editorial — nunca ilustração cartoon"
+        },
+        "body": {
+          "position": "abaixo da imagem", "margin_lateral": "56px",
+          "blocks": [
+            {
+              "id": "paragrafo-1-negrito", "type": "text",
+              "content": "PLACEHOLDER — primeiro parágrafo, em negrito, peso mais forte",
+              "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#1A1A1A", "line_height": "1.4", "margin_bottom": "20px"
+            },
+            {
+              "id": "paragrafo-2-regular", "type": "text",
+              "content": "PLACEHOLDER — segundo parágrafo, em peso regular, complementar",
+              "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": "1.4"
+            }
+          ]
+        },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "trechos de destaque dentro da headline serif — pode ocorrer mais de uma vez na mesma headline" },
+        "bold_paragraph": { "usage": "primeiro parágrafo do corpo em negrito (peso mais forte que o segundo), cria hierarquia dentro do próprio bloco de texto" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto", "sem avatar no header",
+        "sem logomark no footer — apenas texto INTUS HUB", "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "texto (headline e corpo) deve ocupar a mesma largura da imagem — mesma margem lateral",
+        "imagem sempre com border_radius, nunca sem", "fundo sempre off-white, nunca branco puro (#FFFFFF)"
+      ]
+    },
+    "slide-05": {
+      "nome": "slide-05",
+      "origem": "ex-Variação 2",
+      "estilo_visual": "imagem no topo → parágrafo longo serifado → interjeição isolada em negrito (gancho) → corpo regular",
+      "quando_usar": "quando quer criar uma virada dramática no meio do carrossel — a interjeicao isolada funciona como um gancho de tensao antes da resolucao no ultimo paragrafo",
+      "template": "carrossel-blank-style",
+      "version": "slide-05-imagem-topo-texto-interjeicao",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": { "margem_lateral_global": "56px", "note": "imagem e todos os blocos de texto compartilham a mesma largura util" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — padrão aprovado"
+        },
+        "image": {
+          "position": "logo abaixo do header, topo do frame", "height": "36% do frame",
+          "margin_lateral": "56px", "margin_top": "28px", "margin_bottom": "28px",
+          "border_radius": "12px", "full_bleed": false,
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "note": "foto documental/editorial, primeiro elemento visual do slide, antes de qualquer texto"
+        },
+        "content": {
+          "position": "abaixo da imagem", "margin_lateral": "56px",
+          "blocks": [
+            {
+              "id": "texto-serif-longo", "type": "text",
+              "content": "PLACEHOLDER — texto serifado longo, funciona como 'headline estendida', estrutura de parágrafo corrido",
+              "font_family": "serif display", "font_size": "30px", "font_style": "regular, com um trecho em itálico para ênfase",
+              "font_color": "#1A1A1A", "line_height": "1.2", "margin_bottom": "32px",
+              "note": "funciona como uma 'headline estendida' — tamanho grande mas estrutura de paragrafo corrido, nao frase curta"
+            },
+            {
+              "id": "interjeicao-negrito", "type": "text",
+              "content": "PLACEHOLDER — frase curta isolada, gancho/virada",
+              "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#1A1A1A", "margin_bottom": "20px",
+              "note": "frase curta isolada, funciona como uma virada/gancho dentro do corpo — sempre sozinha, sem mais texto na mesma linha"
+            },
+            {
+              "id": "corpo-regular", "type": "text",
+              "content": "PLACEHOLDER — resolução/complemento após o gancho",
+              "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": "1.4"
+            }
+          ]
+        },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "trecho de destaque dentro do texto serifado" },
+        "bold_interjection": { "usage": "frase curta e isolada em negrito, funcionando como virada/gancho no meio do corpo" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto", "sem avatar no header",
+        "sem logomark no footer — apenas texto INTUS HUB", "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "texto deve ocupar a mesma largura da imagem — mesma margem lateral", "imagem sempre com border_radius, nunca sem",
+        "fundo sempre off-white, nunca branco puro (#FFFFFF)", "interjeicao em negrito deve ficar sempre isolada — nunca colada em outro paragrafo"
+      ]
+    },
+    "slide-06": {
+      "nome": "slide-06",
+      "origem": "ex-Variação 3",
+      "estilo_visual": "split invertido — texto à esquerda (55%, headline + 2 parágrafos + fechamento sublinhado laranja), imagem à direita (45%)",
+      "quando_usar": "quando quer fechar um bloco de argumentacao com destaque de conclusao sublinhado — o underline funciona como reforco visual do ponto principal",
+      "template": "carrossel-blank-style",
+      "version": "slide-06-split-texto-imagem-invertido",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — padrão aprovado"
+        },
+        "content": {
+          "layout": "split-2-colunas-invertido", "position": "abaixo do header, ocupa o corpo principal do frame", "margin_top": "32px",
+          "note": "inverso do slide-02 — aqui o TEXTO fica na coluna esquerda e a IMAGEM na coluna direita",
+          "columns": [
+            {
+              "id": "coluna-texto", "width": "55%", "position": "esquerda", "margin_lateral_externa": "56px", "margin_lateral_interna": "24px",
+              "blocks": [
+                {
+                  "id": "headline", "type": "text", "content": "PLACEHOLDER — headline curta",
+                  "font_family": "serif display", "font_size": "32px", "font_style": "regular", "font_color": "#1A1A1A",
+                  "line_height": "1.1", "margin_bottom": "20px"
+                },
+                {
+                  "id": "paragrafo-1", "type": "text", "content": "PLACEHOLDER — primeiro parágrafo de contexto",
+                  "font_family": "sans-serif regular", "font_size": "18px", "font_color": "rgba(26,26,26,0.65)", "line_height": "1.4", "margin_bottom": "18px"
+                },
+                {
+                  "id": "paragrafo-2", "type": "text", "content": "PLACEHOLDER — segundo parágrafo de desenvolvimento",
+                  "font_family": "sans-serif regular", "font_size": "18px", "font_color": "rgba(26,26,26,0.65)", "line_height": "1.4", "margin_bottom": "18px"
+                },
+                {
+                  "id": "paragrafo-3-sublinhado", "type": "text-marked", "content": "PLACEHOLDER — parágrafo de fechamento/conclusão",
+                  "font_family": "sans-serif regular", "font_size": "18px", "font_color": "#1A1A1A", "line_height": "1.4",
+                  "marking": { "type": "underline", "color": "#E8722A", "thickness": "2px" },
+                  "note": "paragrafo de fechamento com underline laranja — reforco visual do ponto principal"
+                }
+              ]
+            },
+            {
+              "id": "coluna-imagem", "width": "45%", "position": "direita", "margin_lateral_externa": "56px",
+              "image": {
+                "height": "auto, proporcional ao conteudo da coluna de texto ao lado", "border_radius": "16px", "full_bleed": false,
+                "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+                "note": "foto retrato/still, alinhada ao topo da coluna de texto"
+              }
+            }
+          ]
+        },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "underline": { "color": "#E8722A", "thickness": "2px", "usage": "paragrafo de fechamento/conclusao dentro da coluna de texto" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto", "sem avatar no header",
+        "sem logomark no footer — apenas texto INTUS HUB", "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "imagem sempre com border_radius, nunca sem", "coluna de imagem nunca mais larga que 45% do frame",
+        "fundo sempre off-white, nunca branco puro (#FFFFFF)"
+      ]
+    },
+    "slide-07": {
+      "nome": "slide-07",
+      "origem": "ex-Variação 4",
+      "estilo_visual": "headline + 2 parágrafos (um com negrito inline) → imagem no rodapé, respiro grande antes do footer",
+      "quando_usar": "quando a imagem e ilustrativa mas nao e o ponto central — funciona como fechamento visual do argumento, ja desenvolvido no texto acima",
+      "template": "carrossel-blank-style",
+      "version": "slide-07-headline-texto-imagem-rodape",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": { "margem_lateral_global": "56px", "note": "headline, corpo e imagem compartilham a mesma largura util" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — padrão aprovado"
+        },
+        "content": {
+          "position": "abaixo do header", "margin_lateral": "56px", "margin_top": "32px",
+          "blocks": [
+            {
+              "id": "headline", "type": "text", "content": "PLACEHOLDER — headline mais longa, funciona quase como abertura de parágrafo",
+              "font_family": "serif display", "font_size": "30px", "font_style": "regular", "font_color": "#1A1A1A",
+              "line_height": "1.18", "margin_bottom": "24px",
+              "note": "headline mais longa, funciona quase como abertura de paragrafo — italico opcional, campo disponivel"
+            },
+            {
+              "id": "paragrafo-1", "type": "text", "content": "PLACEHOLDER — primeiro parágrafo de contexto",
+              "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": "1.45", "margin_bottom": "18px"
+            },
+            {
+              "id": "paragrafo-2-com-negrito-inline", "type": "text",
+              "content": "PLACEHOLDER — segundo parágrafo, com {{trecho final em negrito inline}}",
+              "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": "1.45", "margin_bottom": "28px",
+              "note": "trecho entre {{ }} deve renderizar em negrito (#1A1A1A, font_weight 700) dentro da mesma frase — negrito inline, nao paragrafo separado"
+            }
+          ]
+        },
+        "image": {
+          "position": "rodape do frame, abaixo de todo o texto", "height": "34% do frame",
+          "margin_lateral": "56px", "margin_bottom": "80px", "border_radius": "12px", "full_bleed": false,
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "note": "foto documental/editorial, ultimo elemento visual antes do footer, com respiro generoso antes do footer"
+        },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "bold_inline": { "usage": "trecho de fechamento em negrito dentro do ultimo paragrafo, antes da imagem" },
+        "italic_emphasis": { "usage": "opcional na headline, quando fizer sentido" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto", "sem avatar no header",
+        "sem logomark no footer — apenas texto INTUS HUB", "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "texto e imagem compartilham a mesma largura util — mesma margem lateral", "imagem sempre com border_radius, nunca sem",
+        "fundo sempre off-white, nunca branco puro (#FFFFFF)", "respiro generoso entre a imagem e o footer — imagem nunca colada no rodape"
+      ]
+    },
+    "slide-08": {
+      "nome": "slide-08",
+      "origem": "ex-Variação 5",
+      "estilo_visual": "texto puro, não centralizado verticalmente, 3 parágrafos (regular/negrito/regular), respiro deliberado antes do footer",
+      "quando_usar": "quando quer desacelerar o ritmo do carrossel — silencio/respiro proposital antes de uma virada, sem forcar imagem",
+      "template": "carrossel-blank-style",
+      "version": "slide-08-texto-puro-multi-paragrafo",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "zones": {
+        "header": {
+          "height": "50px", "position": "top", "margin_lateral": "56px", "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "@diego.spanevello", "font_family": "sans-serif", "font_weight": 700, "font_size": "14px", "font_color": "#1A1A1A" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_family": "sans-serif", "font_weight": 600, "font_size": "14px", "font_color": "rgba(26,26,26,0.45)" }
+          ],
+          "avatar": "nenhum — apenas texto, sem foto de perfil",
+          "note": "handle + categoria na mesma linha, separados por pipe — padrão aprovado"
+        },
+        "content": {
+          "position": "no terço superior/central do frame — NAO centralizado verticalmente igual ao slide-03, comeca logo apos respiro do header",
+          "margin_lateral": "56px", "margin_top": "120px",
+          "blocks": [
+            {
+              "id": "headline", "type": "text", "content": "PLACEHOLDER — headline curta",
+              "font_family": "serif display", "font_size": "36px", "font_style": "regular", "font_color": "#1A1A1A",
+              "line_height": "1.12", "margin_bottom": "28px"
+            },
+            {
+              "id": "paragrafo-1-regular", "type": "text", "content": "PLACEHOLDER — primeiro parágrafo, regular",
+              "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.6)", "line_height": "1.45", "margin_bottom": "20px"
+            },
+            {
+              "id": "paragrafo-2-negrito", "type": "text", "content": "PLACEHOLDER — segundo parágrafo, em negrito (pico de ênfase)",
+              "font_family": "sans-serif", "font_weight": 700, "font_size": "20px", "font_color": "#1A1A1A", "line_height": "1.45", "margin_bottom": "20px"
+            },
+            {
+              "id": "paragrafo-3-regular", "type": "text", "content": "PLACEHOLDER — terceiro parágrafo, regular",
+              "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.6)", "line_height": "1.45"
+            }
+          ]
+        },
+        "image": { "exists": false, "note": "slide 100% tipográfico" },
+        "footer": {
+          "height": "40px", "position": "bottom", "margin_lateral": "56px", "margin_bottom": "36px",
+          "content": "INTUS HUB", "note": "somente texto — sem logomark/ícone. Respiro grande entre o ultimo paragrafo e o footer, propositalmente vazio",
+          "font_family": "sans-serif regular", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "3px", "text_transform": "uppercase", "position_horizontal": "esquerda"
+        }
+      },
+      "markings_available": {
+        "bold_paragraph": { "usage": "um dos parágrafos do meio em negrito, criando um 'pico' de enfase dentro do bloco de texto corrido" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto", "sem avatar no header",
+        "sem logomark no footer — apenas texto INTUS HUB", "headline sempre serif display, nunca sans-serif bold",
+        "nunca forcar uma imagem so pra preencher espaco", "respiro generoso e deliberado — o vazio antes do footer faz parte do design, nao e erro",
+        "fundo sempre off-white, nunca branco puro (#FFFFFF)"
+      ]
+    },
+    "slide-09": {
+      "nome": "slide-09",
+      "origem": "ex-Variação 6",
+      "status": "aprovado",
+      "estilo_visual": "card inset (moldura off-white de 24px) com foto full-bleed dentro do card + texto branco sobreposto à esquerda, overlay parcial só atrás do texto",
+      "quando_usar": "quando a foto e o centro emocional do slide (comemoracao, acao, momento decisivo) e o texto funciona como legenda/leitura sobreposta",
+      "template": "carrossel-blank-style",
+      "version": "slide-09-fullbleed-texto-sobreposto-esquerda-card-inset",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "card_frame": {
+        "outer_background": "#F7F5F1", "margin": "24px", "border_radius": "24px",
+        "note": "o card (imagem + texto sobreposto) fica INSET dentro do frame, com margem de fundo off-white visivel nas 4 bordas — cria contraste entre o card (foto escurecida) e o fundo claro geral. NUNCA full-bleed ate a borda do frame inteiro."
+      },
+      "zones": {
+        "header": { "exists": false, "note": "confirmado pelo cliente — este subgrupo full-bleed nao usa header. A marca ja aparece na capa do carrossel." },
+        "image": {
+          "position": "preenche 100% do card, dentro da margem definida em card_frame.margin",
+          "height": "100% do card", "width": "100% do card", "border_radius": "herda de card_frame.border_radius (24px)",
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "color_treatment": "NAO fixo — segue a imagem de referencia carregada pelo usuario a cada geracao",
+          "overlay": {
+            "type": "gradiente escuro parcial, apenas atras das zonas de texto",
+            "zonas_aplicadas": ["atras da headline (terco superior)", "atras do corpo de texto (terco inferior)"],
+            "color": "rgba(0,0,0,0.25) a rgba(0,0,0,0.55), mais forte perto do texto",
+            "note": "imagem NUNCA escurecida por inteiro — overlay so nas areas onde o texto se sobrepoe, pra manter legibilidade sem perder a foto"
+          },
+          "note": "foto documental/editorial — cores naturais preservadas fora das zonas de overlay"
+        },
+        "content": {
+          "position": "sobreposto a imagem, terco superior do card", "margin_lateral": "32px", "margin_top": "140px",
+          "blocks": [
+            {
+              "id": "headline", "type": "text", "content": "PLACEHOLDER — headline curta, pode ter trecho final em itálico",
+              "font_family": "serif display", "font_size": "34px", "font_style": "regular, com trecho final em itálico opcional para ênfase",
+              "font_color": "#FFFFFF", "line_height": "1.15", "text_align": "esquerda",
+              "note": "texto branco sobreposto direto na foto — depende do overlay atras para legibilidade"
+            }
+          ]
+        },
+        "body": {
+          "position": "sobreposto a imagem, terco inferior do card", "margin_lateral": "32px", "margin_bottom": "56px",
+          "separacao_headline_body": "APENAS respiro/espaco vazio — NUNCA travessao, tracinho, linha ou qualquer elemento decorativo dividindo a headline do bloco de paragrafos. Erro recorrente ja corrigido: nao adicionar um traco colorido (ex: verde) entre os dois blocos.",
+          "blocks": [
+            {
+              "id": "paragrafo-1-negrito", "type": "text", "content": "PLACEHOLDER — primeiro parágrafo, negrito",
+              "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#FFFFFF", "line_height": "1.4", "margin_bottom": "20px"
+            },
+            {
+              "id": "paragrafo-2-regular", "type": "text", "content": "PLACEHOLDER — segundo parágrafo, regular",
+              "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(255,255,255,0.85)", "line_height": "1.4"
+            }
+          ]
+        },
+        "footer": { "exists": false, "note": "confirmado pelo cliente — este subgrupo full-bleed nao usa footer." }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "trecho final da headline, dentro da mesma frase" },
+        "bold_paragraph": { "usage": "primeiro paragrafo do corpo em negrito, segundo em regular — mesma logica de hierarquia dos outros grupos" }
+      },
+      "negative_rules": [
+        "sem travessao",
+        "sem linha ou traco decorativo separando blocos de texto — inclui tracinhos coloridos (ex: verde) entre headline e corpo, erro recorrente ja identificado e corrigido; separacao SOMENTE por espaco em branco/respiro",
+        "overlay aplicado somente atras do texto, nunca na imagem inteira", "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "texto sempre branco quando sobreposto a foto — nunca #1A1A1A nessas variacoes full-bleed",
+        "card SEMPRE inset dentro de margem de fundo off-white (card_frame.margin) — NUNCA full-bleed ate a borda do frame inteiro",
+        "fundo geral do frame sempre off-white #F7F5F1, visivel como moldura ao redor do card",
+        "sem header e sem footer neste subgrupo — excecao documentada e confirmada",
+        "tratamento de cor da imagem NUNCA fixo — sempre depende da imagem de referencia fornecida pelo usuario"
+      ]
+    },
+    "slide-10": {
+      "nome": "slide-10",
+      "origem": "ex-Variação 7",
+      "status": "aprovado",
+      "estilo_visual": "card inset com foto full-bleed + headline centralizada (exceção de alinhamento) + parágrafo único embaixo, overlay mais sutil",
+      "quando_usar": "quando a frase tem simetria natural e quer efeito de 'declaracao'/cartaz — usar centralizacao apenas quando a headline permitir, nao forcar em frases assimetricas",
+      "template": "carrossel-blank-style",
+      "version": "slide-10-fullbleed-headline-centralizada-card-inset",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "card_frame": {
+        "outer_background": "#F7F5F1", "margin": "24px", "border_radius": "24px",
+        "note": "o card (imagem + texto sobreposto) fica INSET dentro do frame, com margem de fundo off-white visivel nas 4 bordas. NUNCA full-bleed ate a borda do frame inteiro."
+      },
+      "zones": {
+        "header": { "exists": false, "note": "confirmado pelo cliente — este subgrupo full-bleed nao usa header." },
+        "image": {
+          "position": "preenche 100% do card, dentro da margem definida em card_frame.margin",
+          "height": "100% do card", "width": "100% do card", "border_radius": "herda de card_frame.border_radius (24px)",
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "color_treatment": "NAO fixo no template — segue a imagem de referencia carregada pelo usuario no momento da geracao. Nao travar em nenhum tratamento por padrao.",
+          "overlay": {
+            "type": "gradiente escuro parcial, apenas atras das zonas de texto",
+            "zonas_aplicadas": ["atras da headline (terco superior)", "atras do paragrafo (terco inferior)"],
+            "color": "rgba(0,0,0,0.2) a rgba(0,0,0,0.5)",
+            "note": "mais sutil que o slide-09, pois o fundo natural da foto (ceu/arquibancada desfocada, etc) ja tem contraste suficiente em boa parte da area"
+          },
+          "note": "foto documental/editorial, plano fechado"
+        },
+        "content": {
+          "position": "sobreposto a imagem, terco superior do card", "margin_lateral": "48px", "margin_top": "110px",
+          "blocks": [
+            {
+              "id": "headline", "type": "text", "content": "PLACEHOLDER — headline simétrica, com clausula final opcional em itálico",
+              "font_family": "serif display", "font_size": "28px", "font_style": "regular, com a clausula final opcional em itálico para ênfase",
+              "font_color": "#FFFFFF", "line_height": "1.25", "text_align": "centro",
+              "note": "unica variacao do grupo com headline centralizada — margem lateral maior (48px) pra compensar a centralizacao e evitar linhas muito longas"
+            }
+          ]
+        },
+        "body": {
+          "position": "sobreposto a imagem, terco inferior do card", "margin_lateral": "32px", "margin_bottom": "64px",
+          "separacao_headline_body": "APENAS respiro/espaco vazio — NUNCA travessao, tracinho, linha ou qualquer elemento decorativo dividindo a headline do bloco de paragrafos.",
+          "blocks": [
+            {
+              "id": "paragrafo-unico", "type": "text", "content": "PLACEHOLDER — parágrafo único de fechamento",
+              "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(255,255,255,0.85)", "line_height": "1.4", "text_align": "esquerda",
+              "note": "unico paragrafo do corpo — sem par negrito/regular aqui, headline ja carrega o peso conceitual do slide"
+            }
+          ]
+        },
+        "footer": { "exists": false, "note": "confirmado pelo cliente — este subgrupo full-bleed nao usa footer." }
+      },
+      "markings_available": {
+        "italic_emphasis": { "usage": "clausula final da headline, apos os dois-pontos, quando aplicavel" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto",
+        "overlay aplicado somente atras do texto, nunca na imagem inteira", "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "texto sempre branco quando sobreposto a foto",
+        "headline centralizada e excecao neste grupo — usar apenas quando a frase tiver simetria natural, nao forcar centralizacao em headlines assimetricas",
+        "card SEMPRE inset dentro de margem de fundo off-white (card_frame.margin) — NUNCA full-bleed ate a borda do frame inteiro",
+        "fundo geral do frame sempre off-white #F7F5F1, visivel como moldura ao redor do card",
+        "sem header e sem footer neste subgrupo — excecao documentada e confirmada",
+        "tratamento de cor da imagem NUNCA fixo — sempre depende da imagem de referencia fornecida pelo usuario"
+      ]
+    },
+    "slide-11": {
+      "nome": "slide-11",
+      "origem": "ex-Variação 8",
+      "status": "aprovado",
+      "estilo_visual": "card inset com imagem no topo (45% do card, sem overlay) + painel sólido escuro (#0D0D0D) embaixo com headline + 3 parágrafos, último em negrito",
+      "quando_usar": "quando quer separar claramente 'imagem documental' de 'bloco de leitura' — tom mais editorial/dossie, especialmente pra fechar um bloco com dado de impacto",
+      "template": "carrossel-blank-style",
+      "version": "slide-11-imagem-topo-painel-solido-escuro-card-inset",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "card_frame": {
+        "outer_background": "#F7F5F1", "margin": "24px", "border_radius": "24px",
+        "note": "o card inteiro (imagem no topo + painel solido escuro embaixo) fica INSET dentro do frame, com margem de fundo off-white visivel nas 4 bordas. NUNCA full-bleed ate a borda do frame inteiro."
+      },
+      "zones": {
+        "header": { "exists": false, "note": "confirmado — subgrupo full-bleed/painel nao usa header, consistente com slide-09 e slide-10." },
+        "image": {
+          "position": "topo do card, full-width DENTRO do card (nao do frame)", "height": "aprox. 45% do card", "width": "100% do card",
+          "margin_lateral": "0px", "margin_top": "0px",
+          "border_radius": "herda de card_frame.border_radius nas pontas superiores (24px 24px 0px 0px)",
+          "asset_prompt": "PLACEHOLDER — preencher via json-prompt-generator no momento da geração real do slide. Não baked-in no template.",
+          "color_treatment": "NAO fixo no template — segue a imagem de referencia carregada pelo usuario a cada geracao. Pode sair colorida, preto e branco ou dessaturada dependendo do que a referencia pedir; o template nunca forca preto e branco por padrao.",
+          "note": "foto documental/still — estilo e cor seguem a referencia enviada, nao um filtro fixo do template. Funciona com foto colorida ou P&B; a escolha e por slide/campanha, nao regra fixa"
+        },
+        "content": {
+          "position": "painel solido escuro, ocupa o restante do card abaixo da imagem",
+          "background_color": "#0D0D0D", "margin_lateral": "32px", "margin_top": "28px",
+          "blocks": [
+            {
+              "id": "headline", "type": "text", "content": "PLACEHOLDER — headline curta e direta, funciona como virada",
+              "font_family": "serif display", "font_size": "30px", "font_style": "regular", "font_color": "#FFFFFF",
+              "line_height": "1.1", "margin_bottom": "18px",
+              "note": "headline curta e direta, funciona como uma virada dentro da narrativa do carrossel"
+            },
+            {
+              "id": "paragrafo-1", "type": "text", "content": "PLACEHOLDER — primeiro parágrafo de contexto",
+              "font_family": "sans-serif regular", "font_size": "16px", "font_color": "rgba(255,255,255,0.75)", "line_height": "1.45", "margin_bottom": "14px"
+            },
+            {
+              "id": "paragrafo-2", "type": "text", "content": "PLACEHOLDER — segundo parágrafo de desenvolvimento",
+              "font_family": "sans-serif regular", "font_size": "16px", "font_color": "rgba(255,255,255,0.75)", "line_height": "1.45", "margin_bottom": "14px"
+            },
+            {
+              "id": "paragrafo-3-negrito", "type": "text", "content": "PLACEHOLDER — dado de impacto/fechamento, negrito",
+              "font_family": "sans-serif", "font_weight": 700, "font_size": "16px", "font_color": "#FFFFFF", "line_height": "1.45",
+              "note": "fechamento em negrito branco — dado de impacto, mesma logica dos 'picos de enfase' dos outros grupos"
+            }
+          ]
+        },
+        "footer": { "exists": false, "note": "confirmado — subgrupo full-bleed/painel nao usa footer." }
+      },
+      "markings_available": {
+        "bold_paragraph": { "usage": "ultimo paragrafo (dado de impacto/fechamento) sempre em negrito branco, funcionando como o clímax do bloco de texto" }
+      },
+      "negative_rules": [
+        "sem travessao", "sem linha ou traco decorativo separando blocos de texto",
+        "painel solido escuro e excecao documentada — so aparece neste subgrupo (imagem-topo + painel), nunca nos slides off-white padrao",
+        "imagem sempre sem overlay/gradiente nesta variacao especifica — contraste resolvido pelo painel solido, nao por gradiente sobre a foto",
+        "asset_prompt de imagem nunca baked-in no template — sempre placeholder",
+        "ultimo paragrafo do corpo sempre em negrito, funcionando como fechamento/dado de impacto",
+        "card SEMPRE inset dentro de margem de fundo off-white (card_frame.margin) — NUNCA full-bleed ate a borda do frame inteiro",
+        "fundo geral do frame sempre off-white #F7F5F1, visivel como moldura ao redor do card inteiro (imagem + painel escuro)",
+        "sem header e sem footer neste subgrupo — consistente com slide-09 e slide-10",
+        "tratamento de cor da imagem NUNCA fixo no template — sempre depende da imagem de referencia fornecida pelo usuario a cada geracao"
+      ]
+    }
+  },
+  "cta": {
+    "status": "pendente",
+    "note": "CTA no estilo Blank ainda nao foi desenhado nesta leva. Quando for produzido, entra aqui seguindo a mesma logica do Clara/Escura — footer com botoes Salve/Siga adaptado a paleta off-white/serif do Blank."
+  }
+}

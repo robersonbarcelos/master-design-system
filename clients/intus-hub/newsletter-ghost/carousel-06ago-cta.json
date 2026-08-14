@@ -1,0 +1,104 @@
+{
+  "slide_numero": 9,
+  "tipo": "CTA",
+  "slide": "slide-05",
+  "template": "carrossel-blank-style",
+  "version": "slide-05-imagem-topo-texto-interjeicao",
+  "format": {
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "background_color": "#F7F5F1"
+  },
+  "layout_grid": {
+    "margem_lateral_global": "56px"
+  },
+  "zones": {
+    "header": {
+      "height": "50px",
+      "position": "top",
+      "margin_lateral": "56px",
+      "margin_top": "40px",
+      "blocks": [
+        {
+          "id": "handle",
+          "content": "Diego Spanevello",
+          "font_family": "sans-serif",
+          "font_weight": 700,
+          "font_size": "13px",
+          "font_color": "#1A1A1A",
+          "letter_spacing": "1.5px",
+          "text_transform": "uppercase"
+        },
+        {
+          "id": "categoria",
+          "content": "| Inteligência Artificial",
+          "font_family": "sans-serif",
+          "font_weight": 600,
+          "font_size": "13px",
+          "font_color": "rgba(26,26,26,0.5)",
+          "letter_spacing": "1.5px",
+          "text_transform": "uppercase"
+        }
+      ]
+    },
+    "image": {
+      "position": "logo abaixo do header, topo do frame",
+      "height": "36% do frame",
+      "margin_lateral": "56px",
+      "margin_top": "28px",
+      "margin_bottom": "28px",
+      "border_radius": "12px",
+      "asset_prompt": "Isometric pixel art 32-bit newsroom scene, night setting: Diego (human reference carregada em anexo pelo usuario) sitting at an L-shaped editorial desk with multiple monitors displaying AI news feeds and data dashboards, Aspira (AI agent reference carregada em anexo pelo usuario) as a glowing holographic figure standing beside Diego holding a digital clipboard, blue monitor light illuminating the room, cozy but high-tech atmosphere, stacks of servers visible in background, coffee cup on desk, vibrant bright pixel art lighting — not too dark. Convert both characters faithfully to 32-bit pixel art style maintaining recognizable features. No text visible on screens, no logos, no watermarks. 16:9 widescreen."
+    },
+    "content": {
+      "position": "abaixo da imagem",
+      "margin_lateral": "56px",
+      "blocks": [
+        {
+          "id": "texto-serif-longo",
+          "type": "text",
+          "content": "Segue o perfil para não perder as próximas edições",
+          "font_family": "serif display",
+          "font_size": "34px",
+          "font_style": "regular, com 'próximas edições' em itálico para ênfase",
+          "font_color": "#1A1A1A",
+          "line_height": 1.2,
+          "margin_bottom": "32px"
+        },
+        {
+          "id": "interjeicao-negrito",
+          "type": "text",
+          "content": "Toda semana.",
+          "font_family": "sans-serif",
+          "font_weight": 700,
+          "font_size": "22px",
+          "font_color": "#E8722A",
+          "margin_bottom": "12px",
+          "note": "frase curta isolada em laranja — marca o ritmo antes do subcopy"
+        },
+        {
+          "id": "corpo-regular",
+          "type": "text",
+          "content": "as notícias de IA que realmente importam",
+          "font_family": "sans-serif regular",
+          "font_size": "22px",
+          "font_color": "rgba(26,26,26,0.6)",
+          "line_height": 1.4
+        }
+      ]
+    },
+    "footer": {
+      "height": "40px",
+      "position": "bottom",
+      "margin_lateral": "56px",
+      "margin_bottom": "36px",
+      "content": "INTUS HUB",
+      "font_family": "sans-serif regular",
+      "font_size": "13px",
+      "font_color": "rgba(26,26,26,0.5)",
+      "letter_spacing": "3px",
+      "text_transform": "uppercase",
+      "position_horizontal": "esquerda"
+    }
+  }
+}

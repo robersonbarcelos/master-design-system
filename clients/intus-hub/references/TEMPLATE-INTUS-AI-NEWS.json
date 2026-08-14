@@ -1,0 +1,292 @@
+{
+  "template_family": "TEMPLATE-INTUS-AI-NEWS",
+  "description": "Template para posts estáticos de notícias de IA no perfil Intus HUB. Formato híbrido: imagem/sticker na metade superior + badge + headline bold na metade inferior.",
+  "format": {
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "background_color": "#F8F6F0"
+  },
+  "global_rules": [
+    "badge SEMPRE acima da headline, nunca no topo do frame",
+    "badge content: variação conforme template escolhido — nunca 'Inteligência Artificial'",
+    "fonte: OPCIONAL — incluir apenas quando houver fonte de referência na notícia",
+    "image color_treatment: LIVRE por notícia — pode ser P&B total, colorido total, ou seletivo (ex: personagem P&B + elementos coloridos). Nunca travar em um único estilo",
+    "footer: SEM @handle — removido do template",
+    "nunca alterar copy fornecida pelo usuário"
+  ],
+  "image_zone": {
+    "position": "centro superior do frame",
+    "height": "55% do frame",
+    "generate": false,
+    "color_treatment": "LIVRE — P&B total / colorido total / seletivo conforme a notícia",
+    "note": "⚠️ USUÁRIO CARREGA imagem ou sticker do personagem da notícia"
+  },
+  "content_zone": {
+    "position": "metade inferior do frame",
+    "margin_left": "44px",
+    "margin_right": "44px",
+    "margin_top": "24px"
+  },
+  "footer": {
+    "exists": false,
+    "note": "SEM @handle no footer — removido do template"
+  },
+  "variations": [
+    {
+      "id": "01-breaking-badge-vermelha",
+      "name": "Breaking News — Badge Vermelha Sólida",
+      "description": "Badge vermelha urgência estilo breaking news. Tom jornalístico de impacto.",
+      "blocks": [
+        {
+          "id": "badge",
+          "content": "INTUS HUB · AI NEWS",
+          "font_size": "18px",
+          "font_style": "ultra bold uppercase letter-spacing 2px",
+          "font_color": "#FFFFFF",
+          "background": "#CC0000",
+          "padding": "8px 20px",
+          "border_radius": "4px",
+          "display": "inline-block",
+          "margin_bottom": "16px",
+          "separador": {
+            "character": "·",
+            "color": "rgba(255,255,255,0.55)",
+            "margin": "0 8px"
+          }
+        },
+        {
+          "id": "headline",
+          "font_size": "88px",
+          "font_style": "ultra bold condensed, all caps",
+          "font_color": "#0A0A0A",
+          "line_height": "1.0",
+          "margin_bottom": "16px",
+          "note": "PLACEHOLDER — preencher a cada notícia"
+        },
+        {
+          "id": "subcopy",
+          "font_size": "28px",
+          "font_style": "regular sans-serif",
+          "font_color": "#555555",
+          "line_height": "1.5",
+          "margin_bottom": "20px",
+          "note": "PLACEHOLDER — preencher a cada notícia"
+        },
+        {
+          "id": "fonte",
+          "font_size": "16px",
+          "font_color": "#AAAAAA",
+          "note": "OPCIONAL — incluir apenas quando houver fonte de referência na notícia"
+        }
+      ]
+    },
+    {
+      "id": "02-badge-dois-blocos-verde",
+      "name": "Dois Blocos — INTUS HUB preto + AI NEWS verde",
+      "description": "Badge bicolor: bloco preto 'INTUS HUB' + bloco verde neon '#00FF88' 'AI NEWS'. Visual tech/editorial.",
+      "blocks": [
+        {
+          "id": "badge",
+          "display": "inline-flex",
+          "border_radius": "6px",
+          "overflow": "hidden",
+          "margin_bottom": "16px",
+          "parts": [
+            {
+              "content": "INTUS HUB",
+              "font_size": "18px",
+              "font_style": "bold uppercase letter-spacing 1px",
+              "font_color": "#FFFFFF",
+              "background": "#0A0A0A",
+              "padding": "8px 20px"
+            },
+            {
+              "content": "AI NEWS",
+              "font_size": "18px",
+              "font_style": "bold uppercase letter-spacing 1px",
+              "font_color": "#0A0A0A",
+              "background": "#00FF88",
+              "padding": "8px 20px"
+            }
+          ]
+        },
+        {
+          "id": "headline",
+          "font_size": "88px",
+          "font_style": "ultra bold condensed, all caps",
+          "font_color": "#0A0A0A",
+          "line_height": "1.0",
+          "margin_bottom": "16px",
+          "note": "PLACEHOLDER — preencher a cada notícia"
+        },
+        {
+          "id": "subcopy",
+          "font_size": "28px",
+          "font_style": "regular sans-serif",
+          "font_color": "#555555",
+          "line_height": "1.5",
+          "margin_bottom": "20px",
+          "note": "PLACEHOLDER — preencher a cada notícia"
+        },
+        {
+          "id": "fonte",
+          "font_size": "16px",
+          "font_color": "#AAAAAA",
+          "note": "OPCIONAL — incluir apenas quando houver fonte de referência na notícia"
+        }
+      ]
+    }
+    ,
+    {
+      "id": "03-dark-badge-pill-vermelha",
+      "name": "Dark — Fundo Preto + Badge Pill Vermelha",
+      "description": "Versão escura com fundo #0A0A0A, overlay gradiente, badge pill vermelha sólida #CC0000 e highlight vermelho na linha de destaque da headline. Subcopy em linha única.",
+      "background": "#0A0A0A",
+      "overlay": {
+        "type": "gradient bottom-to-top",
+        "stops": [
+          { "position": "0%", "color": "rgba(0,0,0,0.95)" },
+          { "position": "45%", "color": "rgba(0,0,0,0.55)" },
+          { "position": "100%", "color": "rgba(0,0,0,0.10)" }
+        ]
+      },
+      "image_zone": {
+        "position": "centro superior do frame",
+        "height": "55% do frame",
+        "color_treatment": "LIVRE — P&B total / colorido total / seletivo (ex: personagem P&B + elementos coloridos). Nunca travar em um único estilo",
+        "generate": false,
+        "note": "⚠️ USUÁRIO CARREGA imagem ou sticker do personagem"
+      },
+      "blocks": [
+        {
+          "id": "badge",
+          "content": "INTUS HUB · AI NEWS",
+          "font_size": "18px",
+          "font_style": "ultra bold uppercase letter-spacing 2px",
+          "font_color": "#FFFFFF",
+          "background": "#CC0000",
+          "padding": "8px 20px",
+          "border_radius": "4px",
+          "display": "inline-block",
+          "margin_bottom": "16px",
+          "separador": { "character": "·", "color": "rgba(255,255,255,0.55)", "margin": "0 8px" }
+        },
+        {
+          "id": "headline",
+          "font_size": "100px",
+          "font_style": "ultra bold condensed, all caps",
+          "font_color": "#FFFFFF",
+          "line_height": "1.0",
+          "margin_bottom": "16px",
+          "highlight_line": {
+            "font_color": "#FFFFFF",
+            "background": "#CC0000",
+            "padding": "2px 18px",
+            "border_radius": "6px",
+            "note": "aplicar na linha de destaque numérico/impacto"
+          },
+          "note": "PLACEHOLDER — preencher a cada notícia"
+        },
+        {
+          "id": "subcopy",
+          "font_size": "20px",
+          "font_style": "regular sans-serif",
+          "font_color": "rgba(255,255,255,0.65)",
+          "line_height": "1.0",
+          "white_space": "nowrap",
+          "margin_bottom": "16px",
+          "note": "PLACEHOLDER — frase curta em linha única, sem quebra"
+        },
+        {
+          "id": "fonte",
+          "font_size": "16px",
+          "font_color": "rgba(255,255,255,0.35)",
+          "note": "OPCIONAL — incluir apenas quando houver fonte de referência"
+        }
+      ],
+      "footer": { "exists": false, "note": "SEM @handle e SEM seta — post estático" }
+    }
+    ,
+    {
+      "id": "04-dark-badge-dois-blocos-vermelho",
+      "name": "Dark — Fundo Preto + Badge Dois Blocos (cinza escuro | vermelho)",
+      "description": "Versão escura com fundo #0A0A0A, overlay gradiente, badge bicolor: bloco cinza escuro 'INTUS HUB' + bloco vermelho 'AI NEWS'. Headline branca com highlight vermelho na linha de destaque. Subcopy em linha única.",
+      "background": "#0A0A0A",
+      "overlay": {
+        "type": "gradient bottom-to-top",
+        "stops": [
+          { "position": "0%", "color": "rgba(0,0,0,0.95)" },
+          { "position": "45%", "color": "rgba(0,0,0,0.55)" },
+          { "position": "100%", "color": "rgba(0,0,0,0.10)" }
+        ]
+      },
+      "image_zone": {
+        "position": "centro superior do frame",
+        "height": "55% do frame",
+        "color_treatment": "LIVRE — P&B total / colorido total / seletivo (ex: personagem P&B + elementos coloridos). Nunca travar em um único estilo",
+        "generate": false,
+        "note": "⚠️ USUÁRIO CARREGA imagem ou sticker do personagem"
+      },
+      "blocks": [
+        {
+          "id": "badge",
+          "display": "inline-flex",
+          "border_radius": "4px",
+          "overflow": "hidden",
+          "margin_bottom": "16px",
+          "parts": [
+            {
+              "content": "INTUS HUB",
+              "font_size": "18px",
+              "font_style": "bold uppercase letter-spacing 1px",
+              "font_color": "#FFFFFF",
+              "background": "#1A1A1A",
+              "padding": "8px 20px"
+            },
+            {
+              "content": "AI NEWS",
+              "font_size": "18px",
+              "font_style": "bold uppercase letter-spacing 1px",
+              "font_color": "#FFFFFF",
+              "background": "#CC0000",
+              "padding": "8px 20px"
+            }
+          ]
+        },
+        {
+          "id": "headline",
+          "font_size": "100px",
+          "font_style": "ultra bold condensed, all caps",
+          "font_color": "#FFFFFF",
+          "line_height": "1.0",
+          "margin_bottom": "16px",
+          "highlight_line": {
+            "font_color": "#FFFFFF",
+            "background": "#CC0000",
+            "padding": "2px 18px",
+            "border_radius": "6px",
+            "note": "aplicar na linha de destaque numérico/impacto"
+          },
+          "note": "PLACEHOLDER — preencher a cada notícia"
+        },
+        {
+          "id": "subcopy",
+          "font_size": "20px",
+          "font_style": "regular sans-serif",
+          "font_color": "rgba(255,255,255,0.65)",
+          "line_height": "1.0",
+          "white_space": "nowrap",
+          "margin_bottom": "16px",
+          "note": "PLACEHOLDER — frase curta em linha única, sem quebra"
+        },
+        {
+          "id": "fonte",
+          "font_size": "16px",
+          "font_color": "rgba(255,255,255,0.35)",
+          "note": "OPCIONAL — incluir apenas quando houver fonte de referência"
+        }
+      ],
+      "footer": { "exists": false, "note": "SEM @handle e SEM seta — post estático" }
+    }
+  ]
+}

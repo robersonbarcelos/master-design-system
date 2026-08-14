@@ -2,7 +2,7 @@
 name: thread-writer-sms
 description: "When the user wants to write a multi-part thread or content series for Twitter/X, LinkedIn, Threads, Instagram (Reel/carousel/Story series), TikTok (multi-part videos), YouTube (video series, multi-Short series), or Facebook. Also use when the user mentions 'thread,' 'Twitter thread,' 'tweetstorm,' 'multi-part post,' 'series of posts,' 'Part 1 / Part 2,' 'Reel series,' 'TikTok series,' 'YouTube series,' 'video series,' or has a long-form idea that needs breaking into parts. For single posts, see post-writer-sms. For carousels, see carousel-writer-sms."
 metadata:
-  version: 1.3.0
+  version: 1.6.0
 ---
 
 # Thread Writer
@@ -24,9 +24,43 @@ You are an expert at writing social media threads — multi-part content sequenc
 
 Before writing, read `.agents/social-media-context-sms.md` to understand the user's voice, tone, content pillars, and platform preferences. Use this file to match vocabulary, sentence structure, punctuation habits, and emotional register.
 
-If the file does not exist, say:
+**Se o arquivo não existir — gate obrigatório:**
 
-> "I don't see a social media context file yet. Run the `social-media-context-sms` skill first to capture your voice and preferences — it makes every thread I write sound like you."
+> ⚠️ **Contexto do cliente não encontrado.**
+> O arquivo `.agents/social-media-context-sms.md` não existe. Sem ele, a thread será escrita com voz genérica — não calibrada para nenhum cliente ou pessoa específica.
+>
+> **Recomendo fortemente:** rode `social-media-context-sms` primeiro (5 minutos). Torna cada post da thread soar como você, não como IA genérica.
+>
+> Posso continuar em **modo genérico** agora — mas o output não estará pronto para publicação com cliente real.
+> **Continuar sem contexto?** (sim / não)
+
+- Se **não** → acionar `social-media-context-sms` antes de prosseguir
+- Se **sim** → prosseguir em modo genérico; marcar o output com `[⚠️ SEM CONTEXTO DE CLIENTE — revisar voz antes de publicar]`
+
+---
+
+## Framework Narrativo
+
+**Se `narrative-framework-sms` já rodou e gerou um briefing na conversa:**
+→ Ler o `NARRATIVE BRIEFING` → usar o **hook aprovado como Post 1 obrigatório** (não gerar variações de hook — o hook já foi aprovado)
+→ Seguir o **arco de execução** do briefing: cada unidade do arco = um post da thread
+→ **Pular a seleção de estrutura abaixo** — o framework já foi escolhido
+
+**Mapeamento de framework narrativo → estrutura de thread:**
+
+| Framework narrativo | Estrutura de thread a usar |
+|---|---|
+| Value-Stack | Empilhamento — 1 benefício por post, crescente até CTA |
+| Problem-Proof | Dado de dor → diagnóstico (2-3 posts) → evidência → solução → CTA |
+| Hack List | 1 hack por post com contexto suficiente para aplicar |
+| Rant Callout | Afirmação confrontadora → argumentação (2-4 posts) → posição consolidada + CTA |
+| Demo Walkthrough | Resultado prometido → 1 passo por post → resultado entregue + CTA |
+
+**Se o usuário forneceu tema mas não definiu o ângulo:**
+→ Acionar `narrative-framework-sms` antes de escrever → aguardar escolha (A/B/C/D/E) → executar com o briefing gerado.
+
+**Se o usuário especificou o ângulo explicitamente** ("thread de rant sobre X", "thread de 7 dicas", "storytelling de case"):
+→ Executar diretamente com o ângulo fornecido, sem passar pelo seletor.
 
 ---
 
@@ -51,7 +85,7 @@ Every thread has three distinct zones: the **hook**, the **body**, and the **clo
 
 The hook post must do two jobs simultaneously: stand alone as a compelling post and compel the reader to click through the entire thread.
 
-> **Always use the `hook-writer-sms` skill to write the first post.** Do not draft the first post freehand. Invoke `hook-writer-sms` to generate 5-7 variants across different patterns (contrarian, question, story opener, statistic, bold claim, empathy, before/after, confession), then pick the strongest one for the thread's goal and platform. This is non-negotiable — the first post determines whether the thread gets read at all.
+> **O primeiro post é sempre gerado usando os padrões do `hook-writer-sms` — nunca de primeira escolha, nunca freehand.** Gerar 5 a 7 variações internamente usando os 11 padrões (Contrarian, Question, Story Opener, Statistic/Data, List Preview, Bold Claim, Empathy, Before/After, Confession, Authority Steal, Future Shock), apresentar ao usuário com o padrão identificado e marcação ★ no recomendado, aguardar escolha antes de escrever o restante da thread. Isso é feito **internamente** — não é necessário invocar o `hook-writer-sms` como skill separada; aplique os mesmos padrões e o mesmo formato de output. Esta regra é não-negociável: o primeiro post determina se a thread será lida.
 
 - **Keep it extremely short — one or two lines maximum.** A long first post kills the thread before it starts. Dense opening posts signal "this is going to be work to read" and readers scroll past.
 - **Be ruthlessly specific.** Generic openers lose. Name the exact number, the exact pain, the exact transformation, or the exact claim. "I grew my audience" is weak; "I went from 200 to 20,000 followers in 6 months" is specific.
@@ -345,13 +379,42 @@ When MCP tools are not available, output the thread as numbered plain text forma
 
 ---
 
+## QA Gate — obrigatório antes de entregar
+
+Pontuar internamente. Mínimo **90/100** para entregar. Abaixo de 90: reescrever as partes que falharam e re-pontuar antes de entregar.
+
+| Critério | Pontos |
+|---|---|
+| Hook (Post 1) standalone — funciona sem o restante da thread | 20 |
+| Especificidade — nomes, números e detalhes concretos (sem genéricos) | 15 |
+| Voz do cliente — soa como o cliente, não como IA genérica | 15 |
+| Ritmo — variação de tamanho de post, white space, transições entre posts | 15 |
+| Estrutura — body posts com 1 ideia cada, closer com CTA claro | 15 |
+| Adequação à plataforma — limites de caracteres, formato, sinalização de thread | 10 |
+| Sem padrões proibidos de voz — sem clichês, sem linguagem corporativa | 10 |
+| **Total** | **100** |
+
+**N/A:** se `.agents/social-media-context-sms.md` ausente, redistribuir os 15 pontos de voz proporcionalmente entre os outros critérios.
+
+### copy-qa-sms Gate — obrigatório após score ≥ 90
+
+Executar o protocolo **copy-qa-sms** em todos os posts da thread antes de entregar:
+
+- **Passo 1 — Voice Gate:** verificar `production-rules.md` → `00-B | PADRÕES DE AUSÊNCIA DE VOZ` em cada post da thread + padrões universais
+- **Passo 2 — AI Pattern Gate:** Tier 1 em qualquer post → reescrita automática. Tier 2: verificar densidade por parágrafo. Padrões Estruturais: aplicar a tabela completa do `copy-qa-sms` (em-dash excessivo, bold em excesso, parágrafos uniformes, bullets sem verbo, atribuições vagas, construções "Vamos...", disclaimers de corte, hashtag stuffing, emoji em headline, contraste binário "Não é X, é Y", fragmentação estacato, abertura com "Então"/"So", wh-openers performáticos).
+- **Passo 3 — Decisão:** só entregar após todos os posts aprovados
+
+Não exibir o resultado do gate ao usuário. Entregar apenas a thread final aprovada.
+
+---
+
 ## Pre-Publish Checklist
 
 Before delivering the final thread, verify:
 
 - [ ] **Hook stands alone** — would this first post perform without the thread?
 - [ ] **Hook is short and specific** — first post is one or two lines, names a specific number, pain, or claim
-- [ ] **First post was written using hook-writer-sms** — skill was invoked to generate variants, not drafted freehand
+- [ ] **First post hook was generated internally** — 5–7 variações dos 11 padrões de hook foram geradas, apresentadas ao usuário com ★ no recomendado, e o usuário escolheu antes do body ser escrito. Hook-writer-sms patterns aplicados inline — não como invocação de skill separada
 - [ ] **One idea per post** — no post tries to do two jobs
 - [ ] **Transitions are present** — each post flows into the next
 - [ ] **Posts are numbered** — on Twitter/X, every post has its number; on visual platforms, "Part X" is in both on-screen text and the caption
@@ -372,6 +435,7 @@ Before delivering the final thread, verify:
 - Does not define content strategy or decide what to post — see **content-strategy-sms** for planning
 - Does not execute code or access external APIs unless BlackTwist MCP is connected
 - Does not produce visual design or images — output is text copy for each thread post only
+- For TikTok/Reel/Short series: thread-writer handles series structure, part numbering, captions, and cross-platform consistency. For the **individual video script** of each part (hook 0-3s, scenes, on-screen text, spoken copy), use **video-script-sms** — the two skills work together, not in place of each other
 
 ## Related Skills
 

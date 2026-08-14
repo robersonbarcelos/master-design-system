@@ -1,0 +1,563 @@
+{
+  "sistema": "intus-hub-cami-style",
+  "versao": "1.1",
+  "descricao": "Sistema de templates inspirado na referência Cami Lab, adaptado para Intus Hub / Diego Spanevello. 5 templates num arquivo único.",
+  "data": "2026-07-03",
+
+  "design_tokens": {
+    "background_claro": "#F8F6F0",
+    "background_escuro": "image-full-bleed com overlay",
+    "texto_principal": "#0A0A0A",
+    "texto_secundario": "#555555",
+    "texto_sobre_escuro": "#FFFFFF",
+    "acento": "#00FF88",
+    "acento_note": "Verde neon — usado em: highlight box, botão nav, separador header, ícones de checklist.",
+    "ui_screenshot_bg": "#1A1A1A"
+  },
+
+  "typography_locks": {
+    "headline_all_caps": "96px mínimo — nunca abaixo. Quebrar em mais linhas se necessário, nunca reduzir fonte.",
+    "headline_mixed_case": "88px mínimo — nunca abaixo. Ajustar copy, nunca fonte.",
+    "corpo_principal": "30px mínimo — parágrafos e blocos de conteúdo.",
+    "corpo_lateral": "26px mínimo — texto ao lado de imagem (painel direito split).",
+    "checklist_label": "14px — fixo.",
+    "callout_card_texto": "18px mínimo — fixo.",
+    "footer_handle": "20px — fixo.",
+    "header_tag": "18px — fixo.",
+    "regra_geral": "Se o copy não cabe com o tamanho mínimo, reduzir o copy — nunca a fonte."
+  },
+
+  "safe_zone": {
+    "left": "44px",
+    "right": "44px",
+    "content_width": "992px",
+    "note": "⚠️ TRAVA ABSOLUTA — nenhum elemento ultrapassa 44px de cada lado. Texto flui até 992px e quebra linha SOMENTE ao atingir margin_right. Nunca quebrar antes."
+  },
+
+  "nav_button": {
+    "shape": "pill oval",
+    "width": "96px",
+    "height": "58px",
+    "background": "#00FF88",
+    "content": "→",
+    "font_color": "#0A0A0A",
+    "border_radius": "999px",
+    "position": "footer direita",
+    "regra": "PRESENTE em todos os slides EXCETO o CTA final"
+  },
+
+  "templates": {
+
+    "CAPA": {
+      "nome": "capa-full-bleed",
+      "descricao": "Capa com foto full-bleed escura. Tag no topo. Headline ALL CAPS branca com palavra em highlight box verde. Botão nav no footer.",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background": "image-full-bleed — foto escura obrigatória"
+      },
+      "overlay": {
+        "type": "gradient bottom-to-top",
+        "stops": [
+          { "position": "0%", "color": "rgba(0,0,0,0.90)" },
+          { "position": "45%", "color": "rgba(0,0,0,0.50)" },
+          { "position": "100%", "color": "rgba(0,0,0,0.10)" }
+        ]
+      },
+      "zones": {
+        "header_tag": {
+          "position": "top",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "margin_top": "40px",
+          "content": "DIEGO SPANEVELLO · Inteligência Artificial",
+          "font_size": "18px",
+          "font_style": "regular sans-serif, letter-spacing 2px",
+          "font_color": "rgba(255,255,255,0.75)",
+          "separador": { "character": "·", "color": "#00FF88" }
+        },
+        "headline_block": {
+          "position": "bottom",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "max_width": "992px",
+          "margin_bottom": "88px",
+          "line_height": "1.0",
+          "font_size": "100px",
+          "font_style": "ultra bold condensed, all caps",
+          "text_wrap": "wrap — quebrar linha somente ao atingir margin_right 44px",
+          "lines": [
+            { "content": "LINHA NORMAL", "font_color": "#FFFFFF" },
+            { "content": "LINHA NORMAL", "font_color": "#FFFFFF" },
+            {
+              "content": "PALAVRA-CHAVE",
+              "font_color": "#0A0A0A",
+              "highlight": {
+                "background": "#00FF88",
+                "padding": "2px 18px",
+                "border_radius": "6px",
+                "display": "inline-block",
+                "width": "fit-content"
+              }
+            },
+            { "content": "LINHA NORMAL.", "font_color": "#FFFFFF" }
+          ]
+        },
+        "footer": {
+          "height": "72px",
+          "position": "bottom",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "margin_bottom": "32px",
+          "left": { "content": "@diego.spanevello", "font_size": "22px", "font_color": "rgba(255,255,255,0.70)" },
+          "right": { "nav_button": "ver design_tokens.nav_button" }
+        }
+      },
+      "negative_rules": [
+        "foto nunca clara — overlay obrigatório",
+        "máximo 1 palavra com highlight box",
+        "headline sempre ALL CAPS condensado",
+        "header tag: DIEGO SPANEVELLO · Inteligência Artificial — não alterar"
+      ]
+    },
+
+    "TEXTO-PURO": {
+      "nome": "texto-puro",
+      "descricao": "Slide sem imagem. Só tipografia. Headline mixed case 88px com highlight box verde. Corpo 30px abaixo. Sem imagem.",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background_color": "#F8F6F0"
+      },
+      "zones": {
+        "header": { "height": "80px", "note": "DEIXAR LIVRE — Canva" },
+        "headline_block": {
+          "position": "below header",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "max_width": "992px",
+          "margin_top": "48px",
+          "font_size": "88px",
+          "font_style": "extra bold, mixed case",
+          "line_height": "1.05",
+          "text_wrap": "wrap — quebrar linha somente ao atingir margin_right 44px",
+          "lines": [
+            { "content": "Linha normal do título", "font_color": "#0A0A0A" },
+            { "content": "continuação normal", "font_color": "#0A0A0A" },
+            {
+              "content": "frase de destaque",
+              "font_color": "#0A0A0A",
+              "highlight": {
+                "background": "#00FF88",
+                "padding": "6px 16px",
+                "border_radius": "6px",
+                "type": "full-line-box"
+              }
+            },
+            { "content": "e fechamento normal.", "font_color": "#0A0A0A" }
+          ]
+        },
+        "body_block": {
+          "position": "below headline",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "max_width": "992px",
+          "margin_top": "40px",
+          "font_size": "30px",
+          "font_style": "regular sans-serif",
+          "font_color": "#555555",
+          "line_height": "1.6",
+          "bold_support": true,
+          "text_align": "left",
+          "text_wrap": "wrap — quebrar linha somente ao atingir margin_right 44px",
+          "max_linhas": 6
+        },
+        "footer": {
+          "height": "60px",
+          "position": "bottom",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "margin_bottom": "40px",
+          "left": { "content": "@diego.spanevello", "font_size": "20px", "font_color": "#AAAAAA" },
+          "right": { "nav_button": "ver design_tokens.nav_button" }
+        }
+      },
+      "negative_rules": [
+        "sem imagem neste template",
+        "headline nunca abaixo de 88px",
+        "corpo nunca abaixo de 30px",
+        "máximo 1 highlight por slide"
+      ]
+    },
+
+    "UI-CORPO-SPLIT": {
+      "nome": "ui-corpo-split",
+      "descricao": "Template com screenshot/UI + texto corpo. 3 variações de layout.",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background_color": "#F8F6F0"
+      },
+
+      "variantes": {
+
+        "A": {
+          "nome": "texto-topo · headline · ui-base",
+          "descricao": "Texto corpo no topo, headline ALL CAPS com highlight, screenshot na base.",
+          "zones": {
+            "header": { "height": "80px", "note": "DEIXAR LIVRE — Canva" },
+            "body_block": {
+              "position": "below header",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "max_width": "992px",
+              "margin_top": "32px",
+              "font_size": "30px",
+              "font_style": "regular sans-serif",
+              "font_color": "#1A1A1A",
+              "line_height": "1.55",
+              "bold_support": true,
+              "text_wrap": "wrap — quebrar linha somente ao atingir margin_right 44px. Não quebrar antes.",
+              "text_align": "left",
+              "max_linhas": 6
+            },
+            "headline_block": {
+              "position": "below body",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "max_width": "992px",
+              "margin_top": "24px",
+              "font_size": "96px",
+              "font_style": "ultra bold condensed, all caps",
+              "line_height": "1.0",
+              "text_wrap": "wrap — quebrar linha somente ao atingir margin_right 44px",
+              "lines": [
+                { "content": "LINHA NORMAL", "font_color": "#0A0A0A" },
+                { "content": "LINHA NORMAL", "font_color": "#0A0A0A" },
+                {
+                  "content": "HIGHLIGHT.",
+                  "font_color": "#0A0A0A",
+                  "highlight": { "type": "full-line-box", "background": "#00FF88", "padding": "4px 16px", "border_radius": "4px", "width": "fit-content" }
+                }
+              ]
+            },
+            "ui_block": {
+              "position": "below headline",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "width": "992px",
+              "margin_top": "20px",
+              "height": "32% do frame",
+              "border_radius": "16px",
+              "background": "#1A1A1A"
+            },
+            "footer": {
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "margin_bottom": "32px",
+              "left": { "content": "@diego.spanevello", "font_size": "20px", "font_color": "#AAAAAA" },
+              "right": { "nav_button": "ver design_tokens.nav_button" }
+            }
+          }
+        },
+
+        "B": {
+          "nome": "ui-esquerda · corpo-direita · checklist · headline-base",
+          "zones": {
+            "header": { "height": "80px", "note": "DEIXAR LIVRE — Canva" },
+            "split_block": {
+              "position": "below header",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "margin_top": "28px",
+              "height": "42% do frame",
+              "layout": "horizontal",
+              "left_panel": { "width": "55%", "border_radius": "14px", "background": "#1A1A1A" },
+              "right_panel": {
+                "width": "41%",
+                "margin_left": "16px",
+                "copy_rules": {
+                  "max_linhas": 4,
+                  "note": "máximo 4 linhas curtas — frases de impacto, não parágrafos"
+                },
+                "body": {
+                  "font_size": "26px",
+                  "font_style": "regular sans-serif",
+                  "font_color": "#1A1A1A",
+                  "line_height": "1.45",
+                  "bold_support": true
+                },
+                "bullet_list": {
+                  "note": "alternativa: lista de 3-4 itens com barra verde à esquerda",
+                  "item": {
+                    "accent_bar": { "width": "3px", "color": "#00FF88", "margin_right": "10px" },
+                    "font_size": "22px",
+                    "font_color": "#1A1A1A"
+                  }
+                }
+              }
+            },
+            "checklist_block": {
+              "position": "below split",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "margin_top": "20px",
+              "layout": "horizontal — cards lado a lado",
+              "max_items": 5,
+              "card": {
+                "border": "1.5px solid #D0CCC5",
+                "border_radius": "10px",
+                "padding": "14px 12px",
+                "icon": { "shape": "circle", "size": "28px", "background": "#00FF88", "content": "✓", "font_color": "#0A0A0A" },
+                "number": { "font_size": "13px", "font_color": "#AAAAAA" },
+                "divider": { "color": "#D0CCC5", "thickness": "1px", "margin": "8px 0" },
+                "label": { "font_size": "14px", "font_style": "bold, all caps", "font_color": "#0A0A0A" }
+              }
+            },
+            "headline_block": {
+              "position": "below checklist",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "max_width": "992px",
+              "margin_top": "16px",
+              "font_size": "96px",
+              "font_style": "ultra bold condensed, all caps",
+              "line_height": "1.0",
+              "lines": [
+                { "content": "LINHA NORMAL", "font_color": "#0A0A0A" },
+                { "content": "HIGHLIGHT.", "font_color": "#0A0A0A", "highlight": { "type": "full-line-box", "background": "#00FF88", "padding": "4px 16px", "border_radius": "4px", "width": "fit-content" } }
+              ]
+            },
+            "footer": {
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "left": { "content": "@diego.spanevello", "font_size": "20px", "font_color": "#AAAAAA" },
+              "right": { "nav_button": "ver design_tokens.nav_button" }
+            }
+          }
+        },
+
+        "C": {
+          "nome": "headline-highlight-topo · callout-card · ui-base",
+          "zones": {
+            "header": { "height": "80px", "note": "DEIXAR LIVRE — Canva" },
+            "headline_block": {
+              "position": "below header",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "max_width": "992px",
+              "margin_top": "28px",
+              "font_size": "52px",
+              "font_style": "extra bold, mixed case",
+              "line_height": "1.1",
+              "text_wrap": "wrap — quebrar somente ao atingir margin_right",
+              "lines": [
+                { "content": "Linha de abertura normal", "font_color": "#0A0A0A" },
+                { "content": "frase de destaque", "font_color": "#0A0A0A", "highlight": { "type": "inline", "background": "#00FF88", "padding": "2px 10px", "border_radius": "4px" } },
+                { "content": "continuação normal", "font_color": "#0A0A0A" },
+                { "content": "fechamento itálico.", "font_style": "extra bold italic, mixed case", "font_color": "#0A0A0A" }
+              ]
+            },
+            "subtext_block": {
+              "position": "below headline",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "max_width": "992px",
+              "margin_top": "20px",
+              "font_size": "24px",
+              "font_color": "#1A1A1A",
+              "bold_support": true,
+              "underline_support": true
+            },
+            "callout_card": {
+              "position": "below subtext",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "margin_top": "20px",
+              "border": "1.5px solid #D0CCC5",
+              "border_radius": "14px",
+              "padding": "18px 20px",
+              "layout": "horizontal — ícone esquerda + texto direita",
+              "icon": { "shape": "circle", "size": "36px", "background": "#00FF88", "font_color": "#0A0A0A" },
+              "text": {
+                "margin_left": "14px",
+                "label": { "font_size": "16px", "font_style": "bold", "font_color": "#0A0A0A" },
+                "highlight_inline": { "background": "#00FF88", "padding": "1px 8px", "border_radius": "3px" },
+                "body": { "font_size": "16px", "font_color": "#555555", "bold_support": true }
+              }
+            },
+            "ui_block": {
+              "position": "below callout",
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "width": "992px",
+              "margin_top": "20px",
+              "height": "30% do frame",
+              "border_radius": "14px",
+              "background": "#1A1A1A"
+            },
+            "footer": {
+              "margin_left": "44px",
+              "margin_right": "44px",
+              "left": { "content": "@diego.spanevello", "font_size": "20px", "font_color": "#AAAAAA" },
+              "right": { "nav_button": "ver design_tokens.nav_button" }
+            }
+          }
+        }
+      }
+    },
+
+    "TEXTO-NUMERADO": {
+      "nome": "texto-numerado",
+      "descricao": "Headline com highlight + lista numerada com ícone círculo preto + título bold + corpo + divisor. Sem imagem.",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background_color": "#F8F6F0"
+      },
+      "zones": {
+        "header": { "height": "80px", "note": "DEIXAR LIVRE — Canva" },
+        "headline_block": {
+          "position": "below header",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "max_width": "992px",
+          "margin_top": "32px",
+          "margin_bottom": "40px",
+          "font_size": "64px",
+          "font_style": "extra bold, mixed case",
+          "line_height": "1.1",
+          "text_wrap": "wrap — quebrar somente ao atingir margin_right",
+          "lines": [
+            { "content": "Linha normal do título", "font_color": "#0A0A0A" },
+            { "content": "palavra ou trecho:", "font_color": "#0A0A0A", "highlight": { "background": "#00FF88", "padding": "4px 12px", "border_radius": "4px", "width": "fit-content" } }
+          ]
+        },
+        "list_items": {
+          "position": "below headline",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "max_width": "992px",
+          "max_items": 3,
+          "item_structure": {
+            "layout": "horizontal — ícone esquerda + texto direita",
+            "icon": { "shape": "circle", "size": "40px", "background": "#0A0A0A", "font_color": "#FFFFFF", "font_size": "18px", "font_style": "bold" },
+            "text_block": {
+              "margin_left": "16px",
+              "title": { "font_size": "26px", "font_style": "bold sans-serif", "font_color": "#0A0A0A", "margin_bottom": "6px" },
+              "body": { "font_size": "20px", "font_style": "regular sans-serif", "font_color": "#555555", "line_height": "1.5" }
+            },
+            "divider": { "color": "#E0DDD6", "thickness": "1px", "margin": "20px 0", "note": "omitir após o último item" }
+          }
+        },
+        "footer": {
+          "height": "60px",
+          "position": "bottom",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "left": { "content": "@diego.spanevello", "font_size": "20px", "font_color": "#AAAAAA" },
+          "right": { "nav_button": "ver design_tokens.nav_button" }
+        }
+      },
+      "negative_rules": [
+        "máximo 3 itens",
+        "sem imagem",
+        "ícone sempre preto #0A0A0A",
+        "divisor nunca após o último item"
+      ]
+    },
+
+    "CTA-PALAVRA-GATILHO": {
+      "nome": "cta-palavra-gatilho",
+      "descricao": "Slide final de CTA. Pergunta grande. Comenta + linha. Keyword em bloco verde. Ícone + instrução. SEM botão nav.",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background_color": "#F8F6F0"
+      },
+      "zones": {
+        "header": { "height": "80px", "note": "DEIXAR LIVRE — Canva" },
+        "question_block": {
+          "position": "top",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "max_width": "992px",
+          "margin_top": "40px",
+          "font_size": "64px",
+          "font_style": "extra bold, mixed case",
+          "font_color": "#0A0A0A",
+          "line_height": "1.15",
+          "text_wrap": "wrap — quebrar somente ao atingir margin_right",
+          "max_linhas": 5
+        },
+        "cta_instruction": {
+          "position": "below question",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "margin_top": "32px",
+          "layout": "horizontal inline",
+          "label": { "content": "comenta", "font_size": "26px", "font_style": "regular sans-serif", "font_color": "#0A0A0A" },
+          "line": { "color": "#0A0A0A", "thickness": "1px", "margin_left": "12px", "flex": true, "end_dot": { "size": "6px", "color": "#0A0A0A" } }
+        },
+        "keyword_box": {
+          "position": "below cta_instruction",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "width": "992px",
+          "margin_top": "16px",
+          "background": "#00FF88",
+          "border_radius": "8px",
+          "padding": "24px 32px",
+          "font_size": "96px",
+          "font_style": "ultra bold condensed, all caps",
+          "font_color": "#0A0A0A"
+        },
+        "instruction_line": {
+          "position": "below keyword_box",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "margin_top": "24px",
+          "layout": "horizontal — ícone esquerda + texto direita",
+          "icon": { "shape": "circle", "size": "44px", "background": "#00FF88", "font_color": "#0A0A0A" },
+          "text": { "margin_left": "16px", "font_size": "26px", "font_color": "#0A0A0A", "bold_support": true }
+        },
+        "footer": {
+          "height": "60px",
+          "position": "bottom",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "left": { "content": "@diego.spanevello", "font_size": "20px", "font_color": "#AAAAAA" },
+          "right": { "note": "⚠️ SEM BOTÃO NAV — slide final" }
+        }
+      },
+      "negative_rules": [
+        "keyword box sempre verde #00FF88",
+        "texto dentro do box sempre preto #0A0A0A",
+        "SEM botão nav no footer",
+        "máximo 1 keyword",
+        "question_block sempre mixed case"
+      ]
+    }
+
+  },
+
+  "alternancia_sugerida": [
+    "CAPA              → capa-full-bleed",
+    "SLIDE 1           → texto-puro",
+    "SLIDE 2           → ui-corpo-split variante A ou C",
+    "SLIDE 3           → texto-numerado",
+    "SLIDE 4           → ui-corpo-split variante B",
+    "SLIDE 5           → texto-puro",
+    "CTA               → cta-palavra-gatilho"
+  ],
+
+  "negative_rules_globais": [
+    "background claro sempre #F8F6F0 — nunca #FFFFFF branco puro",
+    "UI screenshots sempre border-radius 14-16px — nunca square",
+    "botão nav sempre verde #00FF88 com seta → preta",
+    "botão nav presente em TODOS os slides exceto CTA final",
+    "acento laranja #E8722A não existe neste sistema",
+    "sem travessão em nenhum template",
+    "margens left e right sempre 44px — trava absoluta nos dois lados"
+  ]
+}

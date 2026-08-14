@@ -1,0 +1,453 @@
+{
+  "template_family": "TEMPLATE-CARROSSEL-IA-NEWS",
+  "cliente": "Intus Hub (Diego Spanevello)",
+  "descricao": "Template oficial do carrossel de notícias Intus HUB AI News para Instagram. Define padrões de capa, slides de notícia, CTA e legenda aprovados na produção da edição de 06/08/2026. Toda nova edição deve ser gerada a partir deste arquivo.",
+  "versao": "1.0.0",
+  "aprovado_em": "2026-08-06",
+
+  "meta": {
+    "formato": "Carrossel Instagram Feed",
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "estrutura_padrao": "1 capa + N slides de notícia (mínimo 5, máximo 9) + 1 CTA",
+    "frequencia": "2x por semana (edições Intus HUB AI News)",
+    "regras_globais": [
+      "PROIBIDO travessão (—) em qualquer peça — substituir por dois-pontos ou reformular a frase",
+      "sem avatar em nenhum header — sempre só texto (nome + categoria)",
+      "asset_prompt de imagem NUNCA baked-in — sempre placeholder, imagem carregada em anexo ou gerada na hora",
+      "imagens de notícia: estilo pixel art isométrico 32-bit (padrão aprovado) — gate obrigatório antes de gerar: perguntar se segue o padrão salvo ou estilo livre",
+      "copy sempre passa pelo gate copy-qa-sms antes de entregar — nunca pular",
+      "legenda: sempre formato lista escaneável (padrão aprovado neste template)"
+    ],
+    "estilo_imagem_noticias": {
+      "padrao": "pixel art isométrico 32-bit",
+      "referencia": "Stardew Valley, RPG Maker tilesets, Lo-Fi girl study scene",
+      "perspectiva": "isométrica 45° three-quarter view",
+      "densidade": "cenário rico em objetos — contar a história pelo ambiente",
+      "sem_texto": true,
+      "resolucao_prompt": "16:9 widescreen, 2K resolution",
+      "regra_iluminacao": {
+        "cenas_positivas": "bright vibrant pixel art lighting — paleta clara, luzes quentes",
+        "cenas_tensao": "dramatic single light source, not too dark — nunca pitch-black",
+        "cenas_neutras": "equilibrar frio e quente, brilho médio"
+      },
+      "logos_como_objetos": "logos de empresas citadas devem aparecer como objetos físicos na cena: em tela de monitor, figurine sobre mesa, placa no ambiente ou badge/shield — nunca floating logo genérico"
+    }
+  },
+
+  "capas": {
+    "regra_de_uso": "Escolher UMA das duas variações aprovadas a cada edição. A imagem muda, o copy do título e o estilo visual permanecem.",
+    "copy_fixo": {
+      "header": "INTUS HUB AI NEWS · [DD MMM]",
+      "headline": "O que movimentou o universo IA esta semana",
+      "note": "headline fixa — não alterar entre edições. Apenas a data no header muda."
+    },
+
+    "capa-A": {
+      "template_origem": "TEMPLATE-SLIDE-BLANK / capa-01",
+      "nome": "Editorial Blank — CGI Surreal",
+      "status": "aprovado",
+      "quando_usar": "quando a imagem de capa tem fundo com variação tonal, textura ou iluminação CGI/render 3D — o overlay garante legibilidade",
+      "estilo_visual": "full-bleed imagem de impacto, overlay gradiente escuro de baixo para cima, headline Archivo Black no terço inferior",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background": "definido pela imagem (full-bleed)"
+      },
+      "direcao_imagem": {
+        "estilo": "Surreal CGI fotorrealista / render 3D",
+        "conceito_referencia": "entidade humanoide de IA emergindo de tela rachada, hologramas de código, neon azul e roxo, fundo escuro, profundidade de campo IMAX",
+        "regra": "fundo sempre escuro/texturizado para o overlay funcionar sobre a headline"
+      },
+      "zones": {
+        "header": {
+          "position": "top",
+          "margin_lateral": "28px",
+          "margin_top": "28px",
+          "font_family": "Big Shoulders Display",
+          "font_weight": 900,
+          "font_size": "17px",
+          "text_transform": "uppercase",
+          "letter_spacing": "0.3px",
+          "color_nome": "#FFFFFF",
+          "color_separador": "rgba(255,255,255,0.45)",
+          "color_data": "rgba(255,255,255,0.45)",
+          "separador": "·",
+          "layout": "linha única: INTUS HUB AI NEWS · [DD MMM]"
+        },
+        "image": {
+          "position": "full frame — full bleed",
+          "margin_lateral": "0px",
+          "border_radius": "0px",
+          "asset_prompt": "PLACEHOLDER — preencher com prompt da cena surreal CGI escolhida para a edição. Não baked-in."
+        },
+        "content": {
+          "position": "terço inferior do frame, sobreposto à imagem",
+          "margin_lateral": "28px",
+          "margin_bottom": "40px",
+          "overlay": {
+            "type": "gradiente escuro de baixo para cima",
+            "stops": [
+              { "position": "0%", "color": "rgba(0,0,0,0.82)" },
+              { "position": "55%", "color": "rgba(0,0,0,0.40)" },
+              { "position": "100%", "color": "rgba(0,0,0,0)" }
+            ]
+          },
+          "blocks": [
+            {
+              "id": "headline",
+              "content": "O QUE MOVIMENTOU O UNIVERSO IA ESTA SEMANA",
+              "font_family": "Archivo Black",
+              "font_size": "42px",
+              "text_transform": "uppercase",
+              "line_height": 0.95,
+              "font_color": "#FFFFFF",
+              "accent_word": "IA",
+              "accent_color": "#E8722A"
+            }
+          ]
+        },
+        "footer": { "exists": false }
+      }
+    },
+
+    "capa-B": {
+      "template_origem": "TEMPLATE-INTUS-AI-NEWS / variacao 03-dark-badge-pill-vermelha",
+      "nome": "Dark News — Pixel Art Cidade em Crise",
+      "status": "aprovado",
+      "quando_usar": "quando a imagem de capa é pixel art isométrico — o fundo escuro e o badge vermelho criam contraste editorial de impacto",
+      "estilo_visual": "fundo #0A0A0A, overlay gradiente, badge pill vermelha, imagem pixel art isométrica no topo 55%, headline ultra bold condensed all caps com highlight vermelho na linha de destaque",
+      "format": {
+        "aspect_ratio": "4:5",
+        "resolution": "1080x1350px",
+        "background": "#0A0A0A"
+      },
+      "direcao_imagem": {
+        "estilo": "pixel art isométrico 32-bit, escala épica",
+        "conceito_referencia": "cidade futurista em crise: arranha-céus de servidores, redes neurais no céu, satélites caindo, seções da cidade glitchando, rios de dados, iluminação neon vibrante no escuro",
+        "regra": "paleta vibrante mas tensa — não desaturar, bright pixel art lighting"
+      },
+      "overlay": {
+        "type": "gradient bottom-to-top",
+        "stops": [
+          { "position": "0%", "color": "rgba(0,0,0,0.95)" },
+          { "position": "45%", "color": "rgba(0,0,0,0.55)" },
+          { "position": "100%", "color": "rgba(0,0,0,0.10)" }
+        ]
+      },
+      "zones": {
+        "image_zone": {
+          "position": "centro superior do frame",
+          "height": "55% do frame",
+          "asset_prompt": "PLACEHOLDER — preencher com prompt da cena pixel art isométrica escolhida para a edição. Não baked-in."
+        },
+        "content_zone": {
+          "position": "metade inferior do frame",
+          "margin_left": "44px",
+          "margin_right": "44px",
+          "margin_top": "24px",
+          "blocks": [
+            {
+              "id": "badge",
+              "content": "INTUS HUB · AI NEWS",
+              "font_size": "18px",
+              "font_style": "ultra bold uppercase letter-spacing 2px",
+              "font_color": "#FFFFFF",
+              "background": "#CC0000",
+              "padding": "8px 20px",
+              "border_radius": "4px",
+              "display": "inline-block",
+              "margin_bottom": "16px",
+              "separador": { "character": "·", "color": "rgba(255,255,255,0.55)", "margin": "0 8px" }
+            },
+            {
+              "id": "headline",
+              "content_full": "O QUE MOVIMENTOU O UNIVERSO IA ESTA SEMANA",
+              "font_size": "72px",
+              "font_style": "ultra bold condensed, all caps",
+              "font_color": "#FFFFFF",
+              "line_height": "1.0",
+              "margin_bottom": "16px",
+              "highlight_line": {
+                "apply_to": "linha 'O UNIVERSO IA'",
+                "font_color": "#FFFFFF",
+                "background": "#CC0000",
+                "padding": "2px 18px",
+                "border_radius": "6px"
+              }
+            },
+            {
+              "id": "subcopy",
+              "content": "[DD] de [mês] de [ano]",
+              "font_size": "20px",
+              "font_style": "regular sans-serif",
+              "font_color": "rgba(255,255,255,0.65)",
+              "line_height": "1.0",
+              "white_space": "nowrap",
+              "margin_bottom": "16px"
+            }
+          ]
+        },
+        "footer": { "exists": false }
+      }
+    }
+  },
+
+  "slides_noticias": {
+    "regra_de_uso": "Distribuir as notícias da edição entre os 4 templates aprovados abaixo. Variar para criar ritmo visual — nunca usar o mesmo template mais de 3 vezes seguidas.",
+    "mapeamento_sugerido": {
+      "slide-11": "notícias com dado de impacto numérico no fechamento, tom editorial/dossiê",
+      "slide-05": "notícias com virada dramática ou contraditória — a interjeição isolada funciona como gancho de tensão",
+      "slide-04": "notícias de declaração ou posicionamento público — headline longa carrega parte da argumentação",
+      "slide-07": "notícias de contexto/debate — texto sustenta o argumento, imagem ilustra no rodapé"
+    },
+    "regras_de_copy": [
+      "PROIBIDO travessão em qualquer campo",
+      "slide-11: 3 parágrafos — contexto / desenvolvimento / dado de impacto (negrito)",
+      "slide-05: texto serifado longo + interjeição isolada curta + resolução regular",
+      "slide-04: headline 3-4 linhas + parágrafo negrito + parágrafo regular",
+      "slide-07: headline + parágrafo 1 + parágrafo 2 com negrito inline no fechamento + imagem rodapé"
+    ],
+
+    "slide-11": {
+      "nome": "slide-11",
+      "estilo_visual": "card inset com imagem no topo (45% do card) + painel sólido escuro #0D0D0D com headline + 3 parágrafos, último em negrito",
+      "quando_usar": "dado de impacto numérico ou conclusão forte no fechamento — tom editorial/dossiê",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "card_frame": { "outer_background": "#F7F5F1", "margin": "24px", "border_radius": "24px" },
+      "zones": {
+        "header": { "exists": false },
+        "image": {
+          "position": "topo do card, full-width dentro do card",
+          "height": "45% do card",
+          "width": "100% do card",
+          "border_radius": "24px 24px 0px 0px",
+          "asset_prompt": "PLACEHOLDER — imagem carregada em anexo pelo usuário / pixel art isométrico 32-bit estilo padrão Intus HUB AI News"
+        },
+        "content": {
+          "background_color": "#0D0D0D",
+          "margin_lateral": "32px",
+          "margin_top": "28px",
+          "blocks": [
+            { "id": "headline", "font_family": "serif display", "font_size": "30px", "font_color": "#FFFFFF", "line_height": 1.1, "margin_bottom": "18px" },
+            { "id": "paragrafo-1", "font_family": "sans-serif regular", "font_size": "16px", "font_color": "rgba(255,255,255,0.75)", "line_height": 1.45, "margin_bottom": "14px" },
+            { "id": "paragrafo-2", "font_family": "sans-serif regular", "font_size": "16px", "font_color": "rgba(255,255,255,0.75)", "line_height": 1.45, "margin_bottom": "14px" },
+            { "id": "paragrafo-3-negrito", "font_family": "sans-serif", "font_weight": 700, "font_size": "16px", "font_color": "#FFFFFF", "line_height": 1.45 }
+          ]
+        },
+        "footer": { "exists": false }
+      }
+    },
+
+    "slide-05": {
+      "nome": "slide-05",
+      "estilo_visual": "imagem no topo (36% do frame) → parágrafo longo serifado → interjeição isolada negrito → corpo regular",
+      "quando_usar": "notícia com virada dramática ou dado contraditório — a interjeição isolada cria gancho de tensão",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": { "margem_lateral_global": "56px" },
+      "zones": {
+        "header": {
+          "margin_lateral": "56px",
+          "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "Diego Spanevello", "font_weight": 700, "font_size": "13px", "font_color": "#1A1A1A", "letter_spacing": "1.5px", "text_transform": "uppercase" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_weight": 600, "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "1.5px", "text_transform": "uppercase" }
+          ]
+        },
+        "image": {
+          "position": "logo abaixo do header",
+          "height": "36% do frame",
+          "margin_lateral": "56px",
+          "margin_top": "28px",
+          "margin_bottom": "28px",
+          "border_radius": "12px",
+          "asset_prompt": "PLACEHOLDER — imagem carregada em anexo pelo usuário / pixel art isométrico 32-bit estilo padrão Intus HUB AI News"
+        },
+        "content": {
+          "margin_lateral": "56px",
+          "blocks": [
+            { "id": "texto-serif-longo", "font_family": "serif display", "font_size": "30px", "font_color": "#1A1A1A", "line_height": 1.2, "margin_bottom": "32px" },
+            { "id": "interjeicao-negrito", "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#1A1A1A", "margin_bottom": "20px", "note": "frase curta isolada — sempre sozinha, nunca colada em outro parágrafo" },
+            { "id": "corpo-regular", "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": 1.4 }
+          ]
+        },
+        "footer": { "content": "INTUS HUB", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "3px", "text_transform": "uppercase", "margin_lateral": "56px", "margin_bottom": "36px" }
+      }
+    },
+
+    "slide-04": {
+      "nome": "slide-04",
+      "estilo_visual": "headline longa 3-4 linhas (serif) → imagem 36% → parágrafo negrito + parágrafo regular",
+      "quando_usar": "notícia de declaração ou posicionamento público — headline carrega parte da argumentação",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": { "margem_lateral_global": "56px" },
+      "zones": {
+        "header": {
+          "margin_lateral": "56px",
+          "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "Diego Spanevello", "font_weight": 700, "font_size": "13px", "font_color": "#1A1A1A", "letter_spacing": "1.5px", "text_transform": "uppercase" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_weight": 600, "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "1.5px", "text_transform": "uppercase" }
+          ]
+        },
+        "content": {
+          "margin_lateral": "56px",
+          "margin_top": "28px",
+          "blocks": [
+            { "id": "headline", "font_family": "serif display", "font_size": "32px", "font_color": "#1A1A1A", "line_height": 1.15, "margin_bottom": "28px", "note": "3-4 linhas, funciona quase como parágrafo de abertura" }
+          ]
+        },
+        "image": {
+          "position": "abaixo da headline",
+          "height": "36% do frame",
+          "margin_lateral": "56px",
+          "margin_bottom": "32px",
+          "border_radius": "12px",
+          "asset_prompt": "PLACEHOLDER — imagem carregada em anexo pelo usuário / pixel art isométrico 32-bit estilo padrão Intus HUB AI News"
+        },
+        "body": {
+          "margin_lateral": "56px",
+          "blocks": [
+            { "id": "paragrafo-1-negrito", "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#1A1A1A", "line_height": 1.4, "margin_bottom": "20px" },
+            { "id": "paragrafo-2-regular", "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": 1.4 }
+          ]
+        },
+        "footer": { "content": "INTUS HUB", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "3px", "text_transform": "uppercase", "margin_lateral": "56px", "margin_bottom": "36px" }
+      }
+    },
+
+    "slide-07": {
+      "nome": "slide-07",
+      "estilo_visual": "headline + 2 parágrafos (segundo com negrito inline no fechamento) → imagem no rodapé 34%",
+      "quando_usar": "notícia de contexto ou debate — texto sustenta o argumento, imagem serve de fechamento visual",
+      "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+      "layout_grid": { "margem_lateral_global": "56px" },
+      "zones": {
+        "header": {
+          "margin_lateral": "56px",
+          "margin_top": "40px",
+          "blocks": [
+            { "id": "handle", "content": "Diego Spanevello", "font_weight": 700, "font_size": "13px", "font_color": "#1A1A1A", "letter_spacing": "1.5px", "text_transform": "uppercase" },
+            { "id": "categoria", "content": "| Inteligência Artificial", "font_weight": 600, "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "1.5px", "text_transform": "uppercase" }
+          ]
+        },
+        "content": {
+          "margin_lateral": "56px",
+          "margin_top": "32px",
+          "blocks": [
+            { "id": "headline", "font_family": "serif display", "font_size": "30px", "font_color": "#1A1A1A", "line_height": 1.18, "margin_bottom": "24px" },
+            { "id": "paragrafo-1", "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": 1.45, "margin_bottom": "18px" },
+            { "id": "paragrafo-2-com-negrito-inline", "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": 1.45, "margin_bottom": "28px", "note": "trecho entre {{ }} renderizar em negrito #1A1A1A font_weight 700 — negrito inline, não parágrafo separado" }
+          ]
+        },
+        "image": {
+          "position": "rodapé do frame, abaixo de todo o texto",
+          "height": "34% do frame",
+          "margin_lateral": "56px",
+          "margin_bottom": "80px",
+          "border_radius": "12px",
+          "asset_prompt": "PLACEHOLDER — imagem carregada em anexo pelo usuário / pixel art isométrico 32-bit estilo padrão Intus HUB AI News"
+        },
+        "footer": { "content": "INTUS HUB", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "3px", "text_transform": "uppercase", "margin_lateral": "56px", "margin_bottom": "36px" }
+      }
+    }
+  },
+
+  "cta": {
+    "status": "aprovado",
+    "slide": "slide-05",
+    "copy_fixo": {
+      "texto-serif-longo": "Segue o perfil para não perder as próximas edições",
+      "interjeicao-negrito": "Toda semana.",
+      "interjeicao_cor": "#E8722A",
+      "corpo-regular": "as notícias de IA que realmente importam",
+      "note": "copy fixo — não alterar entre edições"
+    },
+    "variacoes_aprovadas": {
+      "note": "Copy aprovado em 10/08/2026 — mecanismo: comentar NEWS para receber conteúdo de IA por e-mail toda semana. Usar uma variação por edição, rotacionar.",
+      "VAR-02": {
+        "label": "Pertencimento + exclusividade",
+        "blocks": {
+          "texto-serif-longo": "Esse carrossel é só o resumo.\nO conteúdo completo eu envio toda semana por e-mail.",
+          "interjeicao-negrito": "Comenta NEWS",
+          "corpo-regular": "e eu te mando conteúdo sobre IA\ndireto no seu e-mail, de graça."
+        }
+      },
+      "VAR-04": {
+        "label": "Simples e direto",
+        "blocks": {
+          "texto-serif-longo": "Quer receber conteúdo sobre IA toda semana no e-mail?",
+          "interjeicao-negrito": "Comenta NEWS aqui embaixo.",
+          "corpo-regular": "Eu te mando de graça, toda semana,\nsem precisar lembrar de buscar."
+        }
+      },
+      "VAR-05": {
+        "label": "Tom de comunidade + curiosidade",
+        "blocks": {
+          "texto-serif-longo": "Quem já recebe sabe:\no conteúdo que vai pro e-mail não aparece aqui.",
+          "interjeicao-negrito": "Comenta NEWS e eu te incluo.",
+          "corpo-regular": "Toda semana, IA direto na sua caixa de entrada.\nGratuito."
+        }
+      }
+    },
+    "imagem": {
+      "conceito": "Diego + Aspira (agente de IA) em pixel art 32-bit numa cena nova a cada edição",
+      "referencia_base": "Cena 1 aprovada: sala de redação isométrica noturna — Diego na mesa editorial com monitores de feeds de IA, Aspira como holograma ao lado com clipboard digital",
+      "asset_prompt_instrucao": "SEMPRE especificar no prompt: 'Diego (foto de referência carregada em anexo pelo usuário) e Aspira (referência carregada em anexo pelo usuário) convertidos fielmente para pixel art 32-bit isométrico mantendo traços reconhecíveis'",
+      "note": "a CENA varia a cada edição, o COPY não muda"
+    },
+    "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
+    "layout_grid": { "margem_lateral_global": "56px" },
+    "zones": {
+      "header": {
+        "margin_lateral": "56px",
+        "margin_top": "40px",
+        "blocks": [
+          { "id": "handle", "content": "Diego Spanevello", "font_weight": 700, "font_size": "13px", "font_color": "#1A1A1A", "letter_spacing": "1.5px", "text_transform": "uppercase" },
+          { "id": "categoria", "content": "| Inteligência Artificial", "font_weight": 600, "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "1.5px", "text_transform": "uppercase" }
+        ]
+      },
+      "image": {
+        "height": "36% do frame",
+        "margin_lateral": "56px",
+        "margin_top": "28px",
+        "margin_bottom": "28px",
+        "border_radius": "12px",
+        "asset_prompt": "PLACEHOLDER — cena pixel art 32-bit isométrica com Diego e Aspira. Referências dos personagens carregadas em anexo pelo usuário."
+      },
+      "content": {
+        "margin_lateral": "56px",
+        "blocks": [
+          { "id": "texto-serif-longo", "content": "Segue o perfil para não perder as próximas edições", "font_family": "serif display", "font_size": "34px", "font_color": "#1A1A1A", "line_height": 1.2, "margin_bottom": "32px", "font_style": "regular, com 'próximas edições' em itálico" },
+          { "id": "interjeicao-negrito", "content": "Toda semana.", "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#E8722A", "margin_bottom": "12px" },
+          { "id": "corpo-regular", "content": "as notícias de IA que realmente importam", "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": 1.4 }
+        ]
+      },
+      "footer": { "content": "INTUS HUB", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "3px", "text_transform": "uppercase", "margin_lateral": "56px", "margin_bottom": "36px" }
+    }
+  },
+
+  "legenda": {
+    "formato_aprovado": "lista-escaneavel",
+    "status": "aprovado",
+    "estrutura": {
+      "abertura": "O que movimentou o universo da IA esta semana:",
+      "corpo": "Uma linha por notícia com emoji temático + frase curta de 1-2 linhas. Emoji segue o padrão editorial da newsletter (🐋 DeepSeek, 🔬 Google, 💬 declaração CEO, ⌨️ código, 🏆 resultado técnico, 🔓 reversão/abertura, ☁️ infra/cloud)",
+      "fechamento": "Segue o perfil para não perder as próximas edições.",
+      "separadores": "quebras de linha entre cada notícia — sem bullet, sem traço, sem travessão"
+    },
+    "exemplo_referencia": "O que movimentou o universo da IA esta semana:\n\n🐋 DeepSeek aumentou os preços. O modelo mais barato do mercado começa a seguir o padrão que derrubou.\n\n🔬 Google DeepMind trocou de comando. Hassabis sobe para Chairman, Jeff Dean sai após 27 anos.\n\nSegue o perfil para não perder as próximas edições.",
+    "gate_obrigatorio": "copy-qa-sms antes de entregar — nunca pular"
+  },
+
+  "negative_rules": [
+    "NUNCA usar travessão (—) em nenhuma peça",
+    "NUNCA baked-in asset_prompt de imagem no template — sempre placeholder",
+    "NUNCA alterar o copy fixo da headline da capa, do CTA ou do fechamento da legenda",
+    "NUNCA usar o mesmo template de slide 3 vezes seguidas — variar para criar ritmo",
+    "NUNCA entregar copy sem rodar copy-qa-sms",
+    "NUNCA fixar tratamento de cor de imagem — depende da referência carregada pelo usuário",
+    "NUNCA adicionar avatar no header — sempre só texto",
+    "NUNCA usar imagem sem border_radius nos slides off-white (exceto capa full-bleed e card-inset do slide-11)"
+  ]
+}

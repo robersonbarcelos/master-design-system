@@ -1,0 +1,1311 @@
+<title>Proposta Social Media · Servitec</title>
+<style>
+/* === TOKENS === */
+:root {
+  --navy: #002060;
+  --navy-deep: #001240;
+  --gold: #F0A500;
+  --gold-light: #FFF3D4;
+  --surface: #FFFFFF;
+  --ground: #F3F5F9;
+  --text: #1A2540;
+  --text-muted: #68788E;
+  --divider: #DDE2EC;
+  --positive: #1A7A4A;
+  --positive-bg: #EBF7F1;
+  --warning: #C47A00;
+  --warning-bg: #FFF8E6;
+  --negative: #B53030;
+  --negative-bg: #FBEAEA;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navy: #1B3F82;
+    --navy-deep: #000D22;
+    --gold: #F0A500;
+    --gold-light: #261D00;
+    --surface: #0F1C35;
+    --ground: #081122;
+    --text: #E0E7F5;
+    --text-muted: #8A98B0;
+    --divider: #1E2E4A;
+    --positive: #2AA66A;
+    --positive-bg: #0D2218;
+    --warning: #E09000;
+    --warning-bg: #1E1600;
+    --negative: #D94545;
+    --negative-bg: #220D0D;
+  }
+}
+
+:root[data-theme="light"] {
+  --navy: #002060;
+  --navy-deep: #001240;
+  --gold: #F0A500;
+  --gold-light: #FFF3D4;
+  --surface: #FFFFFF;
+  --ground: #F3F5F9;
+  --text: #1A2540;
+  --text-muted: #68788E;
+  --divider: #DDE2EC;
+  --positive: #1A7A4A;
+  --positive-bg: #EBF7F1;
+  --warning: #C47A00;
+  --warning-bg: #FFF8E6;
+  --negative: #B53030;
+  --negative-bg: #FBEAEA;
+}
+
+:root[data-theme="dark"] {
+  --navy: #1B3F82;
+  --navy-deep: #000D22;
+  --gold: #F0A500;
+  --gold-light: #261D00;
+  --surface: #0F1C35;
+  --ground: #081122;
+  --text: #E0E7F5;
+  --text-muted: #8A98B0;
+  --divider: #1E2E4A;
+  --positive: #2AA66A;
+  --positive-bg: #0D2218;
+  --warning: #E09000;
+  --warning-bg: #1E1600;
+  --negative: #D94545;
+  --negative-bg: #220D0D;
+}
+
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--ground);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* === HEADER === */
+.header {
+  background: var(--navy-deep);
+  padding: 56px 48px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.06;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: 60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.08;
+}
+
+.header-eyebrow {
+  font-family: 'Arial Narrow', Arial, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-family: 'Arial Black', Impact, 'Helvetica Neue', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin-bottom: 8px;
+}
+
+.header-client {
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 900;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.header-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+
+.meta-item strong {
+  display: block;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* === CONTENT SECTIONS === */
+.section {
+  background: var(--surface);
+  padding: 48px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.section:last-of-type { border-bottom: none; }
+
+.section-label {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'Arial Black', Impact, 'Helvetica Neue', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+  line-height: 1.1;
+}
+
+/* === DIAGNOSTIC TABLE === */
+.diag-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+.diag-table th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 0 12px;
+  text-align: left;
+  border-bottom: 2px solid var(--divider);
+}
+
+.diag-table td {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--divider);
+  vertical-align: middle;
+}
+
+.diag-table tr:last-child td { border-bottom: none; }
+
+.diag-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.diag-ok { background: var(--positive-bg); color: var(--positive); }
+.diag-warn { background: var(--warning-bg); color: var(--warning); }
+.diag-bad { background: var(--negative-bg); color: var(--negative); }
+
+.diag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.diag-desc {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* === POSITIONING (gold full-bleed) === */
+.positioning {
+  background: var(--navy);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.positioning::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 32px;
+  font-family: Georgia, serif;
+  font-size: 220px;
+  line-height: 1;
+  color: rgba(240, 165, 0, 0.08);
+  pointer-events: none;
+}
+
+.pos-label {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.pos-diagnosis {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.pos-diagnosis strong {
+  color: rgba(255,255,255,0.95);
+}
+
+.pos-statement {
+  font-family: 'Arial Black', Impact, 'Helvetica Neue', sans-serif;
+  font-size: clamp(18px, 2.8vw, 26px);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.pos-statement em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+/* === EDITORIAL MIX === */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.pillar-card {
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--pillar-color, var(--navy));
+}
+
+.pillar-pct {
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--pillar-color, var(--navy));
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pillar-name {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.pillar-desc {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.pillar-funnel {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+  background: var(--ground);
+  color: var(--text-muted);
+}
+
+/* === CALENDAR === */
+.cal-week {
+  margin-bottom: 28px;
+}
+
+.cal-week-title {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.cal-days {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cal-day {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--ground);
+}
+
+.cal-day.off { opacity: 0.45; }
+
+.cal-date {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.cal-content {}
+
+.cal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+
+.tag-explica { background: #E8F0FF; color: #2050C8; }
+.tag-campo { background: #E8F5EF; color: #1A6A3A; }
+.tag-oferta { background: var(--gold-light); color: #8A5800; }
+.tag-legado { background: #F0EEFF; color: #5535B0; }
+.tag-campanha { background: #FFF0F0; color: #992020; }
+.tag-off { background: var(--ground); color: var(--text-muted); }
+
+@media (prefers-color-scheme: dark) {
+  .tag-explica { background: #0A1540; color: #7095F0; }
+  .tag-campo { background: #0A2018; color: #50B870; }
+  .tag-oferta { background: var(--gold-light); color: #D4A000; }
+  .tag-legado { background: #1A1030; color: #9E80F0; }
+  .tag-campanha { background: #250A0A; color: #D06060; }
+}
+
+:root[data-theme="dark"] .tag-explica { background: #0A1540; color: #7095F0; }
+:root[data-theme="dark"] .tag-campo { background: #0A2018; color: #50B870; }
+:root[data-theme="dark"] .tag-oferta { background: var(--gold-light); color: #D4A000; }
+:root[data-theme="dark"] .tag-legado { background: #1A1030; color: #9E80F0; }
+:root[data-theme="dark"] .tag-campanha { background: #250A0A; color: #D06060; }
+
+:root[data-theme="light"] .tag-explica { background: #E8F0FF; color: #2050C8; }
+:root[data-theme="light"] .tag-campo { background: #E8F5EF; color: #1A6A3A; }
+:root[data-theme="light"] .tag-oferta { background: var(--gold-light); color: #8A5800; }
+:root[data-theme="light"] .tag-legado { background: #F0EEFF; color: #5535B0; }
+:root[data-theme="light"] .tag-campanha { background: #FFF0F0; color: #992020; }
+
+.cal-theme {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.cal-theme span {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* === COPY EXAMPLES === */
+.example-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.example-card {
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.example-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--ground);
+  border-bottom: 1px solid var(--divider);
+}
+
+.example-editoria {
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.example-format {
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.example-body {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.example-headline {
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  line-height: 1.2;
+  padding: 12px 14px;
+  background: var(--ground);
+  border-radius: 4px;
+  border-left: 3px solid var(--gold);
+}
+
+.example-copy {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-line;
+}
+
+.example-hashtags {
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--navy);
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+/* === NEEDS / NEXT STEPS === */
+.needs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 560px) {
+  .needs-grid { grid-template-columns: 1fr; }
+}
+
+.needs-block h4 {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist li {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+}
+
+.check-box {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--divider);
+  border-radius: 3px;
+  margin-top: 1px;
+}
+
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.steps-list li {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  line-height: 1.45;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 1px;
+}
+
+/* === FOOTER === */
+.footer {
+  background: var(--navy-deep);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-author {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-author strong {
+  color: rgba(255,255,255,0.85);
+}
+
+.footer-brand {
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .header, .section, .positioning, .footer { padding: 36px 24px; }
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .cal-day { grid-template-columns: 64px 1fr; }
+  .header-meta { gap: 20px; }
+}
+
+/* === HIGHLIGHT BAR === */
+.insight-bar {
+  background: var(--gold-light);
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 28px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* evitar corte no meio de blocos */
+  .alert-box,
+  .editorial-card,
+  .cal-week,
+  .example-box,
+  .needs-block,
+  .total-block,
+  .investimento-block,
+  .resumo-grupo,
+  .resumo-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* seções grandes podem quebrar — mas não no meio de um item */
+  .section { orphans: 4; widows: 4; }
+
+  /* forçar fundo escuro com hex direto */
+  .header { background-color: #001240 !important; }
+  .positioning { background-color: #001F5E !important; }
+  .resumo-block { background-color: #001240 !important; }
+  .investimento-block { background-color: #002060 !important; }
+  .total-block { background-color: #F0A500 !important; }
+}
+</style>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-eyebrow">Estratégia Digital · Proposta</div>
+    <div class="header-title">Social Media</div>
+    <div class="header-client">Servitec Comercial<br>e Locações</div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <strong>Data</strong>
+        23 de julho de 2026
+      </div>
+      <div class="meta-item">
+        <strong>Elaborado por</strong>
+        Roberson S. Barcelos
+      </div>
+      <div class="meta-item">
+        <strong>Instagram</strong>
+        @servitec_comercial
+      </div>
+    </div>
+  </header>
+
+  <!-- DIAGNÓSTICO -->
+  <section class="section">
+    <div class="section-label">01 · Diagnóstico</div>
+    <div class="section-title">Onde vocês estão hoje</div>
+
+    <div class="insight-bar">
+      A frequência de posts está boa. O problema é outro: o algoritmo não distribui e a audiência não responde. O conteúdo atual informa, mas não engaja. O conhecimento acumulado da Servitec não aparece nos posts.
+    </div>
+
+    <!-- ALERTAS IMEDIATOS -->
+    <div style="margin-bottom:28px">
+      <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--negative);margin-bottom:12px">⚠ Alertas imediatos: corrigir antes de publicar</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;background:var(--negative-bg);border:1px solid var(--negative);border-radius:8px;padding:16px 18px">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:22px;font-weight:900;color:var(--negative);line-height:1">!</div>
+          <div>
+            <div style="font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:var(--negative);margin-bottom:3px">35 anos no Instagram · 20 anos no site. Qual é o correto?</div>
+            <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Bio do Instagram diz <strong>"35 anos no mercado"</strong>. O site diz <strong>"mais de 20 anos"</strong>. O dado é contraditório. Qualquer cliente que pesquisar vai desconfiar. Confirmar o dado antes de usar em qualquer copy.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;background:var(--negative-bg);border:1px solid var(--negative);border-radius:8px;padding:16px 18px">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:22px;font-weight:900;color:var(--negative);line-height:1">!</div>
+          <div>
+            <div style="font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:var(--negative);margin-bottom:3px">Link no bio aponta para o site errado</div>
+            <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Bio do Instagram leva para <strong>serviteclocacao.com.br</strong>. O site ativo e atualizado é <strong>serviteccomercial.com.br</strong>. Qualquer visitante que clicar no link cai no lugar errado. Trocar imediatamente.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;background:var(--warning-bg);border:1px solid var(--warning);border-radius:8px;padding:16px 18px">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:22px;font-weight:900;color:var(--warning);line-height:1">!</div>
+          <div>
+            <div style="font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:var(--warning);margin-bottom:3px">Destaques do perfil não comunicam o negócio</div>
+            <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Atualmente: <strong>Ofertas · Campanhas · Atendimento</strong>. Novo visitante não entende o que a empresa vende nem por que confiar. Reformular para refletir as linhas de produto + dicas + contato (ver proposta de destaques na seção 02).</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TABELA DE DIAGNÓSTICO -->
+    <div style="overflow-x:auto">
+    <table class="diag-table">
+      <thead>
+        <tr>
+          <th style="width:50%">Indicador</th>
+          <th style="width:25%">Status</th>
+          <th style="width:25%">Situação atual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div style="font-family:system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--text)">Frequência de posts</div>
+            <div class="diag-desc">Quase diária, volume alto</div>
+          </td>
+          <td><span class="diag-indicator diag-ok"><span class="diag-dot"></span>OK</span></td>
+          <td style="font-family:system-ui,sans-serif;font-size:13px;color:var(--text-muted)">Consistente ✓</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-family:system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--text)">Identidade visual</div>
+            <div class="diag-desc">Azul + amarelo consistente</div>
+          </td>
+          <td><span class="diag-indicator diag-ok"><span class="diag-dot"></span>OK</span></td>
+          <td style="font-family:system-ui,sans-serif;font-size:13px;color:var(--text-muted)">Padrão mantido ✓</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-family:system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--text)">Variedade de conteúdo</div>
+            <div class="diag-desc">90%+ são apenas ofertas de produto</div>
+          </td>
+          <td><span class="diag-indicator diag-warn"><span class="diag-dot"></span>Atenção</span></td>
+          <td style="font-family:system-ui,sans-serif;font-size:13px;color:var(--text-muted)">Pouca diversidade</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-family:system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--text)">Engajamento médio</div>
+            <div class="diag-desc">Por post, últimos 3 meses</div>
+          </td>
+          <td><span class="diag-indicator diag-bad"><span class="diag-dot"></span>Crítico</span></td>
+          <td style="font-family:system-ui,sans-serif;font-size:13px;color:var(--text-muted);font-variant-numeric:tabular-nums">0–5 curtidas/post</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-family:system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--text)">Tom de voz</div>
+            <div class="diag-desc">A marca fala, a audiência não responde</div>
+          </td>
+          <td><span class="diag-indicator diag-bad"><span class="diag-dot"></span>Crítico</span></td>
+          <td style="font-family:system-ui,sans-serif;font-size:13px;color:var(--text-muted)">100% broadcast</td>
+        </tr>
+        <tr>
+          <td>
+            <div style="font-family:system-ui,sans-serif;font-size:14px;font-weight:600;color:var(--text)">Posicionamento da expertise</div>
+            <div class="diag-desc">35 anos de mercado não aparece nos posts</div>
+          </td>
+          <td><span class="diag-indicator diag-bad"><span class="diag-dot"></span>Ausente</span></td>
+          <td style="font-family:system-ui,sans-serif;font-size:13px;color:var(--text-muted)">Oportunidade perdida</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- POSICIONAMENTO -->
+  <div class="positioning">
+    <div class="pos-label">02 · Posicionamento proposto</div>
+    <p class="pos-diagnosis">
+      A Servitec é a empresa de equipamentos mais conhecida de Sertãozinho. Quando uma construtora ou empresa industrial da região precisa de uma plataforma, um compressor ou uma ferramenta especializada, o nome certo deveria ser Servitec. Não só para comprar quando já sabe o que quer, mas para ligar quando tem dúvida.
+    </p>
+    <div class="pos-statement">
+      "A Servitec tem 35 anos para te ajudar a <em>escolher o equipamento certo.</em> Não vender o que está em estoque."
+    </div>
+  </div>
+
+  <!-- MIX EDITORIAL -->
+  <section class="section">
+    <div class="section-label">03 · Mix editorial</div>
+    <div class="section-title">5 Editorias · 5 Posts por Semana</div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card" style="--pillar-color:#1A6A3A">
+        <div class="pillar-pct">35%</div>
+        <div class="pillar-name">Soluções em Campo</div>
+        <div class="pillar-desc">Produto em uso resolvendo um problema real. Especificações + aplicação prática.</div>
+        <div class="pillar-funnel">Meio / Fundo</div>
+      </div>
+
+      <div class="pillar-card" style="--pillar-color:#2050C8">
+        <div class="pillar-pct">25%</div>
+        <div class="pillar-name">Servitec Explica</div>
+        <div class="pillar-desc">Como escolher, quando usar, diferenças técnicas. Aparece para público novo no Instagram.</div>
+        <div class="pillar-funnel">Topo / Meio</div>
+      </div>
+
+      <div class="pillar-card" style="--pillar-color:#C47A00">
+        <div class="pillar-pct">25%</div>
+        <div class="pillar-name">Ofertas da Semana</div>
+        <div class="pillar-desc">Produto com condição e urgência real. Mantém a conversão atual, com copy melhor.</div>
+        <div class="pillar-funnel">Fundo / Conversão</div>
+      </div>
+
+      <div class="pillar-card" style="--pillar-color:#5535B0">
+        <div class="pillar-pct">10%</div>
+        <div class="pillar-name">Legado & Bastidores</div>
+        <div class="pillar-desc">35 anos, equipe, clientes, eventos. Credibilidade que não aparece em post de oferta.</div>
+        <div class="pillar-funnel">Topo / Institucional</div>
+      </div>
+
+      <div class="pillar-card" style="--pillar-color:#992020">
+        <div class="pillar-pct">5%</div>
+        <div class="pillar-name">Datas & Campanhas</div>
+        <div class="pillar-desc">Julho Amarelo, Junho Vermelho, Fenasucro, eventos do setor. Relacionamento.</div>
+        <div class="pillar-funnel">Topo / Relacionamento</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATOS DE PRODUÇÃO -->
+  <section class="section">
+    <div class="section-label">04 · Formatos de produção</div>
+    <div class="section-title">O que será produzido · Feed + Stories</div>
+
+    <!-- FEED -->
+    <div style="margin-bottom:36px">
+      <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--divider)">Feed Instagram · Formatos</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px">
+
+        <div style="border:1px solid var(--divider);border-radius:8px;padding:18px;border-top:3px solid var(--navy)">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;color:var(--navy);margin-bottom:6px">Post Estático</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:10px">1 imagem · 1080×1080px</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text);line-height:1.6">
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Soluções em Campo</div>
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Ofertas da Semana</div>
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Legado & Bastidores</div>
+            <div style="padding:3px 0">✦ Datas & Campanhas</div>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--divider);border-radius:8px;padding:18px;border-top:3px solid #2050C8">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;color:#2050C8;margin-bottom:6px">Carrossel</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:10px">3–6 slides · 1080×1080px</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text);line-height:1.6">
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Servitec Explica <span style="color:var(--text-muted)">(principal)</span></div>
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Curadoria de Ofertas</div>
+            <div style="padding:3px 0">✦ Comparativos técnicos</div>
+          </div>
+        </div>
+
+        <div style="border:1px solid var(--divider);border-radius:8px;padding:18px;border-top:3px solid #992020">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;color:#992020;margin-bottom:6px">Reels</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:10px">15–30s · 1080×1920px</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text);line-height:1.6">
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Equipamento em operação</div>
+            <div style="padding:3px 0;border-bottom:1px solid var(--divider)">✦ Bastidor da loja/estoque</div>
+            <div style="padding:3px 0">✦ Eventos (Fenasucro, etc.)</div>
+          </div>
+          <div style="margin-top:10px;font-family:system-ui,sans-serif;font-size:11px;color:var(--text-muted);font-style:italic">Exige vídeo do cliente. Iniciar quando houver material.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STORIES -->
+    <div>
+      <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--divider)">Stories Instagram · O que entra por dia</div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:12px">
+
+        <div style="background:var(--ground);border-radius:8px;padding:16px">
+          <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--gold);margin-bottom:6px">Story 1 · Diário</div>
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:14px;font-weight:900;color:var(--text);margin-bottom:6px">Repercussão do Feed</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Compartilha o post do dia com texto curto e CTA para o WhatsApp</div>
+        </div>
+
+        <div style="background:var(--ground);border-radius:8px;padding:16px">
+          <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--gold);margin-bottom:6px">Story 2 · 3× semana</div>
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:14px;font-weight:900;color:var(--text);margin-bottom:6px">Produto do Dia</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Foto real do produto em estoque + preço ou condição + link WhatsApp</div>
+        </div>
+
+        <div style="background:var(--ground);border-radius:8px;padding:16px">
+          <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--gold);margin-bottom:6px">Story 3 · 1× semana</div>
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:14px;font-weight:900;color:var(--text);margin-bottom:6px">Enquete Técnica</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Pergunta relacionada ao post educativo. Ex: "Você aluga ou compra equipamento?"</div>
+        </div>
+
+        <div style="background:var(--ground);border-radius:8px;padding:16px">
+          <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--gold);margin-bottom:6px">Story 4 · sob demanda</div>
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:14px;font-weight:900;color:var(--text);margin-bottom:6px">Comunicado</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Horários, feriados, eventos especiais. Substitui story padrão quando necessário</div>
+        </div>
+
+        <div style="background:var(--ground);border-radius:8px;padding:16px">
+          <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--gold);margin-bottom:6px">Story 5 · Sextas</div>
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:14px;font-weight:900;color:var(--text);margin-bottom:6px">Bastidor Rápido</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;color:var(--text-muted);line-height:1.5">Foto ou vídeo curto da loja, equipe ou estoque. Humaniza a marca sem precisar de produção</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:16px;background:var(--gold-light);border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 6px 6px 0;font-family:Georgia,serif;font-size:14px;font-style:italic;color:var(--text);line-height:1.6">
+        <strong style="font-style:normal;font-family:system-ui,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;display:block;margin-bottom:4px;color:var(--warning)">Regra dos Stories</strong>
+        Stories não são cópia do feed. São o canal de conversa. Feed constrói autoridade, story converte. Pelo menos 1 dos stories do dia sempre tem CTA para WhatsApp.
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDÁRIO -->
+  <section class="section">
+    <div class="section-label">05 · Calendário</div>
+    <div class="section-title">Agosto de 2026</div>
+
+    <!-- Semana 1 -->
+    <div class="cal-week">
+      <div class="cal-week-title">Semana 1 · 4 a 9 de agosto</div>
+      <div class="cal-days">
+        <div class="cal-day">
+          <div class="cal-date">Seg 04/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-explica">Servitec Explica</span></div>
+            <div class="cal-theme">Locação vs. compra de plataforma elevatória <span>— quando cada um compensa?</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Ter 05/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-campo">Soluções em Campo</span></div>
+            <div class="cal-theme">Plataforma Tesoura 16m <span>— especificações + disponibilidade para locação</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Qua 06/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-oferta">Ofertas da Semana</span></div>
+            <div class="cal-theme">Curadoria Mega Ferramentas <span>— carrossel 3–4 produtos disponíveis</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Qui 07/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-campo">Soluções em Campo</span></div>
+            <div class="cal-theme">Compressor Chiaperini 80pés <span>— para que tipo de obra/indústria vale</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Sex 08/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-oferta">Ofertas da Semana</span></div>
+            <div class="cal-theme">Plataforma Articulada 20m <span>— disponível para obra de grande porte</span></div>
+          </div>
+        </div>
+        <div class="cal-day off">
+          <div class="cal-date">Sáb 09/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-off">Off</span></div>
+            <div class="cal-theme">Stories informativo se necessário</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Semana 2 · Evento -->
+    <div class="cal-week">
+      <div class="cal-week-title">Semana 2 · 11 a 16 de agosto · 1ª Semana de Negócios Servitec</div>
+      <div class="cal-days">
+        <div class="cal-day">
+          <div class="cal-date">Seg 11/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-legado">Legado & Bastidores</span></div>
+            <div class="cal-theme">Abertura oficial da 1ª Semana de Negócios Servitec</div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Ter 12/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-campo">Soluções em Campo</span></div>
+            <div class="cal-theme">Produto em destaque do evento <span>— oferta especial da semana</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Qua 13/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-oferta">Ofertas da Semana</span></div>
+            <div class="cal-theme">Oferta exclusiva da Semana de Negócios <span>— condição especial</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Qui 14/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-legado">Legado & Bastidores</span></div>
+            <div class="cal-theme">Encerramento do evento <span>— agradecimento + bastidores</span></div>
+          </div>
+        </div>
+        <div class="cal-day">
+          <div class="cal-date">Sex 15/08</div>
+          <div class="cal-content">
+            <div><span class="cal-tag tag-explica">Servitec Explica</span></div>
+            <div class="cal-theme">Como a Servitec escolhe as marcas com que trabalha</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXEMPLOS DE COPY -->
+  <section class="section">
+    <div class="section-label">06 · Exemplos de post</div>
+    <div class="section-title">Um por editoria · Para aprovação</div>
+
+    <div class="example-grid">
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-editoria">Servitec Explica</span>
+          <span class="example-format">Post único · Feed Instagram</span>
+        </div>
+        <div class="example-body">
+          <div class="example-headline">Você realmente precisa comprar uma plataforma?</div>
+          <div class="example-copy">Depende. Mas a maioria das obras não precisa.
+
+Se você vai usar uma plataforma elevatória 3 vezes no ano, comprar um equipamento de R$80–150 mil não fecha a conta.
+
+Locação resolve: você usa o equipamento profissional, paga só pelo período da obra, sem manutenção, sem armazenamento.
+
+Quando a compra compensa?
+→ Mais de 3 meses de uso por ano
+→ Obra de longo prazo com demanda contínua
+
+Dúvida específica? A consultoria é gratuita.
+📞 (16) 2105-8100</div>
+          <div class="example-hashtags">#ServitecExplica #PlataformaElevatória #LocaçãoDeEquipamentos #Servitec #Sertãozinho</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-editoria">Legado & Bastidores</span>
+          <span class="example-format">Post único · Feed Instagram</span>
+        </div>
+        <div class="example-body">
+          <div class="example-headline">35 anos. Sertãozinho confia. Nós entregamos.</div>
+          <div class="example-copy">Quando a Servitec abriu as portas, Sertãozinho já era referência no interior paulista.
+
+Em 35 anos, acompanhamos obras que viraram empresas. Locamos equipamentos para projetos que mudaram a região. Vendemos ferramentas para profissionais que hoje têm seus próprios negócios.
+
+O que não mudou: a mesma dedicação de sempre, no mesmo endereço.
+
+Obrigado a cada cliente que faz parte dessa história.
+📍 Av. Nossa Senhora Aparecida, 534, Sertãozinho, SP</div>
+          <div class="example-hashtags">#Servitec #35Anos #SertãozinhoSP #EmpresaRegional #LegadoServitec</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NECESSIDADES + PRÓXIMOS PASSOS -->
+  <section class="section">
+    <div class="section-label">07 · Para começarmos</div>
+    <div class="section-title">O que precisamos + próximos passos</div>
+
+    <div class="needs-grid">
+      <div class="needs-block">
+        <h4>Materiais necessários</h4>
+        <ul class="checklist">
+          <li><span class="check-box"></span>Logo oficial em alta resolução (SVG ou PNG sem fundo)</li>
+          <li><span class="check-box"></span>Paleta de cores exata (hexadecimais oficiais)</li>
+          <li><span class="check-box"></span>Fotos do estoque, loja e equipe</li>
+          <li><span class="check-box"></span>Fotos de equipamentos em uso em obra</li>
+          <li><span class="check-box"></span>Ano exato de fundação (35 ou 20 anos?)</li>
+          <li><span class="check-box"></span>Raio de atendimento para locação</li>
+        </ul>
+      </div>
+
+      <div class="needs-block">
+        <h4>Próximos passos</h4>
+        <ul class="steps-list">
+          <li>
+            <span class="step-num">1</span>
+            Validação desta proposta: posicionamento, mix editorial e exemplos
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            Coleta de materiais: logo, fotos, dados confirmados
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            5 posts piloto: um por editoria para aprovação antes de publicar
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            Calendário de agosto completo: 20 posts aprovados e programados
+          </li>
+          <li>
+            <span class="step-num">5</span>
+            Início da produção regular: 4 posts/semana a partir da semana aprovada
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMO DE PRODUÇÃO -->
+  <div class="resumo-block" style="background:#001240;padding:56px 48px">
+    <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Resumo de produção</div>
+    <div style="font-family:'Arial Black',Impact,'Helvetica Neue',sans-serif;font-size:22px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:36px">O que entregamos toda semana</div>
+
+    <!-- SEMANAL -->
+    <div class="resumo-grupo">
+      <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">Por semana</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+
+        <div class="resumo-card" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:24px 20px;text-align:center">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:56px;font-weight:900;color:#F0A500;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums">4</div>
+          <div style="font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">Posts no Feed</div>
+          <div style="font-family:system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5">Seg · Ter · Qui · Sex<br>Estático e carrossel</div>
+        </div>
+
+        <div class="resumo-card" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:24px 20px;text-align:center">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:56px;font-weight:900;color:#F0A500;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums">10</div>
+          <div style="font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">Stories</div>
+          <div style="font-family:system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5">~2/dia · Produto, enquete,<br>bastidor e repercussão</div>
+        </div>
+
+        <div class="resumo-card" style="background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.15);border-radius:10px;padding:24px 20px;text-align:center">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:56px;font-weight:900;color:rgba(240,165,0,0.35);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums">0–1</div>
+          <div style="font-family:system-ui,sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px">Reels</div>
+          <div style="font-family:system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);line-height:1.5">Depende de vídeo<br>fornecido pelo cliente</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DIVISOR -->
+    <div style="border-top:1px solid rgba(255,255,255,0.1);margin:40px 0"></div>
+
+    <!-- MENSAL -->
+    <div class="resumo-grupo" style="margin-bottom:40px">
+      <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">Por mês (4 semanas)</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+
+        <div class="resumo-card" style="border-left:3px solid #F0A500;padding:16px 20px">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:44px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums">16</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;font-weight:700;color:#F0A500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Posts · Feed</div>
+          <div style="font-family:system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.4);line-height:1.5">4 Soluções em Campo<br>4 Servitec Explica<br>6 Ofertas da Semana<br>2 Legado & Bastidores</div>
+        </div>
+
+        <div class="resumo-card" style="border-left:3px solid rgba(240,165,0,0.5);padding:16px 20px">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:44px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums">40</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;font-weight:700;color:#F0A500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Stories</div>
+          <div style="font-family:system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.4);line-height:1.5">20 repercussão do feed<br>12 produto do dia<br>4 enquetes técnicas<br>4 bastidores rápidos</div>
+        </div>
+
+        <div class="resumo-card" style="border-left:3px solid rgba(255,255,255,0.15);padding:16px 20px">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:44px;font-weight:900;color:rgba(255,255,255,0.3);line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums">0–4</div>
+          <div style="font-family:system-ui,sans-serif;font-size:12px;font-weight:700;color:rgba(240,165,0,0.4);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px">Reels</div>
+          <div style="font-family:system-ui,sans-serif;font-size:11px;color:rgba(255,255,255,0.3);line-height:1.5">Equipamento em operação<br>Bastidor da loja<br>Condicional: cliente<br>fornece o vídeo bruto</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOTAL HIGHLIGHT -->
+    <div class="total-block" style="background:#F0A500;border-radius:10px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:4px">Total mensal garantido</div>
+        <div style="font-family:'Arial Black',Impact,sans-serif;font-size:28px;font-weight:900;color:#000;line-height:1">56 peças de conteúdo</div>
+      </div>
+      <div style="display:flex;gap:24px">
+        <div style="text-align:center">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:28px;font-weight:900;color:#000;line-height:1">16</div>
+          <div style="font-family:system-ui,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(0,0,0,0.55)">posts</div>
+        </div>
+        <div style="width:1px;background:rgba(0,0,0,0.15)"></div>
+        <div style="text-align:center">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:28px;font-weight:900;color:#000;line-height:1">40</div>
+          <div style="font-family:system-ui,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(0,0,0,0.55)">stories</div>
+        </div>
+        <div style="width:1px;background:rgba(0,0,0,0.15)"></div>
+        <div style="text-align:center">
+          <div style="font-family:'Arial Black',Impact,sans-serif;font-size:28px;font-weight:900;color:rgba(0,0,0,0.35);line-height:1">+reels</div>
+          <div style="font-family:system-ui,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(0,0,0,0.35)">condicional</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <!-- INVESTIMENTO -->
+  <div class="investimento-block" style="background:#002060;padding:48px">
+    <div style="max-width:680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <div style="font-family:system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px">Investimento mensal</div>
+        <div style="font-family:'Arial Black',Impact,sans-serif;font-size:44px;font-weight:900;color:var(--gold);line-height:1;letter-spacing:-0.02em">R$&nbsp;650<span style="font-size:28px">,00</span></div>
+        <div style="font-family:system-ui,sans-serif;font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px">por mês · mínimo 2 meses · renovação mensal</div>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,0.1);padding-left:32px">
+        <div style="font-family:system-ui,sans-serif;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.8">
+          <div>✦ 4 posts/semana no feed</div>
+          <div>✦ Stories diários</div>
+          <div>✦ Planejamento e copy</div>
+          <div>✦ Identidade visual dos posts</div>
+          <div>✦ Relatório mensal de resultados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-author">
+      Elaborado por <strong>Roberson S. Barcelos</strong> · Estrategista Digital · Julho 2026
+    </div>
+    <div class="footer-brand">Servitec</div>
+  </footer>
+
+</div>

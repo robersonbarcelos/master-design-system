@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M4-4.2 · Primeira landing page sem código</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.prompt{font-family:monospace;font-size:15px;color:#aaa;background:#080808;border:1px solid #1a1a1a;border-radius:8px;padding:18px 22px;margin:16px 0 32px;line-height:1.7;white-space:pre-wrap}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M4 · Aula 4.2 · AO VIVO · 8 min</span>
+  <span class="titulo">Crie sua primeira landing page sem código</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">Setup</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Tela: Claude Code aberto com pasta</div>
+  <div class="fala">
+    <p>Claude Code aberto, pasta de trabalho selecionada. Vamos construir uma landing page do zero agora.</p>
+    <p>Sem código. Sem template. Só o prompt certo.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">O prompt completo</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: Claude Code, digitando o prompt</div>
+  <div class="fala">
+    <p>Esse é o prompt que vou usar. Completo, com todas as partes:</p>
+  </div>
+  <div class="prompt">Cria uma landing page em HTML completo para o meu curso online "Claude na Prática".
+Seções obrigatórias:
+1. Hero com headline, subheadline e botão CTA
+2. Seção "O que você vai aprender" com 5 tópicos
+3. Seção "Para quem é" com 3 perfis
+4. Seção de preço com botão de compra
+5. Footer simples
+
+Estilo: moderno, escuro (dark mode), fonte sans-serif, cor de destaque dourada.
+Botões CTA: texto "Quero aprender Claude agora"
+Salva como index.html na pasta raiz.</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Claude planeja e executa</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: Claude Code em execução</div>
+  <div class="fala">
+    <p>Olha o que acontece: o Claude mostra o plano antes de executar. Lista o que vai fazer. Pede confirmação.</p>
+    <p>Você aprova. Ele começa a escrever o código.</p>
+    <p>Você não escreve nenhuma linha. Você só aprovou o plano.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Abrir no browser ao vivo</span>
+    <span class="cena-tempo">1 min 30 s</span>
+  </div>
+  <div class="stage">Tela: browser com index.html aberto</div>
+  <div class="fala">
+    <p>Arquivo criado. Vou abrir no browser.</p>
+  </div>
+  <div class="acao">Abrir index.html no browser</div>
+  <div class="fala">
+    <p>Isso é uma landing page funcionando. Hero, seções, botões, estilo. Do zero. Em menos de 2 minutos.</p>
+    <p>Você não sabia programar antes dessa aula. Ainda não sabe. E a página existe.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Iteração: pedir ajustes</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Claude Code</div>
+  <div class="fala">
+    <p>O comportamento mais importante no Claude Code: não precisa reescrever tudo para ajustar.</p>
+    <p>Vou pedir uma mudança:</p>
+    <p>"Muda o hero para fundo azul escuro com gradiente. Adiciona uma seção de depoimentos com 3 cards fictícios."</p>
+  </div>
+  <div class="acao">Enviar pedido de ajuste</div>
+  <div class="fala">
+    <p>O Claude atualiza o mesmo arquivo. Não recria. Ajusta.</p>
+  </div>
+  <div class="acao">Recarregar o browser e mostrar o resultado atualizado</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 6</span>
+    <span class="cena-titulo">Se tiver bug visual</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Se aparecer algum bug visual: não edite o código manualmente.</p>
+    <p>Descreva o que está errado. "Tem um espaço estranho entre o hero e a próxima seção. Corrige isso." O Claude resolve.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 7</span>
+    <span class="cena-titulo">O que mais o Claude Code consegue criar</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal ou slide</div>
+  <div class="fala">
+    <p>Landing page é só um exemplo. O Claude Code também cria: scripts de automação, ferramentas internas, bots, APIs simples, sistemas de agendamento, planilhas com lógica complexa.</p>
+    <p>Qualquer coisa que possa ser descrita em texto, o Claude Code pode construir.</p>
+    <p>Deploy para colocar no ar: isso é conteúdo do Domínio Claude.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno tem uma landing page funcional em HTML rodando no browser local — criada do zero pelo Claude Code em menos de 10 minutos.</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Esta é a aula de maior impacto visual do M4. Deixar o momento de abrir o browser no ar por alguns segundos.</li>
+    <li>Mostrar a iteração (ajuste após a primeira versão) — é o comportamento mais importante de aprender.</li>
+    <li>Bug visual: mostrar como pedir ao Claude para corrigir, nunca editar manualmente.</li>
+    <li>Não prometer deploy sem hospedagem. É uma demo local. Deploy é Domínio Claude.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

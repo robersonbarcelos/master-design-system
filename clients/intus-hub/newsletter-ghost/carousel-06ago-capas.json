@@ -1,0 +1,157 @@
+[
+  {
+    "capa_id": "capa-A",
+    "template_origem": "TEMPLATE-SLIDE-BLANK / capa-01",
+    "descricao": "Versão editorial Blank — full-bleed CGI surreal, overlay gradiente escuro, headline Archivo Black no terço inferior",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "orientation": "portrait"
+    },
+    "zones": {
+      "header": {
+        "position": "top",
+        "margin_lateral": "28px",
+        "margin_top": "28px",
+        "text_block": {
+          "content_left": "INTUS HUB AI NEWS",
+          "content_right": "06 AGO",
+          "separador": "·",
+          "font_family": "Big Shoulders Display",
+          "font_weight": 900,
+          "font_size": "17px",
+          "text_transform": "uppercase",
+          "letter_spacing": "0.3px",
+          "color_left": "#FFFFFF",
+          "color_separador": "rgba(255,255,255,0.45)",
+          "color_right": "rgba(255,255,255,0.45)",
+          "layout": "linha única, separador · entre nome e data"
+        }
+      },
+      "image": {
+        "position": "full frame — full bleed",
+        "margin_lateral": "0px",
+        "border_radius": "0px",
+        "color_treatment": "CGI fotorrealista, paleta fria com neon azul e roxo, alto contraste — fundo escuro pra o overlay funcionar",
+        "asset_prompt": "Surreal photorealistic CGI render 3D: a humanoid AI entity made of glowing circuit patterns and data streams emerging from a cracked smartphone screen into reality, holographic code and neural network nodes floating around it, dramatic studio lighting with deep shadows, blue and purple neon glow, ultra-detailed, 8K quality, cinematic depth of field, IMAX dramatic lighting, dark background. No text, no logos, no watermarks. 4:5 portrait."
+      },
+      "content": {
+        "position": "terço inferior do frame, sobreposto à imagem",
+        "margin_lateral": "28px",
+        "margin_bottom": "40px",
+        "overlay": {
+          "type": "gradiente escuro de baixo para cima",
+          "stops": [
+            { "position": "0%", "color": "rgba(0,0,0,0.82)" },
+            { "position": "55%", "color": "rgba(0,0,0,0.40)" },
+            { "position": "100%", "color": "rgba(0,0,0,0)" }
+          ]
+        },
+        "blocks": [
+          {
+            "id": "headline",
+            "type": "text",
+            "content": "O QUE MOVIMENTOU O UNIVERSO IA ESTA SEMANA",
+            "font_family": "Archivo Black",
+            "font_size": "42px",
+            "text_transform": "uppercase",
+            "line_height": 0.95,
+            "font_color": "#FFFFFF",
+            "accent_word": "IA",
+            "accent_color": "#E8722A",
+            "note": "palavra 'IA' em laranja #E8722A para destaque dentro da headline"
+          }
+        ]
+      },
+      "footer": { "exists": false }
+    }
+  },
+
+  {
+    "capa_id": "capa-B",
+    "template_origem": "TEMPLATE-INTUS-AI-NEWS / variacao 03-dark-badge-pill-vermelha",
+    "descricao": "Versão dark news — fundo preto, overlay gradiente, badge pill vermelha, headline ultra bold condensed, isométrico cidade futurista em crise",
+    "format": {
+      "aspect_ratio": "4:5",
+      "resolution": "1080x1350px",
+      "orientation": "portrait"
+    },
+    "background": "#0A0A0A",
+    "overlay": {
+      "type": "gradient bottom-to-top",
+      "stops": [
+        { "position": "0%", "color": "rgba(0,0,0,0.95)" },
+        { "position": "45%", "color": "rgba(0,0,0,0.55)" },
+        { "position": "100%", "color": "rgba(0,0,0,0.10)" }
+      ]
+    },
+    "zones": {
+      "image_zone": {
+        "position": "centro superior do frame",
+        "height": "55% do frame",
+        "color_treatment": "pixel art isométrico 32-bit vibrante mas tenso — paleta neon no escuro, não desaturar",
+        "asset_prompt": "Isometric pixel art 32-bit: vast futuristic city at night in crisis — massive AI server tower skyscrapers dominating the skyline, glowing neural network lines connecting every building, satellites falling from the sky, sections of the city glitching and corrupting (blocks of pixels breaking apart), rivers of data raining downward, server farm floors radiating orange and blue light upward, dramatic tension between neon vibrancy and digital chaos. Bright vibrant pixel art lighting. No text, no logos, no watermarks. 16:9 widescreen cropped to 4:5 portrait, centered on the city skyline."
+      },
+      "content_zone": {
+        "position": "metade inferior do frame",
+        "margin_left": "44px",
+        "margin_right": "44px",
+        "margin_top": "24px",
+        "blocks": [
+          {
+            "id": "badge",
+            "content": "INTUS HUB · AI NEWS",
+            "font_size": "18px",
+            "font_style": "ultra bold uppercase letter-spacing 2px",
+            "font_color": "#FFFFFF",
+            "background": "#CC0000",
+            "padding": "8px 20px",
+            "border_radius": "4px",
+            "display": "inline-block",
+            "margin_bottom": "16px",
+            "separador": {
+              "character": "·",
+              "color": "rgba(255,255,255,0.55)",
+              "margin": "0 8px"
+            }
+          },
+          {
+            "id": "headline",
+            "type": "text",
+            "content_line1": "O QUE",
+            "content_line2": "MOVIMENTOU",
+            "content_line3": "O UNIVERSO IA",
+            "content_line4": "ESTA SEMANA",
+            "content_full": "O QUE MOVIMENTOU O UNIVERSO IA ESTA SEMANA",
+            "font_size": "72px",
+            "font_style": "ultra bold condensed, all caps",
+            "font_color": "#FFFFFF",
+            "line_height": "1.0",
+            "margin_bottom": "16px",
+            "highlight_line": {
+              "apply_to": "content_line3",
+              "content": "O UNIVERSO IA",
+              "font_color": "#FFFFFF",
+              "background": "#CC0000",
+              "padding": "2px 18px",
+              "border_radius": "6px",
+              "note": "linha 'O UNIVERSO IA' com highlight vermelho — destaque de impacto"
+            }
+          },
+          {
+            "id": "subcopy",
+            "type": "text",
+            "content": "06 de agosto de 2026",
+            "font_size": "20px",
+            "font_style": "regular sans-serif",
+            "font_color": "rgba(255,255,255,0.65)",
+            "line_height": "1.0",
+            "white_space": "nowrap",
+            "margin_bottom": "16px"
+          }
+        ]
+      },
+      "footer": { "exists": false }
+    }
+  }
+]

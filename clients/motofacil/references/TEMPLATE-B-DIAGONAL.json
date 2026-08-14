@@ -1,0 +1,241 @@
+{
+  "template": {
+    "id": "TEMPLATE-B-DIAGONAL",
+    "nome": "Diagonal + 1 Foto",
+    "formato": "Post Instagram",
+    "dimensoes": { "largura": 1080, "altura": 1350, "unidade": "px" },
+    "descricao": "Uma única foto de impacto. Corte diagonal preto na metade esquerda do card. Sem miniaturas. Badge dourado. CTA vermelho no rodapé.",
+
+    "paleta": {
+      "fundo_principal": "#0A0A0A",
+      "diagonal_escuro": "#0A0A0A",
+      "vermelho": "#C0392B",
+      "dourado": "#C9A84C",
+      "branco": "#FFFFFF",
+      "cinza_escuro": "#1A1A1A"
+    },
+
+    "tipografia": {
+      "modelo_moto": {
+        "fonte": "Impact, Arial Black, sans-serif",
+        "peso": "900",
+        "tamanho": "86px",
+        "cor": "#FFFFFF",
+        "transformacao": "uppercase",
+        "espacamento": "-1px",
+        "sombra": "2px 2px 0px #000000"
+      },
+      "badge_texto": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "24px",
+        "cor": "#0A0A0A",
+        "transformacao": "uppercase"
+      },
+      "cta_texto": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "34px",
+        "cor": "#FFFFFF",
+        "transformacao": "uppercase"
+      },
+      "telefone": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "48px",
+        "cor": "#FFFFFF"
+      },
+      "tagline_footer": {
+        "fonte": "Arial, sans-serif",
+        "peso": "700",
+        "tamanho": "20px",
+        "cor": "#555555"
+      }
+    },
+
+    "zonas": [
+      {
+        "id": "header",
+        "tipo": "secao_fixo",
+        "descricao": "Cabeçalho escuro com logo e tagline",
+        "x": 0, "y": 0,
+        "largura": 1080, "altura": 116,
+        "cor_fundo": "#0A0A0A",
+        "elementos": [
+          {
+            "id": "logo_placeholder",
+            "tipo": "placeholder",
+            "label": "LOGO (logo-clean.jpeg)",
+            "x": 36, "y": 24,
+            "largura": 280, "altura": 72,
+            "borda": { "estilo": "dashed", "espessura": 2, "cor": "#333333" },
+            "border_radius": 6
+          },
+          {
+            "id": "tagline_header",
+            "tipo": "texto_fixo",
+            "conteudo": "Sem consulta ao SERASA · Locação e Venda",
+            "alinhamento": "right",
+            "x": 360, "y": 54,
+            "largura": 680,
+            "fonte": "Arial",
+            "peso": "700",
+            "tamanho": "18px",
+            "cor": "#C0392B",
+            "estilo": "italic"
+          }
+        ]
+      },
+      {
+        "id": "titulo_zona",
+        "tipo": "secao_fixo",
+        "descricao": "Nome do modelo sobre fundo escuro",
+        "x": 0, "y": 116,
+        "largura": 1080, "altura": 192,
+        "cor_fundo": "#0A0A0A",
+        "elementos": [
+          {
+            "id": "modelo_placeholder",
+            "tipo": "placeholder_texto",
+            "label": "[MARCA / MODELO]\n[ANO/ANO]",
+            "descricao": "Texto branco bold uppercase. Deixar espaço à direita para badge.",
+            "x": 36, "y": 130,
+            "largura": 820,
+            "fonte": "Impact, Arial Black",
+            "tamanho": "86px",
+            "cor": "#FFFFFF",
+            "transformacao": "uppercase"
+          }
+        ]
+      },
+      {
+        "id": "diagonal_foto",
+        "tipo": "secao_complexa",
+        "descricao": "Zona diagonal: esquerda escura sobreposta à foto da moto à direita",
+        "x": 0, "y": 308,
+        "largura": 1080, "altura": 800,
+        "cor_fundo": "#1A1A1A",
+        "nota": "No Canva: (1) Adicionar foto da moto como fundo desta zona. (2) Sobre a foto, adicionar triângulo/forma preto #0A0A0A cobrindo o canto esquerdo com corte diagonal de cima-esquerda até baixo-centro.",
+        "elementos": [
+          {
+            "id": "foto_moto_hero",
+            "tipo": "placeholder_imagem",
+            "label": "FOTO DA MOTO (1 foto, ângulo completo, cutout ou ambiente)",
+            "x": 0, "y": 308,
+            "largura": 1080, "altura": 800,
+            "cor_fundo": "#1A1A1A",
+            "borda": { "estilo": "dashed", "espessura": 2, "cor": "#333333" },
+            "nota": "Foto ocupa toda a zona. Moto posicionada à direita/centro."
+          },
+          {
+            "id": "diagonal_overlay",
+            "tipo": "forma_fixo",
+            "descricao": "Triângulo/polígono preto sobre a foto — corte diagonal",
+            "forma": "poligono",
+            "pontos": "0,308 0,1108 420,1108",
+            "cor_fundo": "#0A0A0A",
+            "opacidade": 1,
+            "nota": "Canva: usar forma de triângulo preto no canto inferior esquerdo. Ângulo aprox. 35 graus."
+          },
+          {
+            "id": "badge_sem_consulta",
+            "tipo": "elemento_fixo",
+            "forma": "circulo",
+            "x": 60, "y": 980,
+            "diametro": 200,
+            "cor_fundo": "#C9A84C",
+            "borda": { "espessura": 4, "cor": "#0A0A0A" },
+            "conteudo_texto": "SEM\nCONSULTA\nSERASA",
+            "fonte_texto": "Arial Black",
+            "tamanho_texto": "24px",
+            "cor_texto": "#0A0A0A",
+            "peso_texto": "900",
+            "alinhamento_texto": "center",
+            "nota": "Badge dourado posicionado sobre o triângulo escuro, canto inferior esquerdo"
+          }
+        ]
+      },
+      {
+        "id": "footer_cta",
+        "tipo": "secao_fixo",
+        "descricao": "Barra CTA vermelha",
+        "x": 0, "y": 1108,
+        "largura": 1080, "altura": 130,
+        "cor_fundo": "#C0392B",
+        "elementos": [
+          {
+            "id": "cta_texto",
+            "tipo": "texto_fixo",
+            "conteudo": "CHAMA NO WHATSAPP",
+            "x": 36, "y": 1120,
+            "fonte": "Arial Black",
+            "tamanho": "34px",
+            "cor": "#FFFFFF",
+            "peso": "900",
+            "transformacao": "uppercase"
+          },
+          {
+            "id": "telefone",
+            "tipo": "texto_fixo",
+            "conteudo": "(16) 99147-1592",
+            "x": 580, "y": 1140,
+            "fonte": "Arial Black",
+            "tamanho": "48px",
+            "cor": "#FFFFFF",
+            "peso": "900"
+          }
+        ]
+      },
+      {
+        "id": "footer_tagline",
+        "tipo": "secao_fixo",
+        "descricao": "Tagline de fechamento discreta",
+        "x": 0, "y": 1238,
+        "largura": 1080, "altura": 112,
+        "cor_fundo": "#0A0A0A",
+        "elementos": [
+          {
+            "id": "tagline_texto",
+            "tipo": "texto_fixo",
+            "conteudo": "SEM CONSULTA. SEM BUROCRACIA. SEM COMPLICAÇÃO. &nbsp; MOTO FÁCIL — SERTÃOZINHO",
+            "alinhamento": "center",
+            "fonte": "Arial",
+            "tamanho": "20px",
+            "cor": "#555555",
+            "peso": "700",
+            "x": 540, "y": 1284,
+            "largura": 1008
+          }
+        ]
+      }
+    ],
+
+    "elementos_variaveis": [
+      "logo_placeholder",
+      "modelo_placeholder",
+      "foto_moto_hero"
+    ],
+
+    "elementos_fixos": [
+      "tagline_header",
+      "diagonal_overlay",
+      "badge_sem_consulta",
+      "footer_cta",
+      "footer_tagline"
+    ],
+
+    "instrucoes_canva": [
+      "Criar documento 1080 x 1350 px",
+      "Fundo base: #0A0A0A (preto)",
+      "Adicionar logo-clean.jpeg no header à esquerda",
+      "Adicionar tagline vermelha itálica à direita do header",
+      "Adicionar caixa de texto para nome do modelo (Impact, branco, uppercase)",
+      "Adicionar foto da moto como elemento de imagem — zona central grande",
+      "Sobre a foto: adicionar forma TRIÂNGULO preto #0A0A0A no canto inferior esquerdo (clip diagonal)",
+      "Adicionar círculo badge DOURADO #C9A84C com texto 'SEM CONSULTA SERASA' preto, posicionado sobre o triângulo",
+      "Adicionar barra vermelha #C0392B no rodapé com CTA e telefone brancos",
+      "Adicionar tagline cinza discreto no fundo preto abaixo da barra",
+      "NUNCA adicionar valor, preço ou condição de pagamento"
+    ]
+  }
+}

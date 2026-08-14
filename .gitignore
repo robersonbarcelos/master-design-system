@@ -12,6 +12,10 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Claude Code runtime (worktrees, session locks)
+.claude/
+**/.claude/
+
 # Arquivos temporários
 *.tmp
 *.log

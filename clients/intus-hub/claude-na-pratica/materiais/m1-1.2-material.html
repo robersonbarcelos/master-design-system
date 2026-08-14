@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 1.2 · Os 3 modos: Chat, Cowork e Code</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;
+  --amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+
+/* HEADER */
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,64px);line-height:.9;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+
+/* SIDE */
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+
+/* STATEMENT */
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+
+/* SECTION */
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+
+/* GRID */
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+
+/* CARD */
+.card{border:1px solid var(--border);border-radius:20px;padding:24px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,80,34,.75)}
+.card.navy h3{color:#fff}
+.card.navy p{color:rgba(255,255,255,.72)}
+
+/* MODOS CARDS */
+.modo-card{
+  border:1px solid var(--border);border-radius:22px;padding:26px;
+  background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05);
+  border-top:4px solid var(--navy);
+}
+.modo-card.cowork{border-top-color:var(--amber)}
+.modo-card.code{border-top-color:#1D4ED8}
+.modo-tag{font-family:var(--mono);font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:13px;color:var(--navy)}
+.modo-card.cowork .modo-tag{color:var(--amber-dark)}
+.modo-card.code .modo-tag{color:#1D4ED8}
+.modo-card h3{font-size:22px;letter-spacing:-.035em;margin:0 0 10px;color:var(--ink)}
+.modo-card p{color:var(--body);font-size:15px;line-height:1.5;margin:0 0 12px}
+.modo-card p:last-child{margin:0}
+.modo-uso{
+  display:inline-block;font-family:var(--mono);font-size:10px;font-weight:800;
+  padding:5px 10px;border-radius:999px;margin-top:4px;
+  background:var(--bg2);border:1px solid var(--border);color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.modo-card.chat .modo-uso{background:#EFF6FF;border-color:#BFDBFE;color:#1D4ED8}
+.modo-card.cowork .modo-uso{background:var(--amber-bg);border-color:rgba(245,80,34,.28);color:var(--amber-text)}
+.modo-card.code .modo-uso{background:#EEF2FF;border-color:#C7D2FE;color:#4338CA}
+
+/* ANALOGIA */
+.analogia{
+  border-radius:20px;padding:28px;background:var(--white);
+  border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.analogia .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px}
+.analogia blockquote{
+  margin:0;padding:16px 20px;
+  border-left:4px solid var(--amber);border-radius:0 12px 12px 0;
+  background:var(--amber-bg);
+  font-size:18px;font-weight:700;color:var(--amber-text);line-height:1.42;letter-spacing:-.01em;
+}
+
+/* TABELA COMPARATIVA */
+.table{border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.row{display:grid;border-bottom:1px solid var(--border)}
+.row.cols-3{grid-template-columns:1fr 1fr 1fr}
+.row.cols-4{grid-template-columns:1.1fr 1fr 1fr 1fr}
+.row:last-child{border-bottom:0}
+.row>div{padding:14px 17px;border-right:1px solid var(--border);color:var(--body);line-height:1.45;font-size:14px}
+.row>div:last-child{border-right:0}
+.row.head>div{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);background:var(--bg2);font-weight:700}
+.col-label{font-weight:700;color:var(--ink)}
+.tag-sim{font-family:var(--mono);font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;background:#DCFCE7;border:1px solid #BBF7D0;color:#15803D}
+.tag-lim{font-family:var(--mono);font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;background:var(--amber-bg);border:1px solid rgba(245,80,34,.32);color:var(--amber-text)}
+
+/* DESTAQUE CODE */
+.code-destaque{
+  border:1px solid #C7D2FE;border-radius:20px;padding:26px;
+  background:linear-gradient(135deg,#EEF2FF,#FAF8F4);
+}
+.code-destaque .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#4338CA;font-weight:700;margin-bottom:10px}
+.code-destaque h3{font-size:22px;letter-spacing:-.03em;margin:0 0 10px;color:var(--ink)}
+.code-destaque p{color:var(--body);font-size:15px;line-height:1.52;margin:0 0 10px}
+.code-destaque p:last-child{margin:0}
+
+/* NOTE */
+.note{border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;border-left:3px solid var(--amber)}
+.note strong{color:var(--amber-text)}
+
+/* PERGUNTA CHAVE */
+.pergunta{
+  border-radius:24px;padding:38px 44px;
+  background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18);
+  border-left:5px solid var(--amber);
+}
+.pergunta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,80,34,.75);font-weight:800;margin-bottom:14px}
+.pergunta h2{font-size:clamp(26px,4vw,46px);line-height:.96;letter-spacing:-.04em;margin:0 0 18px;color:#fff}
+.pergunta p{font-size:17px;color:rgba(255,255,255,.7);max-width:660px;line-height:1.48;margin:0}
+
+/* CONCLUSÃO CTA */
+.conclusao{border-radius:24px;padding:50px 44px;margin-top:14px;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.20);position:relative;overflow:hidden}
+.conclusao:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.conclusao h2{font-size:clamp(28px,4.2vw,48px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.conclusao p{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:13px 20px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .grid.two,.grid.three{grid-template-columns:1fr}
+  .row.cols-3,.row.cols-4{grid-template-columns:1fr}
+  .row>div{border-right:0;border-bottom:1px solid var(--border)}
+  .row>div:last-child{border-bottom:0}
+  .conclusao,.pergunta{padding:34px 26px}
+  .statement{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+<!-- HEADER -->
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/>
+      <polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/>
+      <circle cx="60" cy="60" r="11" fill="#F55022"/>
+    </svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 1 · Aula 1.2<br>AO VIVO · 8 min</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M1 · Bases do Claude</div>
+    <h1>Os 3 modos: <span class="accent">Chat, Cowork e Code.</span></h1>
+    <p class="lead">Essa aula é ao vivo. O Claude Desktop App vai abrir na tela e você vai ver cada modo funcionando antes de precisar escolher um.</p>
+    <div class="chips">
+      <span class="chip hot">Ao vivo · 8 min</span>
+      <span class="chip">Chat</span>
+      <span class="chip">Cowork</span>
+      <span class="chip">Code</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Clareza de escolha.</strong>
+      <p>Você fecha a aula sabendo qual modo usar antes de qualquer tarefa. Sem configuração ainda.</p>
+    </div>
+    <div class="signal">
+      <small>Pergunta-chave</small>
+      <strong>Conversa, entrega ou ação?</strong>
+      <p>Essa é a pergunta que decide o modo. A tabela no final deixa isso claro.</p>
+    </div>
+    <div class="signal">
+      <small>Diferencial desta aula</small>
+      <strong>Steer mid-run.</strong>
+      <p>Você pode intervir no Cowork sem cancelar a tarefa. Poucos sabem disso.</p>
+    </div>
+  </aside>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <p>Não são só abas diferentes.<br>São três formas <em>diferentes</em> de trabalhar com o Claude.</p>
+</section>
+
+<!-- 01: AS 3 ABAS -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">01</span>
+    <h2>O que você vai ver na tela</h2>
+  </div>
+  <div class="grid three">
+    <div class="modo-card chat">
+      <div class="modo-tag">Chat</div>
+      <h3>Conversa direta</h3>
+      <p>O modo mais conhecido. Você digita, ele responde. Texto, tabela ou código aparece na tela.</p>
+      <span class="modo-uso">resultado em texto</span>
+    </div>
+    <div class="modo-card cowork">
+      <div class="modo-tag">Cowork</div>
+      <h3>Missão com entrega</h3>
+      <p>Você delega uma tarefa com briefing. O Claude trabalha e entrega um arquivo real no final.</p>
+      <span class="modo-uso">arquivo salvo</span>
+    </div>
+    <div class="modo-card code">
+      <div class="modo-tag">Code</div>
+      <h3>Ação no computador</h3>
+      <p>O Claude age diretamente no seu sistema: cria arquivos, edita código, roda comandos.</p>
+      <span class="modo-uso">ação no sistema</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02: CHAT -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">02</span>
+    <h2>Chat: rápido, direto, em texto</h2>
+  </div>
+  <div class="grid two">
+    <article class="card navy">
+      <div class="label">O que é</div>
+      <h3>Conversa, escrita e brainstorm.</h3>
+      <p>O modo que todo mundo conhece primeiro. Você digita, ele responde. É o mais direto dos três e funciona muito bem para tarefas que resolvem em uma troca de mensagens.</p>
+    </article>
+    <article class="card">
+      <div class="label">Quando usar</div>
+      <h3>Tarefas que terminam em texto.</h3>
+      <ul>
+        <li>Escrever ou revisar um e-mail</li>
+        <li>Resumir um texto</li>
+        <li>Tirar uma dúvida rápida</li>
+        <li>Gerar ideias e brainstorm</li>
+        <li>Criar rascunhos para revisar depois</li>
+      </ul>
+    </article>
+  </div>
+  <div class="note" style="margin-top:14px">
+    <strong>Limite do Chat:</strong> o resultado aparece na tela em texto. Não cria arquivo, não age em nada fora da conversa. Para isso existem o Cowork e o Code.
+  </div>
+</section>
+
+<!-- 03: COWORK -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">03</span>
+    <h2>Cowork: missão com entregável real</h2>
+  </div>
+  <div class="grid two">
+    <article class="card navy">
+      <div class="label">O que muda</div>
+      <h3>Você não manda uma mensagem. Você delega uma missão.</h3>
+      <p>No Cowork você dá um briefing, sobe arquivos se precisar, e o Claude trabalha nisso como um colaborador com prazo e entrega. O resultado não é texto na tela: é um arquivo real. Um Word, um Excel, um relatório.</p>
+    </article>
+    <article class="card">
+      <div class="label">Steer mid-run</div>
+      <h3>Você pode ajustar no meio da tarefa.</h3>
+      <p>Enquanto o Claude está trabalhando, você consegue intervir e mudar a direção sem cancelar. Isso é diferente do Chat, onde você precisaria recomeçar do zero.</p>
+      <div class="note" style="margin-top:14px;font-size:14px">
+        <strong>Na prática:</strong> você vê o Claude trabalhando e, se algo não está indo bem, redireciona ali mesmo.
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 04: CHAT VS COWORK -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">04</span>
+    <h2>Chat vs. Cowork: a comparação direta</h2>
+  </div>
+  <div class="analogia" style="margin-bottom:16px">
+    <div class="label">Analogia para fixar</div>
+    <blockquote>Chat é como mandar uma mensagem. Cowork é como contratar alguém para uma tarefa com prazo e entrega.</blockquote>
+  </div>
+  <div class="table">
+    <div class="row head cols-4">
+      <div>Critério</div><div>Chat</div><div>Cowork</div><div>Quando escolher</div>
+    </div>
+    <div class="row cols-4">
+      <div class="col-label">Formato</div>
+      <div>Conversa</div>
+      <div>Missão com briefing</div>
+      <div></div>
+    </div>
+    <div class="row cols-4">
+      <div class="col-label">Trabalha com arquivos</div>
+      <div><span class="tag-lim">Limitado</span></div>
+      <div><span class="tag-sim">Sim, lê e edita</span></div>
+      <div>Se tiver arquivo: Cowork</div>
+    </div>
+    <div class="row cols-4">
+      <div class="col-label">Entregável</div>
+      <div>Texto na tela</div>
+      <div>Arquivo real salvo</div>
+      <div>Se precisar de arquivo: Cowork</div>
+    </div>
+    <div class="row cols-4">
+      <div class="col-label">Intervenção no meio</div>
+      <div>Recomeça do zero</div>
+      <div><span class="tag-sim">Steer mid-run</span></div>
+      <div>Tarefa longa: Cowork</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05: CODE -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">05</span>
+    <h2>Code: o Claude age no seu computador</h2>
+  </div>
+  <div class="grid two">
+    <div class="code-destaque">
+      <div class="label">O que é o Code</div>
+      <h3>Não é conversa. Não é entrega de arquivo. É ação direta.</h3>
+      <p>No Code, o Claude opera como um agente no seu sistema. Ele pode criar arquivos, editar código, rodar comandos, abrir programas e instalar ferramentas.</p>
+      <p>Isso é diferente de tudo que você viu até aqui. Não é texto na tela, não é um arquivo salvo: é o Claude executando dentro do seu ambiente.</p>
+    </div>
+    <article class="card">
+      <div class="label">O que o Code consegue fazer</div>
+      <h3>Exemplos práticos</h3>
+      <ul>
+        <li>Criar e editar arquivos no seu computador</li>
+        <li>Escrever e rodar código real</li>
+        <li>Automatizar tarefas repetitivas</li>
+        <li>Construir páginas e ferramentas</li>
+        <li>Instalar e configurar programas</li>
+      </ul>
+      <div class="note" style="margin-top:14px;font-size:14px">
+        <strong>M4 vai a fundo nisso.</strong> Aqui é só o mapa. Os detalhes e a prática entram no módulo certo.
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 06: TABELA RESUMO -->
+<section class="section">
+  <div class="section-title">
+    <span class="section-num">06</span>
+    <h2>O mapa dos 3 modos</h2>
+  </div>
+  <div class="table">
+    <div class="row head cols-3">
+      <div>Modo</div><div>Melhor para</div><div>Resultado</div>
+    </div>
+    <div class="row cols-3">
+      <div class="col-label">Chat</div>
+      <div>Conversas, escrita, perguntas rápidas</div>
+      <div>Texto na tela</div>
+    </div>
+    <div class="row cols-3">
+      <div class="col-label">Cowork</div>
+      <div>Missões com arquivos: análise, relatório, planilha</div>
+      <div>Arquivo salvo</div>
+    </div>
+    <div class="row cols-3">
+      <div class="col-label">Code</div>
+      <div>Construir, automatizar, editar código</div>
+      <div>Ação no computador</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERGUNTA CHAVE -->
+<section class="pergunta" style="margin-top:52px">
+  <div class="label">A pergunta que decide tudo</div>
+  <h2>Eu quero uma <span class="accent">conversa</span>, uma <span class="accent">entrega</span> ou uma <span class="accent">ação</span>?</h2>
+  <p>Antes de qualquer tarefa, essa pergunta decide o modo. Chat para conversar. Cowork para entregar um arquivo. Code para agir no sistema. Simples assim.</p>
+</section>
+
+<!-- CTA -->
+<section class="conclusao" style="margin-top:16px">
+  <h2>Agora você tem o mapa.<br><span class="accent">A próxima aula coloca tudo no ar.</span></h2>
+  <p>M1-1.3 é a aula de configuração: você abre o Claude, cria o primeiro Projeto e define as instruções iniciais do seu agente.</p>
+  <div class="cta-actions">
+    <span class="btn primary">Entendido. Pode continuar.</span>
+    <span class="btn">Próxima: M1-1.3 · Setup e primeiro Projeto</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 1 · Aula 1.2 · Os 3 modos: Chat, Cowork e Code · Próxima aula: M1-1.3 · Setup e primeiro Projeto</footer>
+
+</main>
+</body>
+</html>

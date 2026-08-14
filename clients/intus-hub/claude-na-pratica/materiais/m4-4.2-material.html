@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 4.2 · Crie sua primeira landing page sem código</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;--amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --green:#15803D;--green-bg:#DCFCE7;--green-border:#BBF7D0;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,64px);line-height:.9;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+.card{border:1px solid var(--border);border-radius:20px;padding:24px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,80,34,.75)}
+.card.navy h3{color:#fff}
+.card.navy p{color:rgba(255,255,255,.72)}
+
+/* SEÇÕES LP */
+.secoes{display:flex;flex-direction:column;gap:6px}
+.secao-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--white);border:1px solid var(--border);border-radius:12px}
+.secao-num{font-family:var(--mono);font-size:11px;font-weight:900;color:var(--amber-dark);background:var(--amber-bg);border:1px solid rgba(245,80,34,.3);border-radius:6px;padding:3px 8px;flex-shrink:0}
+.secao-nome{font-size:15px;font-weight:700;color:var(--ink)}
+.secao-desc{font-size:13px;color:var(--muted);margin-left:auto}
+
+/* PROMPT BLOCK */
+.prompt-full{font-family:var(--mono);font-size:12px;line-height:1.65;background:var(--navy);color:#E2E8F0;padding:22px 24px;border-radius:20px;border-left:3px solid var(--amber)}
+.prompt-full .comment{color:rgba(245,80,34,.55)}
+.prompt-full .key{color:#93C5FD}
+
+/* ITERACAO */
+.iteracao{border:1px solid var(--green-border);border-radius:20px;padding:24px;background:var(--green-bg)}
+.iteracao .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
+.iteracao h3{margin:0 0 8px;font-size:19px;letter-spacing:-.03em;color:var(--green)}
+.iteracao p{color:#14532D;font-size:15px;line-height:1.5;margin:0 0 10px}
+.iteracao p:last-child{margin:0}
+.iter-prompt{font-family:var(--mono);font-size:12px;background:rgba(255,255,255,.6);border:1px solid var(--green-border);border-radius:10px;padding:10px 14px;color:#14532D;margin-top:8px}
+
+/* LISTA O QUE MAIS */
+.mais-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mais-tag{font-family:var(--mono);font-size:11px;font-weight:700;padding:7px 12px;border-radius:999px;background:var(--navy);color:#fff;border:1px solid var(--navy)}
+
+.note{border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;border-left:3px solid var(--amber)}
+.note strong{color:var(--amber-text)}
+.conclusao{border-radius:24px;padding:50px 44px;margin-top:14px;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.20);position:relative;overflow:hidden}
+.conclusao:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.conclusao h2{font-size:clamp(28px,4.2vw,48px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.conclusao p{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:13px 20px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .grid.two{grid-template-columns:1fr}
+  .secao-desc{display:none}
+  .conclusao{padding:34px 26px}
+  .statement{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/><polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/><circle cx="60" cy="60" r="11" fill="#F55022"/></svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 4 · Aula 4.2<br>AO VIVO · 8 min</div>
+</header>
+
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M4 · Claude Code</div>
+    <h1>Landing page <span class="accent">do zero</span> em menos de 10 minutos.</h1>
+    <p class="lead">Sem escrever uma linha de código. Você digita o prompt, o Claude Code constrói a página e abre no browser. Esta é a aula de maior impacto visual do M4.</p>
+    <div class="chips">
+      <span class="chip hot">Ao vivo · 8 min</span>
+      <span class="chip">HTML</span>
+      <span class="chip">Browser</span>
+      <span class="chip">Iteração</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Página funcionando no browser.</strong>
+      <p>Uma landing page HTML completa, criada pelo Claude Code, aberta e funcionando localmente.</p>
+    </div>
+    <div class="signal">
+      <small>O que aprender aqui</small>
+      <strong>Iterar, não reescrever.</strong>
+      <p>Você vê que não precisa refazer do zero quando algo não ficou certo. Só pede o ajuste e o Claude corrige.</p>
+    </div>
+    <div class="signal">
+      <small>Importante</small>
+      <strong>Demo local, não publicada.</strong>
+      <p>A página roda no seu browser. Para colocar no ar com domínio, é o próximo nível: conteúdo do Domínio Claude.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="statement">
+  <p>Uma página que levaria horas para construir<br>fica pronta em <em>minutos com o prompt certo.</em></p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">01</span><h2>As seções da landing page</h2></div>
+  <div class="secoes">
+    <div class="secao-item"><span class="secao-num">1</span><span class="secao-nome">Hero</span><span class="secao-desc">Headline + subheadline + botão CTA</span></div>
+    <div class="secao-item"><span class="secao-num">2</span><span class="secao-nome">O que você vai aprender</span><span class="secao-desc">5 tópicos do curso</span></div>
+    <div class="secao-item"><span class="secao-num">3</span><span class="secao-nome">Para quem é</span><span class="secao-desc">3 perfis de aluno</span></div>
+    <div class="secao-item"><span class="secao-num">4</span><span class="secao-nome">Preço</span><span class="secao-desc">Valor + botão de compra</span></div>
+    <div class="secao-item"><span class="secao-num">5</span><span class="secao-nome">Footer</span><span class="secao-desc">Links e crédito</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">02</span><h2>O prompt completo usado na aula</h2></div>
+  <div class="prompt-full">
+    <span class="comment">// Prompt digitado no Claude Code</span><br><br>
+    <span class="key">Cria uma landing page em HTML completo para o meu curso online "Claude na Prática".</span><br><br>
+    Seções obrigatórias:<br>
+    1. Hero com headline, subheadline e botão CTA<br>
+    2. Seção "O que você vai aprender" com 5 tópicos<br>
+    3. Seção "Para quem é" com 3 perfis<br>
+    4. Seção de preço com botão de compra<br>
+    5. Footer simples<br><br>
+    Estilo: moderno, escuro (dark mode), fonte sans-serif, cor de destaque dourada.<br>
+    Botões CTA: texto "Quero aprender Claude agora"<br>
+    Salva como index.html na pasta raiz.
+  </div>
+  <div class="note" style="margin-top:12px">
+    <strong>O que acontece depois do prompt:</strong> o Claude mostra o plano antes de escrever qualquer código. Você vê o que ele vai fazer e aprova. Depois escreve o HTML completo e salva o arquivo.
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">03</span><h2>A iteração: ajustar sem refazer</h2></div>
+  <div class="iteracao">
+    <div class="label">O comportamento mais importante do Claude Code</div>
+    <h3>Você não recomeça. Você pede o ajuste.</h3>
+    <p>Depois da primeira versão no browser, você pede mudanças diretamente. O Claude reabre o arquivo, aplica e salva. Sem você tocar em código.</p>
+    <p>Exemplo usado na aula:</p>
+    <div class="iter-prompt">Muda o hero para fundo azul escuro com gradiente. Adiciona uma seção de depoimentos com 3 cards fictícios após o preço.</div>
+    <p style="margin-top:10px">O Claude atualiza o index.html e você recarrega o browser. A mudança já está lá.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">04</span><h2>Se tiver bug visual</h2></div>
+  <div class="grid two">
+    <article class="card">
+      <div class="label">O que não fazer</div>
+      <h3>Não edite o HTML manualmente.</h3>
+      <p>Se aparecer um espaço estranho, uma cor errada ou algo fora do lugar, não abra o arquivo e corrija na mão. Peça para o Claude corrigir. Ele sabe o que fez e corrige sem quebrar o resto.</p>
+    </article>
+    <article class="card navy">
+      <div class="label">Como pedir a correção</div>
+      <h3>Descreva o problema, não o código.</h3>
+      <p>Fale o que você vê: "Tem um espaço estranho entre o hero e a próxima seção. Corrige isso." O Claude identifica a causa no código e ajusta. Você não precisa entender o HTML para isso.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">05</span><h2>O que mais o Claude Code consegue criar</h2></div>
+  <article class="card">
+    <div class="label">Além de landing pages</div>
+    <h3>Uma lista rápida para você ter a dimensão.</h3>
+    <div class="mais-grid">
+      <span class="mais-tag">Scripts de automação</span>
+      <span class="mais-tag">Planilhas complexas</span>
+      <span class="mais-tag">Ferramentas internas</span>
+      <span class="mais-tag">Bots simples</span>
+      <span class="mais-tag">APIs básicas</span>
+      <span class="mais-tag">Sistemas de agendamento</span>
+      <span class="mais-tag">Dashboards locais</span>
+      <span class="mais-tag">Formulários</span>
+    </div>
+    <div class="note" style="margin-top:14px">
+      <strong>Deploy e hospedagem não são desta aula.</strong> A página roda localmente no seu browser. Colocar no ar com domínio e servidor é conteúdo do Domínio Claude.
+    </div>
+  </article>
+</section>
+
+<section class="conclusao" style="margin-top:52px">
+  <h2>Página criada.<br><span class="accent">Próxima: Skills.</span></h2>
+  <p>M4-4.3 fecha o módulo com Skills: instruções reutilizáveis que ensinam o Claude um comportamento específico de uma vez. Você instala o pack exclusivo do curso.</p>
+  <div class="cta-actions">
+    <span class="btn primary">Página no browser. Pode continuar.</span>
+    <span class="btn">Próxima: M4-4.3 · Skills</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 4 · Aula 4.2 · Landing page sem código · Próxima aula: M4-4.3 · Skills</footer>
+</main>
+</body>
+</html>

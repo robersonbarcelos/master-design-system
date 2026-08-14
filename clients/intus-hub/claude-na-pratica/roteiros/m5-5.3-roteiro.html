@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M5-5.3 · MCPs em 3 minutos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.ancora{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:#F59E0B;background:#1a1200;border:2px solid #3a2600;border-radius:14px;padding:24px 32px;margin:24px 0 40px;line-height:1.35}
+.diagrama{font-family:monospace;font-size:17px;color:#aaa;background:#080808;border:1px solid #1a1a1a;border-radius:8px;padding:22px 26px;margin:16px 0 32px;line-height:2;white-space:pre}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M5 · Aula 5.3 · CONCEITUAL · 5 min</span>
+  <span class="titulo">MCPs em 3 minutos: o que são e os mais usados</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">O problema que MCPs resolvem</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide: diagrama Sem MCP vs. Com MCP</div>
+  <div class="fala">
+    <p>Sem MCP, o Claude só sabe o que você conta a ele. Ele vive dentro da janela de conversa.</p>
+    <p>Com MCP, o Claude se conecta a ferramentas externas e age dentro delas. Busca na web em tempo real. Lê e escreve no Notion. Faz commits no GitHub.</p>
+    <p>MCP é o que transforma o Claude de uma IA que responde em um assistente que age nas suas ferramentas.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">A analogia que fixa</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>A melhor forma de entender MCP:</p>
+  </div>
+  <div class="ancora">MCP é como um adaptador universal de tomada. Você não troca o aparelho. Só conecta o adaptador e o aparelho passa a funcionar em qualquer lugar.</div>
+  <div class="fala">
+    <p>O Claude é o aparelho. O MCP é o adaptador. A ferramenta externa é a tomada.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Conector vs. MCP: cada um no seu lugar</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide: tabela comparativa</div>
+  <div class="fala">
+    <p>Já vimos Conectores no M2. Qual a diferença para MCP?</p>
+    <p>Conector está no Settings do Claude.ai. Qualquer usuário Pro instala. Plug and play. Google Calendar, Gmail, Airtable.</p>
+    <p>MCP requer um arquivo de configuração. Instalação mais técnica. Mais poder. Perplexity, Notion, Linear, GitHub.</p>
+    <p>A regra: se tem botão Connect no Settings, é Conector. Se precisa de arquivo de configuração, é MCP.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Os MCPs mais usados</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide: lista dos 5 MCPs</div>
+  <div class="fala">
+    <p>Os cinco MCPs que mais aparecem no dia a dia:</p>
+    <p>Perplexity: busca na web em tempo real dentro do Claude Code.</p>
+    <p>Notion: Claude lê e escreve páginas do Notion.</p>
+    <p>Airtable: Claude acessa e atualiza bases de dados.</p>
+    <p>Linear: Claude vê e cria tickets de projeto.</p>
+    <p>GitHub: Claude lê repositórios e faz commits.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Instalar MCPs é o próximo nível</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Configurar MCPs requer um arquivo de configuração e um pouco de setup técnico. Não é impossível. Mas está fora do escopo deste curso.</p>
+    <p>O Domínio Claude tem um módulo dedicado: instalar, testar e usar os MCPs mais relevantes para automação de negócios.</p>
+    <p>Se você sentiu vontade de instalar pelo menos um agora, é sinal de que está pronto para o próximo nível.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>Nenhuma ação técnica. O aluno fecha com o conceito claro e o desejo de instalar pelo menos 1 MCP.</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Definição para usar e repetir: "MCP é como um adaptador universal."</li>
+    <li>Não entrar em Python, código ou arquitetura técnica de MCP. Zero código nessa aula.</li>
+    <li>Diferença crucial: Conector = Settings, plug and play. MCP = configuração técnica. Deixar isso claro.</li>
+    <li>Encerrar com o convite para o Domínio Claude de forma natural, não abrupta.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

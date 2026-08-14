@@ -1,0 +1,286 @@
+{
+  "template": {
+    "id": "TEMPLATE-A-BRANCO",
+    "nome": "Branco com Alma",
+    "formato": "Post Instagram",
+    "dimensoes": { "largura": 1080, "altura": 1350, "unidade": "px" },
+    "descricao": "Versão clara do template padrão. Fundo branco com acentos em vermelho. Mantém a estrutura de 3 miniaturas e badge lateral.",
+
+    "paleta": {
+      "fundo_principal": "#FFFFFF",
+      "barra_topo": "#C0392B",
+      "vermelho": "#C0392B",
+      "preto": "#0A0A0A",
+      "dourado": "#C9A84C",
+      "vinho_badge": "#7B1C1C",
+      "cinza_claro": "#F7F7F7",
+      "texto_principal": "#0A0A0A",
+      "texto_secundario": "#FFFFFF"
+    },
+
+    "tipografia": {
+      "modelo_moto": {
+        "fonte": "Impact, Arial Black, sans-serif",
+        "peso": "900",
+        "tamanho": "96px",
+        "cor": "#0A0A0A",
+        "transformacao": "uppercase",
+        "espacamento": "-1px"
+      },
+      "badge_texto": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "28px",
+        "cor": "#FFFFFF",
+        "transformacao": "uppercase"
+      },
+      "cta_texto": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "32px",
+        "cor": "#FFFFFF",
+        "transformacao": "uppercase"
+      },
+      "telefone": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "44px",
+        "cor": "#C9A84C"
+      },
+      "tagline_footer": {
+        "fonte": "Arial, sans-serif",
+        "peso": "700",
+        "tamanho": "22px",
+        "cor": "#FFFFFF"
+      },
+      "tagline_header": {
+        "fonte": "Arial, sans-serif",
+        "peso": "700",
+        "tamanho": "20px",
+        "cor": "#C0392B",
+        "estilo": "italic"
+      }
+    },
+
+    "zonas": [
+      {
+        "id": "barra_topo",
+        "tipo": "retangulo_fixo",
+        "descricao": "Barra vermelha fina no topo do card",
+        "x": 0, "y": 0,
+        "largura": 1080, "altura": 18,
+        "cor_fundo": "#C0392B"
+      },
+      {
+        "id": "header",
+        "tipo": "secao_fixo",
+        "descricao": "Cabeçalho branco com logo e tagline",
+        "x": 0, "y": 18,
+        "largura": 1080, "altura": 110,
+        "cor_fundo": "#FFFFFF",
+        "borda_inferior": { "espessura": 1, "cor": "#F0F0F0" },
+        "elementos": [
+          {
+            "id": "logo_placeholder",
+            "tipo": "placeholder",
+            "label": "LOGO",
+            "x": 36, "y": 38,
+            "largura": 280, "altura": 72,
+            "borda": { "estilo": "dashed", "espessura": 2, "cor": "#CCCCCC" },
+            "border_radius": 6
+          },
+          {
+            "id": "tagline_header",
+            "tipo": "texto_fixo",
+            "conteudo": "Locações e Vendas no Crédito sem Consulta ao SERASA",
+            "alinhamento": "right",
+            "x": 360, "y": 44,
+            "largura": 680,
+            "fonte": "Arial",
+            "peso": "700",
+            "tamanho": "20px",
+            "cor": "#C0392B",
+            "estilo": "italic"
+          }
+        ]
+      },
+      {
+        "id": "titulo_zona",
+        "tipo": "secao_fixo",
+        "descricao": "Área do nome do modelo — texto variável + badge fixo",
+        "x": 0, "y": 128,
+        "largura": 1080, "altura": 200,
+        "cor_fundo": "#FFFFFF",
+        "elementos": [
+          {
+            "id": "modelo_placeholder",
+            "tipo": "placeholder_texto",
+            "label": "[MARCA / MODELO]\n[ANO/ANO]",
+            "descricao": "Nome do modelo em maiúsculas, bold, alinhado à esquerda",
+            "x": 36, "y": 148,
+            "largura": 750,
+            "fonte": "Impact, Arial Black",
+            "tamanho": "96px",
+            "cor": "#0A0A0A",
+            "transformacao": "uppercase"
+          },
+          {
+            "id": "badge_sem_consulta",
+            "tipo": "elemento_fixo",
+            "forma": "circulo",
+            "x": 858, "y": 140,
+            "diametro": 192,
+            "cor_fundo": "#7B1C1C",
+            "conteudo_texto": "SEM\nCONSULTA\nSERASA",
+            "fonte_texto": "Arial Black",
+            "tamanho_texto": "28px",
+            "cor_texto": "#FFFFFF",
+            "peso_texto": "900",
+            "alinhamento_texto": "center"
+          }
+        ]
+      },
+      {
+        "id": "hero_moto",
+        "tipo": "placeholder_imagem",
+        "descricao": "Foto hero da moto — cutout sem fundo, PNG transparente",
+        "x": 0, "y": 328,
+        "largura": 1080, "altura": 600,
+        "cor_fundo": "#F7F7F7",
+        "label": "FOTO DA MOTO (cutout PNG sem fundo)",
+        "borda": { "estilo": "dashed", "espessura": 2, "cor": "#DDDDDD" },
+        "nota": "Posicionar moto levemente à esquerda. Escala máxima sem cortar rodas."
+      },
+      {
+        "id": "miniaturas",
+        "tipo": "secao_fixo",
+        "descricao": "Grade de 3 miniaturas de ângulos diferentes da mesma moto",
+        "x": 0, "y": 928,
+        "largura": 1080, "altura": 196,
+        "cor_fundo": "#FFFFFF",
+        "layout": "grid_3_colunas",
+        "gap": 20,
+        "padding": "24px 36px",
+        "elementos": [
+          {
+            "id": "miniatura_1",
+            "tipo": "placeholder_imagem",
+            "label": "ÂNGULO 1",
+            "largura": 320, "altura": 180,
+            "borda": { "espessura": 3, "cor": "#C0392B" },
+            "border_radius": 8
+          },
+          {
+            "id": "miniatura_2",
+            "tipo": "placeholder_imagem",
+            "label": "ÂNGULO 2",
+            "largura": 320, "altura": 180,
+            "borda": { "espessura": 3, "cor": "#C0392B" },
+            "border_radius": 8
+          },
+          {
+            "id": "miniatura_3",
+            "tipo": "placeholder_imagem",
+            "label": "ÂNGULO 3",
+            "largura": 320, "altura": 180,
+            "borda": { "espessura": 3, "cor": "#C0392B" },
+            "border_radius": 8
+          }
+        ]
+      },
+      {
+        "id": "footer_cta",
+        "tipo": "secao_fixo",
+        "descricao": "Barra de CTA principal com WhatsApp",
+        "x": 0, "y": 1124,
+        "largura": 1080, "altura": 120,
+        "cor_fundo": "#0A0A0A",
+        "elementos": [
+          {
+            "id": "icone_whatsapp",
+            "tipo": "icone",
+            "fonte": "WhatsApp verde #25D366",
+            "tamanho": "48px",
+            "x": 36, "y": 1160
+          },
+          {
+            "id": "cta_texto",
+            "tipo": "texto_fixo",
+            "conteudo": "CHAMA NO WHATSAPP",
+            "x": 96, "y": 1158,
+            "fonte": "Arial Black",
+            "tamanho": "32px",
+            "cor": "#FFFFFF",
+            "peso": "900",
+            "transformacao": "uppercase"
+          },
+          {
+            "id": "telefone",
+            "tipo": "texto_fixo",
+            "conteudo": "(16) 99147-1592",
+            "x": 96, "y": 1200,
+            "fonte": "Arial Black",
+            "tamanho": "44px",
+            "cor": "#C9A84C",
+            "peso": "900"
+          }
+        ]
+      },
+      {
+        "id": "footer_tagline",
+        "tipo": "secao_fixo",
+        "descricao": "Tagline de fechamento",
+        "x": 0, "y": 1244,
+        "largura": 1080, "altura": 106,
+        "cor_fundo": "#0A0A0A",
+        "elementos": [
+          {
+            "id": "tagline_texto",
+            "tipo": "texto_fixo",
+            "conteudo": "SEM CONSULTA. SEM BUROCRACIA. SEM COMPLICAÇÃO.\n🏍️ MOTO FÁCIL — SERTÃOZINHO 🏍️",
+            "alinhamento": "center",
+            "fonte": "Arial",
+            "tamanho": "22px",
+            "cor": "#FFFFFF",
+            "peso": "700",
+            "x": 540, "y": 1268,
+            "largura": 1008
+          }
+        ]
+      }
+    ],
+
+    "elementos_variaveis": [
+      "logo_placeholder",
+      "modelo_placeholder",
+      "hero_moto",
+      "miniatura_1",
+      "miniatura_2",
+      "miniatura_3"
+    ],
+
+    "elementos_fixos": [
+      "barra_topo",
+      "badge_sem_consulta",
+      "tagline_header",
+      "footer_cta",
+      "footer_tagline"
+    ],
+
+    "instrucoes_canva": [
+      "Criar documento 1080 x 1350 px",
+      "Fundo base: #FFFFFF",
+      "Adicionar retângulo vermelho #C0392B na parte superior: 1080x18px",
+      "Adicionar logo-clean.jpeg no header à esquerda",
+      "Adicionar tagline em itálico vermelha à direita do header",
+      "Adicionar círculo badge #7B1C1C com texto 'SEM CONSULTA SERASA' no canto direito da zona de título",
+      "Adicionar caixa de texto para nome do modelo (Impact, uppercase, preto)",
+      "Adicionar placeholder de foto hero (fundo #F7F7F7)",
+      "Adicionar linha divisória 1px #F0F0F0 antes das miniaturas",
+      "Adicionar 3 boxes de miniatura com borda #C0392B 3px",
+      "Adicionar rodapé preto #0A0A0A com WhatsApp + número dourado",
+      "Adicionar tagline final em branco sobre fundo preto",
+      "NUNCA adicionar valor, preço ou condição de pagamento"
+    ]
+  }
+}

@@ -1,0 +1,872 @@
+<title>Pautas Editoriais: ESENCA MKT e Comunicação</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A14;
+    --bg-card: #11111E;
+    --bg-card-hover: #16162A;
+    --border: #1E1E32;
+    --verde: #B5E040;
+    --verde-sym: #7CBC16;
+    --roxo: #642B83;
+    --roxo-overlay: #5B2090;
+    --magenta: #91307E;
+    --rosa: #BE3478;
+    --ambar: #B1852A;
+    --laranja: #E54E3E;
+    --text: #FFFFFF;
+    --text-muted: #7878A0;
+    --text-dim: #4A4A6A;
+  }
+
+  @font-face {
+    font-family: 'DocSans';
+    src: local('Helvetica Neue'), local('Arial'), local('Liberation Sans');
+  }
+
+  html { background: #F4F4F8; }
+  html, body { color: var(--text); font-family: 'Helvetica Neue', Arial, system-ui, sans-serif; }
+  body { max-width: 860px; margin: 0 auto; padding: 0; background: #F4F4F8; }
+
+  @media print {
+    html, body { background: #F4F4F8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover { background: #F4F4F8 !important; min-height: 0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .legend-page { background: #F4F4F8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-body { background: #F4F4F8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .doc-footer { background: #F4F4F8 !important; border-top-color: #D0D0E0 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .legend-block, .legend-cats { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pauta { break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .stats-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: #F4F4F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 64px 56px;
+    border-bottom: 1px solid #D0D0E0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #642B8322 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #7CBC1612 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-top { position: relative; z-index: 1; }
+  .brand-mark {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 80px;
+  }
+  .brand-sym {
+    width: 32px; height: 32px;
+    position: relative;
+  }
+  .brand-sym::before {
+    content: '';
+    position: absolute;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 3px solid var(--verde-sym);
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    top: 0; left: 0;
+  }
+  .brand-sym::after {
+    content: '';
+    position: absolute;
+    width: 14px; height: 14px;
+    background: var(--roxo);
+    border-radius: 50%;
+    bottom: 0; right: 0;
+  }
+  .brand-name {
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .cover-title {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-wrap: balance;
+    margin-bottom: 24px;
+  }
+  .cover-title { color: var(--verde); }
+  .cover-title span { color: var(--roxo); }
+
+  .cover-desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 60px;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item { }
+  .meta-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+  .meta-value { font-size: 14px; font-weight: 500; color: var(--text-muted); }
+
+  .cover-bottom { position: relative; z-index: 1; }
+  .cover-counts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .count-cell {
+    background: var(--bg-card);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .count-n { font-size: 32px; font-weight: 700; color: var(--verde); line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .count-l { font-size: 11px; color: var(--text-muted); line-height: 1.3; }
+
+  /* ── LEGEND PAGE ── */
+  .legend-page {
+    padding: 60px 64px 56px;
+    background: #F4F4F8;
+    border-bottom: 1px solid #D0D0E0;
+  }
+  .legend-page-title {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6B6B8A;
+    margin-bottom: 6px;
+  }
+  .legend-page-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0A0A14;
+    margin-bottom: 8px;
+  }
+  .legend-page-desc {
+    font-size: 13px;
+    color: #3A3A5A;
+    line-height: 1.6;
+    max-width: 560px;
+    margin-bottom: 40px;
+  }
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .legend-block {
+    background: #FFFFFF;
+    border: 1px solid #D0D0E0;
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .legend-block-title {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B6B8A;
+    margin-bottom: 14px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .legend-item:last-child { margin-bottom: 0; }
+  .legend-sample { flex-shrink: 0; display: flex; align-items: center; min-width: 80px; }
+  .legend-text { }
+  .legend-term {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0A0A14;
+    margin-bottom: 2px;
+  }
+  .legend-def {
+    font-size: 11px;
+    color: #3A3A5A;
+    line-height: 1.4;
+  }
+
+  .legend-cats {
+    background: #FFFFFF;
+    border: 1px solid #D0D0E0;
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .legend-cats-title {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6B6B8A;
+    margin-bottom: 14px;
+  }
+  .legend-cat-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #D0D0E0;
+  }
+  .legend-cat-row:last-child { border-bottom: none; }
+  .legend-cat-stripe {
+    width: 4px;
+    height: 36px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .legend-cat-name { font-size: 13px; font-weight: 600; color: #0A0A14; min-width: 280px; }
+  .legend-cat-desc { font-size: 11px; color: #3A3A5A; line-height: 1.4; }
+
+  /* ── PAGE BODY ── */
+  .page-body { padding: 64px; background: #F4F4F8; }
+
+  /* ── SECTION / CATEGORY ── */
+  .cat-section { margin-bottom: 56px; }
+
+  .cat-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #D0D0E0;
+  }
+  .cat-stripe {
+    width: 4px;
+    min-height: 44px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .cat-header-text { flex: 1; }
+  .cat-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6B6B8A;
+    margin-bottom: 4px;
+  }
+  .cat-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A0A14;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .cat-desc {
+    font-size: 12px;
+    color: #3A3A5A;
+    line-height: 1.5;
+  }
+  .cat-count-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── PAUTA CARD ── */
+  .pauta {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .pauta-body { min-width: 0; }
+  .pauta-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .pauta-hook {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .pauta-angle {
+    font-size: 11.5px;
+    color: var(--verde);
+    line-height: 1.5;
+    padding: 8px 11px;
+    border-left: 2px solid var(--verde);
+    background: #B5E04008;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+  }
+  .pauta-angle strong {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+    color: var(--verde-sym);
+    font-style: normal;
+  }
+
+  .pauta-meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; min-width: 80px; }
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .badge-li   { background: #2D1248; color: #C084FC; }
+  .badge-ig   { background: #3D1040; color: #E080C8; }
+  .badge-both { background: #1A3010; color: #B5E040; }
+  .badge-founder { background: #3A1A00; color: #D4A04A; }
+
+
+  .fmt-label {
+    font-size: 9.5px;
+    color: var(--text-dim);
+    text-align: right;
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+
+  /* ── DIVIDER ── */
+  .page-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 56px 0;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    padding: 32px 64px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+  .footer-note { font-size: 11px; color: var(--text-dim); }
+
+  /* ── COLOR VARIANTS for angle block per cat ── */
+  .angle-crise { border-left-color: var(--verde); color: var(--verde); background: #B5E04008; }
+  .angle-exec  { border-left-color: var(--roxo-overlay); color: #A86FD0; background: #5B209008; }
+  .angle-reg   { border-left-color: var(--ambar); color: #D4A04A; background: #B1852A08; }
+  .angle-latam { border-left-color: var(--laranja); color: #E87060; background: #E54E3E08; }
+  .angle-prod  { border-left-color: var(--magenta); color: #C05898; background: #91307E08; }
+
+</style>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="brand-mark">
+      <span class="brand-name">ESENCA MKT e Comunicação</span>
+    </div>
+
+    <h1 class="cover-title">Pautas<br><span>Editoriais</span></h1>
+    <p class="cover-desc">
+      Banco de pautas avaliadas e aprovadas para as linhas editoriais do Instagram e LinkedIn da Esenca. Cada pauta inclui contexto de mercado, ângulo editorial e canal recomendado.
+    </p>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-counts">
+      <div class="count-cell"><div class="count-n">21</div><div class="count-l">pautas aprovadas</div></div>
+      <div class="count-cell"><div class="count-n">5</div><div class="count-l">categorias editoriais</div></div>
+      <div class="count-cell"><div class="count-n">3</div><div class="count-l">canais cobertos</div></div>
+      <div class="count-cell"><div class="count-n">Jul<br>2026</div><div class="count-l">referência</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LEGENDA ═══ -->
+<div class="legend-page">
+  <div class="legend-page-title">Como ler este documento</div>
+  <h2 class="legend-page-heading">Guia de leitura</h2>
+  <p class="legend-page-desc">Cada pauta tem três elementos visuais que indicam canal, perfil de publicação e formato sugerido. Abaixo, o que cada um significa.</p>
+
+  <div class="legend-grid">
+
+    <!-- CANAIS -->
+    <div class="legend-block">
+      <div class="legend-block-title">Canal de publicação</div>
+
+      <div class="legend-item">
+        <div class="legend-sample"><span class="badge badge-both">LI + IG</span></div>
+        <div class="legend-text">
+          <div class="legend-term">LinkedIn + Instagram</div>
+          <div class="legend-def">Pauta com versões para os dois canais. Copy e formato adaptados para cada plataforma.</div>
+        </div>
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-sample"><span class="badge badge-li">LinkedIn</span></div>
+        <div class="legend-text">
+          <div class="legend-term">LinkedIn empresa</div>
+          <div class="legend-def">Publicação no perfil corporativo da Esenca. Tom institucional, público C-level.</div>
+        </div>
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-sample"><span class="badge badge-ig">Instagram</span></div>
+        <div class="legend-text">
+          <div class="legend-term">Instagram</div>
+          <div class="legend-def">Publicação no feed do Instagram. Formato visual de impacto, público profissional de comunicação e marketing.</div>
+        </div>
+      </div>
+
+      <div class="legend-item">
+        <div class="legend-sample"><span class="badge badge-founder">Visão Founder</span></div>
+        <div class="legend-text">
+          <div class="legend-term">LinkedIn Esenca: voz da founder</div>
+          <div class="legend-def">Post no perfil da Esenca escrito na perspectiva da CEO. Formato: análise de mercado em primeira pessoa, dado de campo, CTA de captura.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÂNGULO EDITORIAL -->
+    <div class="legend-block">
+      <div class="legend-block-title">Ângulo editorial</div>
+      <div style="font-size:11px; color:#3A3A5A; line-height:1.5; padding:8px 10px; border-left:2px solid var(--verde); background:#B5E04012; border-radius:0 6px 6px 0;">
+        <strong style="font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--verde-sym); display:block; margin-bottom:3px;">Ângulo Esenca</strong>
+        A linha em destaque em cada pauta é o ponto de vista que a Esenca deve tomar. É onde a comunicação estratégica diferencia a análise de uma notícia comum.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORIAS -->
+  <div class="legend-cats">
+    <div class="legend-cats-title">Categorias editoriais: o que cada uma representa</div>
+
+    <div class="legend-cat-row">
+      <div class="legend-cat-stripe" style="background:var(--verde);"></div>
+      <div class="legend-cat-name">01 · Gestão de Crise e Reputação</div>
+      <div class="legend-cat-desc">Cases de como empresas respondem (ou deixam de responder) a crises públicas. Posiciona a Esenca como referência em gestão de reputação de alto risco.</div>
+    </div>
+
+    <div class="legend-cat-row">
+      <div class="legend-cat-stripe" style="background:var(--roxo-overlay);"></div>
+      <div class="legend-cat-name">02 · Executive Positioning</div>
+      <div class="legend-cat-desc">Posts no LinkedIn da Esenca com a voz da CEO. Thought leadership com dado de mercado, observação de campo e CTA de captura.</div>
+    </div>
+
+    <div class="legend-cat-row">
+      <div class="legend-cat-stripe" style="background:var(--ambar);"></div>
+      <div class="legend-cat-name">03 · Regulação com Impacto em Comunicação</div>
+      <div class="legend-cat-desc">Mudanças regulatórias que criam obrigações de comunicação ou risco reputacional. Território onde a Esenca entrega visão que advogados e consultorias de compliance não entregam.</div>
+    </div>
+
+    <div class="legend-cat-row">
+      <div class="legend-cat-stripe" style="background:var(--laranja);"></div>
+      <div class="legend-cat-name">04 · LatAm e Mercado Financeiro</div>
+      <div class="legend-cat-desc">Pautas que abrem o novo território da Esenca: comunicação para empresas que escalam na América Latina e para o setor financeiro tradicional.</div>
+    </div>
+
+    <div class="legend-cat-row">
+      <div class="legend-cat-stripe" style="background:var(--magenta);"></div>
+      <div class="legend-cat-name">05 · Produto e Serviço</div>
+      <div class="legend-cat-desc">Explica o que a Esenca é, como trabalha e por que o modelo integrado (estratégia e execução no mesmo time) é o diferencial central do novo posicionamento.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ BODY ═══ -->
+<div class="page-body">
+
+<!-- ── CAT 1: GESTÃO DE CRISE ── -->
+<div class="cat-section">
+  <div class="cat-header">
+    <div class="cat-stripe" style="background: var(--verde);"></div>
+    <div class="cat-header-text">
+      <div class="cat-label">Categoria 01</div>
+      <div class="cat-title">Gestão de Crise e Reputação Corporativa</div>
+      <div class="cat-desc">Cases e análises de como empresas respondem (ou deixam de responder) a crises públicas. Posiciona a Esenca como referência em gestão de reputação de alto risco.</div>
+    </div>
+    <div class="cat-count-badge" style="background:#B5E04018; color:var(--verde);">5 pautas</div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Astronomer: 48 horas que viraram manual de crise</div>
+      <div class="pauta-hook">CEO Andy Byron flagrado abraçando a diretora de RH num telão do Coldplay em 15 de julho de 2025. Em 4 dias: nota pública, investigação, renúncia do CEO, CEO interino anunciado. 10 dias depois: Gwyneth Paltrow (ex de Chris Martin) contratada como porta-voz temporária. Tráfego no site +15.000%. O que parecia um fim virou o case de gestão de crise mais citado do segundo semestre de 2025.</div>
+      <div class="pauta-angle angle-crise"><strong>Ângulo Esenca</strong>O que separa quem sobrevive de quem afunda é a velocidade e o accountability, não a ausência de crise. Toda empresa vai ter um momento assim. A pergunta é: tem protocolo?</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">texto + infográfico</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Montadora americana: quando o fundador é a crise</div>
+      <div class="pauta-hook">Brand value caiu 36% em 2025, terceiro ano consecutivo de queda. Lealdade de compra recuou de 73% para 50%. Entregas caíram 13% no Q2 de 2025. Protestos em concessionárias nos EUA e Europa, ligados à exposição pública do fundador em pautas políticas.</div>
+      <div class="pauta-angle angle-crise"><strong>Ângulo Esenca</strong>Quando o fundador é a narrativa central da marca, o risco reputacional fica sem firewall. Protocolo de comunicação precisa existir com antecedência, montado antes de qualquer exposição pública do fundador.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">análise de mercado</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Havaianas: silêncio estratégico que transformou boicote em venda</div>
+      <div class="pauta-hook">Comercial lido como provocação política. Eduardo Bolsonaro jogou chinelos fora. Movimento de apoio maior que o boicote. Lojas com movimento acima do normal.</div>
+      <div class="pauta-angle angle-crise"><strong>Ângulo Esenca</strong>Silêncio também é posicionamento, e às vezes é o mais sofisticado. Mas exige leitura de cenário que a maioria das empresas não tem capacidade de fazer sozinha.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">análise de mercado</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Duas redes globais de alimentação: crise sem posicionamento intencional</div>
+      <div class="pauta-hook">Nenhuma declaração política foi feita pelas marcas. Uma franquia local alimentou soldados por conta própria. Uma das redes entregou +0,7% de resultado contra expectativa de +5,5%, atingida por um boicote motivado por decisão que a sede nunca tomou.</div>
+      <div class="pauta-angle angle-crise"><strong>Ângulo Esenca</strong>Em 2026, crise de reputação pode nascer sem nenhum erro direto da empresa. Basta um franqueado, um fornecedor, um post de funcionário. Monitoramento e protocolo seguem sendo o antídoto mais confiável.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">análise de mercado</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">O paradoxo da neutralidade: 57% querem marcas neutras, 52% boicotam a posição oposta</div>
+      <div class="pauta-hook">Ipsos 2025. Matematicamente, não existe posição segura. Quem decide qual grupo reage primeiro é quem tem o megafone naquele momento.</div>
+      <div class="pauta-angle angle-crise"><strong>Ângulo Esenca</strong>O problema não é escolher o lado certo. É ter protocolo para qualquer lado que a polarização escolher atacar. Framework mais velocidade de resposta.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">conceito aplicado</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- ── CAT 2: EXECUTIVE POSITIONING ── -->
+<div class="cat-section">
+  <div class="cat-header">
+    <div class="cat-stripe" style="background: var(--roxo-light);"></div>
+    <div class="cat-header-text">
+      <div class="cat-label">Categoria 02</div>
+      <div class="cat-title">Executive Positioning e Thought Leadership</div>
+      <div class="cat-desc">Posts no LinkedIn da Esenca com a voz da CEO. Dado de mercado, observação de campo e CTA de captura. Formato: texto em primeira pessoa, infográfico "Salve o conteúdo".</div>
+    </div>
+    <div class="cat-count-badge" style="background:#5B209018; color:#A86FD0;">5 pautas</div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">49% da reputação da empresa está na reputação do CEO</div>
+      <div class="pauta-hook">E 44% do valor de mercado segue a mesma lógica. Mas 85% dos CEOs da ASX200 são invisíveis no LinkedIn, não por estratégia, por inércia.</div>
+      <div class="pauta-angle angle-exec"><strong>Ângulo Esenca</strong>O ativo reputacional mais subutilizado de qualquer empresa é a liderança que não se posiciona. Executive positioning não é vaidade. É gestão de risco.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-founder">Visão Founder</span>
+
+      <div class="fmt-label">dado + framework</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Nadella vs Jensen Huang: dois arquétipos de thought leadership que funcionam</div>
+      <div class="pauta-hook">Nadella: coerência de narrativa, humildade intelectual. Brand Finance 2025: entrega +26% de brand value por ano ao longo da gestão. Huang: presença física, jaquetas de couro, rituais ao vivo. Kantar BrandZ 2024: NVIDIA +178% de brand value em um único ano. Arquétipos opostos, resultados comparáveis.</div>
+      <div class="pauta-angle angle-exec"><strong>Ângulo Esenca</strong>Não existe um modelo certo de posicionamento de executivo. Existe o modelo certo para o executivo certo. O trabalho começa na definição do arquétipo.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-founder">Visão Founder</span>
+
+      <div class="fmt-label">comparativo + infográfico</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">LinkedIn com retorno decrescente: mediana de 0.19% de engajamento de C-suite</div>
+      <div class="pauta-hook">1.1 bilhão de usuários. 80% dos leads B2B passam pela plataforma. Mas 19 likes por 10k seguidores é o padrão atual de C-suite. O modelo de "postar insight polido múltiplas vezes" está saturado.</div>
+      <div class="pauta-angle angle-exec"><strong>Ângulo Esenca</strong>Em 2026, o que diferencia não é frequência. É engajamento estratégico em conversas relevantes. Volume sem posicionamento claro é ruído.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-founder">Visão Founder</span>
+
+      <div class="fmt-label">dado + posição</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Confiança na marca caiu de 20% para 39% com o uso pesado de IA em conteúdo</div>
+      <div class="pauta-hook">Segundo levantamento da Fractl com Search Engine Land, em 2025 apenas 20% dos consumidores diziam que uso pesado de IA reduzia a confiança numa marca. Em 2026, esse número saltou para 39% em doze meses. Conteúdo B2B cresceu 56,7% depois do ChatGPT, e a maioria dos decision-makers hoje desconfia de material assinado por lideranças que não escrevem o próprio conteúdo.</div>
+      <div class="pauta-angle angle-exec"><strong>Ângulo Esenca</strong>A IA democratizou a produção e destruiu a diferenciação de quem dependia de volume. O que sobra é o que a IA não replica: experiência real, posição genuína, cicatriz de mercado.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-founder">Visão Founder</span>
+
+      <div class="fmt-label">análise + dado âncora</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Astronomer vs rede de varejo americana: resposta em 48h vs silêncio, e o que cada um custou</div>
+      <div class="pauta-hook">No primeiro case, accountability em 48 horas virou case de sucesso. No segundo, silêncio após um episódio de nepotismo ampliou o dano sem controle.</div>
+      <div class="pauta-angle angle-exec"><strong>Ângulo Esenca</strong>Não é o escândalo que destrói. É o vácuo. O tempo entre o evento e a primeira resposta é o período mais crítico da gestão de reputação de qualquer executivo.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-founder">Visão Founder</span>
+
+      <div class="fmt-label">case comparativo</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- ── CAT 3: REGULAÇÃO ── -->
+<div class="cat-section">
+  <div class="cat-header">
+    <div class="cat-stripe" style="background: var(--ambar);"></div>
+    <div class="cat-header-text">
+      <div class="cat-label">Categoria 03</div>
+      <div class="cat-title">Regulação com Impacto em Comunicação</div>
+      <div class="cat-desc">Mudanças regulatórias que criam obrigações de comunicação ou risco reputacional para empresas. Território em que a Esenca entrega visão que advogados e consultorias de compliance não entregam.</div>
+    </div>
+    <div class="cat-count-badge" style="background:#B1852A18; color:#D4A04A;">3 pautas</div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Greenwashing virou risco legal: ECGT entra em vigor em setembro de 2026</div>
+      <div class="pauta-hook">Duas marcas globais de moda, uma de fast fashion e outra de luxo, já foram multadas em milhões de euros por uso indevido de termos como "eco-friendly" e "sustainable" sem prova. Carbon neutral via offset passa a ser ilegal. Multa prevista de até 4% do faturamento na União Europeia.</div>
+      <div class="pauta-angle angle-reg"><strong>Ângulo Esenca</strong>Comunicação de ESG deixou de ser vantagem competitiva e virou campo minado jurídico. Quem fala mais do que entrega vai pagar. Literalmente.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">análise regulatória</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">CVM "comply or explain": quem não publica ESG precisa comunicar por que não publica</div>
+      <div class="pauta-hook">Resolução 244/2026. Voluntário não significa silêncio: quem não publica deve explicar publicamente. Ofício Circular 2025: protocolo específico para comunicação em período eleitoral.</div>
+      <div class="pauta-angle angle-reg"><strong>Ângulo Esenca</strong>A regulação criou obrigação de comunicação para quem achava que tinha direito ao silêncio. Empresas abertas sem estratégia de disclosure vão ser pegas de surpresa.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">análise de mercado</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Deepfakes eleitorais 2026: marcas atingidas por posições que nunca tomaram</div>
+      <div class="pauta-hook">ABRACOM mai/2026: principal ameaça não é tomar posição errada. É desinformação atribuir posição falsa. Deepfakes de executivos operam em modo pré-eleitoral desde o primeiro semestre.</div>
+      <div class="pauta-angle angle-reg"><strong>Ângulo Esenca</strong>Protocolo mínimo obrigatório agora: monitoramento contínuo, resposta pré-aprovada para atribuições falsas, linha direta de desmentido. Empresas sem isso estão expostas.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">alerta + framework</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- ── CAT 4: LATAM ── -->
+<div class="cat-section">
+  <div class="cat-header">
+    <div class="cat-stripe" style="background: var(--laranja);"></div>
+    <div class="cat-header-text">
+      <div class="cat-label">Categoria 04</div>
+      <div class="cat-title">LatAm e Mercado Financeiro</div>
+      <div class="cat-desc">Pautas que abrem o novo território de posicionamento da Esenca: comunicação para empresas que escalam na América Latina e para o setor financeiro tradicional.</div>
+    </div>
+    <div class="cat-count-badge" style="background:#E54E3E18; color:#E87060;">4 pautas</div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Walmart, Forever 21 e Fnac: por que marcas globais saem do Brasil sem entender por que falharam</div>
+      <div class="pauta-hook">Walmart chegou em 1995 com o modelo americano intacto. Saiu em 2018. Forever 21 não entendeu a cultura de promoção pontual vs preço baixo diário. Fnac não criou o espaço de permanência que o consumidor brasileiro exige.</div>
+      <div class="pauta-angle angle-latam"><strong>Ângulo Esenca</strong>O problema não era produto. Era leitura de mercado. Quando uma marca chega no Brasil com a narrativa pronta do país de origem, não está se comunicando. Está traduzindo. E tradução não é estratégia.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">análise de mercado</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">PR no México, Argentina e Colômbia: o que muda na prática (e o que a maioria ignora)</div>
+      <div class="pauta-hook">México e Colômbia: jornalistas precisam de imagem fornecida pela marca, sem isso, sem matéria. Argentina: jornalistas seguem redes pessoais dos assessores e conversam entre si. Evento fechado para poucos pode virar boicote silencioso. 70% dos executivos globais dizem que comunicação intercultural é essencial; menos de 30% treinaram para isso.</div>
+      <div class="pauta-angle angle-latam"><strong>Ângulo Esenca</strong>Um press release Brasil não é um press release LatAm. A mesma campanha que funcionou aqui pode ser invisível no México ou contraproducente na Argentina, porque o fluxo de informação funciona de forma diferente em cada mercado.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-founder">Visão Founder</span>
+
+      <div class="fmt-label">dado + framework</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Setor financeiro e a reputação que ninguém gerencia antes de precisar</div>
+      <div class="pauta-hook">O Banco Central publica ranking trimestral de reclamações. Bancos digitais e tradicionais de grande porte aparecem entre os piores avaliados, mesmo com bases massivas de clientes. A Fitch piorou a perspectiva dos bancos brasileiros em 2026.</div>
+      <div class="pauta-angle angle-latam"><strong>Ângulo Esenca</strong>Banco com alto índice de reclamação não tem problema de atendimento. Tem problema de reputação não gerenciada. O Nubank entendeu isso antes dos outros. O restante do setor ainda trata reputação como consequência, não como ativo.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">dado + posição</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Brasil, México e Argentina têm mais divergências que convergências. As marcas ignoram isso.</div>
+      <div class="pauta-hook">Os únicos três países LatAm no G20 têm políticas econômicas, cenários eleitorais e dinâmicas de mídia distintos em 2026. Agências de comunicação cresceram 6.69% no Brasil (R$ 5.72 bi). O mercado existe. Mas operar LatAm como um único mercado é o erro mais caro.</div>
+      <div class="pauta-angle angle-latam"><strong>Ângulo Esenca</strong>LatAm não é um mercado. É um arco de mercados com regras próprias. Para crescer de verdade na região, é preciso de quem já operou em mais de um país e entende onde a narrativa varia.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">análise de mercado</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-divider"></div>
+
+<!-- ── CAT 5: PRODUTO / SERVIÇO ── -->
+<div class="cat-section">
+  <div class="cat-header">
+    <div class="cat-stripe" style="background: var(--magenta);"></div>
+    <div class="cat-header-text">
+      <div class="cat-label">Categoria 05</div>
+      <div class="cat-title">Produto e Serviço</div>
+      <div class="cat-desc">Pautas que explicam o que a Esenca é, como trabalha e por que o modelo integrado (estratégia + execução no mesmo time) é o diferencial central do novo posicionamento.</div>
+    </div>
+    <div class="cat-count-badge" style="background:#91307E18; color:#D46EBF;">4 pautas</div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">Em 2026, comunicação como execução vai perder para comunicação como estratégia</div>
+      <div class="pauta-hook">Estudo do setor: oportunidades de crescimento passam por comunicação integrada (28%), reputação corporativa (22%) e thought leadership (19%). Consultoria em comunicação estratégica lidera a transformação do mercado (26%). Empresas que tratam comunicação como execução vão sentir esse impacto com força.</div>
+      <div class="pauta-angle angle-prod"><strong>Ângulo Esenca</strong>Não é tendência de mercado. É o modelo que operamos há 10 anos. A diferença entre executar o que o cliente pede e diagnosticar o que o negócio precisa vale a reputação de uma empresa inteira.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">posição de mercado</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">O que acontece quando quem pensa e quem executa são times diferentes</div>
+      <div class="pauta-hook">O modelo de "guarda compartilhada" nas redes sociais: marketing, conteúdo, community, SAC e comercial dividem responsabilidade. Em crise, cada área espera a outra se posicionar. 71% dos consumidores abandonam marcas após uma única experiência negativa.</div>
+      <div class="pauta-angle angle-prod"><strong>Ângulo Esenca</strong>Gap de tradução entre estratégia e execução é onde a reputação escapa. O mesmo time que diagnosticou a crise não pode ser diferente do time que responde. Integração não é modelo. É protocolo.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">diferencial central</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">O silêncio corporativo deixou de ser estratégia. A maioria das empresas ainda não sabe.</div>
+      <div class="pauta-hook">80% dos consumidores apontam autenticidade como fator decisivo de escolha em 2026. Em crise, silêncio não é gestão: é vácuo. Empresas com comunicação reativa chegam à crise sem reserva de confiança acumulada.</div>
+      <div class="pauta-angle angle-prod"><strong>Ângulo Esenca</strong>Reputação como ativo se constrói antes de precisar usar. Empresas que chegam até nós em crise sempre dizem a mesma coisa: "não sabíamos que precisávamos disso antes." 30 anos de mercado ensinaram que o trabalho começa na ausência de manchete, não na presença dela.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-li">LinkedIn</span>
+
+      <div class="fmt-label">educação + serviço</div>
+    </div>
+  </div>
+
+  <div class="pauta">
+    <div class="pauta-body">
+      <div class="pauta-title">10 anos de Esenca. 30 anos de experiência da founder. O que isso entrega para quem contrata comunicação estratégica.</div>
+      <div class="pauta-hook">A Esenca completa 10 anos construída sobre três décadas de experiência da sua founder em comunicação estratégica para diferentes nichos: finanças, tecnologia, varejo, marcas globais. Não é história de empresa jovem aprendendo o mercado. É estrutura consolidada com repertório real.</div>
+      <div class="pauta-angle angle-prod"><strong>Ângulo Esenca</strong>Resultado em comunicação não vem de tendência, vem de experiência acumulada. 30 anos de mercado ensinam o que nenhum framework ensina: como cada nicho reage, o que cada crise exige e onde a narrativa precisa ser calibrada antes de chegar ao público.</div>
+    </div>
+    <div class="pauta-meta">
+      <span class="badge badge-both">LI + IG</span>
+
+      <div class="fmt-label">institucional + prova</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="doc-footer">
+  <div class="footer-brand">ESENCA MKT e Comunicação</div>
+  <div class="footer-note">Banco de Pautas Editoriais · Julho 2026 · Uso interno</div>
+</div>

@@ -2,7 +2,7 @@
 name: content-strategy-sms
 description: "When the user wants to plan a social media content strategy, decide what to post, or figure out topic clusters and content mix. Also use when the user mentions 'content strategy,' 'what should I post,' 'content ideas,' 'topic clusters,' 'content pillars,' 'content planning,' 'content mix,' 'I don't know what to post,' or 'social media strategy.' Use this to define the what and why of posting. For writing actual posts, see post-writer-sms. For scheduling, see content-calendar-sms. For platform-specific tactics, see platform-strategy-sms."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 ## When to Use
@@ -33,9 +33,17 @@ Before asking any questions, check if `.agents/social-media-context-sms.md` exis
 4. Proceed to Step 2 with that information pre-loaded.
 
 **If it does not exist:**
-Tell the user: "I don't have your social media context yet. Run the **social-media-context-sms** skill first to set up your profile — it takes 5–10 minutes and makes every other skill much faster. Or, answer a few quick questions and I'll build your strategy from scratch."
 
-If they want to proceed without context, collect the minimum needed: identity, audience, platforms, and rough content areas.
+> ⚠️ **Contexto do cliente não encontrado.**
+> O arquivo `.agents/social-media-context-sms.md` não existe. Sem ele, a estratégia será construída sem os dados de voz, público e plataformas já definidos — e precisará de mais perguntas de discovery.
+>
+> **Recomendo:** rode `social-media-context-sms` primeiro (5–10 minutos). A estratégia resultante será mais precisa e o processo de discovery será mais rápido.
+>
+> Posso construir a estratégia agora com algumas perguntas rápidas.
+> **Continuar sem contexto?** (sim / não)
+
+- Se **não** → acionar `social-media-context-sms` antes de prosseguir
+- Se **sim** → coletar o mínimo necessário: identidade, público, plataformas e áreas de conteúdo aproximadas; marcar o output com `[⚠️ SEM CONTEXTO BASE — revisar após rodar social-media-context-sms]`
 
 ---
 
@@ -235,7 +243,9 @@ Compile everything into a structured document the user can save and reference. U
 
 After presenting the document, ask: "Does this match your direction? Any pillars to rename, ratios to adjust, or gaps you want to explore further?"
 
-Apply revisions, then confirm: "Strategy saved. Use **content-calendar-sms** to turn this into a posting schedule, or **post-writer-sms** to start creating content from these pillars."
+Apply revisions, then **salvar o documento em `.agents/content-strategy-sms.md`** dentro da pasta do cliente ativo. Confirmar: "Estratégia salva em `.agents/content-strategy-sms.md`. Use **content-matrix-sms** para gerar pautas por pilar, **content-calendar-sms** para montar a grade semanal, ou **post-writer-sms** para começar a criar conteúdo agora."
+
+> **Por que persistir:** `content-calendar-sms` e `content-matrix-sms` leem os pilares e o mix de formatos deste arquivo para tomar decisões de distribuição. Sem ele, essas skills operam sem contexto estratégico.
 
 ---
 

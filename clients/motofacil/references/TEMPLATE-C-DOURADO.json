@@ -1,0 +1,322 @@
+{
+  "template": {
+    "id": "TEMPLATE-C-DOURADO",
+    "nome": "Linha Dourada",
+    "formato": "Post Instagram",
+    "dimensoes": { "largura": 1080, "altura": 1350, "unidade": "px" },
+    "descricao": "Fundo escuro premium. Traço dourado de separação. Foto hero central grande. Lista de 4 benefícios com checks dourados à direita. Usa a paleta TOPO da marca.",
+
+    "paleta": {
+      "fundo_principal": "#111111",
+      "fundo_secundario": "#161616",
+      "dourado": "#C9A84C",
+      "vermelho": "#B71C1C",
+      "branco": "#FFFFFF",
+      "cinza_texto": "#CCCCCC",
+      "preto": "#0A0A0A"
+    },
+
+    "tipografia": {
+      "modelo_moto": {
+        "fonte": "Impact, Arial Black, sans-serif",
+        "peso": "900",
+        "tamanho": "96px",
+        "cor": "#FFFFFF",
+        "transformacao": "uppercase",
+        "espacamento": "-1px"
+      },
+      "subtitulo_modelo": {
+        "fonte": "Arial, sans-serif",
+        "peso": "700",
+        "tamanho": "26px",
+        "cor": "#C9A84C",
+        "transformacao": "uppercase",
+        "espacamento": "0.08em"
+      },
+      "badge_texto": {
+        "fonte": "Arial, sans-serif",
+        "peso": "800",
+        "tamanho": "20px",
+        "cor": "#C9A84C",
+        "transformacao": "uppercase",
+        "espacamento": "0.06em"
+      },
+      "bullet_texto": {
+        "fonte": "Arial, sans-serif",
+        "peso": "700",
+        "tamanho": "22px",
+        "cor": "#CCCCCC",
+        "linha": "1.4"
+      },
+      "cta_texto": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "30px",
+        "cor": "#FFFFFF",
+        "transformacao": "uppercase"
+      },
+      "telefone": {
+        "fonte": "Arial Black, Impact, sans-serif",
+        "peso": "900",
+        "tamanho": "44px",
+        "cor": "#C9A84C"
+      },
+      "tagline_footer": {
+        "fonte": "Arial, sans-serif",
+        "peso": "700",
+        "tamanho": "20px",
+        "cor": "#333333"
+      }
+    },
+
+    "zonas": [
+      {
+        "id": "linha_dourada_topo",
+        "tipo": "elemento_fixo",
+        "descricao": "Traço dourado de 4px no topo absoluto do card",
+        "x": 0, "y": 0,
+        "largura": 1080, "altura": 4,
+        "cor_fundo": "#C9A84C"
+      },
+      {
+        "id": "header",
+        "tipo": "secao_fixo",
+        "descricao": "Cabeçalho escuro com logo e badge inline",
+        "x": 0, "y": 4,
+        "largura": 1080, "altura": 110,
+        "cor_fundo": "#111111",
+        "borda_inferior": { "espessura": 1, "cor": "#222222" },
+        "elementos": [
+          {
+            "id": "logo_placeholder",
+            "tipo": "placeholder",
+            "label": "LOGO (logo-clean.jpeg)",
+            "x": 36, "y": 22,
+            "largura": 280, "altura": 72,
+            "borda": { "estilo": "dashed", "espessura": 2, "cor": "#333333" },
+            "border_radius": 6
+          },
+          {
+            "id": "badge_inline",
+            "tipo": "elemento_fixo",
+            "forma": "pilula",
+            "x": 720, "y": 40,
+            "largura": 316, "altura": 44,
+            "cor_fundo": "transparent",
+            "borda": { "espessura": 2, "cor": "#C9A84C" },
+            "border_radius": 50,
+            "conteudo_texto": "SEM CONSULTA SERASA",
+            "fonte_texto": "Arial",
+            "tamanho_texto": "18px",
+            "cor_texto": "#C9A84C",
+            "peso_texto": "800",
+            "alinhamento_texto": "center",
+            "transformacao_texto": "uppercase",
+            "espacamento_texto": "0.06em"
+          }
+        ]
+      },
+      {
+        "id": "titulo_zona",
+        "tipo": "secao_fixo",
+        "descricao": "Nome do modelo + subtítulo dourado",
+        "x": 0, "y": 114,
+        "largura": 1080, "altura": 210,
+        "cor_fundo": "#111111",
+        "elementos": [
+          {
+            "id": "modelo_placeholder",
+            "tipo": "placeholder_texto",
+            "label": "[MARCA MODELO]",
+            "descricao": "Nome do modelo. Impact, branco, uppercase. Pode quebrar em 2 linhas.",
+            "x": 36, "y": 130,
+            "largura": 1008,
+            "fonte": "Impact, Arial Black",
+            "tamanho": "96px",
+            "cor": "#FFFFFF",
+            "transformacao": "uppercase"
+          },
+          {
+            "id": "subtitulo_placeholder",
+            "tipo": "placeholder_texto",
+            "label": "[ANO/ANO · SEM BUROCRACIA]",
+            "x": 36, "y": 248,
+            "fonte": "Arial",
+            "tamanho": "26px",
+            "cor": "#C9A84C",
+            "peso": "700",
+            "transformacao": "uppercase",
+            "espacamento": "0.08em"
+          }
+        ]
+      },
+      {
+        "id": "corpo_principal",
+        "tipo": "secao_complexa",
+        "descricao": "Foto hero à esquerda + bullets à direita",
+        "x": 0, "y": 324,
+        "largura": 1080, "altura": 740,
+        "cor_fundo": "#111111",
+        "layout": "flex_row",
+        "gap": 28,
+        "padding": "24px 36px",
+        "elementos": [
+          {
+            "id": "foto_moto_hero",
+            "tipo": "placeholder_imagem",
+            "label": "FOTO DA MOTO\n(cutout ou ambiente)",
+            "x": 36, "y": 348,
+            "largura": 660, "altura": 696,
+            "cor_fundo": "#161616",
+            "borda": { "estilo": "dashed", "espessura": 2, "cor": "#333333" },
+            "border_radius": 8,
+            "nota": "Foto ocupa aprox. 60% da largura. Moto centralizada."
+          },
+          {
+            "id": "bullets_coluna",
+            "tipo": "grupo_fixo",
+            "descricao": "4 bullets de benefício com check dourado",
+            "x": 732, "y": 420,
+            "largura": 312,
+            "elementos": [
+              {
+                "id": "bullet_1",
+                "tipo": "elemento_fixo",
+                "check": { "largura": 36, "altura": 36, "cor_fundo": "#C9A84C", "border_radius": 4, "icone": "✓", "cor_icone": "#111111" },
+                "texto": "Sem consulta\nao Serasa",
+                "cor_texto": "#CCCCCC",
+                "tamanho_texto": "22px",
+                "fonte_texto": "Arial",
+                "peso_texto": "700"
+              },
+              {
+                "id": "bullet_2",
+                "tipo": "elemento_fixo",
+                "check": { "largura": 36, "altura": 36, "cor_fundo": "#C9A84C", "border_radius": 4, "icone": "✓", "cor_icone": "#111111" },
+                "texto": "Sai no\nmesmo dia",
+                "cor_texto": "#CCCCCC",
+                "tamanho_texto": "22px",
+                "fonte_texto": "Arial",
+                "peso_texto": "700"
+              },
+              {
+                "id": "bullet_3",
+                "tipo": "elemento_fixo",
+                "check": { "largura": 36, "altura": 36, "cor_fundo": "#C9A84C", "border_radius": 4, "icone": "✓", "cor_icone": "#111111" },
+                "texto": "Sem\nburocracia",
+                "cor_texto": "#CCCCCC",
+                "tamanho_texto": "22px",
+                "fonte_texto": "Arial",
+                "peso_texto": "700"
+              },
+              {
+                "id": "bullet_4",
+                "tipo": "elemento_fixo",
+                "check": { "largura": 36, "altura": 36, "cor_fundo": "#C9A84C", "border_radius": 4, "icone": "✓", "cor_icone": "#111111" },
+                "texto": "Locação\ndisponível",
+                "cor_texto": "#CCCCCC",
+                "tamanho_texto": "22px",
+                "fonte_texto": "Arial",
+                "peso_texto": "700"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "linha_dourada_separador",
+        "tipo": "elemento_fixo",
+        "descricao": "Linha dourada separando corpo do footer",
+        "x": 36, "y": 1064,
+        "largura": 1008, "altura": 1,
+        "cor_fundo": "#222222"
+      },
+      {
+        "id": "footer_cta",
+        "tipo": "secao_fixo",
+        "descricao": "Barra CTA vermelha com WhatsApp",
+        "x": 0, "y": 1065,
+        "largura": 1080, "altura": 172,
+        "cor_fundo": "#B71C1C",
+        "elementos": [
+          {
+            "id": "cta_texto",
+            "tipo": "texto_fixo",
+            "conteudo": "CHAMA NO WHATSAPP",
+            "x": 36, "y": 1082,
+            "fonte": "Arial Black",
+            "tamanho": "30px",
+            "cor": "#FFFFFF",
+            "peso": "900",
+            "transformacao": "uppercase"
+          },
+          {
+            "id": "telefone",
+            "tipo": "texto_fixo",
+            "conteudo": "(16) 99147-1592",
+            "x": 36, "y": 1128,
+            "fonte": "Arial Black",
+            "tamanho": "44px",
+            "cor": "#C9A84C",
+            "peso": "900"
+          }
+        ]
+      },
+      {
+        "id": "footer_tagline",
+        "tipo": "secao_fixo",
+        "descricao": "Tagline de fechamento",
+        "x": 0, "y": 1237,
+        "largura": 1080, "altura": 113,
+        "cor_fundo": "#0A0A0A",
+        "elementos": [
+          {
+            "id": "tagline_texto",
+            "tipo": "texto_fixo",
+            "conteudo": "SEM CONSULTA. SEM BUROCRACIA. SEM COMPLICAÇÃO. &nbsp; MOTO FÁCIL — SERTÃOZINHO",
+            "alinhamento": "center",
+            "fonte": "Arial",
+            "tamanho": "20px",
+            "cor": "#333333",
+            "peso": "700",
+            "x": 540, "y": 1284,
+            "largura": 1008
+          }
+        ]
+      }
+    ],
+
+    "elementos_variaveis": [
+      "logo_placeholder",
+      "modelo_placeholder",
+      "subtitulo_placeholder",
+      "foto_moto_hero"
+    ],
+
+    "elementos_fixos": [
+      "linha_dourada_topo",
+      "badge_inline",
+      "bullets_coluna",
+      "linha_dourada_separador",
+      "footer_cta",
+      "footer_tagline"
+    ],
+
+    "instrucoes_canva": [
+      "Criar documento 1080 x 1350 px",
+      "Fundo base: #111111 (preto quente)",
+      "Adicionar retângulo dourado #C9A84C no topo: 1080x4px",
+      "Adicionar logo-clean.jpeg no header à esquerda",
+      "Adicionar pílula/badge com borda dourada e texto 'SEM CONSULTA SERASA' à direita do header",
+      "Adicionar linha divisória 1px #222222 abaixo do header",
+      "Adicionar caixa de texto para nome do modelo (Impact, branco, uppercase, 96px)",
+      "Adicionar subtítulo dourado abaixo do modelo (ano/ano + info)",
+      "Adicionar foto da moto — ocupa aprox. 60% da largura na zona do corpo",
+      "À direita da foto: adicionar 4 grupos de check + texto (check = quadrado dourado 36x36px com ✓ preto)",
+      "Adicionar linha separadora 1px #222222 antes do rodapé",
+      "Adicionar barra vermelha #B71C1C no rodapé com 'CHAMA NO WHATSAPP' branco + telefone dourado",
+      "Adicionar tagline cinza escuro no fundo preto abaixo da barra",
+      "NUNCA adicionar valor, preço ou condição de pagamento"
+    ]
+  }
+}

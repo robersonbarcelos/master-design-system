@@ -1,0 +1,59 @@
+---
+interface Props {
+  variant?: "hero" | "detail";
+  class?: string;
+}
+
+const { variant = "hero", class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "panel-mockup relative w-full rounded-lg border border-electric-blue/20 bg-surface-alt shadow-glow-blue-sm",
+    variant === "hero" ? "rotate-2" : "",
+    className,
+  ]}
+>
+  <!-- Top bar -->
+  <div class="flex items-center justify-between border-b border-electric-blue/15 px-5 py-3">
+    <span class="label-text text-light-blue">Intus · Operações</span>
+    <span class="label-text flex items-center gap-1.5 rounded-sm bg-electric-blue px-2.5 py-1 text-white-ice normal-case tracking-normal">
+      <span class="h-1.5 w-1.5 rounded-full bg-white-ice" aria-hidden="true"></span>
+      Agente ativo
+    </span>
+  </div>
+
+  <div class="grid gap-4 p-5 sm:grid-cols-[1.1fr_1fr]">
+    <!-- Activity log -->
+    <div class="space-y-2.5 rounded-md border border-electric-blue/10 bg-hub-night/60 p-4">
+      <p class="label-text mb-1 text-light-blue/70">Log de atividade</p>
+      <p class="font-label text-[11px] leading-relaxed text-white-ice/85">
+        <span class="text-light-blue/60">14:32:07</span> — Aspira processou 12 tickets de suporte
+      </p>
+      <p class="font-label text-[11px] leading-relaxed text-white-ice/85">
+        <span class="text-light-blue/60">14:29:41</span> — Integração CRM sincronizada
+      </p>
+      <p class="font-label text-[11px] leading-relaxed text-white-ice/60">
+        <span class="text-light-blue/60">14:11:56</span> — Relatório semanal gerado automaticamente
+      </p>
+    </div>
+
+    <!-- Metrics -->
+    <div class="flex flex-col gap-3">
+      <div class="rounded-md border border-bright-gold/30 bg-hub-night/60 p-4 shadow-glow-gold">
+        <p class="label-text text-light-blue/70">Automações esta semana</p>
+        <p class="font-label mt-1 text-3xl font-medium text-bright-gold">1.284</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="rounded-md border border-electric-blue/10 bg-hub-night/60 p-3">
+          <p class="label-text text-light-blue/70">Uptime</p>
+          <p class="font-label mt-1 text-lg text-white-ice">99.8%</p>
+        </div>
+        <div class="rounded-md border border-electric-blue/10 bg-hub-night/60 p-3">
+          <p class="label-text text-light-blue/70">Resp. média</p>
+          <p class="font-label mt-1 text-lg text-white-ice">1.2s</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

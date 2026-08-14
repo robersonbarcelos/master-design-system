@@ -15,7 +15,7 @@
     "header": {
       "height": "80px",
       "position": "top",
-      "note": "DEIXAR LIVRE — adicionar manualmente no Canva: foto de perfil + @intushub + categoria"
+      "note": "DEIXAR LIVRE — adicionar manualmente no Canva: foto de perfil + SUPER AGENTE IA + categoria"
     },
 
     "content": {
@@ -88,7 +88,7 @@
       "position": "bottom",
       "margin_lateral": "44px",
       "left": {
-        "content": "@intushub",
+        "content": "SUPER AGENTE IA",
         "font_size": "20px",
         "font_style": "regular sans-serif",
         "font_color": "#AAAAAA"

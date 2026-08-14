@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M4-4.1 · Claude Code no Desktop App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.prompt{font-family:monospace;font-size:16px;color:#aaa;background:#080808;border:1px solid #1a1a1a;border-radius:8px;padding:18px 22px;margin:16px 0 32px;line-height:1.7;white-space:pre-wrap}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p,.entregavel li{font-size:20px;color:#bbf7d0;line-height:1.6}
+.entregavel ul{list-style:none;padding:0;margin-top:12px}
+.entregavel li{display:flex;gap:10px;padding:4px 0}
+.entregavel li:before{content:"✓";color:#22c55e;flex-shrink:0}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M4 · Aula 4.1 · PRÁTICA · 6 min</span>
+  <span class="titulo">Claude Code no Desktop App: 2 cliques para começar</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">O que é o Claude Code</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Chat conversa. Cowork entrega arquivos. Code age.</p>
+    <p>Claude Code é o modo onde o Claude não só responde. Ele age no seu computador. Cria arquivos, edita código, instala ferramentas, roda comandos.</p>
+    <p>E o ponto mais importante: você não precisa do terminal para começar. A aba Code do Desktop App já é o Claude Code funcionando.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">O loop agêntico</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide: loop de 3 etapas</div>
+  <div class="fala">
+    <p>O Claude Code trabalha em loop. Três etapas que se repetem.</p>
+    <p>Gather context: ele lê os arquivos da pasta para entender o projeto.</p>
+    <p>Take action: ele age. Cria, edita, instala.</p>
+    <p>Verify results: ele verifica se funcionou. Se não funcionou, ajusta.</p>
+    <p>Você vai ver esse loop acontecendo ao vivo nos próximos minutos.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Abrir o Desktop App e selecionar a pasta</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: Claude Desktop App</div>
+  <div class="fala">
+    <p>Vou abrir o Desktop App e clicar na aba Code.</p>
+  </div>
+  <div class="acao">Abrir Desktop App › clicar na aba Code</div>
+  <div class="fala">
+    <p>Agora selecionar a pasta de trabalho. Pode ser qualquer pasta do seu computador. Eu vou usar a mesma Claude-Cowork que criamos no M3.</p>
+  </div>
+  <div class="acao">Selecionar pasta de trabalho</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Primeiro comando ao vivo</span>
+    <span class="cena-tempo">1 min 30 s</span>
+  </div>
+  <div class="stage">Tela: Claude Code ativo</div>
+  <div class="fala">
+    <p>Vou pedir algo simples para o Claude criar.</p>
+  </div>
+  <div class="prompt">Cria um arquivo chamado README.md com uma descrição simples deste projeto: nome e objetivo em 3 linhas.</div>
+  <div class="fala">
+    <p>Olha o que acontece: o Claude mostra o plano. Pede permissão. Executa. Arquivo criado.</p>
+    <p>Esse é o loop: gather, take action, verify. Aconteceu agora, em tempo real.</p>
+  </div>
+  <div class="acao">Abrir o arquivo README.md criado para confirmar</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">CLAUDE.md: a memória do projeto</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: editor de texto com CLAUDE.md</div>
+  <div class="fala">
+    <p>Existe um arquivo especial no Claude Code: CLAUDE.md.</p>
+    <p>É a memória do projeto. Você define quem o Claude é dentro desse projeto, o que pode e não pode fazer, qual o contexto.</p>
+    <p>Vou criar um agora:</p>
+  </div>
+  <div class="prompt"># Projeto: [nome]
+## Contexto
+[Descrição do projeto em 2-3 linhas]
+## Regras
+- Sempre escreva em português
+- Arquivos gerados devem ir para a pasta /output
+- Não delete arquivos sem pedir confirmação</div>
+  <div class="fala">
+    <p>Com esse arquivo na pasta, o Claude vai ler antes de qualquer ação. Não precisa repetir o contexto toda vez.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 6</span>
+    <span class="cena-titulo">Terminal como próximo nível</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Para quem quiser ir mais fundo: Warp mais Claude Code pelo terminal é o nível profissional. Mais controle, mais velocidade, mais poder.</p>
+    <p>Isso é conteúdo do Domínio Claude. Por enquanto, o Desktop App já dá tudo que você precisa para começar.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno tem o Claude Code rodando com:</p>
+  <ul>
+    <li>Pasta de trabalho selecionada</li>
+    <li>Primeiro arquivo criado pelo Claude</li>
+    <li>CLAUDE.md configurado com contexto do projeto</li>
+  </ul>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Enfatizar: "você não precisa do terminal para começar." Isso tira o medo de quem não é técnico.</li>
+    <li>Mostrar o loop agêntico acontecendo na prática: gather, take action, verify. Nomear em voz alta cada etapa.</li>
+    <li>CLAUDE.md: mostrar que é um arquivo de texto simples. Desmistifica a tecnologia.</li>
+    <li>Terminal: citar como teaser para o Domínio Claude. Não entrar em detalhes.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

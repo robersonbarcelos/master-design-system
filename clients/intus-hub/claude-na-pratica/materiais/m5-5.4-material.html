@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 5.4 · Recap + o que você já domina + convite para continuar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;--amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --green:#15803D;--green-bg:#DCFCE7;--green-border:#BBF7D0;
+  --indigo:#4338CA;--indigo-bg:#EEF2FF;--indigo-border:#C7D2FE;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,60px);line-height:.88;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+
+/* MAPA DO CURSO */
+.mapa{border:1px solid var(--border);border-radius:24px;overflow:hidden;background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.mapa-row{display:grid;grid-template-columns:130px 1fr;border-bottom:1px solid var(--border)}
+.mapa-row:last-child{border-bottom:0}
+.mapa-row .tag{padding:18px 20px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--border)}
+.mapa-row .conteudo{padding:18px 22px;font-size:15px;color:var(--body);line-height:1.5;display:flex;flex-direction:column;justify-content:center}
+.mapa-row .conteudo strong{color:var(--ink);display:block;margin-bottom:2px;font-size:16px}
+.mapa-row .tag.m0{background:var(--bg2);color:var(--muted)}
+.mapa-row .tag.m1{background:#EFF6FF;color:#1D4ED8}
+.mapa-row .tag.m2{background:#F0FDF4;color:#15803D}
+.mapa-row .tag.m3{background:#FFF7ED;color:#C2410C}
+.mapa-row .tag.m4{background:#FAF5FF;color:#7C3AED}
+.mapa-row .tag.m5{background:var(--amber-bg);color:var(--amber-text)}
+
+/* CONQUISTAS */
+.conquistas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.conquista{border:1px solid var(--green-border);border-radius:16px;padding:18px 20px;background:var(--green-bg);display:flex;align-items:flex-start;gap:12px}
+.conquista-icon{font-size:20px;flex-shrink:0;line-height:1}
+.conquista-text{font-size:15px;color:#14532D;line-height:1.45;font-weight:500}
+
+/* TEASERS */
+.teasers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.teaser-item{border:1px solid var(--indigo-border);border-radius:16px;padding:18px 20px;background:var(--indigo-bg);display:flex;align-items:flex-start;gap:12px}
+.teaser-dot{width:8px;height:8px;background:var(--indigo);border-radius:50%;margin-top:6px;flex-shrink:0}
+.teaser-text{font-size:15px;color:#312E81;line-height:1.45}
+
+/* UPSELL CARD */
+.upsell{border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(30,58,95,.22);margin-top:0}
+.upsell-top{background:var(--navy);padding:44px;position:relative}
+.upsell-top:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.upsell-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,80,34,.8);font-weight:900;margin-bottom:10px}
+.upsell-top h2{font-size:clamp(32px,5vw,58px);line-height:.88;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.upsell-top p{color:rgba(255,255,255,.72);font-size:18px;max-width:640px;margin:0;line-height:1.44}
+.upsell-body{background:var(--white);border:1px solid var(--border);border-top:0;padding:36px 44px}
+.upsell-preco{display:flex;align-items:baseline;gap:10px;margin-bottom:20px}
+.upsell-valor{font-size:clamp(44px,7vw,72px);font-weight:900;letter-spacing:-.04em;color:var(--navy);line-height:1}
+.upsell-detalhe{font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.5}
+.upsell-aviso{font-family:var(--mono);font-size:12px;color:var(--amber-dark);font-weight:700;letter-spacing:.08em;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:10px;padding:10px 14px;margin-bottom:20px;display:inline-block}
+.btn-upsell{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:16px 32px;border-radius:999px;background:var(--amber);color:var(--ink);border:none;cursor:pointer}
+
+.nota-final{border-radius:20px;padding:26px;background:var(--bg2);border:1px solid var(--border);margin-top:14px}
+.nota-final p{color:var(--body);font-size:15px;line-height:1.55;margin:0;font-style:italic}
+.nota-final p strong{color:var(--ink);font-style:normal}
+
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .mapa-row{grid-template-columns:90px 1fr}
+  .conquistas,.teasers{grid-template-columns:1fr}
+  .upsell-top,.upsell-body{padding:28px 24px}
+  .statement{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/><polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/><circle cx="60" cy="60" r="11" fill="#F55022"/></svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 5 · Aula 5.4 · FINAL<br>CONCEITUAL · 8 min</div>
+</header>
+
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M5 · Encerramento do Curso</div>
+    <h1>Você aprendeu muito. <span class="accent">O próximo nível muda tudo.</span></h1>
+    <p class="lead">Esta aula fecha o curso com o mapa completo do que você caminhou, a lista real do que você já consegue fazer e o convite para o Domínio Claude.</p>
+    <div class="chips">
+      <span class="chip hot">Conceitual · 8 min</span>
+      <span class="chip">Recap completo</span>
+      <span class="chip">Domínio Claude</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Tom desta aula</small>
+      <strong>Celebração + ambição.</strong>
+      <p>Você aprendeu muito. Mas o que vem depois muda de nível. Essa é a sensação com que a aula termina.</p>
+    </div>
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Acesso ao Domínio Claude.</strong>
+      <p>Link com condição especial para alunos do Claude na Prática. Preço: R$497 à vista.</p>
+    </div>
+    <div class="signal">
+      <small>CTA desta aula</small>
+      <strong>Direto e sem enrolação.</strong>
+      <p>Link nos materiais, preço claro, convite honesto. "Nos vemos lá."</p>
+    </div>
+  </aside>
+</section>
+
+<section class="statement">
+  <p>Usar o Claude é o começo.<br><em>Dominar cada detalhe</em> é o que muda a operação.</p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">01</span><h2>Mapa completo: o que você percorreu</h2></div>
+  <div class="mapa">
+    <div class="mapa-row">
+      <div class="tag m0">M0</div>
+      <div class="conteudo"><strong>Boas-vindas</strong>Como usar o curso e o que esperar</div>
+    </div>
+    <div class="mapa-row">
+      <div class="tag m1">M1</div>
+      <div class="conteudo"><strong>Bases do Claude</strong>Claude vs ChatGPT · Os 3 modos: Chat, Cowork e Code · Setup inicial e Projetos</div>
+    </div>
+    <div class="mapa-row">
+      <div class="tag m2">M2</div>
+      <div class="conteudo"><strong>Claude Chat</strong>Artifacts · Projetos com memória · Conectores: Calendar, Gmail, Airtable</div>
+    </div>
+    <div class="mapa-row">
+      <div class="tag m3">M3</div>
+      <div class="conteudo"><strong>Claude Cowork</strong>Como dar uma missão completa · Plugins: Marketing, Design, Data · Cowork criando arquivos reais</div>
+    </div>
+    <div class="mapa-row">
+      <div class="tag m4">M4</div>
+      <div class="conteudo"><strong>Claude Code</strong>Desktop App: 2 cliques para começar · Sua primeira landing page sem código · Skills: instale e use o pack exclusivo</div>
+    </div>
+    <div class="mapa-row">
+      <div class="tag m5">M5</div>
+      <div class="conteudo"><strong>Agentes de IA</strong>O que são agentes e como o Claude se multiplica · Demo: pesquisador + escritor · MCPs: o Claude conectado ao mundo</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">02</span><h2>O que você já consegue fazer</h2></div>
+  <p style="color:var(--muted);font-size:15px;margin:0 0 16px">Isso é real, não é hipótese. Você agora consegue:</p>
+  <div class="conquistas">
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Criar Projetos com memória e contexto do negócio</div></div>
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Gerar Artifacts: HTML, tabelas, relatórios completos</div></div>
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Conectar o Claude ao Google Calendar, Gmail e Airtable</div></div>
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Delegar missões completas no Cowork com entregável real</div></div>
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Criar páginas e arquivos com o Claude Code</div></div>
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Instalar e usar Skills do pack exclusivo</div></div>
+    <div class="conquista"><div class="conquista-icon">✓</div><div class="conquista-text">Entender como agentes e MCPs funcionam na prática</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">03</span><h2>O que ainda existe e não cobrimos</h2></div>
+  <p style="color:var(--muted);font-size:15px;margin:0 0 16px">O Claude vai mais fundo. Aqui está o que vem a seguir no Domínio Claude:</p>
+  <div class="teasers">
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Dispatch: Cowork pelo celular via Telegram</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Hooks: automações no Claude Code</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Claude Code pelo terminal (Warp / iTerm)</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">MCPs avançados com configuração completa</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Criar seus próprios agentes customizados</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Skill Creator: suas próprias skills do zero</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Fluxo Explore → Plan → Code → Commit</div></div>
+    <div class="teaser-item"><div class="teaser-dot"></div><div class="teaser-text">Deploy de projetos na web</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">04</span><h2>O convite</h2></div>
+  <div class="upsell">
+    <div class="upsell-top">
+      <div class="upsell-label">Próximo nível</div>
+      <h2>Domínio Claude.</h2>
+      <p>Agora que você viu o que o Claude faz, imagina o que você faz quando domina cada detalhe disso. O Domínio Claude cobre tudo que não vimos aqui: terminal, MCPs avançados, agentes customizados, deploy, automações reais.</p>
+    </div>
+    <div class="upsell-body">
+      <div class="upsell-aviso">Como aluno do Claude na Prática, você tem acesso a uma condição especial.</div>
+      <div class="upsell-preco">
+        <span class="upsell-valor">R$497</span>
+        <span class="upsell-detalhe">à vista<br>acesso vitalício</span>
+      </div>
+      <div class="btn-upsell">Acessar o Domínio Claude</div>
+    </div>
+  </div>
+  <div class="nota-final" style="margin-top:20px">
+    <p><strong>O link está nos materiais desta aula.</strong> Você não precisa decidir agora, mas a condição especial para alunos é por tempo limitado. "O Domínio Claude está esperando você. Nos vemos lá."</p>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 5 · Aula 5.4 · ENCERRAMENTO DO CURSO</footer>
+</main>
+</body>
+</html>

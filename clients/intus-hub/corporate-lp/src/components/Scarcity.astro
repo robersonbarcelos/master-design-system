@@ -1,0 +1,37 @@
+---
+import ApplyButton from "./ApplyButton.astro";
+---
+
+<section id="escassez" class="relative py-16 lg:py-24">
+  <div class="divider-gradient absolute inset-x-0 top-0"></div>
+
+  <div class="reveal mx-auto max-w-4xl px-6 lg:px-10">
+    <div class="relative overflow-hidden rounded-lg border border-bright-gold/30 bg-surface-alt px-8 py-12 shadow-glow-gold sm:px-14 sm:py-16">
+      <svg
+        class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 opacity-[0.08]"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#F0B429" stroke-width="0.6"></polygon>
+      </svg>
+
+      <p class="label-text mb-4 text-bright-gold">Capacidade limitada</p>
+
+      <h2 class="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-[1.2] tracking-[-0.01em] text-white-ice">
+        Vagas de <span class="text-bright-gold">[mês]</span> limitadas pela capacidade real da
+        equipe técnica.
+      </h2>
+
+      <p class="mt-6 max-w-[60ch] text-base leading-relaxed text-white-ice/70">
+        Não é gatilho de marketing — é agenda física. Diego e a equipe técnica acompanham cada
+        empresa de perto, o que limita quantas conseguimos atender ao mesmo tempo sem perder
+        qualidade.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-6">
+        <span class="font-label text-5xl font-medium text-bright-gold">[N]</span>
+        <ApplyButton variant="primary" label="Aplicar para uma das [N] vagas" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Orquestração Copy QA — PRD + SPECS</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --surface2: #1c1c1c;
+    --surface3: #242424;
+    --border: #2a2a2a;
+    --border2: #333;
+    --text: #e8e8e8;
+    --text2: #a0a0a0;
+    --text3: #666;
+    --accent: #7c6af7;
+    --accent2: #a78bfa;
+    --accent-dim: rgba(124,106,247,0.12);
+    --green: #22c55e;
+    --green-dim: rgba(34,197,94,0.1);
+    --red: #ef4444;
+    --red-dim: rgba(239,68,68,0.1);
+    --yellow: #eab308;
+    --yellow-dim: rgba(234,179,8,0.1);
+    --blue: #3b82f6;
+    --blue-dim: rgba(59,130,246,0.1);
+    --orange: #f97316;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 48px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+  .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .header-left { display: flex; flex-direction: column; gap: 4px; }
+  .doc-label { font-size: 11px; font-family: var(--mono); color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; }
+  .doc-title { font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .doc-sub { font-size: 12px; color: var(--text3); font-family: var(--mono); }
+  .badge { background: var(--accent-dim); border: 1px solid var(--accent); color: var(--accent2); font-size: 11px; font-family: var(--mono); padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
+
+  /* ─── NAV ─── */
+  .nav { background: var(--surface2); border-bottom: 1px solid var(--border); padding: 0 48px; }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 2px; overflow-x: auto; }
+  .nav a { color: var(--text3); text-decoration: none; font-size: 12px; font-family: var(--mono); padding: 10px 16px; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; }
+  .nav a:hover { color: var(--text); border-bottom-color: var(--accent); }
+
+  /* ─── LAYOUT ─── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 40px 48px 80px; }
+
+  /* ─── SECTION ─── */
+  .section { margin-bottom: 64px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .section-num { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; background: var(--accent-dim); padding: 3px 8px; border-radius: 3px; }
+  .section-title { font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  h3 { font-size: 11px; font-weight: 600; color: var(--text2); margin: 28px 0 14px; letter-spacing: 0.02em; text-transform: uppercase; }
+  h4 { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 10px; }
+
+  p { color: var(--text2); margin-bottom: 14px; }
+  p strong { color: var(--text); }
+
+  /* ─── CARDS ─── */
+  .card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .card-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .card-body { font-size: 13px; color: var(--text2); }
+
+  /* ─── PROBLEM GRID ─── */
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .problem-item { background: var(--red-dim); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 16px 18px; }
+  .problem-item .p-label { font-size: 10px; font-family: var(--mono); color: var(--red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .problem-item .p-text { font-size: 13px; color: var(--text2); }
+
+  .solution-item { background: var(--green-dim); border: 1px solid rgba(34,197,94,0.2); border-radius: 8px; padding: 16px 18px; }
+  .solution-item .s-label { font-size: 10px; font-family: var(--mono); color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .solution-item .s-text { font-size: 13px; color: var(--text2); }
+
+  /* ─── GOALS GRID ─── */
+  .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .goal { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .goal-code { font-family: var(--mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .goal-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .goal-desc { font-size: 12px; color: var(--text3); }
+
+  /* ─── TABLES ─── */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; font-size: 10px; font-family: var(--mono); color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--border2); background: var(--surface3); }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text2); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface3); }
+  td code { font-family: var(--mono); font-size: 11px; color: var(--accent2); background: var(--accent-dim); padding: 2px 5px; border-radius: 3px; }
+
+  /* ─── CODE BLOCKS ─── */
+  .code-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin: 16px 0 24px; overflow-x: auto; }
+  .code-block pre { font-family: var(--mono); font-size: 12px; color: #c9d1d9; line-height: 1.6; white-space: pre; }
+  .cb-label { font-family: var(--mono); font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+
+  /* ─── ARCHITECTURE DIAGRAM ─── */
+  .arch { display: flex; flex-direction: column; gap: 0; align-items: center; margin: 24px 0; }
+  .arch-layer { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; width: 100%; padding: 16px 20px; }
+  .arch-layer.creation { border-color: rgba(59,130,246,0.3); background: var(--blue-dim); }
+  .arch-layer.orchestrator { border-color: rgba(124,106,247,0.4); background: var(--accent-dim); }
+  .arch-layer.output { border-color: rgba(34,197,94,0.3); background: var(--green-dim); }
+  .arch-layer-title { font-size: 10px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .arch-layer.creation .arch-layer-title { color: var(--blue); }
+  .arch-layer.orchestrator .arch-layer-title { color: var(--accent2); }
+  .arch-layer.output .arch-layer-title { color: var(--green); }
+  .arch-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .arch-skill { font-family: var(--mono); font-size: 11px; color: var(--text2); background: rgba(255,255,255,0.04); border: 1px solid var(--border2); padding: 4px 10px; border-radius: 4px; }
+  .arch-arrow { text-align: center; color: var(--text3); font-size: 20px; margin: 6px 0; line-height: 1; }
+  .arch-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .arch-step { background: rgba(124,106,247,0.06); border: 1px solid rgba(124,106,247,0.15); border-radius: 6px; padding: 10px 12px; }
+  .arch-step-num { font-family: var(--mono); font-size: 10px; color: var(--accent); margin-bottom: 4px; }
+  .arch-step-title { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .arch-step-items { font-size: 11px; color: var(--text3); }
+
+  /* ─── TIERS ─── */
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 24px; }
+  .tier { border-radius: 8px; padding: 16px 18px; border: 1px solid; }
+  .tier-1 { background: rgba(239,68,68,0.06); border-color: rgba(239,68,68,0.25); }
+  .tier-2 { background: rgba(234,179,8,0.06); border-color: rgba(234,179,8,0.25); }
+  .tier-3 { background: rgba(59,130,246,0.06); border-color: rgba(59,130,246,0.25); }
+  .tier-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; font-weight: 600; }
+  .tier-1 .tier-label { color: var(--red); }
+  .tier-2 .tier-label { color: var(--yellow); }
+  .tier-3 .tier-label { color: var(--blue); }
+  .tier-rule { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .tier-desc { font-size: 12px; color: var(--text3); margin-bottom: 10px; }
+  .tier-words { display: flex; flex-wrap: wrap; gap: 4px; }
+  .tw { font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 3px; color: var(--text2); background: rgba(255,255,255,0.04); border: 1px solid var(--border2); }
+  .tw.en { opacity: 0.7; }
+
+  /* ─── STRUCTURAL GRID ─── */
+  .struct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+  .struct-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .struct-num { font-family: var(--mono); font-size: 10px; color: var(--text3); margin-bottom: 4px; }
+  .struct-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .struct-threshold { font-family: var(--mono); font-size: 11px; color: var(--yellow); margin-bottom: 4px; }
+  .struct-fix { font-size: 12px; color: var(--text3); }
+
+  /* ─── FLOW DIAGRAM ─── */
+  .flow { display: flex; flex-direction: column; gap: 0; }
+  .flow-node { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; position: relative; }
+  .flow-node.start { border-color: var(--accent); background: var(--accent-dim); }
+  .flow-node.gate { border-color: rgba(234,179,8,0.4); background: var(--yellow-dim); }
+  .flow-node.qa-gate { border-color: rgba(59,130,246,0.4); background: var(--blue-dim); }
+  .flow-node.copyqa { border-color: rgba(124,106,247,0.5); background: rgba(124,106,247,0.08); }
+  .flow-node.end { border-color: rgba(34,197,94,0.4); background: var(--green-dim); }
+  .flow-node-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .flow-node.start .flow-node-label { color: var(--accent); }
+  .flow-node.gate .flow-node-label { color: var(--yellow); }
+  .flow-node.qa-gate .flow-node-label { color: var(--blue); }
+  .flow-node.copyqa .flow-node-label { color: var(--accent2); }
+  .flow-node.end .flow-node-label { color: var(--green); }
+  .flow-node-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .flow-node-desc { font-size: 12px; color: var(--text3); }
+  .flow-connector { display: flex; align-items: center; gap: 8px; padding: 4px 0 4px 24px; }
+  .flow-connector-line { width: 2px; height: 24px; background: var(--border2); margin-left: 17px; }
+  .flow-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0; }
+  .flow-branch { border-radius: 8px; padding: 12px 14px; border: 1px solid; }
+  .flow-branch.pass { border-color: rgba(34,197,94,0.3); background: var(--green-dim); }
+  .flow-branch.fail { border-color: rgba(239,68,68,0.3); background: var(--red-dim); }
+  .branch-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .flow-branch.pass .branch-label { color: var(--green); }
+  .flow-branch.fail .branch-label { color: var(--red); }
+  .branch-desc { font-size: 12px; color: var(--text2); }
+
+  /* ─── INTEGRATION TABLE ─── */
+  .int-table td:nth-child(2) { font-family: var(--mono); font-size: 11px; }
+  .threshold-pass { color: var(--green); font-family: var(--mono); font-size: 11px; }
+  .threshold-note { color: var(--yellow); font-family: var(--mono); font-size: 11px; }
+
+  /* ─── DECISION MATRIX ─── */
+  .decision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0; }
+  .decision { border-radius: 8px; padding: 14px 16px; border: 1px solid; }
+  .decision.ok { border-color: rgba(34,197,94,0.3); background: var(--green-dim); }
+  .decision.warn { border-color: rgba(234,179,8,0.3); background: var(--yellow-dim); }
+  .decision.stop { border-color: rgba(239,68,68,0.3); background: var(--red-dim); }
+  .decision-icon { font-size: 20px; margin-bottom: 6px; }
+  .decision-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .decision-desc { font-size: 12px; color: var(--text3); }
+
+  /* ─── VERSION TABLE ─── */
+  .version-tag { font-family: var(--mono); font-size: 11px; padding: 2px 7px; border-radius: 3px; }
+  .v-new { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+  .v-updated { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(59,130,246,0.2); }
+
+  /* ─── DESIGN DECISIONS ─── */
+  .design-decision { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .dd-q { font-size: 13px; font-weight: 600; color: var(--accent2); margin-bottom: 8px; }
+  .dd-a { font-size: 13px; color: var(--text2); }
+
+  /* ─── TAG CLOUD ─── */
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 18px; }
+  .tag { font-family: var(--mono); font-size: 11px; padding: 3px 9px; border-radius: 4px; }
+  .tag.t1 { background: rgba(239,68,68,0.1); color: #fca5a5; border: 1px solid rgba(239,68,68,0.2); }
+  .tag.t2 { background: rgba(234,179,8,0.1); color: #fde047; border: 1px solid rgba(234,179,8,0.2); }
+  .tag.t3 { background: rgba(59,130,246,0.1); color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
+  .tag.pt { opacity: 0.8; }
+
+  /* ─── FOOTER ─── */
+  .footer { border-top: 1px solid var(--border); padding: 24px 48px; text-align: center; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; font-family: var(--mono); font-size: 11px; color: var(--text3); }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+  @media (max-width: 768px) {
+    .header, .nav, .main, .footer { padding-left: 20px; padding-right: 20px; }
+    .problem-grid, .goals-grid, .tier-grid, .struct-grid, .decision-grid { grid-template-columns: 1fr; }
+    .arch-steps { grid-template-columns: 1fr; }
+    .flow-branches { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="doc-label">master-design-system · camada de social media</div>
+      <div class="doc-title">Sistema de Orquestração Copy QA</div>
+      <div class="doc-sub">PRD + SPECS · v1.2.0 · 2026-07-14</div>
+    </div>
+    <div class="badge">copy-qa-sms v1.1.0 · narrative-framework-sms v1.0.0</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#prd">01 · PRD</a>
+    <a href="#architecture">02 · Arquitetura</a>
+    <a href="#gates">03 · Especificação dos Gates</a>
+    <a href="#patterns">04 · Biblioteca de Padrões</a>
+    <a href="#structural">05 · Detectores Estruturais</a>
+    <a href="#integration">06 · Integrações</a>
+    <a href="#workflow">07 · Workflow</a>
+    <a href="#decisions">08 · Decisões de Design</a>
+    <a href="#changelog">09 · Changelog</a>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- ─── 01 PRD ─── -->
+  <section class="section" id="prd">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Requisitos de Produto</h2>
+    </div>
+
+    <h3>Contexto e Problema</h3>
+    <p>O master-design-system contém 7 skills de criação de social media que produzem copy para contas de clientes. Antes deste sistema, o controle de qualidade era <strong>descentralizado</strong> — cada skill gerenciava suas próprias verificações com variações sutis, lacunas e sem biblioteca de padrões compartilhada. A decisão de estrutura narrativa nunca havia sido externalizada para o usuário.</p>
+
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="p-label">Problema 1</div>
+        <div class="p-text">Padrões de escrita IA (Tier 1/2/3) não eram detectados sistematicamente. "Transformador", "seamless", "leverage" chegavam aos clientes.</div>
+      </div>
+      <div class="problem-item">
+        <div class="p-label">Problema 2</div>
+        <div class="p-text">Verificações de voz duplicadas em 6 skills com variações sutis — inconsistência no que era capturado versus o que passava despercebido.</div>
+      </div>
+      <div class="problem-item">
+        <div class="p-label">Problema 3</div>
+        <div class="p-text">Nenhuma fonte única de verdade para a biblioteca de padrões proibidos. Adicionar uma palavra nova exigia editar 7 arquivos com risco de divergência.</div>
+      </div>
+      <div class="problem-item">
+        <div class="p-label">Problema 4</div>
+        <div class="p-text">Sinais estruturais de IA (parágrafos uniformes, excesso de em-dash, bullets de substantivos, atribuições vagas) passavam sem verificação, independentemente da pontuação do QA Gate.</div>
+      </div>
+      <div class="problem-item">
+        <div class="p-label">Problema 5</div>
+        <div class="p-text">Decisão de ângulo narrativo era tomada de forma invisível pelas skills de criação — sempre resultando nas mesmas estruturas seguras (Hack List ou Value-Stack) sem deliberação.</div>
+      </div>
+    </div>
+
+    <h3>Objetivos</h3>
+    <div class="goals-grid">
+      <div class="goal">
+        <div class="goal-code">O1</div>
+        <div class="goal-title">Zero entrega de padrão IA</div>
+        <div class="goal-desc">Nenhum padrão Tier 1 chega ao usuário a partir de qualquer skill de criação.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-code">O2</div>
+        <div class="goal-title">Verificação de voz centralizada</div>
+        <div class="goal-desc">Verificação production-rules.md → 00-B roda de forma idêntica nas 7 skills.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-code">O3</div>
+        <div class="goal-title">Detecção de sinais estruturais</div>
+        <div class="goal-desc">9 assinaturas estruturais de IA capturadas antes da entrega, independentemente da skill que gerou o copy.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-code">O4</div>
+        <div class="goal-title">Ponto único de atualização</div>
+        <div class="goal-desc">Atualizações na biblioteca de padrões → editar apenas copy-qa-sms/SKILL.md → todas as 7 skills herdam.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-code">O5</div>
+        <div class="goal-title">Auditabilidade standalone</div>
+        <div class="goal-desc">Qualquer usuário pode invocar copy-qa-sms diretamente para auditar copy existente com relatório completo de antes/depois.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-code">O6</div>
+        <div class="goal-title">Operação silenciosa</div>
+        <div class="goal-desc">Quando embutido em uma skill de criação, roda silenciosamente. O usuário vê apenas o copy final aprovado.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-code">O7</div>
+        <div class="goal-title">Decisão narrativa deliberada</div>
+        <div class="goal-desc">Antes de qualquer criação com ângulo em aberto, o usuário vê 5 frameworks modelados com hooks escritos e escolhe conscientemente antes da execução.</div>
+      </div>
+    </div>
+
+    <h3>Fora do Escopo</h3>
+    <table>
+      <thead><tr><th>Fora do escopo</th><th>Onde fica em vez disso</th></tr></thead>
+      <tbody>
+        <tr><td>Substituir QA Gates específicos de formato</td><td>Cada skill mantém sua própria rubrica de pontuação (90/100 ou 85/100)</td></tr>
+        <tr><td>Escrever copy do zero</td><td>post-writer-sms, thread-writer-sms, carousel-writer-sms, etc.</td></tr>
+        <tr><td>Avaliação de estratégia de conteúdo ou pilares</td><td>content-strategy-sms</td></tr>
+        <tr><td>Análise de performance pós-publicação</td><td>performance-analyzer-sms</td></tr>
+        <tr><td>Conselhos sobre algoritmos de plataformas</td><td>platform-strategy-sms</td></tr>
+        <tr><td>Assets visuais, imagens ou vídeos</td><td>json-prompt-generator, video-script-sms</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Métricas de Sucesso</h3>
+    <table>
+      <thead><tr><th>Métrica</th><th>Meta</th><th>Medição</th></tr></thead>
+      <tbody>
+        <tr><td>Taxa de entrega de padrão Tier 1</td><td class="threshold-pass">0%</td><td>Auditoria manual do copy entregue por 30 dias</td></tr>
+        <tr><td>Estrutura uniforme de parágrafos nos outputs</td><td class="threshold-pass">&lt; 5%</td><td>Revisão estrutural de 50 posts de amostra</td></tr>
+        <tr><td>Ocorrências de em-dash por post (média)</td><td class="threshold-pass">≤ 1</td><td>Contagem em amostra de 50 posts de LinkedIn</td></tr>
+        <tr><td>Tempo para atualizar a biblioteca de padrões</td><td class="threshold-pass">&lt; 2 min</td><td>Editar um arquivo, medir o tempo</td></tr>
+        <tr><td>Skills que requerem atualização individual após mudança</td><td class="threshold-pass">0</td><td>Contagem de arquivos tocados</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── 02 ARQUITETURA ─── -->
+  <section class="section" id="architecture">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Arquitetura do Sistema</h2>
+    </div>
+
+    <div class="arch">
+      <div class="arch-layer" style="border-color:rgba(249,115,22,0.35);background:rgba(249,115,22,0.07);">
+        <div class="arch-layer-title" style="color:var(--orange);">Camada de Decisão Narrativa — upstream</div>
+        <div class="arch-skills">
+          <span class="arch-skill" style="border-color:rgba(249,115,22,0.3);">narrative-framework-sms v1.0</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:rgba(249,115,22,0.7);">Modela 5 frameworks × 4 formatos → hooks escritos no tom do cliente → usuário escolhe A/B/C/D/E → entrega briefing contratual ↓</div>
+        <div style="margin-top:6px;font-size:11px;color:rgba(249,115,22,0.45);">Não aciona quando: ângulo explícito OU briefing já existe na conversa</div>
+      </div>
+
+      <div class="arch-arrow">↓ briefing</div>
+
+      <div class="arch-layer creation">
+        <div class="arch-layer-title">Camada de Criação — 7 skills</div>
+        <div class="arch-skills">
+          <span class="arch-skill">post-writer-sms v1.4</span>
+          <span class="arch-skill">thread-writer-sms v1.6</span>
+          <span class="arch-skill">caption-writer-sms v1.3</span>
+          <span class="arch-skill">hook-writer-sms v1.3</span>
+          <span class="arch-skill">carousel-writer-sms v2.2</span>
+          <span class="arch-skill">content-repurposer-sms v1.3</span>
+          <span class="arch-skill">video-script-sms v1.3</span>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:rgba(59,130,246,0.7);">Cada skill: lê contexto → lê briefing (se existir) → cria copy com hook aprovado → executa QA Gate específico de formato → repassa ↓</div>
+      </div>
+
+      <div class="arch-arrow">↓</div>
+
+      <div class="arch-layer orchestrator">
+        <div class="arch-layer-title">Orquestrador — copy-qa-sms v1.1</div>
+        <div class="arch-steps">
+          <div class="arch-step">
+            <div class="arch-step-num">PASSO 1</div>
+            <div class="arch-step-title">Gate de Voz</div>
+            <div class="arch-step-items">production-rules.md → 00-B<br>+ 8 padrões universais</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-num">PASSO 2</div>
+            <div class="arch-step-title">Gate de Padrões IA</div>
+            <div class="arch-step-items">Tier 1 · Tier 2 · Tier 3<br>+ 13 detectores estruturais</div>
+          </div>
+          <div class="arch-step">
+            <div class="arch-step-num">PASSO 3</div>
+            <div class="arch-step-title">Decisão</div>
+            <div class="arch-step-items">Aprovado → entregar<br>Reprovado → reescrever → re-executar (máx 2x)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-arrow">↓</div>
+
+      <div class="arch-layer output">
+        <div class="arch-layer-title">Saída</div>
+        <div style="font-size:13px;color:rgba(34,197,94,0.9);">✓ Copy aprovado entregue ao usuário — silenciosamente, sem exibir output do gate</div>
+      </div>
+    </div>
+
+    <h3>Mapa de Componentes</h3>
+    <table>
+      <thead><tr><th>Componente</th><th>Caminho</th><th>Versão</th><th>Papel</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>narrative-framework-sms</strong></td>
+          <td><code>skills/social-media/narrative-framework-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-new">1.0.0 NOVO</span></td>
+          <td>Seletor de ângulo narrativo — upstream de todas as skills de criação; modela 5 frameworks e entrega briefing contratual</td>
+        </tr>
+        <tr>
+          <td><strong>copy-qa-sms</strong></td>
+          <td><code>skills/social-media/copy-qa-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-updated">1.1.0</span></td>
+          <td>Orquestrador universal de QA — gate final antes de toda entrega de copy</td>
+        </tr>
+        <tr>
+          <td>post-writer-sms</td>
+          <td><code>skills/social-media/post-writer-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-updated">1.4.0</span></td>
+          <td>Posts sociais standalone — invoca narrative-framework-sms + copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>thread-writer-sms</td>
+          <td><code>skills/social-media/thread-writer-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-updated">1.6.0</span></td>
+          <td>Threads de múltiplos posts — invoca narrative-framework-sms + copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>caption-writer-sms</td>
+          <td><code>skills/social-media/caption-writer-sms/SKILL.md</code></td>
+          <td>1.3.0</td>
+          <td>Legendas visual-first — invoca copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>hook-writer-sms</td>
+          <td><code>skills/social-media/hook-writer-sms/SKILL.md</code></td>
+          <td>1.3.0</td>
+          <td>Linhas de abertura e hooks — invoca copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>carousel-writer-sms</td>
+          <td><code>skills/social-media/carousel-writer-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-updated">2.2.0</span></td>
+          <td>Copy slide a slide — invoca narrative-framework-sms (ETAPA 0) + copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>content-repurposer-sms</td>
+          <td><code>skills/social-media/content-repurposer-sms/SKILL.md</code></td>
+          <td>1.3.0</td>
+          <td>Derivados de conteúdo entre plataformas — invoca copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>video-script-sms</td>
+          <td><code>skills/video-script-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-updated">1.3.0</span></td>
+          <td>Roteiros de vídeo — invoca narrative-framework-sms (MODO A) + copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>production-rules.md</td>
+          <td><code>clients/[cliente]/production-rules.md</code></td>
+          <td>Por cliente</td>
+          <td>Regras de voz específicas do cliente; lido pelo Passo 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── 03 GATE SPECS ─── -->
+  <section class="section" id="gates">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Especificação dos Gates</h2>
+    </div>
+
+    <h3>Protocolo de Invocação</h3>
+
+    <div class="code-block">
+      <div class="cb-label">Modo embutido (chamado pela skill de criação)</div>
+      <pre>[Resultado do QA Gate da Skill de Criação]
+  SE score >= limite (90 ou 85):
+    → invocar copy-qa-sms { copy, plataforma, tipo_de_formato }
+    → SE APROVADO: entregar copy silenciosamente
+    → SE REPROVADO (rodada 1): reescrever → re-invocar copy-qa-sms
+       → SE APROVADO: entregar copy
+       → SE REPROVADO (rodada 2): mostrar trecho com falha ao usuário, pedir direcionamento
+  CASO CONTRÁRIO (score &lt; limite):
+    → reescrever critérios reprovados → re-executar QA Gate → então invocar copy-qa-sms</pre>
+    </div>
+
+    <h3>Passo 1 — Gate de Voz</h3>
+    <table>
+      <thead><tr><th>Propriedade</th><th>Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Fonte primária</td><td><code>clients/[cliente-ativo]/production-rules.md → 00-B</code></td></tr>
+        <tr><td>Fallback</td><td>8 padrões universais proibidos (definidos no SKILL.md)</td></tr>
+        <tr><td>Escopo da varredura</td><td>Copy completo — não por parágrafo</td></tr>
+        <tr><td>Ação em caso de falha</td><td>Reescrever todo o trecho contendo a violação (não apenas a palavra)</td></tr>
+        <tr><td>Limite</td><td class="threshold-pass">Tolerância zero — qualquer violação bloqueia a entrega</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Passo 2 — Gate de Padrões IA</h3>
+    <div class="tier-grid">
+      <div class="tier tier-1">
+        <div class="tier-label">Tier 1</div>
+        <div class="tier-rule">Qualquer ocorrência → reescrever</div>
+        <div class="tier-desc">Varredura: copy completo · Unidade: frase/sentença</div>
+      </div>
+      <div class="tier tier-2">
+        <div class="tier-label">Tier 2</div>
+        <div class="tier-rule">2+ no mesmo parágrafo → reescrever parágrafo</div>
+        <div class="tier-desc">Varredura: por parágrafo (por linha em branco) · Unidade: parágrafo completo</div>
+      </div>
+      <div class="tier tier-3">
+        <div class="tier-label">Tier 3</div>
+        <div class="tier-rule">3+ por 200 palavras → revisar seção concentrada</div>
+        <div class="tier-desc">Varredura: janela deslizante de 200 palavras · Unidade: revisar seção</div>
+      </div>
+    </div>
+
+    <h3>Passo 3 — Matriz de Decisão</h3>
+    <div class="decision-grid">
+      <div class="decision ok">
+        <div class="decision-icon">✅</div>
+        <div class="decision-title">Todos os passos aprovados</div>
+        <div class="decision-desc">Entregar copy. Silencioso quando embutido. Relatório completo quando standalone.</div>
+      </div>
+      <div class="decision warn">
+        <div class="decision-icon">⚠️</div>
+        <div class="decision-title">Algum passo reprovado (rodada 1)</div>
+        <div class="decision-desc">Reescrever trecho com falha → re-executar os 3 passos. Reescrita silenciosa.</div>
+      </div>
+      <div class="decision stop">
+        <div class="decision-icon">🛑</div>
+        <div class="decision-title">Reprovado novamente (rodada 2)</div>
+        <div class="decision-desc">Mostrar trecho específico com falha ao usuário. Pedir direcionamento. Não loopar.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 04 BIBLIOTECA DE PADRÕES ─── -->
+  <section class="section" id="patterns">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Biblioteca de Padrões</h2>
+    </div>
+
+    <h3>Tier 1 — Sempre reescrever (qualquer ocorrência)</h3>
+    <div class="tag-cloud">
+      <span class="tag t1">delve</span>
+      <span class="tag t1">landscape*</span>
+      <span class="tag t1">tapestry</span>
+      <span class="tag t1">realm*</span>
+      <span class="tag t1">paradigm</span>
+      <span class="tag t1">embark*</span>
+      <span class="tag t1">beacon</span>
+      <span class="tag t1">testament to</span>
+      <span class="tag t1">robust</span>
+      <span class="tag t1">comprehensive</span>
+      <span class="tag t1">cutting-edge</span>
+      <span class="tag t1">leverage (verbo)</span>
+      <span class="tag t1">pivotal</span>
+      <span class="tag t1">meticulous</span>
+      <span class="tag t1">seamless</span>
+      <span class="tag t1">game-changer</span>
+      <span class="tag t1">utilize</span>
+      <span class="tag t1">groundbreaking</span>
+      <span class="tag t1">revolutionize</span>
+      <span class="tag t1">transformative</span>
+      <span class="tag t1">in conclusion</span>
+      <span class="tag t1">it's important to note</span>
+      <span class="tag t1">think outside the box</span>
+      <span class="tag t1">move the needle</span>
+      <span class="tag t1">holistic approach</span>
+      <span class="tag t1">state-of-the-art</span>
+      <span class="tag t1">deeply</span>
+      <span class="tag t1">truly</span>
+      <span class="tag t1">fundamentally</span>
+      <span class="tag t1">inherently</span>
+      <span class="tag t1">inevitably</span>
+      <span class="tag t1">simply (intensif.)</span>
+    </div>
+    <p style="font-size:11px;color:var(--text3);margin-top:-8px;">* quando usado metaforicamente · <span style="color:rgba(239,68,68,0.6);">itálico = adicionado v1.1 (stop-slop integration)</span></p>
+    <div class="tag-cloud">
+      <span class="tag t1 pt">transformador</span>
+      <span class="tag t1 pt">revolucionário</span>
+      <span class="tag t1 pt">robusto</span>
+      <span class="tag t1 pt">abrangente</span>
+      <span class="tag t1 pt">de ponta</span>
+      <span class="tag t1 pt">alavancar (verbo)</span>
+      <span class="tag t1 pt">é importante ressaltar</span>
+      <span class="tag t1 pt">sinergia*</span>
+      <span class="tag t1 pt">pensar fora da caixa</span>
+      <span class="tag t1 pt">empoderar</span>
+      <span class="tag t1 pt">solução inovadora</span>
+      <span class="tag t1 pt">abordagem holística</span>
+      <span class="tag t1 pt">profundamente</span>
+      <span class="tag t1 pt">verdadeiramente</span>
+      <span class="tag t1 pt">fundamentalmente</span>
+      <span class="tag t1 pt">inerentemente</span>
+      <span class="tag t1 pt">inevitavelmente</span>
+      <span class="tag t1 pt">simplesmente (intensif.)</span>
+    </div>
+
+    <h3>Tier 2 — Reescrever se 2+ no mesmo parágrafo</h3>
+    <div class="tag-cloud">
+      <span class="tag t2">harness</span>
+      <span class="tag t2">navigate*</span>
+      <span class="tag t2">foster</span>
+      <span class="tag t2">elevate</span>
+      <span class="tag t2">unleash</span>
+      <span class="tag t2">streamline</span>
+      <span class="tag t2">empower</span>
+      <span class="tag t2">bolster</span>
+      <span class="tag t2">spearhead</span>
+      <span class="tag t2">resonate</span>
+      <span class="tag t2">nuanced</span>
+      <span class="tag t2">crucial</span>
+      <span class="tag t2">ensure</span>
+      <span class="tag t2">ecosystem*</span>
+      <span class="tag t2">journey*</span>
+      <span class="tag t2">framework (buzzword)</span>
+      <span class="tag t2">unlock potential</span>
+      <span class="tag t2">really</span>
+      <span class="tag t2">just</span>
+      <span class="tag t2">honestly</span>
+      <span class="tag t2">actually</span>
+      <span class="tag t2">basically</span>
+      <span class="tag t2">literally (não-literal)</span>
+    </div>
+    <div class="tag-cloud">
+      <span class="tag t2 pt">impulsionar</span>
+      <span class="tag t2 pt">fomentar</span>
+      <span class="tag t2 pt">elevar</span>
+      <span class="tag t2 pt">desbloquear</span>
+      <span class="tag t2 pt">otimizar*</span>
+      <span class="tag t2 pt">capacitar</span>
+      <span class="tag t2 pt">fortalecer</span>
+      <span class="tag t2 pt">ressoar</span>
+      <span class="tag t2 pt">ecossistema*</span>
+      <span class="tag t2 pt">jornada*</span>
+      <span class="tag t2 pt">catalisar</span>
+      <span class="tag t2 pt">realmente</span>
+      <span class="tag t2 pt">apenas</span>
+      <span class="tag t2 pt">honestamente</span>
+      <span class="tag t2 pt">basicamente</span>
+      <span class="tag t2 pt">literalmente</span>
+      <span class="tag t2 pt">genuinamente</span>
+    </div>
+
+    <h3>Tier 3 — Revisar se 3+ por 200 palavras</h3>
+    <div class="tag-cloud">
+      <span class="tag t3">significant</span>
+      <span class="tag t3">innovative</span>
+      <span class="tag t3">effective</span>
+      <span class="tag t3">dynamic</span>
+      <span class="tag t3">scalable</span>
+      <span class="tag t3">compelling</span>
+      <span class="tag t3">unprecedented</span>
+      <span class="tag t3">impactful</span>
+      <span class="tag t3">actionable</span>
+      <span class="tag t3">strategic</span>
+      <span class="tag t3">powerful</span>
+      <span class="tag t3">engaging</span>
+      <span class="tag t3">essential</span>
+      <span class="tag t3">expertise</span>
+      <span class="tag t3">commitment</span>
+      <span class="tag t3">passionate</span>
+    </div>
+    <div class="tag-cloud">
+      <span class="tag t3 pt">significativo</span>
+      <span class="tag t3 pt">inovador</span>
+      <span class="tag t3 pt">eficaz</span>
+      <span class="tag t3 pt">escalável</span>
+      <span class="tag t3 pt">impactante</span>
+      <span class="tag t3 pt">acionável</span>
+      <span class="tag t3 pt">estratégico</span>
+      <span class="tag t3 pt">poderoso</span>
+      <span class="tag t3 pt">engajante</span>
+      <span class="tag t3 pt">comprometimento</span>
+      <span class="tag t3 pt">apaixonado</span>
+    </div>
+
+    <h3>Padrões Universais Proibidos (Passo 1)</h3>
+    <table>
+      <thead><tr><th>#</th><th>Padrão</th><th>Substituir por</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Adjetivo sem dado ("incrível", "robusto", "transformador")</td><td>Evidência concreta, número ou resultado específico</td></tr>
+        <tr><td>2</td><td>CTA vago ("saiba mais", "descubra", "clique aqui")</td><td>Exatamente o que o leitor recebe</td></tr>
+        <tr><td>3</td><td>Abertura centrada na marca ("Nós somos" / "A [marca] é")</td><td>Voz ativa, primeira pessoa, fato concreto</td></tr>
+        <tr><td>4</td><td>Tríade abstrata ("clareza, consistência e resultado")</td><td>Escolher um. Ser específico sobre ele.</td></tr>
+        <tr><td>5</td><td>Pergunta retórica sem resposta real no corpo do texto</td><td>Converter em afirmação ou desenvolver a resposta</td></tr>
+        <tr><td>6</td><td>Prelúdio de anúncio ("Estamos animados em anunciar")</td><td>Começar direto com o anúncio</td></tr>
+        <tr><td>7</td><td>Jargão sem contexto técnico ("sinergia", "ecossistema")</td><td>O que concretamente acontece entre as partes</td></tr>
+        <tr><td>8</td><td>Fechamento motivacional genérico ("leve seu sucesso a sério")</td><td>A ação específica que produz o resultado prometido</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── 05 DETECTORES ESTRUTURAIS ─── -->
+  <section class="section" id="structural">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Detectores de Padrão Estrutural</h2>
+    </div>
+    <p>13 padrões estruturais que sinalizam origem IA independentemente do vocabulário. Detectados após a varredura de tiers. (#10–#13 adicionados em v1.1 — integração stop-slop)</p>
+
+    <div class="struct-grid">
+      <div class="struct-item">
+        <div class="struct-num">01</div>
+        <div class="struct-name">Excesso de em-dash (—)</div>
+        <div class="struct-threshold">Limite: &gt; 2 no mesmo post/slide</div>
+        <div class="struct-fix">→ Substituir por vírgula, dois-pontos ou reescrever a frase</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">02</div>
+        <div class="struct-name">Excesso de negrito</div>
+        <div class="struct-threshold">Limite: &gt; 30% das frases em negrito</div>
+        <div class="struct-fix">→ Remover negrito de frases não-críticas; negrito deve destacar, não decorar</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">03</div>
+        <div class="struct-name">Comprimento uniforme de parágrafos</div>
+        <div class="struct-threshold">Limite: todos os parágrafos com 2-3 linhas exatas</div>
+        <div class="struct-fix">→ Variar o ritmo: misturar 1 linha + 3 linhas + 1 linha</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">04</div>
+        <div class="struct-name">Bullets apenas com substantivos</div>
+        <div class="struct-threshold">Gatilho: "• Eficiência • Inovação • Resultados"</div>
+        <div class="struct-fix">→ Converter para frases de ação com verbo no início e contexto</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">05</div>
+        <div class="struct-name">Atribuições vagas</div>
+        <div class="struct-threshold">Gatilho: "Estudos mostram…", "Especialistas dizem…", "Pesquisas indicam…"</div>
+        <div class="struct-fix">→ Citar a fonte específica ou remover a atribuição por completo</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">06</div>
+        <div class="struct-name">Aberturas com "Vamos…"</div>
+        <div class="struct-threshold">Gatilho: no início de parágrafo ou seção</div>
+        <div class="struct-fix">→ Substituir por imperativo direto ou afirmação</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">07</div>
+        <div class="struct-name">Disclaimers de encerramento</div>
+        <div class="struct-threshold">Gatilho: "Observe que isso é apenas…", "Sempre consulte um profissional…"</div>
+        <div class="struct-fix">→ Remover — confiar no leitor; são artefatos de chatbot</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">08</div>
+        <div class="struct-name">Acumulação de hashtags</div>
+        <div class="struct-threshold">Limite: 10+ hashtags idênticas em todos os posts</div>
+        <div class="struct-fix">→ Variar o conjunto ou reduzir à especificação da plataforma</div>
+      </div>
+      <div class="struct-item">
+        <div class="struct-num">09</div>
+        <div class="struct-name">Emoji em títulos profissionais</div>
+        <div class="struct-threshold">Gatilho: qualquer emoji em título de LinkedIn, deck ou cabeçalho formal</div>
+        <div class="struct-fix">→ Remover de contextos de copy profissional</div>
+      </div>
+      <div class="struct-item" style="border-color:rgba(249,115,22,0.25);background:rgba(249,115,22,0.04);">
+        <div class="struct-num" style="color:var(--orange);">10 · novo v1.1</div>
+        <div class="struct-name">Contraste binário performático</div>
+        <div class="struct-threshold">Gatilho: "Não é X. É Y." / "Not X. But Y." como gancho sem desenvolvimento</div>
+        <div class="struct-fix">→ Afirmar o ponto diretamente sem o dispositivo binário</div>
+      </div>
+      <div class="struct-item" style="border-color:rgba(249,115,22,0.25);background:rgba(249,115,22,0.04);">
+        <div class="struct-num" style="color:var(--orange);">11 · novo v1.1</div>
+        <div class="struct-name">Fragmentação estacato dramática</div>
+        <div class="struct-threshold">Gatilho: frases de 3–5 palavras acumuladas sem progressão lógica</div>
+        <div class="struct-fix">→ Fundir em frase completa com subordinação lógica</div>
+      </div>
+      <div class="struct-item" style="border-color:rgba(249,115,22,0.25);background:rgba(249,115,22,0.04);">
+        <div class="struct-num" style="color:var(--orange);">12 · novo v1.1</div>
+        <div class="struct-name">Parágrafo abrindo com "So" / "Então"</div>
+        <div class="struct-threshold">Gatilho: parágrafo ou seção iniciando com "So," ou "Então,"</div>
+        <div class="struct-fix">→ Reescrever com afirmação direta sem a conjunção de transição</div>
+      </div>
+      <div class="struct-item" style="border-color:rgba(249,115,22,0.25);background:rgba(249,115,22,0.04);">
+        <div class="struct-num" style="color:var(--orange);">13 · novo v1.1</div>
+        <div class="struct-name">Wh- openers performáticos</div>
+        <div class="struct-threshold">Gatilho: "Why does this matter?" / "What does this mean?" sem resposta imediata</div>
+        <div class="struct-fix">→ Substituir pela afirmação que a pergunta tentava construir</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 06 INTEGRAÇÕES ─── -->
+  <section class="section" id="integration">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Pontos de Integração por Skill</h2>
+    </div>
+
+    <table class="int-table">
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Limite do QA Gate</th>
+          <th>Ponto de invocação do copy-qa-sms</th>
+          <th>Unidade de varredura</th>
+          <th>O que foi substituído</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>post-writer-sms</strong></td>
+          <td><span class="threshold-pass">≥ 90/100</span></td>
+          <td>Após aprovação do QA Gate</td>
+          <td>Post completo</td>
+          <td>"Bloco 2 — Verificação de ausências de voz"</td>
+        </tr>
+        <tr>
+          <td><strong>thread-writer-sms</strong></td>
+          <td><span class="threshold-pass">≥ 90/100</span></td>
+          <td>Após aprovação do QA Gate</td>
+          <td>Cada post da thread independentemente</td>
+          <td>Seção standalone "Verificação de Voz"</td>
+        </tr>
+        <tr>
+          <td><strong>caption-writer-sms</strong></td>
+          <td><span class="threshold-pass">≥ 90/100</span></td>
+          <td>Após aprovação do QA Gate</td>
+          <td>Legenda completa</td>
+          <td>Passo 8 do Processo de Escrita (verificação inline de voz)</td>
+        </tr>
+        <tr>
+          <td><strong>hook-writer-sms</strong></td>
+          <td><span class="threshold-note">Checklist (sem pontuação)</span></td>
+          <td>Após aprovação do Checklist de entrega</td>
+          <td>Cada variante de hook independentemente</td>
+          <td>Sem verificação anterior — adição nova</td>
+        </tr>
+        <tr>
+          <td><strong>carousel-writer-sms</strong></td>
+          <td><span class="threshold-pass">≥ 90/100</span></td>
+          <td><strong>Antes do QA Gate</strong> (como Bloco 3)</td>
+          <td>Cada slide independentemente; estrutural no nível do script completo</td>
+          <td>"Bloco 3 — Verificação de ausências de voz (NOVO)"</td>
+        </tr>
+        <tr>
+          <td><strong>content-repurposer-sms</strong></td>
+          <td><span class="threshold-note">≥ 85/100</span></td>
+          <td>Após aprovação do QA Gate</td>
+          <td>Cada derivado por plataforma independentemente</td>
+          <td>Fusão da seção "Verificação de Voz e QA Gate"</td>
+        </tr>
+        <tr>
+          <td><strong>video-script-sms</strong></td>
+          <td><span class="threshold-pass">≥ 90/100</span></td>
+          <td>Após aprovação do QA Gate</td>
+          <td>Todos os blocos de fala (copy falado) do roteiro</td>
+          <td>Sem verificação de voz anterior — adição nova</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-title">⚠️ Nota sobre carousel-writer-sms</div>
+      <div class="card-body">No carrossel, o copy-qa-sms é executado como Bloco 3 <strong>antes</strong> da pontuação do QA Gate (e não depois), porque o checklist original tinha 3 blocos sequenciais que precediam o QA Gate. Isso é arquiteturalmente consistente com o fluxo existente da skill. Todas as outras skills executam o copy-qa-sms após a aprovação do QA Gate.</div>
+    </div>
+  </section>
+
+  <!-- ─── 07 WORKFLOW ─── -->
+  <section class="section" id="workflow">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Workflow — Orquestração Completa</h2>
+    </div>
+
+    <div class="flow">
+      <div class="flow-node start">
+        <div class="flow-node-label">Gatilho</div>
+        <div class="flow-node-title">Usuário solicita copy</div>
+        <div class="flow-node-desc">Qualquer skill de criação é ativada (post, thread, caption, hook, carousel, repurposer, video-script)</div>
+      </div>
+      <div class="flow-connector-line"></div>
+
+      <div class="flow-node gate">
+        <div class="flow-node-label">Passo 1</div>
+        <div class="flow-node-title">Verificação de Contexto</div>
+        <div class="flow-node-desc">Lê <code>.agents/social-media-context-sms.md</code> · Se ausente → Context Gate: avisar → perguntar se continua ou redireciona para social-media-context-sms</div>
+      </div>
+      <div class="flow-connector-line"></div>
+
+      <div class="flow-node">
+        <div class="flow-node-label">Passo 2</div>
+        <div class="flow-node-title">Processo de Criação</div>
+        <div class="flow-node-desc">Workflow específico por formato: pesquisa → proposta de ângulo → variantes de hook → rascunho → formatação conforme especificação da plataforma</div>
+      </div>
+      <div class="flow-connector-line"></div>
+
+      <div class="flow-node qa-gate">
+        <div class="flow-node-label">Passo 3</div>
+        <div class="flow-node-title">QA Gate Específico de Formato</div>
+        <div class="flow-node-desc">Cada skill pontua conforme sua própria rubrica · post/thread/caption/carousel/vídeo: ≥ 90/100 · repurposer: ≥ 85/100 · hook: checklist (sem pontuação) · Se REPROVAR → reescrever → re-pontuar</div>
+      </div>
+      <div class="flow-connector-line"></div>
+
+      <div class="flow-node copyqa">
+        <div class="flow-node-label">Passo 4 — copy-qa-sms</div>
+        <div class="flow-node-title">Gate Universal de Qualidade</div>
+        <div class="flow-node-desc">
+          <strong>Passo 1:</strong> Gate de Voz — production-rules.md → 00-B + 8 padrões universais<br>
+          <strong>Passo 2:</strong> Gate de Padrões IA — Tier 1 · Tier 2 · Tier 3 · 9 detectores estruturais<br>
+          <strong>Passo 3:</strong> Decisão — reescrita automática se necessário (máx 2 rodadas)
+        </div>
+      </div>
+      <div class="flow-connector-line"></div>
+
+      <div class="flow-branches">
+        <div class="flow-branch pass">
+          <div class="branch-label">✅ Aprovado</div>
+          <div class="branch-desc">Entregar copy aprovado ao usuário. Silencioso — sem exibir output do gate.</div>
+        </div>
+        <div class="flow-branch fail">
+          <div class="branch-label">⚠️ Falha Persistente (após 2 rodadas)</div>
+          <div class="branch-desc">Mostrar trecho específico com falha ao usuário com localização exata e motivo. Pedir direcionamento.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Modo de Auditoria Standalone</h3>
+    <div class="code-block">
+      <div class="cb-label">Quando o usuário invoca copy-qa-sms diretamente</div>
+      <pre>ENTRADA: texto de copy existente + plataforma (opcional)
+  ↓
+Executar Passo 1 → Passo 2 → Passo 3
+  ↓
+SAÍDA:
+┌─────────────────────────────────────────────────┐
+│ RELATÓRIO COPY QA — [data]                      │
+│ Plataforma: [X]  Cliente: [Y ou "sem contexto"] │
+│                                                  │
+│ PASSO 1 — VOZ                                   │
+│   ✓ Aprovado  OU  ⚠️ N problemas + antes/depois │
+│                                                  │
+│ PASSO 2 — PADRÕES IA                            │
+│   Tier 1: ✓ / ⚠️ + reescritas aplicadas        │
+│   Tier 2: ✓ / ⚠️ parágrafos afetados           │
+│   Tier 3: ✓ / ⚠️ seção revisada                │
+│   Estrutural: ✓ / ⚠️ padrões corrigidos        │
+│                                                  │
+│ RESULTADO                                        │
+│   ✅ Copy aprovado — nenhum ajuste necessário   │
+│   OU ⚠️ Copy reescrito abaixo (N ajustes)      │
+│                                                  │
+│ COPY FINAL — pronto para publicar               │
+│   [copy reescrito, pronto para copiar e colar]  │
+└─────────────────────────────────────────────────┘</pre>
+    </div>
+  </section>
+
+  <!-- ─── 08 DECISÕES DE DESIGN ─── -->
+  <section class="section" id="decisions">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Decisões de Design</h2>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que não embutir a lista Tier 1 em cada skill de criação?</div>
+      <div class="dd-a">As listas de padrões são documentos vivos. Se "sutil" precisar ser promovido do Tier 2 para o Tier 1, uma única edição em <code>copy-qa-sms/SKILL.md</code> se propaga para todas as 7 skills. Embutir exigiria 7 edições síncronas com risco de divergência entre arquivos ao longo do tempo.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que manter QA Gates específicos de formato em cada skill se o copy-qa-sms cuida da qualidade?</div>
+      <div class="dd-a">Os critérios de formato são intrinsecamente diferentes. Um gate de carrossel pontua "virada ao slide correto" — sem sentido para um tweet. Um gate de thread pontua "ritmo entre posts" — irrelevante para uma legenda. Os gates específicos codificam conhecimento de craft que não se generaliza. O copy-qa-sms cuida do que se generaliza: voz, vocabulário de IA e estrutura.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que modo silencioso quando embutido em outra skill?</div>
+      <div class="dd-a">O modelo mental do usuário é: "pedi um post e recebi um post." Mostrar um output interno do gate — mesmo que verde — quebra esse modelo mental e gera sobrecarga cognitiva. O gate é infraestrutura, não interface. O silêncio sinaliza que o sistema está funcionando como esperado.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que o limite de 2 rodadas de reescrita?</div>
+      <div class="dd-a">Loops infinitos são possíveis se um trecho é semanticamente difícil e cada reescrita introduz um novo padrão. O limite de 2 rodadas expõe o impasse ao usuário — que tem contexto de domínio que o modelo não tem — em vez de loopar silenciosamente ou entregar copy ruim.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que o carrossel executa copy-qa-sms ANTES do QA Gate (enquanto todos os outros executam depois)?</div>
+      <div class="dd-a">O Bloco 3 do carrossel (verificação de voz) já estava posicionado antes do QA Gate no fluxo original do checklist de 3 blocos. Substituí-lo pelo copy-qa-sms manteve a ordem arquitetural sem quebrar o fluxo existente. Para todas as outras skills, o copy-qa-sms segue o QA Gate de formato porque a integridade de formato é verificada primeiro, depois a integridade de voz/padrão IA.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Onde isso se encaixa em relação à skill avoid-ai-writing (referência externa)?</div>
+      <div class="dd-a">A skill avoid-ai-writing (v3.10.0, Conor Bronsdon, MIT) foi analisada como referência. Seu sistema de vocabulário Tier 1/2/3 e os conceitos de detecção de padrão estrutural foram adaptados e integrados ao copy-qa-sms. A skill externa funciona como ferramenta standalone do Claude Code; o copy-qa-sms é um gate embutido projetado para a arquitetura de skills do master-design-system e seu sistema de contexto de cliente.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que o narrative-framework-sms é uma skill separada e não embutido em cada skill de criação?</div>
+      <div class="dd-a">A decisão de ângulo narrativo é independente do formato. Os mesmos 5 frameworks se aplicam ao carrossel, thread, reel e post longo — apenas a unidade de execução muda (slide vs post vs cena vs parágrafo). Uma skill central garante que a modelagem seja idêntica independentemente de qual skill de criação a invoca, e que atualizações nos frameworks (novo framework, nova regra de calibração) se propaguem automaticamente para todas.</div>
+    </div>
+
+    <div class="design-decision">
+      <div class="dd-q">Por que o narrative-framework-sms apresenta opções e não decide sozinho?</div>
+      <div class="dd-a">A escolha de ângulo é uma decisão estratégica, não operacional. O modelo tem capacidade de modelar todos os 5 frameworks, mas não tem o contexto completo de audiência, timing, relacionamento do cliente com a marca e objetivos de curto prazo. O usuário tem. A skill apresenta as opções com hooks escritos (para que a escolha seja informada), mas a decisão final fica com quem tem contexto completo.</div>
+    </div>
+  </section>
+
+  <!-- ─── 09 CHANGELOG ─── -->
+  <section class="section" id="changelog">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Changelog e Versionamento</h2>
+    </div>
+
+    <h3>Arquivos novos</h3>
+    <table>
+      <thead><tr><th>Arquivo</th><th>Versão</th><th>Data</th><th>Descrição</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>skills/social-media/narrative-framework-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-new">1.0.0 NOVO</span></td>
+          <td>2026-07-14</td>
+          <td>Lançamento inicial. 5 frameworks narrativos × 4 formatos. Apresenta opções com hooks escritos. Entrega briefing contratual após escolha do usuário.</td>
+        </tr>
+        <tr>
+          <td><code>skills/social-media/copy-qa-sms/SKILL.md</code></td>
+          <td><span class="version-tag v-new">1.0.0 NOVO</span></td>
+          <td>2026-07-09</td>
+          <td>Lançamento inicial. Protocolo de 3 passos: Gate de Voz + Gate de Padrões IA (Tier 1/2/3 + 9 estruturais) + Decisão. Modos embutido e standalone.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Arquivos atualizados</h3>
+    <table>
+      <thead><tr><th>Skill</th><th>De</th><th>Para</th><th>Data</th><th>O que mudou</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>copy-qa-sms</td>
+          <td>1.0.0</td>
+          <td><span class="version-tag v-updated">1.1.0</span></td>
+          <td>2026-07-14</td>
+          <td>Integração stop-slop: +6 Tier 1 EN (AI intensifiers) + 6 PT. +6 Tier 2 EN (weak adverbs) + 6 PT. +4 detectores estruturais (#10–#13). Total: 9 → 13 detectores.</td>
+        </tr>
+        <tr>
+          <td>post-writer-sms</td>
+          <td>1.3.0</td>
+          <td><span class="version-tag v-updated">1.4.0</span></td>
+          <td>2026-07-14</td>
+          <td>Gate de Framework Narrativo adicionado: invoca narrative-framework-sms quando ângulo não está definido; usa briefing existente quando disponível</td>
+        </tr>
+        <tr>
+          <td>thread-writer-sms</td>
+          <td>1.5.0</td>
+          <td><span class="version-tag v-updated">1.6.0</span></td>
+          <td>2026-07-14</td>
+          <td>Gate de Framework Narrativo adicionado: hook aprovado = Post 1 obrigatório; invoca narrative-framework-sms quando ângulo não está definido</td>
+        </tr>
+        <tr>
+          <td>carousel-writer-sms</td>
+          <td>2.1.0</td>
+          <td><span class="version-tag v-updated">2.2.0</span></td>
+          <td>2026-07-14</td>
+          <td>ETAPA 0 atualizada: substituiu proposta de "3 ângulos" por oferta de narrative-framework-sms com formato=carrossel</td>
+        </tr>
+        <tr>
+          <td>video-script-sms</td>
+          <td>1.2.0</td>
+          <td><span class="version-tag v-updated">1.3.0</span></td>
+          <td>2026-07-14</td>
+          <td>Gate de Framework Narrativo adicionado: aplica apenas ao MODO A; hook aprovado = cena 1 obrigatória (primeiros 3s)</td>
+        </tr>
+        <tr>
+          <td>post-writer-sms</td>
+          <td>1.2.0</td>
+          <td>1.3.0</td>
+          <td>2026-07-09</td>
+          <td>Substituiu "Bloco 2 — Verificação de ausências de voz" pela referência ao gate copy-qa-sms</td>
+        </tr>
+        <tr>
+          <td>thread-writer-sms</td>
+          <td>1.4.0</td>
+          <td>1.5.0</td>
+          <td>2026-07-09</td>
+          <td>Removeu seção standalone "Verificação de Voz"; gate copy-qa-sms adicionado após QA Gate</td>
+        </tr>
+        <tr>
+          <td>caption-writer-sms</td>
+          <td>1.2.0</td>
+          <td>1.3.0</td>
+          <td>2026-07-09</td>
+          <td>Removeu Passo 8 do Processo de Escrita (verificação inline de voz); gate copy-qa-sms adicionado após QA Gate</td>
+        </tr>
+        <tr>
+          <td>hook-writer-sms</td>
+          <td>1.2.0</td>
+          <td>1.3.0</td>
+          <td>2026-07-09</td>
+          <td>Gate copy-qa-sms adicionado após Checklist de entrega; hooks apresentados apenas após aprovação do gate</td>
+        </tr>
+        <tr>
+          <td>carousel-writer-sms</td>
+          <td>2.0.0</td>
+          <td>2.1.0</td>
+          <td>2026-07-09</td>
+          <td>Bloco 3 reescrito como gate copy-qa-sms; executa antes do QA Gate no checklist de 3 blocos existente</td>
+        </tr>
+        <tr>
+          <td>content-repurposer-sms</td>
+          <td>1.2.0</td>
+          <td>1.3.0</td>
+          <td>2026-07-09</td>
+          <td>Seção "Verificação de Voz e QA Gate" fundida; gate copy-qa-sms adicionado após QA Gate ≥ 85</td>
+        </tr>
+        <tr>
+          <td>video-script-sms</td>
+          <td>1.1.0</td>
+          <td>1.2.0</td>
+          <td>2026-07-09</td>
+          <td>Gate copy-qa-sms adicionado após QA Gate ≥ 90; cobre todos os blocos de fala (copy falado) do roteiro</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Arquivos não alterados</h3>
+    <table>
+      <thead><tr><th>Skill</th><th>Motivo</th></tr></thead>
+      <tbody>
+        <tr><td>social-media-context-sms</td><td>Skill de configuração de contexto — não produz copy entregável</td></tr>
+        <tr><td>content-strategy-sms</td><td>Skill de planejamento estratégico — não produz copy entregável</td></tr>
+        <tr><td>content-calendar-sms</td><td>Skill de agendamento — não produz copy entregável</td></tr>
+        <tr><td>content-matrix-sms</td><td>Geração de pautas/títulos — tratado pelo post-writer quando o copy é produzido</td></tr>
+        <tr><td>reference-analyzer-sms</td><td>Skill de análise e handoff — sem entrega de copy</td></tr>
+        <tr><td>performance-analyzer-sms</td><td>Skill de analytics — sem produção de copy</td></tr>
+        <tr><td>audience-growth-tracker-sms</td><td>Skill de rastreamento de dados — sem produção de copy</td></tr>
+        <tr><td>niche-research-sms</td><td>Skill de pesquisa — sem produção de copy</td></tr>
+        <tr><td>platform-strategy-sms</td><td>Skill de estratégia — sem produção de copy</td></tr>
+        <tr><td>optimization-advisor-sms</td><td>Skill de recomendações — sem produção de copy</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    master-design-system · docs/copy-qa-orchestration/PRD-SPECS.html · v1.2.0 · 2026-07-14
+    &nbsp;·&nbsp; QA: <code>copy-qa-sms v1.1.0</code> &nbsp;·&nbsp; Narrativa: <code>narrative-framework-sms v1.0.0</code>
+  </div>
+</footer>
+
+</body>
+</html>

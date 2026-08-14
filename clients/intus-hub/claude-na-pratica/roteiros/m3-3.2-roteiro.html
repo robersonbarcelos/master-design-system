@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M3-3.2 · Plugins oficiais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.prompt{font-family:monospace;font-size:16px;color:#aaa;background:#080808;border:1px solid #1a1a1a;border-radius:8px;padding:18px 22px;margin:16px 0 32px;line-height:1.7;white-space:pre-wrap}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M3 · Aula 3.2 · AO VIVO · 8 min</span>
+  <span class="titulo">Plugins oficiais: Marketing, Design e Data</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">O que é um Plugin no Cowork</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Plugin é um pacote de capacidades que você instala no Cowork.</p>
+    <p>Diferente de Skill, que é uma instrução de comportamento, Plugin traz conectores, fluxos e ferramentas prontas para uma categoria de trabalho.</p>
+    <p>É como instalar um aplicativo no celular. Você não precisa construir. Você instala e usa.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Onde ficam os Plugins</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Tela: marketplace do Cowork</div>
+  <div class="fala">
+    <p>No Cowork tem uma aba de Plugins com categorias: Marketing, Design, Data, Produtividade e mais.</p>
+    <p>Plugins são gratuitos no plano Pro. Não é custo extra.</p>
+  </div>
+  <div class="acao">Mostrar o marketplace e as categorias disponíveis</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Demo 1: Plugin de Marketing</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Cowork com Plugin de Marketing ativo</div>
+  <div class="fala">
+    <p>Primeiro: sequência de emails ao vivo. Prompt:</p>
+  </div>
+  <div class="prompt">Cria uma sequência de 3 emails de boas-vindas para novos alunos do meu curso online. Tom: acolhedor, motivador. Entregável: documento Word com os 3 emails formatados.</div>
+  <div class="fala">
+    <p>O Plugin processa, usa os conectores que tem disponíveis e entrega um arquivo Word.</p>
+    <p>Três emails prontos, formatados, com estrutura real. Isso teria levado 30 minutos fazendo manualmente.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Demo 2: Plugin de Design</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Cowork com Plugin de Design ativo</div>
+  <div class="fala">
+    <p>Agora Design. Prompt:</p>
+  </div>
+  <div class="prompt">Cria um briefing de design para o banner de lançamento do meu curso. Inclui: paleta de cores sugerida, tipografia, referências visuais e copy principal.</div>
+  <div class="fala">
+    <p>Resultado: um documento de briefing formatado. Pronto para passar para um designer ou para uma IA de geração de imagem.</p>
+    <p>Você não fez o briefing. Você delegou.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Demo 3: Plugin de Data</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Cowork com Plugin de Data ativo</div>
+  <div class="fala">
+    <p>E Data. Vou subir uma planilha de vendas simples.</p>
+  </div>
+  <div class="acao">Subir planilha de vendas</div>
+  <div class="fala">
+    <p>"Analisa esses dados e me dá os 3 principais insights com gráfico."</p>
+    <p>O Claude lê a planilha, processa os números e gera um relatório com visual. Sem fórmulas. Sem pivot table. Você perguntou, ele respondeu com dados.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 6</span>
+    <span class="cena-titulo">Como encontrar e instalar para o seu nicho</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Tela: marketplace com filtro de categoria</div>
+  <div class="fala">
+    <p>No marketplace você filtra por categoria. Encontra o que serve para o seu tipo de negócio, clica em instalar e está pronto para usar na próxima missão.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno instala pelo menos 1 Plugin do seu nicho e faz 1 tarefa completa com ele.</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Diferença Plugin vs Skill: mencionar rapidamente. Plugin = pacote completo. Skill = instrução de comportamento. Mais detalhes em M4.</li>
+    <li>Plugins são gratuitos no Pro. Deixar isso explícito.</li>
+    <li>Se algum plugin não estiver disponível na conta: adaptar com o que estiver disponível. Não prometer plugins específicos que podem mudar.</li>
+    <li>Ritmo das demos: mostrar prompt, resultado e "o que isso significa" — não parar para explicar cada detalhe técnico.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

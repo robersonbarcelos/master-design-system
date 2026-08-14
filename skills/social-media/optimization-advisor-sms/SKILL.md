@@ -65,6 +65,31 @@ If BlackTwist is unavailable and no prior analysis exists, ask the user to share
 >
 > Even rough answers unlock much better recommendations than starting blind."
 
+**Gate de dados mínimos — obrigatório antes de gerar recomendações em Path C:**
+
+Avaliar o que o usuário forneceu:
+
+| Dados fornecidos | Ação |
+|---|---|
+| ≥ 5 posts com alguma métrica (engajamento, impressões, ou resultado subjetivo) | Prosseguir — marcar como "amostra limitada" no output |
+| 2–4 posts com contexto de resultado | Prosseguir com aviso explícito: recomendações são hipóteses, não padrões confirmados |
+| < 2 posts OU nenhuma métrica (apenas "sei que funciona") | **Parar** — emitir o gate abaixo antes de continuar |
+
+**Gate de dados insuficientes:**
+
+> ⚠️ **Dados insuficientes para recomendações confiáveis.**
+> Com menos de 2 posts e sem métricas, qualquer recomendação seria especulação genérica — não análise do seu perfil específico.
+>
+> Para gerar recomendações úteis, preciso de pelo menos:
+> - **3 a 5 posts** que você lembre (tema, formato, resultado aproximado)
+> - **Uma métrica** por post — pode ser engajamento estimado, comentários recebidos, ou "funcionou / não funcionou"
+> - **Sua frequência atual** de postagem
+> - **Seu objetivo principal** agora (crescimento, engajamento, vendas)
+>
+> Me passa esses dados e gero um plano de ação concreto. Sem eles, estarei inventando padrões onde não há dados suficientes para identificá-los.
+
+Se o usuário insistir em continuar mesmo sem dados suficientes → prosseguir, mas marcar TODO o output com `[⚠️ BAIXA CONFIANÇA — baseado em dados insuficientes. Tratar como ponto de partida, não como padrão confirmado.]`
+
 Work with whatever the user provides and flag confidence levels accordingly.
 
 ---

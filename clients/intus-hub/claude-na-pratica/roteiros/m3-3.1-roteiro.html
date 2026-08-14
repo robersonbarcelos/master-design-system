@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M3-3.1 · Como dar uma missão completa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.ancora{font-size:clamp(26px,3.8vw,38px);font-weight:800;color:#F59E0B;background:#1a1200;border:2px solid #3a2600;border-radius:14px;padding:24px 32px;margin:24px 0 40px;line-height:1.3;letter-spacing:-.01em}
+.prompt-ruim{font-family:monospace;font-size:16px;color:#888;background:#0a0000;border:1px solid #2a0000;border-left:3px solid #ef4444;border-radius:8px;padding:16px 20px;margin:12px 0 24px;line-height:1.6}
+.prompt-bom{font-family:monospace;font-size:16px;color:#aaa;background:#001a00;border:1px solid #003300;border-left:3px solid #22c55e;border-radius:8px;padding:16px 20px;margin:12px 0 32px;line-height:1.6;white-space:pre-wrap}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M3 · Aula 3.1 · CONCEITUAL · 5 min</span>
+  <span class="titulo">Como dar uma missão completa: não uma pergunta</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">O erro mais comum</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>O erro mais comum de quem começa no Cowork: usar ele como se fosse o Chat.</p>
+    <p>No Chat você faz perguntas. No Cowork você dá missões.</p>
+    <p>Dar uma missão ao Cowork é como contratar um assistente por hora. Você não fica conversando. Você passa um briefing claro e ele entrega.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Anatomia de uma missão: 4 partes</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Slide ou doc: as 4 partes</div>
+  <div class="fala">
+    <p>Todo prompt de Cowork que funciona tem quatro partes.</p>
+    <p>Fontes: quais arquivos ou dados o Claude vai usar. Pasta, planilha, documento específico.</p>
+    <p>Objetivo: o que precisa ser feito. Criar relatório, analisar dados, montar apresentação.</p>
+    <p>Formato: como deve ser entregue. Word, Excel, PDF, máximo de páginas, número de seções.</p>
+    <p>Restrições: tom de voz, idioma, o que não pode entrar, para quem é o documento.</p>
+  </div>
+  <div class="ancora">Fontes + Objetivo + Formato + Restrições = missão que funciona.</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Prompt ruim vs. prompt bom</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide ou doc: comparativo lado a lado</div>
+  <div class="fala">
+    <p>Olha a diferença na prática.</p>
+    <p>Prompt ruim:</p>
+  </div>
+  <div class="prompt-ruim">Me ajuda com um relatório de marketing</div>
+  <div class="fala">
+    <p>Prompt bom:</p>
+  </div>
+  <div class="prompt-bom">Analisa os arquivos da pasta /relatorios-maio e cria um relatório executivo em Word com:
+- Resumo de resultados (máx 1 página)
+- Tabela comparativa mês a mês
+- 3 recomendações práticas
+Tom: formal, para apresentar à diretoria
+Entregável: salva como relatorio-maio-executivo.docx</div>
+  <div class="fala">
+    <p>Mesma tarefa. Resultado completamente diferente. A diferença está no briefing.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Steer mid-run: ajustar sem cancelar</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Uma coisa que o Chat não tem: durante uma tarefa no Cowork, aparece um campo para você digitar correções em tempo real.</p>
+    <p>O Claude está trabalhando. Você vê o progresso. Se quiser ajustar a direção — adicionar uma seção, mudar o tom, cortar algo — você digita ali. Sem cancelar. Sem recomeçar.</p>
+    <p>Isso se chama steer mid-run. É o diferencial mais prático do Cowork.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>O aluno escreve o primeiro prompt Cowork para uma tarefa real — usando as 4 partes: Fontes, Objetivo, Formato e Restrições. Vai usar na próxima aula.</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Analogia central: "contratar um assistente por hora" — repetir se precisar.</li>
+    <li>Frase âncora obrigatória: "Fontes + Objetivo + Formato + Restrições = missão que funciona."</li>
+    <li>Comparativo ruim vs. bom: tornar o contraste visual e claro — ficar lado a lado na tela se possível.</li>
+    <li>Steer mid-run: mostrar que o campo aparece durante a execução. É diferencial concreto.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+---
+const items = [
+  "Seu time refaz a mesma tarefa manual todo dia — enquanto o concorrente já automatizou.",
+  "O relatório chega depois que a decisão já foi tomada.",
+  "Toda semana empurra pra próxima o que devia estar rodando sozinho.",
+];
+---
+
+<section id="problema" class="relative overflow-hidden py-16 lg:py-20">
+  <div class="divider-gradient absolute inset-x-0 top-0"></div>
+
+  <div class="reveal mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">
+      <h2 class="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.01em] text-white-ice">
+        Sua empresa está travada, <span class="text-white-ice/50">e você já sabe disso.</span>
+      </h2>
+
+      <ol class="divide-y divide-electric-blue/10">
+        {items.map((item, index) => (
+          <li class="flex gap-6 py-6 first:pt-0 last:pb-0">
+            <span class="font-label shrink-0 text-2xl font-medium text-light-blue/50">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <p class="max-w-[55ch] text-lg leading-relaxed text-white-ice/75">
+              {item}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+<path d="M120.0 24.0 L203.1 72.0 L203.1 168.0 L120.0 216.0 L36.9 168.0 L36.9 72.0 Z" stroke="#0033AA" stroke-width="3"></path>
+<path d="M120.0 57.6 L174.0 88.8 L174.0 151.2 L120.0 182.4 L66.0 151.2 L66.0 88.8 Z" stroke="#0055FF" stroke-width="1.5" opacity="0.5"></path>
+<line x1="120" y1="120" x2="120.0" y2="57.6" stroke="#0055FF" stroke-width="2" opacity="0.85"></line><line x1="120" y1="120" x2="174.0" y2="88.8" stroke="#3399FF" stroke-width="2" opacity="0.85"></line><line x1="120" y1="120" x2="174.0" y2="151.2" stroke="#0055FF" stroke-width="2" opacity="0.85"></line><line x1="120" y1="120" x2="120.0" y2="182.4" stroke="#F0B429" stroke-width="2" opacity="0.85"></line><line x1="120" y1="120" x2="66.0" y2="151.2" stroke="#0055FF" stroke-width="2" opacity="0.85"></line><line x1="120" y1="120" x2="66.0" y2="88.8" stroke="#3399FF" stroke-width="2" opacity="0.85"></line>
+<circle cx="120.0" cy="57.6" r="8.2" fill="#0055FF"></circle><circle cx="174.0" cy="88.8" r="5.3" fill="#3399FF"></circle><circle cx="174.0" cy="151.2" r="8.2" fill="#0055FF"></circle><circle cx="120.0" cy="182.4" r="8.2" fill="#F0B429"></circle><circle cx="66.0" cy="151.2" r="8.2" fill="#0055FF"></circle><circle cx="66.0" cy="88.8" r="5.3" fill="#3399FF"></circle>
+<circle cx="120" cy="120" r="29.4" fill="#F0B429" opacity="0.18"></circle>
+<circle cx="120" cy="120" r="17.3" fill="#F0B429"></circle>
+<circle cx="120" cy="120" r="8.6" fill="#FFD700"></circle>
+</svg>

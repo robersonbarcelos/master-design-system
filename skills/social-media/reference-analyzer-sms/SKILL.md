@@ -2,7 +2,7 @@
 name: reference-analyzer-sms
 description: "When the user brings external content (carousel, post, thread, video, newsletter) from another creator or brand and wants to understand what made it work, adapt the narrative for their own client/product, or replicate the mechanism in a new piece. Also use when the user mentions 'adaptar', 'referência', 'vi esse post', 'quero replicar', 'baseado nesse conteúdo', 'esse carrossel funcionou', 'analisar esse conteúdo', 'pegar a ideia', 'mesmo estilo', 'mesmo gancho', 'inspirado em'. NOT for analyzing the user's own content performance — use performance-analyzer-sms for that."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Reference Analyzer
@@ -232,7 +232,9 @@ Modificam o tema levemente para aproximar da temática do cliente, mas sem entre
 
 ### ETAPA 2 — Gancho (5 ideias)
 
-Based on the approved variation, generate 5 hook options.
+Com base na variação aprovada, gerar 5 opções de gancho usando os **padrões da biblioteca do `hook-writer-sms`** como critério de classificação (Contrarian, Question, Story Opener, Statistic/Data, List Preview, Bold Claim, Empathy, Before/After, Confession, Authority Steal, Future Shock).
+
+> **Importante:** esta etapa NÃO invoca o `hook-writer-sms` diretamente. Usa os padrões como biblioteca de referência para nomear e estruturar os ganchos — mas o critério de filtro aqui é compatibilidade com o mecanismo da referência original, não geração genérica por plataforma. São processos distintos com o mesmo vocabulário de padrões.
 
 Format:
 ```
@@ -249,6 +251,7 @@ Rules:
 - No AI-sounding copy
 - No corporate language
 - Each hook must be testable — if you removed the rest of the content, would this hook still stop a scroll?
+- Cada gancho deve funcionar dentro do universo narrativo da variação aprovada — não pode soar desconectado do arco
 
 → **STOP. Wait for user to choose or combine hooks before proceeding.**
 
@@ -270,14 +273,7 @@ Após gancho aprovado em ETAPA 2, acionar a skill correspondente ao formato:
 
 **Para carrossel — mensagem de handoff obrigatória:**
 
-> "Gancho aprovado. Acionando `carousel-writer-sms` para desenvolver os slides.
-> Antes de escrever qualquer slide, preciso saber: qual o objetivo desse carrossel?
-> ① Engajamento com gatilho
-> ② Comentário livre
-> ③ Salvar / referência
-> ④ Compartilhar / marcar alguém
-> ⑤ Venda direta
-> ⑥ Seguir"
+> "Gancho aprovado. Acionando `carousel-writer-sms` para desenvolver os slides com o ângulo e gancho definidos aqui. O carousel-writer vai confirmar o objetivo e detalhar os slides."
 
 **GATE — esta skill NÃO escreve slides, NÃO escreve copy de produto, NÃO desenvolve o conteúdo final.**
 O papel desta skill termina com: análise → ângulos → gancho aprovado → handoff.
@@ -292,24 +288,6 @@ O papel desta skill termina com: análise → ângulos → gancho aprovado → h
 - Line breaks are intentional rhythm, not decoration
 - Every slide/paragraph earns the next one
 
-→ Deliver complete copy. Then immediately trigger the downstream skills based on the requested format (see **Production Handoff** below).
-
----
-
-### ETAPA 4 — CTA + Legenda (if Instagram / social)
-
-**3 CTA variations:**
-- Each must feel like a natural conclusion of the tension built
-- Direct, no fluff, no artificial urgency
-- The keyword or action word is the one that was seeded in the content
-
-**3 Caption variations (storytelling style):**
-- Opens immersed in the narrative — NOT summarizing from outside
-- Passes through the key beats of the content
-- Ends with CTA
-- 150-400 words
-- Reads like the creator is talking, not like a marketing brief
-
 ---
 
 ---
@@ -319,9 +297,9 @@ O papel desta skill termina com: análise → ângulos → gancho aprovado → h
 Após copy aprovado em ETAPA 3, acionar automaticamente as skills corretas conforme o formato solicitado:
 
 ### Carrossel Instagram
-1. `carousel-writer-sms` — estrutura slide a slide com tipologia CERNE/SECUNDÁRIO
+1. `carousel-writer-sms` — estrutura slide a slide com tipologia CERNE/SECUNDÁRIO, confirmação de objetivo e desenvolvimento completo dos slides
 2. **Templates do cliente** — verificar se existe `clients/[cliente]/references/` com templates JSON do formato do cliente (ex: TEMPLATE-SLIDE-CLARA.json, TEMPLATE-SLIDE-ESCURA.json, TEMPLATE-SLIDE-TWITTER-POST.json). Se existir: gerar os JSONs dos slides já no padrão do cliente. Se não existir: usar `json-prompt-generator` padrão.
-3. `caption-writer-sms` — 3 legendas storytelling (ETAPA 4)
+3. `caption-writer-sms` — legendas e CTAs após slides aprovados (delegado integralmente ao caption-writer)
 
 ### Reels / Vídeo Curto
 1. `video-script-sms` — roteiro cena a cena, hook primeiros 3s, duração estimada
@@ -454,7 +432,7 @@ Só entregar após todos os itens verificados.
 
 - **hook-writer-sms** — generates hook variations after ETAPA 1 is approved
 - **carousel-writer-sms** — develops full carousel copy after ETAPA 2 hook is approved
-- **caption-writer-sms** — writes platform-native captions in ETAPA 4
+- **caption-writer-sms** — writes platform-native captions and CTAs after production handoff (triggered from ETAPA 3)
 - **content-pattern-analyzer-sms** — analyzes the user's OWN content performance (different use case)
 - **content-repurposer-sms** — reformats the user's own content across platforms (different use case)
 - **production-orchestrator** — the master flow that invokes this skill as ETAPA 0 of CONTEXTO 2

@@ -1,0 +1,58 @@
+---
+import ApplyButton from "./ApplyButton.astro";
+import PanelMockup from "./PanelMockup.astro";
+---
+
+<section
+  id="top"
+  class="relative overflow-hidden pt-36 pb-24 lg:pt-44 lg:pb-32"
+>
+  <!-- Hexágono decorativo de fundo -->
+  <svg
+    class="pointer-events-none absolute -right-32 -top-24 h-[560px] w-[560px] opacity-[0.06]"
+    viewBox="0 0 100 100"
+    aria-hidden="true"
+  >
+    <polygon points="50,3 93,25 93,75 50,97 7,75 7,25" fill="none" stroke="#3399FF" stroke-width="0.6"></polygon>
+  </svg>
+
+  <div class="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-10 lg:px-10">
+    <!-- Coluna texto (60%) -->
+    <div class="relative z-10">
+      <p class="label-text mb-6 text-bright-gold">Intus IA Corporate</p>
+
+      <h1 class="font-display text-[clamp(2.75rem,5vw,4.5rem)] font-extrabold leading-[1.05] tracking-[-0.02em] text-white-ice">
+        Eu uso os agentes que construo.
+        <span class="text-bright-gold">Sua empresa também vai.</span>
+      </h1>
+
+      <p class="mt-7 max-w-[52ch] text-xl leading-relaxed text-white-ice/80">
+        Intus IA Corporate — implementação de IA sob medida para empresas.
+        Não é curso. É a gente entrando na sua operação e construindo junto.
+      </p>
+
+      <p class="mt-4 max-w-[60ch] text-base leading-relaxed text-white-ice/60">
+        Sua empresa não precisa de 10 ferramentas de IA. Precisa de um agente
+        desenhado pro seu processo, com alguém treinado pra operar.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-4">
+        <ApplyButton variant="primary" label="Aplicar" />
+        <a
+          href="#como-funciona"
+          class="label-text inline-flex items-center gap-2 text-white-ice/70 transition-colors hover:text-white-ice"
+        >
+          Ver como funciona
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Coluna visual (40%) -->
+    <div class="relative z-10 lg:pl-4">
+      <PanelMockup variant="hero" />
+    </div>
+  </div>
+</section>

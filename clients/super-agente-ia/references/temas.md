@@ -50,7 +50,7 @@
 | O que é identidade de agente (e por que todo mundo ignora) | Conceito + exemplo de agente com e sem identidade | Carrossel 6 slides | [ ] |
 | Memória persistente vs começar do zero | A diferença prática: agente que cresce vs agente que esquece | Carrossel | [ ] |
 | O que é contexto real de agente | Arquivos-base explicados com exemplos de uso | Carrossel | [ ] |
-| Os 9 módulos do curso — o que você aprende em cada um | Conteúdo transparente do produto | Carrossel grade | [ ] |
+| Os 4 módulos e 16 aulas do curso — o que você aprende em cada um | Conteúdo transparente do produto | Carrossel grade | [ ] |
 | O que é o Kit de Ativação | Templates de identidade, memória e mapa — explicação prática | Carrossel ou Reel | [ ] |
 | As duas rotas de instalação (MyQuickClaw vs VPS Blindado) | Comparativo prático com custo mensal | Carrossel | [ ] |
 | Por que você não precisa saber programar | Estrutura vs código — a distinção que libera a maioria | Reel ou Carrossel | [ ] |
@@ -62,7 +62,7 @@
 
 | Tema | Ângulo sugerido | Urgência | Status |
 |------|-----------------|----------|--------|
-| R$997 em valor → R$87,90 hoje | Value stack completo + âncora + preço | Alta | [ ] |
+| R$997 em valor → R$87,95 hoje | Value stack completo + âncora + preço | Alta | [ ] |
 | 7 dias de garantia incondicional | Eliminar risco: "teste por 7 dias, se não foi pra você..." | Alta | [ ] |
 | O que você leva com o curso (checklist) | 8 entregáveis reais da seção Results da LP | Alta | [ ] |
 | Acesso vitalício vs assinatura mensal | Comparativo financeiro de longo prazo | Média | [ ] |

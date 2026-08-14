@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRD — Claude na Prática · Intus Hub</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; background: #f1f5f9; color: #1a1a1a; }
+
+.wrapper { max-width: 860px; margin: 32px auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 24px 24px 20px; }
+.hero-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #60a5fa; text-transform: uppercase; margin-bottom: 6px; }
+.hero-title { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.1; }
+.hero-title span { color: #f59e0b; }
+.hero-meta { display: flex; gap: 20px; margin-top: 14px; flex-wrap: wrap; }
+.meta-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #94a3b8; }
+.meta-val { color: #e2e8f0; font-weight: 600; }
+
+.tabs { display: flex; gap: 0; border-bottom: 2px solid #e5e7eb; background: #fff; overflow-x: auto; }
+.tab { padding: 12px 18px; font-size: 12px; font-weight: 600; color: #6b7280; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all .15s; }
+.tab.active { color: #1e40af; border-bottom-color: #1e40af; }
+.tab:hover { color: #374151; background: #f9fafb; }
+
+.panel { display: none; padding: 20px; }
+.panel.active { display: block; }
+
+/* Curriculum */
+.modulo { margin-bottom: 12px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.modulo-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #f8f9fa; }
+.modulo-num { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+.modulo-info { flex: 1; }
+.modulo-titulo { font-weight: 700; font-size: 13px; }
+.modulo-sub { font-size: 11px; color: #6b7280; margin-top: 2px; }
+.modulo-tempo { font-size: 11px; font-weight: 700; color: #1e40af; white-space: nowrap; background: #dbeafe; padding: 4px 10px; border-radius: 99px; }
+.modulo-aulas { padding: 0 16px 12px; }
+.aula { display: flex; align-items: flex-start; gap: 8px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+.aula:last-child { border-bottom: none; }
+.aula-num { font-size: 10px; color: #9ca3af; width: 26px; flex-shrink: 0; padding-top: 2px; }
+.aula-nome { flex: 1; font-size: 12px; }
+.aula-nome strong { display: block; font-weight: 600; }
+.aula-nome span { font-size: 11px; color: #6b7280; }
+.aula-tempo { font-size: 11px; color: #6b7280; white-space: nowrap; display: flex; align-items: center; gap: 4px; padding-top: 2px; }
+.aula-tag { font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px; }
+.tag-demo { background: #fef3c7; color: #92400e; }
+.tag-pratica { background: #dcfce7; color: #15803d; }
+
+.m0 .modulo-num { background: #f1f5f9; color: #64748b; }
+.m0 .modulo-header { border-left: 3px solid #94a3b8; }
+.m1 .modulo-num { background: #dbeafe; color: #1e40af; }
+.m1 .modulo-header { border-left: 3px solid #3b82f6; }
+.m2 .modulo-num { background: #ede9fe; color: #6d28d9; }
+.m2 .modulo-header { border-left: 3px solid #8b5cf6; }
+.m3 .modulo-num { background: #fef3c7; color: #92400e; }
+.m3 .modulo-header { border-left: 3px solid #f59e0b; }
+.m4 .modulo-num { background: #dcfce7; color: #15803d; }
+.m4 .modulo-header { border-left: 3px solid #22c55e; }
+.m5 .modulo-num { background: #fee2e2; color: #b91c1c; }
+.m5 .modulo-header { border-left: 3px solid #ef4444; }
+
+.total-bar { background: #1e40af; color: #fff; border-radius: 6px; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.total-bar span { font-size: 11px; color: #93c5fd; }
+.total-bar strong { font-size: 15px; font-weight: 800; }
+
+/* Timeline */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+.stat { background: #f8f9fa; border-radius: 8px; padding: 14px; text-align: center; }
+.stat-val { font-size: 22px; font-weight: 800; color: #1e40af; }
+.stat-label { font-size: 10px; color: #6b7280; margin-top: 2px; }
+
+.timeline { display: flex; gap: 3px; height: 32px; border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+.tl-seg { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { background: #f8f9fa; padding: 9px 12px; text-align: left; font-weight: 600; font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: .4px; border-bottom: 2px solid #e5e7eb; }
+td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+tr:hover td { background: #fafafa; }
+
+/* Preço */
+.price-box { border: 2px solid #f59e0b; border-radius: 10px; padding: 18px; margin-bottom: 16px; background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+.price-main { font-size: 32px; font-weight: 800; color: #92400e; }
+.price-from { font-size: 12px; color: #9ca3af; text-decoration: line-through; }
+
+.comp-row { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid #f0f0f0; font-size: 12px; }
+.comp-row:last-child { border-bottom: none; }
+.comp-name { flex: 1; }
+.comp-price { font-weight: 700; color: #374151; }
+.comp-badge { font-size: 9px; padding: 2px 6px; border-radius: 3px; font-weight: 700; }
+.badge-nos { background: #fef3c7; color: #92400e; }
+.badge-deles { background: #f1f5f9; color: #64748b; }
+
+.cta-box { background: #0f172a; color: #fff; border-radius: 8px; padding: 16px; margin-top: 16px; }
+.cta-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #f59e0b; }
+.cta-item { display: flex; gap: 8px; padding: 5px 0; font-size: 11px; color: #94a3b8; }
+.cta-item strong { color: #e2e8f0; }
+
+/* Persona */
+.persona-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; margin-bottom: 10px; }
+.persona-header { padding: 10px 14px; font-size: 11px; font-weight: 700; color: #fff; }
+.persona-body { padding: 14px; }
+.persona-name { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+.persona-desc { font-size: 11px; color: #6b7280; line-height: 1.6; }
+.tag-pill { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 600; margin-top: 8px; margin-right: 4px; }
+
+.pos-box { border: 1px solid #f59e0b; border-radius: 8px; padding: 14px; background: #fffbeb; margin-bottom: 12px; }
+.pos-label { font-size: 11px; font-weight: 700; color: #92400e; margin-bottom: 6px; }
+.pos-text { font-size: 13px; font-weight: 700; color: #0f172a; line-height: 1.4; }
+
+.diff-box { border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; }
+.diff-item { font-size: 11px; color: #374151; line-height: 2; }
+
+.note-box { background: #f8f9fa; border-radius: 6px; padding: 12px 14px; font-size: 11px; color: #374151; line-height: 1.6; margin-top: 14px; }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <div class="hero">
+    <div class="hero-label">PRD — Minicurso Low Ticket · Intus Hub · Julho 2026</div>
+    <div class="hero-title">Claude na <span>Prática</span></div>
+    <div class="hero-meta">
+      <div class="meta-item">⏱ Conteúdo total: <span class="meta-val">1h 52min</span></div>
+      <div class="meta-item">📚 Aulas: <span class="meta-val">16 aulas</span></div>
+      <div class="meta-item">📦 Módulos: <span class="meta-val">5 módulos</span></div>
+      <div class="meta-item">💰 Ticket: <span class="meta-val">R$47–R$97</span></div>
+      <div class="meta-item">🎯 Formato: <span class="meta-val">Assíncrono · Vitalício</span></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('curriculo', this)">📚 Currículo</div>
+    <div class="tab" onclick="showTab('timeline', this)">⏱ Timeline</div>
+    <div class="tab" onclick="showTab('preco', this)">💰 Preço & Oferta</div>
+    <div class="tab" onclick="showTab('persona', this)">🎯 Persona & Posicionamento</div>
+  </div>
+
+  <!-- CURRÍCULO -->
+  <div id="tab-curriculo" class="panel active">
+
+    <div class="total-bar">
+      <span>Tempo total de conteúdo</span>
+      <strong>1h 52min · 16 aulas · 5 módulos</strong>
+    </div>
+
+    <!-- M0 -->
+    <div class="modulo m0">
+      <div class="modulo-header">
+        <div class="modulo-num">0</div>
+        <div class="modulo-info">
+          <div class="modulo-titulo">Boas-vindas</div>
+          <div class="modulo-sub">O que você vai construir neste curso</div>
+        </div>
+        <div class="modulo-tempo">5 min</div>
+      </div>
+      <div class="modulo-aulas">
+        <div class="aula">
+          <div class="aula-num">0.1</div>
+          <div class="aula-nome">
+            <strong>Como aproveitar o curso ao máximo</strong>
+            <span>Estrutura, ritmo, exercícios e onde tirar dúvidas</span>
+          </div>
+          <div class="aula-tempo">5 min</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M1 -->
+    <div class="modulo m1">
+      <div class="modulo-header">
+        <div class="modulo-num">1</div>
+        <div class="modulo-info">
+          <div class="modulo-titulo">Bases do Claude</div>
+          <div class="modulo-sub">Entender antes de usar — os 3 modos e quando usar cada um</div>
+        </div>
+        <div class="modulo-tempo">18 min</div>
+      </div>
+      <div class="modulo-aulas">
+        <div class="aula">
+          <div class="aula-num">1.1</div>
+          <div class="aula-nome">
+            <strong>Claude vs. ChatGPT — por que a troca vale a pena</strong>
+            <span>Diferenciais reais, contexto longo, raciocínio</span>
+          </div>
+          <div class="aula-tempo">5 min</div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">1.2</div>
+          <div class="aula-nome">
+            <strong>Os 3 modos: Chat · Cowork · Code — e quando usar cada um</strong>
+            <span>Tabela comparativa + Chat vs. Cowork em 60s: prós e contras de cada modo antes de entrar em qualquer um</span>
+          </div>
+          <div class="aula-tempo">8 min <span class="aula-tag tag-demo">DEMO</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">1.3</div>
+          <div class="aula-nome">
+            <strong>Setup inicial: Pro vs. Free e seu primeiro Projeto</strong>
+            <span>Diferença de planos, o que vale a pena, criar e configurar um Projeto com memória</span>
+          </div>
+          <div class="aula-tempo">5 min <span class="aula-tag tag-pratica">PRÁTICA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="modulo m2">
+      <div class="modulo-header">
+        <div class="modulo-num">2</div>
+        <div class="modulo-info">
+          <div class="modulo-titulo">Claude Chat — Seu Assistente do Dia a Dia</div>
+          <div class="modulo-sub">Voice mode, Projetos, Quick Entry e produtividade real</div>
+        </div>
+        <div class="modulo-tempo">20 min</div>
+      </div>
+      <div class="modulo-aulas">
+        <div class="aula">
+          <div class="aula-num">2.1</div>
+          <div class="aula-nome">
+            <strong>Artifacts — o Claude entrega resultados, não só texto</strong>
+            <span>HTML, tabelas, SVG, código ao vivo · como pedir e baixar outputs reais · Voice Mode citado como bônus Mac</span>
+          </div>
+          <div class="aula-tempo">7 min <span class="aula-tag tag-demo">DEMO</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">2.2</div>
+          <div class="aula-nome">
+            <strong>Projetos com memória — configure uma vez, use sempre</strong>
+            <span>Instruções de Projeto, tom de voz, contexto do negócio</span>
+          </div>
+          <div class="aula-tempo">7 min <span class="aula-tag tag-pratica">PRÁTICA</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">2.3</div>
+          <div class="aula-nome">
+            <strong>Conectores: Google Calendar + Gmail + Airtable</strong>
+            <span>Claude que age — cria eventos, rascunha emails, salva tarefas</span>
+          </div>
+          <div class="aula-tempo">6 min <span class="aula-tag tag-demo">DEMO</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="modulo m3">
+      <div class="modulo-header">
+        <div class="modulo-num">3</div>
+        <div class="modulo-info">
+          <div class="modulo-titulo">Claude Cowork — Delegue Missões Completas</div>
+          <div class="modulo-sub">Plugins, análise competitiva, criação de arquivos autônoma</div>
+        </div>
+        <div class="modulo-tempo">20 min</div>
+      </div>
+      <div class="modulo-aulas">
+        <div class="aula">
+          <div class="aula-num">3.1</div>
+          <div class="aula-nome">
+            <strong>Como dar uma missão completa — não uma pergunta</strong>
+            <span>Anatomia de um prompt de delegação: objetivo + contexto + formato + restrições. A diferença na saída é imediata.</span>
+          </div>
+          <div class="aula-tempo">5 min</div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">3.2</div>
+          <div class="aula-nome">
+            <strong>Plugins oficiais: Marketing, Design, Data</strong>
+            <span>/competitive-brief · /email-sequence · /design-system ao vivo</span>
+          </div>
+          <div class="aula-tempo">8 min <span class="aula-tag tag-demo">DEMO</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">3.3</div>
+          <div class="aula-nome">
+            <strong>Cowork criando arquivos reais</strong>
+            <span>Excel · Word · PPT · PDF direto na sua pasta</span>
+          </div>
+          <div class="aula-tempo">7 min <span class="aula-tag tag-pratica">PRÁTICA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="modulo m4">
+      <div class="modulo-header">
+        <div class="modulo-num">4</div>
+        <div class="modulo-info">
+          <div class="modulo-titulo">Claude Code — Construa Sem Programar</div>
+          <div class="modulo-sub">Desktop App, Skills, MCPs e o que só o Code desbloqueia</div>
+        </div>
+        <div class="modulo-tempo">22 min</div>
+      </div>
+      <div class="modulo-aulas">
+        <div class="aula">
+          <div class="aula-num">4.1</div>
+          <div class="aula-nome">
+            <strong>Claude Code no Desktop App — 2 cliques para começar</strong>
+            <span>Aba Código do Desktop: sem terminal, sem instalação. Primeiro projeto funcionando em minutos. Terminal (Warp) mencionado como próximo nível.</span>
+          </div>
+          <div class="aula-tempo">6 min <span class="aula-tag tag-pratica">PRÁTICA</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">4.2</div>
+          <div class="aula-nome">
+            <strong>Crie sua primeira landing page sem código</strong>
+            <span>Prompt → HTML → browser em tempo real</span>
+          </div>
+          <div class="aula-tempo">8 min <span class="aula-tag tag-demo">DEMO</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">4.3</div>
+          <div class="aula-nome">
+            <strong>Skills — instale, entenda e use o pack exclusivo</strong>
+            <span>① Skill vs. Plugin: diferença em 60s · ② Onde achar skills de qualidade (skills.sh, ClawHub) · ③ Pack exclusivo do curso instalado e funcionando · Skill Creator: teaser para o curso completo</span>
+          </div>
+          <div class="aula-tempo">8 min <span class="aula-tag tag-pratica">PRÁTICA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- M5 -->
+    <div class="modulo m5">
+      <div class="modulo-header">
+        <div class="modulo-num">5</div>
+        <div class="modulo-info">
+          <div class="modulo-titulo">Agentes de IA na Prática</div>
+          <div class="modulo-sub">Como o Claude se multiplica, demo ao vivo e prévia do que vem depois</div>
+        </div>
+        <div class="modulo-tempo">27 min</div>
+      </div>
+      <div class="modulo-aulas">
+        <div class="aula">
+          <div class="aula-num">5.1</div>
+          <div class="aula-nome">
+            <strong>O que são agentes e como o Claude se multiplica</strong>
+            <span>Conceito de subagentes com analogia simples — sem setup técnico</span>
+          </div>
+          <div class="aula-tempo">6 min</div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">5.2</div>
+          <div class="aula-nome">
+            <strong>Demo ao vivo: squad pesquisador + escritor</strong>
+            <span>Agente 1 pesquisa, Agente 2 escreve — você assiste funcionando</span>
+          </div>
+          <div class="aula-tempo">8 min <span class="aula-tag tag-demo">DEMO</span></div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">5.3</div>
+          <div class="aula-nome">
+            <strong>MCPs em 3 minutos — o que são e os mais usados</strong>
+            <span>Conceito, exemplos práticos (Perplexity, Airtable, Notion) — teaser para o próximo nível</span>
+          </div>
+          <div class="aula-tempo">5 min</div>
+        </div>
+        <div class="aula">
+          <div class="aula-num">5.4</div>
+          <div class="aula-nome">
+            <strong>Recap + o que você já domina + convite para continuar</strong>
+            <span>Recap visual do sistema aprendido · O que ainda não vimos (Dispatch, Hooks, Remotion, MCP avançado) · Por que o próximo passo é o Domínio Claude · Oferta e CTA direto</span>
+          </div>
+          <div class="aula-tempo">8 min</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="tab-timeline" class="panel">
+
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-val">16</div><div class="stat-label">Aulas no total</div></div>
+      <div class="stat"><div class="stat-val">1h52</div><div class="stat-label">Tempo total</div></div>
+      <div class="stat"><div class="stat-val">~7</div><div class="stat-label">min por aula (média)</div></div>
+    </div>
+
+    <div style="margin-bottom:8px;font-size:11px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Distribuição de tempo por módulo</div>
+    <div class="timeline">
+      <div class="tl-seg" style="width:4.5%;background:#94a3b8;" title="M0 – Boas-vindas: 5min">M0</div>
+      <div class="tl-seg" style="width:16.1%;background:#3b82f6;" title="M1 – Bases: 18min">M1</div>
+      <div class="tl-seg" style="width:17.9%;background:#8b5cf6;" title="M2 – Chat: 20min">M2</div>
+      <div class="tl-seg" style="width:17.9%;background:#f59e0b;" title="M3 – Cowork: 20min">M3</div>
+      <div class="tl-seg" style="width:19.6%;background:#22c55e;" title="M4 – Code: 22min">M4</div>
+      <div class="tl-seg" style="width:24.1%;background:#ef4444;" title="M5 – Squads: 27min">M5</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Módulo</th>
+          <th>Aulas</th>
+          <th style="text-align:right">Tempo</th>
+          <th style="text-align:right">% do curso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>M0 · Boas-vindas</td><td>1</td><td style="text-align:right;font-weight:700;">5 min</td><td style="text-align:right;color:#6b7280;">4%</td></tr>
+        <tr><td style="color:#3b82f6;font-weight:600;">M1 · Bases do Claude</td><td>3</td><td style="text-align:right;font-weight:700;">18 min</td><td style="text-align:right;color:#6b7280;">16%</td></tr>
+        <tr><td style="color:#8b5cf6;font-weight:600;">M2 · Claude Chat</td><td>3</td><td style="text-align:right;font-weight:700;">20 min</td><td style="text-align:right;color:#6b7280;">18%</td></tr>
+        <tr><td style="color:#f59e0b;font-weight:600;">M3 · Claude Cowork</td><td>3</td><td style="text-align:right;font-weight:700;">20 min</td><td style="text-align:right;color:#6b7280;">18%</td></tr>
+        <tr><td style="color:#22c55e;font-weight:600;">M4 · Claude Code</td><td>3</td><td style="text-align:right;font-weight:700;">22 min</td><td style="text-align:right;color:#6b7280;">20%</td></tr>
+        <tr><td style="color:#ef4444;font-weight:600;">M5 · Agentes de IA na Prática</td><td>4</td><td style="text-align:right;font-weight:700;">27 min</td><td style="text-align:right;color:#6b7280;">24%</td></tr>
+      </tbody>
+      <tfoot>
+        <tr style="background:#0f172a;color:#fff;">
+          <td style="padding:10px 12px;font-weight:700;">TOTAL</td>
+          <td style="padding:10px 12px;font-weight:700;">16 aulas</td>
+          <td style="padding:10px 12px;text-align:right;font-weight:800;font-size:15px;">1h 52min</td>
+          <td style="padding:10px 12px;text-align:right;">100%</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="note-box" style="margin-top:16px;">
+      <strong>Regra de ouro do conteúdo:</strong> Cada aula tem 1 objetivo único, 1 demo ou exercício prático, e termina com 1 ação clara para o aluno fazer. Sem enrolação — câmera na tela, mão na massa.
+    </div>
+  </div>
+
+  <!-- PREÇO -->
+  <div id="tab-preco" class="panel">
+
+    <div class="price-box">
+      <div style="font-size:11px;color:#92400e;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">Ticket recomendado — Low Ticket</div>
+      <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
+        <div class="price-from">de R$197</div>
+        <div class="price-main">R$47</div>
+        <div style="font-size:11px;color:#92400e;font-weight:600;">lançamento · pagamento único · vitalício</div>
+      </div>
+      <div style="font-size:11px;color:#6b7280;">Após lançamento: R$67 ou R$97 · Hotmart / Lastlink</div>
+    </div>
+
+    <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">Benchmark de preço — concorrentes</div>
+    <div style="background:#f8f9fa;border-radius:8px;padding:12px 14px;margin-bottom:18px;">
+      <div class="comp-row"><span class="comp-name">Ninja da Copy (112 prompts)</span><span class="comp-price">R$27</span><span class="comp-badge badge-deles">kit</span></div>
+      <div class="comp-row"><span class="comp-name">Hebrom Culture (71 prompts)</span><span class="comp-price">R$47</span><span class="comp-badge badge-deles">kit</span></div>
+      <div class="comp-row"><span class="comp-name">Avora AI (500 skills)</span><span class="comp-price">R$47</span><span class="comp-badge badge-deles">kit</span></div>
+      <div class="comp-row"><span class="comp-name">42 Skills para Creators</span><span class="comp-price">R$59,90</span><span class="comp-badge badge-deles">kit skills</span></div>
+      <div class="comp-row" style="background:#fffbeb;padding:8px 6px;border-radius:6px;margin:2px -2px;"><span class="comp-name" style="font-weight:700;">🎯 Claude na Prática (nosso)</span><span class="comp-price" style="color:#92400e;">R$47–R$97</span><span class="comp-badge badge-nos">CURSO</span></div>
+      <div class="comp-row"><span class="comp-name">Claude Code do Zero (cloudcoding)</span><span class="comp-price">R$197</span><span class="comp-badge badge-deles">curso</span></div>
+      <div class="comp-row"><span class="comp-name">Mestres do Claude</span><span class="comp-price">R$297</span><span class="comp-badge badge-deles">curso</span></div>
+    </div>
+
+    <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">Argumento de preço</div>
+    <div class="note-box" style="margin-bottom:18px;">
+      Por R$47 você não recebe prompts prontos que ficam desatualizados — você aprende o <strong>sistema completo do Claude</strong>: Chat, Cowork, Code, Skills e Squads. É o curso mais completo no menor preço do mercado. <strong>Sem enrolação: 1h30 de conteúdo 100% prático.</strong>
+    </div>
+
+    <div class="cta-box">
+      <h3>Funil de upsell natural</h3>
+      <div class="cta-item"><strong>Entrada:</strong> Claude na Prática · R$47 (este minicurso)</div>
+      <div class="cta-item"><strong>Upsell 1:</strong> Domínio Claude (curso completo) · R$497 · ofertado no final do curso</div>
+      <div class="cta-item"><strong>Upsell 2:</strong> Mentoria / Squad Intus Hub · R$1.800+</div>
+      <div style="margin-top:10px;font-size:10px;color:#64748b;">O minicurso é a porta de entrada. Qualifica o lead, prova valor e aquece para o ticket maior.</div>
+    </div>
+  </div>
+
+  <!-- PERSONA -->
+  <div id="tab-persona" class="panel">
+
+    <div class="persona-card">
+      <div class="persona-header" style="background:#3b82f6;">PERSONA PRIMÁRIA</div>
+      <div class="persona-body">
+        <div class="persona-name">João, 32 anos — Infoprodutor / Creator</div>
+        <div class="persona-desc">Vende cursos ou mentorias. Usa ChatGPT há 1 ano mas sente que "não tá tirando o máximo". Ouviu falar do Claude Code mas tem medo do terminal. Quer produzir mais conteúdo, escalar sem contratar e ter mais tempo. Tomador de decisão rápido se o preço é acessível.</div>
+        <div>
+          <span class="tag-pill" style="background:#dbeafe;color:#1d4ed8;">Infoprodutor</span>
+          <span class="tag-pill" style="background:#dbeafe;color:#1d4ed8;">Creator</span>
+          <span class="tag-pill" style="background:#dbeafe;color:#1d4ed8;">Consultor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-header" style="background:#8b5cf6;">PERSONA SECUNDÁRIA</div>
+      <div class="persona-body">
+        <div class="persona-name">Ana, 28 anos — Gestora / Empreendedora</div>
+        <div class="persona-desc">Tem negócio próprio (agência, serviços, e-commerce). Faz muita coisa manual que poderia automatizar. Curiosa com IA mas nunca teve um guia prático e completo. Quer aprender a delegar pro Claude sem virar refém de tutoriais fragmentados.</div>
+        <div>
+          <span class="tag-pill" style="background:#ede9fe;color:#6d28d9;">Gestora</span>
+          <span class="tag-pill" style="background:#ede9fe;color:#6d28d9;">Empreendedora</span>
+          <span class="tag-pill" style="background:#ede9fe;color:#6d28d9;">Social media</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pos-box">
+      <div class="pos-label">POSICIONAMENTO CENTRAL</div>
+      <div class="pos-text">"1h30 para aprender o sistema completo do Claude — do Chat ao squad de agentes. Sem enrolação, sem teoria: você sai do curso com projetos funcionando."</div>
+    </div>
+
+    <div class="diff-box">
+      <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px;">Diferenciais vs. Concorrentes</div>
+      <div class="diff-item">✅ <strong>Único minicurso</strong> que cobre Chat + Cowork + Code + Skills + Squads em 1h30</div>
+      <div class="diff-item">✅ <strong>Preço de kit</strong> (R$47) com conteúdo de curso completo</div>
+      <div class="diff-item">✅ <strong>Foco em negócios digitais</strong> — exemplos reais para infoprodutores e criadores</div>
+      <div class="diff-item">✅ <strong>Porta de entrada</strong> para o ecossistema Intus Hub (upsell natural para R$497)</div>
+      <div class="diff-item">✅ <strong>Sem terminal obrigatório no início</strong> — evolui gradualmente até Code e Squads</div>
+    </div>
+
+  </div>
+
+</div><!-- /wrapper -->
+
+<script>
+function showTab(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+
+</body>
+</html>

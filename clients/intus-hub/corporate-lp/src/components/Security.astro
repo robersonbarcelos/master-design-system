@@ -1,0 +1,60 @@
+---
+const points = [
+  {
+    title: "Classificação de dados",
+    description: "Mapeamos o que é dado sensível na sua empresa antes de qualquer linha de código — não depois.",
+  },
+  {
+    title: "Controle de acesso",
+    description: "Você decide quem vê o quê. Permissões desenhadas junto com a arquitetura do agente, não adicionadas depois.",
+  },
+  {
+    title: "Adequação e armazenamento",
+    description: "Adequação à LGPD quando aplicável, e definição clara de onde tudo fica armazenado — documentado na Fase 2.",
+  },
+];
+---
+
+<section id="seguranca" class="relative py-20 lg:py-28">
+  <div class="absolute inset-x-0 top-0 h-px bg-intus-blue/40"></div>
+
+  <div class="reveal mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[2fr_1px_3fr] lg:gap-16">
+      <div>
+        <p class="label-text mb-4 text-light-blue/60">Segurança & dados sensíveis</p>
+        <h2 class="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.01em] text-white-ice">
+          Dados sensíveis fazem parte do desenho, não são um detalhe técnico depois.
+        </h2>
+        <p class="mt-6 max-w-[50ch] text-base leading-relaxed text-white-ice/60">
+          Classificação, controle de acesso e adequação à LGPD são parte da Fase 2 — antes de
+          qualquer linha de código.
+        </p>
+      </div>
+
+      <div class="hidden bg-intus-blue/20 lg:block"></div>
+
+      <ul class="divide-y divide-intus-blue/15 border-t border-intus-blue/15">
+        {points.map((point) => (
+          <li class="flex gap-5 py-6 first:pt-0 last:pb-0">
+            <svg
+              class="mt-1 h-5 w-5 shrink-0 text-light-blue/50"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke-linejoin="round" />
+            </svg>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white-ice">{point.title}</h3>
+              <p class="mt-1.5 max-w-[55ch] text-base leading-relaxed text-white-ice/60">
+                {point.description}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

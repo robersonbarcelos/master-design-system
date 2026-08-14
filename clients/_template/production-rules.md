@@ -83,3 +83,70 @@ Varrer o rascunho e eliminar qualquer ocorrência de:
 - [ex: Frases curtas — não são IA, são escolha de ritmo]
 - [ex: Vocabulário técnico do nicho — são termos da área]
 - [ex: Números no início — dado concreto abrindo o texto é boa abertura]
+
+---
+
+## 00-B | PADRÕES DE AUSÊNCIA DE VOZ (NOVO — preencher no onboarding)
+
+> Esta seção é diferente do guia de voz. Não descreve O QUE a marca faz — descreve O QUE A MARCA NUNCA FAZ.
+> Preencher a partir de análise de copies reais aprovados. Cada regra deve ter evidência nas amostras.
+
+### Como preencher esta seção
+
+**Passo 1:** Coletar 3-5 copies reais aprovados do cliente (posts, legendas, textos de LP).
+
+**Passo 2:** Analisar os padrões de ausência — o que NUNCA aparece em nenhuma amostra:
+- Pontuação ausente em todas as amostras?
+- Tipo de frase ausente?
+- Palavras ou expressões que nunca aparecem?
+- Tipo de abertura que nunca é usado?
+- Tipo de fechamento que nunca aparece?
+
+**Passo 3:** Registrar abaixo como regras técnicas, não adjetivos. Exemplo correto: "Travessão: 0 de 5 amostras usaram — proibido." Exemplo errado: "Tom: evitar formalidade excessiva."
+
+---
+
+### Pontuação — ausências confirmadas
+| Elemento | Regra | Evidência |
+|---|---|---|
+| [ex: Travessão —] | [ex: NUNCA usar] | [ex: 0 de 5 amostras] |
+| [ex: Reticências ...] | [ex: NUNCA usar] | [ex: 0 de 4 amostras] |
+| [ex: Ponto e vírgula ;] | [ex: NUNCA usar] | [ex: ausente em todas] |
+
+### Abertura — o que esta voz nunca faz
+| Padrão | Regra | Evidência |
+|---|---|---|
+| [ex: Começar com "Nós somos"] | [ex: NUNCA — abre sempre em ação ou dado] | [ex: 0 de 5] |
+| [ex: Pergunta retórica de abertura] | [ex: NUNCA — abre com afirmação] | [ex: 0 de 5] |
+| [ex: Começar com "Você sabia que"] | [ex: NUNCA] | [ex: 0 de 4] |
+
+### Fechamento — o que esta voz nunca faz
+| Padrão | Regra | Evidência |
+|---|---|---|
+| [ex: CTA "Curta se concorda"] | [ex: NUNCA] | [ex: 0 de 5] |
+| [ex: "Em conclusão..." / "Para finalizar..."] | [ex: NUNCA] | [ex: ausente em todas] |
+| [ex: CTA vago "Saiba mais"] | [ex: NUNCA — sempre especifica o que o leitor recebe] | [ex: 0 de 5] |
+
+### Vocabulário — palavras e expressões proibidas por ausência
+| Palavra / Expressão | Por que ausente | Substituição |
+|---|---|---|
+| [ex: "Incrível"] | [ex: Nunca apareceu — voz evita adjetivos hiperbólicos] | [ex: Usar dado concreto no lugar] |
+| [ex: "Transforme sua vida"] | [ex: 0 de 5 — voz não usa promessa vaga] | [ex: Especificar o resultado com número] |
+| [ex: "Revolucione"] | [ex: Ausente — soa como marketing genérico] | [ex: Descrever o mecanismo real] |
+
+### Estrutura — padrões que esta voz evita
+| Padrão estrutural | Regra | Evidência |
+|---|---|---|
+| [ex: Trio de abstratos: "X, Y e Z"] | [ex: NUNCA — escolhe um e aprofunda] | [ex: 0 de 5] |
+| [ex: Pergunta + resposta imediata no mesmo parágrafo] | [ex: NUNCA] | [ex: ausente em todas] |
+| [ex: Lista de mais de 5 bullets] | [ex: NUNCA — máx 3 bullets por bloco] | [ex: 0 de 4] |
+
+### Tom — o que esta voz nunca soa
+| Tom proibido | Evidência |
+|---|---|
+| [ex: Motivacional / coach-speak] | [ex: Nunca apareceu — voz é analítica, não inspiracional] |
+| [ex: Corporativo / institucional] | [ex: Ausente — voz é sempre pessoal e direta] |
+| [ex: Excessivamente informal / gíria] | [ex: 0 de 5 — voz mantém registro profissional] |
+
+> Adicione novos padrões de ausência à medida que a produção avança.
+> Cada novo padrão descoberto em produção deve ser registrado aqui com data e contexto.

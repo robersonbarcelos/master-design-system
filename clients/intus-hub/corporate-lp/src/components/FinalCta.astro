@@ -1,0 +1,24 @@
+---
+import ApplyButton from "./ApplyButton.astro";
+---
+
+<section class="relative overflow-hidden py-24 text-center lg:py-32">
+  <div class="divider-gradient absolute inset-x-0 top-0"></div>
+
+  <div
+    class="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/3 rounded-full opacity-20 blur-3xl"
+    style="background: radial-gradient(circle, rgba(0,85,255,0.35), transparent 70%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="reveal relative mx-auto max-w-3xl px-6 lg:px-10">
+    <h2 class="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.02em] text-white-ice">
+      Quanto custa mais um mês de trabalho sem IA rodando de verdade?
+    </h2>
+
+    <div class="mt-10 flex justify-center">
+      <ApplyButton variant="primary" label="Aplicar" />
+    </div>
+  </div>
+</section>

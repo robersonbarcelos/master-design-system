@@ -1,0 +1,66 @@
+---
+const faqs = [
+  {
+    q: "Minha empresa precisa de que tamanho pra fazer sentido?",
+    a: "Não é sobre tamanho, é sobre ter um processo real rodando que vale a pena automatizar. Isso é avaliado na Fase 1 — se não fizer sentido, dizemos antes de você pagar por mais nada.",
+  },
+  {
+    q: "Quanto tempo até os primeiros resultados?",
+    a: "Varia por complexidade da operação, mas o Relatório de Oportunidades da Fase 1 já entrega ganhos mapeados e priorizados antes da implementação começar.",
+  },
+  {
+    q: "Preciso ter equipe de TI própria?",
+    a: "Não. A Fase 4 (Treinar equipe) existe exatamente pra deixar seu time apto a operar e ajustar o agente, mesmo sem um time técnico dedicado.",
+  },
+  {
+    q: "Isso substitui minha equipe atual?",
+    a: "Não. O agente assume o trabalho manual repetitivo — sua equipe continua decidindo, só para de perder tempo com o que pode rodar sozinho.",
+  },
+  {
+    q: "Quais áreas do negócio vocês cobrem?",
+    a: "Depende do que a Fase 1 mapear como prioridade real de ganho. Não vendemos pacote fechado — desenhamos pro seu processo específico.",
+  },
+  {
+    q: "Como meus dados ficam protegidos durante o processo?",
+    a: "Classificação de dados sensíveis, controle de acesso e adequação à LGPD fazem parte da Fase 2, antes de qualquer linha de código — não é um adendo depois.",
+  },
+  {
+    q: "Minha equipe fica dependente de vocês depois?",
+    a: "Não é essa a proposta. A Fase 4 treina seu time pra operar, ajustar e expandir os agentes sem depender da gente — e a garantia é por marco, não por prazo de contrato.",
+  },
+  {
+    q: "Como começar?",
+    a: "Você aplica pelo formulário. Avaliamos se faz sentido pra sua operação e, se sim, agendamos a Fase 1 com a equipe técnica.",
+  },
+];
+---
+
+<section id="faq" class="relative py-20 lg:py-28">
+  <div class="divider-gradient absolute inset-x-0 top-0"></div>
+
+  <div class="reveal mx-auto max-w-3xl px-6 lg:px-10">
+    <p class="label-text mb-4 text-light-blue/70">FAQ</p>
+    <h2 class="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-[1.2] tracking-[-0.01em] text-white-ice">
+      Perguntas frequentes
+    </h2>
+
+    <div class="mt-10 divide-y divide-electric-blue/10 border-t border-electric-blue/10">
+      {faqs.map((item) => (
+        <details class="group py-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-medium text-white-ice marker:content-none transition-colors duration-200 hover:text-light-blue">
+            {item.q}
+            <span
+              class="shrink-0 text-2xl font-light text-light-blue/60 transition-transform duration-200 group-open:rotate-45"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </summary>
+          <p class="mt-3 max-w-[65ch] text-base leading-relaxed text-white-ice/65">
+            {item.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

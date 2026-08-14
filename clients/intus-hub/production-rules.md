@@ -87,6 +87,29 @@ Seu super agente de IA no ar em menos de 5 minutos. Sem saber programar.
 
 ## 05 | REGRAS VISUAIS PARA SOCIAL
 
+### TEMPLATE-SLIDE-TWITTER-POST — Regras invioláveis
+
+Ao gerar qualquer JSON para Intus Hub usando o TEMPLATE-SLIDE-TWITTER-POST:
+
+**Tipografia travada:**
+
+| Elemento | Valor fixo | Proibido |
+|---|---|---|
+| Corpo do texto | **34px** regular sans-serif `#1A1A1A` | 38px, 40px, 44px ou qualquer outro |
+| Header nome | **26px** semibold sans-serif `#1A1A1A` | qualquer outro tamanho |
+| @handle | **22px** regular sans-serif `#888888` | qualquer outro tamanho |
+| Avatar | **64px** círculo | qualquer outro tamanho |
+
+**Destaque no copy:**
+- **Negrito (bold) é o ÚNICO recurso de destaque permitido no corpo do texto**
+- **ZERO cor no copy** — nem laranja, nem dourado, nem azul, nem nenhuma outra cor
+- Cor existe apenas na imagem, nunca no texto
+- Slides de referência aprovados: "68% dos novos protocolos DeFi" e "Uma corretora organizou uma competição ao vivo"
+
+> Slides com fonte maior (40-44px) ou com texto laranja quebraram a consistência visual em produção anterior. 34px + bold pontual + zero cor é o padrão aprovado.
+
+---
+
 - Fundo: `#0a0a0a` ou `#111111` — nunca branco
 - Headline: Syne 800 — branco `#F0F4FF` ou laranja `#E84000`
 - Laranja como acento — não preencher grandes áreas

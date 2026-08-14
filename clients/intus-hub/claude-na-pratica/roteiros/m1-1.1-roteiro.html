@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M1-1.1 · Claude vs. ChatGPT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M1 · Aula 1.1 · CONCEITUAL · 5 min</span>
+  <span class="titulo">Claude vs. ChatGPT: por que a troca vale a pena</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">A pergunta direta</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Primeira pergunta que todo mundo faz: qual a diferença real entre Claude e ChatGPT?</p>
+    <p>Vou responder sem enrolar. E com honestidade, porque nem sempre o Claude é a melhor escolha.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Contexto longo</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide: tabela comparativa simples</div>
+  <div class="fala">
+    <p>A diferença mais prática: contexto.</p>
+    <p>O Claude consegue processar até 200 mil tokens em uma única conversa. Isso equivale a aproximadamente 150 mil palavras.</p>
+    <p>Na prática: você consegue jogar um roteiro de 80 páginas, um contrato inteiro, um documento longo. E o Claude lembra de tudo até o final da conversa, sem perder o fio.</p>
+    <p>O ChatGPT chega a 128 mil tokens. Menos. E na prática, começa a perder contexto antes disso.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Raciocínio e escrita</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Segundo ponto: raciocínio e qualidade de escrita.</p>
+    <p>O Claude foi treinado com foco em ser cuidadoso, detalhado e preciso. Ele erra menos. O que a Anthropic chama de menos alucinação.</p>
+    <p>Para quem usa IA para escrever, analisar ou tomar decisões, isso importa muito. Você não quer ter que verificar cada resposta duas vezes.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Ecossistema integrado</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Slide: tabela Chat / Cowork / Code</div>
+  <div class="fala">
+    <p>Mas o argumento mais forte não é o contexto nem a escrita. É o ecossistema.</p>
+    <p>O Claude tem três modos integrados: Chat, Cowork e Code.</p>
+    <p>Chat para conversa e escrita. Cowork para missões completas com entregável real. Code para construir, automatizar e agir no seu computador.</p>
+    <p>Isso não existe no ChatGPT. Lá você tem o chat e plugins separados, sem integração real. Aqui é um sistema.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Honestidade: quando o ChatGPT é melhor</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>E sendo honesto: se você precisa gerar imagens, usar voz, ou acessar um plugin específico que só existe no ChatGPT, o ChatGPT é a escolha certa.</p>
+    <p>Não é rivalidade. É ferramenta certa pra cada trabalho.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 6</span>
+    <span class="cena-titulo">Conclusão</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>A conclusão não é qual é melhor. É qual serve pro seu fluxo.</p>
+    <p>Se você trabalha com escrita, análise, documentos longos, automação e quer um sistema integrado: o Claude foi feito pra você.</p>
+    <p>É exatamente isso que esse curso vai te ensinar a usar.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>Nenhuma ação técnica. O aluno fecha a aula com clareza: "entendi por que estou aqui."</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Tom conversacional: como explicando pra um amigo, não uma aula magistral.</li>
+    <li>Não falar mal do ChatGPT. Posicionar como escolha estratégica.</li>
+    <li>Cena 2: exemplo concreto de 80 páginas. Tornar real, não abstrato.</li>
+    <li>Cena 4: o ecossistema integrado é o argumento principal. Dar peso a ele.</li>
+    <li>Cena 5: honestidade gera confiança. Não pular esse ponto.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aula 3.3 · Cowork criando arquivos reais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --bg:#EDE9E1;--bg2:#E4DFD6;--white:#FAF8F4;
+  --navy:#1E3A5F;--amber:#F55022;--amber-dark:#C03A0E;--amber-bg:#FEF0EB;--amber-text:#7A2010;
+  --ink:#1A1714;--body:#3D3530;--muted:#7A7068;--border:#D4CFC6;
+  --green:#15803D;--green-bg:#DCFCE7;--green-border:#BBF7D0;
+  --display:"Inter Tight",system-ui,sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.36;overflow-x:hidden}
+.page{max-width:1100px;margin:0 auto;padding:40px 28px 80px}
+.mast{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:20px;border-bottom:3px solid var(--navy);position:relative}
+.mast:after{content:"";position:absolute;bottom:-3px;right:0;width:40px;height:3px;background:var(--amber)}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.wordmark b{color:var(--amber)}
+.badge-aula{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.55}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;margin:44px 0 32px}
+.hero-main{position:relative;padding:44px;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.18)}
+.hero-main:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.65);font-weight:800;margin-bottom:16px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(36px,5.5vw,64px);line-height:.9;letter-spacing:-.04em;margin:0 0 20px;color:#fff;max-width:740px}
+.accent{color:var(--amber)}
+.lead{font-size:19px;line-height:1.48;color:rgba(255,255,255,.75);max-width:620px;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.chip.hot{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.13);color:rgba(255,255,255,.85)}
+.side{display:flex;flex-direction:column;gap:12px}
+.signal{border:1px solid var(--border);border-radius:20px;padding:20px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:3px solid var(--amber)}
+.signal small{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber-dark);font-weight:700}
+.signal strong{display:block;font-size:20px;line-height:1.05;letter-spacing:-.03em;margin:9px 0 7px;color:var(--ink)}
+.signal p{color:var(--body);margin:0;font-size:14px;line-height:1.5}
+.statement{border-radius:24px;padding:38px 44px;margin:6px 0 40px;background:var(--white);border:1px solid var(--border);border-left:5px solid var(--navy);box-shadow:0 4px 24px rgba(0,0,0,.07)}
+.statement p{font-size:clamp(22px,3.5vw,42px);line-height:.97;letter-spacing:-.01em;font-weight:900;margin:0;color:var(--navy);max-width:900px}
+.statement p em{color:var(--amber);font-style:normal}
+.section{margin-top:52px}
+.section-title{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--amber-dark);font-weight:900;background:var(--amber-bg);border:1px solid rgba(245,80,34,.22);border-radius:8px;padding:5px 9px}
+.section-title h2{font-size:clamp(24px,3.8vw,36px);letter-spacing:-.04em;margin:0;color:var(--ink)}
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+.card{border:1px solid var(--border);border-radius:20px;padding:24px;background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.card .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:8px}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.03em;color:var(--ink)}
+.card p,.card li{color:var(--body);line-height:1.52;margin:0;font-size:15px}
+.card ul{margin:8px 0 0;padding-left:18px}
+.card li{margin:6px 0}
+.card.navy{background:var(--navy);border-color:var(--navy)}
+.card.navy .label{color:rgba(245,80,34,.75)}
+.card.navy h3{color:#fff}
+.card.navy p{color:rgba(255,255,255,.72)}
+
+/* SETUP PASTA */
+.pasta{font-family:var(--mono);font-size:14px;font-weight:700;background:var(--navy);color:#93C5FD;padding:14px 20px;border-radius:12px;border-left:3px solid var(--amber);display:inline-block;margin-top:8px}
+
+/* DEMO */
+.demo{border-radius:22px;overflow:hidden;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.05);margin-bottom:14px}
+.demo-header{padding:16px 22px;background:var(--navy);display:flex;align-items:center;justify-content:space-between}
+.demo-nome{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.demo-badge{font-family:var(--mono);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:rgba(245,80,34,.15);border:1px solid rgba(245,80,34,.22);padding:4px 9px;border-radius:999px}
+.demo-body{padding:20px;background:var(--white)}
+.prompt-box{font-family:var(--mono);font-size:12px;line-height:1.6;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;color:var(--body);margin-bottom:10px}
+.prompt-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.resultado{border:1px solid var(--green-border);border-radius:12px;padding:13px 16px;background:var(--green-bg);font-size:14px;color:var(--green);line-height:1.5}
+
+/* WOW */
+.wow{border-radius:24px;padding:36px 44px;background:var(--amber-bg);border:1px solid rgba(245,80,34,.28);border-left:5px solid var(--amber)}
+.wow .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-dark);font-weight:800;margin-bottom:10px}
+.wow p{font-size:clamp(20px,3vw,32px);font-weight:900;letter-spacing:-.03em;color:var(--amber-text);margin:0;line-height:1.1}
+
+.note{border:1px solid rgba(245,80,34,.22);border-radius:18px;padding:20px;background:var(--amber-bg);color:var(--body);line-height:1.55;font-size:15px;border-left:3px solid var(--amber)}
+.note strong{color:var(--amber-text)}
+
+/* REVISAO */
+.revisao{border:1px solid var(--green-border);border-radius:20px;padding:26px;background:var(--green-bg)}
+.revisao .label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px}
+.revisao h3{margin:0 0 8px;font-size:20px;letter-spacing:-.03em;color:var(--green)}
+.revisao p{color:#14532D;font-size:15px;line-height:1.52;margin:0}
+
+.conclusao{border-radius:24px;padding:50px 44px;margin-top:14px;background:var(--navy);box-shadow:0 20px 60px rgba(30,58,95,.20);position:relative;overflow:hidden}
+.conclusao:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber)}
+.conclusao h2{font-size:clamp(28px,4.2vw,48px);line-height:.92;letter-spacing:-.04em;margin:0 0 16px;color:#fff}
+.conclusao p{font-size:18px;color:rgba(255,255,255,.72);max-width:660px;margin:0;line-height:1.44}
+.cta-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:13px 20px;border-radius:999px;cursor:pointer;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+@media(max-width:900px){
+  .mast,.hero{grid-template-columns:1fr}
+  .badge-aula{text-align:left}
+  h1{font-size:40px}
+  .hero-main{padding:30px}
+  .grid.two{grid-template-columns:1fr}
+  .conclusao{padding:34px 26px}
+  .statement,.wow{padding:28px 30px}
+  .page{padding:28px 16px 56px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+<header class="mast">
+  <div class="brand">
+    <svg width="40" height="40" viewBox="0 0 120 120" fill="none"><polygon points="60,8 105,34 105,86 60,112 15,86 15,34" fill="none" stroke="#1E3A5F" stroke-width="2.4"/><polygon points="60,30 86,45 86,75 60,90 34,75 34,45" fill="#1E3A5F" stroke="#F55022" stroke-opacity=".6" stroke-width="1.7"/><circle cx="60" cy="60" r="11" fill="#F55022"/></svg>
+    <div class="wordmark">CLAUDE <b>NA PRÁTICA</b> · INTUS HUB</div>
+  </div>
+  <div class="badge-aula">Módulo 3 · Aula 3.3<br>PRÁTICA · 7 min</div>
+</header>
+
+<section class="hero">
+  <article class="hero-main">
+    <div class="kicker">M3 · Claude Cowork</div>
+    <h1>Arquivo real<span class="accent"> na sua pasta</span> em 2 minutos.</h1>
+    <p class="lead">Essa é a aula mais mão na massa do M3. Você delega uma tarefa real, o Cowork gera um Excel ou Word e salva na pasta do seu computador. Faça junto, não só assista.</p>
+    <div class="chips">
+      <span class="chip hot">Prática · 7 min</span>
+      <span class="chip">Excel</span>
+      <span class="chip">Word</span>
+      <span class="chip">Arquivo local</span>
+    </div>
+  </article>
+  <aside class="side">
+    <div class="signal">
+      <small>Entregável</small>
+      <strong>Arquivo gerado pelo Cowork.</strong>
+      <p>Você delega uma tarefa real do seu trabalho e recebe o arquivo salvo na pasta local.</p>
+    </div>
+    <div class="signal">
+      <small>O momento desta aula</small>
+      <strong>"Isso é um arquivo real."</strong>
+      <p>Não é texto na tela. Não é resposta de chat. É um .xlsx ou .docx na sua pasta, pronto para usar.</p>
+    </div>
+    <div class="signal">
+      <small>Se o arquivo tiver erro</small>
+      <strong>Não recomece do zero.</strong>
+      <p>Peça ao Cowork para "ajustar o arquivo que você criou". Ele corrige sem refazer tudo.</p>
+    </div>
+  </aside>
+</section>
+
+<section class="statement">
+  <p>30 minutos de trabalho manual<br>viram <em>2 minutos de missão delegada.</em></p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">01</span><h2>Setup: a pasta de trabalho do Cowork</h2></div>
+  <div class="grid two">
+    <article class="card navy">
+      <div class="label">Primeiro passo</div>
+      <h3>Crie uma pasta local para os arquivos do Cowork.</h3>
+      <p>O Cowork precisa de uma pasta no seu computador para salvar os arquivos que gera. Crie agora antes de começar as demos:</p>
+      <div class="pasta">~/Documents/Claude-Cowork/</div>
+    </article>
+    <article class="card">
+      <div class="label">Por que isso importa</div>
+      <h3>Todo arquivo gerado vai para essa pasta.</h3>
+      <p>Você não precisa copiar, colar ou baixar nada. O Cowork salva direto na pasta configurada. Na próxima missão, o arquivo já está lá, com o nome que você pediu.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">02</span><h2>Demo 1 · Planilha Excel com dados e fórmulas</h2></div>
+  <div class="demo">
+    <div class="demo-header">
+      <span class="demo-nome">Arquivo .xlsx gerado ao vivo</span>
+      <span class="demo-badge">Faça junto</span>
+    </div>
+    <div class="demo-body">
+      <div class="prompt-box">
+        <div class="prompt-label">Prompt usado na aula</div>
+        Cria uma planilha de controle financeiro mensal para um criador digital. Colunas: categoria, valor previsto, valor real, diferença. Adiciona 5 categorias de exemplo com valores fictícios e uma linha de total com fórmula SUM automática. Salva como controle-financeiro-julho.xlsx
+      </div>
+      <div class="resultado">
+        Arquivo .xlsx criado na pasta Claude-Cowork. Ao abrir no Excel: 5 linhas de categorias preenchidas, colunas formatadas, fórmula SUM funcionando na linha de total. Pronto para você substituir os valores fictícios pelos reais.
+      </div>
+      <div class="note" style="margin-top:12px">
+        <strong>O que observar:</strong> o Cowork mostra o arquivo sendo criado e avisa quando salvar. Você abre o Explorer ou Finder, navega até a pasta e o arquivo já está lá.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">03</span><h2>Demo 2 · Documento Word formatado</h2></div>
+  <div class="demo">
+    <div class="demo-header">
+      <span class="demo-nome">Arquivo .docx gerado ao vivo</span>
+      <span class="demo-badge">Faça junto</span>
+    </div>
+    <div class="demo-body">
+      <div class="prompt-box">
+        <div class="prompt-label">Prompt usado na aula</div>
+        Cria um documento Word com a estrutura de um relatório de resultados mensais para meu negócio. Inclui: capa, sumário, seção de resultados, seção de próximos passos. Deixa os campos para preencher. Salva como relatorio-julho-template.docx
+      </div>
+      <div class="resultado">
+        Arquivo .docx com estrutura completa: capa com espaço para nome e data, sumário gerado automaticamente, seções formatadas com títulos e placeholders. Você abre no Word e preenche os dados reais.
+      </div>
+      <div class="note" style="margin-top:12px">
+        <strong>Template reutilizável:</strong> você pode pedir ao Cowork para salvar o template e usar de novo no mês seguinte. A estrutura fica pronta. Só os dados mudam.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">04</span><h2>Como revisar e corrigir</h2></div>
+  <div class="grid two">
+    <div class="revisao">
+      <div class="label">Se algo saiu errado</div>
+      <h3>Peça ajuste, não recriação.</h3>
+      <p>Se o arquivo gerado tiver algum erro ou não ficou como você queria, não cancele e recomece. Peça diretamente: "Ajusta o arquivo que você criou: [descreva o que mudar]." O Cowork reabre o arquivo e corrige.</p>
+    </div>
+    <article class="card navy">
+      <div class="label">O fluxo correto</div>
+      <h3>Gera, revisa, ajusta se precisar.</h3>
+      <ul>
+        <li>Cowork gera e salva o arquivo</li>
+        <li>Você abre e revisa rapidamente</li>
+        <li>Se precisar corrigir: pede o ajuste</li>
+        <li>Cowork corrige sem refazer do zero</li>
+        <li>Arquivo final aprovado e pronto</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="wow" style="margin-top:52px">
+  <div class="label">O momento desta aula</div>
+  <p>Você acabou de receber um arquivo real em 2 minutos. Isso teria levado 30 minutos fazendo manualmente.</p>
+</section>
+
+<section class="section">
+  <div class="section-title"><span class="section-num">05</span><h2>Sua vez: delegue uma tarefa real</h2></div>
+  <article class="card">
+    <div class="label">Entregável desta aula</div>
+    <h3>Escolha algo que você precisaria fazer mesmo assim.</h3>
+    <p>Não invente uma tarefa para testar. Pegue algo do seu trabalho real: uma planilha de controle, um relatório que você faz todo mês, um modelo de proposta que você formata sempre igual. Delegue para o Cowork e receba o arquivo na pasta.</p>
+    <div class="note" style="margin-top:14px">
+      <strong>Dica:</strong> PPT também é possível, mas Excel e Word são mais universais e funcionam melhor nesta primeira vez. Apresentações em PPT entram quando você tiver mais fluência na delegação.
+    </div>
+  </article>
+</section>
+
+<section class="conclusao" style="margin-top:52px">
+  <h2>M3 completo.<br><span class="accent">Próximo: Claude Code.</span></h2>
+  <p>No M4 o Claude age diretamente no seu sistema: cria arquivos, roda código, instala ferramentas. É o nível mais técnico do curso e o mais poderoso para automação.</p>
+  <div class="cta-actions">
+    <span class="btn primary">Arquivo gerado. Pode continuar.</span>
+    <span class="btn">Próximo: M4 · Claude Code</span>
+  </div>
+</section>
+
+<footer class="footer">CLAUDE NA PRÁTICA · INTUS HUB · Módulo 3 · Aula 3.3 · Cowork criando arquivos reais · Próximo módulo: M4 · Claude Code</footer>
+</main>
+</body>
+</html>

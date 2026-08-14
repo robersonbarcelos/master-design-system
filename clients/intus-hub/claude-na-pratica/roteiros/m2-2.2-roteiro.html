@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teleprompter · M2-2.2 · Projetos com memória</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;color:#fff;font-family:"Inter Tight",system-ui,sans-serif;line-height:1.55}
+body{padding:0 0 120px}
+.top-bar{position:sticky;top:0;z-index:100;background:#111;border-bottom:2px solid #222;padding:14px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar .info{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.top-bar .titulo{font-size:14px;font-weight:700;color:#F59E0B;letter-spacing:.04em}
+.container{max-width:900px;margin:0 auto;padding:60px 40px}
+.cena{margin-bottom:80px}
+.cena-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid #222}
+.cena-num{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#F59E0B;background:#1a1200;border:1px solid #3a2600;border-radius:6px;padding:6px 10px}
+.cena-titulo{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#555}
+.cena-tempo{font-size:12px;color:#333;margin-left:auto}
+.stage{font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#444;background:#0d0d0d;border:1px solid #1e1e1e;border-radius:8px;padding:10px 16px;margin-bottom:24px;display:inline-block}
+.fala{font-size:clamp(28px,4vw,42px);font-weight:500;line-height:1.55;color:#F5F5F3;letter-spacing:-.01em}
+.fala p{margin-bottom:32px}
+.fala p:last-child{margin-bottom:0}
+.acao{font-size:18px;color:#888;font-style:italic;background:#0a0a0a;border:1px solid #1a1a1a;border-left:3px solid #F59E0B;border-radius:8px;padding:14px 20px;margin:16px 0 32px;line-height:1.5}
+.prompt{font-family:monospace;font-size:16px;color:#aaa;background:#080808;border:1px solid #1a1a1a;border-radius:8px;padding:18px 22px;margin:16px 0 32px;line-height:1.7;white-space:pre-wrap}
+.separador{border:none;border-top:1px solid #1a1a1a;margin:80px 0}
+.entregavel{background:#001a00;border:1px solid #003300;border-radius:14px;padding:32px;margin-top:40px}
+.entregavel .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#22c55e;margin-bottom:12px}
+.entregavel p{font-size:20px;color:#bbf7d0;line-height:1.5}
+.lembretes{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:32px;margin-top:24px}
+.lembretes .label{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#555;margin-bottom:16px}
+.lembretes ul{list-style:none;padding:0}
+.lembretes li{font-size:16px;color:#666;line-height:1.6;padding:8px 0;border-bottom:1px solid #111;display:flex;gap:10px}
+.lembretes li:last-child{border-bottom:0}
+.lembretes li:before{content:"→";color:#F59E0B;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <span class="info">M2 · Aula 2.2 · PRÁTICA · 7 min</span>
+  <span class="titulo">Projetos com memória: configure uma vez, use sempre</span>
+</div>
+<div class="container">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 1</span>
+    <span class="cena-titulo">O problema que Projetos resolvem</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Você já começou uma conversa no Claude repetindo tudo: quem você é, qual é seu negócio, como você quer que ele responda?</p>
+    <p>Toda vez do zero. Toda vez o mesmo briefing.</p>
+    <p>Projeto resolve isso. Você configura uma vez. O Claude lembra em todas as conversas dentro desse Projeto.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 2</span>
+    <span class="cena-titulo">Anatomia de um bom Projeto</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Câmera frontal ou slide</div>
+  <div class="fala">
+    <p>Um Projeto bem configurado tem três partes.</p>
+    <p>Nome: algo que identifica o contexto. "Marketing do Curso", "Consultoria de Vendas", "Conteúdo Semanal".</p>
+    <p>Instruções: quem você é, qual é o negócio, qual o público, qual o tom de voz, qual o formato de resposta que você prefere.</p>
+    <p>Documentos de referência: arquivos que o Claude vai usar em toda conversa. Guia de marca, lista de produtos, briefing fixo.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 3</span>
+    <span class="cena-titulo">Ao vivo: editar as instruções</span>
+    <span class="cena-tempo">2 min</span>
+  </div>
+  <div class="stage">Tela: Projeto aberto no Claude.ai</div>
+  <div class="fala">
+    <p>Vou abrir o Projeto que criamos na aula 1.3 e editar as instruções ao vivo.</p>
+  </div>
+  <div class="acao">Abrir o Projeto e clicar em Editar Instruções</div>
+  <div class="fala">
+    <p>Esse é o exemplo que vou usar:</p>
+  </div>
+  <div class="prompt">Você é meu assistente de marketing e criação de conteúdo.
+Meu negócio: [nome e descrição em 2 linhas]
+Meu público: [descrição do perfil ideal de cliente]
+Tom de voz: direto, sem firulas, linguagem acessível
+Formato padrão: sempre use listas quando for enumerar, evite parágrafos longos
+Idioma: sempre português brasileiro</div>
+  <div class="fala">
+    <p>Preenche com o seu negócio real. Quanto mais contexto você der aqui, mais preciso o Claude vai ser em todas as suas conversas.</p>
+  </div>
+  <div class="acao">Salvar as instruções</div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 4</span>
+    <span class="cena-titulo">Teste: o Claude já sabe o contexto</span>
+    <span class="cena-tempo">1 min 30 s</span>
+  </div>
+  <div class="stage">Tela: nova conversa dentro do Projeto</div>
+  <div class="fala">
+    <p>Agora o teste. Vou abrir uma conversa nova dentro do Projeto — sem repetir nada.</p>
+  </div>
+  <div class="acao">Iniciar nova conversa no Projeto</div>
+  <div class="fala">
+    <p>Pergunta simples: "Quais são os 3 principais erros que o meu público comete?"</p>
+    <p>Olha a resposta: o Claude já sabe quem é o público, qual é o negócio, qual é o tom. Não precisei explicar nada.</p>
+    <p>Você não vai mais precisar repetir quem você é toda vez. O Claude já sabe.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 5</span>
+    <span class="cena-titulo">Dica avançada: documentos de referência</span>
+    <span class="cena-tempo">1 min</span>
+  </div>
+  <div class="stage">Tela: aba de documentos do Projeto</div>
+  <div class="fala">
+    <p>Além das instruções, você pode subir documentos de referência direto no Projeto.</p>
+    <p>Um PDF com o guia de marca. Um DOCX com a lista de produtos. Um texto com as perguntas frequentes dos clientes.</p>
+    <p>O Claude vai ler esses documentos em toda conversa dentro do Projeto. Você não precisa colar o conteúdo toda vez.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="cena">
+  <div class="cena-header">
+    <span class="cena-num">Cena 6</span>
+    <span class="cena-titulo">Ação do aluno</span>
+    <span class="cena-tempo">30 s</span>
+  </div>
+  <div class="stage">Câmera frontal</div>
+  <div class="fala">
+    <p>Sua vez: abre o Projeto que você criou, edita as instruções com o contexto real do seu negócio e faz uma conversa sem repetir nada.</p>
+    <p>Se funcionar como esperado, o Projeto está configurado.</p>
+  </div>
+</div>
+
+<hr class="separador">
+
+<div class="entregavel">
+  <div class="label">Entregável</div>
+  <p>Projeto configurado com: descrição do negócio, tom de voz definido, e pelo menos 1 documento de referência adicionado (opcional).</p>
+</div>
+
+<div class="lembretes">
+  <div class="label">Lembretes de gravação</div>
+  <ul>
+    <li>Momento "wow" obrigatório: mostrar conversa SEM Projeto (resposta genérica) e COM Projeto (resposta personalizada). O contraste convence.</li>
+    <li>"Você não vai mais precisar explicar quem você é toda vez. O Claude já sabe." — repetir essa frase.</li>
+    <li>Documentos de referência: PDF, DOCX ou texto colado direto nas instruções. Mostrar ao menos um exemplo.</li>
+    <li>Não confundir com Cowork: Projetos no Chat são memória de contexto. No Cowork, o Projeto tem pasta de arquivos no computador.</li>
+  </ul>
+</div>
+
+</div>
+</body>
+</html>

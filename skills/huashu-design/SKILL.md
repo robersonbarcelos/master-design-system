@@ -675,6 +675,7 @@ Screen 组件接 callback props（`onEnter`、`onClose`、`onTabChange`、`onOpe
 | 时间紧迫要快交付 | 用户说"30分钟内要" | 跳过Junior pass直接Full pass，只做1个方案，交付时**明确标注"未经early validation"**，提醒用户质量可能打折 |
 | SKILL.md体积超限 | 新写HTML>1000行 | 按`references/react-setup.md`的拆分策略拆成多jsx文件，末尾`Object.assign(window,...)`共享 |
 | 克制原则 vs 产品所需密度冲突 | 产品核心卖点是 AI 智能 / 数据可视化 / 上下文感知（如番茄钟、Dashboard、Tracker、AI agent、Copilot、记账、健康监测）| 按「品位锚点」表格走**高密度型**信息密度：每屏 ≥ 3 处产品差异化信息。装饰性 icon 照样忌讳——加的是**有内容的**密度，不是装饰 |
+| Doubao TTS não disponível | `.env` sem `DOUBAO_TTS_API_KEY` ou API retorna erro | Informar o usuário: "Doubao TTS não está configurado. Alternativas: (1) Configurar credenciais em `.env` — ver `.env.example`; (2) ElevenLabs como TTS alternativo; (3) Entregar roteiro de narração em markdown para o usuário gravar manualmente. Qual prefere?" Nunca travar o fluxo em silêncio. |
 
 **原则**：异常时**先告诉用户发生了什么**（1句话），再按表处理。不要静默决策。
 
