@@ -19,3 +19,6 @@ Thumbs.db
 # Arquivos temporários
 *.tmp
 *.log
+
+# produto separado, repositorio proprio
+clients/intus-hub/o-cofre-de-ia/
