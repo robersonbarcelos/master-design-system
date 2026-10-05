@@ -2,7 +2,7 @@
 name: production-orchestrator-sms
 description: "Ponto de entrada único para toda produção de conteúdo de social media — interpreta o pedido do usuário, identifica a intenção, roteia automaticamente para a sequência correta de skills, e gerencia o fluxo completo: pesquisa de audiência → conselho estratégico → framework narrativo → criação → QA → entrega. Usar quando o usuário chega com qualquer pedido de produção de conteúdo sem especificar qual skill usar, ou quando quer um fluxo completo orquestrado ('produz um carrossel sobre X', 'cria conteúdo da semana', 'escreve um post sobre Y'). É o maestro — não escreve copy, não analisa dados, não define framework — coordena as skills certas na ordem certa."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Production Orchestrator — Ponto de Entrada Único
@@ -60,17 +60,17 @@ Nunca escrever ângulos, slides, parágrafos, hooks, falas ou legendas manualmen
 
 ### GATE B — Ângulo/framework narrativo
 
-Antes de acionar a skill de criação, verificar se o ângulo já está definido:
-- Ângulo/estrutura especificado pelo usuário → segue direto para a skill de criação
-- Ângulo em aberto → **acionar `narrative-framework-sms` primeiro**, sempre, independente do formato (carrossel, artigo, thread, post, hook, roteiro de vídeo)
+**A skill de criação é a fonte única deste gate quando ela já o embute nativamente** (ex: `carousel-writer-sms` v2.2.0+ tem ETAPA 0 própria, que oferece `narrative-framework-sms` antes de qualquer ângulo). Nesses casos, o orquestrador não repete a lógica aqui — apenas confirma que o handoff ocorreu.
+
+**Fallback** (só se a skill de criação acionada não tiver esse gate embutido): verificar se o ângulo já está definido; se estiver em aberto, acionar `narrative-framework-sms` antes de prosseguir.
 
 **STOP:** nunca pular esta oferta para "economizar tempo" — a única exceção válida é o usuário dizer explicitamente que não quer passar pelo framework.
 
 ### GATE C — Copy QA obrigatório antes da entrega
 
-Toda skill de criação acionada por este orquestrador deve executar o `copy-qa-sms` (Voice Gate + AI Pattern Gate + padrões estruturais) antes de entregar o resultado final ao usuário.
+**A skill de criação é a fonte única deste gate quando ela já o embute nativamente** (ex: `carousel-writer-sms` roda `copy-qa-sms` no Bloco 3 do seu checklist interno). O orquestrador não re-executa nem re-descreve a lógica de Voice Gate / AI Pattern Gate aqui — isso vive em `copy-qa-sms`.
 
-**STOP:** se a skill de criação retornar copy sem ter passado pelo `copy-qa-sms`, o orquestrador aciona `copy-qa-sms` manualmente antes de entregar — isso nunca é uma etapa opcional, mesmo que a skill específica tenha falhado em embuti-la.
+**Fallback** (só se a skill de criação acionada não embutir esse gate): o orquestrador aciona `copy-qa-sms` manualmente antes de entregar — nunca é opcional, mesmo que a skill específica tenha falhado em embuti-lo.
 
 ### GATE D — Empacotamento final
 

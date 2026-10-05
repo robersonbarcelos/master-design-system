@@ -1,0 +1,352 @@
+{
+  "template": "casas-com-alma-bnb",
+  "version": "1.0",
+  "status": "5 peças aprovadas pelo cliente em 17 set 2026 (moodboard real), extraídas e modeladas em JSON. Todos os 5 textos batem exatamente com os 'exemplos de chamadas' já documentados pro Sistema Editorial v1.1 (painel 04.6).",
+  "description": "Template da Linha 4 'Casas com Alma' (04.6 do painel Central BNB Connect): linha de diferenciação e sensibilidade, mostrando que cada imóvel tem identidade própria. Estilo tipográfico principal Editorial sensorial (sans leve + serifada itálica de presença emocional), presente em 2 das 5 peças (card-01, card-05); as outras 3 usam os secundários permitidos (Hospitalidade contemporânea em card-03/04, Impacto fotográfico em card-02).",
+  "fonte_da_paleta": "painel Central BNB Connect, item 04.2.1 (Sistema Editorial e Direção Visual v1.1): Petróleo BNB #005070, Azul-marinho profundo #052F42, Off-white quente #F8F4EA, Dourado fosco #A9782E",
+  "fonte_da_tipografia": "painel Central BNB Connect, item 04.2.1 (matriz de 4 estilos) e 04.2.2 (Linha 4 Casas com Alma: principal Editorial sensorial, secundários Hospitalidade contemporânea e Impacto fotográfico)",
+  "logo": {
+    "arquivo_oficial": "clients/bnb-connect/references/logo.jpg: ícone de casa em contorno + wordmark 'BNB' bold + 'CONNECT' tracked-out menor abaixo",
+    "regra": "NUNCA gerar o logo via IA no prompt de imagem: geradores distorcem o ícone da casa e a proporção do wordmark. A logo é sempre composta depois, manualmente (Canva/Pillow), usando o arquivo oficial. No prompt de geração, reservar o espaço vazio e citar apenas 'área reservada para logo, sem gerar' na ui_elements.",
+    "versao_escura": "Petróleo BNB #005070, usada sobre fundo claro (off-white, foto clara)",
+    "versao_clara": "branco puro #FFFFFF ou off-white #F8F4EA, usada sobre fundo escuro (navy sólido, foto escura/área de sombra)",
+    "posicao_padrao": "topo esquerdo em todas as 5 variações desta linha"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+    "serifada": "Newsreader Italic é a única família serifada permitida: nunca outra serifada",
+    "dourado": "Dourado fosco #A9782E é reservado para a palavra-chave/emocional de cada card, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante, nunca acinzentado nem opaco)",
+    "fotografia_de_imovel": "Toda peça segue a direção fotográfica de 04.2.1: luz natural, imóvel real ou visualmente plausível, tratamento documental/editorial, nunca plástico ou HDR artificial, sem pessoas em cena",
+    "card_flutuante": "Quando houver card flutuante sobre foto (card-04): 100% flat, sem sombra projetada e sem contorno/stroke, totalmente contido dentro do frame com margem visível dos 4 lados (nunca cortado/sangrando por nenhuma borda)",
+    "ancora_tipografica_visual": "Sans-serif geométrica contemporânea em todo o sistema (independente de ser Sora ou Manrope): traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026. Descrita explicitamente na scene.description de cada card pra evitar que o gerador substitua por fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman), que quebraria a consistência visual entre templates."
+  },
+  "negative_rules_globais": [
+    "NUNCA gerar o logo BNB Connect via IA: sempre compor depois com o arquivo oficial",
+    "NUNCA usar outra serifada além de Newsreader Italic",
+    "NUNCA misturar Manrope e Sora no mesmo título",
+    "NUNCA usar travessão (—) em nenhum texto de nenhum card",
+    "NUNCA interfaces, dashboards ou gráficos inventados nas fotos de imóvel",
+    "NUNCA fotografia de imóvel posada ou com luxo ostentatório: sempre luz natural e tratamento documental",
+    "NUNCA pessoas em cena (linha é só arquitetura/ambiente)",
+    "NUNCA sombra ou contorno em cards flutuantes: sempre 100% flat",
+    "NUNCA texto acinzentado, opaco ou desbotado: cores petróleo e branco sempre sólidas e saturadas; dourado sempre sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+    "NUNCA fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman) no lugar de Sora/Manrope/Newsreader: sempre reforçar a âncora tipográfica geométrica contemporânea"
+  ],
+  "variacoes": {
+    "card-01-fullbleed-texto-sobreposto-serifada-completa": {
+      "nome": "Foto full-bleed (terraço coberto) + headline inteira em serifada itálica, sem card",
+      "descricao": "Foto full-bleed de terraço coberto com vista pro mar, texto sobreposto direto (sem card ou bloco de cor): a headline inteira 'Casas com alma.' em serifada itálica grande, com um subtítulo curto em sans regular abaixo. Logo em versão clara sobre a área de sombra da foto.",
+      "hierarquia": "Foto full-bleed de fundo > logo (versão clara) sobre área de sombra > 'Casas' / 'com alma.' em serifada itálica grande petróleo > 'Espaços que fazem' / 'você sentir.' em sans regular menor",
+      "cores": {
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Editorial sensorial (sans leve sustentando com respiro + serifada itálica de presença emocional). Nesta peça a headline inteira está em serifada, mais expressiva que o padrão de '1 palavra': tratamento aceito pro tom emocional/aspiracional da Linha 4.",
+        "\"Casas / com alma.\"": "Newsreader Italic 400, ~62px, 2 linhas",
+        "subtitulo": "Manrope Regular 400, ~26px, 2 linhas"
+      },
+      "quando_usar": "Slide 1 (capa) de qualquer carrossel da Linha 4, tom emocional/aspiracional puro, sem necessidade de contraste dourado.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed de terraço coberto de casa de litoral: teto de madeira ripada, porta de vidro de correr aberta revelando sala com sofá bege e mesa de centro de madeira maciça com vaso de cerâmica, vista direta pro mar com colinas e vegetação costeira ao fundo, luz natural de dia clara. No canto superior esquerdo, sobre a área de sombra da estrutura de madeira do teto, área reservada vazia pro logo BNB Connect em versão clara branca (não gerar). No terço superior-médio do frame, sobreposto direto sobre a foto (sem card ou bloco de cor atrás): 'Casas' e 'com alma.' em serifada itálica grande cor Petróleo BNB #005070, sólida e saturada, 2 linhas. Abaixo, subtítulo menor em sans-serif regular, mesma cor petróleo: 'Espaços que fazem' / 'você sentir.'. Paleta dominante: tons naturais quentes de madeira, bege e areia, azul do mar ao fundo, petróleo profundo no texto.",
+            "subject": "Terraço coberto com teto de madeira ripada, sala com sofá bege e mesa de centro, porta de vidro pro terraço",
+            "setting": "Casa de litoral, vista pro mar e colinas, dia claro",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira do teto e da mesa com veio natural, tecido do sofá com textura de linho, cerâmica do vaso com textura rústica",
+            "lighting": "luz natural de dia clara, sombra suave da estrutura do teto criando contraste na área do logo"
+          },
+          "technical": {
+            "camera": { "focal_length": "24mm", "aperture": "f/5.6", "depth_of_field": "deep: ambiente inteiro nítido, vista externa levemente mais suave", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "madeira do teto e da mesa com veio e leve desgaste natural, cerâmica rústica do vaso"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro claro, sem névoa",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: terraço em primeiro plano, sala e vista do mar em planos sucessivos",
+            "framing": "full-bleed, texto sobreposto direto sobre a foto, sem card ou bloco de cor",
+            "subject_placement": "ambiente ocupa o frame inteiro; texto alinhado à esquerda no terço superior-médio",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior esquerdo, sobre área de sombra do teto" },
+              { "text": "Casas / com alma.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "62px", "color": "#005070, sólido e saturado", "position": "terço superior-médio, alinhado à esquerda, 2 linhas" },
+              { "text": "Espaços que fazem / você sentir.", "font": "sans-serif regular (Manrope 400)", "font_size": "26px", "color": "#005070, sólido e saturado", "position": "abaixo da headline" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia de imóvel documental e real", "luz natural clara e convidativa", "serifada itálica expressiva e legível", "composição full-bleed limpa"],
+            "avoid": ["fotografia de banco de imagem genérica", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "texto acinzentado, opaco ou desbotado", "interior excessivamente posado ou de luxo ostentatório"],
+            "reference_standard": "fotografia editorial de arquitetura de litoral, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-02-fullbleed-detalhe-impacto-fotografico": {
+      "nome": "Foto full-bleed (detalhe arquitetônico) + headline sans + 1 palavra serifada, sem card",
+      "descricao": "Close-up de detalhe arquitetônico (parede de pedra, vaso com ramo de oliveira, livro, tigela de limões numa mesa rústica) com headline sobreposta direta: 'A identidade mora nos' em sans bold branco, 'detalhes.' em serifada itálica branca (mesma cor, sem destaque dourado). Logo em versão clara no topo esquerdo.",
+      "hierarquia": "Foto full-bleed de fundo > logo (versão clara) no topo esquerdo > 'A identidade' / 'mora nos' em sans bold branco > 'detalhes.' em serifada itálica branca",
+      "cores": {
+        "texto_principal": "branco puro #FFFFFF, sólido e saturado",
+        "texto_serifada": "branco puro #FFFFFF, sólido e saturado (não dourado nesta peça, mesma família de cor do restante do texto)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Impacto fotográfico (sans pesada + 1 palavra/frase em serifada)",
+        "\"A identidade / mora nos\"": "Manrope Bold 700, ~42px, 2 linhas",
+        "\"detalhes.\"": "Newsreader Italic 400, ~46px"
+      },
+      "quando_usar": "Slide de desenvolvimento/detalhe em carrosséis da Linha 4, foco em um elemento arquitetônico ou objeto específico do imóvel.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed em close-up de detalhe arquitetônico e afetivo: parede de pedra rústica ao fundo desfocada, vaso de cerâmica com ramo de oliveira, livro com capa escrita 'BRASIL' apoiado numa mesa de madeira rústica coberta por pano de linho claro, tigela de madeira com limões e laranjas ao lado, luz natural quente entrando de lado. No canto superior esquerdo, área reservada vazia pro logo BNB Connect em versão clara branca (não gerar). Sobreposto diretamente sobre a foto (sem card ou bloco de cor atrás), no terço superior-médio: 'A identidade' e 'mora nos' em sans-serif bold branco puro #FFFFFF, 2 linhas, seguido por 'detalhes.' em serifada itálica, mesma cor branca sólida (sem destaque dourado). Paleta dominante: tons terrosos e naturais (pedra, madeira, verde-oliva, cítricos), branco puro no texto.",
+            "subject": "Vaso com ramo de oliveira, livro 'BRASIL', tigela de madeira com limões e laranjas, mesa rústica com pano de linho",
+            "setting": "Detalhe de terraço/varanda com parede de pedra ao fundo, luz natural quente",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial still life photography, documentary",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pedra da parede com textura rústica natural, cerâmica do vaso com textura porosa, madeira da mesa com veio visível, capa do livro com textura de papel real",
+            "lighting": "luz natural quente lateral, sombras suaves e definidas"
+          },
+          "technical": {
+            "camera": { "focal_length": "50mm", "aperture": "f/2.5", "depth_of_field": "shallow: objetos em primeiro plano nítidos, parede de pedra ao fundo em bokeh suave", "angle": "eye level, levemente de cima" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores terrosas naturais, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "pedra rústica da parede com textura e leve desgaste natural, cerâmica porosa do vaso, madeira da mesa com veio visível",
+            "fabric": "pano de linho claro com textura natural e leve amassado real"
+          },
+          "environment": {
+            "atmosphere": "ar externo claro, sem névoa",
+            "time": "dia, luz natural quente lateral"
+          },
+          "composition": {
+            "perspective": "profundidade rasa, objetos em primeiro plano, parede de pedra ao fundo desfocada",
+            "framing": "full-bleed, texto sobreposto direto sobre a foto, sem card ou bloco de cor",
+            "subject_placement": "objetos ocupam o terço inferior-médio do frame; texto alinhado à esquerda no terço superior-médio",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior esquerdo" },
+              { "text": "A identidade / mora nos", "font": "sans-serif bold (Manrope 700)", "font_size": "42px", "color": "#FFFFFF, sólido e saturado", "position": "terço superior-médio, alinhado à esquerda, 2 linhas" },
+              { "text": "detalhes.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "46px", "color": "#FFFFFF, sólido e saturado", "position": "logo abaixo de 'mora nos'" }
+            ]
+          },
+          "quality": {
+            "include": ["still life editorial documental e real", "textura de pedra e madeira convincente", "luz natural quente lateral", "tipografia de alto contraste sobre a foto"],
+            "avoid": ["fotografia de banco de imagem genérica", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "palavra serifada em dourado nesta peça (deve ficar branca, igual ao restante)", "texto acinzentado, opaco ou desbotado"],
+            "reference_standard": "still life editorial de arquitetura/design, estilo revista de hospitalidade contemporânea 2025-2026"
+          }
+        }
+      }
+    },
+    "card-03-split-claro-frase-ancora": {
+      "nome": "Split vertical: card claro com a frase-âncora da linha à esquerda + foto full-height à direita",
+      "descricao": "Metade esquerda em off-white quente com a frase-âncora oficial da Linha 4 ('Não padronizamos imóveis. Potencializamos personalidades.'), toda em sans bold, sem serifada: 1ª parte em navy, 2ª parte em dourado. Metade direita com foto full-height de terraço/piscina com vista pro mar.",
+      "hierarquia": "Painel claro à esquerda: logo (versão escura) no topo > 'Não' / 'padronizamos' / 'imóveis.' em sans bold navy > 'Potencializamos' / 'personalidades.' em sans bold dourado | foto full-height à direita, sem texto sobreposto",
+      "cores": {
+        "fundo_painel": "Off-white quente #F8F4EA",
+        "texto_navy": "Petróleo BNB #005070, sólido e saturado",
+        "texto_dourado": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro), aqui sem serifada: hierarquia só por cor (navy vs dourado), reforçando a frase-âncora oficial da linha (ver painel 04.6)",
+        "\"Não / padronizamos / imóveis.\"": "Manrope Bold 700, ~40px, 3 linhas",
+        "\"Potencializamos / personalidades.\"": "Manrope Bold 700, cor dourada, ~40px, 2 linhas"
+      },
+      "quando_usar": "Slide de síntese/fechamento em carrosséis da Linha 4: a frase-âncora oficial funciona como resumo da proposta de valor da linha inteira.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido ao meio na vertical: metade esquerda em fundo sólido off-white quente #F8F4EA, sem foto. No topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar). Abaixo, texto alinhado à esquerda em sans-serif bold, sem nenhuma serifada: 'Não', 'padronizamos' e 'imóveis.' em cor Petróleo BNB #005070 sólida, 3 linhas, seguido por 'Potencializamos' e 'personalidades.' em cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante), 2 linhas, mesmo peso e tamanho. Metade direita ocupada por uma foto documental real full-height de terraço com piscina infinita: deck de madeira, espreguiçadeira, vista pro mar com colinas e vegetação costeira ao fundo, luz natural de dia. Paleta dominante: off-white quente no painel esquerdo, petróleo e dourado no texto, tons naturais de mar, céu e madeira na foto direita.",
+            "subject": "Terraço com piscina infinita, deck de madeira, espreguiçadeira",
+            "setting": "Casa de litoral, vista pro mar e colinas, dia claro",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira do deck e da espreguiçadeira com veio natural, água da piscina com reflexo realista do céu",
+            "lighting": "luz natural de dia clara, leve angulação"
+          },
+          "technical": {
+            "camera": { "focal_length": "35mm", "aperture": "f/5.6", "depth_of_field": "deep: ambiente inteiro nítido", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "transparency": "água da piscina com reflexo realista do céu, sem transparência artificial",
+            "surfaces": "madeira do deck e da espreguiçadeira com veio e leve desgaste natural"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, leve brilho difuso do sol",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: deck em primeiro plano, mar e colinas em planos sucessivos",
+            "framing": "split simétrico vertical 50/50",
+            "subject_placement": "painel de texto à esquerda; foto ocupa a metade direita inteira, do topo à base",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão escura #005070", "position": "painel esquerdo, topo" },
+              { "text": "Não / padronizamos / imóveis.", "font": "sans-serif bold (Manrope 700)", "font_size": "40px", "color": "#005070, sólido e saturado", "position": "painel esquerdo, abaixo do logo, 3 linhas" },
+              { "text": "Potencializamos / personalidades.", "font": "sans-serif bold (Manrope 700)", "font_size": "40px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo abaixo da linha anterior, 2 linhas" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia de imóvel documental e real", "composição split limpa e geométrica", "contraste dourado bem legível sobre off-white", "tipografia de alto contraste sem serifada"],
+            "avoid": ["fotografia de banco de imagem genérica", "logo gerado pela IA distorcido", "qualquer serifada: esta variação é 100% sans", "texto colidindo com a linha do split", "texto acinzentado, opaco ou desbotado"],
+            "reference_standard": "fotografia editorial de arquitetura de litoral, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-04-fullbleed-card-flutuante-quote": {
+      "nome": "Foto full-bleed de interior + card off-white flutuante central, 100% flat, com frase secundária em serifada itálica",
+      "descricao": "Quarto aconchegante com luminária de vime, card off-white flutuante contido nos 4 lados do frame (sem sombra, sem contorno), com headline em sans bold navy ('Arquitetura que acolhe.') e, abaixo, uma frase secundária/aside inteira em serifada itálica navy ('Uma casa também comunica.'). Logo em versão escura sobre a própria foto (fora do card).",
+      "hierarquia": "Foto full-bleed de fundo > logo (versão escura) sobre a foto, topo esquerdo > card off-white flutuante centralizado, contido nos 4 lados > 'Arquitetura' / 'que acolhe.' em sans bold navy > 'Uma casa' / 'também comunica.' em serifada itálica navy, menor",
+      "cores": {
+        "fundo_card": "Off-white quente #F8F4EA, 100% flat: sem contorno/stroke, sem sombra projetada",
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Petróleo BNB #005070, sólido e saturado (não dourado: aqui a serifada é uma frase-aside/quote completa, não uma palavra de destaque isolada)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro + serifada). Nesta peça a serifada cobre a frase secundária inteira (não 1 palavra isolada): tratamento de 'quote/aside' abaixo da headline principal.",
+        "\"Arquitetura / que acolhe.\"": "Manrope Bold 700, ~44px, 2 linhas",
+        "\"Uma casa / também comunica.\"": "Newsreader Italic 400, ~28px, 2 linhas, menor que a headline"
+      },
+      "quando_usar": "Slide de reflexão/virada em carrosséis da Linha 4, quando o formato quer uma headline direta seguida de um pensamento mais poético/aside.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed de quarto aconchegante de casa de temporada: cabeceira de cama com almofadas texturizadas em tons neutros, roupa de cama em linho claro com manta verde-oliva dobrada, luminária pendente de vime trançado grande, cortina translúcida clara ao lado de porta de vidro, vaso de planta e mesa de cabeceira de madeira, luz natural suave entrando pela janela. No canto superior esquerdo da foto, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar). Centralizado no frame, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), ocupando cerca de 60% da largura e 30% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem. Estilo do card 100% flat, design plano: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, e SEM nenhuma sombra projetada, drop shadow ou efeito de profundidade/elevação. O card é apenas um bloco de cor sólida off-white recortado com cantos arredondados sobre a foto: a separação visual vem inteiramente do contraste entre a cor sólida do card e a foto atrás. Dentro do card, texto alinhado à esquerda cor Petróleo BNB #005070 sólido e saturado: 'Arquitetura' e 'que acolhe.' em sans-serif bold, 2 linhas; abaixo, com respiro visível, 'Uma casa' e 'também comunica.' em serifada itálica, tamanho menor que a headline, mesma cor petróleo. Paleta dominante: tons neutros quentes (bege, madeira, vime, verde-oliva) na foto de fundo, off-white quente no card, petróleo profundo e sólido no texto.",
+            "subject": "Quarto aconchegante: cabeceira com almofadas, manta verde-oliva, luminária de vime, cortina translúcida",
+            "setting": "Quarto de casa de temporada, luz natural suave",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido das almofadas e da manta com textura de linho e lã natural, vime da luminária com trama visível, card off-white 100% flat sem contorno/stroke e sem sombra projetada",
+            "lighting": "luz natural suave entrando pela janela, difusa, sem sombras duras"
+          },
+          "technical": {
+            "camera": { "focal_length": "28mm", "aperture": "f/4", "depth_of_field": "moderada: ambiente interno nítido", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "fabric": "almofadas e manta em linho e lã texturizados, cortina translúcida leve",
+            "surfaces": "vime trançado da luminária com trama natural visível, madeira da mesa de cabeceira com veio, card off-white 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade, apenas um bloco de cor sólida recortado com cantos arredondados lisos"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, leve luminosidade natural",
+            "time": "dia, luz natural suave"
+          },
+          "composition": {
+            "perspective": "profundidade rasa, quarto ocupando o frame inteiro",
+            "framing": "full-bleed, card flutuante autocontido no centro do frame, sem tocar nenhuma borda",
+            "subject_placement": "ambiente ocupa o frame inteiro; card centralizado, com respiro/margem visível em relação às 4 bordas do frame: a foto de fundo aparece como moldura contínua ao redor do card inteiro, nos 4 lados",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão escura #005070", "position": "canto superior esquerdo da foto" },
+              { "text": "card off-white flutuante", "type": "retângulo sólido #F8F4EA, 100% flat: sem contorno/stroke desenhado, sem sombra projetada, sem nenhum efeito de profundidade/elevação, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px)", "position": "centro do frame, com margem visível dos 4 lados: não encosta, não é cortado, não sangra por nenhuma borda" },
+              { "text": "Arquitetura / que acolhe.", "font": "sans-serif bold (Manrope 700)", "font_size": "44px", "color": "#005070, sólido e saturado", "position": "dentro do card, alinhado à esquerda, topo, 2 linhas" },
+              { "text": "Uma casa / também comunica.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "28px", "color": "#005070, sólido e saturado", "position": "abaixo da headline, com respiro visível, 2 linhas" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia de interior documental e real", "luz natural suave e aconchegante", "card flutuante 100% flat, design plano, sem sombra e sem contorno", "contraste claro entre headline bold e quote serifada", "cantos do card uniformemente arredondados"],
+            "avoid": ["fotografia de banco de imagem genérica", "interior excessivamente posado ou de luxo ostentatório", "logo gerado pela IA distorcido", "qualquer linha de contorno, stroke ou borda desenhada ao redor do card", "qualquer sombra projetada, drop shadow ou efeito de profundidade no card", "card encostado, cortado ou sangrando por qualquer borda do frame", "segunda serifada além de Newsreader Italic", "texto acinzentado, opaco ou desbotado"],
+            "reference_standard": "fotografia editorial de interiores aconchegantes, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-05-split-foto-navy-historia": {
+      "nome": "Split vertical: foto full-height à esquerda + bloco navy com headline e 1 palavra serifada dourada à direita",
+      "descricao": "Metade esquerda com foto full-height de terraço coberto com vista pro mar, metade direita em bloco sólido azul-marinho com a headline em sans leve/regular branco e 1 palavra em serifada itálica dourada ('história'). Logo em versão clara no topo direito.",
+      "hierarquia": "Foto full-height à esquerda, sem texto sobreposto | bloco navy à direita: logo (versão clara) no topo > 'Cada casa' / 'tem uma' em sans regular branco > 'história' em serifada itálica dourada > 'para contar.' em sans regular branco",
+      "cores": {
+        "fundo_bloco": "Azul-marinho profundo #052F42",
+        "texto_principal": "branco/off-white #F8F4EA, sólido e saturado",
+        "palavra_destaque": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Editorial sensorial (sans leve sustentando com respiro + serifada itálica de presença emocional)",
+        "\"Cada casa / tem uma\"": "Manrope Light 300 ou Regular 400, ~40px, 2 linhas",
+        "\"história\"": "Newsreader Italic 400, cor dourada, ~52px",
+        "\"para contar.\"": "Manrope Light 300 ou Regular 400, ~40px"
+      },
+      "quando_usar": "Slide de fechamento/síntese emocional em carrosséis da Linha 4, tom poético antes do CTA.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido ao meio na vertical: metade esquerda ocupada por uma foto documental real full-height de terraço coberto de casa de litoral, teto de madeira ripada visível no topo, espreguiçadeira com almofadas, vista pro mar com colinas e vegetação costeira ao fundo, luz natural de dia. Metade direita em bloco sólido azul-marinho profundo #052F42, sem foto, com texto alinhado à esquerda: 'Cada casa' e 'tem uma' em sans-serif leve/regular branco #F8F4EA, 2 linhas, seguido por 'história' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante), seguido por 'para contar.' de volta em sans-serif leve/regular branco. No canto superior direito do bloco navy, área reservada vazia pro logo BNB Connect em versão clara (branco), não gerar. Paleta dominante: tons naturais de mar/madeira na metade esquerda, azul-marinho sólido profundo na metade direita, branco e dourado no texto.",
+            "subject": "Terraço coberto com teto de madeira ripada, espreguiçadeira, vista pro mar",
+            "setting": "Casa de litoral, vista pro mar e colinas, dia claro",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira do teto e da espreguiçadeira com veio natural, tecido das almofadas com textura de linho",
+            "lighting": "luz natural de dia clara, sombras suaves"
+          },
+          "technical": {
+            "camera": { "focal_length": "35mm", "aperture": "f/5.6", "depth_of_field": "deep: ambiente inteiro nítido", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "madeira do teto e da espreguiçadeira com veio e leve desgaste natural",
+            "fabric": "almofadas em tecido texturizado natural"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, leve brilho difuso do sol",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: terraço em primeiro plano, mar e colinas em planos sucessivos",
+            "framing": "split simétrico vertical 50/50",
+            "subject_placement": "foto ocupa a metade esquerda inteira; texto alinhado à esquerda dentro do bloco navy, ocupando o centro vertical",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior direito do bloco navy" },
+              { "text": "Cada casa / tem uma", "font": "sans-serif light/regular (Manrope 300/400)", "font_size": "40px", "color": "#F8F4EA, sólido e saturado", "position": "bloco navy, centro-superior" },
+              { "text": "história", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "52px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo abaixo de 'tem uma'" },
+              { "text": "para contar.", "font": "sans-serif light/regular (Manrope 300/400)", "font_size": "40px", "color": "#F8F4EA, sólido e saturado", "position": "abaixo de 'história'" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia de imóvel documental e real", "bloco de cor sólido e geométrico", "contraste dourado sobre navy bem legível", "tipografia leve e editorial"],
+            "avoid": ["fotografia de banco de imagem genérica", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "bloco navy com gradiente ou textura (deve ser sólido flush)", "texto colidindo com a linha do split", "texto acinzentado, opaco ou desbotado"],
+            "reference_standard": "fotografia editorial de arquitetura de litoral, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    }
+  }
+}

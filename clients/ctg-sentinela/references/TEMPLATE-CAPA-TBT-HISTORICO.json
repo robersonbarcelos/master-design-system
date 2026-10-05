@@ -1,0 +1,680 @@
+{
+  "template": "ctg-sentinela-capas-tbt-historico",
+  "version": "1.0",
+  "status": "2 capas aprovadas (capa-16, capa-17) + 3 aguardando teste/ajuste (capa-10a, capa-10b, capa-18) — 2026-09-10",
+  "description": "Capas da série 'Memórias do Sentinela' com fotos antigas de arquivo (P&B/sépia): badge grande 'MEU #TBT NO CTG' sobre foto full-bleed histórica, e os cards inspirados no moodboard do cliente (capa de selo, colagem de recortes, engajamento com foto de grupo antiga) em fundo de papel envelhecido.",
+  "fonte_da_paleta": "visual-system.md seção 4.1 — azul #0D47A1, verde #1B8F4A, off-white #F7F7F4, vermelho #C62828 (acento pequeno), amarelo #F2C330 (acento pequeno)",
+  "como_usar": {
+    "caminho_1_texto_para_imagem": "Gerar a cena do zero preenchendo o campo 'scene' com a descrição completa (sujeito, cenário, ação) quando não existe foto real disponível. Usado nos dois exemplos abaixo.",
+    "caminho_2_imagem_base_mais_prompt": "Quando o cliente já tem uma foto real do evento/estrutura, anexar a foto no gerador (ChatGPT Image, Nano Banana) e usar o mesmo JSON como instrução de edição/composição sobre ela — trocar a descrição de 'scene' por uma referência à imagem anexada, mantendo intactos os campos de composition (faixa tricolor, headline, safe_area) e as regras de quality.avoid (sem logo gerado, sem filtro de cor sobre a foto)."
+  },
+  "regras_fixas_em_toda_variacao_de_capa": {
+    "faixa_tricolor": "SEMPRE na borda inferior do frame (nunca no topo), 3 blocos sólidos iguais azul #0D47A1 + verde #1B8F4A + branco #FFFFFF, sem gradiente entre eles, ~14px de altura, largura total do frame.",
+    "logo": "⚠️ NUNCA especificar brasão/logo/selo no prompt de geração de imagem — geradores de IA distorcem o brasão do CTG. A logo é sempre aplicada depois, manualmente, via composição (Canva/Pillow).",
+    "cor_sobre_a_foto": "Azul/verde/branco entram só na faixa gráfica e em blocos de destaque de texto — nunca como filtro de cor sobre a foto inteira. A cena fotografada mantém sua cor natural (luz golden hour, luz de ambiente, etc.), sem tingir a foto pra bater com a marca.",
+    "gradiente_de_contraste": "Gradiente escuro sutil (#0A0A0A a transparente) apenas na base do frame, 0-40% da altura, exclusivamente para garantir legibilidade do texto — não é tratamento de cor da marca, é só um recurso de contraste.",
+    "safe_area": "64px de padding nas laterais e no topo. Na base, reservar a altura da faixa tricolor (14px) + 20px de respiro antes de qualquer texto."
+  },
+  "negative_rules_globais": [
+    "NUNCA especificar brasão/logo/selo institucional no prompt de geração de imagem",
+    "NUNCA colocar a faixa tricolor no topo do frame — sempre na borda inferior",
+    "NUNCA usar vermelho ou amarelo como bloco de destaque grande atrás de headline — só azul ou verde",
+    "NUNCA aplicar filtro de cor de marca sobre a foto inteira — azul/verde/branco existem só na faixa gráfica e em blocos de texto",
+    "NUNCA copiar nome, selo ou wordmark de referências de terceiros (ex: 'Acampamento Farroupilha') — só a mecânica estrutural",
+    "NUNCA usar estrela vermelha como elemento decorativo/divisor (proibido em qualquer peça do Sentinela)"
+  ],
+  "nota_swipe_icon": "Icone de swipe pequeno (seta + quero-quero caminhando sobre ela + 'ARRASTA PRA LER') aprovado como referencia de estilo em 2026-09-10. Duas variacoes de cor em teste: traco puro preto (icon-02) e colorido nas cores naturais da ave (icon-03). capa-12 e capa-13 ja foram atualizadas para usar esse icone pequeno no lugar do mascote grande anterior, e o lockup foi renomeado de 'Palavras da Querencia' para 'Tradicao Explicada'.",
+  "nota_quero_quero_anatomia": "Regra travada em 2026-09-10: o corpo do quero-quero variava de formato a cada geracao (as vezes redondo, as vezes alongado demais). A partir de agora, toda peca que incluir o quero-quero (badge, swipe, biblioteca grafica) deve usar literalmente a descricao anatomica fixa abaixo, sem parafrasear, para travar a proporcao do corpo entre geracoes diferentes.",
+  "descricao_fixa_quero_quero": "quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata em qualquer ilustração: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com uma crista/topete fino de penas pretas apontando para trás e para cima a partir da nuca, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo a garganta e o peito, dorso e asas em cinza-acastanhado liso sem manchas, barriga branca, pernas longas, finas e rosa-avermelhadas, patas com dedos finos, cauda curta. Proporção corporal idêntica em toda peça: corpo:pescoço:pernas sempre na mesma relação, nunca desenhar as pernas curtas demais nem o corpo esférico.",
+  "nota_footer_recorte": "Regra de 2026-09-10: para a familia de capas 'Memorias do Sentinela' inspiradas no moodboard (colagem/recortes), o footer pode ter uma borda superior IRREGULAR tipo papel rasgado/recortado (nao reta), contendo o nome do CTG e a cidade em fonte pequena, seguido logo abaixo pela faixa tricolor padrao (azul/verde/branco) colada na borda extrema do frame. Isso substitui o uso da estrela vermelha como divisor, que fica proibido em qualquer peca do Sentinela a partir de agora. Atualizacao 2026-09-10: os 3 cards da familia 'Memorias do Sentinela' (capa-16, 17, 18) tiveram o fundo trocado de verde solido / off-white liso para textura de papel envelhecida (#F2ECD8), mesma paleta ja aprovada na familia ilustrada do dicionario. A headline, que era branca sobre o verde, virou verde institucional #1B8F4A sobre o papel claro para manter contraste.",
+  "variacoes": {
+    "capa-10a-tbt-historico-swipe-traco": {
+      "nome": "Meu #TBT no CTG — histórico (P&B), badge grande, swipe em traço",
+      "descricao": "Badge grande e de alto impacto ('MEU #TBT' bloco verde + 'NO CTG' bloco azul, ocupando boa parte do terço inferior, estilo cartão sólido) em vez do badge pequeno anterior. Anatomia do quero-quero travada com descrição fixa. Swipe pequeno no canto oposto.",
+      "hierarquia": "Foto full-bleed > gradiente de contraste na base > badge GRANDE (MEU #TBT verde + NO CTG azul empilhados) no canto inferior esquerdo > swipe pequeno no canto inferior direito > faixa tricolor na borda extrema",
+      "cores": "Badge: bloco verde #1B8F4A + bloco azul #0D47A1, texto branco, grande. Swipe: seta preta + quero-quero em traço único preto (anatomia travada, ver descrição fixa)",
+      "quando_usar": "Série 'Memórias do Sentinela'.",
+      "aprovado": false,
+      "status": "aguardando teste de geração — badge grande + anatomia do quero-quero travada",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Foto documental vertical 4:5, tratada como fotografia de arquivo em preto e branco com leve tom sépia, grupo de gaúchos e prendas posando em frente ao antigo galpão do CTG, roupas de época, expressões formais, grão de filme visível. Gradiente escuro sutil de #0A0A0A a transparente na base (0-45% da altura) para dar contraste ao badge grande. No terço inferior esquerdo, um badge grande estilo cartão sólido: 'MEU #TBT' em bloco verde #1B8F4A (texto branco, extra bold, caixa alta, ocupando cerca de 60% da largura do frame), colado imediatamente abaixo 'NO CTG' em bloco azul #0D47A1 (mesma largura, mesma tipografia). No canto inferior direito, pequeno indicador de swipe: linha fina terminando em seta, com um quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata em qualquer ilustração: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com uma crista/topete fino de penas pretas apontando para trás e para cima a partir da nuca, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo a garganta e o peito, dorso e asas em cinza-acastanhado liso sem manchas, barriga branca, pernas longas, finas e rosa-avermelhadas, patas com dedos finos, cauda curta. Proporção corporal idêntica em toda peça: corpo:pescoço:pernas sempre na mesma relação, nunca desenhar as pernas curtas demais nem o corpo esférico. em traço único preto #121212 caminhando sobre a linha, texto 'ARRASTA PRA LER' pequeno abaixo. No rodapé, faixa tricolor CTG (azul, verde, branco) colada na borda inferior, largura total, 14px.",
+            "subject": "Grupo de 6-8 gaúchos e prendas em trajes de época, posando formalmente",
+            "setting": "Em frente ao galpão antigo do CTG Sentinela da Querência, época passada",
+            "action": "Estático, pose de foto de grupo formal"
+          },
+          "style": {
+            "primary": "documentary archival, preto e branco",
+            "rendering_quality": "detailed",
+            "surface_textures": "grão de filme analógico, leve desbotamento de foto antiga"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "50mm",
+              "aperture": "f/8",
+              "depth_of_field": "deep",
+              "angle": "eye level, frontal"
+            },
+            "resolution": "high definition",
+            "rendering": "preto e branco com leve sépia, grão de filme"
+          },
+          "materials": {
+            "skin": "pele em tons de cinza, textura de foto antiga, sem retoque moderno",
+            "fabric": "roupas de época em algodão e lã, textura granulada"
+          },
+          "environment": {},
+          "composition": {
+            "framing": "foto ocupando o frame inteiro, badge grande sobreposto no terço inferior esquerdo, swipe pequeno no canto inferior direito",
+            "subject_placement": "sujeito da foto centralizado ou levemente deslocado, badge dominando visualmente o terço inferior",
+            "safe_area": "64px de padding nas laterais e topo. Base: 14px de faixa + 20px de respiro antes do badge/swipe",
+            "ui_elements": [
+              {
+                "text": "MEU #TBT",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "64px",
+                "color": "#F7F7F4",
+                "background": "bloco sólido verde #1B8F4A, flush, largura ocupando cerca de 60-65% da largura do frame, alinhado à esquerda",
+                "position": "terço inferior, primeira linha do badge"
+              },
+              {
+                "text": "NO CTG",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "64px",
+                "color": "#F7F7F4",
+                "background": "bloco sólido azul #0D47A1, flush, mesma largura do bloco verde, colado imediatamente abaixo sem espaço",
+                "position": "logo abaixo do bloco 'MEU #TBT'"
+              },
+              {
+                "text": "faixa tricolor inferior",
+                "type": "3 blocos sólidos iguais: azul #0D47A1, verde #1B8F4A, branco #FFFFFF, sem gradiente, bordas retas",
+                "position": "colada na borda inferior do frame, largura total, altura 14px"
+              },
+              {
+                "text": "swipe: seta + quero-quero + 'ARRASTA PRA LER'",
+                "type": "linha fina terminando em seta apontando para a direita; sobre a linha, um quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata em qualquer ilustração: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com uma crista/topete fino de penas pretas apontando para trás e para cima a partir da nuca, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo a garganta e o peito, dorso e asas em cinza-acastanhado liso sem manchas, barriga branca, pernas longas, finas e rosa-avermelhadas, patas com dedos finos, cauda curta. Proporção corporal idêntica em toda peça: corpo:pescoço:pernas sempre na mesma relação, nunca desenhar as pernas curtas demais nem o corpo esférico. em traço único preto #121212, sem preenchimento colorido, pequeno, caminhando sobre a linha; texto 'ARRASTA PRA LER' pequeno logo abaixo, mesmo traço",
+                "position": "canto inferior direito, acima da faixa tricolor, oposto ao badge, pequeno, no máximo 15-18% da largura do frame"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "badge grande e legível a distância",
+              "anatomia do quero-quero consistente e reconhecível",
+              "foto autêntica e documental"
+            ],
+            "avoid": [
+              "NENHUM brasão/emblema circular oficial do CTG renderizado",
+              "faixa tricolor no topo em vez de embaixo",
+              "bloco de destaque em vermelho ou amarelo como área grande",
+              "quero-quero com corpo redondo tipo bola, ou alongado demais tipo avestruz/garça — seguir exatamente a anatomia travada (corpo oval horizontal, pescoço curto, crista fina, babador preto, pernas rosa-avermelhadas)",
+              "quero-quero de swipe grande demais competindo com o badge",
+              "badge pequeno ou discreto — deve ser GRANDE, o elemento de maior peso visual do terço inferior, como um cartão sólido",
+              "badge e swipe sobrepondo um ao outro"
+            ],
+            "reference_standard": "cartão de memória editorial com tipografia grande, estilo revista de comunidade"
+          }
+        }
+      }
+    },
+    "capa-10b-tbt-historico-swipe-colorido": {
+      "nome": "Meu #TBT no CTG — histórico (P&B), badge grande, swipe colorido",
+      "descricao": "Badge grande e de alto impacto ('MEU #TBT' bloco verde + 'NO CTG' bloco azul, ocupando boa parte do terço inferior, estilo cartão sólido) em vez do badge pequeno anterior. Anatomia do quero-quero travada com descrição fixa. Swipe pequeno no canto oposto.",
+      "hierarquia": "Foto full-bleed > gradiente de contraste na base > badge GRANDE (MEU #TBT verde + NO CTG azul empilhados) no canto inferior esquerdo > swipe pequeno no canto inferior direito > faixa tricolor na borda extrema",
+      "cores": "Badge: bloco verde #1B8F4A + bloco azul #0D47A1, texto branco, grande. Swipe: seta preta + quero-quero colorido nas cores naturais (anatomia travada, ver descrição fixa)",
+      "quando_usar": "Série 'Memórias do Sentinela'.",
+      "aprovado": false,
+      "status": "aguardando teste de geração — badge grande + anatomia do quero-quero travada",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Foto documental vertical 4:5, tratada como fotografia de arquivo em preto e branco com leve tom sépia, grupo de gaúchos e prendas posando em frente ao antigo galpão do CTG, roupas de época, expressões formais, grão de filme visível. Gradiente escuro sutil de #0A0A0A a transparente na base (0-45% da altura) para dar contraste ao badge grande. No terço inferior esquerdo, um badge grande estilo cartão sólido: 'MEU #TBT' em bloco verde #1B8F4A (texto branco, extra bold, caixa alta, ocupando cerca de 60% da largura do frame), colado imediatamente abaixo 'NO CTG' em bloco azul #0D47A1 (mesma largura, mesma tipografia). No canto inferior direito, pequeno indicador de swipe: linha fina terminando em seta, com um quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata em qualquer ilustração: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com uma crista/topete fino de penas pretas apontando para trás e para cima a partir da nuca, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo a garganta e o peito, dorso e asas em cinza-acastanhado liso sem manchas, barriga branca, pernas longas, finas e rosa-avermelhadas, patas com dedos finos, cauda curta. Proporção corporal idêntica em toda peça: corpo:pescoço:pernas sempre na mesma relação, nunca desenhar as pernas curtas demais nem o corpo esférico. em cores naturais (corpo cinza-acastanhado, babador preto, barriga branca, pernas rosa-avermelhadas) caminhando sobre a linha, texto 'ARRASTA PRA LER' pequeno abaixo. No rodapé, faixa tricolor CTG colada na borda inferior, largura total, 14px.",
+            "subject": "Grupo de 6-8 gaúchos e prendas em trajes de época, posando formalmente",
+            "setting": "Em frente ao galpão antigo do CTG Sentinela da Querência, época passada",
+            "action": "Estático, pose de foto de grupo formal"
+          },
+          "style": {
+            "primary": "documentary archival, preto e branco",
+            "rendering_quality": "detailed",
+            "surface_textures": "grão de filme analógico, leve desbotamento de foto antiga"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "50mm",
+              "aperture": "f/8",
+              "depth_of_field": "deep",
+              "angle": "eye level, frontal"
+            },
+            "resolution": "high definition",
+            "rendering": "preto e branco com leve sépia, grão de filme"
+          },
+          "materials": {
+            "skin": "pele em tons de cinza, textura de foto antiga, sem retoque moderno",
+            "fabric": "roupas de época em algodão e lã, textura granulada"
+          },
+          "environment": {},
+          "composition": {
+            "framing": "foto ocupando o frame inteiro, badge grande sobreposto no terço inferior esquerdo, swipe pequeno no canto inferior direito",
+            "subject_placement": "sujeito da foto centralizado ou levemente deslocado, badge dominando visualmente o terço inferior",
+            "safe_area": "64px de padding nas laterais e topo. Base: 14px de faixa + 20px de respiro antes do badge/swipe",
+            "ui_elements": [
+              {
+                "text": "MEU #TBT",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "64px",
+                "color": "#F7F7F4",
+                "background": "bloco sólido verde #1B8F4A, flush, largura ocupando cerca de 60-65% da largura do frame, alinhado à esquerda",
+                "position": "terço inferior, primeira linha do badge"
+              },
+              {
+                "text": "NO CTG",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "64px",
+                "color": "#F7F7F4",
+                "background": "bloco sólido azul #0D47A1, flush, mesma largura do bloco verde, colado imediatamente abaixo sem espaço",
+                "position": "logo abaixo do bloco 'MEU #TBT'"
+              },
+              {
+                "text": "faixa tricolor inferior",
+                "type": "3 blocos sólidos iguais: azul #0D47A1, verde #1B8F4A, branco #FFFFFF, sem gradiente, bordas retas",
+                "position": "colada na borda inferior do frame, largura total, altura 14px"
+              },
+              {
+                "text": "swipe: seta + quero-quero + 'ARRASTA PRA LER'",
+                "type": "linha fina terminando em seta apontando para a direita; sobre a linha, um quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata em qualquer ilustração: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com uma crista/topete fino de penas pretas apontando para trás e para cima a partir da nuca, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo a garganta e o peito, dorso e asas em cinza-acastanhado liso sem manchas, barriga branca, pernas longas, finas e rosa-avermelhadas, patas com dedos finos, cauda curta. Proporção corporal idêntica em toda peça: corpo:pescoço:pernas sempre na mesma relação, nunca desenhar as pernas curtas demais nem o corpo esférico. em cores naturais (corpo cinza-acastanhado, babador preto, barriga branca, pernas rosa-avermelhadas), pequeno, caminhando sobre a linha; texto 'ARRASTA PRA LER' pequeno logo abaixo",
+                "position": "canto inferior direito, acima da faixa tricolor, oposto ao badge, pequeno, no máximo 15-18% da largura do frame"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "badge grande e legível a distância",
+              "anatomia do quero-quero consistente e reconhecível",
+              "foto autêntica e documental"
+            ],
+            "avoid": [
+              "NENHUM brasão/emblema circular oficial do CTG renderizado",
+              "faixa tricolor no topo em vez de embaixo",
+              "bloco de destaque em vermelho ou amarelo como área grande",
+              "quero-quero com corpo redondo tipo bola, ou alongado demais tipo avestruz/garça — seguir exatamente a anatomia travada (corpo oval horizontal, pescoço curto, crista fina, babador preto, pernas rosa-avermelhadas)",
+              "quero-quero de swipe grande demais competindo com o badge",
+              "badge pequeno ou discreto — deve ser GRANDE, o elemento de maior peso visual do terço inferior, como um cartão sólido",
+              "badge e swipe sobrepondo um ao outro"
+            ],
+            "reference_standard": "cartão de memória editorial com tipografia grande, estilo revista de comunidade"
+          }
+        }
+      }
+    },
+    "capa-16-tbt-cover-memoria": {
+      "nome": "Meu #TBT no CTG — capa/selo da série (fundo envelhecido)",
+      "descricao": "Recriação do card 'MEU #TBT NO CTG' do moodboard: fundo envelhecido (textura de papel), headline grande empilhada, foto antiga emoldurada tipo polaroid abaixo, badge pequeno de apoio, footer recortado com nome do CTG + faixa tricolor. Sem estrela vermelha no topo (removida).",
+      "hierarquia": "Fundo envelhecido (papel) > headline empilhada 'MEU / #TBT / NO CTG' > foto antiga emoldurada (polaroid, levemente rotacionada) > badge pequeno 'Memórias que nos conectam' > quero-quero pequeno de apoio > footer recortado com nome do CTG > faixa tricolor na borda extrema",
+      "cores": "Fundo off-white envelhecido #F2ECD8. Headline em branco #F7F7F4. Foto em preto e branco/sépia. Badge em off-white com texto escuro. Footer em off-white/parchment com texto escuro.",
+      "quando_usar": "Capa de abertura da série 'Memórias do Sentinela' — funciona como selo fixo, reaproveitável a cada nova leva de fotos antigas.",
+      "aprovado": true,
+      "aprovado_em": "2026-09-10",
+      "status": "aguardando teste de geração — ainda não renderizado nem validado pelo cliente",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Capa vertical 4:5, fundo com textura sutil de papel envelhecido, tom off-white amarelado #F2ECD8, pequenas manchas e grão de papel visíveis. No topo, headline extra bold caixa alta em verde institucional #1B8F4A, empilhada em 3 linhas centralizadas: 'MEU' (menor), '#TBT' (bem maior, palavra de maior peso visual), 'NO CTG' (tamanho intermediário). Sem nenhum divisor de estrela ou linha decorativa acima da headline. Abaixo da headline, centralizada, uma foto antiga tratada como fotografia de arquivo em preto e branco/sépia: grupo de pessoas em frente ao galpão do CTG, emoldurada como uma polaroid (borda branca grossa, levemente rotacionada -3 graus, sombra sutil). Abaixo da foto, um badge pequeno em formato de pílula, fundo off-white #F7F7F4, texto escuro #241D14: 'Memórias que nos conectam'. No canto inferior, ao lado do texto do footer, um pequeno quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com crista/topete fino de penas pretas apontando para trás e para cima, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo garganta e peito, dorso e asas cinza-acastanhado liso, barriga branca, pernas longas e finas rosa-avermelhadas, cauda curta, ilustrado em traço fino de uma cor só. Na base do frame, um footer com borda SUPERIOR irregular tipo papel rasgado (não reta), fundo off-white/parchment #F2ECD8, contendo o texto pequeno centralizado 'CTG SENTINELA DA QUERÊNCIA · SANTA MARIA-RS'. Logo abaixo do footer, colada na borda extrema inferior do frame, a faixa tricolor CTG (azul #0D47A1, verde #1B8F4A, branco #FFFFFF), largura total, 14px de altura.",
+            "subject": "Composição editorial com headline, foto de arquivo emoldurada e elementos de apoio",
+            "setting": "Fundo com textura de papel envelhecido, sem cenário fotográfico externo à foto emoldurada",
+            "action": "Estático, composição gráfica"
+          },
+          "style": {
+            "primary": "editorial gráfico com foto de arquivo emoldurada",
+            "rendering_quality": "detailed",
+            "surface_textures": "papel com grão sutil e manchas de envelhecimento, foto emoldurada com grão de filme e leve desbotamento"
+          },
+          "technical": {
+            "resolution": "ultra high definition",
+            "rendering": "cores sólidas na tipografia e no fundo, grão de filme só dentro da foto emoldurada"
+          },
+          "composition": {
+            "framing": "headline no topo, foto emoldurada centralizada, badge logo abaixo, footer recortado na base",
+            "subject_placement": "tudo centralizado verticalmente, foto como elemento visual principal",
+            "safe_area": "64px de padding nas laterais e topo. Base: reservar altura do footer recortado + 14px da faixa tricolor",
+            "ui_elements": [
+              {
+                "text": "MEU",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "32px",
+                "color": "#241D14",
+                "alignment": "centralizado",
+                "position": "topo"
+              },
+              {
+                "text": "#TBT",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "72px",
+                "color": "#241D14",
+                "alignment": "centralizado",
+                "position": "logo abaixo de 'MEU'"
+              },
+              {
+                "text": "NO CTG",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "44px",
+                "color": "#241D14",
+                "alignment": "centralizado",
+                "position": "logo abaixo de '#TBT'"
+              },
+              {
+                "text": "foto antiga emoldurada",
+                "type": "foto de arquivo P&B/sépia emoldurada como polaroid, borda branca, leve rotação -3°",
+                "position": "centralizado, abaixo da headline"
+              },
+              {
+                "text": "Memórias que nos conectam",
+                "font": "sans-serif regular",
+                "font_size": "18px",
+                "color": "#241D14",
+                "background": "pílula off-white #F7F7F4",
+                "alignment": "centralizado",
+                "position": "abaixo da foto"
+              },
+              {
+                "text": "quero-quero de apoio",
+                "type": "pequeno ícone em traço de quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com crista/topete fino de penas pretas apontando para trás e para cima, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo garganta e peito, dorso e asas cinza-acastanhado liso, barriga branca, pernas longas e finas rosa-avermelhadas, cauda curta, uma cor só, discreto",
+                "position": "canto do footer, ao lado do texto do nome do CTG, pequeno"
+              },
+              {
+                "text": "footer com nome do CTG",
+                "type": "bloco off-white/parchment #F2ECD8 com borda SUPERIOR irregular, tipo papel rasgado ou recortado à mão (não reta), contendo o texto 'CTG SENTINELA DA QUERÊNCIA · SANTA MARIA-RS' pequeno e centralizado, cor #241D14",
+                "position": "faixa horizontal na parte inferior do frame, logo acima da faixa tricolor"
+              },
+              {
+                "text": "faixa tricolor inferior",
+                "type": "3 blocos sólidos iguais: azul #0D47A1, verde #1B8F4A, branco #FFFFFF, sem gradiente, bordas retas",
+                "position": "colada na borda extrema inferior do frame, largura total, altura 14px, logo abaixo do footer recortado"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "headline empilhada de alto impacto",
+              "foto de arquivo autêntica emoldurada",
+              "footer com borda recortada natural",
+              "anatomia do quero-quero consistente"
+            ],
+            "avoid": [
+              "NENHUMA estrela vermelha como divisor ou elemento decorativo — proibido em qualquer peça",
+              "NENHUM brasão/emblema circular oficial do CTG renderizado — aplicado depois manualmente",
+              "faixa tricolor no topo em vez de embaixo",
+              "bloco de destaque em vermelho ou amarelo como área grande",
+              "quero-quero com corpo redondo ou alongado demais — seguir a anatomia travada",
+              "footer com borda superior reta e comum — deve ser irregular, tipo papel rasgado/recortado",
+              "foto emoldurada genérica ou sem grão de arquivo",
+              "badge grande demais competindo com a foto"
+            ],
+            "reference_standard": "cartão de memória editorial com foto de arquivo emoldurada, estilo álbum de família"
+          }
+        }
+      }
+    },
+    "capa-17-tbt-recortes-colagem": {
+      "nome": "Recortes da Nossa História — colagem de fotos antigas",
+      "descricao": "Recriação do card 'RECORTES DA NOSSA HISTÓRIA': fundo envelhecido (textura de papel), headline em verde, colagem de 2-3 fotos antigas em estilo polaroid levemente rotacionadas, legenda abaixo, footer recortado + faixa tricolor. Sem estrela vermelha.",
+      "hierarquia": "Fundo envelhecido (papel) > headline 'Recortes da Nossa História' > colagem de 2-3 fotos antigas em polaroid > legenda curta > quero-quero pequeno > footer recortado com nome do CTG > faixa tricolor",
+      "cores": "Fundo off-white envelhecido #F2ECD8. Headline em verde #1B8F4A. Fotos em P&B/sépia. Legenda em texto escuro #241D14. Footer em parchment.",
+      "quando_usar": "Quando há mais de uma foto antiga do mesmo tema/época pra mostrar junto, sem precisar escolher só uma.",
+      "aprovado": true,
+      "aprovado_em": "2026-09-10",
+      "status": "aguardando teste de geração — ainda não renderizado nem validado pelo cliente",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Capa vertical 4:5, fundo com textura sutil de papel envelhecido, tom off-white amarelado #F2ECD8, pequenas manchas e grão de papel visíveis. No topo, headline extra bold caixa alta em verde #1B8F4A, centralizada: 'RECORTES DA NOSSA HISTÓRIA'. Sem estrela ou linha decorativa acima do título. Abaixo, uma colagem de 3 fotos antigas tratadas como arquivo em preto e branco/sépia, cada uma emoldurada como polaroid com borda branca, levemente sobrepostas e rotacionadas em ângulos diferentes (-5°, 2°, -2°), como um mural de memórias. Abaixo da colagem, uma linha de legenda centralizada em texto escuro #241D14: 'Momentos que marcaram o Sentinela e continuam vivos na nossa memória.'. No canto, ao lado do texto do footer, um pequeno quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com crista/topete fino de penas pretas apontando para trás e para cima, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo garganta e peito, dorso e asas cinza-acastanhado liso, barriga branca, pernas longas e finas rosa-avermelhadas, cauda curta ilustrado em traço fino de uma cor só. Na base, footer com borda SUPERIOR irregular tipo papel rasgado, fundo parchment #F2ECD8, texto pequeno centralizado 'CTG SENTINELA DA QUERÊNCIA · SANTA MARIA-RS'. Logo abaixo, colada na borda extrema inferior, a faixa tricolor CTG, largura total, 14px.",
+            "subject": "Composição editorial com colagem de fotos de arquivo emolduradas",
+            "setting": "Fundo liso off-white, sem cenário fotográfico externo às fotos emolduradas",
+            "action": "Estático, composição gráfica"
+          },
+          "style": {
+            "primary": "editorial gráfico com colagem de fotos de arquivo",
+            "rendering_quality": "detailed",
+            "surface_textures": "papel com grão sutil e manchas de envelhecimento, fotos emolduradas com grão de filme e leve desbotamento"
+          },
+          "technical": {
+            "resolution": "ultra high definition",
+            "rendering": "cores sólidas na tipografia e no fundo, grão de filme só dentro das fotos emolduradas"
+          },
+          "composition": {
+            "framing": "headline no topo, colagem centralizada, legenda abaixo, footer recortado na base",
+            "subject_placement": "colagem como elemento visual principal, ocupando o centro do frame",
+            "safe_area": "64px de padding nas laterais e topo. Base: reservar altura do footer recortado + 14px da faixa tricolor",
+            "ui_elements": [
+              {
+                "text": "RECORTES DA NOSSA HISTÓRIA",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "42px",
+                "color": "#1B8F4A",
+                "alignment": "centralizado",
+                "position": "topo"
+              },
+              {
+                "text": "colagem de 3 fotos antigas",
+                "type": "fotos de arquivo P&B/sépia emolduradas como polaroid, sobrepostas e rotacionadas em ângulos diferentes",
+                "position": "centralizado, abaixo da headline"
+              },
+              {
+                "text": "Momentos que marcaram o Sentinela e continuam vivos na nossa memória.",
+                "font": "sans-serif regular",
+                "font_size": "20px",
+                "color": "#241D14",
+                "alignment": "centralizado",
+                "position": "abaixo da colagem"
+              },
+              {
+                "text": "quero-quero de apoio",
+                "type": "pequeno ícone em traço de quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com crista/topete fino de penas pretas apontando para trás e para cima, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo garganta e peito, dorso e asas cinza-acastanhado liso, barriga branca, pernas longas e finas rosa-avermelhadas, cauda curta, uma cor só, discreto",
+                "position": "canto do footer, ao lado do texto do nome do CTG, pequeno"
+              },
+              {
+                "text": "footer com nome do CTG",
+                "type": "bloco off-white/parchment #F2ECD8 com borda SUPERIOR irregular, tipo papel rasgado ou recortado à mão (não reta), contendo o texto 'CTG SENTINELA DA QUERÊNCIA · SANTA MARIA-RS' pequeno e centralizado, cor #241D14",
+                "position": "faixa horizontal na parte inferior do frame, logo acima da faixa tricolor"
+              },
+              {
+                "text": "faixa tricolor inferior",
+                "type": "3 blocos sólidos iguais: azul #0D47A1, verde #1B8F4A, branco #FFFFFF, sem gradiente, bordas retas",
+                "position": "colada na borda extrema inferior do frame, largura total, altura 14px, logo abaixo do footer recortado"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "colagem natural e espontânea, não perfeitamente alinhada",
+              "fotos de arquivo autênticas com grão real",
+              "footer com borda recortada natural"
+            ],
+            "avoid": [
+              "NENHUMA estrela vermelha como divisor ou elemento decorativo — proibido em qualquer peça",
+              "NENHUM brasão/emblema circular oficial do CTG renderizado — aplicado depois manualmente",
+              "faixa tricolor no topo em vez de embaixo",
+              "bloco de destaque em vermelho ou amarelo como área grande",
+              "quero-quero com corpo redondo ou alongado demais — seguir a anatomia travada",
+              "footer com borda superior reta e comum — deve ser irregular, tipo papel rasgado/recortado",
+              "fotos alinhadas de forma robótica/perfeita demais",
+              "menos de 2 ou mais de 3 fotos na colagem"
+            ],
+            "reference_standard": "mural de memórias/scrapbook editorial, estilo álbum de família"
+          }
+        }
+      }
+    },
+    "capa-18-tbt-quem-reconhece": {
+      "nome": "Recortes da Nossa História — engajamento com foto de grupo antiga",
+      "descricao": "Recriação do card 'RECORTES DA NOSSA HISTÓRIA': fundo envelhecido (textura de papel), headline empilhada, foto de grupo antiga grande, CTA de comentário (em 'você', por ser peça gráfica). Sem badge/selo circular. Footer recortado + faixa tricolor. Sem estrela vermelha.",
+      "hierarquia": "Fundo envelhecido (papel) > headline empilhada 'RECORTES DA / NOSSA / HISTÓRIA' > CTA de comentário > foto de grupo antiga grande emoldurada > quero-quero pequeno > footer recortado > faixa tricolor",
+      "cores": "Fundo off-white envelhecido #F2ECD8. Headline em verde institucional #1B8F4A. CTA em texto escuro #241D14. Foto em P&B/sépia.",
+      "quando_usar": "Posts de engajamento direto — pedir pra associados se marcarem/comentarem numa foto antiga de grupo.",
+      "aprovado": false,
+      "status": "aguardando teste de geração — ainda não renderizado nem validado pelo cliente",
+      "nota_voz": "CTA em 'você' (não 'tu'), por ser texto de peça gráfica/cartaz, conforme regra travada em production-rules.md.",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Capa vertical 4:5, fundo com textura sutil de papel envelhecido, tom off-white amarelado #F2ECD8, pequenas manchas e grão de papel visíveis. No topo, headline extra bold caixa alta em verde institucional #1B8F4A, empilhada e centralizada: 'RECORTES DA' / 'NOSSA' / 'HISTÓRIA'. Sem estrela ou linha decorativa acima. Logo abaixo da headline, uma linha de CTA em texto escuro #241D14 regular, centralizada: 'Marque seus amigos e conte nos comentários como foi esse dia!'. Abaixo, uma foto de grupo antiga grande tratada como arquivo em preto e branco/sépia, muitas pessoas posando formalmente, emoldurada com borda branca fina, ocupando boa parte do terço inferior. Sem nenhum selo ou badge circular sobreposto à foto. No canto, ao lado do texto do footer, um pequeno quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com crista/topete fino de penas pretas apontando para trás e para cima, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo garganta e peito, dorso e asas cinza-acastanhado liso, barriga branca, pernas longas e finas rosa-avermelhadas, cauda curta em traço fino de uma cor só. Na base, footer com borda SUPERIOR irregular tipo papel rasgado, fundo parchment #F2ECD8, texto pequeno centralizado 'CTG SENTINELA DA QUERÊNCIA · SANTA MARIA-RS'. Logo abaixo, faixa tricolor CTG colada na borda extrema inferior, largura total, 14px.",
+            "subject": "Composição editorial com headline, CTA e foto de grupo de arquivo emoldurada, sem selo",
+            "setting": "Fundo com textura de papel envelhecido, sem cenário fotográfico externo à foto emoldurada",
+            "action": "Estático, composição gráfica"
+          },
+          "style": {
+            "primary": "editorial gráfico com foto de arquivo emoldurada",
+            "rendering_quality": "detailed",
+            "surface_textures": "papel com grão sutil e manchas de envelhecimento, foto emoldurada com grão de filme e leve desbotamento"
+          },
+          "technical": {
+            "resolution": "ultra high definition",
+            "rendering": "cores sólidas na tipografia e no fundo, grão de filme só dentro da foto emoldurada"
+          },
+          "composition": {
+            "framing": "headline e CTA no topo, foto de grupo grande no centro-inferior, badge circular sobreposto, footer recortado na base",
+            "subject_placement": "foto de grupo como elemento visual principal, ocupando quase metade inferior do frame",
+            "safe_area": "64px de padding nas laterais e topo. Base: reservar altura do footer recortado + 14px da faixa tricolor",
+            "ui_elements": [
+              {
+                "text": "RECORTES DA",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "40px",
+                "color": "#1B8F4A",
+                "alignment": "centralizado",
+                "position": "topo"
+              },
+              {
+                "text": "NOSSA",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "48px",
+                "color": "#1B8F4A",
+                "alignment": "centralizado",
+                "position": "logo abaixo"
+              },
+              {
+                "text": "HISTÓRIA",
+                "font": "sans-serif extra bold condensed, caixa alta",
+                "font_size": "48px",
+                "color": "#1B8F4A",
+                "alignment": "centralizado",
+                "position": "logo abaixo"
+              },
+              {
+                "text": "Marque seus amigos e conte nos comentários como foi esse dia!",
+                "font": "sans-serif regular",
+                "font_size": "20px",
+                "color": "#241D14",
+                "alignment": "centralizado",
+                "position": "abaixo da headline"
+              },
+              {
+                "text": "foto de grupo antiga emoldurada",
+                "type": "foto de arquivo P&B/sépia, grupo grande posando, borda branca fina",
+                "position": "terço inferior, ocupando boa parte da largura"
+              },
+              {
+                "text": "quero-quero de apoio",
+                "type": "pequeno ícone em traço de quero-quero (Vanellus chilensis), SEMPRE com esta anatomia exata: corpo oval alongado na horizontal (nunca redondo tipo bola, nunca alongado tipo avestruz ou garça), pescoço curto, cabeça pequena e arredondada com crista/topete fino de penas pretas apontando para trás e para cima, bico curto e fino apontando para baixo, faixa preta larga em formato de babador cobrindo garganta e peito, dorso e asas cinza-acastanhado liso, barriga branca, pernas longas e finas rosa-avermelhadas, cauda curta, uma cor só, discreto",
+                "position": "canto do footer, ao lado do texto do nome do CTG, pequeno"
+              },
+              {
+                "text": "footer com nome do CTG",
+                "type": "bloco off-white/parchment #F2ECD8 com borda SUPERIOR irregular, tipo papel rasgado ou recortado à mão (não reta), contendo o texto 'CTG SENTINELA DA QUERÊNCIA · SANTA MARIA-RS' pequeno e centralizado, cor #241D14",
+                "position": "faixa horizontal na parte inferior do frame, logo acima da faixa tricolor"
+              },
+              {
+                "text": "faixa tricolor inferior",
+                "type": "3 blocos sólidos iguais: azul #0D47A1, verde #1B8F4A, branco #FFFFFF, sem gradiente, bordas retas",
+                "position": "colada na borda extrema inferior do frame, largura total, altura 14px, logo abaixo do footer recortado"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "headline empilhada de alto impacto",
+              "foto de grupo de arquivo autêntica",
+              "CTA claro de engajamento",
+              "footer com borda recortada natural"
+            ],
+            "avoid": [
+              "NENHUMA estrela vermelha como divisor ou elemento decorativo — proibido em qualquer peça",
+              "NENHUM brasão/emblema circular oficial do CTG renderizado — aplicado depois manualmente",
+              "faixa tricolor no topo em vez de embaixo",
+              "bloco de destaque em vermelho ou amarelo como área grande",
+              "quero-quero com corpo redondo ou alongado demais — seguir a anatomia travada",
+              "footer com borda superior reta e comum — deve ser irregular, tipo papel rasgado/recortado",
+              "foto de grupo genérica ou pequena demais",
+              "NENHUM selo/badge circular sobreposto à foto — removido desta variação"
+            ],
+            "reference_standard": "cartão de memória editorial com foto de arquivo emoldurada, estilo álbum de família"
+          }
+        }
+      }
+    }
+  },
+  "indice_rapido": {
+    "capa-10a-tbt-historico-swipe-traco": "TBT histórico P&B + badge + swipe em traço preto.",
+    "capa-10b-tbt-historico-swipe-colorido": "TBT histórico P&B + badge + swipe colorido.",
+    "capa-16-tbt-cover-memoria": "Selo fixo 'Meu #TBT no CTG', fundo envelhecido, foto emoldurada, footer recortado. APROVADO.",
+    "capa-17-tbt-recortes-colagem": "Colagem de 2-3 fotos antigas tipo mural, footer recortado. APROVADO.",
+    "capa-18-tbt-quem-reconhece": "Recortes da Nossa História — foto de grupo antiga + CTA de engajamento, sem selo, footer recortado."
+  },
+  "swipe_icon_variacoes": {
+    "swipe-icon-01-seta-quero-quero": {
+      "nome": "Ícone de swipe — seta + quero-quero, sem texto",
+      "descricao": "Elemento pequeno e discreto pro canto inferior do card: uma linha fina horizontal terminando em ponta de seta (apontando pra direita), e um quero-quero pequeno em silhueta simples de traço, na pose de estar andando sobre a linha, como se a linha fosse o chão. Sem texto nenhum.",
+      "tamanho_relativo": "pequeno, ~12-15% da largura do frame, canto inferior, discreto — não é um mascote grande, é um detalhe",
+      "cores": "traço único, preto #121212 ou a cor do traço da peça (varia conforme a variação de capa em que for aplicado)",
+      "aprovado": false,
+      "status": "aguardando teste de geração — ainda não renderizado nem validado pelo cliente",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Ilustração pequena isolada, estilo desenho simples de traço fino em preto #121212 sobre fundo transparente/branco. Uma linha horizontal fina terminando em uma ponta de seta simples apontando para a direita, como uma seta de rabisco desenhada à mão. Sobre essa linha, como se estivesse caminhando em cima dela, um quero-quero pequeno em silhueta simplificada de traço único (contorno do corpo, cabeça pequena com topete característico, pernas finas tocando a linha), na mesma escala e estilo de traço da seta, sem preenchimento colorido, só o contorno.",
+            "subject": "Seta fina horizontal com quero-quero pequeno caminhando sobre ela",
+            "setting": "Ilustração isolada, sem cenário, fundo transparente/branco",
+            "action": "Quero-quero em pose de caminhada leve sobre a linha da seta"
+          },
+          "style": {
+            "primary": "line art minimalista, rabisco desenhado à mão",
+            "rendering_quality": "detailed",
+            "surface_textures": "traço único sem preenchimento, linha fina e uniforme"
+          },
+          "technical": {
+            "resolution": "high definition",
+            "rendering": "traço vetorial limpo, sem sombra, sem gradiente"
+          },
+          "composition": {
+            "framing": "elemento pequeno isolado, centralizado no próprio espaço de composição",
+            "subject_placement": "seta ocupa a largura do elemento, quero-quero pequeno posicionado sobre a linha, cerca de 1/3 a partir da ponta da seta",
+            "safe_area": "elemento pensado pra ocupar só o canto inferior do card final (12-15% da largura do frame), nunca o centro"
+          },
+          "quality": {
+            "include": [
+              "silhueta de quero-quero reconhecível mesmo pequena",
+              "seta simples e legível como indicador de swipe",
+              "traço leve e despretensioso, tipo rabisco"
+            ],
+            "avoid": [
+              "quero-quero grande demais ou virando o elemento principal",
+              "seta grossa ou chamativa demais",
+              "preenchimento sólido colorido (deve ser só contorno)",
+              "poses complexas que dificultem reconhecer o quero-quero em tamanho pequeno"
+            ],
+            "reference_standard": "rabisco/doodle simples desenhado à mão, estilo anotação de caderno"
+          }
+        }
+      }
+    },
+    "swipe-icon-02-seta-quero-quero-texto": {
+      "nome": "Ícone de swipe — seta + quero-quero + 'ARRASTA PRA LER'",
+      "descricao": "Mesmo elemento do ícone 1 (seta fina + quero-quero caminhando sobre ela), com o texto 'ARRASTA PRA LER' abaixo, em letra pequena e discreta, mesmo traço/cor do desenho.",
+      "tamanho_relativo": "pequeno, canto inferior, discreto — a seta+quero-quero fica em cima, o texto embaixo, ocupando no máximo 20% da largura do frame",
+      "cores": "traço único, preto #121212 ou cor do traço da peça, texto na mesma cor",
+      "aprovado": false,
+      "status": "aguardando teste de geração — ainda não renderizado nem validado pelo cliente",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Ilustração pequena isolada, estilo desenho simples de traço fino em preto #121212 sobre fundo transparente/branco. Uma linha horizontal fina terminando em ponta de seta simples apontando para a direita, como um rabisco desenhado à mão. Sobre essa linha, um quero-quero pequeno em silhueta simplificada de traço único caminhando sobre ela, mesma escala e estilo da seta. Abaixo do conjunto seta+quero-quero, o texto 'ARRASTA PRA LER' em letra pequena, caixa alta, mesma cor do traço, fonte manuscrita leve ou sans-serif fina, alinhado à mesma largura da seta.",
+            "subject": "Seta fina horizontal com quero-quero caminhando sobre ela, e texto de instrução abaixo",
+            "setting": "Ilustração isolada, sem cenário, fundo transparente/branco",
+            "action": "Quero-quero em pose de caminhada leve sobre a linha da seta"
+          },
+          "style": {
+            "primary": "line art minimalista, rabisco desenhado à mão",
+            "rendering_quality": "detailed",
+            "surface_textures": "traço único sem preenchimento, linha fina e uniforme"
+          },
+          "technical": {
+            "resolution": "high definition",
+            "rendering": "traço vetorial limpo, sem sombra, sem gradiente"
+          },
+          "composition": {
+            "framing": "elemento pequeno isolado, seta+quero-quero em cima, texto embaixo",
+            "subject_placement": "seta e quero-quero na parte superior do elemento, texto centralizado logo abaixo",
+            "safe_area": "elemento pensado pra ocupar só o canto inferior do card final (até 20% da largura do frame)",
+            "ui_elements": [
+              {
+                "text": "ARRASTA PRA LER",
+                "font": "sans-serif fina ou manuscrita leve, caixa alta",
+                "font_size": "pequeno, proporcional ao ícone",
+                "color": "mesma cor do traço (#121212 ou cor da peça)",
+                "position": "logo abaixo da seta com o quero-quero"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "silhueta de quero-quero reconhecível mesmo pequena",
+              "seta simples e legível",
+              "texto pequeno e discreto, não competindo com a headline principal do card"
+            ],
+            "avoid": [
+              "quero-quero grande demais",
+              "texto grande ou chamativo demais",
+              "preenchimento sólido colorido no desenho",
+              "fonte pesada ou extra bold no texto de instrução (deve ser leve)"
+            ],
+            "reference_standard": "rabisco/doodle simples desenhado à mão, estilo anotação de caderno"
+          }
+        }
+      }
+    },
+    "swipe-icon-03-seta-quero-quero-colorido-texto": {
+      "nome": "Ícone de swipe - seta + quero-quero colorido + 'ARRASTA PRA LER'",
+      "descricao": "Mesma composição aprovada do ícone 02 (seta fina + quero-quero caminhando sobre ela + texto abaixo), mas o quero-quero nas cores naturais da ave em vez de traço preto puro.",
+      "tamanho_relativo": "pequeno, canto inferior, discreto - até 18-20% da largura do frame",
+      "cores": "Seta e texto em traço preto #121212. Quero-quero em cores naturais: corpo cinza claro, peito e touca preta, faixa de penas azul, lenço vermelho ao redor do pescoço.",
+      "aprovado": false,
+      "status": "aguardando teste de geração - ainda não renderizado nem validado pelo cliente",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Ilustração pequena isolada sobre fundo transparente/branco. Uma linha horizontal fina em traço preto #121212 terminando em ponta de seta simples apontando para a direita, como um rabisco desenhado à mão. Sobre essa linha, caminhando sobre ela, um quero-quero pequeno em ilustração de traço fino MAS colorido nas cores naturais da ave: corpo cinza claro, touca e peito pretos, faixa de penas azul acinzentado nas asas, lenço vermelho enrolado no pescoço, pernas finas em traço preto tocando a linha. Abaixo do conjunto, o texto 'ARRASTA PRA LER' em letra pequena, caixa alta, traço preto fino, mesma largura da seta.",
+            "subject": "Seta fina horizontal com quero-quero colorido caminhando sobre ela, texto de instrução abaixo",
+            "setting": "Ilustração isolada, sem cenário, fundo transparente/branco",
+            "action": "Quero-quero em pose de caminhada leve sobre a linha da seta"
+          },
+          "style": {
+            "primary": "line art com cor localizada, ilustração naturalista leve",
+            "rendering_quality": "detailed",
+            "surface_textures": "traço fino preciso, preenchimento de cor plano só no corpo do quero-quero, sem sombreado"
+          },
+          "technical": {
+            "resolution": "high definition",
+            "rendering": "traço vetorial limpo, cor plana sem gradiente, sem sombra"
+          },
+          "composition": {
+            "framing": "elemento pequeno isolado, seta+quero-quero em cima, texto embaixo",
+            "subject_placement": "seta e quero-quero na parte superior do elemento, texto centralizado logo abaixo",
+            "safe_area": "elemento pensado pra ocupar só o canto inferior do card final (até 18-20% da largura do frame)",
+            "ui_elements": [
+              {
+                "text": "ARRASTA PRA LER",
+                "font": "sans-serif fina ou manuscrita leve, caixa alta",
+                "font_size": "pequeno, proporcional ao ícone",
+                "color": "#121212",
+                "position": "logo abaixo da seta com o quero-quero"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "silhueta de quero-quero reconhecível e fiel às cores reais da ave",
+              "seta simples e legível",
+              "texto pequeno e discreto"
+            ],
+            "avoid": [
+              "quero-quero grande demais",
+              "cor do quero-quero espalhando pra seta ou texto",
+              "preenchimento com gradiente ou sombra",
+              "fonte pesada no texto de instrução"
+            ],
+            "reference_standard": "ilustração naturalista de caderno de campo com cor localizada, estilo guia de aves"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "cliente": "historia-proibida",
+  "handle": "@historia_proibida",
+  "last_updated": "2026-08-31",
+  "status": "aprovado",
+  "templates": [
+    {
+      "id": "template-01-dossie-close",
+      "nome": "Dossiê close-up",
+      "origem_visual": "references/capas/01.png",
+      "familia_base": "Família C — duas camadas + handle (extraído do moodboard original)",
+      "quando_usar": "capa de caso único com objeto/cena documental em close-up (arquivos, caixas, documentos, ambiente do caso)",
+      "prompt": {
+        "scene": {
+          "description": "A moody archival-style photograph or period-accurate scene illustrating [CASO/TEMA HISTÓRICO], dark graphite tones with rust-orange accent lighting, subtle film grain. Dominant palette: graphite #1B1D1E background, rust #C13B00 accents, solid black bottom bar with white text. Handle '@historia_proibida' centered between two thin horizontal white rules, flanked by diamond dividers, below a two-tier white headline.",
+          "subject": "[FIGURA/CENA/OBJETO DO CASO HISTÓRICO]",
+          "setting": "period-accurate setting matching the case's era and location",
+          "action": "static, documentary tone"
+        },
+        "style": {
+          "primary": "vintage archival photography, unsettling/investigative editorial tone",
+          "rendering_quality": "period-accurate grainy detail",
+          "lighting": "single directional key light with rust-orange accent, deep graphite shadow"
+        },
+        "technical": {
+          "camera": {
+            "focal_length": "50mm (period-accurate normal lens)",
+            "aperture": "f/5.6",
+            "depth_of_field": "moderate-deep",
+            "angle": "eye level, documentary framing"
+          },
+          "resolution": "medium-high, intentionally period-degraded when appropriate",
+          "rendering": "monochrome or desaturated grade, heavy grain, subtle vignette"
+        },
+        "materials": {
+          "surfaces": "period-accurate fabric, worn wood/stone, aged paper/document texture"
+        },
+        "environment": {
+          "atmosphere": "flat overcast light or dim interior haze",
+          "time": "matches case's historical period"
+        },
+        "composition": {
+          "perspective": "documentary framing with natural leading lines",
+          "framing": "subject off-center per rule of thirds",
+          "subject_placement": "subject fills upper 2/3, headline block bottom third",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Handle text '@historia_proibida' centered directly between two thin horizontal white rules (no circular emblem, no initials), flanked by small white diamond bullet dividers on either side of the text. Below, solid graphite/black #1B1D1E bar, 2-line white Tusker Grotesk condensed all-caps headline: '[LINHA FINA DE CONTEXTO]' (thinner) / '[LINHA BOLD DO CASO]' (bold, larger, optionally in rust #C13B00)."
+        },
+        "quality": {
+          "include": ["archival investigative tone", "period-accurate grain", "high contrast bottom bar", "sober documentary mood", "rust accent typography"],
+          "avoid": ["overly clean modern digital look", "gore or explicit violence", "identifiable victim faces", "low contrast text", "watermark", "circular logo emblem", "initials monogram"],
+          "reference_standard": "Found-photograph true-crime/history archive editorial style"
+        }
+      }
+    },
+    {
+      "id": "template-02-colagem-linha-do-tempo",
+      "nome": "Colagem de locais/linha do tempo",
+      "origem_visual": "references/capas/02.png",
+      "familia_base": "Família B — colagem tríptica (extraído do moodboard original)",
+      "quando_usar": "capa de caso com múltiplos locais/momentos (ex: linha do tempo de um desaparecimento, mapa de eventos, antes/depois de um lugar)",
+      "prompt": {
+        "scene": {
+          "description": "A vertical collage split into 2-3 bands showing different locations/moments tied to [CASO], each in a dessaturated dossier tone. Dominant palette: graphite #1B1D1E, slate #5E6D70 map/timeline overlays, rust #C13B00 accent marks. Thin white divider line with no emblem, followed by the handle '@historia_proibida' centered below it, then a bold headline in white on the solid graphite/black bottom bar.",
+          "subject": "2-3 related locations/timeline moments of the historical case",
+          "setting": "varies per band — real locations tied to the case, map overlays",
+          "action": "static documentary vignettes"
+        },
+        "style": {
+          "primary": "investigative documentary digital composite, dessaturated",
+          "rendering_quality": "hyperrealistic with dossier-style overlay elements",
+          "lighting": "flat diffused documentary lighting per band"
+        },
+        "technical": {
+          "camera": {
+            "focal_length": "35mm per band",
+            "aperture": "f/5.6",
+            "depth_of_field": "moderate",
+            "angle": "eye level"
+          },
+          "resolution": "ultra high definition",
+          "rendering": "seamless band transitions, dessaturated grade with rust/slate overlay graphics"
+        },
+        "materials": {
+          "surfaces": "period-accurate location textures, paper/map overlay texture"
+        },
+        "environment": {
+          "atmosphere": "dossier paper-grain overlay, faint scan-line texture",
+          "time": "matches case timeline"
+        },
+        "composition": {
+          "perspective": "split-band collage with timeline/map graphic elements",
+          "framing": "symmetric divider between bands",
+          "subject_placement": "scenes fill top 2/3, headline bar bottom 1/3",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Plain thin white horizontal rule with no emblem or logo. Directly below it, the handle '@historia_proibida' centered in small white text. Below that, solid graphite/black #1B1D1E bar with bold white Tusker Grotesk all-caps headline, 2 lines, with one key word in rust #C13B00: '[HOOK LINE 1]' / '[HOOK LINE 2]'."
+        },
+        "quality": {
+          "include": ["investigative collage storytelling", "dossier map/timeline overlay", "consistent dessaturated grading", "high contrast white on black bar"],
+          "avoid": ["visible harsh seams", "gore or explicit imagery", "low contrast text", "watermark", "circular logo emblem", "brand icon symbol"],
+          "reference_standard": "True-crime documentary dossier collage editorial style"
+        }
+      }
+    }
+  ]
+}

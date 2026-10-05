@@ -90,12 +90,22 @@ Se alguma dessas não tiver resposta clara → reformular antes de escrever.
 ## 03 | REGRAS DE FORMATAÇÃO
 
 **Legendas no Instagram:**
-- Linha 1: Hook forte — máximo 1 frase, sem ponto final
+- Linha 1: Hook forte, máximo 1 frase, sem ponto final
 - Linhas 2–4: desenvolvimento (dado âncora ou contexto)
-- CTA: sempre na última linha, direto
+- CTA: sempre antes do rodapé, direto
 - Quebra de linha: usar após cada bloco de 2–3 linhas para legibilidade
 - Emojis: máximo 3 por legenda, só quando reforçam o ponto (não decorativos)
-- Hashtags: bloco separado ao final, 5–8 hashtags
+- **Sem hashtags** — a Servitec não usa hashtags nas legendas
+
+**Rodapé fixo obrigatório — toda legenda termina com este bloco exato:**
+```
+🟡 SERVITEC | Sempre oferecendo qualidade e confiança
+📍 Av. Nossa Senhora Aparecida, 534 - Conj. Hab. Lourenço Domenici, Sertãozinho - SP, CEP: 14177-115
+🌐 www.serviteccomercial.com.br
+📲 (16) 2105-8109
+```
+Atenção: sempre um espaço entre o emoji e o texto em cada linha.
+Nunca alterar esse bloco. Nunca adicionar hashtags depois dele.
 
 **Formatação de copy de capa:**
 - Caixa alta para títulos grandes

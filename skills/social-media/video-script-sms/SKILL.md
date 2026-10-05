@@ -2,7 +2,7 @@
 name: video-script-sms
 description: "When the user wants to write a video script, reel, talking head, voiceover, TikTok video, Instagram Reel, YouTube Shorts, long-form YouTube video, video sales letter (VSL), webinar script, or when they mention 'roteiro', 'script', 'cenas', 'narração', 'gravar vídeo', 'fazer reel', 'fazer TikTok'. Also use when content-repurposer identifies a Reel/TikTok/Short derivative and hands off for scripting. Covers spoken video (talking head), voiceover, and animated video structure. For animated/motion design output, combine with huashu-design."
 metadata:
-  version: 1.3.0
+  version: 1.6.0
 ---
 
 # Video Script Writer
@@ -142,9 +142,101 @@ Pergunte apenas o que não foi informado. Se o usuário deu tema + plataforma, c
 - Estilo de gravação (talking head / narração off / misto / animado)
 
 **Opcionais:**
-- CTA desejado ao final
 - Tom da cena (urgente, descontraído, emocional, técnico)
 - Restrições (não mencionar concorrentes, evitar jargão X)
+
+---
+
+## Gate de Gancho de Vídeo (obrigatório para Tipo A/B — antes de escrever qualquer cena)
+
+**Este gate se aplica apenas a roteiros Tipo A (Educativo/Valor) e Tipo B (Autoridade/Bastidor) — VSL (Tipo C) e Narração/Animado (Tipo D) têm lógica de abertura própria e não passam por aqui.**
+
+**Por que é diferente do gancho de carrossel:** no carrossel o leitor controla o ritmo — ele para na capa e lê no próprio tempo. No vídeo, o gancho precisa funcionar em **movimento e em tempo real**: fala, corte e texto na tela acontecem ao mesmo tempo nos primeiros 2-3 segundos, e o espectador decide continuar ou sair antes mesmo da primeira frase terminar. Um gancho de vídeo que só funciona lido (como um título de carrossel) frequentemente falha em vídeo porque depende de tom de voz, expressão e timing de corte — elementos que não existem no texto estático.
+
+**Se `narrative-framework-sms` já rodou e aprovou um hook:** usar esse hook como Categoria de referência e pular direto para as 3 variações dentro dela — não repetir a escolha de categoria.
+
+**Se o ângulo/hook ainda está em aberto:** apresentar as categorias abaixo e pedir para o usuário escolher uma (ou sugerir a mais adequada ao tema, se ele pedir recomendação).
+
+### Categorias de gancho de vídeo (0-3s)
+
+| Categoria | Mecanismo | O que precisa estar junto da fala nos 0-3s |
+|---|---|---|
+| **Pattern Interrupt** | Começa no meio de uma ação ou frase, sem introdução — quebra a expectativa de "vídeo começando" | Corte já em movimento; nada de "oi gente" ou preparação |
+| **Contrarian** | Afirma o oposto do que o público acredita ser verdade | Frase de negação direta nas primeiras palavras ("Isso que te disseram sobre X está errado") |
+| **Curiosity Gap** | Promete uma revelação e a segura — cria tensão de "preciso saber o final" | Frase incompleta ou promessa sem entrega imediata ("Descobri isso depois de perder [X]") |
+| **POV / Identidade** | Coloca o espectador dentro de uma situação específica que ele reconhece como sua | "POV: você é [situação exata]" — precisão bate generalidade |
+| **Pergunta direta** | Pergunta que o espectador responde mentalmente "sim, isso sou eu" antes de continuar assistindo | Pergunta específica, nunca retórica genérica |
+| **Callout de identidade** | Chama o público exato pelo nome do grupo | "Se você é [perfil exato], para tudo" |
+| **Visual Hook** | A imagem sozinha já para o scroll, mesmo sem som — a fala reforça, não carrega sozinha | Ação visual incomum, close inesperado, ou objeto que gera curiosidade antes da primeira palavra |
+| **Dado/Stat chocante** | Número específico que reframa a percepção do espectador sobre o tema | Número na primeira frase, nunca a segunda |
+| **Prova Social** | Começa pela evidência de terceiros, explica depois — não é dado sobre o tema, é dado sobre adesão | "20 mil pessoas estão na lista de espera disso" antes de dizer o que é |
+| **Contraste** | Dois extremos lado a lado, na mesma frase ou nos mesmos 3s | "Café de R$1 vs café de R$1.000" — a comparação simultânea é o gancho, não um número isolado |
+| **Aversão à Perda** | Enquadra como um erro ou perigo que o espectador já está cometendo agora, sem saber | "Você provavelmente está fazendo [X] errado" — diferente de Contrarian: aqui não nega uma crença, revela um erro em ação |
+| **Efeito Von Restorff** | Um elemento se destaca visualmente de tudo ao redor dentro do mesmo quadro | Objeto, cor ou pessoa diferente no meio de um padrão repetido — o contraste está dentro da cena, não entre dois momentos |
+| **Autoridade** | Abre pela credencial quando ela dá peso imediato ao que vem a seguir | "Um ex-negociador do FBI usa isso pra fazer as pessoas falarem" — só usar quando a credencial for real e verificável |
+| **Segredo/Exclusividade** | Promete algo escondido, restrito, "proibido" — não é revelação (Curiosity Gap), é acesso | "O código secreto para [objetivo]" / "Salva isso antes que proíbam" |
+| **Ranking/Comparação** | Ordena ou compara lado a lado, o próprio ranking é o gancho | "Classifiquei [X] do pior ao melhor" — casa direto com o formato Comparação ao Vivo/Tela Dividida |
+| **Autorização/Alívio de Culpa** | Dá permissão pro espectador parar de se cobrar por algo | "Considere isso a sua autorização" / "Não é que você seja [rótulo negativo], você só precisa..." |
+| **Confronto de Tabu/Normalização** | Aborda algo desconfortável com acolhimento, não confronto agressivo | "Preciso falar isso." / "Pouca gente fala sobre isso." |
+| **Intervenção no Momento Certo** | Mira num timing específico de decisão ou crise do espectador | "Antes de [ação], veja isso." / "Esse é o alerta que você precisava." |
+| **Anti-hype/Humildade Tática** | Se posiciona contra a própria expectativa de gancho "vendedor" | "Isso não é chamativo, mas funciona." — funciona por contraste com o ruído do feed |
+| **Validação por Desconforto** | Usa a reação emocional do espectador como prova da tese, sem dado externo | "Se isso te incomodou, provavelmente é verdade." |
+
+> Estas 7 categorias vieram da taxonomia de 14 famílias psicológicas consolidada em `reference_banco-ideias-mecanismos.md` (memória) — mesclada aqui em 2026-09-10 porque o gate é o que efetivamente roda em todo roteiro; a memória continua como origem/histórico das fontes de mercado absorvidas (banco-ideias-social.vercel.app, @odder.ag, listas soltas, vídeos de referência) e como banco de moldes/exemplos por família.
+
+**Como conduzir o gate:**
+
+1. Se a categoria não estiver definida, apresentar a tabela e perguntar qual encaixa melhor no tema — ou sugerir 1 com justificativa de 1 linha
+2. Depois da categoria escolhida, gerar **3 variações de gancho** dentro dela (mesma categoria, mecanismos diferentes de execução) — cada variação já com fala + direção visual dos 0-3s:
+
+```
+GANCHO [N] — Categoria: [nome]
+Fala: "[primeiras palavras exatas]"
+Visual: [o que aparece em tela nesse instante — expressão, corte, objeto, on-screen text]
+```
+
+3. Aguardar a escolha do usuário antes de escrever o resto do roteiro
+
+**Regras das variações de gancho de vídeo:**
+- Nunca abrir com saudação, apresentação pessoal ou preparação ("oi gente", "hoje eu vou falar sobre")
+- Especificidade sempre bate generalidade — número, nome ou situação exata
+- Cada variação usa um mecanismo de execução diferente dentro da mesma categoria (ex: 3 Contrarian, mas cada um nega uma crença diferente)
+- O visual dos 0-3s não é decoração — é parte do gancho, escrever com a mesma atenção da fala
+- Zero travessão (—) em qualquer gancho
+
+> GATE — Categoria + variação de gancho aprovadas? → NÃO → STOP. Não escreve as cenas seguintes sem aprovação.
+
+---
+
+## Gate CTA (obrigatório após o gancho aprovado — antes de desenvolver as cenas seguintes)
+
+**Este gate define o destino do vídeo inteiro. Sem ele, o roteiro não sabe para onde está levando o espectador.**
+
+Depois do gancho aprovado, perguntar:
+
+> "Esse vídeo é pra quê?
+>
+> ① Comentar palavra-gatilho — espectador comenta e recebe algo em troca (link, material, PDF)
+> ② Comentário livre — provoca reação, debate, opinião
+> ③ Salvar — conteúdo de referência, evergreen
+> ④ Compartilhar / marcar alguém — identidade, o espectador quer passar adiante
+> ⑤ Seguir — apresentação, autoridade, crescimento de perfil
+> ⑥ Clicar no link da bio — tráfego externo, captura de lead
+> ⑦ Venda direta — leva para produto ou oferta
+> ⑧ Assistir até o fim / próximo vídeo da série — retenção, parte de uma sequência"
+
+**Se escolher ①**, perguntar em seguida:
+> "Qual a palavra-gatilho e o que a pessoa recebe ao comentar?"
+
+**Se escolher 1 tipo de CTA:**
+- Escrever a cena de CTA final alinhada a esse destino único
+- A caption reforça o mesmo CTA (não introduz um segundo destino)
+
+**Se o usuário quiser testar até 3 tipos de CTA (para variações A/B do mesmo roteiro):**
+- Escrever 1 cena de CTA por tipo, reaproveitando o resto do roteiro
+- Gerar 1 caption por CTA, cada uma fechando no destino correspondente
+
+> GATE — Tipo de CTA definido? → NÃO → STOP. Não desenvolve as cenas seguintes sem saber o destino.
 
 ---
 
@@ -294,7 +386,47 @@ Legenda otimizada para a plataforma (use `caption-writer-sms` se estiver dispon�
 
 ---
 
+## Framework de Multiplicação de Formatos (1 gravação → N criativos)
+
+**Quando oferecer:** sempre que o roteiro entregue for do **Tipo A ou Tipo B** (Reels/TikTok/Shorts, talking head), imediatamente após o roteiro passar no `copy-qa-sms` Gate. Não se aplica a VSL (Tipo C) nem a narração/animado (Tipo D) — esses já nascem em formato único.
+
+**Por que existe:** a mesma gravação de talking head (1 take, 1 fala) pode virar até 8 criativos diferentes sem gravar de novo — só reeditando o corte, a legenda ou o enquadramento. Isso multiplica o volume de anúncios/posts de um único roteiro escrito. Origem: análise de vídeo de referência (ver `.claude/memory` — 2026-08-26).
+
+**Como oferecer:**
+
+> Esse roteiro dá pra ser reaproveitado em até 8 formatos diferentes a partir da mesma gravação — sem regravar. Quer que eu já entregue as variações de fala/corte pra cada formato?
+
+Se o usuário confirmar, entregar a tabela abaixo preenchida com as cenas/falas do roteiro já escrito, **ordenada por esforço de edição** (do mais simples ao mais trabalhoso):
+
+| # | Formato | Esforço | Prioridade | O que muda em relação ao roteiro base |
+|---|---|---|---|---|
+| 1 | **Caixinha de pergunta — Ângulo 1 (depoimento)** | Mínimo | — | Reescreve só a abertura no formato "Sou [X] e graças a [Y] eu [resultado]" — tom de quem já é cliente/consumidor contando a experiência |
+| 2 | **Caixinha de pergunta — Ângulo 2 (pergunta)** | Mínimo | — | Mesma abertura de identificação, mas fecha com uma pergunta ao público em vez de elogio/depoimento |
+| 3 | **Selfie React** | Baixo | ⭐ Tier S | Mesmo áudio/fala; direção de cena muda para apontar/reagir a algo em tela (produto, print, dado) enquanto fala |
+| 4 | **Tela dividida** | Baixo | ⭐ Tier S | Mesmo áudio; metade superior da tela recebe uma imagem/print que ilustra literalmente o que está sendo dito na metade inferior |
+| 5 | **Talking Head** | — (é o formato base) | — | Já é a entrega padrão desta skill |
+| 6 | **Stories Nativo** | Médio | — | Fala é transcrita e vira criativo nativo de Stories (fundo simples + texto), sem gravação nova nem designer |
+| 7 | **Headline + Legenda** | Médio | — | Fala vira headline curta (linha 1) + legenda de reforço (linha 2), sem vídeo em movimento — só still + texto |
+| 8 | **Narrado (b-roll)** | Alto | — | Extrai só o áudio da fala e sobrepõe a cenas de apoio já existentes (do cliente ou do banco de b-roll) — vídeo original não aparece |
+
+**Tier S — priorizar sempre que só houver orçamento/tempo pra 1 ou 2 formatos derivados:**
+- **Tela dividida:** "Forte demais. Altamente replicável e já gerou milhares de seguidores tanto pra [criador] quanto pra todo cliente que aplica"
+- **Selfie React:** "Muito bom, mas tem que ser feito com cautela pra agregar valor e não levar hate"
+
+Fonte: tier list de formatos de vídeo (ver `.claude/memory` — 2026-08-26). Os dois formatos Tier S desta skill dobram como os dois formatos Tier S ("viraliza 90%") da tier list de referência — não é coincidência, é o motivo de priorizá-los.
+
+**Regra de execução:**
+- Nunca inventar fala nova por formato — sempre derivar da fala já aprovada no roteiro base
+- Se o usuário pedir só "alguns" formatos sem especificar quais, sugerir Tela dividida e Selfie React primeiro (Tier S) antes dos demais
+- Formatos 1, 2, 6 e 7 exigem reescrever a abertura/gancho especificamente para aquele formato (marcar como "Fala adaptada:") — os demais reaproveitam a fala integralmente
+- Entregar cada formato como um bloco curto: nome do formato + fala (adaptada ou integral) + direção de cena/edição em 1 linha
+- Aplicar `copy-qa-sms` apenas nos blocos de fala adaptada (1, 2, 6, 7) — os demais herdam a aprovação do roteiro base
+
+---
+
 ## Hooks por plataforma — referência rápida
+
+> Exemplos soltos por plataforma — para a decisão estruturada de categoria + 3 variações, sempre passar pelo **Gate de Gancho de Vídeo** acima. Esta lista serve como banco de inspiração, não substitui o gate.
 
 ### Instagram Reels / TikTok / Shorts
 - "Você está cometendo esse erro e nem sabe."
@@ -314,6 +446,26 @@ Legenda otimizada para a plataforma (use `caption-writer-sms` se estiver dispon�
 - Abra identificando a dor com precisão ("Se você já tentou [X] e não conseguiu [Y]...")
 - Nunca abra com apresentação pessoal
 - Primeira 1 minuto: espectador precisa sentir que você está falando com ele
+
+---
+
+## Estrutura de Virada e Expansão (roteiros de engenharia reversa com listicle/passo a passo)
+
+**Quando aplicar:** roteiros Tipo A/B que usam um gancho de autoridade retrospectiva ou aposta pessoal seguido de passos numerados (ex: "Se eu tivesse começando X agora do zero, eu faria exatamente isso", "Cria isso com meu workflow e eu mudo de nome se não funcionar"). Consolidado a partir de múltiplos roteiros de engenharia reversa (Super Agente IA, 2026-09-09).
+
+**O que prende o espectador até o CTA, além do gancho:**
+
+1. **Cada passo é uma decisão, não uma tarefa.** Não descrever "o que fazer" (lista de ações soltas) — descrever "como eu decidia entre A e B" (ex: "eu perguntava: essa tarefa exige minha decisão ou só executa algo que eu já decidi antes?"). Isso transforma a lista numa lição de raciocínio, não numa checklist genérica.
+2. **Cada passo tem um critério de corte explícito.** "Se X, faça A. Se Y, ainda é seu." — o espectador aprende a categorizar a própria situação em tempo real, em vez de só ouvir uma lista.
+3. **A virada final é uma ponte pro espectador, não uma conclusão sobre o criador.** Depois dos passos, sempre fechar com uma frase que projeta a lógica pra rotina de quem está assistindo ("Agora pensa na sua rotina. Você provavelmente tem 2 ou 3 tarefas exatamente assim.") — isso é o que abre a cabeça da pessoa pra ela reconhecer a própria dor antes do CTA, em vez de just ouvir sobre a dor do criador.
+4. **On-screen text por passo** ("Passo 1: mapear a repetição") reforça a estrutura visualmente e permite pular/voltar mentalmente sem perder o fio.
+
+**Por que funciona:** listas genéricas ("3 dicas pra X") retêm pela curiosidade do próximo item. Esse padrão retém pela **identificação**: a pessoa reconhece a própria situação dentro do critério de decisão do passo, antes mesmo de chegar na virada final — a virada só nomeia o que ela já sentiu nos passos anteriores.
+
+**Molde de virada final (usar sempre antes do CTA, adaptar o número/situação):**
+> "Agora pensa na sua [rotina/operação/processo]. Você provavelmente tem [N] [tarefas/áreas] exatamente assim: [characterização do critério do passo 1 ou 2]. É [aqui/exatamente aí] que um agente entra primeiro."
+
+Ver também [[video-script-turn-and-expansion]] na memória — registra a origem e os exemplos completos.
 
 ---
 

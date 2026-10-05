@@ -1,0 +1,742 @@
+<title>Pipeline do Carrossel — Intus Hub</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#FAF9F6;
+    --surface:#FFFFFF;
+    --surface-2:#F3F0E9;
+    --text:#1C1B19;
+    --text-muted:#6E6A63;
+    --border:#E6E1D8;
+    --accent:#D9631F;
+    --accent-soft:#F7E4D4;
+    --accent-ink:#7A3C14;
+    --purple:#6C5CE0;
+    --purple-soft:#EDEBFB;
+    --code-bg:#F1EEE7;
+    --danger:#B23A2E;
+    --danger-soft:#F8E4E1;
+    --ok:#3E7A4F;
+    --ok-soft:#E4F1E7;
+    --shadow: 0 1px 2px rgba(28,27,25,0.04), 0 8px 24px -12px rgba(28,27,25,0.12);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15130F;
+      --surface:#1E1B16;
+      --surface-2:#252019;
+      --text:#F3F1EA;
+      --text-muted:#A79E8E;
+      --border:#332D25;
+      --accent:#FF9552;
+      --accent-soft:#3A2415;
+      --accent-ink:#FFD3AE;
+      --purple:#A99BFF;
+      --purple-soft:#2A2646;
+      --code-bg:#211C16;
+      --danger:#E38177;
+      --danger-soft:#3A2320;
+      --ok:#8FCE9F;
+      --ok-soft:#20301F;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15130F;
+    --surface:#1E1B16;
+    --surface-2:#252019;
+    --text:#F3F1EA;
+    --text-muted:#A79E8E;
+    --border:#332D25;
+    --accent:#FF9552;
+    --accent-soft:#3A2415;
+    --accent-ink:#FFD3AE;
+    --purple:#A99BFF;
+    --purple-soft:#2A2646;
+    --code-bg:#211C16;
+    --danger:#E38177;
+    --danger-soft:#3A2320;
+    --ok:#8FCE9F;
+    --ok-soft:#20301F;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Source Sans 3', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    margin:0;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:900px;margin:0 auto;padding:64px 24px 120px;}
+
+  code, .mono{font-family:'IBM Plex Mono', ui-monospace, monospace;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:56px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent-ink);
+    background:var(--accent-soft);
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:4px;
+    margin-bottom:20px;
+  }
+  h1{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    font-size:clamp(40px,7vw,64px);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    margin:0 0 16px;
+    text-wrap:balance;
+  }
+  .lede{
+    font-size:19px;
+    color:var(--text-muted);
+    max-width:60ch;
+    margin:0 0 24px;
+  }
+  .hero-meta{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--text-muted);
+  }
+  .hero-meta strong{color:var(--text);font-weight:600;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  h2{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    font-size:28px;
+    letter-spacing:-0.005em;
+    margin:0 0 8px;
+    text-wrap:balance;
+  }
+  .section-intro{color:var(--text-muted);max-width:66ch;margin:0 0 32px;font-size:15.5px;}
+  section{margin-bottom:64px;}
+  section > .eyebrow-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--purple);
+    letter-spacing:0.08em;
+    margin-bottom:6px;
+    display:block;
+  }
+
+  /* ---------- OVERVIEW DIAGRAM ---------- */
+  figure{margin:0 0 8px;}
+  figcaption{font-size:13px;color:var(--text-muted);margin-top:12px;text-align:center;}
+  .diagram-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:28px 20px 12px;
+    box-shadow:var(--shadow);
+  }
+  svg text{fill:currentColor;font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- TIMELINE / GATES ---------- */
+  .timeline{position:relative;padding-left:52px;}
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:19px;
+    top:8px;
+    bottom:8px;
+    width:2px;
+    background:var(--border);
+  }
+  .gate{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px 24px 22px;
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+  }
+  .gate::before{
+    content:attr(data-num);
+    position:absolute;
+    left:-52px;
+    top:22px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--purple-soft);
+    color:var(--purple);
+    border:2px solid var(--surface);
+    outline:2px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:14px;
+  }
+  .gate.specific::before{background:var(--accent-soft);color:var(--accent-ink);}
+  .gate-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px;}
+  .gate-title{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    font-size:22px;
+    margin:0;
+  }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .tag-universal{background:var(--purple-soft);color:var(--purple);}
+  .tag-intus{background:var(--accent-soft);color:var(--accent-ink);}
+
+  .gate p{margin:0 0 12px;font-size:15px;}
+  .gate p:last-child{margin-bottom:0;}
+  .gate .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--text-muted);
+    display:block;
+    margin:14px 0 4px;
+  }
+  .gate .label:first-of-type{margin-top:14px;}
+
+  .skillref{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    background:var(--code-bg);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:2px 8px;
+    color:var(--text);
+  }
+
+  .stop{
+    border-left:3px solid var(--danger);
+    background:var(--danger-soft);
+    padding:10px 14px;
+    border-radius:0 8px 8px 0;
+    font-size:13.5px;
+    margin-top:14px;
+  }
+  .stop strong{color:var(--danger);}
+
+  .example{
+    border-left:3px solid var(--ok);
+    background:var(--ok-soft);
+    padding:10px 14px;
+    border-radius:0 8px 8px 0;
+    font-size:13.5px;
+    margin-top:14px;
+  }
+  .example strong{color:var(--ok);}
+
+  ul.patterns{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+    gap:6px 12px;
+    list-style:none;
+    margin:8px 0 0;
+    padding:0;
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--text-muted);
+  }
+  ul.patterns li::before{content:"→ ";color:var(--purple);}
+
+  .pattern-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:10px;
+    margin-top:10px;
+  }
+  .pattern-card{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .pattern-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--purple);
+  }
+  .pattern-quote{
+    font-size:13px;
+    font-style:italic;
+    color:var(--text);
+    line-height:1.4;
+  }
+  .pattern-style{
+    font-size:12px;
+    color:var(--text-muted);
+    line-height:1.4;
+  }
+
+  .qa-example{
+    background:var(--code-bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    line-height:1.7;
+    margin-top:14px;
+    white-space:pre-wrap;
+  }
+  .qa-example .ok-line{color:var(--ok);}
+  .qa-example .warn-line{color:var(--danger);}
+
+  /* ---------- FILE MAP TABLE ---------- */
+  .filetable{width:100%;border-collapse:collapse;font-size:14px;}
+  .filetable th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--text-muted);
+    padding:0 12px 8px;
+    border-bottom:1px solid var(--border);
+  }
+  .filetable td{
+    padding:12px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  .filetable tr:last-child td{border-bottom:none;}
+  .filetable .path{font-family:'IBM Plex Mono', monospace;font-size:12.5px;color:var(--accent-ink);white-space:nowrap;}
+
+  .table-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);}
+
+  /* ---------- FOOTER NOTE ---------- */
+  .closing{
+    background:var(--surface-2);
+    border:1px dashed var(--border);
+    border-radius:12px;
+    padding:24px;
+    font-size:14.5px;
+    color:var(--text-muted);
+  }
+  .closing strong{color:var(--text);}
+
+  @media (max-width:640px){
+    .timeline{padding-left:40px;}
+    .gate::before{left:-40px;width:30px;height:30px;font-size:12px;}
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="eyebrow">Sistema de Produção · Social Media</span>
+    <h1>Pipeline do<br>Carrossel</h1>
+    <p class="lede">Do tema em aberto até o slide pronto para o Canva — todos os gates obrigatórios que um carrossel do Intus Hub atravessa, e por que cada um existe.</p>
+    <div class="hero-meta">
+      <span><strong>Cliente</strong> Intus Hub · Diego Spanevello</span>
+      <span><strong>Entrada</strong> production-orchestrator-sms</span>
+      <span><strong>Template</strong> Twitter Post</span>
+    </div>
+  </div>
+
+  <section>
+    <span class="eyebrow-num">VISÃO GERAL</span>
+    <h2>O caminho completo</h2>
+    <p class="section-intro">Nove etapas em sequência — cinco universais do sistema, três específicas do Intus Hub, uma de empacotamento. Nenhuma pode ser pulada silenciosamente.</p>
+
+    <figure class="diagram-card">
+      <svg viewBox="0 0 820 300" role="img" aria-label="Fluxo do pedido de carrossel passando por nove gates em sequência, do tema em aberto até a entrega final">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <!-- baseline -->
+        <line x1="40" y1="150" x2="780" y2="150" stroke="currentColor" stroke-opacity="0.15" stroke-width="1.5"/>
+
+        <!-- nodes -->
+        <!-- 1 orchestrator -->
+        <circle cx="60" cy="150" r="8" fill="currentColor" fill-opacity="0.85"/>
+        <text x="60" y="115" font-size="12" text-anchor="middle" font-weight="600">Pedido</text>
+        <text x="60" y="130" font-size="10" text-anchor="middle" opacity="0.6">orchestrator</text>
+
+        <!-- 2 product gate -->
+        <circle cx="185" cy="150" r="8" fill="#D9631F"/>
+        <text x="185" y="115" font-size="12" text-anchor="middle" font-weight="600">Vinculação</text>
+        <text x="185" y="130" font-size="10" text-anchor="middle" opacity="0.6">produto?</text>
+        <text x="185" y="185" font-size="10" text-anchor="middle" opacity="0.55">Intus Hub</text>
+
+        <!-- 3 headline gate -->
+        <circle cx="310" cy="150" r="8" fill="#D9631F"/>
+        <text x="310" y="115" font-size="12" text-anchor="middle" font-weight="600">Gancho</text>
+        <text x="310" y="130" font-size="10" text-anchor="middle" opacity="0.6">11 padrões</text>
+        <text x="310" y="185" font-size="10" text-anchor="middle" opacity="0.55">Intus Hub</text>
+
+        <!-- 4 narrative framework -->
+        <circle cx="435" cy="150" r="8" fill="currentColor" fill-opacity="0.85"/>
+        <text x="435" y="115" font-size="12" text-anchor="middle" font-weight="600">Framework</text>
+        <text x="435" y="130" font-size="10" text-anchor="middle" opacity="0.6">5 opções</text>
+
+        <!-- 5 creation -->
+        <circle cx="560" cy="150" r="8" fill="currentColor" fill-opacity="0.85"/>
+        <text x="560" y="115" font-size="12" text-anchor="middle" font-weight="600">Escrita</text>
+        <text x="560" y="130" font-size="10" text-anchor="middle" opacity="0.6">carousel-writer</text>
+
+        <!-- 6 copy qa -->
+        <circle cx="685" cy="150" r="8" fill="currentColor" fill-opacity="0.85"/>
+        <text x="685" y="115" font-size="12" text-anchor="middle" font-weight="600">Copy QA</text>
+        <text x="685" y="130" font-size="10" text-anchor="middle" opacity="0.6">voz + IA patterns</text>
+
+        <!-- 7 image gen -->
+        <circle cx="760" cy="220" r="8" fill="#D9631F"/>
+        <text x="760" y="245" font-size="12" text-anchor="middle" font-weight="600">Imagem</text>
+        <text x="760" y="258" font-size="10" text-anchor="middle" opacity="0.6">PRD Twitter Post</text>
+        <text x="760" y="200" font-size="10" text-anchor="middle" opacity="0.55">Intus Hub</text>
+
+        <!-- connectors -->
+        <line x1="68" y1="150" x2="177" y2="150" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="193" y1="150" x2="302" y2="150" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="318" y1="150" x2="427" y2="150" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="443" y1="150" x2="552" y2="150" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="568" y1="150" x2="677" y2="150" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="693" y1="157" x2="753" y2="212" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- entrega -->
+        <circle cx="760" cy="80" r="9" fill="#3E7A4F"/>
+        <text x="760" y="60" font-size="12" text-anchor="middle" font-weight="700">Entrega</text>
+        <line x1="760" y1="212" x2="760" y2="90" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <!-- legend -->
+        <circle cx="60" cy="270" r="5" fill="currentColor" fill-opacity="0.85"/>
+        <text x="72" y="274" font-size="11" text-anchor="start" opacity="0.7">Gate universal (todo cliente)</text>
+        <circle cx="290" cy="270" r="5" fill="#D9631F"/>
+        <text x="302" y="274" font-size="11" text-anchor="start" opacity="0.7">Gate específico do Intus Hub</text>
+      </svg>
+      <figcaption>Nove pontos de decisão entre o pedido e a entrega. Os laranja só existem porque o cliente é o Intus Hub.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">A FONTE</span>
+    <h2>Ponto de entrada único</h2>
+    <p class="section-intro">Todo pedido de carrossel — "produz um carrossel sobre X" — entra pelo <span class="skillref">production-orchestrator-sms</span>. Ele não escreve copy. Ele diagnostica o pedido e roteia para a sequência certa de skills, sem pular etapa.</p>
+
+    <div class="gate" data-num="0">
+      <div class="gate-top">
+        <h3 class="gate-title">Verificação de contexto</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p>Antes de qualquer coisa, o orquestrador confirma que <span class="skillref">.agents/social-media-context-sms.md</span> existe — voz, pilares, público cripto brasileiro do Diego. Sem isso, nenhuma skill de criação tem calibração de tom.</p>
+      <span class="label">Se ausente</span>
+      <p>Pausa e oferece rodar <span class="skillref">social-media-context-sms</span> primeiro — cerca de 5 minutos, e toda produção seguinte já sai calibrada.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 1</span>
+    <h2>Vinculação ao produto</h2>
+    <p class="section-intro">Específico do Intus Hub — porque a marca (Diego) e o produto (Super Agente de IA) são coisas separadas, e nem todo conteúdo deve empurrar venda.</p>
+
+    <div class="gate specific" data-num="1">
+      <div class="gate-top">
+        <h3 class="gate-title">Autoridade pura ou produto?</h3>
+        <span class="tag tag-intus">Intus Hub</span>
+      </div>
+      <p>Antes de modelar qualquer ângulo, a pergunta obrigatória: <em>"Quer vincular este carrossel ao Super Agente no CTA final, ou é conteúdo de autoridade pura?"</em></p>
+      <span class="label">Regra de ouro</span>
+      <p>O produto entra <strong>apenas no slide final</strong> — nunca no gancho, nunca no ângulo. Se a conexão parecer forçada, o padrão é autoridade pura por default.</p>
+      <div class="example"><strong>Exemplo real:</strong> carrossel sobre Deep-Live-Cam (ferramenta de deepfake) → autoridade pura. Vincular ao Super Agente ali soaria oportunista e fora de contexto.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 1.5</span>
+    <h2>Gate CTA — tipo de engajamento</h2>
+    <p class="section-intro">Existe na skill <strong>canônica</strong> (<span class="skillref">carousel-writer-sms</span>, v2.2.0, FASE 2) — roda depois do ângulo aprovado, antes de qualquer slide ser escrito. Define o destino de toda a narrativa.</p>
+
+    <div class="gate specific" data-num="1.5">
+      <div class="gate-top">
+        <h3 class="gate-title">Qual objetivo do carrossel?</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p>Pergunta obrigatória depois do ângulo aprovado:</p>
+      <div class="pattern-grid">
+        <div class="pattern-card"><span class="pattern-name">① Engajamento com gatilho</span><span class="pattern-style">Pessoa comenta uma palavra e recebe algo em troca. Pergunta seguinte: qual a palavra-gatilho e o que ela recebe.</span></div>
+        <div class="pattern-card"><span class="pattern-name">② Comentário livre</span><span class="pattern-style">Provoca reação, debate, opinião — sem resposta certa.</span></div>
+        <div class="pattern-card"><span class="pattern-name">③ Salvar</span><span class="pattern-style">Conteúdo de referência, evergreen.</span></div>
+        <div class="pattern-card"><span class="pattern-name">④ Compartilhar / marcar</span><span class="pattern-style">Identidade — o leitor quer passar adiante, marcar alguém específico.</span></div>
+        <div class="pattern-card"><span class="pattern-name">⑤ Venda direta</span><span class="pattern-style">Leva pro produto ou oferta.</span></div>
+        <div class="pattern-card"><span class="pattern-name">⑥ Seguir</span><span class="pattern-style">Apresentação, autoridade, novos seguidores.</span></div>
+      </div>
+      <span class="label">Regra de pareamento</span>
+      <p>1 tipo escolhido → 3 variações do mesmo CTA no slide final + 3 legendas fechando no mesmo destino. Até 3 tipos escolhidos → 1 copy de CTA por tipo, e cada legenda corresponde a 1 CTA específico (legenda 1 → CTA 1, legenda 2 → CTA 2...).</p>
+      <div class="example"><strong>Exemplo real:</strong> "Comenta FACE que eu te mando o link" → tipo ① (engajamento com gatilho), palavra-gatilho "FACE", entrega prometida = o link da ferramenta.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 2</span>
+    <h2>Gancho de capa</h2>
+    <p class="section-intro">Também específico do Intus Hub — todo hook de capa precisa se enquadrar em pelo menos 1 dos 11 padrões catalogados de <span class="skillref">headlines-vencedoras.md</span>, extraídos de 31 capas que já performaram.</p>
+
+    <div class="gate specific" data-num="2">
+      <div class="gate-top">
+        <h3 class="gate-title">Seleção pelos 11 padrões</h3>
+        <span class="tag tag-intus">Intus Hub</span>
+      </div>
+      <p>Ler o banco de padrões, selecionar os 7 mais fortes para o tema, apresentar 3 variações de gancho por padrão — 21 opções no total — e aguardar a escolha antes de propor qualquer ângulo narrativo.</p>
+      <span class="label">Os 11 padrões — exemplo real + estilo</span>
+      <div class="pattern-grid">
+        <div class="pattern-card">
+          <span class="pattern-name">1 · Declaração de Ruptura</span>
+          <span class="pattern-quote">"O Claude destruiu a cripto Zcash. Apenas 1 prompt... -50% em 24 horas."</span>
+          <span class="pattern-style">Declara o fato, não explica. O leitor arrasta pra entender o que aconteceu.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">2 · Dado Duplo em Escada</span>
+          <span class="pattern-quote">"5 IAs numa simulação de vida ou morte. 400 rodadas depois: a mais usada mentiu em 96% das vezes."</span>
+          <span class="pattern-style">Dado 1 cria contexto, dado 2 entrega o choque, tempo no final amplifica.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">3 · "Achei" + Escala</span>
+          <span class="pattern-quote">"Achei um repositório com 62 mil estrelas que dá ao seu agente olhos pra ver a internet inteira. Grátis."</span>
+          <span class="pattern-style">Voz pessoal — Diego como repórter de si mesmo. Dado de escala real antes de qualquer copy.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">4 · Contraste Temporal</span>
+          <span class="pattern-quote">"Enquanto você ainda usa IA pra responder perguntas... a Anthropic lançou o Fable 5."</span>
+          <span class="pattern-style">Posiciona o leitor como atrasado sem ofender — o problema é o mercado, não ele.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">5 · Confronto de Crença</span>
+          <span class="pattern-quote">"Criar conteúdo é a nova corrida dos ratos?"</span>
+          <span class="pattern-style">Confronta uma crença de grupo, nunca ataca o indivíduo. Nunca responde na capa.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">6 · Analogia com Marca</span>
+          <span class="pattern-quote">"A Pendle quer ser o Nubank dos rendimentos. E está conseguindo."</span>
+          <span class="pattern-style">Compara o desconhecido com o que o leitor já entende — reduz fricção cognitiva.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">7 · Revelação + 2º Golpe</span>
+          <span class="pattern-quote">"A chave Pix do Bitcoin está exposta. E você não sabia."</span>
+          <span class="pattern-style">Revela um fato real, depois golpeia o ego do leitor — ele estava no escuro.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">8 · Ironização do Rótulo</span>
+          <span class="pattern-quote">"Vão congelar 1 milhão de Bitcoin do Satoshi. E chamam isso de proteção."</span>
+          <span class="pattern-style">Repete a justificativa oficial e deixa a ironia falar sozinha.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">9 · Negações + Resultado</span>
+          <span class="pattern-quote">"Ele não tem chefe. Não tem funcionário. E já fez R$1 milhão."</span>
+          <span class="pattern-style">Nega o modelo tradicional em escada — o resultado final é o punchline que valida tudo.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">10 · Nome Real + Ação Inesperada</span>
+          <span class="pattern-quote">"O Presidente está te ligando por videochamada pedindo Pix. Será que dá pra confiar?"</span>
+          <span class="pattern-style">Nome/figura reconhecível cria atenção imediata; a ação inesperada cria tensão. A capa não resolve.</span>
+        </div>
+        <div class="pattern-card">
+          <span class="pattern-name">11 · Estudo / Dado Histórico</span>
+          <span class="pattern-quote">"Conheça o estudo que revelou que, pela primeira vez em 100 anos, o Q.I da população diminuiu."</span>
+          <span class="pattern-style">Âncora temporal amplifica o dado. O estudo confere autoridade — não é opinião, é dado.</span>
+        </div>
+      </div>
+      <div class="stop"><strong>Nunca:</strong> propor ângulos antes deste gate, apresentar menos de 7 padrões, ou inventar variação genérica que não seja específica ao tema.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 3</span>
+    <h2>Framework narrativo</h2>
+    <p class="section-intro">De volta ao universal — decide <em>como</em> a história vai ser contada antes de qualquer slide ser escrito.</p>
+
+    <div class="gate" data-num="3">
+      <div class="gate-top">
+        <h3 class="gate-title">5 arquiteturas, 1 escolha</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p><span class="skillref">narrative-framework-sms</span> modela os 5 frameworks aplicados ao tema específico, cada um com hook, arco, contexto ideal e risco — e aguarda a escolha do usuário.</p>
+      <span class="label">Os 5 frameworks</span>
+      <ul class="patterns">
+        <li>Value-Stack</li>
+        <li>Problem-Proof</li>
+        <li>Hack List</li>
+        <li>Rant Callout</li>
+        <li>Demo Walkthrough</li>
+      </ul>
+      <span class="label">Combinação permitida</span>
+      <p>Frameworks podem ser fundidos quando fazem sentido — abertura de confronto (Rant Callout) com corpo de evidência real (Problem-Proof), por exemplo, quando a prova disponível pede diagnóstico antes do punchline.</p>
+      <span class="label">Redundância corrigida (2026-08-22)</span>
+      <p>Esse gate vivia descrito em duas skills ao mesmo tempo — no <span class="skillref">production-orchestrator-sms</span> (Gate B) e dentro da própria <span class="skillref">carousel-writer-sms</span> (ETAPA 0). O orquestrador foi enxugado: agora ele só confirma que o handoff aconteceu, a skill de criação é a única fonte da lógica.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 4</span>
+    <h2>Pesquisa, storytelling e escrita</h2>
+    <p class="section-intro">Três etapas internas da <span class="skillref">carousel-writer-sms</span> canônica, antes de qualquer slide final ser mostrado.</p>
+
+    <div class="gate" data-num="4">
+      <div class="gate-top">
+        <h3 class="gate-title">Pesquisa interna → arco → slides</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p><strong>Pesquisa (FASE 0.5):</strong> antes de propor ângulos, a skill busca internamente um dado surpreendente, um fato contrarian, um exemplo real, um equívoco comum e um ângulo de identidade sobre o tema — não é exibido ao usuário, mas informa os 3 ângulos da FASE 1.</p>
+      <p><strong>Storytelling (FASE 1.5):</strong> depois do ângulo aprovado, a skill monta o arco em rascunho — abertura, ponte, virada, resultado, CTA/pergunta de confronto — e esse esqueleto precisa ser aprovado antes de qualquer slide ser desenvolvido.</p>
+      <p><strong>Escrita (FASE 4):</strong> só então os slides são escritos, um por um, sem desviar do arco aprovado. O hook aprovado no Gate 2 é o ponto de partida obrigatório, nunca substituído.</p>
+      <span class="label">O que nunca muda no meio do caminho</span>
+      <p>Formato do template (Twitter Post = texto corrido, sem headline condensada), tom de voz do Diego, e a estrutura de slides definida no storytelling aprovado.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 5</span>
+    <h2>Copy QA</h2>
+    <p class="section-intro">O portão final antes de qualquer copy chegar ao usuário — nenhuma skill de criação entrega sem passar por aqui.</p>
+
+    <div class="gate" data-num="5">
+      <div class="gate-top">
+        <h3 class="gate-title">Voice Gate + AI Pattern Gate + Estrutural</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p><span class="skillref">copy-qa-sms</span> roda 3 passos em sequência: voz do cliente, padrões de escrita de IA (Tier 1/2/3), e padrões estruturais — travessão em excesso, contraste binário, fragmentação estacato.</p>
+      <span class="label">Score mínimo</span>
+      <p>Antes mesmo do copy-qa-sms, a <span class="skillref">carousel-writer-sms</span> aplica seu próprio QA Gate interno com nota de 0 a 100 (hook, uma ideia por slide, timing da virada, voz, ausência de padrões proibidos, força do CTA, lógica de arraste). <strong>Mínimo 90/100</strong> — abaixo disso, reescreve automaticamente sem pedir confirmação.</p>
+      <span class="label">Regra de conjunto (não só por slide)</span>
+      <p>Fragmentação estacato ("Sem X. Sem Y. Sem Z.") tem limite de <strong>1 uso deliberado no texto inteiro</strong> — não 1 por slide. Um carrossel de 8 slides com o padrão em 4 slides diferentes passa isolado em cada um e ainda assim lê como picotado no conjunto.</p>
+      <div class="stop"><strong>Falha real registrada:</strong> carrossel Deep-Live-Cam usou staccato em 4 dos 8 slides. Cada slide passou sozinho no gate — o conjunto não. A skill foi corrigida para exigir releitura do texto completo, não só unidade por unidade.</div>
+
+      <span class="label">Formato da auditoria</span>
+      <div class="qa-example">Passo 1 — Voice Gate: <span class="ok-line">✓ aprovado</span> (tom repórter, dado antes de opinião)
+Passo 2 — AI Pattern Gate: Tier 1/2/3 <span class="ok-line">✓</span> nenhuma ocorrência
+Estrutural: <span class="warn-line">⚠ 1 ajuste necessário</span> (contraste binário no slide 6)
+
+Antes: "A defesa não é tecnológica. É comportamental."
+Depois: "Nenhuma verificação visual garante nada hoje."
+
+✅ COPY QA — APROVADO (1 ajuste aplicado)
+✓ Copy revisado via copy-qa-sms antes da entrega.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 6</span>
+    <h2>Legenda (caption)</h2>
+    <p class="section-intro">Roda separado da escrita dos slides — a legenda é o texto que fica embaixo do carrossel publicado, não faz parte de nenhum slide.</p>
+
+    <div class="gate" data-num="6">
+      <div class="gate-top">
+        <h3 class="gate-title">3 variações, 1 CTA fixo</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p><span class="skillref">caption-writer-sms</span> escreve 3 variações de legenda em storytelling, todas terminando no mesmo CTA definido no Gate 1 — nunca um CTA diferente por variação.</p>
+      <span class="label">Cada variação muda</span>
+      <p>A abertura (confronto de crença, credibilidade/prova, ou contraste temporal são os ganchos mais usados) — o CTA e o aviso de responsabilidade permanecem idênticos nas 3.</p>
+      <p>Cada legenda passa pelo mesmo <span class="skillref">copy-qa-sms</span> do Gate 5 antes de ser entregue — inclusive a checagem de staccato no conjunto das 3 variações juntas.</p>
+      <span class="label">Onde ficam salvas</span>
+      <p>Junto com o resto do carrossel em <span class="skillref">clients/intus-hub/runs/[data]/legendas-[tema].md</span> — convenção definida no Gate 8 (empacotamento). Se ainda não foram salvas em arquivo, existem no histórico da conversa até esse passo rodar.</p>
+      <span class="label">Handoff automático (FASE 6)</span>
+      <p>Com script + CTAs + legendas aprovados, a <span class="skillref">carousel-writer-sms</span> oferece rodar o <span class="skillref">json-prompt-generator</span> — 1 JSON de imagem completo por slide (cena, estilo, câmera, materiais, composição). Isso é o que alimenta o Gate 7 quando a resposta é "imagens direto".</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 7</span>
+    <h2>Geração de imagem</h2>
+    <p class="section-intro">Só existe quando o template escolhido é <strong>Twitter Post</strong> — o único template do Intus Hub com pipeline de geração de imagem via IA documentado ponta a ponta.</p>
+
+    <div class="gate specific" data-num="7">
+      <div class="gate-top">
+        <h3 class="gate-title">JSON estruturado ou imagem direto?</h3>
+        <span class="tag tag-intus">Intus Hub</span>
+      </div>
+      <p>Pergunta obrigatória antes de produzir qualquer imagem: <em>"Você quer o JSON completo dos slides ou quer que eu gere as imagens finais direto?"</em> — nunca assumir uma opção.</p>
+      <span class="label">Se "imagens direto"</span>
+      <p>Ler <span class="skillref">references/PRD-TWITTER-POST-SLIDE.md</span> na íntegra antes de gerar qualquer coisa. O PRD documenta coordenadas de avatar, o algoritmo <code>detect_slot()</code>, a diferença entre PowerShell e Bash no Windows, e 6 modos de falha já catalogados.</p>
+      <span class="label">Regra de imagem no slot</span>
+      <p>Cada slide especifica se o slot de 992×558px fica com <strong>placeholder cinza vazio</strong> (usuário vai anexar imagem própria ou carregar no Canva) ou recebe uma <strong>cena gerada por IA</strong> — nunca as duas coisas misturadas no mesmo slot.</p>
+      <div class="stop"><strong>Nunca:</strong> reescrever o pipeline do zero, pedir a chave da API OpenAI ao usuário, ou usar coordenada fixa de slot em vez do <code>detect_slot()</code>.</div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">GATE 8</span>
+    <h2>Empacotamento final</h2>
+
+    <div class="gate" data-num="8">
+      <div class="gate-top">
+        <h3 class="gate-title">Salvar na convenção do cliente</h3>
+        <span class="tag tag-universal">Universal</span>
+      </div>
+      <p>Artefatos finais vão para <span class="skillref">clients/intus-hub/runs/[AAAA-MM-DD]/</span>, seguindo a nomenclatura definida no CLAUDE.md do cliente — <code>angulos-[tema].md</code>, <code>carrossel-[tema].md</code>, <code>capas-[tema].md</code>, <code>json-capas-[tema].md</code>.</p>
+      <p>Isso é só o empacotamento — não substitui nenhum gate anterior. Um carrossel salvo na pasta certa que pulou o Gate 5 continua sendo copy sem QA.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow-num">REFERÊNCIA</span>
+    <h2>Mapa de arquivos</h2>
+    <p class="section-intro">Onde cada peça deste fluxo mora fisicamente no repositório.</p>
+
+    <div class="table-wrap">
+      <table class="filetable">
+        <thead>
+          <tr><th>Arquivo</th><th>Papel</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="path">clients/intus-hub/CLAUDE.md</td><td>Ativa os gates 1, 2 e 7 automaticamente ao abrir a pasta do cliente</td></tr>
+          <tr><td class="path">references/headlines-vencedoras.md</td><td>Os 11 padrões de gancho — fonte do Gate 2</td></tr>
+          <tr><td class="path">references/PRD-TWITTER-POST-SLIDE.md</td><td>Regras operacionais completas do pipeline de imagem — fonte do Gate 7</td></tr>
+          <tr><td class="path">references/TEMPLATE-SLIDE-TWITTER-POST.json</td><td>Especificação de zonas, tipografia e slot de imagem do template</td></tr>
+          <tr><td class="path">tools/gen_twitter_slide.py</td><td>CLI que executa o pipeline documentado no PRD — chave da API já embutida</td></tr>
+          <tr><td class="path">skills/intus-hub-twitter-slide/SKILL.md</td><td>Skill que referencia o CLI para novas sessões</td></tr>
+          <tr><td class="path">skills/copy-qa-sms/SKILL.md</td><td>Gate universal de qualidade — fonte do Gate 5, roda de novo no Gate 6</td></tr>
+          <tr><td class="path">skills/caption-writer-sms/SKILL.md</td><td>Escreve as 3 variações de legenda com o CTA fixo — fonte do Gate 6</td></tr>
+          <tr><td class="path">skills/narrative-framework-sms/SKILL.md</td><td>Os 5 frameworks narrativos — fonte do Gate 3</td></tr>
+          <tr><td class="path">skills/social-media/carousel-writer-sms/SKILL.md</td><td>Fonte canônica — v2.2.0. Embute ETAPA 0, FASE 0.5, FASE 1.5, Gate CTA (1.5), QA Gate 90/100 e FASE 6 (handoff)</td></tr>
+          <tr><td class="path">skills/social-media/production-orchestrator-sms/SKILL.md</td><td>Ponto de entrada — só roteia; Gates B/C enxutos para apontar pra skill de criação, não duplicar a lógica</td></tr>
+          <tr><td class="path">anthropic-skills:json-prompt-generator</td><td>Gera o JSON de imagem por slide — acionado na FASE 6, alimenta o Gate 7</td></tr>
+          <tr><td class="path">clients/intus-hub/runs/[data]/legendas-[tema].md</td><td>Onde as 3 variações de legenda são salvas — Gate 8</td></tr>
+          <tr><td class="path">clients/intus-hub/runs/[data]/</td><td>Destino final de todos os artefatos — Gate 8</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="closing">
+    <strong>Por que tantos gates:</strong> em 2026-07-21, um carrossel do Intus Hub foi produzido escrevendo ângulos manualmente, pulando o framework narrativo e o QA. A convenção de nomenclatura de arquivos descreve onde salvar o resultado — nunca substitui o processo. Cada gate documentado aqui existe porque algum carrossel real já falhou sem ele.
+  </div>
+
+  <div class="closing" style="margin-top:16px;border-color:var(--ok);">
+    <strong>Divergência corrigida em 2026-08-22:</strong> a instalação local (<span class="skillref">~/.claude/skills/carousel-writer-sms</span>) estava presa na v1.1.0, sem Gate CTA, FASE 0.5 ou FASE 1.5. Foi resincronizada a partir da versão canônica do repositório (v2.2.0) — as duas agora são idênticas. Em paralelo, o <span class="skillref">production-orchestrator-sms</span> foi enxugado (v1.2.0): os Gates B e C pararam de re-descrever a lógica de framework narrativo e copy QA — agora só apontam pra skill de criação, que já embute essas etapas nativamente. Menos duplicação, menos risco de uma cópia ficar desatualizada sem a outra perceber.
+  </div>
+
+</div>

@@ -36,11 +36,56 @@
   },
 
   "capas": {
-    "regra_de_uso": "Escolher UMA das duas variações aprovadas a cada edição. A imagem muda, o copy do título e o estilo visual permanecem.",
+    "regra_de_uso": "Escolher UMA das duas variações aprovadas a cada edição. A imagem muda e o copy da headline pode variar livremente. Nenhuma capa deve conter header, badge, pill ou qualquer elemento de branding textual — apenas imagem e headline.",
     "copy_fixo": {
-      "header": "INTUS HUB AI NEWS · [DD MMM]",
-      "headline": "O que movimentou o universo IA esta semana",
-      "note": "headline fixa — não alterar entre edições. Apenas a data no header muda."
+      "headline": "escolher UMA das headlines_aprovadas abaixo a cada edição — adaptar apenas o número de notícias quando necessário (ex: '6 notícias' → '8 notícias'). Não criar headlines fora deste banco sem aprovação.",
+      "regra": "PROIBIDO qualquer elemento de identificação de marca nas capas: sem header 'INTUS HUB AI NEWS', sem badge pill, sem data, sem handle. A capa é só imagem + headline.",
+      "highlight_instrucao": "Capa-A (CGI Surreal, Archivo Black): acento laranja #E8722A cai automaticamente na palavra 'IA'. Capa-B (Pixel Art dark, ultra bold condensed): linha marcada com [highlight] recebe bloco vermelho #CC0000.",
+      "headlines_aprovadas": [
+        {
+          "id": "H01",
+          "label": "Editorial clássico",
+          "lines": ["O QUE", "ROLOU EM", "IA ESSA SEMANA"],
+          "highlight_line": "IA ESSA SEMANA",
+          "accent_word_capa_a": "IA"
+        },
+        {
+          "id": "H02",
+          "label": "FOMO direto",
+          "lines": ["SE VOCÊ", "NÃO VIU ISSO", "A IA TE PASSOU"],
+          "highlight_line": "A IA TE PASSOU",
+          "accent_word_capa_a": "IA"
+        },
+        {
+          "id": "H04",
+          "label": "Alarme curto",
+          "lines": ["O MUNDO", "DA IA", "EXPLODIU"],
+          "highlight_line": "EXPLODIU",
+          "accent_word_capa_a": "IA"
+        },
+        {
+          "id": "H05",
+          "label": "Listicle com número",
+          "lines": ["AS [N] NOTÍCIAS", "DE IA QUE", "MEXERAM A SEMANA"],
+          "highlight_line": "MEXERAM A SEMANA",
+          "accent_word_capa_a": "IA",
+          "note": "substituir [N] pelo número real de notícias da edição"
+        },
+        {
+          "id": "H06",
+          "label": "Curiosity gap",
+          "lines": ["ISSO ACONTECEU", "EM IA ESSA SEMANA", "E VOCÊ NÃO SABE"],
+          "highlight_line": "E VOCÊ NÃO SABE",
+          "accent_word_capa_a": "IA"
+        },
+        {
+          "id": "H09",
+          "label": "Provocação direta",
+          "lines": ["A IA", "AVANÇOU ESSA SEMANA", "O QUE VOCÊ PERDEU?"],
+          "highlight_line": "O QUE VOCÊ PERDEU?",
+          "accent_word_capa_a": "IA"
+        }
+      ]
     },
 
     "capa-A": {
@@ -60,21 +105,6 @@
         "regra": "fundo sempre escuro/texturizado para o overlay funcionar sobre a headline"
       },
       "zones": {
-        "header": {
-          "position": "top",
-          "margin_lateral": "28px",
-          "margin_top": "28px",
-          "font_family": "Big Shoulders Display",
-          "font_weight": 900,
-          "font_size": "17px",
-          "text_transform": "uppercase",
-          "letter_spacing": "0.3px",
-          "color_nome": "#FFFFFF",
-          "color_separador": "rgba(255,255,255,0.45)",
-          "color_data": "rgba(255,255,255,0.45)",
-          "separador": "·",
-          "layout": "linha única: INTUS HUB AI NEWS · [DD MMM]"
-        },
         "image": {
           "position": "full frame — full bleed",
           "margin_lateral": "0px",
@@ -112,11 +142,11 @@
     },
 
     "capa-B": {
-      "template_origem": "TEMPLATE-INTUS-AI-NEWS / variacao 03-dark-badge-pill-vermelha",
+      "template_origem": "TEMPLATE-INTUS-AI-NEWS / variacao 03-dark — adaptado (sem badge, sem header)",
       "nome": "Dark News — Pixel Art Cidade em Crise",
       "status": "aprovado",
-      "quando_usar": "quando a imagem de capa é pixel art isométrico — o fundo escuro e o badge vermelho criam contraste editorial de impacto",
-      "estilo_visual": "fundo #0A0A0A, overlay gradiente, badge pill vermelha, imagem pixel art isométrica no topo 55%, headline ultra bold condensed all caps com highlight vermelho na linha de destaque",
+      "quando_usar": "quando a imagem de capa é pixel art isométrico — o fundo escuro cria contraste editorial de impacto",
+      "estilo_visual": "fundo #0A0A0A, overlay gradiente, imagem pixel art isométrica no topo 55%, headline ultra bold condensed all caps com highlight vermelho na linha de destaque — sem badge, sem header, sem branding textual",
       "format": {
         "aspect_ratio": "4:5",
         "resolution": "1080x1350px",
@@ -148,43 +178,20 @@
           "margin_top": "24px",
           "blocks": [
             {
-              "id": "badge",
-              "content": "INTUS HUB · AI NEWS",
-              "font_size": "18px",
-              "font_style": "ultra bold uppercase letter-spacing 2px",
-              "font_color": "#FFFFFF",
-              "background": "#CC0000",
-              "padding": "8px 20px",
-              "border_radius": "4px",
-              "display": "inline-block",
-              "margin_bottom": "16px",
-              "separador": { "character": "·", "color": "rgba(255,255,255,0.55)", "margin": "0 8px" }
-            },
-            {
               "id": "headline",
-              "content_full": "O QUE MOVIMENTOU O UNIVERSO IA ESTA SEMANA",
+              "content": "PLACEHOLDER — livre por edição, ultra bold condensed all caps",
               "font_size": "72px",
               "font_style": "ultra bold condensed, all caps",
               "font_color": "#FFFFFF",
               "line_height": "1.0",
-              "margin_bottom": "16px",
+              "margin_bottom": "0px",
               "highlight_line": {
-                "apply_to": "linha 'O UNIVERSO IA'",
+                "note": "opcional — aplicar em uma linha de destaque com dado ou palavra de impacto",
                 "font_color": "#FFFFFF",
                 "background": "#CC0000",
                 "padding": "2px 18px",
                 "border_radius": "6px"
               }
-            },
-            {
-              "id": "subcopy",
-              "content": "[DD] de [mês] de [ano]",
-              "font_size": "20px",
-              "font_style": "regular sans-serif",
-              "font_color": "rgba(255,255,255,0.65)",
-              "line_height": "1.0",
-              "white_space": "nowrap",
-              "margin_bottom": "16px"
             }
           ]
         },
@@ -194,19 +201,23 @@
   },
 
   "slides_noticias": {
-    "regra_de_uso": "Distribuir as notícias da edição entre os 4 templates aprovados abaixo. Variar para criar ritmo visual — nunca usar o mesmo template mais de 3 vezes seguidas.",
+    "regra_de_uso": "Distribuir as notícias da edição entre os templates aprovados abaixo. Variar para criar ritmo visual — nunca usar o mesmo template mais de 3 vezes seguidas.",
+    "formato_canonico_de_copy": {
+      "estrutura": "headline + 1 parágrafo fluido",
+      "regra": "CADA SLIDE TEM EXATAMENTE: 1 headline (título da notícia) + 1 parágrafo corrido. Nunca 2 parágrafos separados, nunca lista, nunca interjeição isolada nos slides de notícia.",
+      "headline": "título direto da notícia — frase nominal ou verbal, 1-2 linhas, sem clickbait",
+      "paragrafo": "prosa fluida contínua — 3 a 5 frases encadeadas com conectivos. PROIBIDO: fragmentação estacato, contraste binário performático ('Não é X. É Y.'), frases de 1-3 palavras empilhadas para efeito dramático"
+    },
     "mapeamento_sugerido": {
-      "slide-11": "notícias com dado de impacto numérico no fechamento, tom editorial/dossiê",
-      "slide-05": "notícias com virada dramática ou contraditória — a interjeição isolada funciona como gancho de tensão",
-      "slide-04": "notícias de declaração ou posicionamento público — headline longa carrega parte da argumentação",
-      "slide-07": "notícias de contexto/debate — texto sustenta o argumento, imagem ilustra no rodapé"
+      "slide-07": "uso principal — headline + 1 parágrafo + imagem no rodapé. Notícias de contexto, narrativa ou análise.",
+      "slide-04": "alternativa — headline longa acima da imagem + 1 parágrafo bold abaixo. Notícias de declaração ou posicionamento público."
     },
     "regras_de_copy": [
-      "PROIBIDO travessão em qualquer campo",
-      "slide-11: 3 parágrafos — contexto / desenvolvimento / dado de impacto (negrito)",
-      "slide-05: texto serifado longo + interjeição isolada curta + resolução regular",
-      "slide-04: headline 3-4 linhas + parágrafo negrito + parágrafo regular",
-      "slide-07: headline + parágrafo 1 + parágrafo 2 com negrito inline no fechamento + imagem rodapé"
+      "PROIBIDO travessão (—) em qualquer campo",
+      "PROIBIDO fragmentação estacato: frases de 1-3 palavras empilhadas para efeito dramático",
+      "PROIBIDO contraste binário performático: 'Não é X. É Y.' sem conteúdo específico",
+      "slide-07: headline (serif 30px) + 1 parágrafo fluido (sans-serif 20px) + imagem rodapé 34%",
+      "slide-04: headline longa serif (32px, 2-3 linhas) + imagem 36% + 1 parágrafo bold (22px)"
     ],
 
     "slide-11": {
@@ -277,8 +288,8 @@
 
     "slide-04": {
       "nome": "slide-04",
-      "estilo_visual": "headline longa 3-4 linhas (serif) → imagem 36% → parágrafo negrito + parágrafo regular",
-      "quando_usar": "notícia de declaração ou posicionamento público — headline carrega parte da argumentação",
+      "estilo_visual": "headline longa serif acima da imagem → imagem 36% → 1 parágrafo bold abaixo",
+      "quando_usar": "alternativa ao slide-07 para notícias de declaração ou posicionamento público — headline mais longa carrega peso, imagem fica no meio, parágrafo fecha abaixo",
       "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
       "layout_grid": { "margem_lateral_global": "56px" },
       "zones": {
@@ -294,7 +305,15 @@
           "margin_lateral": "56px",
           "margin_top": "28px",
           "blocks": [
-            { "id": "headline", "font_family": "serif display", "font_size": "32px", "font_color": "#1A1A1A", "line_height": 1.15, "margin_bottom": "28px", "note": "3-4 linhas, funciona quase como parágrafo de abertura" }
+            {
+              "id": "headline",
+              "font_family": "serif display",
+              "font_size": "32px",
+              "font_color": "#1A1A1A",
+              "line_height": 1.15,
+              "margin_bottom": "28px",
+              "note": "2-3 linhas — título direto da notícia"
+            }
           ]
         },
         "image": {
@@ -308,8 +327,15 @@
         "body": {
           "margin_lateral": "56px",
           "blocks": [
-            { "id": "paragrafo-1-negrito", "font_family": "sans-serif", "font_weight": 700, "font_size": "22px", "font_color": "#1A1A1A", "line_height": 1.4, "margin_bottom": "20px" },
-            { "id": "paragrafo-2-regular", "font_family": "sans-serif regular", "font_size": "22px", "font_color": "rgba(26,26,26,0.6)", "line_height": 1.4 }
+            {
+              "id": "paragrafo",
+              "font_family": "sans-serif",
+              "font_weight": 700,
+              "font_size": "22px",
+              "font_color": "#1A1A1A",
+              "line_height": 1.4,
+              "note": "1 parágrafo fluido contínuo em bold — 3 a 5 frases encadeadas. PROIBIDO fragmentação estacato e contraste binário performático."
+            }
           ]
         },
         "footer": { "content": "INTUS HUB", "font_size": "13px", "font_color": "rgba(26,26,26,0.5)", "letter_spacing": "3px", "text_transform": "uppercase", "margin_lateral": "56px", "margin_bottom": "36px" }
@@ -318,8 +344,8 @@
 
     "slide-07": {
       "nome": "slide-07",
-      "estilo_visual": "headline + 2 parágrafos (segundo com negrito inline no fechamento) → imagem no rodapé 34%",
-      "quando_usar": "notícia de contexto ou debate — texto sustenta o argumento, imagem serve de fechamento visual",
+      "estilo_visual": "headline serif → 1 parágrafo fluido → imagem no rodapé 34%",
+      "quando_usar": "template principal dos slides de notícia — headline + 1 parágrafo + imagem no rodapé",
       "format": { "aspect_ratio": "4:5", "resolution": "1080x1350px", "background_color": "#F7F5F1" },
       "layout_grid": { "margem_lateral_global": "56px" },
       "zones": {
@@ -335,9 +361,24 @@
           "margin_lateral": "56px",
           "margin_top": "32px",
           "blocks": [
-            { "id": "headline", "font_family": "serif display", "font_size": "30px", "font_color": "#1A1A1A", "line_height": 1.18, "margin_bottom": "24px" },
-            { "id": "paragrafo-1", "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": 1.45, "margin_bottom": "18px" },
-            { "id": "paragrafo-2-com-negrito-inline", "font_family": "sans-serif regular", "font_size": "20px", "font_color": "rgba(26,26,26,0.65)", "line_height": 1.45, "margin_bottom": "28px", "note": "trecho entre {{ }} renderizar em negrito #1A1A1A font_weight 700 — negrito inline, não parágrafo separado" }
+            {
+              "id": "headline",
+              "font_family": "serif display",
+              "font_size": "30px",
+              "font_color": "#1A1A1A",
+              "line_height": 1.18,
+              "margin_bottom": "24px",
+              "note": "título direto da notícia — 1-2 linhas"
+            },
+            {
+              "id": "paragrafo",
+              "font_family": "sans-serif regular",
+              "font_size": "20px",
+              "font_color": "rgba(26,26,26,0.65)",
+              "line_height": 1.45,
+              "margin_bottom": "28px",
+              "note": "1 parágrafo fluido contínuo — 3 a 5 frases encadeadas. PROIBIDO fragmentação estacato e contraste binário performático."
+            }
           ]
         },
         "image": {
@@ -443,11 +484,12 @@
   "negative_rules": [
     "NUNCA usar travessão (—) em nenhuma peça",
     "NUNCA baked-in asset_prompt de imagem no template — sempre placeholder",
-    "NUNCA alterar o copy fixo da headline da capa, do CTA ou do fechamento da legenda",
+    "NUNCA colocar header, badge pill, handle ou qualquer branding textual nas capas — capa é só imagem + headline",
+    "NUNCA usar headline fixa na capa — varia livremente por edição conforme tema dominante",
     "NUNCA usar o mesmo template de slide 3 vezes seguidas — variar para criar ritmo",
     "NUNCA entregar copy sem rodar copy-qa-sms",
     "NUNCA fixar tratamento de cor de imagem — depende da referência carregada pelo usuário",
-    "NUNCA adicionar avatar no header — sempre só texto",
+    "NUNCA adicionar avatar no header dos slides — sempre só texto",
     "NUNCA usar imagem sem border_radius nos slides off-white (exceto capa full-bleed e card-inset do slide-11)"
   ]
 }

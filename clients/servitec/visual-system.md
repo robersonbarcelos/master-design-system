@@ -16,6 +16,20 @@
 
 ---
 
+## 01-A | FAMÍLIAS VISUAIS (sistema confirmado — agosto 2026)
+
+> As famílias visuais substituem e detalhám os grupos visuais abaixo.
+> Para especificações completas de cada família, ver `familias-visuais.md`.
+
+| Código | Nome | Pilar editorial | Quando usar |
+|---|---|---|---|
+| FV01 | Comercial Limpo | Educativo, Autoridade, Locação | Seg/Ter — conteúdo racional e informativo |
+| FV03 | Fullscreen Impacto | Urgência, Campanha, Dor do cliente | Máx 2x/mês — impacto emocional |
+| FV04 | Catálogo Premium Fotográfico | Oferta, Produto com preço, Venda | Sex — conversão e oferta da semana |
+| FV05 | Editorial Técnico Escuro | Produto técnico, Performance, Autoridade | Qui — conteúdo técnico premium |
+
+---
+
 ## 02 | GRUPOS VISUAIS
 
 ### Grupo A — Oferta Direta (Ofertas da Semana)

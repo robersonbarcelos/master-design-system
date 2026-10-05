@@ -1,0 +1,361 @@
+{
+  "template": "por-dentro-da-gestao-bnb",
+  "version": "1.0",
+  "status": "5 peças aprovadas pelo cliente em 17 set 2026 (moodboard real), extraídas e modeladas em JSON. Todos os 5 textos batem exatamente com os 'exemplos de chamadas' já documentados pro Sistema Editorial v1.1 (painel 04.7). Primeira linha editorial com pessoas reais da equipe operacional (rostos nunca em foco, sempre genéricas/anônimas, nunca a Glauce).",
+  "description": "Template da Linha 5 'Por Dentro da Gestão' (04.7 do painel Central BNB Connect): linha de demonstração de método, mostrando o trabalho técnico/operacional por trás de cada estadia. Estilo tipográfico principal Autoridade estratégica (hierarquia só por peso/cor, sem serifada), presente em 2 das 5 peças (card-01, card-04). Card-02 usa o secundário oficial Hospitalidade contemporânea (híbrido: bloco navy + serifada, mesmo padrão do card-02 do AUTORIDADE-BNB). Card-03 usa o mecanismo de Impacto fotográfico (full-bleed + sans pesada + 1 palavra serifada dourada), que NÃO está entre os secundários oficiais da Linha 5 em 04.2.2 (só Hospitalidade contemporânea está listada): registrado como achado, não corrigido silenciosamente.",
+  "fonte_da_paleta": "painel Central BNB Connect, item 04.2.1 (Sistema Editorial e Direção Visual v1.1): Petróleo BNB #005070, Azul-marinho profundo #052F42, Off-white quente #F8F4EA, Dourado fosco #A9782E",
+  "fonte_da_tipografia": "painel Central BNB Connect, item 04.2.1 (matriz de 4 estilos) e 04.2.2 (Linha 5 Por Dentro da Gestão: principal Autoridade estratégica, secundário Hospitalidade contemporânea)",
+  "nota_de_pessoas_reais": "Esta é a primeira linha do sistema com pessoas reais da equipe operacional em cena (staff genérico de uniforme, nunca a Glauce). Regra: rosto nunca é o foco (perfil, de lado, de costas, ou só mãos/torso), sempre pessoa genérica e não identificável, uniforme polo azul-marinho com logo BNB Connect. Diferente do sistema de fotos da Glauce (Linha 1), NÃO exige foto de referência anexada: é gerada do zero seguindo o Realistic Skin Standard, mas com instrução explícita de não se parecer com nenhuma pessoa real específica da equipe.",
+  "nota_de_mapeamento_tipografico": "ACHADO: card-03 (full-bleed + sans bold + 'bem.' em serifada dourada, sem card) segue o mecanismo do estilo Impacto fotográfico, que não está na lista de secundários permitidos pra Linha 5 em 04.2.2 (só Hospitalidade contemporânea está listada). É uma peça real aprovada pelo cliente no moodboard, registrada aqui como está.",
+  "logo": {
+    "arquivo_oficial": "clients/bnb-connect/references/logo.jpg: ícone de casa em contorno + wordmark 'BNB' bold + 'CONNECT' tracked-out menor abaixo",
+    "regra": "NUNCA gerar o logo via IA no prompt de imagem: geradores distorcem o ícone da casa e a proporção do wordmark. A logo é sempre composta depois, manualmente (Canva/Pillow), usando o arquivo oficial. No prompt de geração, reservar o espaço vazio e citar apenas 'área reservada para logo, sem gerar' na ui_elements.",
+    "versao_escura": "Petróleo BNB #005070, usada sobre fundo claro (off-white, foto clara)",
+    "versao_clara": "branco puro #FFFFFF ou off-white #F8F4EA, usada sobre fundo escuro (navy sólido, foto escura/área de sombra)",
+    "posicao_padrao": "topo esquerdo na maioria das variações desta linha, exceto quando a uniforme da equipe já carrega o logo bordado (card-05, foto da base)"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+    "serifada": "Newsreader Italic é a única família serifada permitida",
+    "dourado": "Dourado fosco #A9782E é reservado para a palavra-chave/emocional de cada card, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante, nunca acinzentado nem opaco)",
+    "fotografia_de_imovel": "Toda peça sem pessoa segue a direção fotográfica de 04.2.1: luz natural, imóvel real ou visualmente plausível, tratamento documental/editorial, nunca plástico ou HDR artificial",
+    "pessoa_generica": "Toda peça com pessoa da equipe segue o Realistic Skin Standard (pele com poros visíveis, sem retoque, sem acabamento plástico), uniforme polo azul-marinho com logo BNB Connect, rosto nunca em foco/close-up frontal, nunca deve se parecer com a Glauce ou qualquer pessoa real identificável",
+    "card_flutuante": "Quando houver card flutuante sobre foto (card-04): 100% flat, sem sombra projetada e sem contorno/stroke, totalmente contido dentro do frame com margem visível dos 4 lados (nunca cortado/sangrando por nenhuma borda)",
+    "ancora_tipografica_visual": "Sans-serif geométrica contemporânea em todo o sistema (independente de ser Sora ou Manrope): traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026. Descrita explicitamente na scene.description de cada card pra evitar que o gerador substitua por fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman), que quebraria a consistência visual entre templates."
+  },
+  "negative_rules_globais": [
+    "NUNCA gerar o logo BNB Connect via IA: sempre compor depois com o arquivo oficial",
+    "NUNCA usar outra serifada além de Newsreader Italic",
+    "NUNCA misturar Manrope e Sora no mesmo título",
+    "NUNCA usar travessão (—) em nenhum texto de nenhum card",
+    "NUNCA interfaces, dashboards ou gráficos inventados nas telas de laptop/celular: se aparecer tela, mostrar algo genérico e ilegível, nunca dados/números inventados",
+    "NUNCA fotografia de imóvel ou de equipe posada ou com luxo ostentatório: sempre luz natural e tratamento documental",
+    "NUNCA rosto de pessoa da equipe em close-up frontal ou como foco central: sempre perfil, de lado, de costas, ou só mãos/torso",
+    "NUNCA gerar a equipe com pele plástica, retocada ou de banco de imagem: sempre poros visíveis, imperfeições naturais, acabamento fosco",
+    "NUNCA sombra ou contorno em cards flutuantes: sempre 100% flat",
+    "NUNCA texto acinzentado, opaco ou desbotado: cores petróleo e branco sempre sólidas e saturadas; dourado sempre sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+    "NUNCA fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman) no lugar de Sora/Manrope/Newsreader: sempre reforçar a âncora tipográfica geométrica contemporânea"
+  ],
+  "variacoes": {
+    "card-01-fullbleed-equipe-inspecao": {
+      "nome": "Foto full-bleed (inspeção da equipe) + headline caixa alta sans, sem card",
+      "descricao": "Foto full-bleed de membro da equipe fazendo inspeção de um imóvel (checando estrutura da porta com prancheta digital), texto sobreposto direto (sem card): 'POR DENTRO DA GESTÃO' em caixa alta bold navy, subtítulo em sans regular menor. Logo em versão clara sobre a área mais escura da foto.",
+      "hierarquia": "Foto full-bleed de fundo > logo (versão clara) sobre área escura > 'POR DENTRO' / 'DA GESTÃO' em caixa alta bold navy > 'O cuidado começa' / 'antes do check-in.' em sans regular menor",
+      "cores": {
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Autoridade estratégica (hierarquia só por peso, sem serifada)",
+        "\"POR DENTRO / DA GESTÃO\"": "Sora ExtraBold 800, caixa alta, ~48px, 2 linhas",
+        "subtitulo": "Manrope Regular 400, ~24px, 2 linhas"
+      },
+      "quando_usar": "Slide 1 (capa) de qualquer carrossel da Linha 5, mostrando a equipe em ação numa inspeção de rotina.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed documental de uma mulher brasileira genérica da equipe operacional, 30-40 anos, cabelo castanho preso num coque baixo, vestindo polo azul-marinho de uniforme com crachá de identificação, segurando uma prancheta digital, com a mão levantada checando a estrutura de uma porta/batente de madeira, vista de perfil/três-quartos (rosto não é o foco central, olhar direcionado pra cima/pro batente). Ambiente ao fundo: sala de estar clara e desfocada com sofá branco, almofadas, plantas em vasos, luz natural entrando por portas de vidro. No canto superior esquerdo, sobre a área mais escura do batente de madeira, área reservada vazia pro logo BNB Connect em versão clara branca (não gerar). No terço superior-médio do frame, sobreposto direto sobre a foto: 'POR DENTRO' e 'DA GESTÃO' em caixa alta, sans-serif extra bold cor Petróleo BNB #005070 sólida e saturada, 2 linhas. Abaixo, subtítulo menor em sans-serif regular, mesma cor: 'O cuidado começa' / 'antes do check-in.'. Paleta dominante: tons neutros claros do ambiente, azul-marinho do uniforme, petróleo profundo no texto.",
+            "subject": "Mulher brasileira genérica, 30-40 anos, cabelo castanho preso, uniforme polo azul-marinho com crachá, prancheta digital na mão",
+            "setting": "Entrada/sala de estar de casa de temporada, luz natural clara",
+            "action": "Inspecionando a estrutura de uma porta/batente, mão levantada, checando com atenção"
+          },
+          "style": {
+            "primary": "editorial documentary photography, lifestyle operacional",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido do uniforme polo com textura de algodão real, madeira do batente com veio natural, pele com textura visível",
+            "lighting": "luz natural clara entrando por portas de vidro ao fundo, difusa, sem sombras duras no rosto"
+          },
+          "technical": {
+            "camera": { "focal_length": "35mm", "aperture": "f/2.8", "depth_of_field": "moderada-shallow: sujeito nítido, ambiente ao fundo em leve bokeh", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais claras, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "pele morena clara, tom quente. Poros visíveis na testa e maçãs do rosto. Leves imperfeições naturais. Acabamento fosco, pele absorve luz em vez de refletir. Sem maquiagem pesada, sem suavização artificial, zero pós-processamento de retoque de beleza.",
+            "fabric": "polo azul-marinho de uniforme, tecido de algodão com textura real e leve amassado"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, sem névoa",
+            "time": "dia, luz natural difusa"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: sujeito em primeiro plano, sala ao fundo em bokeh suave",
+            "framing": "full-bleed, texto sobreposto direto sobre a foto, sem card ou bloco de cor",
+            "subject_placement": "sujeito ocupa o terço inferior-esquerdo do frame; texto alinhado à esquerda no terço superior-médio",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior esquerdo, sobre área escura do batente" },
+              { "text": "POR DENTRO / DA GESTÃO", "font": "sans-serif extra bold caixa alta (Sora 800)", "font_size": "48px", "color": "#005070, sólido e saturado", "position": "terço superior-médio, alinhado à esquerda, 2 linhas" },
+              { "text": "O cuidado começa / antes do check-in.", "font": "sans-serif regular (Manrope 400)", "font_size": "24px", "color": "#005070, sólido e saturado", "position": "abaixo da headline" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental operacional real e autêntica", "textura de pele natural com poros", "tipografia de alto contraste sem serifada", "composição full-bleed limpa"],
+            "avoid": ["plastic skin, airbrushed skin, poreless skin, CGI smoothness, wax texture, cosmetic sheen, specular hotspot on forehead, beauty retouch, frequency separation", "rosto em close-up frontal ou como foco central da imagem", "pessoa que se pareça com a Glauce ou outra pessoa real identificável", "logo gerado pela IA distorcido", "qualquer serifada: esta variação é 100% sans", "texto acinzentado, opaco ou desbotado"],
+            "reference_standard": "fotografia documental operacional, estilo editorial de hospitalidade e serviços 2025-2026. Peter Lindbergh + Paolo Roversi para a textura de pele: matte, sem retoque, poros visíveis."
+          }
+        }
+      }
+    },
+    "card-02-fullbleed-card-flutuante-navy-serifada": {
+      "nome": "Foto full-bleed da mesa de trabalho + card navy flutuante no canto com headline sans + serifada dourada",
+      "descricao": "Foto full-bleed de mesa de trabalho (livros de referência, caderno com checklist manuscrita, xícara com frase, laptop, mão de um membro da equipe digitando) ocupando o frame inteiro, card flutuante azul-marinho no canto inferior-esquerdo, contido nos 4 lados (sem sombra, sem contorno), com a headline: 'Cada decisão tem uma estratégia' em sans branco (peso misto) seguido por 'por trás.' em serifada itálica dourada. IMPORTANTE (corrigido 17 set 2026, 2ª rodada): o cliente reportou que o layout fugiu da referência de duas formas: (1) a referência tinha o card navy como card FLUTUANTE sobre uma foto full-bleed, não como bloco de tela dividida 50/50 (trocado o split por foto full-bleed + card flutuante no canto, seguindo o mesmo padrão já validado no card-04 desta linha, só que navy em vez de off-white); (2) 'por trás.' precisa ficar na cor de contraste dourada, não branca, seguindo o mesmo padrão de contraste já usado nos demais cards da linha. Os textos dos objetos de cena (livros, xícara, checklist) seguem travados como texto exato (correção da 1ª rodada, mantida).",
+      "hierarquia": "Foto full-bleed da mesa de trabalho > logo (versão clara) sobre a foto > card navy flutuante no canto inferior-esquerdo, contido nos 4 lados > 'Cada' / 'decisão tem' / 'uma estratégia' em sans branco > 'por trás.' em serifada itálica dourada",
+      "cores": {
+        "fundo_card": "Azul-marinho profundo #052F42, 100% flat: sem contorno/stroke, sem sombra projetada",
+        "texto_principal": "branco/off-white #F8F4EA, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "híbrido: mais próximo de Hospitalidade contemporânea na combinação (sans + 1 frase serifada), aqui como card navy flutuante sobre a foto (não bloco de tela dividida), mesmo padrão de card flutuante já usado no card-04 desta linha",
+        "\"Cada / decisão tem / uma estratégia\"": "Manrope SemiBold 600, ~44px, 3 linhas",
+        "\"por trás.\"": "Newsreader Italic 400, cor dourada, ~48px"
+      },
+      "quando_usar": "Slide de contexto/desenvolvimento em carrosséis da Linha 5, mostrando o trabalho de bastidor por trás de cada decisão operacional.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed documental real de mesa de trabalho vista de cima/três-quartos, ocupando o frame inteiro: pilha de 4 livros de referência empilhados com as lombadas mostrando EXATAMENTE estes 4 títulos, palavra por palavra, sem parafrasear: 'HOSPITALIDADE' no livro de cima, 'Gestão de Imóveis' no segundo, 'Experiências' no terceiro, 'Turismo Brasileiro' no livro de baixo; uma xícara de cerâmica branca com a frase EXATA 'boas estadias criam boas histórias' escrita nela, em 3 linhas pequenas; um caderno espiral aberto com uma lista de checklist manuscrita com EXATAMENTE estes 6 itens, cada um com uma caixa de checkbox desenhada à esquerda: 'Calendário', 'Limpeza', 'Check-in', 'Hóspedes', 'Manutenção', 'Estratégia' (sem cabeçalho 'Planejamento', sem outros itens); uma caneta ao lado; e no canto superior direito da foto, o braço e a mão de uma mulher genérica da equipe digitando num laptop aberto, rosto fora de quadro, sem anel ou joia visível na mão. No canto superior esquerdo da foto, área reservada vazia pro logo BNB Connect em versão clara branca (não gerar: esse espaço fica em branco na imagem gerada, a logo real é composta depois manualmente). No canto inferior-esquerdo do frame, sobreposto sobre a foto, um card flutuante sólido azul-marinho profundo #052F42, cantos bem arredondados (raio ~24px), ocupando cerca de 68% da largura e 30% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem. Estilo do card 100% flat, design plano: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, e SEM nenhuma sombra projetada, drop shadow ou efeito de profundidade/elevação. Dentro do card, texto alinhado à esquerda: 'Cada', 'decisão tem' e 'uma estratégia' em sans-serif semibold branco #F8F4EA, 3 linhas, seguido por 'por trás.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Paleta dominante: tons neutros de madeira e papel na foto de fundo, azul-marinho profundo sólido no card, branco e dourado no texto.",
+            "subject": "Mesa de trabalho inteira (foto full-bleed) com 4 livros ('HOSPITALIDADE', 'Gestão de Imóveis', 'Experiências', 'Turismo Brasileiro'), caderno com checklist manuscrita exata (Calendário, Limpeza, Check-in, Hóspedes, Manutenção, Estratégia), xícara com a frase 'boas estadias criam boas histórias', laptop, mão genérica digitando sem joias; card navy flutuante no canto inferior-esquerdo com a headline",
+            "setting": "Espaço de trabalho/escritório doméstico, luz natural de dia",
+            "action": "Estático na maior parte da cena, com a mão da pessoa em movimento sutil de digitação"
+          },
+          "style": {
+            "primary": "editorial documentary photography, flat lay de escritório",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "capas dos livros com textura de papel real, cerâmica da xícara com brilho fosco, madeira da mesa com veio visível, tecido da manga da pessoa com textura natural, card navy 100% flat sem contorno/stroke e sem sombra projetada",
+            "lighting": "luz natural de dia entrando de lado, sombras suaves e definidas"
+          },
+          "technical": {
+            "camera": { "focal_length": "35mm", "aperture": "f/4", "depth_of_field": "moderada: mesa de trabalho inteira nítida", "angle": "três-quartos, levemente de cima" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "pele da mão/braço visível com textura natural, poros visíveis, sem retoque, tom quente, acabamento fosco",
+            "surfaces": "capas de livros com textura de papel, cerâmica da xícara com leve brilho fosco, madeira da mesa com veio e leve desgaste natural, card navy 100% flat: sem contorno/stroke, sem sombra projetada, apenas um bloco de cor sólida recortado com cantos arredondados lisos",
+            "fabric": "manga de tecido claro com textura natural"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, sem névoa",
+            "time": "dia, luz natural lateral"
+          },
+          "composition": {
+            "perspective": "vista três-quartos de cima, profundidade rasa",
+            "framing": "full-bleed, card navy flutuante autocontido no canto inferior-esquerdo do frame, sem tocar nenhuma borda",
+            "subject_placement": "mesa de trabalho ocupa o frame inteiro; card flutuante no canto inferior-esquerdo, com respiro/margem visível em relação às 4 bordas do frame: a foto de fundo aparece como moldura contínua ao redor do card inteiro",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "topo esquerdo da foto" },
+              { "text": "HOSPITALIDADE / Gestão de Imóveis / Experiências / Turismo Brasileiro", "type": "texto EXATO nas lombadas dos 4 livros empilhados, um título por livro, nesta ordem de cima pra baixo, sem parafrasear", "position": "pilha de livros, sobre a mesa de trabalho" },
+              { "text": "boas estadias criam boas histórias", "type": "texto EXATO escrito na xícara de cerâmica branca, em 3 linhas pequenas, sem parafrasear", "position": "ao lado da pilha de livros" },
+              { "text": "Calendário / Limpeza / Check-in / Hóspedes / Manutenção / Estratégia", "type": "texto EXATO da lista manuscrita no caderno espiral, 6 itens com checkbox à esquerda de cada um, sem cabeçalho 'Planejamento', sem itens extras, sem parafrasear", "position": "caderno espiral aberto, sobre a mesa de trabalho" },
+              { "text": "card navy flutuante", "type": "retângulo sólido #052F42, 100% flat: sem contorno/stroke desenhado, sem sombra projetada, sem nenhum efeito de profundidade/elevação, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px)", "position": "canto inferior-esquerdo do frame, com margem visível dos 4 lados: não encosta, não é cortado, não sangra por nenhuma borda" },
+              { "text": "Cada / decisão tem / uma estratégia", "font": "sans-serif semibold (Manrope 600)", "font_size": "44px", "color": "#F8F4EA, sólido e saturado", "position": "dentro do card, alinhado à esquerda, 3 linhas" },
+              { "text": "por trás.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "48px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo abaixo da linha anterior" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental de bastidor real e autêntica", "flat lay bem composto", "card flutuante 100% flat, design plano, sem sombra e sem contorno", "mistura de sans semibold e serifada itálica dourada bem equilibrada", "textos dos livros/xícara/caderno reproduzidos EXATAMENTE como especificado, sem trocar por texto similar", "cantos do card uniformemente arredondados"],
+            "avoid": ["plastic skin, airbrushed skin, poreless skin, CGI smoothness, wax texture, cosmetic sheen, specular hotspot on forehead, beauty retouch, frequency separation", "inventar ou parafrasear os títulos dos livros, a frase da xícara ou os itens do checklist: o texto deve ser character-exact ao especificado, nunca uma variação parecida", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "qualquer linha de contorno, stroke ou borda desenhada ao redor do card", "qualquer sombra projetada, drop shadow ou efeito de profundidade no card", "card encostado, cortado ou sangrando por qualquer borda do frame", "layout de tela dividida 50/50 (deve ser foto full-bleed com card flutuante no canto, não um bloco de cor ocupando metade do frame)", "rosto da pessoa visível ou em foco", "anel ou joia visível na mão que digita", "'por trás.' em branco ou em qualquer cor que não seja o dourado fosco de contraste"],
+            "reference_standard": "fotografia editorial de bastidor/flat lay, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-03-fullbleed-equipe-amenities": {
+      "nome": "Foto full-bleed (equipe arrumando amenities) + headline sans + 1 palavra serifada dourada, sem card",
+      "descricao": "Foto full-bleed de membro da equipe (só torso, uniforme polo azul-marinho) arrumando toalhas e um kit de amenities numa cama, texto sobreposto no canto inferior-esquerdo: 'Tudo pronto' / 'para receber' em sans bold navy, 'bem.' em serifada itálica dourada.",
+      "hierarquia": "Foto full-bleed de fundo > 'Tudo pronto' / 'para receber' em sans bold navy > 'bem.' em serifada itálica dourada",
+      "cores": {
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Impacto fotográfico (sans pesada + 1 palavra serifada): ver nota_de_mapeamento_tipografico no topo do arquivo",
+        "\"Tudo pronto / para receber\"": "Manrope Bold 700, ~44px, 2 linhas",
+        "\"bem.\"": "Newsreader Italic 400, cor dourada, ~50px"
+      },
+      "quando_usar": "Slide de detalhe operacional em carrosséis da Linha 5, focando no cuidado com o enxoval/amenities antes do check-in.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed documental mostrando só o torso e as mãos de um membro genérico da equipe operacional (rosto fora de quadro), vestindo polo azul-marinho de uniforme com logo BNB Connect bordado no peito, arrumando uma pilha de toalhas brancas dobradas sobre uma cama com roupa de cama neutra e manta azul dobrada aos pés, ao lado uma bandeja de madeira com 3 frascos de amenities (shampoo, condicionador, sabonete líquido) e um cartão escrito 'Seja bem-vindo' com um pequeno coração desenhado. Sobreposto no canto inferior-esquerdo do frame: 'Tudo pronto' e 'para receber' em sans-serif bold cor Petróleo BNB #005070 sólida e saturada, 2 linhas, seguido por 'bem.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Paleta dominante: branco das toalhas, azul-marinho do uniforme, tons neutros de madeira, petróleo e dourado no texto.",
+            "subject": "Torso e mãos de membro genérico da equipe em uniforme polo azul-marinho, arrumando toalhas e kit de amenities numa cama",
+            "setting": "Quarto de casa de temporada, preparação pré check-in",
+            "action": "Dobrando/organizando toalhas sobre a cama, movimento cuidadoso"
+          },
+          "style": {
+            "primary": "editorial documentary photography, lifestyle operacional",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido das toalhas com textura de algodão real, polo do uniforme com textura de tecido, madeira da bandeja com veio visível, vidro dos frascos com reflexo sutil",
+            "lighting": "luz natural clara e suave, difusa, sem sombras duras"
+          },
+          "technical": {
+            "camera": { "focal_length": "50mm", "aperture": "f/2.8", "depth_of_field": "shallow: toalhas e mãos em primeiro plano nítidas, fundo levemente suave", "angle": "eye level, levemente de cima" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais claras, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "pele das mãos com textura natural, poros visíveis, sem retoque, tom quente, acabamento fosco, zero pós-processamento de retoque de beleza",
+            "fabric": "toalhas brancas em algodão felpudo real, polo azul-marinho de uniforme com textura de tecido, manta azul dobrada com textura de lã",
+            "surfaces": "bandeja de madeira com veio visível, frascos de vidro/plástico fosco com rótulos genéricos ilegíveis"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, sem névoa",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade rasa, cama e toalhas em primeiro plano",
+            "framing": "full-bleed, texto sobreposto direto sobre a foto, sem card ou bloco de cor",
+            "subject_placement": "torso/mãos e cama ocupam o frame inteiro; texto alinhado à esquerda no terço inferior",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "Tudo pronto / para receber", "font": "sans-serif bold (Manrope 700)", "font_size": "44px", "color": "#005070, sólido e saturado", "position": "terço inferior, alinhado à esquerda, 2 linhas" },
+              { "text": "bem.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "50px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo abaixo de 'para receber'" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental operacional real e autêntica", "textura de tecido e pele convincentes", "contraste dourado bem legível", "composição full-bleed limpa"],
+            "avoid": ["plastic skin, airbrushed skin, poreless skin, CGI smoothness, wax texture, cosmetic sheen, specular hotspot, beauty retouch, frequency separation", "rosto visível ou em foco", "logo gerado pela IA distorcido (esta peça não usa logo)", "segunda serifada além de Newsreader Italic", "texto acinzentado, opaco ou desbotado", "toalhas ou amenities com aparência plástica/genérica de banco de imagem"],
+            "reference_standard": "fotografia documental operacional, estilo editorial de hospitalidade 2025-2026"
+          }
+        }
+      }
+    },
+    "card-04-fullbleed-card-flutuante-precificacao": {
+      "nome": "Foto full-bleed (planejamento) + card off-white flutuante central, 100% flat, sem serifada",
+      "descricao": "Foto full-bleed de mãos de um membro da equipe escrevendo num caderno ao lado de um laptop (tela genérica ilegível), card off-white flutuante contido nos 4 lados do frame (sem sombra, sem contorno), com headline em sans bold navy ('Preço não é palpite.') e subtítulo menor sans regular dourado. IMPORTANTE (corrigido 17 set 2026): o cliente reportou o mesmo problema do card-05 desta linha: o subtítulo estava na mesma cor navy da headline, sem contraste; trocado pra dourado fosco, seguindo o padrão de contraste já usado nos demais cards.",
+      "hierarquia": "Foto full-bleed de fundo > card off-white flutuante centralizado, contido nos 4 lados > logo (versão escura) no topo do card > 'Preço não' / 'é palpite.' em sans bold navy > 'É leitura de mercado,' / 'demanda e oportunidade.' em sans regular dourado menor",
+      "cores": {
+        "fundo_card": "Off-white quente #F8F4EA, 100% flat: sem contorno/stroke, sem sombra projetada",
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Autoridade estratégica aplicada dentro de um card claro (sem serifada, hierarquia só por peso)",
+        "\"Preço não / é palpite.\"": "Sora Bold 700, ~46px, 2 linhas",
+        "subtitulo": "Sora Regular 400, cor dourada, ~24px, 2 linhas"
+      },
+      "quando_usar": "Slide de detalhe estratégico em carrosséis da Linha 5, mostrando o processo de definição de preço baseado em dados de mercado.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed documental de uma mesa de trabalho vista de cima/três-quartos: mãos genéricas de um membro da equipe (rosto fora de quadro) escrevendo com uma caneta num caderno aberto com uma lista genérica manuscrita ilegível de perto (títulos genéricos tipo sazonalidade, eventos locais, concorrência, perfil do hóspede, oportunidades), ao lado um laptop aberto com uma tela genérica mostrando algo parecido com um calendário/painel simples, mas totalmente ilegível e sem dados inventados, um celular sobre a mesa, uma cestinha de vime com itens indistintos ao fundo desfocado. Centralizado no frame, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), ocupando cerca de 65% da largura e 32% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem. Estilo do card 100% flat, design plano: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, e SEM nenhuma sombra projetada, drop shadow ou efeito de profundidade/elevação. O card é apenas um bloco de cor sólida off-white recortado com cantos arredondados sobre a foto: a separação visual vem inteiramente do contraste entre a cor sólida do card e a foto atrás. Dentro do card: no topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar); abaixo, 'Preço não' e 'é palpite.' em sans-serif bold cor Petróleo BNB #005070 sólida e saturada, 2 linhas, sem nenhuma serifada; abaixo, subtítulo menor em sans-serif regular cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante): 'É leitura de mercado,' / 'demanda e oportunidade.'. Paleta dominante: tons neutros de madeira e papel na foto de fundo, off-white quente no card, petróleo profundo no texto principal e dourado no subtítulo.",
+            "subject": "Mãos genéricas escrevendo num caderno ao lado de um laptop com tela genérica ilegível",
+            "setting": "Mesa de trabalho/escritório doméstico, luz natural de dia",
+            "action": "Escrevendo/planejando, movimento sutil da mão com a caneta"
+          },
+          "style": {
+            "primary": "editorial documentary photography, flat lay de escritório",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "papel do caderno com textura real, madeira da mesa com veio visível, tela do laptop com reflexo sutil, card off-white 100% flat sem contorno/stroke e sem sombra projetada",
+            "lighting": "luz natural de dia entrando de lado, sombras suaves"
+          },
+          "technical": {
+            "camera": { "focal_length": "35mm", "aperture": "f/3.5", "depth_of_field": "moderada: mesa e mãos nítidas, fundo levemente suave", "angle": "três-quartos, de cima" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "pele das mãos com textura natural, poros visíveis, sem retoque, tom quente, acabamento fosco, zero pós-processamento de retoque de beleza",
+            "surfaces": "madeira da mesa com veio e leve desgaste natural, papel do caderno com textura real, card off-white 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade, apenas um bloco de cor sólida recortado com cantos arredondados lisos"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, sem névoa",
+            "time": "dia, luz natural lateral"
+          },
+          "composition": {
+            "perspective": "vista três-quartos de cima, profundidade rasa",
+            "framing": "full-bleed, card flutuante autocontido no centro do frame, sem tocar nenhuma borda",
+            "subject_placement": "mesa de trabalho ocupa o frame inteiro; card centralizado, com respiro/margem visível em relação às 4 bordas do frame: a foto de fundo aparece como moldura contínua ao redor do card inteiro, nos 4 lados",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              { "text": "card off-white flutuante", "type": "retângulo sólido #F8F4EA, 100% flat: sem contorno/stroke desenhado, sem sombra projetada, sem nenhum efeito de profundidade/elevação, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px)", "position": "centro do frame, com margem visível dos 4 lados: não encosta, não é cortado, não sangra por nenhuma borda" },
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão escura #005070", "position": "topo do card, alinhado à esquerda" },
+              { "text": "Preço não / é palpite.", "font": "sans-serif bold (Sora 700)", "font_size": "46px", "color": "#005070, sólido e saturado", "position": "dentro do card, alinhado à esquerda, 2 linhas" },
+              { "text": "É leitura de mercado, / demanda e oportunidade.", "font": "sans-serif regular (Sora 400)", "font_size": "24px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "abaixo da headline, 2 linhas" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental de bastidor real e autêntica", "card flutuante 100% flat, design plano, sem sombra e sem contorno", "hierarquia clara por peso tipográfico e cor de contraste entre headline e subtítulo", "cantos do card uniformemente arredondados"],
+            "avoid": ["plastic skin, airbrushed skin, poreless skin, CGI smoothness, wax texture, cosmetic sheen, specular hotspot, beauty retouch, frequency separation", "tela do laptop com dados, gráficos ou números inventados e legíveis", "logo gerado pela IA distorcido", "qualquer linha de contorno, stroke ou borda desenhada ao redor do card", "qualquer sombra projetada, drop shadow ou efeito de profundidade no card", "card encostado, cortado ou sangrando por qualquer borda do frame", "qualquer serifada: esta variação é 100% sans", "texto acinzentado, opaco ou desbotado", "rosto visível"],
+            "reference_standard": "fotografia editorial de bastidor/flat lay, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-05-triplo-foto-bloco-foto": {
+      "nome": "Split em 3 blocos: foto do imóvel no topo + bloco off-white com headline no meio + foto da equipe na base",
+      "descricao": "Frame dividido em 3 blocos horizontais: foto de terraço coberto com vista pro mar no topo (~50%), bloco off-white no meio (~20%) com a headline ('Gestão que protege o imóvel e potencializa resultados.'), foto de membro da equipe (visto de costas, uniforme com logo bordado) abrindo uma porta com chave na base (~30%).",
+      "hierarquia": "Foto do imóvel no topo, sem texto > bloco off-white no meio: logo (versão escura) + 'Gestão que' / 'protege o imóvel e' em sans bold navy > 'potencializa resultados.' em serifada itálica dourada > foto da equipe de costas na base, sem texto",
+      "cores": {
+        "fundo_bloco_texto": "Off-white quente #F8F4EA",
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (bloco claro + serifada), aqui num bloco fixo entre 2 fotos, não um card flutuante",
+        "\"Gestão que / protege o imóvel e\"": "Manrope Bold 700, ~34px, 2 linhas",
+        "\"potencializa resultados.\"": "Newsreader Italic 400, ~34px"
+      },
+      "quando_usar": "Slide de fechamento/síntese em carrosséis da Linha 5, combinando prova visual do imóvel com a equipe em ação no mesmo card.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido em 3 blocos horizontais empilhados sem espaço entre eles. Bloco superior (~50% da altura): foto documental real de terraço coberto de casa de litoral, teto de madeira, espreguiçadeira com almofadas, parede de pedra rústica à direita, vista pro mar com colinas e vegetação costeira ao fundo, luz natural de dia clara, área reservada vazia pro logo BNB Connect em versão clara branca no canto superior esquerdo (não gerar). Bloco do meio (~20% da altura): bloco sólido off-white quente #F8F4EA, sem foto, com área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 no topo (não gerar), seguido por texto alinhado à esquerda: 'Gestão que' e 'protege o imóvel e' em sans-serif bold cor Petróleo BNB #005070 sólida e saturada, 2 linhas, seguido por 'potencializa resultados.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Bloco inferior (~30% da altura): foto documental real de um membro genérico da equipe visto de costas, vestindo polo azul-marinho de uniforme com o texto 'BNB CONNECT' bordado nas costas, abrindo uma porta de vidro/madeira com um molho de chaves na mão, parede de pedra rústica ao lado, planta em vaso próxima, luz natural de dia. Paleta dominante: tons naturais de mar/madeira no bloco superior, off-white quente no bloco do meio, azul-marinho do uniforme e tons de pedra no bloco inferior, petróleo no texto.",
+            "subject": "Bloco 1: terraço coberto com vista pro mar. Bloco 3: membro genérico da equipe de costas, uniforme com logo bordado, abrindo porta com chaves",
+            "setting": "Casa de litoral, terraço com vista pro mar (bloco 1) e entrada/porta lateral (bloco 3)",
+            "action": "Bloco 1: estático, ambiente vazio. Bloco 3: pessoa abrindo a porta com a chave, movimento sutil"
+          },
+          "style": {
+            "primary": "editorial documentary photography, real estate + operational lifestyle",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira do teto e da espreguiçadeira com veio natural, pedra rústica da parede com textura real, tecido do uniforme com textura de algodão, metal das chaves com reflexo sutil",
+            "lighting": "luz natural de dia clara em ambos os blocos fotográficos, consistente entre eles"
+          },
+          "technical": {
+            "camera": { "focal_length": "28mm", "aperture": "f/5", "depth_of_field": "deep: ambos os ambientes nítidos", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre as fotos"
+          },
+          "materials": {
+            "skin": "pele visível (mão segurando as chaves) com textura natural, poros visíveis, sem retoque, tom quente, acabamento fosco",
+            "fabric": "polo azul-marinho de uniforme com textura de algodão real e o wordmark 'BNB CONNECT' bordado nas costas",
+            "surfaces": "madeira do teto e da espreguiçadeira com veio e leve desgaste natural, pedra rústica com textura real, metal das chaves com reflexo sutil"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, leve brilho difuso do sol em ambos os blocos",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas em cada bloco fotográfico",
+            "framing": "3 blocos horizontais empilhados sem espaço entre eles, corte reto sem arredondamento entre blocos",
+            "subject_placement": "bloco 1 (foto) ocupa os 50% superiores; bloco 2 (texto) ocupa os 20% do meio; bloco 3 (foto) ocupa os 30% inferiores",
+            "safe_area": "64px de padding mínimo nas laterais em todos os blocos; dentro do bloco off-white, 44px de margem lateral pro texto",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior esquerdo do bloco 1 (foto do topo)" },
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão escura #005070", "position": "topo do bloco 2 (bloco off-white), alinhado à esquerda" },
+              { "text": "Gestão que / protege o imóvel e", "font": "sans-serif bold (Manrope 700)", "font_size": "34px", "color": "#005070, sólido e saturado", "position": "bloco 2, abaixo do logo, 2 linhas" },
+              { "text": "potencializa resultados.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "34px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo abaixo da linha anterior" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental real e autêntica em ambos os blocos", "transição limpa entre os 3 blocos", "logo bordado no uniforme legível e consistente", "composição tripla equilibrada"],
+            "avoid": ["plastic skin, airbrushed skin, poreless skin, CGI smoothness, wax texture, cosmetic sheen, specular hotspot, beauty retouch, frequency separation", "rosto da pessoa visível no bloco 3 (deve estar de costas)", "logo gerado pela IA distorcido em qualquer bloco", "segunda serifada além de Newsreader Italic", "espaço ou gradiente entre os 3 blocos (devem estar colados)", "texto acinzentado, opaco ou desbotado"],
+            "reference_standard": "fotografia editorial combinando arquitetura e operação, estilo revista de hospitalidade 2025-2026"
+          }
+        }
+      }
+    }
+  }
+}

@@ -13,11 +13,14 @@
    > "Quer que eu use a skill `json-prompt-generator` para analisar esta referência? Ela gera um JSON estruturado com campos `scene`, `style`, `technical`, `materials`, `composition` e `quality` — schema completo e pronto para usar."
 
 2. **Se o usuário confirmar** (ou já tiver pedido explicitamente):
-   - Acionar a skill `json-prompt-generator` localizada em `skills/design/json-prompt-generator/`
+   - **Chamar o `Skill` tool com `skill: "json-prompt-generator"`** — obrigatório, não apenas mencionar a skill
+   - Sem chamar o tool, as instruções da skill NÃO são carregadas na sessão e o formato Analysis/JSON/Tweaks é ignorado
    - Seguir o workflow da skill: Analysis → JSON Prompt → Tweaks
    - Nunca usar o schema simplificado `{ "prompt": "...", "negative_prompt": "...", "aspect_ratio": "..." }`
 
 3. **Nunca gerar JSON de imagem sem passar pela skill** quando há imagem de referência presente.
+
+4. **Nunca confundir "mencionar a skill" com "acionar a skill"** — só o `Skill` tool carrega as instruções. Colar o SKILL.md no chat manualmente tem o mesmo efeito que chamar o tool, mas é responsabilidade do Claude chamar o tool, nunca depender do usuário para isso.
 
 ### Quando esta regra se aplica
 - Usuário envia imagem + pede "recriar", "replicar", "fazer igual", "prompt disto", "JSON disto"

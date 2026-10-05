@@ -1,0 +1,252 @@
+{
+  "template": "novo-modelo-twitter",
+  "version": "0.1-draft-em-teste",
+  "description": "Sistema de carrossel estilo post de Twitter/X com fundo branco puro, header com avatar vazio + nome + selo azul de verificado inline (posicionado depois de 'Inteligência Artificial', não colado ao avatar) + handle. Destaque de texto sempre por troca de peso da fonte (bold_inline), nunca bloco de cor. Sem badge 'arraste para continuar'. 3 variações estruturais aprovadas para teste de geração de imagem, todas neste único arquivo.",
+  "format": {
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "width_px": 1080,
+    "height_px": 1350,
+    "orientation": "portrait — SLIDE SEMPRE 4:5 PORTRAIT. NUNCA ALTERAR.",
+    "platform": "Instagram Feed / LinkedIn Carousel",
+    "lock": "⚠️ DIMENSÃO TRAVADA — 1080x1350px 4:5 portrait."
+  },
+  "background": {
+    "color": "#FFFFFF",
+    "note": "Branco puro em todas as variações — nunca bege ou off-white. Diferente do TEMPLATE-SLIDE-BOLD-HIGHLIGHT (que usa #F5EFE0)."
+  },
+  "header_lock": {
+    "note": "⚠️ Header IDÊNTICO em todas as variações deste template — mesmos valores exatos.",
+    "avatar": {
+      "shape": "circle",
+      "size": "64px",
+      "position": "44px da borda esquerda, 40px do topo",
+      "note": "SEMPRE VAZIO — placeholder cinza sólido, sem foto, SEM selo sobreposto. Composite manual da foto real do Diego depois."
+    },
+    "text_block": {
+      "margin_left": "16px do avatar",
+      "line_1": {
+        "content": "Diego Spanevello | Inteligência Artificial",
+        "font_family": "sans-serif bold, geométrica",
+        "font_size": "30px",
+        "font_weight": "700",
+        "font_color": "#0F1419",
+        "verified_badge": {
+          "position": "inline, imediatamente após a palavra 'Artificial', fim da linha 1",
+          "color": "#1D9BF0",
+          "size": "~22px",
+          "note": "⚠️ REGRA CANÔNICA DESTE TEMPLATE — o selo NUNCA fica no avatar. Sempre inline no fim do texto do nome."
+        }
+      },
+      "line_2": {
+        "content": "@diego.spanevello",
+        "font_family": "sans-serif regular",
+        "font_size": "24px",
+        "font_weight": "400",
+        "font_color": "#536471",
+        "margin_top": "4px abaixo da linha 1"
+      }
+    },
+    "badge_pill": "NENHUM — este template não usa badge 'arraste para continuar', diferente do TEMPLATE-SLIDE-BOLD-HIGHLIGHT"
+  },
+  "text_rules": {
+    "no_dash_rule": "NUNCA usar travessão (—) em nenhum texto de nenhuma variação",
+    "highlight_style": "Destaque sempre por bold_inline (troca de peso da fonte dentro da frase corrida) — NUNCA bloco de cor sólido atrás do texto",
+    "max_bold_trecho_por_slide": 1,
+    "font_family_geral": "sans-serif rounded/geométrica, aproximação real recomendada: Inter (Regular 400 / Bold 700 / ExtraBold 800) — cobre acentuação PT-BR completa"
+  },
+  "negative_rules": [
+    "NUNCA usar fundo bege ou off-white — sempre branco puro #FFFFFF",
+    "NUNCA colocar o selo de verificado no avatar — sempre inline após 'Artificial'",
+    "NUNCA usar travessão (—)",
+    "NUNCA usar highlight_block colorido — só bold_inline",
+    "NUNCA incluir badge 'arraste para continuar' — este template não tem esse elemento",
+    "NUNCA deixar foto ou texto tocando a borda inferior do frame — respeitar safe_area de 64px",
+    "SEMPRE incluir avatar vazio (64px, placeholder cinza) no header, em todas as variações",
+    "NUNCA gerar foto de Diego via IA para produção final — usar como placeholder de teste, composite manual da foto real depois"
+  ],
+  "variacoes": {
+    "variacao_0_imagem_inferior": {
+      "slide_type": "capa",
+      "descricao_layout": "Headline colado imediatamente abaixo do header (sem respiro), foto full-width abaixo do headline ocupando ~45% da altura do slide, cantos arredondados 18px.",
+      "aprovado_para_teste": true,
+      "zones": {
+        "header": "ver header_lock",
+        "content": {
+          "position": "colado abaixo do header, sem espaço vazio",
+          "margin_top": "28px"
+        },
+        "image": {
+          "position": "abaixo do headline, full width dentro da margem lateral",
+          "border_radius": "18px",
+          "altura_aprox": "45% da altura total do slide"
+        },
+        "footer": "removido"
+      },
+      "asset_prompt": {
+        "scene": {
+          "description": "Screenshot estilo post de Twitter/X, vertical 4:5 (1080x1350px), fundo branco puro (#FFFFFF). No topo, a 44px da borda esquerda e 40px do topo, avatar circular vazio de 64px (placeholder cinza sólido, sem foto). À direita do avatar, 16px de distância: linha 1 em preto (#0F1419), sans-serif bold 30px, texto exato 'Diego Spanevello | Inteligência Artificial', seguida imediatamente por um selo azul de verificado (círculo azul #1D9BF0 sólido com check branco, ~22px) colado ao final da palavra 'Artificial'. Linha 2, 4px abaixo, cinza (#536471), sans-serif regular 24px, texto exato '@diego.spanevello'. Abaixo do header, colado sem espaço vazio, a 28px de margem, headline em duas linhas, preto (#0F1419), sans-serif rounded geométrico 44px, peso regular: 'Um agente de IA vai criar um novo caminho para o seu negócio.' — com o trecho 'novo caminho' em peso bold dentro da mesma frase corrida (troca de peso, não bloco colorido). Abaixo do headline, a 24px de margem, uma foto retangular com cantos arredondados de 18px, ocupando a largura útil do frame (44px de margem lateral) e cerca de 45% da altura total do slide: homem brasileiro de barba curta e óculos de grau, sentado a uma mesa de madeira em um home office noturno com iluminação quente, vestindo blazer off-white sobre camisa preta, notebook aberto à frente exibindo uma interface de chat de IA com tela luminosa em tons azul-claro, uma caneca de café e um caderno ao lado, estante e planta desfocadas ao fundo em bokeh suave. Sem footer.",
+          "subject": "Header de perfil (avatar vazio + nome + selo + handle), headline com trecho em bold, e foto de homem em home office usando um chat de IA no notebook",
+          "setting": "Fundo branco sólido no topo (elemento gráfico), foto de ambiente interno noturno na base",
+          "action": "estático, mão próxima ao teclado, postura relaxada e confiante"
+        },
+        "style": {
+          "primary": "editorial lifestyle com overlay gráfico de UI de rede social",
+          "rendering_quality": "hyperrealistic na foto, clean e nítido na parte tipográfica",
+          "surface_textures": "pele com poros visíveis e textura natural, tecido do blazer fosco com leve textura, madeira da mesa com veios visíveis, tela do notebook com brilho sutil de vidro",
+          "lighting": "luz quente pontual de luminária de mesa criando key light lateral suave, rim light frio vindo da tela do notebook iluminando o rosto por baixo, sem flash direto"
+        },
+        "technical": {
+          "camera": {
+            "focal_length": "50mm",
+            "aperture": "f/2.0",
+            "depth_of_field": "shallow — sujeito e notebook nítidos, estante e planta de fundo em bokeh suave",
+            "angle": "eye level, levemente de cima, ângulo três quartos"
+          },
+          "resolution": "ultra high definition",
+          "rendering": "grain sutil, contraste médio, bokeh quente natural"
+        },
+        "materials": {
+          "skin": "pele morena clara, tom quente. Poros visíveis na testa e maçãs do rosto. Fios finos de barba curta capturando luz. Leves imperfeições naturais, sem maquiagem, sem suavização artificial. Acabamento fosco, pele absorve luz em vez de refletir. Zero pós-processamento de retoque de beleza.",
+          "fabric": "blazer off-white de alfaiataria leve, tecido fosco com textura de linho, camisa preta lisa por baixo",
+          "surfaces": "mesa de madeira com veios e leve desgaste natural, tela do notebook com reflexo sutil de vidro e brilho azul-claro da interface"
+        },
+        "environment": {
+          "atmosphere": "ambiente interno sem névoa, ar limpo, leve calor visual de luz artificial noturna",
+          "time": "noite, luz artificial quente dominante misturada com luz fria da tela",
+          "particles": "nenhum particulado visível"
+        },
+        "composition": {
+          "perspective": "profundidade rasa, sujeito e notebook em primeiro plano, estante e planta em camadas de desfoque crescente",
+          "framing": "vertical stack — header no topo (elemento gráfico), headline colado abaixo, foto ocupando a base do frame",
+          "subject_placement": "header a 40px do topo; headline colada logo abaixo do header; foto começando a ~55% da altura do frame até próximo da base, respeitando margem de segurança inferior",
+          "safe_area": "64px de padding mínimo em todas as bordas — zona segura de 952x1222px dentro do frame de 1080x1350px",
+          "ui_elements": [
+            { "text": "avatar", "type": "círculo vazio, placeholder cinza sólido, TAMANHO FIXO 64px de diâmetro, sem foto, SEM badge sobreposto", "position": "44px da borda esquerda, 40px do topo" },
+            { "text": "Diego Spanevello | Inteligência Artificial", "font": "sans-serif bold, TAMANHO FIXO 30px", "color": "#0F1419", "position": "16px à direita do avatar, linha 1" },
+            { "text": "[selo azul de verificado]", "type": "badge circular azul #1D9BF0 com check branco, ~22px", "position": "inline, imediatamente após a palavra 'Artificial', fim da linha 1 — NUNCA no avatar" },
+            { "text": "@diego.spanevello", "font": "sans-serif regular, TAMANHO FIXO 24px", "color": "#536471", "position": "4px abaixo da linha 1, mesma margem esquerda" },
+            { "text": "Um agente de IA vai criar um novo caminho para o seu negócio.", "font": "sans-serif rounded, 44px, peso misto — regular exceto 'novo caminho' em bold", "color": "#0F1419", "position": "colada abaixo do header, sem espaço vazio" }
+          ]
+        },
+        "quality": {
+          "include": ["reprodução fiel de UI de post de rede social", "tipografia nítida e legível", "contraste alto preto sobre branco", "selo de verificado reconhecível no padrão Twitter/X", "foto lifestyle realista com textura de pele natural", "iluminação quente e fria combinadas de forma crível"],
+          "avoid": ["selo de verificado no avatar", "avatar com foto (deve ficar vazio)", "highlight colorido no headline (aqui é só bold, sem bloco de cor)", "fundo off-white ou bege (deve ser branco puro)", "texto cortado nas margens", "avatar ou nome com tamanho diferente do especificado", "pele plástica ou lisa demais", "tela do notebook ilegível ou distorcida"],
+          "reference_standard": "captura de tela real de post de rede social estilo 'quote card' de criador de conteúdo, combinada com fotografia lifestyle editorial de home office"
+        }
+      }
+    },
+
+    "variacao_A_imagem_lateral": {
+      "slide_type": "afirmacao_forte_com_imagem",
+      "descricao_layout": "Respiro generoso (~220px) abaixo do header. Headline à esquerda (48% da largura) + retrato à direita (40%), ambos alinhados no mesmo eixo vertical, centralizados na metade do frame. Respiro generoso abaixo também, sem tocar a borda inferior.",
+      "aprovado_para_teste": true,
+      "zones": {
+        "header": "ver header_lock",
+        "content": {
+          "position": "coluna esquerda, ~48% da largura",
+          "margin_top_do_header": "~220px"
+        },
+        "image": {
+          "position": "coluna direita, ~40% da largura, alinhada verticalmente ao content",
+          "border_radius": "20px",
+          "proporcao": "~3:4"
+        },
+        "footer": "removido"
+      },
+      "asset_prompt": {
+        "scene": {
+          "description": "Screenshot estilo post de Twitter/X, vertical 4:5 (1080x1350px), fundo branco puro (#FFFFFF). No topo, a 44px da borda esquerda e 40px do topo, avatar circular vazio de 64px (placeholder cinza sólido, sem foto). À direita do avatar, 16px de distância: linha 1 em preto (#0F1419), sans-serif bold 30px, texto exato 'Diego Spanevello | Inteligência Artificial', seguida imediatamente por um selo azul de verificado (círculo azul #1D9BF0 sólido com check branco, ~22px) colado ao final da palavra 'Artificial'. Linha 2, 4px abaixo, cinza (#536471), sans-serif regular 24px, texto exato '@diego.spanevello'. Abaixo do header há um respiro generoso de aproximadamente 220px (bem maior que o espaçamento colado usado na variação 0) antes do bloco principal começar, verticalmente centralizado na metade do frame. Na coluna esquerda (começando a 44px da borda esquerda, ocupando cerca de 48% da largura útil), headline em preto (#0F1419), sans-serif regular 48px, quebrada em 5 linhas curtas: 'A IA vai' / 'deixar pra' / 'trás quem' / 'não se' / 'atualizar.' — com o trecho 'deixar pra trás' em peso bold (extra bold 800) dentro do fluxo natural das linhas, sem bloco de cor atrás, só troca de peso da fonte. Na coluna direita, alinhada verticalmente ao bloco de texto (não alinhada ao topo do frame, começa no mesmo nível do headline), uma foto retrato com cantos arredondados de 20px, proporção aproximada 3:4, ocupando cerca de 420px de largura por 560px de altura: Diego Spanevello, homem brasileiro de barba curta e óculos de grau, sorrindo de leve, vestindo blazer off-white sobre camisa preta, enquadramento de busto, fundo desfocado neutro claro (tons bege muito suaves, bokeh leve, sem elementos distrativos). Abaixo do conjunto texto+foto há um respiro generoso de fundo branco puro até a borda inferior do frame, com margem mínima de segurança de 64px sem nenhum elemento tocando a borda. Sem footer.",
+          "subject": "Header de perfil (avatar vazio + nome + selo + handle), headline de 5 linhas com trecho bold, e retrato de Diego Spanevello em foto lateral",
+          "setting": "Fundo branco sólido, composição estilo captura de tela de rede social com split assimétrico",
+          "action": "estático"
+        },
+        "style": {
+          "primary": "UI/social media screenshot recreation combinado com retrato editorial lifestyle",
+          "rendering_quality": "clean e nítido na parte tipográfica, hyperrealistic na foto",
+          "surface_textures": "fundo gráfico sem textura; na foto, pele com poros visíveis e tecido do blazer fosco com leve textura",
+          "lighting": "elemento gráfico plano no texto; na foto, luz difusa suave frontal, sem sombras duras, iluminação de estúdio lifestyle"
+        },
+        "technical": {
+          "camera": { "focal_length": "85mm", "aperture": "f/2.5", "depth_of_field": "shallow — rosto e ombros nítidos, fundo levemente desfocado", "angle": "eye level" },
+          "resolution": "ultra high definition",
+          "rendering": "grain sutil, contraste médio, cores naturais"
+        },
+        "materials": {
+          "skin": "pele morena clara, tom quente. Poros visíveis na testa e maçãs do rosto. Fios finos de barba curta capturando luz. Leves imperfeições naturais, sem maquiagem, sem suavização artificial. Acabamento fosco, pele absorve luz em vez de refletir. Zero pós-processamento de retoque de beleza.",
+          "fabric": "blazer off-white de alfaiataria leve, tecido fosco com textura de linho, camisa preta lisa por baixo"
+        },
+        "environment": {
+          "atmosphere": "ambiente interno controlado, sem névoa, ar limpo",
+          "time": "luz de estúdio neutra e difusa, sem indicação específica de hora do dia",
+          "particles": "nenhum particulado visível"
+        },
+        "composition": {
+          "perspective": "plano frontal para o texto (gráfico), profundidade rasa na foto",
+          "framing": "split assimétrico vertical-centralizado — headline à esquerda (48%), foto à direita (40%), ambos alinhados no mesmo eixo vertical, com respiro generoso acima e abaixo do conjunto",
+          "subject_placement": "header a 40px do topo; bloco headline+foto começando a ~260px do topo e terminando a no máximo 1286px (64px de margem da base)",
+          "safe_area": "64px de padding mínimo em todas as bordas — zona segura de 952x1222px dentro do frame de 1080x1350px. A FOTO NÃO PODE tocar a borda inferior do frame.",
+          "ui_elements": [
+            { "text": "avatar", "type": "círculo vazio, placeholder cinza sólido, TAMANHO FIXO 64px de diâmetro, sem foto, SEM badge sobreposto", "position": "44px da borda esquerda, 40px do topo" },
+            { "text": "Diego Spanevello | Inteligência Artificial", "font": "sans-serif bold, TAMANHO FIXO 30px", "color": "#0F1419", "position": "16px à direita do avatar, linha 1" },
+            { "text": "[selo azul de verificado]", "type": "badge circular azul #1D9BF0 com check branco, ~22px", "position": "inline, imediatamente após a palavra 'Artificial', fim da linha 1 — NUNCA no avatar" },
+            { "text": "@diego.spanevello", "font": "sans-serif regular, TAMANHO FIXO 24px", "color": "#536471", "position": "4px abaixo da linha 1, mesma margem esquerda" },
+            { "text": "A IA vai deixar pra trás quem não se atualizar.", "font": "sans-serif rounded, 48px, peso misto — regular exceto 'deixar pra trás' em bold 800", "color": "#0F1419", "position": "coluna esquerda, ~260px do topo, 5 linhas curtas" }
+          ]
+        },
+        "quality": {
+          "include": ["reprodução fiel de UI de post de rede social", "tipografia nítida e legível", "contraste alto preto sobre branco", "selo de verificado reconhecível no padrão Twitter/X", "retrato lifestyle realista com textura de pele natural", "composição split equilibrada com respiro generoso"],
+          "avoid": ["selo de verificado no avatar", "avatar com foto (deve ficar vazio)", "highlight colorido no headline (aqui é só bold, sem bloco de cor)", "fundo off-white ou bege (deve ser branco puro)", "foto tocando a borda inferior do frame", "texto cortado nas margens", "avatar ou nome com tamanho diferente do especificado", "pele plástica ou lisa demais", "headline colado no header sem respiro (este formato usa respiro grande, diferente da variação 0)"],
+          "reference_standard": "captura de tela real de post de rede social estilo 'quote card' de criador de conteúdo, com split assimétrico texto+retrato"
+        }
+      }
+    },
+
+    "variacao_B_texto_puro_engajamento": {
+      "slide_type": "cta_engajamento_sem_imagem",
+      "descricao_layout": "Sem imagem. Respiro generoso (~380px) abaixo do header. Bloco de texto no terço médio-superior do frame: emoji + trecho bold curto + frase corrida regular, 3 linhas. Resto do frame em branco vazio até a base.",
+      "aprovado_para_teste": true,
+      "zones": {
+        "header": "ver header_lock",
+        "content": {
+          "position": "terço médio-superior do frame",
+          "margin_top_do_header": "~380px"
+        },
+        "image": "nenhuma — este formato não tem imagem",
+        "footer": "removido"
+      },
+      "asset_prompt": {
+        "scene": {
+          "description": "Screenshot estilo post de Twitter/X, vertical 4:5 (1080x1350px), fundo branco puro (#FFFFFF). No topo, a 44px da borda esquerda e 40px do topo, avatar circular vazio de 64px (placeholder cinza sólido, sem foto). À direita do avatar, 16px de distância: linha 1 em preto (#0F1419), sans-serif bold 30px, texto exato 'Diego Spanevello | Inteligência Artificial', seguida imediatamente por um selo azul de verificado (círculo azul #1D9BF0 sólido com check branco, ~22px) colado ao final da palavra 'Artificial'. Linha 2, 4px abaixo, cinza (#536471), sans-serif regular 24px, texto exato '@diego.spanevello'. Abaixo do header há um respiro generoso de aproximadamente 380px (o bloco de texto fica posicionado no terço médio-superior do frame, bem mais espaçado que uma headline normal, dando sensação de pausa/respiro visual). O bloco de texto ocupa a largura útil do frame (44px de margem lateral), começando com um emoji de coração vermelho '❤️' seguido do trecho 'Antes de continuar,' em preto (#0F1419) sans-serif bold 700 36px, e continuando na mesma frase corrida em peso regular 400 36px: 'curte aqui se você gosta desse tipo de conteúdo sobre Inteligência Artificial.' — texto quebrado em 3 linhas naturais, alinhamento à esquerda, line-height 1.3. Abaixo do bloco de texto, o restante do frame fica em branco puro, sem nenhum outro elemento, até a borda inferior. Sem footer, sem imagem, sem qualquer outro elemento gráfico.",
+          "subject": "Header de perfil (avatar vazio + nome + selo + handle) e bloco de texto de engajamento com emoji e trecho bold",
+          "setting": "Fundo branco sólido, composição minimalista estilo captura de tela de rede social",
+          "action": "estático"
+        },
+        "style": {
+          "primary": "UI/social media screenshot recreation, flat design minimalista",
+          "rendering_quality": "clean, alta resolução, tipografia nítida",
+          "surface_textures": "nenhuma — fundo sólido sem textura",
+          "lighting": "n/a — elemento gráfico plano"
+        },
+        "composition": {
+          "perspective": "plano frontal, sem profundidade — elemento gráfico puro",
+          "framing": "vertical stack minimalista — header no topo, bloco de texto no terço médio-superior, resto do frame em branco vazio",
+          "subject_placement": "header a 40px do topo; bloco de texto começando a ~420px do topo, ocupando no máximo 3 linhas",
+          "safe_area": "64px de padding mínimo em todas as bordas — zona segura de 952x1222px dentro do frame de 1080x1350px",
+          "ui_elements": [
+            { "text": "avatar", "type": "círculo vazio, placeholder cinza sólido, TAMANHO FIXO 64px de diâmetro, sem foto, SEM badge sobreposto", "position": "44px da borda esquerda, 40px do topo" },
+            { "text": "Diego Spanevello | Inteligência Artificial", "font": "sans-serif bold, TAMANHO FIXO 30px", "color": "#0F1419", "position": "16px à direita do avatar, linha 1" },
+            { "text": "[selo azul de verificado]", "type": "badge circular azul #1D9BF0 com check branco, ~22px", "position": "inline, imediatamente após a palavra 'Artificial', fim da linha 1 — NUNCA no avatar" },
+            { "text": "@diego.spanevello", "font": "sans-serif regular, TAMANHO FIXO 24px", "color": "#536471", "position": "4px abaixo da linha 1, mesma margem esquerda" },
+            { "text": "❤️ Antes de continuar, curte aqui se você gosta desse tipo de conteúdo sobre Inteligência Artificial.", "font": "sans-serif, 36px — 'Antes de continuar,' em bold 700, restante em regular 400", "color": "#0F1419", "position": "~420px do topo, 3 linhas, margem lateral 44px" }
+          ]
+        },
+        "quality": {
+          "include": ["reprodução fiel de UI de post de rede social", "tipografia nítida e legível", "contraste alto preto sobre branco", "selo de verificado reconhecível no padrão Twitter/X", "composição minimalista com respiro generoso", "emoji de coração vermelho vibrante e nítido"],
+          "avoid": ["selo de verificado no avatar", "avatar com foto (deve ficar vazio)", "highlight colorido no texto (aqui é só bold, sem bloco de cor)", "fundo off-white ou bege (deve ser branco puro)", "texto cortado nas margens", "qualquer imagem ou elemento gráfico além do texto e header", "emoji deformado ou genérico demais"],
+          "reference_standard": "captura de tela real de post de rede social estilo 'pausa de engajamento' de criador de conteúdo"
+        }
+      }
+    }
+  }
+}

@@ -19,16 +19,32 @@ Roteiros para Reels, TikTok, YouTube Shorts, YouTube longo, VSL, stories narrado
 ```
 Briefing: plataforma + tema + objetivo + estilo
      ↓
-hook-writer-sms → 3-5 hooks (opcional, se incerto)
+narrative-framework-sms → ângulo (se em aberto)
+     ↓
+GATE — Gancho de Vídeo (video-script-sms)
+  categoria (Pattern Interrupt / Contrarian / Curiosity Gap /
+  POV / Pergunta direta / Callout / Visual Hook / Dado chocante)
+  → 3 variações de fala + visual dos 0-3s → aprovação
+     ↓
+GATE — CTA (video-script-sms)
+  "esse vídeo é pra quê?" → 1 dos 8 destinos → aprovação
      ↓
 video-script-sms → roteiro completo com cenas, fala, visual, duração
      ↓
+QA Gate interno (≥90) + copy-qa-sms Gate
+     ↓
 Revisão em voz alta (cronometrar)
+     ↓
+Framework de Multiplicação de Formatos (opcional, só talking head)
+  1 gravação → até 8 criativos derivados (caixinha de pergunta,
+  selfie react, tela dividida, stories nativo, headline+legenda, narrado)
      ↓
 caption-writer-sms → legenda + hashtags
      ↓
 content-repurposer-sms → adapta para outras plataformas
 ```
+
+Os dois gates (Gancho e CTA) são obrigatórios apenas para roteiros Tipo A (Educativo/Valor) e Tipo B (Autoridade/Bastidor). VSL e narração/animado seguem lógica de abertura própria — ver `video-script-sms` para detalhes de cada categoria de gancho e cada tipo de CTA.
 
 ### Vídeo animado / motion design
 ```

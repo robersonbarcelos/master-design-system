@@ -1,0 +1,802 @@
+{
+  "template": "autoridade-bnb",
+  "version": "1.1",
+  "status": "7 pecas aprovadas e salvas: Familia A (card-01, 02, 03a padrao, 03b alternativa, abertura pessoal da Linha 1 Glauce por Tras da Operacao) + Familia B (card-04, 05, 06, frase-mae institucional 'Seu imovel precisa performar.', uso transversal, ver modulo 00) - testados e aprovados pelo cliente em 16 set 2026, incluindo correcao do subtitulo do card-05 (Manrope SemiBold 30px/opacidade 95%) e reescrita limpa do card-06 (100% flat, contido nos 4 lados).",
+  "description": "Template consolidado de cards de autoridade institucional da BNB Connect: Familia A (Linha 1, abertura pessoal da Glauce, 4 variacoes incluindo 2 do card-03) + Familia B (frase-mae institucional da marca, transversal a qualquer linha editorial, 3 variacoes de layout). Todas as 7 pecas ja testadas em gerador real e aprovadas pelo cliente.",
+  "fonte_da_paleta": "painel Central BNB Connect, item 04.2.1 (Sistema Editorial e Direção Visual v1.1)",
+  "fonte_da_tipografia": "painel Central BNB Connect, item 04.2.1 (matriz de 4 estilos de card) e 04.2.2 (estilo por linha editorial)",
+  "logo": {
+    "arquivo_oficial": "clients/bnb-connect/references/logo.jpg: ícone de casa em contorno + wordmark 'BNB' bold + 'CONNECT' tracked-out menor abaixo, tudo em Petróleo BNB #005070 (versão escura, fundo claro) ou branco puro (versão reversa, fundo escuro/foto)",
+    "regra": "⚠️ NUNCA gerar o logo via IA no prompt de imagem: geradores distorcem o ícone da casa e a proporção do wordmark. A logo é sempre composta depois, manualmente (Canva/Pillow), usando o arquivo oficial. No prompt de geração, reservar o espaço vazio e citar apenas 'área reservada para logo, sem gerar' na ui_elements.",
+    "versao_escura": "Petróleo BNB #005070, usada sobre fundo claro (off-white, foto clara)",
+    "versao_clara": "branco puro #FFFFFF, usada sobre fundo escuro (navy sólido, foto escura/sunset)"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+    "serifada": "Newsreader Italic é a única família serifada permitida: nunca outra serifada, nunca mais de 1 palavra ou frase curta em serifada por card",
+    "dourado": "Dourado fosco #A9782E é reservado para a palavra-chave/valor de cada card (nunca decorativo, nunca mais de 1 palavra por card): no bloco de destaque sólido (card-01) o mesmo tom pode aparecer ligeiramente mais claro/saturado pra funcionar como marcador, mas a família de cor é a mesma",
+    "pessoa_real": "Toda peça com a Glauce em cena segue o Realistic Skin Standard (pele com poros visíveis, sem retoque, sem acabamento plástico): ela é uma pessoa real, nunca gerar como modelo genérica de banco de imagem",
+    "fotografia_de_imovel": "Toda peça sem pessoa segue a direção fotográfica de 04.2.1: luz natural, imóvel real ou visualmente plausível, tratamento documental/editorial, nunca plástico ou HDR artificial"
+  },
+  "negative_rules_globais": [
+    "NUNCA gerar o logo BNB Connect via IA: sempre compor depois com o arquivo oficial",
+    "NUNCA usar outra serifada além de Newsreader Italic",
+    "NUNCA mais de 1 palavra/frase curta em serifada por card",
+    "NUNCA misturar Manrope e Sora no mesmo título",
+    "NUNCA gerar a Glauce com pele plástica, retocada ou de banco de imagem: sempre poros visíveis, imperfeições naturais, acabamento fosco",
+    "NUNCA usar travessão (—) em nenhum texto de nenhum card",
+    "NUNCA interfaces, dashboards ou gráficos inventados nas fotos de imóvel",
+    "NUNCA fotografia de imóvel posada ou com luxo ostentatório: sempre luz natural e tratamento documental"
+  ],
+  "variacoes": {
+    "card-01-split-retrato-texto-claro": {
+      "familia": "A · Glauce por Trás da Operação (abertura pessoal)",
+      "nome": "Split vertical: painel claro com texto à esquerda + retrato full-height à direita",
+      "descricao": "Frame dividido ao meio: metade esquerda em off-white quente com o texto de abertura, metade direita ocupada por um retrato vertical full-height da Glauce, sem moldura ou card. Primeira peça da sequência de 3 (card-01 a card-03), introdução em 1ª pessoa.",
+      "hierarquia": "Painel claro à esquerda > 'Prazer,' em serifada itálica grande > 'eu sou a Glauce.' em sans bold dentro de bloco dourado > subtítulo em sans regular menor > logo (versão escura) no rodapé esquerdo | retrato full-height à direita, sem texto sobreposto",
+      "cores": {
+        "fundo_painel_texto": "Off-white quente #F8F4EA",
+        "texto_serifada": "Petróleo BNB #005070",
+        "bloco_destaque": "tom dourado mais claro/saturado que o fosco padrão, mesma família do Dourado fosco #A9782E, funcionando como marcador atrás do texto",
+        "texto_sobre_bloco": "Azul-marinho profundo #052F42, bold",
+        "subtitulo": "Petróleo BNB #005070, peso regular, opacidade um pouco reduzida"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro, serifada assinatura pontual)",
+        "\"Prazer,\"": "Newsreader Italic 400, ~64px",
+        "\"eu sou a Glauce.\"": "Manrope Bold 700 dentro do bloco dourado, ~44px",
+        "subtitulo": "Manrope Regular 400 ou DM Sans Regular, ~26px, 2 linhas"
+      },
+      "quando_usar": "Slide 1 de uma sequência de 3 (card-01 a card-03) de apresentação pessoal da Glauce, abertura de carrossel ou reels da Linha 1 (04.3).",
+      "imagem_de_referencia": "OBRIGATÓRIO: anexar no gerador uma foto real da Glauce antes de rodar este prompt. O papel deste JSON não é inventar o rosto dela do zero, é compor a cena (fundo, texto, layout) preservando exatamente rosto, cabelo e identidade da foto anexada.",
+      "aprovado": true,
+      "aprovado_em": "já em uso no painel desde 15 set 2026 (ver 04.3, linha1-glauce-01.png)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "IMPORTANTE: foto real da Glauce será anexada como referência de rosto e identidade no gerador de imagem. Não gerar o rosto dela do zero: usar a pessoa da foto anexada e compor/estender a cena ao redor dela conforme a descrição abaixo. Retrato vertical 4:5, frame dividido ao meio na vertical: metade esquerda em fundo sólido off-white quente #F8F4EA, metade direita ocupada por um retrato full-height de uma mulher brasileira de 40-45 anos, cabelo ondulado castanho-dourado com mechas claras caindo nos ombros, vestindo blazer branco estruturado sobre camiseta branca, colar longo de contas vermelhas descendo pelo decote, olhando de frente para a câmera com sorriso confiante e acolhedor, fundo desfocado claro de ambiente com luz natural entrando por uma janela/arquitetura ao fundo. Na metade esquerda, sobre o off-white, alinhado à esquerda no terço superior-médio: a palavra 'Prazer,' em serifada itálica grande cor Petróleo BNB #005070, seguida logo abaixo por 'eu sou a Glauce.' em sans-serif bold cor azul-marinho #052F42, com um bloco sólido dourado atrás do texto como um marcador de destaque, levemente maior que o texto. Abaixo, duas linhas de subtítulo menor em sans-serif regular, mesma cor petróleo com opacidade reduzida: 'Quem está por trás' / 'da BNB Connect.'. No canto inferior esquerdo, área reservada vazia pro logo BNB Connect (não gerar). Paleta dominante: off-white quente no painel de texto, petróleo e azul-marinho no texto, dourado no bloco de destaque, tons neutros e luz natural no retrato.",
+            "subject": "Mulher da foto de referência anexada (Glauce): preservar rosto, cabelo e identidade exatamente como na foto anexada. A foto mostra blazer branco estruturado, colar de contas vermelhas, sorriso confiante e acolhedor.",
+            "setting": "Metade direita: ambiente interno claro e desfocado, luz natural de janela. Metade esquerda: painel gráfico sólido off-white",
+            "action": "Estática, olhando de frente para a câmera, postura segura e acolhedora"
+          },
+          "style": {
+            "primary": "editorial portrait, clean split-layout graphic design",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pele com textura natural visível, tecido do blazer estruturado com leve textura de alfaiataria, contas do colar com brilho fosco",
+            "lighting": "luz natural suave e difusa vindo de frente/levemente lateral, sem sombras duras, consistente com luz de estúdio com janela grande"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "85mm",
+              "aperture": "f/2.0",
+              "depth_of_field": "shallow no retrato: rosto e blazer nítidos, fundo em bokeh suave",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais e quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "Usar exatamente a pele da foto de referência anexada da Glauce, sem retoque adicional, sem suavização, sem alterar tom natural, poros ou textura real já presentes na foto anexada.",
+            "fabric": "blazer branco de alfaiataria estruturada, tecido com leve textura e caimento real; colar de contas vermelhas com brilho fosco, não plástico"
+          },
+          "environment": {
+            "atmosphere": "ar interno limpo, sem névoa",
+            "time": "dia, luz natural difusa"
+          },
+          "composition": {
+            "perspective": "split simétrico vertical 50/50, sem sobreposição entre painel e retrato",
+            "framing": "painel de texto à esquerda, retrato full-height à direita, sem moldura entre os dois",
+            "subject_placement": "retrato ocupa a metade direita inteira do frame, do topo à base; texto alinhado à esquerda no terço superior-médio do painel esquerdo",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "Prazer,",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "64px",
+                "color": "#005070",
+                "position": "painel esquerdo, terço superior"
+              },
+              {
+                "text": "eu sou a Glauce.",
+                "font": "sans-serif bold (Manrope 700)",
+                "font_size": "44px",
+                "color": "#052F42",
+                "background": "bloco sólido dourado, tom levemente mais claro que #A9782E, sem rotação",
+                "position": "logo abaixo de 'Prazer,'"
+              },
+              {
+                "text": "Quem está por trás / da BNB Connect.",
+                "font": "sans-serif regular (Manrope 400 ou DM Sans 400)",
+                "font_size": "26px",
+                "color": "rgba(0,80,112,0.85)",
+                "position": "abaixo do bloco dourado"
+              },
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "canto inferior esquerdo do painel"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "retrato editorial autêntico",
+              "textura de pele natural com poros",
+              "composição split limpa e geométrica",
+              "tipografia editorial de alto contraste",
+              "bloco de destaque dourado bem legível"
+            ],
+            "avoid": [
+              "rosto genérico que não corresponda à foto de referência anexada da Glauce",
+              "alterar traços faciais, cabelo ou identidade da foto anexada",
+              "pele plástica ou lisa demais",
+              "sorriso forçado ou artificial",
+              "logo gerado pela IA distorcido",
+              "bloco dourado com bordas irregulares",
+              "segunda serifada além de Newsreader Italic",
+              "texto colidindo com a linha do split"
+            ],
+            "reference_standard": "retrato editorial corporativo contemporâneo, estilo capa de perfil de fundadora/especialista 2025-2026"
+          }
+        }
+      }
+    },
+    "card-02-split-retrato-bloco-navy": {
+      "familia": "A · Glauce por Trás da Operação (abertura pessoal)",
+      "nome": "Split vertical: retrato à esquerda + bloco sólido navy com frase de posicionamento à direita",
+      "descricao": "Segunda peça da sequência: metade esquerda com retrato da Glauce em ambiente externo (mar/palmeiras desfocados ao fundo), metade direita em bloco sólido azul-marinho profundo com a frase de posicionamento em texto branco, uma palavra em serifada dourada. Logo em versão clara no canto superior direito.",
+      "hierarquia": "Retrato à esquerda, sem texto sobreposto > bloco navy à direita > 'Gestão' / 'com' em sans branco > 'estratégia,' em serifada itálica dourada > 'presença e' / 'cuidado.' em sans branco > logo (versão clara) no topo direito",
+      "cores": {
+        "fundo_bloco": "Azul-marinho profundo #052F42",
+        "texto_principal": "branco/off-white #F8F4EA",
+        "palavra_destaque": "Dourado fosco #A9782E"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "híbrido: mais próximo de Hospitalidade contemporânea na combinação (sans + 1 palavra serifada), mas em bloco de cor sólida em vez de card claro sobre foto: ver nota_de_mapeamento_tipografico no topo do arquivo",
+        "\"Gestão / com\"": "Manrope SemiBold 600, ~52px",
+        "\"estratégia,\"": "Newsreader Italic 400, cor dourada, mesmo tamanho da linha",
+        "\"presença e / cuidado.\"": "Manrope SemiBold 600, ~52px"
+      },
+      "quando_usar": "Slide 2 da sequência de abertura pessoal (card-01 a card-03), frase de posicionamento logo após a apresentação.",
+      "imagem_de_referencia": "OBRIGATÓRIO: anexar no gerador uma foto real da Glauce antes de rodar este prompt. O papel deste JSON não é inventar o rosto dela do zero, é compor a cena (fundo, texto, layout) preservando exatamente rosto, cabelo e identidade da foto anexada.",
+      "aprovado": true,
+      "aprovado_em": "já em uso no painel desde 15 set 2026 (ver 04.3, linha1-glauce-02.png)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "IMPORTANTE: foto real da Glauce será anexada como referência de rosto e identidade no gerador de imagem. Não gerar o rosto dela do zero: usar a pessoa da foto anexada e compor/estender a cena ao redor dela conforme a descrição abaixo. Retrato vertical 4:5, frame dividido ao meio na vertical: metade esquerda ocupada por um retrato full-height da mesma mulher (cabelo ondulado castanho-dourado, blazer branco, colar de contas vermelhas), em ambiente externo com mar e vegetação tropical desfocados ao fundo, luz natural de dia. Metade direita em bloco sólido azul-marinho profundo #052F42, sem foto, com texto empilhado alinhado à esquerda: 'Gestão' e 'com' em sans-serif semibold branco #F8F4EA, seguido por 'estratégia,' em serifada itálica cor dourado fosco #A9782E, seguido por 'presença e' e 'cuidado.' de volta em sans-serif semibold branco. No canto superior direito do bloco navy, área reservada vazia pro logo BNB Connect em versão clara (branco), não gerar. Paleta dominante: tons naturais de mar/vegetação na metade esquerda, azul-marinho sólido profundo na metade direita, branco e dourado no texto.",
+            "subject": "Mulher da foto de referência anexada (Glauce): preservar rosto, cabelo e identidade exatamente como na foto anexada. A foto mostra blazer branco, colar de contas vermelhas, ambiente externo com mar e vegetação desfocados ao fundo.",
+            "setting": "Metade esquerda: ambiente externo com mar e palmeiras desfocadas ao fundo, luz de dia. Metade direita: bloco gráfico sólido azul-marinho",
+            "action": "Estática, olhar sereno e confiante, levemente de perfil ou três-quartos"
+          },
+          "style": {
+            "primary": "editorial portrait, clean split-layout graphic design",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pele com textura natural visível, tecido do blazer com leve movimento pelo vento externo",
+            "lighting": "luz natural de dia, sol suave difuso, sem sombras duras no rosto"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "85mm",
+              "aperture": "f/2.2",
+              "depth_of_field": "shallow no retrato: sujeito nítido, mar e palmeiras em bokeh suave",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto do retrato"
+          },
+          "materials": {
+            "skin": "Usar exatamente a pele da foto de referência anexada da Glauce, sem retoque adicional, sem suavização, sem alterar tom natural, poros ou textura real já presentes na foto anexada.",
+            "fabric": "blazer branco de alfaiataria, tecido com leve caimento e movimento natural pelo vento; colar de contas vermelhas com brilho fosco"
+          },
+          "environment": {
+            "atmosphere": "leve brisa marítima, ar externo limpo",
+            "time": "dia, luz natural quente"
+          },
+          "composition": {
+            "perspective": "split simétrico vertical 50/50",
+            "framing": "retrato à esquerda, bloco de cor sólida à direita, sem sobreposição",
+            "subject_placement": "retrato ocupa a metade esquerda inteira; texto alinhado à esquerda dentro do bloco navy, ocupando o centro vertical",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão clara branca",
+                "position": "canto superior direito do bloco navy"
+              },
+              {
+                "text": "Gestão / com",
+                "font": "sans-serif semibold (Manrope 600)",
+                "font_size": "52px",
+                "color": "#F8F4EA",
+                "position": "bloco navy, centro-superior"
+              },
+              {
+                "text": "estratégia,",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "52px",
+                "color": "#A9782E",
+                "position": "logo abaixo de 'com'"
+              },
+              {
+                "text": "presença e / cuidado.",
+                "font": "sans-serif semibold (Manrope 600)",
+                "font_size": "52px",
+                "color": "#F8F4EA",
+                "position": "abaixo de 'estratégia,'"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "retrato editorial autêntico ao ar livre",
+              "bloco de cor sólido e geométrico",
+              "contraste dourado sobre navy bem legível",
+              "tipografia empilhada de alto impacto"
+            ],
+            "avoid": [
+              "rosto genérico que não corresponda à foto de referência anexada da Glauce",
+              "alterar traços faciais, cabelo ou identidade da foto anexada",
+              "pele plástica ou lisa demais",
+              "logo gerado pela IA distorcido",
+              "segunda serifada além de Newsreader Italic",
+              "bloco navy com gradiente ou textura (deve ser sólido flush)",
+              "texto colidindo com a linha do split"
+            ],
+            "reference_standard": "retrato editorial corporativo contemporâneo em ambiente externo, estilo capa de perfil de fundadora 2025-2026"
+          }
+        }
+      }
+    },
+    "card-03a-fullbleed-card-flutuante-titulo-flat": {
+      "familia": "A · Glauce por Trás da Operação (abertura pessoal)",
+      "nome": "Foto full-bleed + card flutuante off-white 100% flat, sem sombra e sem contorno (PADRAO)",
+      "descricao": "Terceira e última peça da sequência: foto full-bleed da Glauce em ambiente externo (mesma cena do card-02), com um card off-white de cantos arredondados flutuando no terço inferior-esquerdo, totalmente contido dentro do frame (sem tocar nenhuma borda, os 4 lados e os 4 cantos visíveis), 100% flat (sem sombra, sem contorno). Esta é a variação PADRÃO de produção; a variação card-03b (com sombra sutil) fica registrada como alternativa.",
+      "hierarquia": "Foto full-bleed de fundo > card off-white arredondado flutuando no terço inferior-esquerdo, com margem visível dos 4 lados do frame > logo (versão escura) no topo do card > 'Glauce' em serifada itálica grande > 'por Trás da Operação.' em sans regular/medium abaixo",
+      "cores": {
+        "fundo_card": "Off-white quente #F8F4EA, 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade. A separação do card em relação à foto vem só do contraste de cor entre o off-white e a foto atrás",
+        "texto_serifada": "Petróleo BNB #005070, sólido e saturado",
+        "texto_sans": "Petróleo BNB #005070, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro sobre foto real, serifada como assinatura/título)",
+        "\"Glauce\"": "Newsreader Italic 400, ~56px",
+        "\"por Trás da Operação.\"": "Manrope Medium 500, ~36px, 2 linhas"
+      },
+      "quando_usar": "Slide 3 (fechamento) da sequência de abertura pessoal: funciona como card-título que nomeia a linha editorial em qualquer carrossel que a utilize.",
+      "imagem_de_referencia": "OBRIGATÓRIO: anexar no gerador uma foto real da Glauce antes de rodar este prompt. O papel deste JSON não é inventar o rosto dela do zero, é compor a cena (fundo, texto, layout) preservando exatamente rosto, cabelo e identidade da foto anexada.",
+      "aprovado": true,
+      "aprovado_em": "já em uso no painel desde 15 set 2026 (ver 04.3, linha1-glauce-03.png)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "IMPORTANTE: foto real da Glauce será anexada como referência de rosto e identidade no gerador de imagem. Não gerar o rosto dela do zero: usar a pessoa da foto anexada e compor/estender a cena ao redor dela conforme a descrição abaixo. Retrato vertical 4:5, foto full-bleed da mesma mulher (cabelo ondulado castanho-dourado, blazer branco, colar de contas vermelhas) em ambiente externo com mar e vegetação tropical desfocados ao fundo, luz natural de dia, mesma cena do card anterior. Sobreposto no terço inferior-esquerdo do frame, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), ocupando cerca de 60% da largura e 30% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem. Estilo do card 100% flat, design plano: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, e SEM nenhuma sombra projetada, drop shadow ou efeito de profundidade/elevação. O card é apenas um bloco de cor sólida off-white recortado com cantos arredondados sobre a foto: a separação visual em relação à foto vem inteiramente do contraste entre a cor sólida do card e a foto atrás, não de sombra nem de borda. Dentro do card: no topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar); abaixo, a palavra 'Glauce' em serifada itálica cor Petróleo BNB #005070 sólido e saturado (não acinzentado, não desbotado), fonte fina e elegante tipo Newsreader Italic; logo abaixo, 'por Trás da' e 'Operação.' em sans-serif geométrica peso médio (não bold, não extra bold), mesma cor petróleo sólida, duas linhas. Paleta dominante: tons naturais de mar/vegetação na foto de fundo, off-white quente no card, petróleo profundo e vívido no texto.",
+            "subject": "Mulher da foto de referência anexada (Glauce), mesma foto/cena do card-02: preservar rosto, cabelo e identidade exatamente como na foto anexada.",
+            "setting": "Ambiente externo com mar e palmeiras desfocadas ao fundo, luz de dia",
+            "action": "Estática, olhar sereno, levemente de perfil, mesma pose/cena do card-02"
+          },
+          "style": {
+            "primary": "editorial portrait, full-bleed com card flutuante",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pele com textura natural visível, tecido do blazer com leve movimento, card off-white 100% flat, sem contorno/stroke e sem sombra projetada, só bloco de cor sólida recortado sobre a foto",
+            "lighting": "luz natural de dia, sol suave difuso"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "85mm",
+              "aperture": "f/2.2",
+              "depth_of_field": "shallow: sujeito nítido, mar e palmeiras em bokeh suave",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "Usar exatamente a pele da foto de referência anexada da Glauce, sem retoque adicional, sem suavização, sem alterar tom natural, poros ou textura real já presentes na foto anexada.",
+            "fabric": "blazer branco de alfaiataria, tecido com leve caimento natural; colar de contas vermelhas com brilho fosco",
+            "surfaces": "card off-white 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade, apenas um bloco de cor sólida recortado com cantos arredondados lisos sobre a foto, sem textura de papel"
+          },
+          "environment": {
+            "atmosphere": "leve brisa marítima, ar externo limpo",
+            "time": "dia, luz natural quente"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: foto de fundo nítida no sujeito, card flutuante em primeiro plano visual",
+            "framing": "foto full-bleed, card flutuante autocontido no quadrante inferior-esquerdo, sem tocar nenhuma borda do frame",
+            "subject_placement": "sujeito ocupa o centro-superior do frame; card ocupa o terço inferior-esquerdo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda, direita): a foto de fundo aparece como uma moldura contínua ao redor do card inteiro, nos 4 lados",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              {
+                "text": "card off-white flutuante",
+                "type": "retângulo sólido #F8F4EA, 100% flat: sem contorno/stroke desenhado, sem sombra projetada, sem nenhum efeito de profundidade/elevação, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px), a separação do fundo vem só do contraste de cor",
+                "position": "terço inferior-esquerdo do frame, com margem visível dos 4 lados do frame: não encosta, não é cortado, não sangra por nenhuma borda"
+              },
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "topo do card, alinhado à esquerda"
+              },
+              {
+                "text": "Glauce",
+                "font": "serifada itálica (Newsreader Italic 400, peso regular/fino, não bold)",
+                "font_size": "56px",
+                "color": "#005070, cor sólida e saturada, sem opacidade reduzida",
+                "position": "dentro do card, logo abaixo do logo"
+              },
+              {
+                "text": "por Trás da / Operação.",
+                "font": "sans-serif geométrica peso médio (Manrope 500, não Bold nem ExtraBold)",
+                "font_size": "36px",
+                "color": "#005070, cor sólida e saturada, sem opacidade reduzida",
+                "position": "abaixo de 'Glauce', 2 linhas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "retrato editorial autêntico ao ar livre",
+              "card flutuante 100% flat, design plano, sem sombra e sem contorno, só bloco de cor sólida recortado sobre a foto",
+              "texto em cor petróleo sólida e saturada, alto contraste contra o off-white",
+              "tipografia fiel: Newsreader Italic fino no 'Glauce', Manrope Medium (não bold) no restante",
+              "cantos do card uniformemente arredondados"
+            ],
+            "avoid": [
+              "rosto genérico que não corresponda à foto de referência anexada da Glauce",
+              "alterar traços faciais, cabelo ou identidade da foto anexada",
+              "pele plástica ou lisa demais",
+              "logo gerado pela IA distorcido",
+              "card com textura de papel ou bordas irregulares",
+              "linha de contorno, stroke ou borda desenhada ao redor do card: o card é 100% flat, só cor sólida",
+              "qualquer sombra projetada, drop shadow, glow ou efeito de profundidade/elevação no card: o card é totalmente flat",
+              "card encostado, cortado ou sangrando por qualquer borda do frame (topo, base, esquerda ou direita): o card precisa mostrar os 4 lados e os 4 cantos completos, com a foto de fundo visível ao redor dele nos 4 lados",
+              "texto acinzentado, opaco ou desbotado: a cor petróleo deve sair sólida e saturada",
+              "peso de fonte mais pesado que o especificado (nada de bold/extra bold onde pede medium/regular)",
+              "segunda serifada além de Newsreader Italic"
+            ],
+            "reference_standard": "retrato editorial corporativo com card flutuante, estilo apresentação de linha editorial de creator/especialista 2025-2026"
+          }
+        }
+      }
+    },
+    "card-03b-fullbleed-card-flutuante-titulo-sombra-sutil": {
+      "familia": "A · Glauce por Trás da Operação (abertura pessoal)",
+      "nome": "Foto full-bleed + card flutuante off-white com sombra sutil (alternativa, não é o padrão)",
+      "descricao": "Variação alternativa do card-03A: mesma estrutura (card totalmente contido no frame, 4 lados e 4 cantos visíveis), mas com uma sombra projetada suave e discreta separando o card da foto, sem linha de contorno/stroke. Guardada como alternativa documentada; o padrão de produção é o card-03A (100% flat, sem sombra nenhuma).",
+      "hierarquia": "Foto full-bleed de fundo > card off-white arredondado flutuando no terço inferior-esquerdo, com margem visível dos 4 lados do frame e sombra suave > logo (versão escura) no topo do card > 'Glauce' em serifada itálica grande > 'por Trás da Operação.' em sans regular/medium abaixo",
+      "cores": {
+        "fundo_card": "Off-white quente #F8F4EA, com sombra projetada suave e discreta (sem contorno/stroke)",
+        "texto_serifada": "Petróleo BNB #005070, sólido e saturado",
+        "texto_sans": "Petróleo BNB #005070, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro sobre foto real, serifada como assinatura/título)",
+        "\"Glauce\"": "Newsreader Italic 400, peso regular/fino, ~56px",
+        "\"por Trás da Operação.\"": "Manrope Medium 500, ~36px, 2 linhas"
+      },
+      "quando_usar": "Alternativa ao card-03A quando se quiser um pouco mais de profundidade visual no card (sombra discreta), sem voltar ao contorno/stroke que foi reprovado. Não é o padrão de produção: usar card-03A por padrão, salvo pedido explícito de variação com sombra.",
+      "imagem_de_referencia": "OBRIGATÓRIO: anexar no gerador uma foto real da Glauce antes de rodar este prompt. O papel deste JSON não é inventar o rosto dela do zero, é compor a cena (fundo, texto, layout) preservando exatamente rosto, cabelo e identidade da foto anexada.",
+      "aprovado": true,
+      "aprovado_em": "variação alternativa registrada em 16 set 2026 (baseada em 04.3, linha1-glauce-03.png)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "IMPORTANTE: foto real da Glauce será anexada como referência de rosto e identidade no gerador de imagem. Não gerar o rosto dela do zero: usar a pessoa da foto anexada e compor/estender a cena ao redor dela conforme a descrição abaixo. Retrato vertical 4:5, foto full-bleed da mesma mulher (cabelo ondulado castanho-dourado, blazer branco, colar de contas vermelhas) em ambiente externo com mar e vegetação tropical desfocados ao fundo, luz natural de dia, mesma cena do card anterior. Sobreposto no terço inferior-esquerdo do frame, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), ocupando cerca de 60% da largura e 30% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem, como um cartão físico pousado sobre a foto. Estilo do card totalmente flat: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, só a cor sólida off-white do próprio card e uma sombra projetada suave e discreta pra dar profundidade e separar visualmente da foto atrás. Dentro do card: no topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar); abaixo, a palavra 'Glauce' em serifada itálica cor Petróleo BNB #005070 sólido e saturado (não acinzentado, não desbotado), fonte fina e elegante tipo Newsreader Italic; logo abaixo, 'por Trás da' e 'Operação.' em sans-serif geométrica peso médio (não bold, não extra bold), mesma cor petróleo sólida, duas linhas. Paleta dominante: tons naturais de mar/vegetação na foto de fundo, off-white quente no card, petróleo profundo e vívido no texto.",
+            "subject": "Mulher da foto de referência anexada (Glauce), mesma foto/cena do card-02: preservar rosto, cabelo e identidade exatamente como na foto anexada.",
+            "setting": "Ambiente externo com mar e palmeiras desfocadas ao fundo, luz de dia",
+            "action": "Estática, olhar sereno, levemente de perfil, mesma pose/cena do card-02"
+          },
+          "style": {
+            "primary": "editorial portrait, full-bleed com card flutuante",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pele com textura natural visível, tecido do blazer com leve movimento, card off-white flat (sem contorno/stroke) com sombra projetada suave e discreta se destacando da foto atrás",
+            "lighting": "luz natural de dia, sol suave difuso"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "85mm",
+              "aperture": "f/2.2",
+              "depth_of_field": "shallow: sujeito nítido, mar e palmeiras em bokeh suave",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "Usar exatamente a pele da foto de referência anexada da Glauce, sem retoque adicional, sem suavização, sem alterar tom natural, poros ou textura real já presentes na foto anexada.",
+            "fabric": "blazer branco de alfaiataria, tecido com leve caimento natural; colar de contas vermelhas com brilho fosco",
+            "surfaces": "card off-white flat, sem nenhuma linha de contorno ou stroke desenhado, só sombra projetada suave e discreta pra separar da foto, cantos arredondados lisos, sem textura de papel"
+          },
+          "environment": {
+            "atmosphere": "leve brisa marítima, ar externo limpo",
+            "time": "dia, luz natural quente"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: foto de fundo nítida no sujeito, card flutuante em primeiro plano visual",
+            "framing": "foto full-bleed, card flutuante autocontido no quadrante inferior-esquerdo, sem tocar nenhuma borda do frame",
+            "subject_placement": "sujeito ocupa o centro-superior do frame; card ocupa o terço inferior-esquerdo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda, direita): a foto de fundo aparece como uma moldura contínua ao redor do card inteiro, nos 4 lados",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              {
+                "text": "card off-white flutuante",
+                "type": "retângulo sólido #F8F4EA, flat, sem contorno/stroke desenhado, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px), só sombra projetada suave e discreta em todo o perímetro pra separar do fundo",
+                "position": "terço inferior-esquerdo do frame, com margem visível dos 4 lados do frame: não encosta, não é cortado, não sangra por nenhuma borda"
+              },
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "topo do card, alinhado à esquerda"
+              },
+              {
+                "text": "Glauce",
+                "font": "serifada itálica (Newsreader Italic 400, peso regular/fino, não bold)",
+                "font_size": "56px",
+                "color": "#005070, cor sólida e saturada, sem opacidade reduzida",
+                "position": "dentro do card, logo abaixo do logo"
+              },
+              {
+                "text": "por Trás da / Operação.",
+                "font": "sans-serif geométrica peso médio (Manrope 500, não Bold nem ExtraBold)",
+                "font_size": "36px",
+                "color": "#005070, cor sólida e saturada, sem opacidade reduzida",
+                "position": "abaixo de 'Glauce', 2 linhas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "retrato editorial autêntico ao ar livre",
+              "card flutuante flat com sombra suave e discreta, sem contorno desenhado, se destacando da foto só pela sombra",
+              "texto em cor petróleo sólida e saturada, alto contraste contra o off-white",
+              "tipografia fiel: Newsreader Italic fino no 'Glauce', Manrope Medium (não bold) no restante",
+              "cantos do card uniformemente arredondados"
+            ],
+            "avoid": [
+              "rosto genérico que não corresponda à foto de referência anexada da Glauce",
+              "alterar traços faciais, cabelo ou identidade da foto anexada",
+              "pele plástica ou lisa demais",
+              "logo gerado pela IA distorcido",
+              "card com textura de papel ou bordas irregulares",
+              "linha de contorno, stroke ou borda desenhada ao redor do card: o card é flat, só cor sólida + sombra",
+              "card sem nenhuma sombra visível, mesclado/colado na foto de fundo sem separação clara",
+              "sombra do card sutil demais a ponto de sumir",
+              "segunda serifada além de Newsreader Italic"
+            ],
+            "reference_standard": "retrato editorial corporativo com card flutuante, estilo apresentação de linha editorial de creator/especialista 2025-2026"
+          }
+        }
+      }
+    },
+    "card-04-split-horizontal-foto-topo-card-base": {
+      "familia": "B · Frase-mãe institucional (\"Seu imóvel precisa performar.\"): uso transversal, ver módulo 00",
+      "nome": "Split horizontal: foto do imóvel no topo (60%) + card off-white na base (40%)",
+      "descricao": "Frame dividido horizontalmente: 60% superior é uma foto real de interior com vista pro mar, 40% inferior é um bloco sólido off-white (não flutuante, ocupa a largura total, corte reto sem arredondamento) com a frase-mãe da marca.",
+      "hierarquia": "Foto do imóvel no topo > bloco off-white na base, largura total > 'Seu imóvel' / 'precisa' em sans bold navy > 'performar.' em serifada itálica dourada > subtítulo em sans regular menor > logo (versão escura) no rodapé esquerdo",
+      "cores": {
+        "fundo_bloco": "Off-white quente #F8F4EA",
+        "texto_principal": "Petróleo BNB #005070",
+        "palavra_destaque": "Dourado fosco #A9782E",
+        "subtitulo": "Petróleo BNB #005070, peso regular"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro + serifada assinatura)",
+        "\"Seu imóvel / precisa\"": "Manrope Bold 700, ~52px",
+        "\"performar.\"": "Newsreader Italic 400, cor dourada, mesmo tamanho",
+        "subtitulo": "Manrope Regular 400, ~24px, 2 linhas"
+      },
+      "quando_usar": "Versão de abertura mais suave/editorial da frase-mãe institucional (Brand Book V2, ver módulo 00): quando o carrossel/post quer transmitir calma e hospitalidade além de impacto puro.",
+      "aprovado": true,
+      "aprovado_em": "já em uso no painel desde 14-15 set 2026 (ver 04.2.1, tipografia-exemplo-01.png)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5, frame dividido horizontalmente: 60% superior é uma foto documental de interior de casa de luxo com vista pro mar, sofá bege claro com almofadas texturizadas, mesa de centro de madeira rústica com vaso de oliveira e livros, cortina translúcida ao lado, porta de vidro aberta revelando terraço com espreguiçadeiras e vista pro mar com colinas ao fundo, luz natural quente de fim de tarde. 40% inferior é um bloco sólido off-white quente #F8F4EA, corte reto sem arredondamento, ocupando toda a largura do frame, com texto alinhado à esquerda: 'Seu imóvel' e 'precisa' em sans-serif bold cor Petróleo BNB #005070, seguido por 'performar.' em serifada itálica cor dourado fosco #A9782E, mesma linha de base. Abaixo, subtítulo menor em sans-serif regular, mesma cor petróleo: 'Gestão inteligente,' / 'hospitalidade com identidade.'. No canto inferior esquerdo, área reservada vazia pro logo BNB Connect (não gerar). Paleta dominante: tons neutros quentes (bege, madeira, verde oliva) na foto do imóvel, off-white quente no bloco de texto, petróleo e dourado no texto.",
+            "subject": "Interior de casa de luxo: sofá bege, mesa de centro de madeira, vaso de oliveira, porta de vidro pro terraço",
+            "setting": "Sala de estar com vista pro mar, litoral com colinas ao fundo, fim de tarde",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido do sofá com textura de linho natural, madeira da mesa com veio visível, vidro da porta com reflexo sutil",
+            "lighting": "luz natural quente de fim de tarde entrando pela porta de vidro, sombras suaves e longas"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "24mm",
+              "aperture": "f/5.6",
+              "depth_of_field": "deep: ambiente inteiro nítido, vista externa levemente mais suave",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "fabric": "sofá em linho bege com textura natural e almofadas de tecido texturizado",
+            "surfaces": "mesa de centro em madeira rústica com veio visível, vaso de cerâmica com oliveira real, vidro da porta com reflexo sutil e realista"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, leve luminosidade externa entrando",
+            "time": "fim de tarde, luz natural quente dominante"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: sala em primeiro plano, terraço e vista do mar ao fundo através da porta de vidro",
+            "framing": "split horizontal 60/40, corte reto sem transição gradual",
+            "subject_placement": "ambiente ocupa os 60% superiores; bloco de texto ocupa os 40% inferiores, largura total",
+            "safe_area": "64px de padding mínimo nas laterais; dentro do bloco off-white, 44px de margem lateral pro texto",
+            "ui_elements": [
+              {
+                "text": "Seu imóvel / precisa",
+                "font": "sans-serif bold (Manrope 700)",
+                "font_size": "52px",
+                "color": "#005070",
+                "position": "bloco off-white, alinhado à esquerda, topo"
+              },
+              {
+                "text": "performar.",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "52px",
+                "color": "#A9782E",
+                "position": "mesma linha/logo abaixo de 'precisa'"
+              },
+              {
+                "text": "Gestão inteligente, / hospitalidade com identidade.",
+                "font": "sans-serif regular (Manrope 400)",
+                "font_size": "24px",
+                "color": "rgba(0,80,112,0.85)",
+                "position": "abaixo da headline"
+              },
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "canto inferior esquerdo do bloco off-white"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de imóvel documental e real",
+              "luz natural quente convincente",
+              "split horizontal limpo e geométrico",
+              "tipografia editorial de alto contraste",
+              "contraste dourado bem legível"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "interior excessivamente posado ou de luxo ostentatório",
+              "logo gerado pela IA distorcido",
+              "segunda serifada além de Newsreader Italic",
+              "gradiente ou textura no bloco off-white (deve ser sólido flush)"
+            ],
+            "reference_standard": "fotografia editorial de arquitetura/interiores, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-05-fullbleed-texto-sobreposto-sunset": {
+      "familia": "B · Frase-mãe institucional (\"Seu imóvel precisa performar.\"): uso transversal, ver módulo 00",
+      "nome": "Foto full-bleed (entardecer) + texto sobreposto direto, sem card",
+      "descricao": "Foto full-bleed de piscina/terraço ao entardecer, com o texto da frase-mãe sobreposto diretamente sobre o céu escuro, sem nenhum card ou bloco de cor atrás. Logo em versão clara no canto superior esquerdo. É a versão de maior impacto fotográfico das 3 variações da frase-mãe.",
+      "hierarquia": "Foto full-bleed de fundo > logo (versão clara) no topo esquerdo > 'Seu imóvel' / 'precisa' em sans extra bold branco > 'performar.' em serifada itálica bold dourada > subtítulo em sans semibold branco, maior e mais opaco pra ficar legível sobre o céu",
+      "cores": {
+        "texto_principal": "branco puro #FFFFFF",
+        "palavra_destaque": "Dourado fosco #A9782E",
+        "subtitulo": "branco quase opaco (95%), não reduzido demais"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Impacto fotográfico (capa full-bleed, sans pesada + 1 palavra serifada)",
+        "\"Seu imóvel / precisa\"": "Manrope ExtraBold 800, ~66px",
+        "\"performar.\"": "Newsreader Italic 400 (peso visual mais bold pela cor saturada e tamanho), ~70px",
+        "subtitulo": "Manrope SemiBold 600, ~30px (corrigido em 16 set 2026: estava fraco demais em Regular 400/24px/opacidade 85%, difícil de ler sobre o céu)"
+      },
+      "quando_usar": "Versão de maior impacto fotográfico da frase-mãe institucional: capa de reels, anúncio pago, ou abertura de carrossel quando o objetivo é impacto visual imediato mais que aconchego editorial.",
+      "aprovado": true,
+      "aprovado_em": "já em uso no painel desde 14-15 set 2026 (ver 04.2.1, tipografia-exemplo-02.png)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5, foto full-bleed de uma casa moderna de litoral ao entardecer: piscina infinita em primeiro plano refletindo o céu azul-alaranjado do pôr do sol, deck de pedra com espreguiçadeiras e vaso com oliveira, parede de pedra rústica à direita com porta de vidro revelando um interior aconchegante iluminado, colinas e mar ao fundo, galho de árvore com folhas entrando pela borda superior direita do frame. No canto superior esquerdo, área reservada vazia pro logo BNB Connect em versão clara branca (não gerar). Sobreposto diretamente no terço superior-médio do frame, sem nenhum card ou bloco de cor atrás: 'Seu imóvel' e 'precisa' em sans-serif extra bold branco puro #FFFFFF, seguido por 'performar.' em serifada itálica cor dourado fosco #A9782E, peso visualmente mais pesado. Abaixo, subtítulo em sans-serif semibold branco quase opaco (95%, não reduzido demais), tamanho maior que uma legenda pequena pra ficar bem legível: 'Gestão inteligente,' / 'hospitalidade com identidade.'. O céu do entardecer (azul profundo no topo, laranja/dourado próximo ao horizonte) já fornece contraste natural suficiente para o texto, sem necessidade de gradiente escuro adicional. Paleta dominante: azul profundo e laranja dourado do céu, tons de pedra e madeira no deck, branco puro no texto, dourado saturado na palavra de destaque.",
+            "subject": "Casa moderna de litoral com piscina infinita, deck de pedra, parede de pedra rústica",
+            "setting": "Terraço/piscina de casa de litoral ao entardecer, colinas e mar ao fundo",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, golden hour",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "água da piscina com reflexo realista do céu, pedra do deck e da parede com textura rústica natural, folhas da árvore com translucidez pela luz de trás",
+            "lighting": "golden hour, luz quente rasante do pôr do sol vindo de trás/lateral, reflexos alaranjados na água da piscina, rim light quente na parede de pedra"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "24mm",
+              "aperture": "f/6.3",
+              "depth_of_field": "deep: ambiente inteiro nítido, leve suavidade só no céu distante",
+              "angle": "eye level, levemente baixo"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores saturadas naturais de golden hour, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "transparency": "água da piscina com reflexo e refração realistas do céu alaranjado, sem transparência artificial",
+            "surfaces": "pedra rústica da parede e do deck com textura e leve desgaste natural, madeira das espreguiçadeiras com veio visível"
+          },
+          "environment": {
+            "atmosphere": "leve névoa dourada de fim de tarde, ar costeiro",
+            "time": "golden hour, entardecer, luz natural quente dominante",
+            "particles": "nenhum além do brilho difuso do sol baixo refletido na água"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: deck e piscina em primeiro plano, casa e colinas em planos sucessivos",
+            "framing": "full-bleed, sem card ou bloco de cor, texto sobreposto direto sobre o céu",
+            "subject_placement": "ambiente ocupa o frame inteiro; texto centralizado horizontalmente-esquerda no terço superior-médio, sobre a área de céu",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão clara branca",
+                "position": "canto superior esquerdo"
+              },
+              {
+                "text": "Seu imóvel / precisa",
+                "font": "sans-serif extra bold (Manrope 800)",
+                "font_size": "66px",
+                "color": "#FFFFFF",
+                "position": "terço superior-médio, alinhado à esquerda, sobre o céu"
+              },
+              {
+                "text": "performar.",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "70px",
+                "color": "#A9782E",
+                "position": "logo abaixo de 'precisa'"
+              },
+              {
+                "text": "Gestão inteligente, / hospitalidade com identidade.",
+                "font": "sans-serif semibold (Manrope 600, não Regular)",
+                "font_size": "30px",
+                "color": "rgba(255,255,255,0.95), quase opaco, não reduzido demais",
+                "position": "abaixo da headline"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de imóvel documental e real",
+              "golden hour convincente e saturado",
+              "reflexo realista na água da piscina",
+              "tipografia de alto impacto legível sobre céu",
+              "contraste dourado saturado bem legível",
+              "subtítulo em semibold, bem legível, não fraco nem apagado"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "piscina com água irrealisticamente parada ou plástica",
+              "logo gerado pela IA distorcido",
+              "segunda serifada além de Newsreader Italic",
+              "texto ilegível contra o céu (garantir contraste natural da cena)",
+              "gradiente escuro artificial desnecessário",
+              "subtítulo fraco, pequeno demais ou com opacidade baixa demais, difícil de ler"
+            ],
+            "reference_standard": "fotografia editorial de arquitetura de litoral em golden hour, estilo revista de hospitalidade premium 2025-2026"
+          }
+        }
+      }
+    },
+    "card-06-fullbleed-card-flutuante-tagline": {
+      "familia": "B · Frase-mãe institucional (\"Seu imóvel precisa performar.\"): uso transversal, ver módulo 00",
+      "nome": "Foto full-bleed (interior aconchegante) + card off-white flutuante central, 100% flat",
+      "descricao": "Foto full-bleed de interior aconchegante com vista pro lago/montanha, card off-white de cantos arredondados flutuando no centro-esquerda, totalmente contido dentro do frame (sem tocar nenhuma borda, os 4 lados e os 4 cantos visíveis), 100% flat (sem sombra, sem contorno). Nesta variação, tanto a palavra de destaque quanto o subtítulo aparecem em serifada itálica (diferente do card-04, onde só a palavra de destaque é serifada e o subtítulo é sans): ver nota abaixo.",
+      "hierarquia": "Foto full-bleed de fundo > card off-white arredondado flutuando no centro-esquerdo, com margem visível dos 4 lados do frame > logo (versão escura) no topo do card > 'Seu imóvel' / 'precisa' em sans bold navy > 'performar.' em serifada itálica bold dourada > subtítulo em serifada itálica menor (não sans)",
+      "cores": {
+        "fundo_card": "Off-white quente #F8F4EA, 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade",
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "palavra_destaque": "Dourado fosco #A9782E, peso bold, sólido e saturado",
+        "subtitulo": "Petróleo BNB #005070, serifada itálica, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro + serifada assinatura)",
+        "nota_de_desvio": "Nesta peça específica o subtítulo também está em Newsreader Italic, não em sans como manda a regra de composição de 04.2.1 (no máximo uma palavra ou pequeno trecho em serifada itálica por card). É uma peça real já aprovada e em uso, registrada aqui como está: vale alinhar com o Diego/Glauce se isso deve virar uma variação aceita ou se o próximo lote de cards volta a usar sans no subtítulo.",
+        "Glauce_font_1": "Manrope Bold 700, ~48px",
+        "performar_font": "Newsreader Italic 700 (peso mais bold que nas outras variações), cor dourada, ~50px",
+        "subtitulo": "Newsreader Italic 400, ~22px"
+      },
+      "quando_usar": "Versão intimista/aconchegante da frase-mãe institucional, quando a foto de referência já tem um clima mais interno/noturno e o card funciona como respiro visual sobre a cena.",
+      "aprovado": true,
+      "aprovado_em": "já em uso no painel desde 14-15 set 2026 (ver 04.2.1, tipografia-exemplo-03.png), card corrigido em 16 set 2026 (100% flat, contido nos 4 lados)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5, foto full-bleed de interior aconchegante de casa de litoral/lago: quarto ou sala com cortina translúcida ao fundo, porta de vidro revelando um deck de madeira com vista pro lago e montanhas ao entardecer, poltrona/sofá com almofadas texturizadas em primeiro plano inferior direito, mesa lateral com cesto de vime, livro e vaso com planta. Sobreposto no centro-esquerdo do frame, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), ocupando cerca de 60% da largura e 35% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem. Estilo do card 100% flat, design plano: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, e SEM nenhuma sombra projetada, drop shadow ou efeito de profundidade/elevação. O card é apenas um bloco de cor sólida off-white recortado com cantos arredondados sobre a foto: a separação visual vem inteiramente do contraste entre a cor sólida do card e a foto atrás, não de sombra nem de borda. Dentro do card: no topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar); abaixo, 'Seu imóvel' e 'precisa' em sans-serif bold cor Petróleo BNB #005070 sólido e saturado; logo abaixo, 'performar.' em serifada itálica bold cor dourado fosco #A9782E, peso visualmente mais pesado que nas outras variações; abaixo, subtítulo em serifada itálica menor, mesma cor petróleo sólida e saturada: 'Gestão inteligente,' / 'hospitalidade com identidade.'. Paleta dominante: tons naturais quentes (madeira, bege, verde) na foto de fundo, off-white quente no card, petróleo profundo e dourado saturado no texto.",
+            "subject": "Interior aconchegante: poltrona com almofadas, mesa lateral com cesto de vime, cortina translúcida, deck de madeira ao fundo",
+            "setting": "Sala/quarto com vista pro lago e montanhas, entardecer",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido das almofadas com textura de linho natural, vime da cesta com trama visível, madeira do deck com veio natural, card off-white 100% flat, sem contorno/stroke e sem sombra projetada",
+            "lighting": "luz natural quente de fim de tarde entrando pela porta de vidro, luz interna suave complementar"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "28mm",
+              "aperture": "f/4",
+              "depth_of_field": "moderada: ambiente interno nítido, vista externa levemente mais suave",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "fabric": "almofadas em linho texturizado, cortina translúcida leve",
+            "surfaces": "cesto de vime com trama natural visível, mesa lateral em madeira com veio, card off-white 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade, apenas um bloco de cor sólida recortado com cantos arredondados lisos sobre a foto"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, leve luminosidade externa entrando",
+            "time": "fim de tarde, luz natural quente dominante"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: interior em primeiro plano, deck e paisagem ao fundo através da porta de vidro",
+            "framing": "full-bleed, card flutuante autocontido no centro-esquerdo, sem tocar nenhuma borda do frame",
+            "subject_placement": "ambiente ocupa o frame inteiro; card ocupa o centro-esquerdo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda, direita): a foto de fundo aparece como uma moldura contínua ao redor do card inteiro, nos 4 lados",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              {
+                "text": "card off-white flutuante",
+                "type": "retângulo sólido #F8F4EA, 100% flat: sem contorno/stroke desenhado, sem sombra projetada, sem nenhum efeito de profundidade/elevação, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px), a separação do fundo vem só do contraste de cor",
+                "position": "centro-esquerdo do frame, com margem visível dos 4 lados do frame: não encosta, não é cortado, não sangra por nenhuma borda"
+              },
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "topo do card, alinhado à esquerda"
+              },
+              {
+                "text": "Seu imóvel / precisa",
+                "font": "sans-serif bold (Manrope 700, não ExtraBold)",
+                "font_size": "48px",
+                "color": "#005070, cor sólida e saturada, sem opacidade reduzida",
+                "position": "dentro do card, logo abaixo do logo"
+              },
+              {
+                "text": "performar.",
+                "font": "serifada itálica bold (Newsreader Italic 700)",
+                "font_size": "50px",
+                "color": "#A9782E, cor sólida e saturada, sem opacidade reduzida",
+                "position": "logo abaixo de 'precisa'"
+              },
+              {
+                "text": "Gestão inteligente, / hospitalidade com identidade.",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "22px",
+                "color": "#005070, cor sólida e saturada, sem opacidade reduzida",
+                "position": "abaixo de 'performar.'"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de interior documental e real",
+              "luz natural quente e aconchegante",
+              "card flutuante 100% flat, design plano, sem sombra e sem contorno, só bloco de cor sólida recortado sobre a foto",
+              "texto em cor petróleo/dourado sólida e saturada, alto contraste contra o off-white",
+              "cantos do card uniformemente arredondados"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "interior excessivamente posado ou de luxo ostentatório",
+              "logo gerado pela IA distorcido",
+              "card com textura de papel ou bordas irregulares",
+              "linha de contorno, stroke ou borda desenhada ao redor do card: o card é 100% flat, só cor sólida",
+              "qualquer sombra projetada, drop shadow, glow ou efeito de profundidade/elevação no card: o card é totalmente flat",
+              "card encostado, cortado ou sangrando por qualquer borda do frame (topo, base, esquerda ou direita): o card precisa mostrar os 4 lados e os 4 cantos completos, com a foto de fundo visível ao redor dele nos 4 lados",
+              "texto acinzentado, opaco ou desbotado: as cores petróleo e dourado devem sair sólidas e saturadas",
+              "segunda serifada além de Newsreader Italic"
+            ],
+            "reference_standard": "fotografia editorial de interiores aconchegantes, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    }
+  }
+}

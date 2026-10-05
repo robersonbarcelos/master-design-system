@@ -1,0 +1,431 @@
+{
+  "template": "carrossel-historia-proibida",
+  "version": "1.0",
+  "cliente": "historia-proibida",
+  "handle": "@historia_proibida",
+  "last_updated": "2026-08-31",
+  "description": "Sistema de carrossel de curiosidades sombrias/investigativas — fundo grafite quase preto, acento ferrugem, tipografia Tusker Grotesk (headline) + Galano Grotesque (body/apoio). Sem avatar de pessoa (perfil de curiosidades, não personal brand) — identidade é só o handle centralizado entre linhas finas. Sistema completo e aprovado: capa (2 templates), cards internos (3 templates: risco-texto-fundo-fade, bloco-solido-chumbo, bloco-branco-maquina-de-escrever) e CTA final (as mesmas 3 estruturas, com a copy de fechamento aprovada).",
+  "format": {
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "format_preset": "Instagram Feed Portrait",
+    "width_px": 1080,
+    "height_px": 1350,
+    "orientation": "portrait — SLIDE SEMPRE 4:5 PORTRAIT. NUNCA ALTERAR.",
+    "platform": "Instagram Feed Carousel",
+    "dpi": 72,
+    "color_mode": "RGB",
+    "lock": "⚠️ DIMENSÃO TRAVADA — 1080×1350px 4:5 portrait. Pipeline: gpt-image --size 1088x1360 → resize Pillow 1080x1350 (LANCZOS)."
+  },
+  "brand_tokens": {
+    "note": "Origem: brand-spec.md e visual-system.md do cliente — não alterar sem passar pelo gate de catálogo (reference/colors + reference/fonts-index.md).",
+    "color_bg_dark": "#1B1D1E",
+    "color_accent_rust": "#C13B00",
+    "color_support_slate": "#5E6D70",
+    "color_text_light": "#FFFFFF",
+    "font_display": "Tusker Grotesk Bold (headline)",
+    "font_body": "Galano Grotesque Alt Regular (apoio/handle/microtexto)"
+  },
+  "background_variants": {
+    "dark": {
+      "color": "#1B1D1E",
+      "name": "Grafite (padrão único da marca)",
+      "use_when": "todos os slides — este perfil não usa variante clara. Fundo escuro é identidade fixa."
+    },
+    "photo_full_bleed": {
+      "use_when": "capa com foto de época/dossiê real, slide de local/linha do tempo",
+      "overlay": "gradiente escuro #1B1D1E de 0% (topo) a 85% (base) para garantir legibilidade do texto sobreposto"
+    },
+    "note": "Diferente do padrão Intus Hub — não há alternância dark/light aqui. A marca é monocromática escura, o contraste vem do acento ferrugem, não da troca de fundo."
+  },
+  "canonical_prompt_format": {
+    "note": "⚠️ USAR EXATAMENTE este formato ao gerar qualquer slide — o JSON é colado direto no gerador de imagem como prompt literal, seguindo o schema do json-prompt-generator (scene/style/technical/materials/environment/composition/quality).",
+    "no_avatar_rule": "Este perfil NÃO tem avatar/foto de pessoa no header, ao contrário de perfis de personal brand (ex: Intus Hub). A identidade visual é apenas o handle '@historia_proibida' centrado entre duas linhas finas brancas, com losangos de cada lado como divisor decorativo.",
+    "handle_rule": "O handle '@historia_proibida' aparece SEMPRE entre as duas linhas — nunca dentro de um emblema circular, nunca com iniciais 'HP'. Testado e aprovado nesta forma pelo cliente (2026-08-31).",
+    "highlight_rule": "A palavra/frase de maior impacto na headline recebe cor ferrugem #C13B00 — nunca bloco sólido colorido (diferente do padrão lime do Intus Hub). Aqui o destaque é só troca de cor do texto, mantendo o peso tipográfico condensado do Tusker Grotesk.",
+    "no_dash_rule": "NUNCA usar travessão (—) em nenhum texto de nenhum slide.",
+    "no_gore_rule": "NUNCA gore, violência explícita ou rosto de vítima real não documentada em domínio público — regra dura da marca (brand-spec.md)."
+  },
+  "zones": {
+    "identity_divider": {
+      "height": "auto",
+      "position": "acima do bloco de headline, dentro da faixa preta/grafite do rodapé",
+      "layout": "linha fina branca horizontal → handle '@historia_proibida' centralizado (com losangos ◆ nas laterais em alguns templates) → segunda linha fina branca (opcional, conforme template) → bloco de headline abaixo",
+      "exists_on": "todos os slides",
+      "elements": {
+        "handle_text": {
+          "content": "@historia_proibida",
+          "font_family": "Galano Grotesque Alt Regular",
+          "font_size": "18-20px",
+          "font_color": "#FFFFFF",
+          "position": "centralizado, entre as duas linhas finas"
+        },
+        "diamond_dividers": {
+          "style": "◆ pequeno losango branco de cada lado do handle",
+          "usage": "opcional — presente no template-01, ausente/simplificado no template-02"
+        }
+      }
+    },
+    "content": {
+      "position": "abaixo do identity_divider, sobre barra grafite sólida #1B1D1E",
+      "margin_lateral": "44px",
+      "note": "⚠️ blocks é a estrutura real usada pelo gerador — array sequencial, headline em 2 camadas (linha fina de contexto + linha bold do gancho).",
+      "blocks_schema": {
+        "linha_contexto": {
+          "id": "linha-contexto",
+          "type": "text",
+          "font_family": "Galano Grotesque Alt Regular",
+          "font_size": "22-24px",
+          "font_weight": "400",
+          "font_color": "#FFFFFF",
+          "margin_bottom": "6px"
+        },
+        "linha_gancho": {
+          "id": "linha-gancho",
+          "type": "text-marked",
+          "font_family": "Tusker Grotesk Bold, condensed, all-caps",
+          "font_size": "48-56px",
+          "font_weight": "700",
+          "font_color": "#FFFFFF",
+          "marking": {
+            "applies_to": "1-3 palavras do gancho (o dado/palavra mais chocante)",
+            "type": "color_swap",
+            "color": "#C13B00",
+            "note": "troca de cor do texto, nunca bloco sólido atrás — mantém legibilidade sobre fundo grafite"
+          }
+        }
+      }
+    },
+    "footer": {
+      "exists_on": "opcional — slides internos podem ter microtexto de assinatura no rodapé, mas não é obrigatório como no Intus Hub",
+      "content_placeholder": "{{tagline curta, se necessário}}",
+      "font_family": "Galano Grotesque Alt Regular",
+      "font_size": "14-16px",
+      "font_color": "#5E6D70"
+    }
+  },
+  "slide_types": {
+    "capa": {
+      "background": "photo_full_bleed OU dark sólido #1B1D1E",
+      "elements": "identity_divider (handle) + headline em 2 camadas (contexto + gancho com destaque ferrugem)",
+      "status": "2 templates aprovados — ver seção capas"
+    },
+    "dossie_interno": {
+      "background": "photo_full_bleed, variando por template",
+      "elements": "3 templates aprovados — ver image_text_slide_formats: risco-texto-fundo-fade, bloco-solido-chumbo, bloco-branco-maquina-de-escrever",
+      "status": "aprovado"
+    },
+    "colagem_local_linha_do_tempo": {
+      "background": "colagem de bandas (2-3 cenas/locais)",
+      "elements": "TBD — usar template-02 como base estrutural para variações internas",
+      "status": "pendente de expansão"
+    },
+    "cta_final": {
+      "background": "photo_full_bleed, variando por template",
+      "elements": "3 templates aprovados — ver ctas: cta-risco-texto-fundo-fade, cta-bloco-solido-chumbo, cta-bloco-branco-maquina-de-escrever",
+      "status": "aprovado"
+    }
+  },
+  "capas": {
+    "note": "2 templates aprovados pelo cliente em 2026-08-31, extraídos de moodboard de referência e adaptados à paleta/fonte da marca. Fonte original das imagens: references/capas/01.png e references/capas/02.png.",
+    "capa-template-01-dossie-close": {
+      "slide_type": "capa",
+      "background": "photo_full_bleed",
+      "aprovado": true,
+      "familia_base": "Família C do moodboard original (duas camadas + handle)",
+      "quando_usar": "capa de caso único com objeto/cena documental em close-up (arquivos, caixas, documentos, ambiente do caso)",
+      "asset_prompt": {
+        "scene": {
+          "description": "A moody archival-style photograph or period-accurate scene illustrating [CASO/TEMA HISTÓRICO], dark graphite tones with rust-orange accent lighting, subtle film grain. Dominant palette: graphite #1B1D1E background, rust #C13B00 accents, solid black bottom bar with white text. Handle '@historia_proibida' centered between two thin horizontal white rules, flanked by diamond dividers, below a two-tier white headline.",
+          "subject": "[FIGURA/CENA/OBJETO DO CASO HISTÓRICO]",
+          "setting": "period-accurate setting matching the case's era and location",
+          "action": "static, documentary tone"
+        },
+        "style": {
+          "primary": "vintage archival photography, unsettling/investigative editorial tone",
+          "rendering_quality": "period-accurate grainy detail",
+          "lighting": "single directional key light with rust-orange accent, deep graphite shadow"
+        },
+        "technical": {
+          "camera": { "focal_length": "50mm (period-accurate normal lens)", "aperture": "f/5.6", "depth_of_field": "moderate-deep", "angle": "eye level, documentary framing" },
+          "resolution": "medium-high, intentionally period-degraded when appropriate",
+          "rendering": "monochrome or desaturated grade, heavy grain, subtle vignette"
+        },
+        "materials": { "surfaces": "period-accurate fabric, worn wood/stone, aged paper/document texture" },
+        "environment": { "atmosphere": "flat overcast light or dim interior haze", "time": "matches case's historical period" },
+        "composition": {
+          "perspective": "documentary framing with natural leading lines",
+          "framing": "subject off-center per rule of thirds",
+          "subject_placement": "subject fills upper 2/3, headline block bottom third",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Handle text '@historia_proibida' centered directly between two thin horizontal white rules (no circular emblem, no initials), flanked by small white diamond bullet dividers on either side of the text. Below, solid graphite/black #1B1D1E bar, 2-line white Tusker Grotesk condensed all-caps headline: '[LINHA FINA DE CONTEXTO]' (thinner) / '[LINHA BOLD DO CASO]' (bold, larger, optionally in rust #C13B00)."
+        },
+        "quality": {
+          "include": ["archival investigative tone", "period-accurate grain", "high contrast bottom bar", "sober documentary mood", "rust accent typography"],
+          "avoid": ["overly clean modern digital look", "gore or explicit violence", "identifiable victim faces", "low contrast text", "watermark", "circular logo emblem", "initials monogram"],
+          "reference_standard": "Found-photograph true-crime/history archive editorial style"
+        }
+      }
+    },
+    "capa-template-02-colagem-linha-do-tempo": {
+      "slide_type": "capa",
+      "background": "photo_full_bleed (colagem)",
+      "aprovado": true,
+      "familia_base": "Família B do moodboard original (colagem tríptica)",
+      "quando_usar": "capa de caso com múltiplos locais/momentos (ex: linha do tempo de um desaparecimento, mapa de eventos, antes/depois de um lugar)",
+      "asset_prompt": {
+        "scene": {
+          "description": "A vertical collage split into 2-3 bands showing different locations/moments tied to [CASO], each in a dessaturated dossier tone. Dominant palette: graphite #1B1D1E, slate #5E6D70 map/timeline overlays, rust #C13B00 accent marks. Thin white divider line with no emblem, followed by the handle '@historia_proibida' centered below it, then a bold headline in white on the solid graphite/black bottom bar.",
+          "subject": "2-3 related locations/timeline moments of the historical case",
+          "setting": "varies per band — real locations tied to the case, map overlays",
+          "action": "static documentary vignettes"
+        },
+        "style": {
+          "primary": "investigative documentary digital composite, dessaturated",
+          "rendering_quality": "hyperrealistic with dossier-style overlay elements",
+          "lighting": "flat diffused documentary lighting per band"
+        },
+        "technical": {
+          "camera": { "focal_length": "35mm per band", "aperture": "f/5.6", "depth_of_field": "moderate", "angle": "eye level" },
+          "resolution": "ultra high definition",
+          "rendering": "seamless band transitions, dessaturated grade with rust/slate overlay graphics"
+        },
+        "materials": { "surfaces": "period-accurate location textures, paper/map overlay texture" },
+        "environment": { "atmosphere": "dossier paper-grain overlay, faint scan-line texture", "time": "matches case timeline" },
+        "composition": {
+          "perspective": "split-band collage with timeline/map graphic elements",
+          "framing": "symmetric divider between bands",
+          "subject_placement": "scenes fill top 2/3, headline bar bottom 1/3",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Plain thin white horizontal rule with no emblem or logo. Directly below it, the handle '@historia_proibida' centered in small white text. Below that, solid graphite/black #1B1D1E bar with bold white Tusker Grotesk all-caps headline, 2 lines, with one key word in rust #C13B00: '[HOOK LINE 1]' / '[HOOK LINE 2]'."
+        },
+        "quality": {
+          "include": ["investigative collage storytelling", "dossier map/timeline overlay", "consistent dessaturated grading", "high contrast white on black bar"],
+          "avoid": ["visible harsh seams", "gore or explicit imagery", "low contrast text", "watermark", "circular logo emblem", "brand icon symbol"],
+          "reference_standard": "True-crime documentary dossier collage editorial style"
+        }
+      }
+    }
+  },
+  "text_only_slide_formats": {
+    "note": "⚠️ PENDENTE — aguardando o usuário enviar referências de slide interno (texto puro) para extrair a modelagem, igual foi feito com as capas.",
+    "status": "vazio"
+  },
+  "image_text_slide_formats": {
+    "note": "3 variações de card interno aprovadas em 2026-08-31, extraídas de referências e adaptadas à paleta/fonte da marca. Imagens de referência salvas em references/cards/.",
+    "risco-texto-fundo-fade": {
+      "nome": "Risco texto em fundo fade",
+      "slide_type": "dossie_interno",
+      "background": "photo_full_bleed",
+      "aprovado": true,
+      "origem_visual": "references/cards/card - Risco texto em fundo fade.png",
+      "quando_usar": "card de fato direto — dado/curiosidade explicada em uma imagem só, sem precisar de segunda cena ou bloco sólido",
+      "asset_prompt": {
+        "scene": {
+          "description": "A photorealistic full-bleed image related to [OBJETO/CENA DO FATO] fills the upper 70% of frame, with a dark gradient overlay strengthening toward the bottom. Below it, a plain thin white horizontal rule, then the handle '@historia_proibida' centered in small white text, then a short rust-orange #C13B00 keyword headline in bold condensed caps, followed by a bold white all-caps paragraph explaining the fact.",
+          "subject": "[OBJETO/CENA CENTRAL DO FATO — ex: mecanismo, artefato, fenômeno]",
+          "setting": "context appropriate to the historical/investigative fact",
+          "action": "static, documentary framing"
+        },
+        "style": { "primary": "cinematic documentary photography, hyperrealistic", "rendering_quality": "hyperrealistic, high detail", "lighting": "single dramatic key light with deep shadow falloff toward image edges" },
+        "technical": { "camera": { "focal_length": "35-50mm", "aperture": "f/4-f/5.6", "depth_of_field": "moderate — subject sharp, edges falling into shadow", "angle": "eye level or slightly low" }, "resolution": "ultra high definition", "rendering": "dark desaturated grade, subtle grain, gradient darkening toward bottom for text legibility" },
+        "materials": { "surfaces": "period/context-accurate materials — metal, stone, paper as relevant, with visible wear and patina" },
+        "environment": { "atmosphere": "dim ambient light, subtle haze if outdoor", "time": "matches subject's real-world context" },
+        "composition": {
+          "perspective": "subject centered or rule-of-thirds, gradient darkening toward bottom third",
+          "framing": "full-bleed image top 70%, text block bottom 30%",
+          "subject_placement": "subject fills upper frame, text directly on gradient, no solid bar",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Plain thin white horizontal rule, no emblem. Below it, handle '@historia_proibida' centered in small white Galano Grotesque text. Below that, a short 2-4 word headline in bold condensed Tusker Grotesk all-caps, rust-orange #C13B00. Below that, a bold white Tusker Grotesk all-caps paragraph (2-4 lines) stating the fact in full, directly on the image's dark gradient."
+        },
+        "quality": {
+          "include": ["documentary photorealism", "high contrast text legibility", "dramatic gradient falloff", "investigative tone", "rust keyword emphasis"],
+          "avoid": ["cluttered composition", "low contrast white text", "gore or explicit imagery", "watermark", "circular logo emblem"],
+          "reference_standard": "Documentary science/history Instagram card editorial style"
+        }
+      }
+    },
+    "bloco-solido-chumbo": {
+      "nome": "Bloco sólido chumbo",
+      "slide_type": "dossie_interno",
+      "background": "photo_full_bleed + bloco sólido",
+      "aprovado": true,
+      "origem_visual": "references/cards/card - Bloco sólido chumbo.png",
+      "quando_usar": "card de contexto/explicação — cena/local estabelecendo o cenário do caso, seguido de headline + subheadline explicativa",
+      "ajuste_solicitado": "@historia_proibida movido para o TOPO do bloco de texto, em cor de destaque (rust #C13B00) — não mais no rodapé em cinza apagado",
+      "asset_prompt": {
+        "scene": {
+          "description": "A photorealistic image related to [CENA/LOCAL DO CASO] fills the upper ~65% of frame. Below it, a solid graphite/black #1B1D1E block spans the full width, containing the handle '@historia_proibida' in rust-orange #C13B00 at the top of the block, followed by a bold white headline (2 lines, mixed-case, condensed) and a smaller regular-weight white subheadline paragraph beneath it.",
+          "subject": "[LOCAL/CENA RELACIONADA AO CASO]",
+          "setting": "real-world location or symbolic environment tied to the case",
+          "action": "static, atmospheric establishing shot"
+        },
+        "style": { "primary": "cinematic environmental photography, hyperrealistic", "rendering_quality": "hyperrealistic", "lighting": "natural or atmospheric lighting matching the scene's mood, warm interior glow or cool exterior light as relevant" },
+        "technical": { "camera": { "focal_length": "24-35mm", "aperture": "f/5.6-f/8", "depth_of_field": "moderate-deep", "angle": "eye level, environmental establishing angle" }, "resolution": "ultra high definition", "rendering": "clean cinematic grade, no visible seam between photo and solid block" },
+        "materials": { "surfaces": "context-accurate architectural/natural surfaces with visible texture and age" },
+        "environment": { "atmosphere": "matches scene — fog, dust, or clear air as relevant", "time": "matches case's setting" },
+        "composition": {
+          "perspective": "environmental wide shot, natural depth layering",
+          "framing": "photo top ~65%, solid black block bottom ~35%",
+          "subject_placement": "scene fills top, text block anchors bottom with no gradient bleed, hard edge between photo and block",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Solid graphite/black #1B1D1E block spanning full width at bottom. Inside it, at the TOP of the block: the handle '@historia_proibida' in small bold rust-orange #C13B00 text, drawing attention as the first element read. Below it, bold white Tusker Grotesk headline, 2 lines, mixed-case. Below headline, a smaller regular-weight white Galano Grotesque subheadline paragraph (2-3 lines)."
+        },
+        "quality": {
+          "include": ["environmental establishing shot", "clean hard-edge block transition", "typographic hierarchy between headline and subheadline", "sober investigative tone", "rust handle emphasis at top of block"],
+          "avoid": ["gradient bleed between photo and block", "gore or explicit imagery", "low contrast text", "watermark", "circular logo emblem", "handle at bottom of block"],
+          "reference_standard": "Documentary explainer Instagram card editorial style"
+        }
+      }
+    },
+    "bloco-branco-maquina-de-escrever": {
+      "nome": "Bloco branco - máquina de escrever",
+      "slide_type": "dossie_interno",
+      "background": "photo_full_bleed",
+      "aprovado": true,
+      "origem_visual": "references/cards/card - Bloco branco - máquina de escrever.png",
+      "quando_usar": "card de citação/registro — depoimento, trecho de documento, anotação de caso, formato minimalista com handle no topo da caixa",
+      "ajuste_solicitado": "@historia_proibida adicionado no início/topo do bloco de texto (dentro da caixa), acima da citação",
+      "asset_prompt": {
+        "scene": {
+          "description": "A photorealistic full-frame image related to [CENA/MOMENTO DO CASO] fills the entire frame edge to edge, dark desaturated grade. Centered in the lower-middle third, a solid off-white/graphite rectangular box contains, at its top, the handle '@historia_proibida' in small bold rust-orange #C13B00 typewriter-style text, followed below by a centered quote or testimony-style text in a typewriter/documentary font, evoking an archival case-file annotation.",
+          "subject": "[CENA/MOMENTO RELACIONADO AO CASO — retrato de época, local, objeto]",
+          "setting": "period-accurate or symbolic setting tied to the case",
+          "action": "static, documentary tone"
+        },
+        "style": { "primary": "archival documentary photography, hyperrealistic", "rendering_quality": "hyperrealistic, period-accurate detail", "lighting": "single ambient source, moody and low-key" },
+        "technical": { "camera": { "focal_length": "50-85mm", "aperture": "f/2.8-f/4", "depth_of_field": "shallow-moderate — subject sharp, background softly falls away", "angle": "eye level" }, "resolution": "ultra high definition", "rendering": "desaturated archival grade, subtle grain" },
+        "materials": { "surfaces": "period-accurate fabric, skin, or object texture as relevant" },
+        "environment": { "atmosphere": "low ambient haze, dim interior or overcast exterior light", "time": "matches case's historical period" },
+        "composition": {
+          "perspective": "centered or rule-of-thirds subject placement",
+          "framing": "full-frame photo, no crop bar top or bottom",
+          "subject_placement": "photo fills entire frame, quote box overlaid in lower-middle third, not touching edges",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame — quote box itself respects 64px minimum margin from frame edges",
+          "ui_elements": "A solid off-white #F2F0E8 or light graphite rectangular box, centered horizontally in the lower-middle third. At the top of the box: the handle '@historia_proibida' in small bold rust-orange #C13B00 monospace/typewriter text, centered. Below it, centered monospace/typewriter-style body text (graphite #1B1D1E color), 2-4 lines, in the tone of a witness quote or case annotation: '[CITAÇÃO OU TRECHO DO CASO]'. No logo, no circular emblem, no divider lines — this format is intentionally minimal and chrome-free besides the handle."
+        },
+        "quality": {
+          "include": ["archival documentary realism", "minimal typewriter-style annotation", "moody low-key lighting", "investigative case-file tone", "handle integrated at top of quote box"],
+          "avoid": ["cluttered composition", "gore or explicit imagery", "low contrast text box", "watermark", "modern digital clean look", "circular logo emblem"],
+          "reference_standard": "Archival case-file annotation style, found-document editorial photography"
+        }
+      }
+    }
+  },
+  "ctas": {
+    "note": "3 variações de CTA final aprovadas em 2026-08-31, replicando a mesma copy aprovada nas 3 estruturas visuais já travadas (capas/cards). Imagens de referência salvas em references/cta/.",
+    "copy_aprovada": "SIGA @historia_proibida PRA VER O PRÓXIMO CASO QUE NINGUÉM CONTOU ANTES QUE ELE DESAPAREÇA DO FEED",
+    "cta-risco-texto-fundo-fade": {
+      "nome": "Risco texto em fundo fade",
+      "slide_type": "cta_final",
+      "background": "photo_full_bleed",
+      "aprovado": true,
+      "origem_visual": "references/cta/cta - Risco texto em fundo fade.png",
+      "quando_usar": "CTA final quando o carrossel fecha com uma cena/objeto simbólico único, sem precisar de bloco sólido",
+      "asset_prompt": {
+        "scene": {
+          "description": "A photorealistic full-bleed dark documentary image related to [CENA FINAL DO CASO/TEMA] fills the upper 70% of frame, with a dark gradient overlay strengthening toward the bottom. Below it, a plain thin white horizontal rule, then the handle '@historia_proibida' centered in small white text, then a short rust-orange #C13B00 CTA keyword in bold condensed caps, followed by a bold white all-caps closing paragraph urging the viewer to follow the profile.",
+          "subject": "[CENA/OBJETO SIMBÓLICO DE FECHAMENTO DO CASO]",
+          "setting": "matches the case's investigative context",
+          "action": "static, closing documentary framing"
+        },
+        "style": { "primary": "cinematic documentary photography, hyperrealistic", "rendering_quality": "hyperrealistic, high detail", "lighting": "single dramatic key light with deep shadow falloff toward image edges" },
+        "technical": { "camera": { "focal_length": "35-50mm", "aperture": "f/4-f/5.6", "depth_of_field": "moderate — subject sharp, edges falling into shadow", "angle": "eye level or slightly low" }, "resolution": "ultra high definition", "rendering": "dark desaturated grade, subtle grain, gradient darkening toward bottom for text legibility" },
+        "materials": { "surfaces": "period/context-accurate materials with visible wear and patina" },
+        "environment": { "atmosphere": "dim ambient light, subtle haze if outdoor", "time": "matches subject's real-world context" },
+        "composition": {
+          "perspective": "subject centered or rule-of-thirds, gradient darkening toward bottom third",
+          "framing": "full-bleed image top 70%, text block bottom 30%",
+          "subject_placement": "subject fills upper frame, text directly on gradient, no solid bar",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Plain thin white horizontal rule, no emblem. Below it, handle '@historia_proibida' centered in small white Galano Grotesque text. Below that, a short rust-orange #C13B00 keyword in bold condensed Tusker Grotesk all-caps: 'SIGA @historia_proibida'. Below that, a bold white Tusker Grotesk all-caps closing paragraph (2-4 lines): 'PRA VER O PRÓXIMO CASO QUE NINGUÉM CONTOU ANTES QUE ELE DESAPAREÇA DO FEED'."
+        },
+        "quality": {
+          "include": ["documentary photorealism", "high contrast text legibility", "dramatic gradient falloff", "investigative closing tone", "rust keyword emphasis", "explicit handle in CTA copy"],
+          "avoid": ["cluttered composition", "low contrast white text", "gore or explicit imagery", "watermark", "circular logo emblem"],
+          "reference_standard": "Documentary investigative Instagram closing-card editorial style"
+        }
+      }
+    },
+    "cta-bloco-solido-chumbo": {
+      "nome": "Bloco sólido chumbo",
+      "slide_type": "cta_final",
+      "background": "photo_full_bleed + bloco sólido",
+      "aprovado": true,
+      "origem_visual": "references/cta/cta - Bloco sólido chumbo.png",
+      "quando_usar": "CTA final quando o carrossel fecha com uma cena/local estabelecendo peso ambiental antes do fechamento",
+      "asset_prompt": {
+        "scene": {
+          "description": "A photorealistic image related to [CENA FINAL/LOCAL SIMBÓLICO DO CASO] fills the upper ~65% of frame. Below it, a solid graphite/black #1B1D1E block spans the full width, containing the handle '@historia_proibida' in rust-orange #C13B00 at the top of the block, followed by a bold white CTA headline (2 lines, mixed-case, condensed) and a smaller regular-weight white subheadline paragraph.",
+          "subject": "[CENA/LOCAL SIMBÓLICO DE FECHAMENTO]",
+          "setting": "real-world or symbolic environment tied to the case",
+          "action": "static, atmospheric closing shot"
+        },
+        "style": { "primary": "cinematic environmental photography, hyperrealistic", "rendering_quality": "hyperrealistic", "lighting": "natural or atmospheric lighting matching the scene's mood" },
+        "technical": { "camera": { "focal_length": "24-35mm", "aperture": "f/5.6-f/8", "depth_of_field": "moderate-deep", "angle": "eye level, environmental establishing angle" }, "resolution": "ultra high definition", "rendering": "clean cinematic grade, no visible seam between photo and solid block" },
+        "materials": { "surfaces": "context-accurate architectural/natural surfaces with visible texture and age" },
+        "environment": { "atmosphere": "matches scene — fog, dust, or clear air as relevant", "time": "matches case's setting" },
+        "composition": {
+          "perspective": "environmental wide shot, natural depth layering",
+          "framing": "photo top ~65%, solid black block bottom ~35%",
+          "subject_placement": "scene fills top, text block anchors bottom with no gradient bleed, hard edge between photo and block",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame",
+          "ui_elements": "Solid graphite/black #1B1D1E block spanning full width at bottom. Inside it, at the TOP of the block: the handle '@historia_proibida' in small bold rust-orange #C13B00 text. Below it, bold white Tusker Grotesk headline, 2 lines, mixed-case: 'SIGA @historia_proibida'. Below headline, a smaller regular-weight white Galano Grotesque subheadline paragraph (2-3 lines): 'PRA VER O PRÓXIMO CASO QUE NINGUÉM CONTOU ANTES QUE ELE DESAPAREÇA DO FEED'."
+        },
+        "quality": {
+          "include": ["environmental closing shot", "clean hard-edge block transition", "typographic hierarchy between headline and subheadline", "sober investigative tone", "rust handle emphasis at top of block", "explicit handle in headline"],
+          "avoid": ["gradient bleed between photo and block", "gore or explicit imagery", "low contrast text", "watermark", "circular logo emblem", "handle at bottom of block"],
+          "reference_standard": "Documentary explainer Instagram closing-card editorial style"
+        }
+      }
+    },
+    "cta-bloco-branco-maquina-de-escrever": {
+      "nome": "Bloco branco - máquina de escrever",
+      "slide_type": "cta_final",
+      "background": "photo_full_bleed",
+      "aprovado": true,
+      "origem_visual": "references/cta/cta - Bloco branco - máquina de escrever.png",
+      "quando_usar": "CTA final quando o carrossel fecha em tom minimalista de anotação/dossiê, sem bloco sólido nem foto ambiental",
+      "asset_prompt": {
+        "scene": {
+          "description": "A photorealistic full-frame archival image related to [CENA/RETRATO SIMBÓLICO DO ARQUIVO] fills the entire frame edge to edge, dark desaturated grade. Centered in the lower-middle third, a solid off-white/graphite rectangular box contains, at its top, the handle '@historia_proibida' in small bold rust-orange #C13B00 typewriter-style text, followed below by a centered closing/CTA message in a typewriter/documentary font.",
+          "subject": "[CENA/RETRATO DE ARQUIVO SIMBÓLICO DE FECHAMENTO]",
+          "setting": "period-accurate or symbolic archival setting",
+          "action": "static, documentary closing tone"
+        },
+        "style": { "primary": "archival documentary photography, hyperrealistic", "rendering_quality": "hyperrealistic, period-accurate detail", "lighting": "single ambient source, moody and low-key" },
+        "technical": { "camera": { "focal_length": "50-85mm", "aperture": "f/2.8-f/4", "depth_of_field": "shallow-moderate — subject sharp, background softly falls away", "angle": "eye level" }, "resolution": "ultra high definition", "rendering": "desaturated archival grade, subtle grain" },
+        "materials": { "surfaces": "period-accurate fabric, skin, or object texture as relevant" },
+        "environment": { "atmosphere": "low ambient haze, dim interior or overcast exterior light", "time": "matches case's historical period" },
+        "composition": {
+          "perspective": "centered or rule-of-thirds subject placement",
+          "framing": "full-frame photo, no crop bar top or bottom",
+          "subject_placement": "photo fills entire frame, quote box overlaid in lower-middle third, not touching edges",
+          "safe_area": "952x1222px safe zone inside 1080x1350px frame — quote box itself respects 64px minimum margin from frame edges",
+          "ui_elements": "A solid off-white #F2F0E8 or light graphite rectangular box, centered horizontally in the lower-middle third. At the top of the box: the handle '@historia_proibida' in small bold rust-orange #C13B00 monospace/typewriter text, centered. Below it, centered monospace/typewriter-style body text (graphite #1B1D1E color), 2-4 lines: 'SIGA @historia_proibida PRA VER O PRÓXIMO CASO QUE NINGUÉM CONTOU ANTES QUE ELE DESAPAREÇA DO FEED'. No logo, no circular emblem, no divider lines."
+        },
+        "quality": {
+          "include": ["archival documentary realism", "minimal typewriter-style annotation", "moody low-key lighting", "investigative closing tone", "handle integrated at top of quote box", "explicit handle in closing copy"],
+          "avoid": ["cluttered composition", "gore or explicit imagery", "low contrast text box", "watermark", "modern digital clean look", "circular logo emblem"],
+          "reference_standard": "Archival case-file annotation style, found-document editorial photography"
+        }
+      }
+    }
+  },
+  "text_rules": {
+    "no_dash_rule": "NUNCA usar travessão (—) em nenhum texto de nenhum slide",
+    "max_highlight_color_swap_per_slide": 1,
+    "case": "headline sempre all-caps, linha de contexto pode ser sentence case",
+    "rust_is_the_only_highlight_color": "Destaque sempre em ferrugem #C13B00 — nunca lime, nunca dourado, nunca azul. Cor exclusiva desta marca (nunca usar nos perfis irmãos voce-ignorava-isso ou ciencia-chocante)."
+  },
+  "negative_rules": [
+    "NUNCA usar emblema circular ou iniciais monograma — identidade é só o handle em texto",
+    "NUNCA usar travessão (—)",
+    "NUNCA gore, violência explícita ou imagem gráfica de sangue",
+    "NUNCA rosto de vítima real não documentada extensamente em domínio público",
+    "NUNCA cor de destaque fora de ferrugem #C13B00",
+    "NUNCA fundo claro/bege — esta marca é monocromática escura, diferente do padrão dark/light do Intus Hub",
+    "NUNCA usar Neon Limão ou Verde Laser (cores exclusivas dos perfis irmãos)"
+  ],
+  "when_to_use": "Carrosséis de curiosidades sombrias/investigativas do perfil @historia_proibida — casos bizarros, história obscura, Brasil, mistérios/paranormal não resolvidos."
+}

@@ -1,9 +1,10 @@
 # Brand Spec — Servitec Comercial e Locações
 
-last_updated: 2026-07-23
+last_updated: 2026-08-20
 
 > Extraído de análise de identidade visual do Instagram @servitec_comercial e site serviteccomercial.com.br.
-> Valores de cor são aproximações visuais — confirmar com arquivo oficial da marca.
+> Paleta confirmada por análise direta dos arquivos de produção em `FAMILIAS VISUAIS/` (agosto 2026).
+> Ver `familias-visuais.md` para paletas específicas por família visual.
 
 ---
 
@@ -35,39 +36,42 @@ last_updated: 2026-07-23
 
 ## Cores
 
-### Paleta principal
+### Paleta principal — valores confirmados de produção
 
-| Papel | Nome | Hex (aprox.) | Uso |
+| Papel | Nome | Hex | Família |
 |---|---|---|---|
-| Primária | Azul Servitec | #003087 | Fundos, headers, botões principais |
-| Secundária | Amarelo Servitec | #FFD100 | Destaques, CTAs, logo, badges |
-| Acento | Amarelo Vivo | #F5C800 | Variação do amarelo em elementos menores |
-| Fundo claro | Off-white | #F5F5F5 | Backgrounds de posts informativos |
-| Fundo escuro | Azul Profundo | #001F5B | Seções premium, fundos de destaque |
-| Texto principal | Quase Preto | #0D0D0D | Copy principal |
-| Texto sobre azul | Branco | #FFFFFF | Texto em fundos escuros |
+| Primária FV01 | Azul Navy | #0A2D6B | FV01 Comercial Limpo |
+| Primária FV03 | Azul Escuro | #0A2A66 | FV03 Fullscreen Impacto |
+| Primária FV04 | Navy | #0D2B5C | FV04 Catálogo Premium |
+| Primária FV05 | Azul Navy | #0D2B63 | FV05 Editorial Técnico |
+| Secundária | Amarelo Servitec | #FFD100 | FV01, FV04 |
+| Secundária FV03 | Amarelo Vivo | #FFD200 | FV03 |
+| Secundária FV05 | Amarelo Vivo | #FFCB00 | FV05 |
+| Fundo light | Off-White | #F5F5F2 | FV01 |
+| Texto | Grafite | #222426 | FV01 |
+| Texto escuro FV05 | Grafite Escuro | #1B1B1D | FV05 |
 
-> ⚠️ Confirmar hexadecimais exatos com o arquivo de logo oficial do cliente.
+> Nota: o azul da marca Servitec varia levemente entre famílias (0A2D6B / 0A2A66 / 0D2B5C / 0D2B63).
+> Para referência de logo e identidade institucional: usar #0A2D6B como canônico.
 
-### Variáveis CSS
+### Hex canônicos para uso geral (logo, documentos, proposta)
+
 ```css
 :root {
-  --color-primary: #003087;
-  --color-secondary: #FFD100;
-  --color-accent: #F5C800;
-  --color-bg-light: #F5F5F5;
-  --color-bg-dark: #001F5B;
-  --color-text-main: #0D0D0D;
+  --color-primary: #0A2D6B;    /* azul navy Servitec — confirmado FV01 */
+  --color-secondary: #FFD100;  /* amarelo Servitec — confirmado FV01/FV04 */
+  --color-bg-light: #F5F5F2;   /* off-white — confirmado FV01 */
+  --color-grafite: #222426;    /* grafite texto — confirmado FV01 */
   --color-text-on-dark: #FFFFFF;
 }
 ```
 
-### Verificação de acessibilidade (estimada)
+### Verificação de acessibilidade
 | Combinação | WCAG |
 |---|---|
-| Branco sobre Azul Servitec (#003087) | AA ✓ |
+| Branco sobre Azul Navy (#0A2D6B) | AA ✓ |
 | Preto sobre Amarelo (#FFD100) | AAA ✓ |
-| Amarelo sobre Azul Profundo (#001F5B) | AA ✓ |
+| Amarelo (#FFD100) sobre Navy (#0A2D6B) | AA ✓ |
 
 ---
 
@@ -75,13 +79,18 @@ last_updated: 2026-07-23
 
 > Tipografia dos posts atual: sans-serif condensada bold, estilo impacto. Confirmar família exata.
 
-### Fontes (estimativa visual — confirmar)
+### Fontes confirmadas (análise dos arquivos de produção — agosto 2026)
 
-| Papel | Família | Peso(s) | Observação |
+| Papel | Família | Peso(s) | Famílias que usam |
 |---|---|---|---|
-| Display / Headline | Impact ou equivalente condensado | 700–900 | Títulos grandes nos posts |
-| Sub-headline | Arial / Helvetica Bold | 700 | Textos de suporte |
-| Body | Arial / Helvetica | 400–500 | Textos longos, legendas |
+| Headline / Título | **Anton Condensed** | Regular (sempre bold por design) | FV01, FV03, FV04, FV05 |
+| Subtítulo / Destaques | **Bebas Neue Condensed** | Regular / Bold | FV05 exclusivo |
+| Corpo / Specs | **Montserrat** | 400 Regular, 600 SemiBold, 700 Bold | FV01, FV03, FV04 |
+| Corpo técnico | **Inter** | 400 Regular | FV05 exclusivo |
+| Badges / Labels | **Montserrat** | 700 Bold | FV01, FV03, FV04 |
+
+> Regra de ouro: Anton em títulos grandes é inviolável em todas as famílias.
+> Inter e Bebas Neue são exclusivos de FV05 (Editorial Técnico Escuro).
 
 ### Escala tipográfica (para posts)
 

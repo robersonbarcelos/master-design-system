@@ -2,7 +2,7 @@
 name: copy-qa-sms
 description: "Universal copy quality gate for all social media creation skills. Automatically invoked by post-writer-sms, thread-writer-sms, caption-writer-sms, hook-writer-sms, carousel-writer-sms, content-repurposer-sms, and video-script-sms before any copy is delivered. Checks for AI writing patterns (Tier 1/2/3), structural tells, voice compliance against production-rules.md, and universal forbidden patterns. Can also be used standalone to audit existing copy: 'audit this copy', 'check this for AI patterns', 'does this sound like AI?', 'revisar antes de publicar', 'checar padrões de IA'."
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Copy QA — Orquestrador Universal de Qualidade
@@ -175,13 +175,24 @@ Verificar padrões de estrutura que traem origem IA, independente do vocabulári
 | **Hashtag stuffing** | 10+ hashtags idênticos em todos os posts | Variar ou reduzir ao spec de plataforma |
 | **Emojis em títulos ou headlines** | Qualquer emoji em headline profissional | Remover de LinkedIn, decks e textos profissionais |
 | **Contraste binário performático** | "Não é sobre preço. É sobre valor." / "Não é talento. É trabalho." — genérico, sem conteúdo específico | Afirmar o ponto diretamente com contexto concreto. Contraste é permitido quando ambos os termos são específicos e o antagonismo é real (ex: "Não é sobre postar mais. É sobre parar de postar o que não converte.") |
-| **Fragmentação estacato dramática** | Frases de 1-3 palavras empilhadas para efeito. Como esta. | Fundir em frase completa; reservar fragmento para máximo 1 uso deliberado por texto |
+| **Fragmentação estacato dramática** | Frases de 1-3 palavras empilhadas para efeito. Como esta. | Fundir em frase completa; reservar fragmento para máximo 1 uso deliberado **no texto inteiro** — ver regra de contagem abaixo |
 | **Parágrafo abrindo com "So" ou "Então"** | "So, here's the thing" / "Então, o que isso significa?" | Reescrever a abertura com a afirmação direta |
 | **Wh- openers performáticos** | "What if I told you…" / "Why does this matter?" (sem resposta imediata) | Substituir pela afirmação que a pergunta estava tentando fazer |
 | **Hook que entrega a resposta** | Headline que já explica o conteúdo completo antes do leitor clicar — "Como usar agentes de IA para automatizar sua operação e ganhar vantagem no mercado" | Reescrever: o headline interrompe e abre loop, o subtítulo promete o mecanismo. A resposta fica dentro do carrossel. |
 | **Abertura educacional em hook** | "Aprenda como", "Descubra como", "Saiba como", "Confira como" no Slide 1 ou título | Substituir por declaração, pergunta com tensão real ou fato concreto |
 | **Subtítulo redundante** | Subtítulo que repete o mesmo conteúdo do headline com outras palavras | Reescrever: subtítulo deve adicionar segunda camada, o mecanismo que o headline não revelou |
 | **Atribuições vagas** | "Estudos mostram...", "Especialistas dizem...", "Pesquisas indicam...", "Dados apontam..." sem fonte concreta | Citar a fonte específica ou remover a atribuição. Nunca deixar vaga. |
+
+**Regra de contagem do estacato em copy multi-unidade (carrossel, thread, sequência de slides):**
+
+O threshold de "máximo 1 uso deliberado" vale para **o texto inteiro**, não para cada slide/post/parágrafo isoladamente. Cada slide pode parecer aprovado sozinho e ainda assim o conjunto ler como picotado se o padrão se repete unidade após unidade.
+
+- [ ] Depois de escrever todas as unidades (todos os slides do carrossel, todos os posts da thread), reler o conjunto inteiro de uma vez
+- [ ] Contar quantos slides/parágrafos usam frases empilhadas de 1-3 palavras ("Sem X. Sem Y. Sem Z." / "É A. É B. E C.")
+- [ ] **2 ou mais unidades com o padrão → fundir em frases completas em todas, exceto na unidade de maior impacto** (normalmente a capa ou o CTA final)
+- [ ] Nunca aprovar um carrossel/thread só auditando slide por slide sem essa checagem de conjunto — o Passo 2 deste protocolo exige a releitura do texto completo
+
+**Exemplo real (incidente 2026-08-19):** carrossel de 8 slides sobre uma ferramenta técnica usou staccato em 4 slides diferentes (diagnóstico, capacidade, risco, CTA). Cada slide passou isoladamente no gate, mas o conjunto lido em sequência ficou "frasezinha atrás de frasezinha" — picotado. Fundir em frases completas resolveu sem perder o tom direto da marca.
 
 ---
 

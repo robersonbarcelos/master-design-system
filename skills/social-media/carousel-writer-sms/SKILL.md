@@ -2,7 +2,7 @@
 name: carousel-writer-sms
 description: "When the user wants to write content for a LinkedIn carousel, Instagram carousel, Facebook carousel, TikTok photo carousel, Pinterest Idea Pin, or any swipeable multi-slide format. Also use when the user mentions 'carousel,' 'slides,' 'LinkedIn carousel,' 'Instagram carousel,' 'IG carousel,' 'photo carousel,' 'TikTok photo carousel,' 'Idea Pin,' 'Pinterest Idea Pin,' 'swipe post,' 'slide deck,' or 'visual content.' Outputs slide-by-slide text content (not visual design). For single posts, see post-writer-sms. For threads, see thread-writer-sms. For caption copy under each slide post, see caption-writer-sms."
 metadata:
-  version: 2.2.0
+  version: 2.3.0
 ---
 
 # Carousel Writer
@@ -58,6 +58,22 @@ Quando presente, perguntar **antes de qualquer modelagem de ângulo**:
 > "Este carrossel é conteúdo de autoridade pura, ou quer conectar ao [produto] no CTA final?"
 
 **Regra universal:** a conexão ao produto vai APENAS no slide final (virada) — nunca no gancho, nunca no ângulo narrativo. Se a conexão parecer forçada no briefing, o padrão é autoridade pura.
+
+---
+
+## Hook Pattern Gate (clientes com banco de padrões de gancho catalogado)
+
+Antes de propor os 3 ângulos da FASE 1, verificar se existe um arquivo de padrões de gancho para o cliente ativo em `clients/[cliente]/references/` (ex: `headlines-vencedoras.md` para Intus Hub).
+
+**Se existir:**
+1. Ler o arquivo na íntegra
+2. Seguir o processo de seleção descrito nele (para Intus Hub: selecionar 7 dos padrões catalogados, apresentar 3 variações de gancho por padrão, aguardar escolha do usuário)
+3. **O gancho aprovado entra travado** — a FASE 1 é modelada em torno dele. Não gerar novas variações de capa dentro da FASE 1; o campo "Gancho — 3 variações de capa" do template de ângulo é substituído pelo gancho já aprovado neste gate
+4. Só depois disso, propor os 3 ângulos narrativos
+
+**Se não existir:** seguir a FASE 1 normalmente, gerando as 3 variações de capa por ângulo como descrito abaixo.
+
+**STOP:** nunca propor ângulos antes deste gate quando o arquivo de padrões existir — ele roda antes da FASE 1, não depois.
 
 ---
 
@@ -127,7 +143,9 @@ Use os resultados dessa pesquisa para informar os ângulos da FASE 1. Ângulos i
 
 **Este passo é um gate. Nenhum slide é escrito antes de um ângulo ser aprovado.**
 
-Com base no tema fornecido, proponha **3 ângulos distintos** usando o template abaixo para cada um.
+**Se o Hook Pattern Gate rodou e um gancho já foi aprovado:** usar esse gancho travado no Slide 1 de todos os 3 ângulos propostos abaixo — não gerar novas variações de capa, o campo "Gancho — 3 variações de capa" do template fica preenchido com o gancho já aprovado, repetido nos 3 ângulos.
+
+**Se não houver gancho travado:** proponha **3 ângulos distintos** usando o template abaixo para cada um, cada um com suas próprias 3 variações de capa.
 
 ### Template de ângulo
 

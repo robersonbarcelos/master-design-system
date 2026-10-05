@@ -1,0 +1,576 @@
+{
+  "template": "resultados-que-comprovam-bnb",
+  "version": "1.0",
+  "status": "5 peças aprovadas pelo cliente em 16 set 2026 (moodboard real), extraídas e modeladas em JSON.",
+  "description": "Template da Linha 3 'Resultados que Comprovam' (04.5 do painel Central BNB Connect): linha de prova, dados e performance. Estilo tipográfico principal Autoridade estratégica (hierarquia só por peso/cor, sem serifada), presente em 4 das 5 peças. A peça card-04 usa o mecanismo de card flutuante + 1 palavra em serifada itálica (estilo Hospitalidade contemporânea), que segundo o mapeamento de 04.2.2 NÃO está entre os secundários permitidos pra esta linha (só Impacto fotográfico): registrado como achado, não corrigido silenciosamente.",
+  "fonte_da_paleta": "painel Central BNB Connect, item 04.2.1 (Sistema Editorial e Direção Visual v1.1): Petróleo BNB #005070, Azul-marinho profundo #052F42, Off-white quente #F8F4EA, Azul-cinza claro #EAF2F5, Dourado fosco #A9782E",
+  "fonte_da_tipografia": "painel Central BNB Connect, item 04.2.1 (matriz de 4 estilos) e 04.2.2 (Linha 3 Resultados que Comprovam: principal Autoridade estratégica, secundário Impacto fotográfico)",
+  "nota_de_mapeamento_tipografico": "ACHADO: card-04 (card flutuante + 'contexto' em serifada itálica) segue o estilo Hospitalidade contemporânea, que não está na lista de secundários permitidos pra Linha 3 em 04.2.2 (só Impacto fotográfico está listado). É uma peça real aprovada pelo cliente no moodboard, registrada aqui como está. Vale decisão futura: incluir Hospitalidade contemporânea como secundário oficial da Linha 3, ou pedir uma variação alternativa 100% sans (sem serifada) pra esse card.",
+  "logo": {
+    "arquivo_oficial": "clients/bnb-connect/references/logo.jpg: ícone de casa em contorno + wordmark 'BNB' bold + 'CONNECT' tracked-out menor abaixo",
+    "regra": "NUNCA gerar o logo via IA no prompt de imagem: geradores distorcem o ícone da casa e a proporção do wordmark. A logo é sempre composta depois, manualmente (Canva/Pillow), usando o arquivo oficial. No prompt de geração, reservar o espaço vazio e citar apenas 'área reservada para logo, sem gerar' na ui_elements.",
+    "versao_escura": "Petróleo BNB #005070, usada sobre fundo claro (off-white, azul-cinza claro, foto clara)",
+    "versao_clara": "branco puro #FFFFFF ou off-white #F8F4EA, usada sobre fundo escuro (navy sólido, foto escura/área de sombra)",
+    "posicao_padrao": "topo esquerdo em todas as 5 variações desta linha"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+    "serifada": "Newsreader Italic é a única família serifada permitida, e só aparece em card-04 (ver nota_de_mapeamento_tipografico): nunca outra serifada, nunca mais de 1 palavra ou frase curta em serifada por card",
+    "dourado": "Dourado fosco #A9782E é reservado para a palavra-chave/dado/resultado de cada card, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante, nunca acinzentado nem opaco)",
+    "fotografia_de_imovel": "Toda peça segue a direção fotográfica de 04.2.1: luz natural, imóvel real ou visualmente plausível, tratamento documental/editorial, nunca plástico ou HDR artificial, sem pessoas em cena",
+    "card_flutuante": "Quando houver card flutuante sobre foto (card-04): 100% flat, sem sombra projetada e sem contorno/stroke, totalmente contido dentro do frame com margem visível dos 4 lados (nunca cortado/sangrando por nenhuma borda)",
+    "dados_e_numeros": "Nenhum número, métrica ou dado específico deve ser inventado no prompt de imagem: usar termos genéricos ('DADO REAL', 'resultado validado') e inserir o número real depois, na composição final, só quando autorizado pelo cliente (ver 04.5 do painel, nota sobre indicadores autorizados)",
+    "ancora_tipografica_visual": "Sans-serif geométrica contemporânea em todo o sistema (independente de ser Sora ou Manrope): traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026. Descrita explicitamente na scene.description de cada card pra evitar que o gerador substitua por fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman), que quebraria a consistência visual entre templates diferentes (corrigido em 17 set 2026)."
+  },
+  "negative_rules_globais": [
+    "NUNCA gerar o logo BNB Connect via IA: sempre compor depois com o arquivo oficial",
+    "NUNCA usar outra serifada além de Newsreader Italic",
+    "NUNCA mais de 1 palavra/frase curta em serifada por card",
+    "NUNCA misturar Manrope e Sora no mesmo título",
+    "NUNCA usar travessão (—) em nenhum texto de nenhum card",
+    "NUNCA interfaces, dashboards ou gráficos inventados nas fotos de imóvel",
+    "NUNCA fotografia de imóvel posada ou com luxo ostentatório: sempre luz natural e tratamento documental",
+    "NUNCA pessoas em cena (linha é só arquitetura/ambiente)",
+    "NUNCA sombra ou contorno em cards flutuantes: sempre 100% flat",
+    "NUNCA texto acinzentado, opaco ou desbotado: cores petróleo e branco sempre sólidas e saturadas; dourado sempre sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+    "NUNCA inventar número, percentual ou métrica específica na imagem gerada: usar só termos genéricos, número real entra depois na composição final",
+    "NUNCA fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman) no lugar de Sora/Manrope: sempre reforçar a âncora tipográfica geométrica contemporânea"
+  ],
+  "variacoes": {
+    "card-01-split-navy-dado-real-foto": {
+      "nome": "Split horizontal: bloco navy com 'DADO REAL' em destaque no topo (62%) + foto do imóvel na base (38%)",
+      "descricao": "Capa da linha, estilo pôster. Bloco navy com o label 'Resultados que Comprovam.' e a headline gigante 'DADO REAL' em dourado, seguida por uma legenda de validação. Foto do imóvel colada na base, sem arredondamento.",
+      "hierarquia": "Bloco navy no topo > logo (versão clara) > label 'Resultados que Comprovam.' > headline gigante 'DADO REAL' em dourado > legenda 'Resultado validado no período analisado.' > foto do imóvel na base, largura total",
+      "cores": {
+        "fundo_bloco": "Azul-marinho profundo #052F42",
+        "label_e_legenda": "Off-white quente #F8F4EA, sólido e saturado",
+        "headline_dado_real": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Autoridade estratégica (hierarquia só por peso e cor, sem serifada)",
+        "label": "DM Sans Regular 400, ~18px, 2 linhas",
+        "\"DADO REAL\"": "Sora ExtraBold 800, caixa alta, ~92px, 2 linhas, escala de pôster (maior que qualquer headline das outras linhas)",
+        "legenda": "DM Sans Regular 400, ~20px, 2 linhas"
+      },
+      "quando_usar": "Slide 1 (capa) de qualquer carrossel da Linha 3, quando o gancho é anunciar que o próximo conteúdo traz prova real, antes de revelar o dado específico.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 16 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido horizontalmente: 62% superior é um bloco sólido azul-marinho profundo #052F42, sem foto, conteúdo alinhado à esquerda. No topo, área reservada vazia pro logo BNB Connect em versão clara off-white (não gerar). Abaixo, label pequeno em 2 linhas, sans-serif regular cor off-white #F8F4EA: 'Resultados' / 'que Comprovam.'. Abaixo, headline gigante em caixa alta, escala de pôster, sans-serif extra bold cor dourado fosco #A9782E sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante), 2 linhas: 'DADO' / 'REAL'. Abaixo, legenda em 2 linhas, sans-serif regular cor off-white #F8F4EA: 'Resultado validado' / 'no período analisado.'. 38% inferior é uma foto documental real de deck de madeira com espreguiçadeira, mesa lateral com tronco de madeira como banquinho, vista pro mar com pequena ilha e vegetação costeira ao fundo, luz de dia clara, corte reto sem transição gradual, ocupando toda a largura do frame. Paleta dominante: azul-marinho profundo sólido no bloco superior, off-white e dourado saturado no texto, tons naturais de mar/céu azul e madeira na foto inferior.",
+            "subject": "Deck de madeira com espreguiçadeira e mesa lateral de tronco, vista pro mar",
+            "setting": "Terraço de casa de litoral, dia claro, pequena ilha ao fundo",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira do deck e da espreguiçadeira com veio natural, tecido do estofado claro com textura de linho",
+            "lighting": "luz natural de dia, sol alto com leve angulação"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "24mm",
+              "aperture": "f/6.3",
+              "depth_of_field": "deep: ambiente inteiro nítido",
+              "angle": "eye level, levemente baixo"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "madeira do deck e da espreguiçadeira com veio e leve desgaste natural, tronco usado como mesa com textura de casca real"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, leve brilho difuso do sol",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: deck em primeiro plano, mar e ilha em planos sucessivos",
+            "framing": "split horizontal 62/38, corte reto sem arredondamento",
+            "subject_placement": "bloco de texto ocupa os 62% superiores, largura total; foto ocupa os 38% inferiores, largura total",
+            "safe_area": "64px de padding mínimo nas laterais; dentro do bloco navy, 44px de margem lateral pro texto",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão clara off-white",
+                "position": "topo do bloco navy, alinhado à esquerda"
+              },
+              {
+                "text": "Resultados / que Comprovam.",
+                "font": "sans-serif regular (DM Sans 400)",
+                "font_size": "18px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "abaixo do logo"
+              },
+              {
+                "text": "DADO / REAL",
+                "font": "sans-serif extra bold caixa alta (Sora 800)",
+                "font_size": "92px",
+                "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+                "position": "corpo do bloco navy, escala de pôster, 2 linhas"
+              },
+              {
+                "text": "Resultado validado / no período analisado.",
+                "font": "sans-serif regular (DM Sans 400)",
+                "font_size": "20px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "abaixo da headline dourada"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de imóvel documental e real",
+              "bloco de cor sólido e geométrico",
+              "tipografia de escala de pôster, alto contraste",
+              "dourado saturado e vibrante",
+              "split horizontal limpo"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "logo gerado pela IA distorcido",
+              "qualquer serifada: esta variação é 100% sans",
+              "número ou percentual inventado na imagem",
+              "bloco navy com gradiente ou textura (deve ser sólido flush)"
+            ],
+            "reference_standard": "fotografia editorial de arquitetura de litoral, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-02-split-antes-depois-comparativo": {
+      "nome": "Split: painel azul-cinza claro com headline no topo (52%) + comparativo antes/depois em 2 fotos empilhadas (48%)",
+      "descricao": "Painel em Azul-cinza claro (não off-white) com a pergunta de contexto, seguido por 2 fotos empilhadas do mesmo ambiente, cada uma com uma pílula de rótulo ('ANTES DA GESTÃO' / 'DEPOIS DA GESTÃO') no canto superior esquerdo da própria foto.",
+      "hierarquia": "Painel azul-cinza claro: logo (versão escura) no topo > 'O que mudou' em sans bold navy > 'na performance deste imóvel?' em sans regular navy | foto 1 com pílula 'ANTES DA GESTÃO' > foto 2 com pílula 'DEPOIS DA GESTÃO'",
+      "cores": {
+        "fundo_painel": "Azul-cinza claro #EAF2F5 (não off-white quente: paleta oficial 04.2.1, 'áreas de apoio e respiração')",
+        "texto_bold": "Petróleo BNB #005070, sólido e saturado",
+        "texto_regular": "Petróleo BNB #005070, sólido e saturado, peso mais leve",
+        "pilula_fundo": "Off-white quente #F8F4EA",
+        "pilula_texto": "Petróleo BNB #005070, caixa alta, tracked"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Autoridade estratégica (hierarquia só por peso, sem serifada)",
+        "\"O que mudou\"": "Sora Bold 700, ~38px",
+        "\"na performance deste imóvel?\"": "Sora Regular 400, ~34px, 2 linhas",
+        "pilulas": "DM Sans Medium 500, caixa alta, tracked, ~14px"
+      },
+      "quando_usar": "Slide de comparação direta em carrosséis da Linha 3, quando o cliente autorizar mostrar fotos reais de antes/depois da gestão de um imóvel específico.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 16 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5, frame dividido horizontalmente: 52% superior é um painel sólido azul-cinza claro #EAF2F5, sem foto, conteúdo alinhado à esquerda. No topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar). Abaixo, headline em sans-serif cor Petróleo BNB #005070: 'O que mudou' em peso bold, seguido por 'na performance' e 'deste imóvel?' em peso regular, mesma cor, 2 linhas. 48% inferior dividido em 2 fotos empilhadas verticalmente, mesma proporção cada uma, mesmo ambiente (sala de estar com vista pro mar) em 2 momentos diferentes: foto de cima mostra o ambiente ANTES da gestão, com sofá simples, poucos itens de decoração, disposição básica de móveis, vista pro mar ao fundo através de porta de vidro; no canto superior esquerdo dessa foto, uma pílula sólida off-white de cantos totalmente arredondados com o texto 'ANTES DA GESTÃO' em caixa alta, cor Petróleo BNB #005070, tracked. Foto de baixo mostra o mesmo ambiente DEPOIS da gestão, agora como terraço/piscina estilizado, espreguiçadeiras com almofadas, plantas em vasos, vista pro mar com colinas mais nítida e composta; no canto superior esquerdo dessa foto, pílula idêntica com o texto 'DEPOIS DA GESTÃO'. Paleta dominante: azul-cinza claro no painel superior, petróleo no texto, tons naturais de madeira, mar e vegetação nas 2 fotos.",
+            "subject": "Mesmo ambiente de casa de litoral em 2 momentos: simples e básico (antes), estilizado e composto (depois)",
+            "setting": "Sala/terraço com vista pro mar, luz de dia",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary, before/after comparison",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido dos estofados com textura de linho natural, madeira dos móveis com veio visível, vidro da porta com reflexo sutil",
+            "lighting": "luz natural de dia em ambas as fotos, consistente entre antes e depois"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "28mm",
+              "aperture": "f/5",
+              "depth_of_field": "deep: ambiente inteiro nítido em ambas as fotos",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais, sem filtro de marca sobre as fotos"
+          },
+          "materials": {
+            "fabric": "estofados em linho natural (mais simples na foto antes, com almofadas texturizadas na foto depois)",
+            "surfaces": "madeira dos móveis com veio visível, vidro da porta com reflexo sutil e realista"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro em ambas as fotos",
+            "time": "dia, luz natural consistente"
+          },
+          "composition": {
+            "perspective": "mesmo ângulo de câmera nas 2 fotos, pra reforçar que é o mesmo ambiente",
+            "framing": "painel de texto no topo, 2 fotos empilhadas na base, sem espaço entre elas",
+            "subject_placement": "painel ocupa 52% superior; foto antes ocupa metade superior dos 48% restantes; foto depois ocupa a metade inferior",
+            "safe_area": "64px de padding mínimo nas laterais; dentro do painel, 44px de margem lateral pro texto; 20px de padding interno em cada pílula",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "painel, topo esquerdo"
+              },
+              {
+                "text": "O que mudou na performance deste imóvel?",
+                "font": "sans-serif (Sora), 'O que mudou' em Bold 700, resto em Regular 400",
+                "font_size": "38px / 34px",
+                "color": "#005070, sólido e saturado",
+                "position": "painel, abaixo do logo"
+              },
+              {
+                "text": "ANTES DA GESTÃO",
+                "font": "sans-serif medium tracked (DM Sans 500)",
+                "font_size": "14px",
+                "color": "#005070 sobre pílula #F8F4EA",
+                "position": "canto superior esquerdo da foto de cima"
+              },
+              {
+                "text": "DEPOIS DA GESTÃO",
+                "font": "sans-serif medium tracked (DM Sans 500)",
+                "font_size": "14px",
+                "color": "#005070 sobre pílula #F8F4EA",
+                "position": "canto superior esquerdo da foto de baixo"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de imóvel documental e real",
+              "comparação antes/depois convincente e realista",
+              "pílulas de rótulo legíveis e bem posicionadas",
+              "mesmo ângulo de câmera nas 2 fotos",
+              "azul-cinza claro bem aplicado como fundo de apoio"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "logo gerado pela IA distorcido",
+              "ângulos de câmera diferentes entre antes e depois (quebra a comparação)",
+              "qualquer serifada: esta variação é 100% sans",
+              "pílulas com bordas irregulares ou mal alinhadas",
+              "diferença de iluminação entre as 2 fotos que pareça artificial"
+            ],
+            "reference_standard": "fotografia editorial de arquitetura/interiores, estilo revista de hospitalidade e design 2025-2026, comparação de reforma"
+          }
+        }
+      }
+    },
+    "card-03-split-off-white-desafio-acao-resultado": {
+      "nome": "Split horizontal: card off-white com lista 'Desafio. Ação. Resultado.' no topo (52%) + foto do imóvel na base (48%)",
+      "descricao": "Painel off-white com o label 'Estudo de caso' e uma lista de 3 palavras empilhadas (Desafio. Ação. Resultado.), as 2 primeiras em navy e a última em dourado, formando a estrutura narrativa da linha. Foto de quarto aconchegante na base.",
+      "hierarquia": "Painel off-white: logo (versão escura) no topo > label 'Estudo de caso' > 'Desafio.' em sans bold navy > 'Ação.' em sans bold navy > 'Resultado.' em sans bold dourado | foto do imóvel na base, largura total",
+      "cores": {
+        "fundo_painel": "Off-white quente #F8F4EA",
+        "label": "Petróleo BNB #005070, opacidade reduzida só o suficiente pra hierarquia (85-90%)",
+        "desafio_acao": "Petróleo BNB #005070, sólido e saturado",
+        "resultado": "Dourado fosco #A9782E, sólido e saturado"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Autoridade estratégica (hierarquia só por peso e cor, sem serifada)",
+        "label": "DM Sans Medium 500, ~18px",
+        "lista": "Sora Bold 700, caixa mista, ~52px, 3 linhas"
+      },
+      "quando_usar": "Slide de estrutura/resumo em carrosséis de estudo de caso da Linha 3, funciona como sumário visual dos 3 passos antes de detalhar cada um em slides seguintes.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 16 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5, frame dividido horizontalmente: 52% superior é um painel sólido off-white quente #F8F4EA, sem foto, conteúdo alinhado à esquerda. No topo, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar). Abaixo, label pequeno cor petróleo com opacidade levemente reduzida: 'Estudo de caso'. Abaixo, lista de 3 linhas em sans-serif bold, caixa mista: 'Desafio.' e 'Ação.' em cor Petróleo BNB #005070 sólido, seguidas por 'Resultado.' em cor dourado fosco #A9782E sólido e saturado, mesmo peso e tamanho das linhas anteriores. 48% inferior é uma foto documental real de quarto aconchegante de casa de litoral: cama com roupa de cama em tons neutros texturizados, luminária pendente de vime trançado, cortina translúcida clara, vaso de planta e mesa de cabeceira de madeira, vista pro mar através de uma janela ao fundo, luz natural suave. Paleta dominante: off-white quente no painel superior, petróleo e dourado no texto, tons neutros quentes (bege, madeira, vime) e azul do mar na foto inferior.",
+            "subject": "Quarto aconchegante: cama com roupa de cama neutra, luminária de vime, cortina translúcida, vista pro mar",
+            "setting": "Quarto de casa de litoral, luz natural suave",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido da roupa de cama com textura de linho natural, vime da luminária com trama visível, cortina translúcida leve",
+            "lighting": "luz natural suave entrando pela janela, difusa, sem sombras duras"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "28mm",
+              "aperture": "f/4",
+              "depth_of_field": "moderada: ambiente interno nítido",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "fabric": "roupa de cama em linho texturizado, cortina translúcida leve",
+            "surfaces": "vime trançado da luminária com trama natural visível, madeira da mesa de cabeceira com veio"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, leve luminosidade natural",
+            "time": "dia, luz natural suave"
+          },
+          "composition": {
+            "perspective": "profundidade rasa, quarto ocupando o frame inteiro",
+            "framing": "split horizontal 52/48, corte reto sem arredondamento",
+            "subject_placement": "painel de texto ocupa os 52% superiores, largura total; foto ocupa os 48% inferiores, largura total",
+            "safe_area": "64px de padding mínimo nas laterais; dentro do painel, 44px de margem lateral pro texto",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "painel, topo esquerdo"
+              },
+              {
+                "text": "Estudo de caso",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "18px",
+                "color": "rgba(0,80,112,0.88)",
+                "position": "abaixo do logo"
+              },
+              {
+                "text": "Desafio. / Ação. / Resultado.",
+                "font": "sans-serif bold (Sora 700)",
+                "font_size": "52px",
+                "color": "#005070 nas 2 primeiras linhas, #A9782E na última, ambas sólidas e saturadas",
+                "position": "corpo do painel, 3 linhas empilhadas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de interior documental e real",
+              "luz natural suave e aconchegante",
+              "lista tipográfica de alto contraste",
+              "contraste dourado bem legível na última palavra",
+              "split horizontal limpo"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "logo gerado pela IA distorcido",
+              "qualquer serifada: esta variação é 100% sans",
+              "painel off-white com gradiente ou textura (deve ser sólido flush)",
+              "interior excessivamente posado ou de luxo ostentatório"
+            ],
+            "reference_standard": "fotografia editorial de interiores aconchegantes, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-04-fullbleed-card-flutuante-serifada": {
+      "nome": "Foto full-bleed de interior + card off-white flutuante central, 100% flat, com 1 palavra em serifada itálica",
+      "descricao": "Sala de jantar aconchegante, card off-white flutuante contido nos 4 lados do frame (sem sombra, sem contorno), com a frase 'Resultado sem contexto é apenas um número.' onde 'contexto' está em serifada itálica dourada (cor de contraste padrão do sistema pra palavra serifada). Abaixo, assinatura pequena 'Análise BNB Connect.'. Logo em versão escura sobre a própria foto (fora do card). ACHADO: esta peça usa o estilo Hospitalidade contemporânea (serifada), que não está entre os secundários oficiais da Linha 3 em 04.2.2 (só Impacto fotográfico está listado): ver nota_de_mapeamento_tipografico.",
+      "hierarquia": "Foto full-bleed de fundo > logo (versão escura) sobre a foto, topo esquerdo > card off-white flutuante centralizado, contido nos 4 lados > 'Resultado sem' em sans regular navy > 'contexto' em serifada itálica DOURADA (cor de contraste, como nos demais cards com serifada) > 'é apenas um número.' em sans regular navy > 'Análise BNB Connect.' em sans regular navy menor",
+      "cores": {
+        "fundo_card": "Off-white quente #F8F4EA, 100% flat: sem contorno/stroke, sem sombra projetada",
+        "texto_principal": "Petróleo BNB #005070, sólido",
+        "palavra_serifada": "Dourado fosco #A9782E, sólido: cor de contraste padrão pra palavra em serifada, igual aos demais cards com serifada do sistema (corrigido em 17 set 2026, estava sem contraste, só navy)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (card claro + 1 palavra em serifada assinatura): ver nota_de_mapeamento_tipografico no topo do arquivo",
+        "\"Resultado sem\"": "Manrope Regular 400, ~38px",
+        "\"contexto\"": "Newsreader Italic 400, ~40px, cor Dourado fosco #A9782E (não navy), mesma linha de base de 'sem'",
+        "\"é apenas / um número.\"": "Manrope Regular 400, ~38px, 2 linhas",
+        "\"Análise BNB Connect.\"": "Manrope Regular 400, ~20px, opacidade levemente reduzida"
+      },
+      "quando_usar": "Slide de virada/reflexão em carrosséis da Linha 3, antes de apresentar o dado real, reforçando que dado sem contexto não convence.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 16 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed de sala de jantar aconchegante de casa de temporada: mesa de madeira maciça com tigela de frutas, cadeiras de vime trançado, luminária pendente de vime grande, cortina translúcida ao fundo, planta em vaso de cerâmica, vista pro mar com pequena ilha através da porta/janela ao fundo, luz natural clara. No canto superior esquerdo da foto, área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 (não gerar). Centralizado no frame, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), ocupando cerca de 65% da largura e 32% da altura do frame. ATENÇÃO CRÍTICA: o card é um bloco completo e autônomo, com respiro/margem visível em relação às 4 bordas do frame (topo, base, esquerda e direita): ele NÃO encosta, NÃO é cortado e NÃO sangra por nenhuma borda do frame. Os 4 lados e os 4 cantos arredondados do card precisam estar inteiramente visíveis dentro da imagem. Estilo do card 100% flat, design plano: SEM nenhuma linha de contorno, stroke ou borda desenhada ao redor do card, e SEM nenhuma sombra projetada, drop shadow ou efeito de profundidade/elevação. O card é apenas um bloco de cor sólida off-white recortado com cantos arredondados sobre a foto: a separação visual vem inteiramente do contraste entre a cor sólida do card e a foto atrás. Dentro do card, texto alinhado à esquerda: 'Resultado sem' em sans-serif regular cor Petróleo BNB #005070 sólido, seguido na mesma linha por 'contexto' em serifada itálica cor Dourado fosco #A9782E sólido (única palavra serifada do card, e única palavra dourada: é a cor de contraste que marca o termo-chave, igual ao padrão usado nos demais cards do sistema com palavra serifada), seguido por 'é apenas' e 'um número.' de volta em sans-serif regular cor Petróleo BNB #005070, 2 linhas. Abaixo, com respiro visível, uma linha menor em sans-serif regular cor Petróleo BNB #005070 com opacidade levemente reduzida: 'Análise BNB Connect.'. Paleta dominante: tons neutros quentes (madeira, vime, bege) na foto de fundo, off-white quente no card, petróleo profundo no texto de apoio e dourado fosco na palavra de destaque.",
+            "subject": "Sala de jantar: mesa de madeira com tigela de frutas, cadeiras de vime, luminária pendente, vista pro mar",
+            "setting": "Sala de jantar de casa de temporada, luz natural clara",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira da mesa com veio natural, vime das cadeiras e da luminária com trama visível, card off-white 100% flat sem contorno/stroke e sem sombra projetada",
+            "lighting": "luz natural clara entrando pela janela, difusa, sem sombras duras"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "28mm",
+              "aperture": "f/4.5",
+              "depth_of_field": "moderada: ambiente interno nítido",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "madeira da mesa com veio e leve desgaste natural, vime trançado das cadeiras e da luminária com trama visível, card off-white 100% flat: sem contorno/stroke, sem sombra projetada, sem nenhum efeito de profundidade, apenas um bloco de cor sólida recortado com cantos arredondados lisos"
+          },
+          "environment": {
+            "atmosphere": "ar interno claro, leve luminosidade natural",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade rasa, sala ocupando o frame inteiro",
+            "framing": "full-bleed, card flutuante autocontido no centro do frame, sem tocar nenhuma borda",
+            "subject_placement": "ambiente ocupa o frame inteiro; card centralizado, com respiro/margem visível em relação às 4 bordas do frame: a foto de fundo aparece como moldura contínua ao redor do card inteiro, nos 4 lados",
+            "safe_area": "64px de padding mínimo entre o card e qualquer borda do frame, nos 4 lados; dentro do card, 32px de padding interno pro texto",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão escura #005070",
+                "position": "canto superior esquerdo da foto"
+              },
+              {
+                "text": "card off-white flutuante",
+                "type": "retângulo sólido #F8F4EA, 100% flat: sem contorno/stroke desenhado, sem sombra projetada, sem nenhum efeito de profundidade/elevação, completo e autocontido, cantos arredondados nos 4 cantos (raio ~24px)",
+                "position": "centro do frame, com margem visível dos 4 lados: não encosta, não é cortado, não sangra por nenhuma borda"
+              },
+              {
+                "text": "Resultado sem",
+                "font": "sans-serif regular (Manrope 400)",
+                "font_size": "38-40px",
+                "color": "#005070, sólido",
+                "position": "dentro do card, alinhado à esquerda, início da frase"
+              },
+              {
+                "text": "contexto",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "40px",
+                "color": "#A9782E, sólido: cor de contraste padrão pra palavra serifada",
+                "position": "mesma linha/fluxo de 'sem', única palavra serifada e única palavra dourada do card"
+              },
+              {
+                "text": "é apenas um número.",
+                "font": "sans-serif regular (Manrope 400)",
+                "font_size": "38-40px",
+                "color": "#005070, sólido",
+                "position": "continuação da frase, 2 linhas"
+              },
+              {
+                "text": "Análise BNB Connect.",
+                "font": "sans-serif regular (Manrope 400)",
+                "font_size": "20px",
+                "color": "rgba(0,80,112,0.85)",
+                "position": "abaixo da frase principal, com respiro visível"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de interior documental e real",
+              "luz natural clara e convidativa",
+              "card flutuante 100% flat, design plano, sem sombra e sem contorno",
+              "1 única palavra em serifada e dourada, bem integrada ao restante sans navy",
+              "contraste dourado bem legível sobre o off-white",
+              "cantos do card uniformemente arredondados"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "interior excessivamente posado ou de luxo ostentatório",
+              "logo gerado pela IA distorcido",
+              "qualquer linha de contorno, stroke ou borda desenhada ao redor do card",
+              "qualquer sombra projetada, drop shadow ou efeito de profundidade no card",
+              "card encostado, cortado ou sangrando por qualquer borda do frame",
+              "segunda serifada além de Newsreader Italic",
+              "'contexto' sem a cor dourada de contraste, monocromático igual ao resto do texto",
+              "texto acinzentado, opaco ou desbotado"
+            ],
+            "reference_standard": "fotografia editorial de interiores aconchegantes, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-05-split-navy-decisao-execucao-foto": {
+      "nome": "Split vertical: bloco navy com headline + subtítulo à esquerda, foto ao meio-dia à direita",
+      "descricao": "Metade esquerda em bloco sólido azul-marinho com a headline em 3 linhas (2 regulares + 1 em dourado bold), seguida por um subtítulo curto com respiro visível. Metade direita com foto de terraço/piscina com pergola parcial visível.",
+      "hierarquia": "Bloco navy à esquerda: logo (versão clara) no topo > 'Decisão,' em sans regular off-white > 'execução e' em sans regular off-white > 'performance.' em sans bold dourado > respiro > 'Cada resultado começa na operação.' em sans regular off-white menor | foto à direita, sem texto sobreposto",
+      "cores": {
+        "fundo_bloco": "Azul-marinho profundo #052F42",
+        "texto_headline": "Off-white quente #F8F4EA, sólido e saturado",
+        "palavra_destaque": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+        "subtitulo": "Off-white quente #F8F4EA, sólido e saturado, peso regular"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Autoridade estratégica (hierarquia só por peso e cor, sem serifada)",
+        "\"Decisão, / execução e\"": "Sora Regular 400, ~40px, 2 linhas",
+        "\"performance.\"": "Sora Bold 700, cor dourada, ~42px",
+        "subtitulo": "DM Sans Regular 400, ~22px, 2 linhas, com respiro visível acima separando da headline"
+      },
+      "quando_usar": "Slide de fechamento/síntese em carrosséis da Linha 3, resumindo a tese da linha (decisão + execução geram performance) antes do CTA.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 16 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido ao meio na vertical: metade esquerda em bloco sólido azul-marinho profundo #052F42, sem foto. No topo, área reservada vazia pro logo BNB Connect em versão clara off-white (não gerar). Abaixo, headline em 3 linhas: 'Decisão,' e 'execução e' em sans-serif regular cor off-white #F8F4EA, seguidas por 'performance.' em sans-serif bold cor dourado fosco #A9782E sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Com respiro visível abaixo, subtítulo em 2 linhas, sans-serif regular cor off-white: 'Cada resultado' / 'começa na operação.'. Metade direita ocupada por uma foto documental real de terraço com piscina: deck de pedra clara, espreguiçadeiras com almofadas, pergola de madeira parcialmente visível no topo do frame, vista pro mar com pequena ilha ao fundo, luz de meio-dia intensa e clara. Paleta dominante: azul-marinho profundo sólido no bloco esquerdo, off-white e dourado no texto, tons claros de pedra, mar azul vibrante e madeira na foto direita.",
+            "subject": "Terraço com piscina, deck de pedra clara, pergola de madeira parcial",
+            "setting": "Terraço de casa de litoral, meio-dia, vista pro mar com pequena ilha",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pedra do deck com textura clara e natural, água da piscina com reflexo do céu, madeira da pergola com veio visível",
+            "lighting": "luz de meio-dia intensa e clara, sombras curtas e definidas"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "35mm",
+              "aperture": "f/6.3",
+              "depth_of_field": "deep: ambiente inteiro nítido",
+              "angle": "eye level"
+            },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais vibrantes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "transparency": "água da piscina com reflexo realista do céu claro, sem transparência artificial",
+            "surfaces": "pedra clara do deck com textura natural, madeira da pergola com veio visível"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro claro e seco",
+            "time": "meio-dia, luz natural intensa"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: deck em primeiro plano, mar e ilha em planos sucessivos",
+            "framing": "split simétrico vertical 50/50",
+            "subject_placement": "bloco navy à esquerda; foto ocupa a metade direita inteira, do topo à base",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "área reservada vazia, não gerar: versão clara off-white",
+                "position": "bloco navy, topo"
+              },
+              {
+                "text": "Decisão, / execução e",
+                "font": "sans-serif regular (Sora 400)",
+                "font_size": "40px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "bloco navy, abaixo do logo"
+              },
+              {
+                "text": "performance.",
+                "font": "sans-serif bold (Sora 700)",
+                "font_size": "42px",
+                "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+                "position": "logo abaixo da linha anterior"
+              },
+              {
+                "text": "Cada resultado / começa na operação.",
+                "font": "sans-serif regular (DM Sans 400)",
+                "font_size": "22px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "com respiro visível abaixo da headline, 2 linhas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fotografia de imóvel documental e real",
+              "luz de meio-dia clara e vibrante",
+              "hierarquia clara por peso e cor",
+              "contraste dourado bem legível sobre navy",
+              "composição split limpa"
+            ],
+            "avoid": [
+              "fotografia de banco de imagem genérica",
+              "logo gerado pela IA distorcido",
+              "qualquer serifada: esta variação é 100% sans",
+              "subtítulo colado na headline sem respiro visível",
+              "bloco navy com gradiente ou textura (deve ser sólido flush)",
+              "texto acinzentado, opaco ou desbotado"
+            ],
+            "reference_standard": "fotografia editorial de arquitetura de litoral, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    }
+  }
+}

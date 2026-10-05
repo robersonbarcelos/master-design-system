@@ -22,6 +22,23 @@
       "margin_lateral": "44px",
       "margin_top": "32px",
       "layout": "horizontal — foto à esquerda, texto à direita",
+      "canonical_prompt_format": {
+        "note": "⚠️ USAR EXATAMENTE este formato ao gerar qualquer slide neste template — capa ou interno.",
+        "avatar": "vazio — adicionar foto de perfil manualmente no Canva",
+        "line_1": {
+          "content": "Diego Spanevello | Inteligência Artificial",
+          "font_size": "26px",
+          "font_weight": "semibold 600",
+          "font_color": "#1A1A1A"
+        },
+        "line_2": {
+          "content": "@diego.spanevello",
+          "font_size": "22px",
+          "font_weight": "regular 400",
+          "font_color": "#888888"
+        },
+        "why": "Sem ✓ no texto — o GPT reconhece o padrão Twitter/X pelo treinamento e renderiza o badge azul (#1D9BF0) automaticamente. Com ✓ no texto, o GPT renderiza como caractere literal e não gera o badge. Avatar 'vazio' gera placeholder cinza — substituir no Canva ou via Pillow composite no CLI."
+      },
       "elements": {
         "avatar": {
           "shape": "circle",
@@ -35,21 +52,24 @@
           "line_1": {
             "content": "Diego Spanevello | Inteligência Artificial",
             "font_size": "26px",
-            "font_style": "semibold sans-serif",
-            "font_color": "#1A1A1A"
+            "font_weight": "semibold 600",
+            "font_color": "#1A1A1A",
+            "lock": "⚠️ TRAVADO — nunca alterar font_size nem font_weight"
           },
           "line_2": {
             "content": "@diego.spanevello",
             "font_size": "22px",
-            "font_style": "regular sans-serif",
-            "font_color": "#888888"
+            "font_weight": "regular 400",
+            "font_color": "#888888",
+            "lock": "⚠️ TRAVADO — nunca alterar font_size nem font_weight"
           }
         },
         "verified_badge": {
           "type": "circle checkmark",
           "color": "#1D9BF0",
           "size": "20px",
-          "position": "inline after name"
+          "position": "inline after name",
+          "generation_note": "NÃO incluir ✓ no texto do line_1 — o GPT gera o badge azul automaticamente ao reconhecer o padrão Twitter/X. Incluir ✓ como texto quebra a renderização."
         }
       }
     },
@@ -109,9 +129,41 @@
     }
   },
   "text_rules": {
-    "max_font_sizes": 2,
-    "sizes_in_use": ["34px corpo — FIXO, nunca aumentar", "26px header nome — FIXO"],
-    "body_font_size_locked": "34px — NUNCA usar 38px, 40px, 44px ou qualquer outro valor. 34px é o único tamanho permitido para o corpo do texto, independente da quantidade de conteúdo no slide.",
+    "max_font_sizes": 3,
+    "typography_system": {
+      "hook_line": {
+        "role": "primeira linha do content — sempre a frase de abertura/gancho",
+        "font_size": "52px",
+        "font_weight": "900 (black)",
+        "font_color": "#1A1A1A",
+        "line_height": "1.1",
+        "note": "FIXO — nunca usar tamanho igual ao body. É a única linha grande do slide."
+      },
+      "body": {
+        "role": "todas as demais linhas do content",
+        "font_size": "28px",
+        "font_weight": "400 (regular)",
+        "font_color": "#1A1A1A",
+        "line_height": "1.4",
+        "bold_inline": {
+          "font_weight": "700",
+          "font_size": "28px — NUNCA aumentar, só peso muda",
+          "font_color": "#1A1A1A"
+        }
+      },
+      "header_name": {
+        "font_size": "26px",
+        "font_weight": "600 (semibold)",
+        "font_color": "#1A1A1A"
+      },
+      "header_handle": {
+        "font_size": "22px",
+        "font_weight": "400",
+        "font_color": "#888888"
+      }
+    },
+    "sizes_in_use": ["52px hook_line — FIXO", "28px body — FIXO", "26px header nome — FIXO"],
+    "body_font_size_locked": "28px — NUNCA usar 34px (valor antigo descartado), 38px, 40px ou qualquer outro. 28px é o único tamanho do corpo.",
     "header_font_size_locked": "26px semibold para nome, 22px regular para @handle — imutáveis",
     "avatar_size_locked": "64px circle — imutável",
     "bold_is_the_only_marking": true,
@@ -143,5 +195,39 @@
     "avatar sempre vazio para adicionar no Canva",
     "não juntar quebras de linha intencionais do copy"
   ],
+  "generation_pipeline": {
+    "tool": "gpt-image CLI",
+    "executable": "C:\\Users\\Pichau\\AppData\\Roaming\\Python\\Python314\\Scripts\\gpt-image.exe",
+    "env_file": "SKILLS/gpt-image2-skill/.env",
+    "generation_size": "1088x1360",
+    "final_size": "1080x1350",
+    "resize_method": "Pillow LANCZOS",
+    "steps": [
+      "1. gpt-image --size 1088x1360 --quality high → salva raw PNG",
+      "2. Pillow resize raw para 1080x1350 (LANCZOS)",
+      "3. Avatar composite: apagar área com rectangle branco (padding +30 embaixo), colar avatar circular",
+      "4. Scene composite: slot FIXO calculado do fundo, resize cena, border-radius 18px — OMITIR se texto longo"
+    ],
+    "avatar_canonical": {
+      "x": 66,
+      "y": 61,
+      "size": 120,
+      "clear_rect": "(AVT_X-10, AVT_Y-10, AVT_X+AVT_SIZE+10, AVT_Y+AVT_SIZE+30)",
+      "note": "Padding +30 embaixo — GPT gera placeholder ligeiramente maior que 120px; com +10 o arco inferior fica exposto"
+    },
+    "scene_slot": {
+      "method": "detect_slot() por largura mínima — busca linhas com ≥50% de pixels cinzas uniformes a partir de y=400. Ignora texto @handle (estreito) e encontra só o retângulo do placeholder.",
+      "prompt_placeholder": "Gerar COM placeholder cinza (#E0E0E0) rounded rectangle no prompt — necessário para detecção de posição real. A imagem cobre 100% do placeholder na composição.",
+      "why_not_fixed_y": "Coordenada y fixa (748) falha quando o texto ocupa mais espaço — o GPT posiciona o slot após o texto, e y=748 pode ficar dentro do bloco de texto. A detecção por largura captura a posição real.",
+      "code": "def detect_slot(img_rgb, min_width_ratio=0.5, search_from_y=400): busca linhas onde gray_mask[y].sum() >= int(w * min_width_ratio)",
+      "border_radius": 18,
+      "fallback": "se nenhuma linha larga for encontrada: x=44, w=992, h=558, y=1350-558-44=748"
+    },
+    "prompt_slot_rule": "INCLUIR placeholder cinza (#E0E0E0) no prompt — é necessário para detect_slot() encontrar a posição real. A imagem cobre completamente na composição.",
+    "slide_without_image_rule": "Se o texto preenche mais de ~60% da altura útil, omitir composite_scene(). Espaço branco abaixo é a solução correta — nunca forçar imagem.",
+    "recomposition_tip": "Para corrigir só o composite sem alterar texto, usar raw existente (*-raw.png) sem chamar GPT — economiza tempo e API.",
+    "script_template": "clients/intus-hub/runs/2026-08-18/gen_slide03_prompt_agente.py",
+    "note": "Pipeline calibrado e aprovado em 2026-08-18. Nunca usar portrait (1024x1536) — ratio errado."
+  },
   "when_to_use": "Conteúdo de nicho educacional, análise de mercado, breaking news cripto/IA, storytelling de dados. Quando o conteúdo é mais jornalístico e menos hype. Quando a imagem é complementar (screenshot, cena) e não hero visual."
 }

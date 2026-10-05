@@ -1,0 +1,364 @@
+{
+  "template": "lugares-que-inspiram-bnb",
+  "version": "1.0",
+  "status": "5 peças aprovadas pelo cliente em 17 set 2026 (moodboard real), extraídas e modeladas em JSON. Primeira extração da Linha 6 'Lugares que Inspiram': ainda não havia mapeamento tipográfico prévio documentado no painel 04.2.2 pra esta linha (só as 5 primeiras linhas estavam listadas), então o mapeamento abaixo foi extraído diretamente do moodboard real aprovado e serve como primeira referência oficial da linha.",
+  "description": "Template da Linha 6 'Lugares que Inspiram': linha de tom sensorial/aspiracional, focada em paisagem, ambientação e na sensação do lugar (não em prova operacional ou método). Estilo tipográfico dominante Hospitalidade contemporânea (blocos claros/navy + serifada dourada, presente em card-02, card-04, card-05). Card-01 usa o mecanismo de Impacto fotográfico (headline caps bold + 1 palavra serifada dourada). Card-03 usa o mecanismo de Editorial sensorial (peso leve/regular + serifada dourada como palavra-âncora no meio da frase, não no fechamento), primeira vez que a Linha 6 introduz uma pessoa genérica da equipe/hóspede em cena.",
+  "fonte_da_paleta": "painel Central BNB Connect, item 04.2.1 (Sistema Editorial e Direção Visual v1.1): Petróleo BNB #005070, Azul-marinho profundo #052F42, Off-white quente #F8F4EA, Dourado fosco #A9782E",
+  "fonte_da_tipografia": "painel Central BNB Connect, item 04.2.1 (matriz de 4 estilos); Linha 6 ainda não documentada em 04.2.2, mapeamento abaixo extraído do moodboard real aprovado em 17 set 2026",
+  "nota_de_pessoas_reais": "Card-03 introduz uma pessoa genérica (hóspede ou membro da equipe, ambíguo na referência) vista de costas, segurando uma caneca, nunca com o rosto em foco. Segue o mesmo padrão já validado na Linha 5: gerada do zero seguindo o Realistic Skin Standard, nunca deve se parecer com a Glauce ou qualquer pessoa real identificável, rosto nunca em close-up frontal.",
+  "nota_de_mapeamento_tipografico": "ACHADO 1: card-03 não tem logo na referência aprovada (diferente de todas as outras peças do sistema, que sempre reservam área pro logo): respeitado como está, sem forçar logo onde a referência não tem. ACHADO 2: card-03 usa o mecanismo de Editorial sensorial (Manrope Light/Regular + serifada dourada como palavra-âncora no MEIO da frase, não no fechamento como nos outros cards), variação do padrão usual de fechamento em serifada.",
+  "logo": {
+    "arquivo_oficial": "clients/bnb-connect/references/logo.jpg: ícone de casa em contorno + wordmark 'BNB' bold + 'CONNECT' tracked-out menor abaixo",
+    "regra": "NUNCA gerar o logo via IA no prompt de imagem: geradores distorcem o ícone da casa e a proporção do wordmark. A logo é sempre composta depois, manualmente (Canva/Pillow), usando o arquivo oficial. No prompt de geração, reservar o espaço vazio e citar apenas 'área reservada para logo, sem gerar' na ui_elements. Exceção: card-03 não leva logo, conforme referência aprovada.",
+    "versao_escura": "Petróleo BNB #005070, usada sobre fundo claro (off-white, foto clara)",
+    "versao_clara": "branco puro #FFFFFF ou off-white #F8F4EA, usada sobre fundo escuro (navy sólido, foto escura/área de sombra)",
+    "posicao_padrao": "topo direito na maioria das variações desta linha, ausente apenas no card-03"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+    "serifada": "Newsreader Italic é a única família serifada permitida",
+    "dourado": "Dourado fosco #A9782E é reservado para a palavra-chave/emocional de cada card, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante, nunca acinzentado nem opaco)",
+    "fotografia_de_imovel": "Toda peça sem pessoa segue a direção fotográfica de 04.2.1: luz natural, imóvel real ou visualmente plausível, tratamento documental/editorial, nunca plástico ou HDR artificial",
+    "pessoa_generica": "Peça com pessoa (card-03) segue o Realistic Skin Standard (pele com poros visíveis, sem retoque, sem acabamento plástico), rosto nunca em foco/close-up frontal, nunca deve se parecer com a Glauce ou qualquer pessoa real identificável",
+    "blocos_de_cor": "Cards com bloco de texto (card-02, card-04, card-05) usam bloco de tela cheia (split), colado nas 4 bordas do frame quando aplicável, sem cantos arredondados e sem comportamento de card flutuante: layout extraído fielmente da referência, não simplificado",
+    "ancora_tipografica_visual": "Sans-serif geométrica contemporânea em todo o sistema (Manrope): traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026. Descrita explicitamente na scene.description de cada card pra evitar que o gerador substitua por fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman), que quebraria a consistência visual entre templates."
+  },
+  "negative_rules_globais": [
+    "NUNCA gerar o logo BNB Connect via IA: sempre compor depois com o arquivo oficial",
+    "NUNCA adicionar logo no card-03: a referência aprovada não tem logo nesta peça",
+    "NUNCA usar outra serifada além de Newsreader Italic",
+    "NUNCA misturar Manrope e Sora no mesmo título",
+    "NUNCA usar travessão (—) em nenhum texto de nenhum card",
+    "NUNCA fotografia de imóvel ou de paisagem com luxo ostentatório ou HDR artificial: sempre luz natural e tratamento documental",
+    "NUNCA rosto de pessoa em close-up frontal ou como foco central: sempre de costas ou perfil não identificável",
+    "NUNCA gerar pele plástica, retocada ou de banco de imagem: sempre poros visíveis, imperfeições naturais, acabamento fosco",
+    "NUNCA transformar os blocos de cor split (card-02, card-04, card-05) em cards flutuantes com cantos arredondados e margem: devem ficar colados nas bordas do frame, como na referência",
+    "NUNCA texto acinzentado, opaco ou desbotado: cores petróleo e branco sempre sólidas e saturadas; dourado sempre sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)",
+    "NUNCA fonte de sistema genérica (Arial, Helvetica, Segoe UI, Times New Roman) no lugar de Manrope/Newsreader: sempre reforçar a âncora tipográfica geométrica contemporânea"
+  ],
+  "variacoes": {
+    "card-01-fullbleed-piscina-poente-headline-caps": {
+      "nome": "Foto full-bleed de piscina/varanda ao pôr do sol + headline caps sans + 1 palavra serifada dourada, sem card",
+      "descricao": "Foto full-bleed de piscina de borda infinita numa varanda coberta ao pôr do sol, com vista pro mar e ilhas, texto sobreposto no terço superior-esquerdo: 'LUGARES QUE' em sans regular navy caps + 'INSPIRAM' em sans extra bold navy caps, seguido por 'Onde a paisagem muda o' em sans regular navy + 'ritmo.' em serifada itálica dourada.",
+      "hierarquia": "Foto full-bleed de fundo > 'LUGARES QUE' em sans regular navy caps > 'INSPIRAM' em sans extra bold navy caps > 'Onde a paisagem' / 'muda o' em sans regular navy > 'ritmo.' em serifada itálica dourada",
+      "cores": {
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Impacto fotográfico (sans pesada + 1 palavra serifada dourada)",
+        "\"LUGARES QUE\"": "Manrope Regular 400, caixa alta, ~30px",
+        "\"INSPIRAM\"": "Manrope ExtraBold 800, caixa alta, ~52px",
+        "\"Onde a paisagem / muda o\"": "Manrope Regular 400, ~26px, 2 linhas",
+        "\"ritmo.\"": "Newsreader Italic 400, cor dourada, ~30px"
+      },
+      "quando_usar": "Slide de abertura/capa em carrosséis da Linha 6, apresentando o tema da paisagem e do lugar como fonte de inspiração.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed documental real de golden hour: piscina de borda infinita numa varanda coberta de madeira, ilhas e montanhas costeiras ao fundo sob um sol poente baixo no horizonte, luz quente alaranjada refletindo na água do mar e da piscina, espreguiçadeiras de madeira com tecido neutro em primeiro plano, vegetação tropical emoldurando as bordas do frame, estrutura de telhado de madeira visível no canto superior direito. Área reservada vazia pro logo BNB Connect em versão clara branca no canto superior direito (não gerar). Sobreposto no terço superior-esquerdo do frame: 'LUGARES QUE' em caixa alta sans-serif regular cor Petróleo BNB #005070 sólida e saturada, seguido por 'INSPIRAM' em caixa alta sans-serif extra bold, mesma cor petróleo, tamanho bem maior, 2 linhas no total. Abaixo, menor: 'Onde a paisagem' e 'muda o' em sans-serif regular petróleo, seguido por 'ritmo.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Paleta dominante: tons quentes de golden hour (laranja, dourado, rosa) no céu e no mar, madeira natural em primeiro plano, petróleo e dourado no texto.",
+            "subject": "Piscina de borda infinita numa varanda coberta, vista pro mar e ilhas ao pôr do sol, sem pessoas",
+            "setting": "Casa de litoral/montanha, varanda com piscina, golden hour",
+            "action": "Estático, ambiente vazio"
+          },
+          "style": {
+            "primary": "editorial documentary photography, real estate + travel lifestyle",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "madeira da varanda e das espreguiçadeiras com veio natural e leve desgaste, água da piscina com reflexo dourado sutil, folhagem tropical com textura real",
+            "lighting": "golden hour, luz quente baixa e rasante vindo do horizonte, reflexos alaranjados na água"
+          },
+          "technical": {
+            "camera": { "focal_length": "24mm", "aperture": "f/8", "depth_of_field": "deep: paisagem inteira nítida, do primeiro plano ao horizonte", "angle": "eye level, levemente elevado" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores quentes saturadas de golden hour, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "madeira da varanda e das espreguiçadeiras com veio natural e leve desgaste, água da piscina com reflexo dourado, folhagem tropical com textura real"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, leve névoa distante sobre o mar, brilho difuso do sol poente",
+            "time": "fim de tarde, golden hour, luz quente baixa"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: espreguiçadeiras em primeiro plano, piscina no meio, mar e ilhas ao fundo",
+            "framing": "full-bleed, texto sobreposto direto sobre a foto, sem card ou bloco de cor",
+            "subject_placement": "piscina e paisagem ocupam o frame inteiro; texto alinhado à esquerda no terço superior",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior direito" },
+              { "text": "LUGARES QUE", "font": "sans-serif regular caixa alta (Manrope 400)", "font_size": "30px", "color": "#005070, sólido e saturado", "position": "terço superior-esquerdo, alinhado à esquerda" },
+              { "text": "INSPIRAM", "font": "sans-serif extra bold caixa alta (Manrope 800)", "font_size": "52px", "color": "#005070, sólido e saturado", "position": "logo abaixo da linha anterior" },
+              { "text": "Onde a paisagem / muda o", "font": "sans-serif regular (Manrope 400)", "font_size": "26px", "color": "#005070, sólido e saturado", "position": "abaixo da headline, 2 linhas" },
+              { "text": "ritmo.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "30px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo após 'muda o', fechando a frase" }
+            ]
+          },
+          "quality": {
+            "include": ["golden hour convincente e quente", "profundidade de campo total nítida, do primeiro plano ao horizonte", "contraste dourado bem legível sobre céu claro", "composição full-bleed limpa", "reflexos de água realistas"],
+            "avoid": ["plastic water reflections, HDR artificial, oversaturated sky", "texto ilegível ou lavado sobre área clara do céu", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "texto acinzentado, opaco ou desbotado", "pôr do sol genérico de banco de imagem"],
+            "reference_standard": "fotografia editorial de viagem e arquitetura, estilo Cereal Magazine / Kinfolk, golden hour"
+          }
+        }
+      }
+    },
+    "card-02-split-foto-bloco-offwhite-serifada": {
+      "nome": "Split foto (varanda/sala integrada ao jardim) + bloco off-white com headline sans + serifada dourada",
+      "descricao": "Foto documental de sala/varanda coberta integrada ao jardim no topo (~60%), bloco off-white sólido na base (~40%) com a headline: 'Casas que transformam' em sans (peso misto) navy, seguido por 'a estadia em' em sans regular navy e 'experiência.' em serifada itálica dourada.",
+      "hierarquia": "Foto da sala/varanda no topo, logo (versão escura) sobre a foto > bloco off-white na base > 'Casas que' em sans regular navy > 'transformam' em sans bold navy > 'a estadia em' em sans regular navy > 'experiência.' em serifada itálica dourada",
+      "cores": {
+        "fundo_bloco_texto": "Off-white quente #F8F4EA",
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (bloco claro + serifada), em split de tela cheia (não card flutuante)",
+        "\"Casas que\"": "Manrope Regular 400, ~30px",
+        "\"transformam\"": "Manrope Bold 700, ~42px",
+        "\"a estadia em\"": "Manrope Regular 400, ~26px",
+        "\"experiência.\"": "Newsreader Italic 400, cor dourada, ~30px"
+      },
+      "quando_usar": "Slide de desenvolvimento/prova em carrosséis da Linha 6, mostrando o ambiente real como parte da experiência de estadia.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido horizontalmente: ~60% superior é uma foto documental real de uma sala de estar/varanda coberta integrada ao jardim, parede de pedra rústica à esquerda, teto de madeira com vigas aparentes, sofá branco com almofadas em tons neutros, mesa de jantar de madeira ao fundo com cadeiras trançadas, plantas tropicais em vasos emoldurando a cena, portas de vidro amplas abertas pro jardim verde exuberante, luz natural difusa de dia. Área reservada vazia pro logo BNB Connect em versão escura Petróleo BNB #005070 no canto superior direito da foto (não gerar). ~40% inferior é um bloco sólido off-white quente #F8F4EA, sem foto, ocupando a largura total até as bordas do frame (colado nas bordas, sem cantos arredondados), com texto alinhado à esquerda: 'Casas que' em sans-serif regular petróleo, seguido por 'transformam' em sans-serif bold, maior, mesma cor petróleo, seguido por 'a estadia em' em sans-serif regular petróleo, menor, seguido por 'experiência.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Paleta dominante: tons naturais de pedra, madeira e verde na foto superior, off-white quente no bloco inferior, petróleo e dourado no texto.",
+            "subject": "Sala de estar/varanda coberta integrada ao jardim, sofá branco, mesa de jantar, plantas tropicais",
+            "setting": "Casa de litoral/montanha, área social integrada ao jardim, luz natural de dia",
+            "action": "Estático, ambiente vazio, sem pessoas"
+          },
+          "style": {
+            "primary": "editorial documentary photography, real estate + interior lifestyle",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pedra rústica da parede com textura real, madeira do teto e das vigas com veio natural, tecido do sofá com textura de linho, folhagem tropical com textura real",
+            "lighting": "luz natural difusa de dia, suave, sem sombras duras"
+          },
+          "technical": {
+            "camera": { "focal_length": "24mm", "aperture": "f/6.3", "depth_of_field": "deep: ambiente inteiro nítido", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "pedra rústica com textura real, madeira do teto e das vigas com veio e leve desgaste natural, tecido do sofá com textura de linho, plantas com folhagem realista"
+          },
+          "environment": {
+            "atmosphere": "ar interno-externo claro, sem névoa",
+            "time": "dia, luz natural difusa"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: sofá em primeiro plano, mesa de jantar no meio, jardim ao fundo",
+            "framing": "split horizontal ~60/40, corte reto sem arredondamento, bloco off-white ocupando a largura total até as bordas do frame",
+            "subject_placement": "foto ocupa ~60% superior; bloco de texto ocupa ~40% inferior, largura total, colado nas bordas esquerda/direita/base",
+            "safe_area": "64px de padding mínimo nas laterais; dentro do bloco off-white, 44px de margem lateral pro texto",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão escura #005070", "position": "topo direito da foto" },
+              { "text": "Casas que", "font": "sans-serif regular (Manrope 400)", "font_size": "30px", "color": "#005070, sólido e saturado", "position": "bloco off-white, alinhado à esquerda" },
+              { "text": "transformam", "font": "sans-serif bold (Manrope 700)", "font_size": "42px", "color": "#005070, sólido e saturado", "position": "logo abaixo da linha anterior" },
+              { "text": "a estadia em", "font": "sans-serif regular (Manrope 400)", "font_size": "26px", "color": "#005070, sólido e saturado", "position": "logo abaixo da linha anterior" },
+              { "text": "experiência.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "30px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo após 'a estadia em', fechando a frase" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental de arquitetura e interior real e autêntica", "transição limpa entre foto e bloco de cor", "bloco de cor sólido e geométrico, colado nas bordas", "mistura de sans regular/bold e serifada itálica dourada bem equilibrada"],
+            "avoid": ["plastic rendering, HDR artificial", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "bloco off-white com cantos arredondados, sombra ou margem (deve ser bloco de tela cheia colado nas bordas, não card flutuante)", "texto acinzentado, opaco ou desbotado", "pessoas em cena (peça sem pessoas)"],
+            "reference_standard": "fotografia editorial de arquitetura e interiores, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-03-fullbleed-mulher-costas-refugio": {
+      "nome": "Foto full-bleed (mulher genérica de costas com caneca, vista pro mar) + headline sans leve + palavra serifada dourada no meio da frase, sem logo",
+      "descricao": "Foto full-bleed de uma mulher genérica vista de costas, sentada numa varanda/deck com vista pro mar, segurando uma caneca, envolta num roupão neutro, texto sobreposto no terço superior-esquerdo: 'E se o seu' / 'próximo' em sans regular/leve navy, 'refúgio' em serifada itálica dourada (palavra-âncora, isolada, tamanho maior), seguido por 'fosse assim?' em sans regular/leve navy menor. Peça sem logo, conforme referência aprovada.",
+      "hierarquia": "Foto full-bleed de fundo, sem logo > 'E se o seu' / 'próximo' em sans regular navy > 'refúgio' em serifada itálica dourada, isolada > 'fosse assim?' em sans regular navy",
+      "cores": {
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Editorial sensorial (Manrope Light/Regular + Newsreader Italic), com a serifada dourada funcionando como palavra-âncora NO MEIO da frase, não no fechamento como nos outros cards da linha, achado registrado",
+        "\"E se o seu / próximo\"": "Manrope Light 300, ~28px, 2 linhas",
+        "\"refúgio\"": "Newsreader Italic 400, cor dourada, ~54px, isolada numa linha",
+        "\"fosse assim?\"": "Manrope Light 300, ~28px"
+      },
+      "quando_usar": "Slide de conexão emocional em carrosséis da Linha 6, convidando o hóspede a se imaginar no lugar.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), foto full-bleed documental real mostrando uma mulher genérica vista de costas, sentada numa cadeira de madeira numa varanda/deck ao ar livre, envolta num roupão/manta neutra de tecido cru, segurando uma caneca de cerâmica com as duas mãos, cabelo longo solto castanho caindo sobre as costas, rosto completamente fora de quadro, olhando em direção ao mar e ilhas ao fundo sob luz de dia suave, estrutura de madeira e vegetação emoldurando a cena. SEM logo BNB Connect nesta peça (não reservar espaço, não gerar). Sobreposto no terço superior-esquerdo do frame: 'E se o seu' e 'próximo' em sans-serif light cor Petróleo BNB #005070 sólida e saturada, 2 linhas, seguido por 'refúgio' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante), isolada numa linha própria, tamanho bem maior que o restante do texto, seguido por 'fosse assim?' em sans-serif light petróleo, tamanho igual à primeira linha, última linha. Paleta dominante: tons naturais de mar e céu ao fundo, tecido cru do roupão, madeira da cadeira, petróleo e dourado no texto.",
+            "subject": "Mulher genérica vista de costas, sentada numa cadeira, roupão neutro, segurando caneca de cerâmica com as duas mãos, olhando pro mar, rosto fora de quadro",
+            "setting": "Deck/varanda de casa de litoral, vista pro mar e ilhas, luz de dia suave",
+            "action": "Sentada, estática, segurando a caneca, olhar direcionado pro horizonte"
+          },
+          "style": {
+            "primary": "editorial documentary photography, lifestyle sensorial",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "tecido cru do roupão com textura natural de linho/algodão grosso e leve amassado realista, madeira da cadeira com veio natural, cerâmica da caneca com acabamento fosco, cabelo com fios individuais visíveis",
+            "lighting": "luz de dia suave e difusa, levemente lateral, sem sombras duras"
+          },
+          "technical": {
+            "camera": { "focal_length": "50mm", "aperture": "f/2.8", "depth_of_field": "shallow: pessoa em foco nítido, mar ao fundo levemente suave", "angle": "eye level, levemente de trás" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais suaves, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "skin": "pele das mãos visíveis (segurando a caneca) e da nuca/pescoço com textura natural, poros visíveis, sem retoque, tom quente, acabamento fosco, zero pós-processamento de retoque de beleza; pessoa genérica, nunca deve se parecer com a Glauce ou qualquer pessoa real identificável",
+            "fabric": "roupão/manta de tecido cru com textura natural de linho ou algodão grosso, leve amassado realista",
+            "surfaces": "madeira da cadeira com veio natural, cerâmica da caneca com acabamento fosco"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, brisa leve sugerida pelo cabelo",
+            "time": "dia, luz suave e difusa"
+          },
+          "composition": {
+            "perspective": "profundidade rasa, pessoa em primeiro plano, mar ao fundo",
+            "framing": "full-bleed, texto sobreposto direto sobre a foto, sem card ou bloco de cor, sem logo",
+            "subject_placement": "pessoa ocupa o primeiro plano à direita/centro; texto alinhado à esquerda no terço superior",
+            "safe_area": "64px de padding mínimo em todas as bordas: zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              { "text": "E se o seu / próximo", "font": "sans-serif light (Manrope 300)", "font_size": "28px", "color": "#005070, sólido e saturado", "position": "terço superior-esquerdo, alinhado à esquerda, 2 linhas" },
+              { "text": "refúgio", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "54px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "isolada numa linha própria, logo abaixo de 'próximo'" },
+              { "text": "fosse assim?", "font": "sans-serif light (Manrope 300)", "font_size": "28px", "color": "#005070, sólido e saturado", "position": "última linha, logo abaixo de 'refúgio'" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental sensorial real e autêntica", "pele com textura natural convincente nas mãos", "contraste dourado bem legível", "composição full-bleed limpa e contemplativa"],
+            "avoid": ["plastic skin, airbrushed skin, poreless skin, CGI smoothness, wax texture, cosmetic sheen, specular hotspot, beauty retouch, frequency separation", "rosto da pessoa visível, mesmo parcialmente", "logo BNB Connect em qualquer versão (peça sem logo)", "segunda serifada além de Newsreader Italic", "texto acinzentado, opaco ou desbotado", "pessoa se parecendo com a Glauce ou qualquer pessoa real identificável"],
+            "reference_standard": "fotografia editorial sensorial de viagem, estilo Cereal Magazine / Kinfolk"
+          }
+        }
+      }
+    },
+    "card-04-triplo-foto-bloco-offwhite-foto": {
+      "nome": "Split em 3 blocos: foto de cama no topo + bloco off-white com headline no meio + foto de mesa com vaso na base",
+      "descricao": "Frame dividido em 3 blocos horizontais: foto de cama com lençóis brancos e caneca de café no topo (~55%), bloco off-white no meio (~20%) com a headline ('A inspiração mora nos detalhes.'), foto de mesinha com vaso de flores secas e rede ao fundo na base (~25%).",
+      "hierarquia": "Foto da cama no topo, logo (versão clara) sobre a foto > bloco off-white no meio: 'A inspiração' / 'mora nos' em sans regular navy > 'detalhes.' em serifada itálica dourada > foto da mesinha com vaso na base, sem texto",
+      "cores": {
+        "fundo_bloco_texto": "Off-white quente #F8F4EA",
+        "texto_principal": "Petróleo BNB #005070, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea (bloco claro + serifada), aqui num bloco fixo entre 2 fotos, mesmo padrão do card-05 do POR-DENTRO-DA-GESTAO-BNB",
+        "\"A inspiração / mora nos\"": "Manrope Regular 400, ~30px, 2 linhas",
+        "\"detalhes.\"": "Newsreader Italic 400, cor dourada, ~34px"
+      },
+      "quando_usar": "Slide de detalhe/textura em carrosséis da Linha 6, mostrando que a inspiração está nos pequenos detalhes do lugar.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido em 3 blocos horizontais empilhados sem espaço entre eles. Bloco superior (~55% da altura): foto documental real de uma cama desarrumada com lençóis brancos naturais e um travesseiro de linho, uma caneca de cerâmica de café pousada sobre a cama, cabeceira de madeira/vime parcialmente visível, luz natural suave entrando por uma janela ao fundo com vegetação desfocada visível através dela. Área reservada vazia pro logo BNB Connect em versão clara branca no canto superior direito da foto (não gerar). Bloco do meio (~20% da altura): bloco sólido off-white quente #F8F4EA, sem foto, ocupando a largura total até as bordas do frame (colado nas bordas, sem cantos arredondados), com texto alinhado à esquerda: 'A inspiração' e 'mora nos' em sans-serif regular cor Petróleo BNB #005070 sólida e saturada, 2 linhas, seguido por 'detalhes.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante). Bloco inferior (~25% da altura): foto documental real de uma mesinha de madeira rústica com um vaso de cerâmica contendo um arranjo seco de capim-dos-pampas, uma rede/hammock desfocada ao fundo, vegetação tropical, luz natural quente. Paleta dominante: tons neutros de linho e madeira nos blocos superior e inferior, off-white quente no bloco do meio, petróleo e dourado no texto.",
+            "subject": "Bloco 1: cama com lençóis brancos e caneca de café. Bloco 3: mesinha de madeira com vaso de flores secas e rede ao fundo",
+            "setting": "Quarto de casa de litoral/montanha (bloco 1) e canto de varanda/jardim (bloco 3)",
+            "action": "Estático em ambos os blocos, ambiente vazio, sem pessoas"
+          },
+          "style": {
+            "primary": "editorial documentary photography, interior + still life lifestyle",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "lençóis e travesseiro de linho com textura de tecido real, cerâmica da caneca e do vaso com acabamento fosco, madeira da cabeceira e da mesinha com veio visível, capim-dos-pampas com textura seca real",
+            "lighting": "luz natural suave e difusa em ambos os blocos fotográficos, consistente entre eles"
+          },
+          "technical": {
+            "camera": { "focal_length": "35mm", "aperture": "f/3.5", "depth_of_field": "moderada: objeto principal de cada bloco nítido, fundo levemente suave", "angle": "três-quartos, levemente de cima" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre as fotos"
+          },
+          "materials": {
+            "fabric": "lençóis e travesseiro de linho natural com textura de tecido real e leve amassado",
+            "surfaces": "cerâmica da caneca e do vaso com acabamento fosco, madeira da cabeceira e da mesinha com veio e leve desgaste natural, capim-dos-pampas com textura seca real"
+          },
+          "environment": {
+            "atmosphere": "ar interno-externo claro, sem névoa",
+            "time": "dia, luz natural suave"
+          },
+          "composition": {
+            "perspective": "vista três-quartos, levemente de cima em ambos os blocos fotográficos",
+            "framing": "3 blocos horizontais empilhados sem espaço entre eles, corte reto sem arredondamento entre blocos",
+            "subject_placement": "bloco 1 (foto) ocupa os 55% superiores; bloco 2 (texto) ocupa os 20% do meio; bloco 3 (foto) ocupa os 25% inferiores",
+            "safe_area": "64px de padding mínimo nas laterais em todos os blocos; dentro do bloco off-white, 44px de margem lateral pro texto",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior direito do bloco 1 (foto do topo)" },
+              { "text": "A inspiração / mora nos", "font": "sans-serif regular (Manrope 400)", "font_size": "30px", "color": "#005070, sólido e saturado", "position": "bloco 2, alinhado à esquerda, 2 linhas" },
+              { "text": "detalhes.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "34px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo abaixo da linha anterior" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental de still life real e autêntica em ambos os blocos", "transição limpa entre os 3 blocos", "texturas naturais de linho, madeira e cerâmica convincentes", "composição tripla equilibrada"],
+            "avoid": ["plastic rendering, HDR artificial", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "espaço ou gradiente entre os 3 blocos (devem estar colados)", "texto acinzentado, opaco ou desbotado", "pessoas em cena (peça sem pessoas)", "tela ou objeto com texto legível inventado"],
+            "reference_standard": "fotografia editorial de still life e interiores, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    },
+    "card-05-split-foto-bloco-navy-serifada": {
+      "nome": "Split foto (varanda/piscina) + bloco navy com fechamento em sans + serifada dourada",
+      "descricao": "Foto de varanda coberta com piscina de borda infinita no topo (~65%), bloco sólido azul-marinho na base (~35%) com o texto: 'Não é apenas onde você fica.' menor em branco, seguido por 'É como o lugar faz você' em sans bold branco maior e 'se sentir.' em serifada itálica dourada.",
+      "hierarquia": "Foto da varanda/piscina no topo, logo (versão clara) sobre a foto > bloco navy na base > 'Não é apenas onde você fica.' em sans regular branco, menor > 'É como o lugar' / 'faz você' em sans bold branco, maior > 'se sentir.' em serifada itálica dourada",
+      "cores": {
+        "fundo_bloco": "Azul-marinho profundo #052F42",
+        "texto_principal": "branco/off-white #F8F4EA, sólido e saturado",
+        "texto_serifada": "Dourado fosco #A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)"
+      },
+      "tipografia": {
+        "estilo_da_matriz": "Hospitalidade contemporânea aplicada em bloco navy (sans + 1 frase serifada), mesmo padrão híbrido já validado em outras linhas",
+        "\"Não é apenas onde você fica.\"": "Manrope Regular 400, ~22px",
+        "\"É como o lugar / faz você\"": "Manrope Bold 700, ~34px, 2 linhas",
+        "\"se sentir.\"": "Newsreader Italic 400, cor dourada, ~34px"
+      },
+      "quando_usar": "Slide de fechamento/síntese em carrosséis da Linha 6, encerrando com a ideia central de que o lugar transforma a sensação da estadia.",
+      "aprovado": true,
+      "aprovado_em": "moodboard aprovado pelo cliente, extraído em 17 set 2026",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Retrato vertical 4:5 (âncora tipográfica obrigatória pra consistência entre todos os templates BNB Connect: sans-serif geométrica contemporânea, traços limpos e uniformes, cantos com leve arredondamento nas curvas, altura-x moderada a alta, caráter editorial tipo revista de design/arquitetura 2025-2026, NUNCA fonte de sistema genérica tipo Arial, Helvetica, Segoe UI ou Times New Roman, NUNCA condensada), frame dividido horizontalmente: ~65% superior é uma foto documental real de uma varanda coberta com piscina de borda infinita, colunas de pedra rústica, teto de madeira com vigas aparentes, palmeiras e vegetação tropical emoldurando a vista, mar e ilhas ao fundo sob luz de dia clara. Área reservada vazia pro logo BNB Connect em versão clara branca no canto superior direito da foto (não gerar). ~35% inferior é um bloco sólido azul-marinho profundo #052F42, sem foto, ocupando a largura total até as bordas do frame (colado nas bordas, sem cantos arredondados), com texto alinhado à esquerda: 'Não é apenas onde você fica.' em sans-serif regular branco #F8F4EA, tamanho menor, 1 linha, seguido por 'É como o lugar' e 'faz você' em sans-serif bold branco #F8F4EA, tamanho maior, 2 linhas, seguido por 'se sentir.' em serifada itálica cor dourado fosco #A9782E sólida, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante), completando a última linha. Paleta dominante: tons naturais de mar e vegetação na foto superior, azul-marinho profundo sólido no bloco inferior, branco e dourado no texto.",
+            "subject": "Varanda coberta com piscina de borda infinita, vista pro mar e ilhas",
+            "setting": "Casa de litoral/montanha, varanda com piscina, luz de dia clara",
+            "action": "Estático, ambiente vazio, sem pessoas"
+          },
+          "style": {
+            "primary": "editorial documentary photography, real estate + travel lifestyle",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "pedra rústica das colunas com textura real, madeira do teto e das vigas com veio natural, água da piscina com reflexo sutil, folhagem de palmeiras com textura real",
+            "lighting": "luz de dia clara, difusa, sem sombras duras"
+          },
+          "technical": {
+            "camera": { "focal_length": "24mm", "aperture": "f/7.1", "depth_of_field": "deep: ambiente e paisagem inteiros nítidos", "angle": "eye level" },
+            "resolution": "ultra high definition",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto"
+          },
+          "materials": {
+            "surfaces": "pedra rústica das colunas com textura real, madeira do teto e das vigas com veio e leve desgaste natural, água da piscina com reflexo sutil, folhagem de palmeiras com textura real"
+          },
+          "environment": {
+            "atmosphere": "ar costeiro limpo, leve brilho difuso do sol",
+            "time": "dia, luz natural clara"
+          },
+          "composition": {
+            "perspective": "profundidade em camadas: colunas e piscina em primeiro plano, mar e ilhas ao fundo",
+            "framing": "split horizontal ~65/35, corte reto sem arredondamento, bloco navy ocupando a largura total até as bordas do frame",
+            "subject_placement": "foto ocupa ~65% superior; bloco de texto ocupa ~35% inferior, largura total, colado nas bordas esquerda/direita/base",
+            "safe_area": "64px de padding mínimo nas laterais; dentro do bloco navy, 44px de margem lateral pro texto",
+            "ui_elements": [
+              { "text": "logo BNB Connect", "type": "área reservada vazia, não gerar: versão clara branca", "position": "canto superior direito da foto" },
+              { "text": "Não é apenas onde você fica.", "font": "sans-serif regular (Manrope 400)", "font_size": "22px", "color": "#F8F4EA, sólido e saturado", "position": "bloco navy, alinhado à esquerda, 1 linha, acima da headline" },
+              { "text": "É como o lugar / faz você", "font": "sans-serif bold (Manrope 700)", "font_size": "34px", "color": "#F8F4EA, sólido e saturado", "position": "logo abaixo da linha anterior, 2 linhas" },
+              { "text": "se sentir.", "font": "serifada itálica (Newsreader Italic 400)", "font_size": "34px", "color": "#A9782E, sólido, tom terroso/mate (nunca alaranjado vibrante nem dourado metálico brilhante)", "position": "logo após 'faz você', fechando a frase" }
+            ]
+          },
+          "quality": {
+            "include": ["fotografia documental de arquitetura e paisagem real e autêntica", "transição limpa entre foto e bloco de cor", "bloco de cor sólido e geométrico, colado nas bordas", "mistura de sans regular/bold branco e serifada itálica dourada bem equilibrada"],
+            "avoid": ["plastic rendering, HDR artificial", "logo gerado pela IA distorcido", "segunda serifada além de Newsreader Italic", "bloco navy com cantos arredondados, sombra ou margem (deve ser bloco de tela cheia colado nas bordas, não card flutuante)", "texto acinzentado, opaco ou desbotado", "pessoas em cena (peça sem pessoas)"],
+            "reference_standard": "fotografia editorial de arquitetura e viagem, estilo revista de hospitalidade e design 2025-2026"
+          }
+        }
+      }
+    }
+  }
+}

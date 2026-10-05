@@ -1440,3 +1440,46 @@ O primeiro agente que voce cria no curso e de uso geral (que e mostrado na prati
 Mas o metodo e o mesmo para qualquer area: voce define a identidade, as regras, a memoria e o contexto do seu negocio.
 
 O curso nao te entrega um agente pronto. Te ensina a construir o que faz sentido para voce. Com memoria e contexto do que vc precisa.
+
+---
+
+### Correcao de valor: assinatura basica OpenAI
+
+O valor correto da assinatura basica da OpenAI e ~$100/mes (nao R$50).
+Ao falar de custo para leads, usar: 'A assinatura basica da OpenAI e ~$100/mes.'
+Nao usar ~R$50/mes -- valor incorreto.
+
+---
+
+### Atendimento real de lead (perguntas tecnicas + perfil ocupado)
+
+**Perfil do lead:** professor, trabalha em 2 escolas, 12h/dia, ja criou agente no Hermes mas nao sabe estruturar direito. Quer agente para: musicas com IA (SomVibe), criacao de sites/apps, canal YouTube, monetizacao.
+
+**Perguntas do lead:**
+1. Qual plataforma irei utilizar?
+2. Que tipos de routers poderei usar?
+3. Irei aprender a integrar MCPs e Skills?
+4. Tem como eu rodar na minha VPS (KVN)?
+5. Tem como ter desconto para comprar com acesso vitalicio?
+
+**Respostas aprovadas pelo Diego (tom real de atendimento):**
+
+Criar agentes e facil -- o esquema e estrutura-los de verdade.
+
+O curso e 6x de R$16,50 e conta com um grupo no WhatsApp com suporte agetico.
+
+Ensino 2 maneiras com OpenClaw e vou atualizar/adicionar para Hermes. Quem entrar agora vai ter beneficio de ter os dois.
+
+A gente ja integra skills ali.
+
+Nao recomendo usar LLMs aleatorias -- isso piora o desempenho e a memoria do agente.
+
+Sobre VPS: temos script de blindagem que ensino usando a Hostinger. Se voce ja tem uma da pra usar -- nao sei se funciona direto mas nada que uma adaptacao nao resolva.
+
+**Aprendizados para atendimento:**
+- Produto suporta Hermes alem do OpenClaw -- quem entra agora recebe os dois
+- Skills e MCPs sao ensinados no curso
+- LLMs aleatorias NAO sao recomendadas -- prejudicam desempenho e memoria
+- VPS do aluno pode funcionar -- Hostinger e a referencia do curso, adaptacao resolve outros provedores
+- Nao existe acesso vitalicio -- produto nao tem essa promessa (nunca mencionar)
+- Tom de resposta: direto, leve, sem formalidade excessiva

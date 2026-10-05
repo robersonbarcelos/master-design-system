@@ -1,0 +1,752 @@
+{
+  "template": "carrossel-bold-highlight-twitter-style",
+  "version": "1.0",
+  "description": "Sistema de carrossel Twitter/X-post style com headline condensada extra-bold, highlight sólido lime em palavra-chave, rabiscos/setas/círculos à mão e alternância de fundo preto/bege por peso de conteúdo. Paleta e tipografia do CORPO reproduzidas 1:1 da referência 'Gabriel Moraes | Nutri Online'. O HEADER segue a estrutura e os dados exatos do TEMPLATE-SLIDE-TWITTER-POST: avatar 64px vazio + nome 'Diego Spanevello | Inteligência Artificial' + handle '@diego.spanevello'. Diferente do TEMPLATE-SLIDE-TWITTER-POST no corpo (texto gráfico com highlight/marcação manual, não editorial corrido neutro) mas idêntico a ele no header.",
+  "format": {
+    "aspect_ratio": "4:5",
+    "resolution": "1080x1350px",
+    "format_preset": "Instagram Feed Portrait",
+    "width_px": 1080,
+    "height_px": 1350,
+    "orientation": "portrait — SLIDE SEMPRE 4:5 PORTRAIT. NUNCA ALTERAR.",
+    "platform": "Instagram Feed / LinkedIn Carousel",
+    "dpi": 72,
+    "color_mode": "RGB",
+    "lock": "⚠️ DIMENSÃO TRAVADA — 1080×1350px 4:5 portrait."
+  },
+  "background_variants": {
+    "note": "⚠️ PALETA LITERAL DA REFERÊNCIA (Gabriel Moraes | Nutri Online) — não é a paleta institucional azul/dourado da Intus Hub. Decisão do cliente: reproduzir exatamente as cores extraídas no Visual Teardown. Único ajuste de marca é o texto do header (nome/handle) e a tagline do footer — cor, fundo e marcação seguem a referência 1:1.",
+    "dark": {
+      "color": "#0A0A0A",
+      "name": "Preto (referência)",
+      "use_when": "Afirmação forte, dado de impacto, capa, CTA final"
+    },
+    "light": {
+      "color": "#F5EFE0",
+      "name": "Bege quente (referência)",
+      "use_when": "Explicação, contexto, transição, prova social/comparativo",
+      "brand_note": "Nunca usar branco puro (#FFFFFF) — é sempre o bege quente da referência."
+    },
+    "photo_full_bleed": {
+      "use_when": "Capa com Diego, slide de prova social/bastidor, comparativo com imagem real",
+      "overlay": "gradiente escuro #0A0A0A de 0% (topo) a 85% (base) para garantir legibilidade do texto sobreposto"
+    },
+    "alternation_rule": "Alternar dark/light a cada 1-2 slides conforme o peso do conteúdo — nunca mais de 2 slides consecutivos do mesmo fundo, exceto capa+CTA (sempre dark)."
+  },
+  "text_sequence_rule": {
+    "rule": "⚠️ CANÔNICO — NUNCA mais de 2 slides consecutivos de texto puro (sem imagem). A partir do 3º card seguido só-texto, o swipe cansa e perde ritmo visual. Não precisa ser uma sequência fixa travada, só respeitar o teto de 2 seguidos ao montar qualquer carrossel — pode variar livremente o resto (posição exata de qual slide vira imagem+texto).",
+    "exemplo_valido": "TEXTO, TEXTO, IMG, TEXTO, IMG, IMG, TEXTO, IMG — nunca 3 TEXTO em sequência direta"
+  },
+  "canonical_prompt_format": {
+    "note": "⚠️ USAR EXATAMENTE este formato ao gerar qualquer slide neste template — o JSON é colado direto no GPT-image, que interpreta como prompt literal, não como schema de renderer. Campos separados (ex: highlight_block como objeto isolado) são lidos pelo GPT como elemento solto na composição — sempre descrever o highlight EMBUTIDO na frase, como texto corrido apontando a palavra exata.",
+    "spacing_rule": "O corpo de texto começa IMEDIATAMENTE após o header, sem respiro deliberado além dos 24px de margin_top do content. Se o slide não tem headline (só body), o body ainda começa colado ao header — nunca no meio vertical da tela. Instruir explicitamente: 'o texto começa logo abaixo do header, sem espaço vazio no meio do slide'.",
+    "highlight_rule": "O bloco de destaque lime (#D4F536) envolve a palavra ou frase curta NO MEIO DA SENTENÇA, como um marca-texto físico sobre aquele trecho específico — nunca como um card/pill separado flutuando isolado no layout. Descrever assim: 'na frase [frase completa], as palavras [trecho] recebem um bloco sólido lime atrás, como marca-texto, sem quebrar o fluxo da frase'.",
+    "avatar_note": "⚠️ REGRA ATUALIZADA — Avatar/header só existe na CAPA: círculo vazio 64px (placeholder cinza sólido, sem foto), estrutura idêntica ao TEMPLATE-SLIDE-TWITTER-POST. Composite manual da foto real do Diego depois, via Pillow ou Canva. NENHUM outro slide (texto puro, imagem+texto ou CTA) leva header, avatar, nome, handle ou badge.",
+    "cta_line_rule": "No slide cta_final, a linha de CTA é um bloco de texto compacto (2-3 linhas no máximo, tamanho igual ou menor que o body), nunca um segundo headline do mesmo tamanho da frase de fechamento — isso cria dois pontos de máximo peso visual competindo.",
+    "no_header_spacing_rule": "⚠️ REGRA ATUALIZADA — vale pra TODO slide sem header (ou seja, todos exceto a capa: slides de texto puro, imagem+texto e CTA final). O content NÃO herda um respiro invisível no lugar do header — ele começa a 40px do topo do frame (mesma margem que o header normalmente teria), nunca centralizado verticalmente nem com espaço vazio acima. Instruir explicitamente: 'sem header neste slide, o texto começa a 40px do topo do frame, colado, sem nenhum espaço vazio simulando onde o header estaria'."
+  },
+  "zones": {
+    "header": {
+      "height": "88px",
+      "position": "top",
+      "margin_lateral": "44px",
+      "margin_top": "32px",
+      "layout": "horizontal — avatar à esquerda, texto à direita, badge pill à direita da tela. IDÊNTICO na estrutura ao TEMPLATE-SLIDE-TWITTER-POST (avatar 64px vazio + nome 26px + handle 22px + gap 16px).",
+      "exists_on": "⚠️ REGRA ATUALIZADA — APENAS a capa. Slides internos (texto puro ou imagem+texto) e o CTA final NUNCA têm header, avatar ou badge 'arraste para continuar lendo'. Essa era a regra antiga (header em todo slide exceto CTA); a partir desta versão, header é exclusividade da capa.",
+      "note": "Header estruturalmente igual ao TEMPLATE-SLIDE-TWITTER-POST (mesmo height/margin/avatar/tamanhos) — a diferença entre os dois templates é só a paleta (aqui bege/preto/lime, lá branco/preto neutro) e a tipografia (aqui condensed bold, lá editorial regular).",
+      "elements": {
+        "avatar": {
+          "shape": "circle",
+          "size": "64px",
+          "position": "left",
+          "note": "SEMPRE VAZIO — placeholder cinza sólido, sem foto. Composite manual da foto real do Diego depois, via Pillow ou Canva. Mesmo comportamento do TEMPLATE-SLIDE-TWITTER-POST."
+        },
+        "text_block": {
+          "position": "right of avatar",
+          "margin_left": "16px",
+          "line_1": {
+            "content": "Diego Spanevello | Inteligência Artificial",
+            "font_family": "sans-serif extra bold condensed (igual a referência, não Syne institucional)",
+            "font_size": "26px",
+            "font_weight": "700",
+            "font_color_dark_bg": "#F5EFE0",
+            "font_color_light_bg": "#1A1A1A",
+            "verified_badge": "checkmark inline após o nome — NÃO escrever ✓ como texto, deixar o gerador reconhecer o padrão Twitter/X"
+          },
+          "line_2": {
+            "content": "@diego.spanevello",
+            "font_family": "sans-serif regular (igual a referência, não JetBrains Mono institucional)",
+            "font_size": "22px",
+            "font_weight": "400",
+            "font_color_dark_bg": "#D4F536",
+            "font_color_light_bg": "#1A1A1A",
+            "note": "⚠️ TESTADO — introduzir qualquer cor de destaque nova no handle em fundo claro (mesmo oliva/marrom) faz o GPT tratar como 'cor de marca' e espalhar ela pra badge pill e footer, além de trocar a tipografia da headline pra uma fonte genérica. Em fundo claro o header é MONOCROMÁTICO (#1A1A1A em tudo, igual ao nome) — nenhuma cor de destaque. Lime pleno (#D4F536) só em fundo escuro, onde já é a cor de identidade estabelecida (highlight/marcação) e não introduz sinal novo."
+          }
+        },
+        "badge_pill": {
+          "position": "top right",
+          "content": "Arraste para continuar lendo →",
+          "font_family": "sans-serif regular (igual a referência, não Space Grotesk institucional)",
+          "font_size": "18px",
+          "font_weight": "700",
+          "background": "#D4F536 (lime sólido preenchido, nos dois fundos — testado e aprovado, funciona diferente do handle porque é um elemento fechado/isolado, não introduz sinal de cor solta no texto corrido)",
+          "font_color": "#1A1A1A",
+          "border": "1px solid #1A1A1A",
+          "border_radius": "999px (pill)",
+          "padding": "10px 20px",
+          "last_slide_variant": "trocar texto para 'Fim →' ou omitir badge no CTA final"
+        }
+      }
+    },
+    "content": {
+      "position": "below header",
+      "margin_lateral": "44px",
+      "margin_top": "24px",
+      "note": "⚠️ blocks é a estrutura real usada pelo GPT-image (mesmo padrão de TEMPLATE-SLIDE-CLARA/ESCURA) — array sequencial, cada bloco com margin_bottom PEQUENO (8-20px). Nunca deixar um bloco 'headline: null' pra pular pro body — isso gera vazio no meio do slide. Todo slide tem no mínimo 1 bloco de âncora visual forte (headline ou highlight) antes do body.",
+      "blocks_schema": {
+        "pre_headline": { "id": "pre-headline", "type": "text", "font_size": "26px", "font_style": "regular sans-serif (Space Grotesk)", "margin_bottom": "8px" },
+        "headline": { "id": "headline", "type": "text", "font_size": "52px", "font_style": "extra bold condensed, Syne 800", "margin_bottom": "20px" },
+        "body_with_marking": {
+          "id": "body",
+          "type": "text-marked",
+          "font_size": "28px",
+          "font_style": "regular sans-serif (Space Grotesk)",
+          "marking": {
+            "applies_to": "trecho exato dentro do content — a palavra ou frase curta que recebe o destaque",
+            "type": "highlight_block | underline",
+            "color": "#D4F536 (lime, igual a referência, nos dois fundos)",
+            "note": "o marking é sempre uma propriedade DENTRO do bloco de texto que contém a frase, nunca um bloco separado flutuando isolado no layout"
+          }
+        }
+      },
+      "typography_system": {
+        "headline": {
+          "role": "afirmação/gancho principal do slide",
+          "font_family": "sans-serif extra bold condensed (igual a referência, não Syne institucional)",
+          "font_weight": "800",
+          "font_size": "58px",
+          "line_height": "1.05",
+          "letter_spacing": "-1px",
+          "case": "UPPERCASE preferencial, sentence case permitido em slides de contexto",
+          "font_color_dark_bg": "#F5EFE0",
+          "font_color_light_bg": "#1A1A1A"
+        },
+        "pre_headline": {
+          "role": "linha de contexto acima da headline, menor peso",
+          "font_family": "sans-serif regular (igual a referência, não Space Grotesk institucional)",
+          "font_size": "26px",
+          "font_weight": "400",
+          "font_color_dark_bg": "rgba(245,239,224,0.65)",
+          "font_color_light_bg": "#888888",
+          "optional": true
+        },
+        "body": {
+          "role": "texto de apoio abaixo da headline",
+          "font_family": "sans-serif regular (igual a referência, não Space Grotesk institucional)",
+          "font_size": "28px",
+          "font_weight": "400",
+          "line_height": "1.4",
+          "font_color_dark_bg": "rgba(245,239,224,0.85)",
+          "font_color_light_bg": "#1A1A1A",
+          "bold_inline": {
+            "font_weight": "700",
+            "font_color_dark_bg": "#F5EFE0",
+            "font_color_light_bg": "#1A1A1A"
+          }
+        },
+        "list_item": {
+          "font_family": "sans-serif regular (igual a referência, não Space Grotesk institucional)",
+          "font_size": "26px",
+          "font_weight": "400",
+          "marker": "asterisco leve (*) ou emoji temático — nunca número",
+          "line_height": "1.5"
+        }
+      },
+      "highlight_block": {
+        "description": "Bloco sólido colorido atrás de 1-3 palavras-chave, leve rotação opcional (-2° a 2°) para efeito 'post-it', texto por cima do bloco",
+        "color_dark_bg": "#D4F536",
+        "color_light_bg": "#D4F536",
+        "text_color_over_highlight": "#1A1A1A",
+        "font_weight": "800",
+        "usage_rule": "máximo 1 highlight_block por slide — nunca mais de 3 palavras destacadas"
+      },
+      "hand_marks": {
+        "underline": {
+          "style": "traço reto simples sob a palavra",
+          "color_dark_bg": "#D4F536",
+          "color_light_bg": "#1A1A1A",
+          "usage": "ênfase secundária — menos peso que highlight_block"
+        },
+        "arrow": {
+          "style": "seta curva desenhada à mão, conectando texto a elemento seguinte",
+          "color_dark_bg": "#D4F536",
+          "color_light_bg": "#1A1A1A",
+          "usage": "máximo 1-2 por slide, nunca decorativa sem função de direcionamento"
+        },
+        "circle": {
+          "style": "contorno oval à mão em volta de uma palavra isolada",
+          "color_dark_bg": "#D4F536",
+          "color_light_bg": "#1A1A1A",
+          "usage": "reforço de negativa ('NÃO') ou número isolado — usar com moderação, 1 por slide no máximo"
+        }
+      }
+    },
+    "image": {
+      "position": "varia por tipo de slide — ver slide_types abaixo",
+      "border_radius": "18px",
+      "overlay": {
+        "cover_slide": "gradiente escuro #0A0A0A 0%→85% de topo a base",
+        "internal_slide": "none"
+      },
+      "image_generation": {
+        "cover": {
+          "dimensions": "1080x1350px (full bleed, mesmo ratio do slide)",
+          "content": "Diego Spanevello em cenário real, foto documental — nunca still genérico de banco de imagem"
+        },
+        "internal_proof": {
+          "dimensions": "992x744px ou 992x558px conforme o conteúdo",
+          "border_radius": "18px",
+          "content": "screenshot de produto, foto de bastidor, comparativo — nunca imagem genérica de estoque 'crypto/tech'"
+        },
+        "grid_3_photos": {
+          "layout": "3 fotos lado a lado, cantos arredondados só nas bordas externas do conjunto",
+          "content": "bastidores reais, prints, evolução — não gerar via IA, usar fotos reais"
+        }
+      }
+    },
+    "footer": {
+      "exists_on": "todos os slides EXCETO capa e CTA final",
+      "position": "bottom",
+      "margin_lateral": "44px",
+      "margin_bottom": "36px",
+      "content": {
+        "tagline": "IA, Cripto e Negócios. O hub de quem constrói renda no digital.",
+        "font_family": "sans-serif regular (igual a referência, não JetBrains Mono institucional)",
+        "font_size": "18px",
+        "font_weight": "400",
+        "font_color_dark_bg": "#5A6580",
+        "font_color_light_bg": "#7A8399",
+        "icon": "NENHUM — texto puro, sem ícone, emoji, selo ou logo antes ou ao lado da tagline. ⚠️ TESTADO: o GPT tende a adicionar um ícone decorativo (foguete, asterisco, estrela) por conta própria ao lado de taglines de marca. Instruir explicitamente no prompt: 'a tagline do footer é só texto, sem nenhum ícone ou símbolo ao lado dela'."
+      },
+      "divider": {
+        "style": "linha fina horizontal acima da tagline",
+        "color_dark_bg": "#1A2438",
+        "color_light_bg": "#D8DEEF",
+        "width": "100%"
+      }
+    }
+  },
+  "slide_types": {
+    "capa": {
+      "background": "photo_full_bleed (Diego) OU dark sólido",
+      "footer": "removido",
+      "elements": "header + headline grande sobreposta + highlight_block em 1-3 palavras + microtexto CTA de continuidade ('vou te contar →' ou equivalente) no canto",
+      "highlight_obrigatorio": "⚠️ CANÔNICO — TODA capa precisa de highlight_block em pelo menos 1 trecho-chave da headline (o termo mais forte da frase: nome de produto, número, palavra de maior impacto). Nunca entregar JSON de capa com a headline inteira em cor única sem nenhuma marcação — isso é o erro mais comum ao gerar capa e deve ser conferido antes de finalizar qualquer variação."
+    },
+    "afirmacao_forte": {
+      "background": "dark",
+      "elements": "sem header + pre_headline opcional + headline com highlight_block + body curto + footer"
+    },
+    "contexto_explicacao": {
+      "background": "light",
+      "elements": "sem header + headline + body mais longo + footer"
+    },
+    "prova_social": {
+      "background": "dark ou light + imagem real ancorada",
+      "elements": "sem header + pre_headline (itálico leve) + imagem com border_radius + footer"
+    },
+    "lista": {
+      "background": "light preferencial",
+      "elements": "sem header + headline com highlight_block + lista de list_item + footer"
+    },
+    "comparativo_dois_lados": {
+      "background": "dark",
+      "elements": "sem header + pre_headline (frase de setup) + 2 blocos de texto lado a lado com setas indicando cada lado + footer"
+    },
+    "grid_fotos": {
+      "background": "light",
+      "elements": "sem header + headline curta + grid_3_photos + footer reduzido ou omitido"
+    },
+    "cta_final": {
+      "background": "dark sólido, sem foto",
+      "footer": "removido",
+      "header": "SEMPRE removido — header é exclusividade da capa, dá peso total ao CTA",
+      "content_margin_top_quando_sem_header": "40px do topo do frame — NUNCA centralizado verticalmente, nunca com espaço vazio simulando o header ausente",
+      "elements": "headline grande + highlight_block com ação (ex: 'segue a Intus Hub' / 'salva esse post') + microtexto secundário sublinhado"
+    }
+  },
+  "text_rules": {
+    "no_dash_rule": "NUNCA usar travessão (—) em nenhum texto de nenhum slide",
+    "max_highlight_per_slide": 1,
+    "max_hand_marks_per_slide": 2,
+    "line_breaks_are_intentional": true,
+    "lime_is_the_only_highlight_color": "Highlight sempre em lime (#D4F536), igual à referência — nunca dourado, nunca azul institucional. Este template usa a paleta literal extraída da referência, não a paleta institucional da Intus Hub."
+  },
+  "negative_rules": [
+    "NUNCA usar fundo branco puro (#FFFFFF) — usar o bege quente (#F5EFE0) da referência",
+    "NUNCA usar dourado ou azul institucional no highlight — só lime (#D4F536), igual à referência",
+    "NUNCA usar travessão (—)",
+    "NUNCA mais de 1 highlight_block por slide",
+    "NUNCA mais de 2 slides consecutivos com o mesmo fundo (exceto capa+CTA)",
+    "NUNCA gerar foto de Diego via IA — sempre foto real composta manualmente (quando o slide usa foto, ex: capa)",
+    "NUNCA remover o handle @diego.spanevello do header",
+    "NUNCA usar imagem genérica de banco 'crypto dark style' nos slides de prova social",
+    "⚠️ REGRA ATUALIZADA: header/avatar/badge é EXCLUSIVIDADE da capa — NUNCA incluir header em slide de texto puro, imagem+texto ou CTA final",
+    "footer ausente apenas em capa e CTA final — presente em todos os demais",
+    "NUNCA incluir ícone, emoji, selo ou logo antes/ao lado da tagline do footer — texto puro, o GPT tende a adicionar um ícone decorativo por conta própria se não for explicitamente proibido",
+    "NUNCA entregar JSON de capa sem highlight_block em pelo menos 1 trecho da headline — checar esse item antes de finalizar qualquer variação de capa"
+  ],
+  "when_to_use": "Conteúdo com forte hook de autoridade pessoal (storytelling de Diego, bastidores, prova social do Super Agente/produtos), quando o objetivo é engajamento alto e retenção de swipe via variação visual forte — mais expressivo que o TEMPLATE-SLIDE-TWITTER-POST (editorial neutro) e mais gráfico que o TEMPLATE-SLIDE-CLARA/ESCURA (headline única sem highlight manual).",
+  "example_variations": {
+    "note": "Exemplos de referência com tema ilustrativo ('Diego falhou em automações antes de acertar') — trocar o copy pelo tema real ao produzir, mantendo a estrutura de zonas. Carregar este arquivo e acionar a variação pelo nome (capa-A, interno-B, cta-A etc).",
+    "capas": {
+      "header_lock_capas": {
+        "note": "⚠️ REGRA ATUALIZADA — Header agora existe SOMENTE na capa, não em todos os slides. Quando presente (só na capa), segue avatar CÍRCULO VAZIO (placeholder cinza sólido, sem foto), igual ao TEMPLATE-SLIDE-TWITTER-POST. Tamanhos travados, usar SEMPRE estes valores exatos: avatar 64px diâmetro, nome 26px, handle 22px, margem lateral 44px, margem superior 32px, altura do header 88px, gap de 16px entre avatar e texto, gap de 4px entre linha do nome e linha do handle."
+      },
+      "capa-A-times-square-style": {
+        "slide_type": "capa",
+        "background": "photo_full_bleed",
+        "aprovado": true,
+        "zones": {
+          "header": {
+            "avatar": "círculo vazio, placeholder cinza sólido, 64px diâmetro, sem foto",
+            "text_block": { "line_1": "Diego Spanevello | Inteligência Artificial", "line_2": "@diego.spanevello" },
+            "badge_pill": "Arraste para continuar lendo →"
+          },
+          "image": {
+            "role": "background full bleed",
+            "asset_prompt": {
+              "scene": {
+                "description": "Retrato vertical 4:5 full-bleed, homem brasileiro de barba curta e óculos de grau em pé no meio de Times Square à noite, sorrindo abertamente para a câmera, vestindo jaqueta preta fitted com zíper. Fundo denso de telões publicitários coloridos (rosa, ciano, roxo) e multidão desfocada, luzes urbanas em bokeh. No terço superior, sobreposto ao fundo, texto branco-creme extra bold condensado caixa alta com trecho sublinhado em lime, seguido pela headline principal com 1 palavra dentro de um bloco sólido lime (#D4F536) levemente rotacionado com texto preto. Header no topo esquerdo: avatar circular VAZIO de 64px (placeholder cinza sólido, sem foto), nome 'Diego Spanevello | Inteligência Artificial' em 26px, handle '@diego.spanevello' em 22px cor lime, 16px à direita do avatar. Paleta dominante: preto/azul-escuro urbano no fundo, branco-creme no texto, lime saturado no destaque, magenta e ciano nos telões de fundo.",
+                "subject": "Homem, barba curta, óculos de grau preto, sorriso aberto genuíno, jaqueta preta fitted, olhando direto para a câmera",
+                "setting": "Times Square à noite, telões publicitários ao fundo, multidão desfocada nas calçadas",
+                "action": "Estático, em pé, postura confiante e descontraída"
+              },
+              "style": {
+                "primary": "editorial street photography, cinematic",
+                "rendering_quality": "hyperrealistic",
+                "surface_textures": "pele com poros visíveis e leve brilho natural (não retocado), tecido da jaqueta fosco com textura técnica",
+                "lighting": "luz mista urbana, key light frontal suave dos telões, rim light colorido (magenta/ciano) vindo de trás, sem flash direto"
+              },
+              "technical": {
+                "camera": { "focal_length": "35mm", "aperture": "f/2.2", "depth_of_field": "moderada-shallow — sujeito nítido, fundo em bokeh definido mas legível", "angle": "eye level" },
+                "resolution": "ultra high definition",
+                "rendering": "grain sutil, cores urbanas saturadas, bokeh colorido de letreiros"
+              },
+              "materials": {
+                "skin": "pele morena clara, tom quente. Poros visíveis na testa e maçãs do rosto. Fios finos de barba curta capturando luz. Leves imperfeições naturais, sem maquiagem, sem suavização artificial. Acabamento fosco, pele absorve luz em vez de refletir. Zero pós-processamento de retoque de beleza.",
+                "fabric": "jaqueta preta fitted, tecido técnico fosco, zíper metálico visível, leve textura de costura"
+              },
+              "environment": {
+                "atmosphere": "leve névoa urbana noturna, umidade sutil, ar denso de cidade grande",
+                "time": "noite, luz artificial de letreiros dominante",
+                "particles": "nenhum particulado visível além do brilho difuso dos letreiros"
+              },
+              "composition": {
+                "perspective": "profundidade em camadas: sujeito nítido em primeiro plano, telões e multidão em camadas de desfoque crescente",
+                "framing": "sujeito centralizado-direita, headline ocupando o terço superior como frame-within-frame tipográfico",
+                "subject_placement": "corpo do sujeito começa na metade vertical do frame, rosto no terço superior-médio, olhar direto pra câmera",
+                "safe_area": "64px de padding mínimo em todas as bordas — zona segura de 952x1222px dentro do frame de 1080x1350px",
+                "ui_elements": [
+                  { "text": "avatar", "type": "círculo vazio, placeholder cinza sólido, TAMANHO FIXO 64px de diâmetro, sem foto", "position": "header, 44px da borda esquerda, 40px do topo" },
+                  { "text": "Diego Spanevello | Inteligência Artificial", "font": "sans-serif semibold, TAMANHO FIXO 26px", "color": "#FFFFFF", "position": "16px à direita do avatar, alinhado à linha superior do avatar" },
+                  { "text": "@diego.spanevello", "font": "sans-serif regular, TAMANHO FIXO 22px", "color": "#D4F536", "position": "4px abaixo da linha do nome, mesma margem esquerda" },
+                  { "text": "{{headline do gancho aprovado}}", "font": "sans-serif extra bold condensed caixa alta", "color": "#F5EFE0", "position": "terço superior, headline principal" },
+                  { "text": "{{palavra-chave em destaque}}", "font": "sans-serif extra bold condensed caixa alta", "color": "#1A1A1A", "background": "#D4F536 bloco sólido rotacionado", "position": "inline dentro da headline" },
+                  { "text": "vou te contar", "font": "sans-serif semibold sublinhado", "color": "#D4F536", "position": "canto direito da headline, com seta curva apontando" }
+                ]
+              },
+              "quality": {
+                "include": ["retrato editorial urbano realista", "textura de pele natural com poros", "iluminação urbana colorida autêntica", "expressão genuína de sorriso", "tipografia condensada de alto impacto", "profundidade de campo cinematográfica"],
+                "avoid": ["pele plástica ou lisa demais", "sorriso forçado ou artificial", "fundo genérico de stock sem identidade de lugar", "highlight lime com bordas irregulares demais", "texto ilegível sobre o fundo colorido", "óculos com reflexo que esconde os olhos", "avatar com tamanho diferente de 64px", "nome/handle com tamanho diferente de 26px/22px"],
+                "reference_standard": "fotografia editorial de criador de conteúdo em cenário urbano icônico, estilo capa de perfil de creator economy 2025-2026"
+              }
+            }
+          },
+          "footer": "removido"
+        }
+      },
+      "capa-B-produto-na-mao": {
+        "slide_type": "capa",
+        "background": "photo_full_bleed",
+        "aprovado": true,
+        "zones": {
+          "header": {
+            "avatar": "círculo vazio, placeholder cinza sólido, 64px diâmetro, sem foto",
+            "text_block": { "line_1": "Diego Spanevello | Inteligência Artificial", "line_2": "@diego.spanevello" },
+            "badge_pill": "Arraste para continuar lendo →"
+          },
+          "image": {
+            "role": "background full bleed",
+            "asset_prompt": {
+              "scene": {
+                "description": "Foto de produto lifestyle vertical 4:5, mão segurando um smartphone em primeiro plano à direita, tela do celular exibindo interface de dashboard/gráfico. Fundo desfocado em ambiente interno noturno, tons marrom-âmbar quentes, bokeh suave. Sobre o fundo desfocado, no terço médio-esquerdo, headline em branco-creme extra bold condensada caixa alta seguida por um bloco sólido lime (#D4F536) com texto preto sobreposto, levemente inclinado. Abaixo, duas linhas de texto branco menor de apoio. Header no topo esquerdo: avatar circular VAZIO de 64px (placeholder cinza sólido, sem foto), nome 'Diego Spanevello | Inteligência Artificial' em 26px, handle '@diego.spanevello' em 22px cor lime, 16px à direita do avatar.",
+                "subject": "Mão segurando smartphone com interface de dados/gráfico aberta na tela, dedo indicador tocando a tela",
+                "setting": "Ambiente interno noturno desfocado, luz artificial quente pontual ao fundo",
+                "action": "Mão em movimento, dedo tocando a tela"
+              },
+              "style": {
+                "primary": "editorial lifestyle, product photography com overlay tipográfico",
+                "rendering_quality": "hyperrealistic",
+                "surface_textures": "pele da mão com textura natural, tela do celular com reflexo sutil de vidro, capinha do celular em silicone fosco",
+                "lighting": "luz quente pontual de fundo criando bokeh âmbar, luz fria da tela do celular iluminando os dedos por baixo"
+              },
+              "technical": {
+                "camera": { "focal_length": "50mm", "aperture": "f/1.8", "depth_of_field": "shallow — celular e mão nítidos, fundo em bokeh forte", "angle": "eye level, levemente de baixo" },
+                "resolution": "ultra high definition",
+                "rendering": "grain sutil, bokeh circular quente, contraste médio-alto"
+              },
+              "materials": {
+                "skin": "pele com poros visíveis nos dedos e nós dos dedos, sem retoque, textura natural sob luz mista",
+                "surfaces": "tela do celular com reflexo de vidro sutil, capinha em silicone fosco"
+              },
+              "environment": {
+                "atmosphere": "ambiente interno sem névoa, ar limpo",
+                "time": "noite, luz artificial quente dominante"
+              },
+              "composition": {
+                "perspective": "profundidade rasa, celular em primeiro plano ocupando o eixo vertical direito do frame",
+                "framing": "split assimétrico — texto ocupa metade esquerda/inferior, produto ocupa metade direita",
+                "subject_placement": "mão e celular deslocados à direita, headline no terço médio-esquerdo, header fixo no topo",
+                "safe_area": "64px de padding mínimo em todas as bordas — zona segura de 952x1222px dentro do frame de 1080x1350px",
+                "ui_elements": [
+                  { "text": "avatar", "type": "círculo vazio, placeholder cinza sólido, TAMANHO FIXO 64px de diâmetro, sem foto", "position": "header, 44px da borda esquerda, 40px do topo" },
+                  { "text": "Diego Spanevello | Inteligência Artificial", "font": "sans-serif semibold, TAMANHO FIXO 26px", "color": "#FFFFFF", "position": "16px à direita do avatar, alinhado à linha superior do avatar" },
+                  { "text": "@diego.spanevello", "font": "sans-serif regular, TAMANHO FIXO 22px", "color": "#D4F536", "position": "4px abaixo da linha do nome, mesma margem esquerda" },
+                  { "text": "Arraste para continuar lendo →", "font": "sans-serif medium", "color": "#FFFFFF", "position": "pill outline, canto superior direito" },
+                  { "text": "{{headline do gancho aprovado}}", "font": "sans-serif extra bold condensed caixa alta", "color": "#F5EFE0", "position": "terço médio-esquerdo" },
+                  { "text": "{{palavra-chave em destaque}}", "font": "sans-serif extra bold condensed caixa alta", "color": "#1A1A1A", "background": "#D4F536 bloco sólido levemente rotacionado", "position": "logo abaixo da linha anterior" }
+                ]
+              },
+              "quality": {
+                "include": ["foto de produto realista", "bokeh quente natural", "tipografia condensada de alto contraste", "highlight sólido lime autêntico", "composição split equilibrada"],
+                "avoid": ["mão com dedos deformados", "tela de celular ilegível ou distorcida", "highlight lime com bordas serrilhadas", "texto cortado nas margens", "bokeh excessivo a ponto de perder o contexto do ambiente", "avatar com tamanho diferente de 64px", "nome/handle com tamanho diferente de 26px/22px"],
+                "reference_standard": "fotografia de produto lifestyle, iluminação quente estilo Instagram ads 2025-2026"
+              }
+            }
+          },
+          "footer": "removido"
+        }
+      }
+    },
+    "slides_internos": {
+      "note": "⚠️ REMOVIDO — esta seção usava o schema antigo (headline/highlight_block soltos), incompatível com o padrão 'blocks' real usado pelo GPT-image. Substituída por 'text_only_slide_formats' logo abaixo, que já cobre os mesmos 5 formatos de slide interno com o schema correto (blocks + marking embutido). Usar text_only_slide_formats para qualquer slide interno de texto puro."
+    },
+    "text_only_slide_formats": {
+      "note": "⚠️ 5 formatos aprovados, extraídos via Visual Teardown formal das referências reais (Gabriel Moraes | Nutri Online). São TEMPLATES ESTRUTURAIS — os campos de conteúdo ({{...}}) são placeholders. Ao produzir um carrossel real, carregar o formato pelo nome e substituir os placeholders pela copy aprovada daquele carrossel (já passada pelo copy-qa-sms), mantendo blocks/marking/spacing exatamente como estão. Nunca usar highlight_block ou marking como campo solto fora do texto corrido — sempre embutido, conforme canonical_prompt_format.",
+      "formato-1-headline-highlight-sobreposto": {
+        "origem": "referência 'Atendimento 100% Online'",
+        "slide_type": "afirmacao_forte | contexto_explicacao",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": {
+            "blocks": [
+              {
+                "id": "headline",
+                "type": "text-marked",
+                "content": "{{headline em 4-5 linhas, extra bold condensed caixa alta}}",
+                "marking": {
+                  "applies_to": "{{2-3 palavras dentro da headline, geralmente na 2ª linha}}",
+                  "type": "highlight_block",
+                  "color": "#D4F536 (dark) / #D4F536 (light)",
+                  "rotation": "-2deg",
+                  "note": "bloco sobrepõe fisicamente a linha da headline, cortando a palavra anterior visualmente, como no exemplo real ('ATENDIMENTO' cortado por '100% ONLINE')"
+                },
+                "margin_bottom": "16px"
+              },
+              {
+                "id": "body-1",
+                "type": "text-marked",
+                "content": "{{parágrafo de apoio}}",
+                "font_size": "28px",
+                "marking": { "applies_to": "{{trecho}}", "type": "underline" },
+                "margin_bottom": "8px"
+              },
+              {
+                "id": "body-2",
+                "type": "text",
+                "content": "{{parágrafo de fechamento, mais apagado}}",
+                "font_color_dark_bg": "#5A6580",
+                "font_color_light_bg": "#7A8399"
+              }
+            ]
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "formato-2-circulo-highlight-pontual": {
+        "origem": "referência 'Sendo honesto'",
+        "slide_type": "afirmacao_forte",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": {
+            "blocks": [
+              { "id": "pre-headline", "type": "text", "content": "{{linha curta itálica de setup}}", "font_style": "italic", "margin_bottom": "8px" },
+              { "id": "context", "type": "text", "content": "{{parágrafo de contexto, trechos-chave em bold inline}}", "margin_bottom": "16px" },
+              {
+                "id": "headline",
+                "type": "text-marked",
+                "content": "{{headline extra bold condensada, 4 linhas}}",
+                "marking": [
+                  { "applies_to": "{{1 palavra curta, ex: NÃO}}", "type": "circle", "note": "contorno oval fino, colado à palavra exata" },
+                  { "applies_to": "{{dado numérico ou frase de 2-3 palavras}}", "type": "highlight_block", "note": "bloco colado ao texto, sem padding extra, sem rotação" }
+                ],
+                "margin_bottom": "16px"
+              },
+              { "id": "closing", "type": "text-marked", "content": "{{frase de fechamento curta}}", "marking": { "applies_to": "{{2 trechos}}", "type": "underline" } }
+            ]
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "formato-3-highlight-empilhado-colchete": {
+        "origem": "referência 'A maioria dos nutricionistas'",
+        "slide_type": "afirmacao_forte",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": {
+            "blocks": [
+              { "id": "line-1", "type": "text", "content": "{{linha de abertura sem marcação}}", "margin_bottom": "0px" },
+              {
+                "id": "headline-marked",
+                "type": "text-marked",
+                "content": "{{3-4 linhas seguintes}}",
+                "marking": {
+                  "type": "highlight_block_por_linha",
+                  "note": "CADA linha recebe seu próprio bloco sólido individual (não um bloco único cobrindo várias linhas) + uma linha vertical fina conectando todos os blocos à esquerda, como um colchete",
+                  "color": "#D4F536 (dark) / #D4F536 (light)"
+                },
+                "margin_bottom": "20px"
+              },
+              { "id": "closing", "type": "text-marked", "content": "{{pergunta ou frase curta de fechamento irônico}}", "marking": { "applies_to": "{{palavra ou frase final}}", "type": "circle" } }
+            ]
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "formato-4-fundo-escuro-virada-cor": {
+        "origem": "referência 'Do meu lado, acompanho a pontuação'",
+        "slide_type": "afirmacao_forte",
+        "background": { "color": "#0A0A0A" },
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": {
+            "blocks": [
+              {
+                "id": "headline",
+                "type": "text-mixed-color",
+                "lines": [
+                  { "content": "{{linhas 1-3, tom neutro}}", "color": "#F5EFE0" },
+                  { "content": "{{linhas 4-5, a virada de tom}}", "color": "#D4F536", "note": "mudança de cor pura marca a virada narrativa, não é highlight_block, é troca de cor do texto" }
+                ],
+                "margin_bottom": "20px"
+              },
+              { "id": "body-1", "type": "text-marked", "content": "{{parágrafo com 1 trecho sublinhado}}", "marking": { "applies_to": "{{trecho}}", "type": "underline", "color": "#D4F536" }, "margin_bottom": "8px" },
+              { "id": "body-2", "type": "text", "content": "{{parágrafo de fechamento mais apagado}}", "font_color": "rgba(240,244,255,0.55)" }
+            ]
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "formato-5-lista-highlight-citacao": {
+        "origem": "referência 'Coisas que eu já fiz tentando comer certo'",
+        "slide_type": "lista",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": {
+            "blocks": [
+              { "id": "headline", "type": "text", "content": "{{headline em 2 linhas}}", "margin_bottom": "12px" },
+              {
+                "id": "highlight-citacao",
+                "type": "text-marked",
+                "content": "{{2-3 palavras entre aspas}}",
+                "marking": { "type": "highlight_block", "font_style": "diferente da headline, mais handwriting", "note": "bloco lime (#D4F536) sólido, sem rotação, com seta curva saindo do canto" },
+                "margin_bottom": "20px"
+              },
+              {
+                "id": "lista",
+                "type": "list",
+                "items": ["{{item 1, abertura em bold}}", "{{item 2, abertura em bold}}", "{{item 3, abertura em bold}}", "{{item 4, abertura em bold}}"],
+                "marker": "asterisco leve, nunca número"
+              }
+            ]
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      }
+    },
+    "image_text_slide_formats": {
+      "note": "⚠️ 5 arquétipos aprovados, extraídos via Visual Teardown formal. São MOLDES ESTRUTURAIS — a moldura, o corte e a posição da imagem ficam fixos entre carrosséis; o CONTEÚDO da imagem (asset_prompt, foto real ou screenshot) é o que muda a cada carrossel, de acordo com o tema. Ao produzir, escolher o arquétipo pelo encaixe estrutural (mockup de produto? foto de bastidor? comparativo? grid?) e gerar o asset_prompt daquele slide específico via json-prompt-generator, mantendo moldura/posição/border_radius do arquétipo intactos.",
+      "arquetipo-A-mockup-diagonal-cortado": {
+        "origem": "referência 'app na mão'",
+        "uso": "quando o carrossel tem um produto/tela real pra mostrar em uso (app, dashboard, interface)",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": { "position": "quadrante superior-esquerdo, 60% do frame", "blocks": [{ "id": "headline", "type": "text-marked", "content": "{{headline}}", "marking": { "applies_to": "{{1-2 palavras}}", "type": "highlight_block" } }] },
+          "image": {
+            "position": "quadrante inferior-direito, 40% do frame, cortada pela borda direita e inferior",
+            "angle": "diagonal 15-20°, nunca frontal",
+            "border_radius": "nenhum — é foto de produto físico, não card",
+            "asset_prompt_placeholder": "{{descrição do produto/tela real em uso, via json-prompt-generator}}"
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "arquetipo-B-card-flutuante-device-frame": {
+        "origem": "referência 'check do dia / treino'",
+        "uso": "quando o carrossel precisa mostrar uma interface/dado em detalhe, sem depender de foto de produto real",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": { "position": "coluna esquerda, ~55% do frame", "blocks": [{ "id": "headline", "type": "text", "content": "{{headline}}" }] },
+          "image": {
+            "position": "coluna direita, ~45% do frame, alinhada ao topo do content",
+            "border_radius": "24px",
+            "shadow": "sombra suave se destacando do fundo",
+            "asset_prompt_placeholder": "{{conteúdo de UI/dado a ser renderizado dentro do card — título, lista, gráfico, etc}}"
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "arquetipo-C-foto-ancorada-base": {
+        "origem": "referência 'dois filtros / prato de comida'",
+        "uso": "prova social, bastidor, foto real documental relacionada ao tema",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": { "position": "topo, 60% do frame", "blocks": [{ "id": "headline", "type": "text", "content": "{{headline ou split de 2 colunas}}" }] },
+          "image": {
+            "position": "base do frame, 40%, nunca centralizada",
+            "border_radius": "12px",
+            "overlay": "nenhum",
+            "asset_prompt_placeholder": "{{cena documental real relacionada ao tema, via json-prompt-generator}}"
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      },
+      "arquetipo-D-foto-fullbleed-texto-sobreposto": {
+        "origem": "referência 'elevador/selfie'",
+        "uso": "storytelling pessoal do Diego, bastidor autêntico — usar só quando o slide é sobre ele mesmo",
+        "background": "photo_full_bleed",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "image": { "position": "full bleed, terço superior", "overlay": "nenhum adicional — a cena já precisa ter contraste natural suficiente pro texto", "asset_prompt_placeholder": "{{cena real do Diego, via json-prompt-generator, foto real nunca gerada por IA}}" },
+          "content": { "position": "metade inferior, sobre a foto sem card", "blocks": [{ "id": "headline", "type": "text-marked", "content": "{{headline}}", "marking": { "applies_to": "{{1 palavra}}", "type": "color_swap", "color": "#D4F536" } }] },
+          "footer": "removido — foto ocupa até a base"
+        }
+      },
+      "arquetipo-E-grid-multiplas-imagens": {
+        "origem": "referência '3 fotos em tira / grid de cards'",
+        "uso": "evolução, bastidores múltiplos, ou grade de features/tópicos do tema",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — apenas a capa tem header/avatar/badge",
+          "content": { "position": "topo, 40% do frame", "blocks": [{ "id": "headline", "type": "text-marked", "content": "{{headline}}", "marking": { "applies_to": "{{1-2 palavras}}", "type": "highlight_block" } }] },
+          "image": {
+            "position": "base, 60% do frame, sangrando levemente pela lateral direita (sinaliza mais conteúdo)",
+            "layout": "3 fotos sem espaçamento entre si, OU grid 2 colunas de cards com ícone+label",
+            "asset_prompt_placeholder": "{{lista de 3 cenas ou 4-6 tópicos relacionados ao tema, via json-prompt-generator}}"
+          },
+          "footer": { "content": "IA, Cripto e Negócios. O hub de quem constrói renda no digital." }
+        }
+      }
+    },
+    "ctas": {
+      "note": "⚠️ 2 formatos extraídos via Visual Teardown formal das referências reais (Gabriel Moraes | Nutri Online, slides 'O APP É EXCLUSIVO' e 'SE FEZ SENTIDO ATÉ AQUI'). Substituem os padrões genéricos anteriores. Placeholders {{}} — trocar pela copy real aprovada no copy-qa-sms ao produzir.",
+      "cta-A-texto-puro-bloco-grande": {
+        "origem": "referência 'SE FEZ SENTIDO ATÉ AQUI / ME CHAMA NO WHATSAPP'",
+        "slide_type": "cta_final",
+        "background": { "color": "#0A0A0A" },
+        "zones": {
+          "header": "removido — peso total no CTA",
+          "content": {
+            "margin_lateral": "44px",
+            "margin_top": "40px",
+            "position": "colado no topo, sem espaço vazio simulando o header ausente",
+            "blocks": [
+              {
+                "id": "headline",
+                "type": "text",
+                "content": "{{frase de fechamento da tensão, ex: 'SE FEZ SENTIDO ATÉ AQUI'}}",
+                "font_size": "58px",
+                "margin_bottom": "16px"
+              },
+              {
+                "id": "cta-block",
+                "type": "text-marked",
+                "content": "{{ação em 2 linhas, ex: 'MARCA QUEM PRECISA VER ISSO'}}",
+                "font_size": "56px",
+                "marking": {
+                  "type": "highlight_block_bloco_grande",
+                  "note": "⚠️ diferente do highlight_block padrão — aqui o bloco lime cobre as 2 linhas INTEIRAS do cta-block (não só 2-4 palavras), rotacionado 3-5°, é o elemento visualmente mais pesado do slide inteiro, maior até que a headline",
+                  "rotation": "4deg",
+                  "color": "#D4F536",
+                  "text_color_over_highlight": "#1A1A1A"
+                },
+                "margin_bottom": "20px"
+              },
+              {
+                "id": "closing",
+                "type": "text-marked",
+                "content": "{{microtexto final, ex: 'O link tá na bio'}}",
+                "font_size": "26px",
+                "marking": { "applies_to": "{{2-3 palavras finais}}", "type": "circle" }
+              }
+            ]
+          },
+          "footer": "removido"
+        },
+        "note": "modo [A] autoridade pura — sem menção a produto, conforme gate de vinculação ao produto do cliente"
+      },
+      "cta-B-foto-mockup-highlight-pontual": {
+        "origem": "referência 'O APP É EXCLUSIVO PARA PACIENTES'",
+        "slide_type": "cta_final",
+        "modelo_base_imagem": "arquetipo-A-mockup-diagonal-cortado",
+        "background": "{{dark ou light}}",
+        "zones": {
+          "header": "removido — peso total no CTA",
+          "content": {
+            "position": "quadrante superior-esquerdo, ~60% do frame",
+            "margin_lateral": "44px",
+            "margin_top": "40px",
+            "blocks": [
+              {
+                "id": "headline",
+                "type": "text-marked",
+                "content": "{{headline com 1 palavra em destaque, ex: 'O SUPER AGENTE É EXCLUSIVO PARA QUEM COMPRA HOJE.'}}",
+                "font_size": "52px",
+                "marking": { "applies_to": "{{1 palavra só, ex: EXCLUSIVO}}", "type": "highlight_block", "note": "highlight pontual em 1 palavra apenas, não a frase inteira" },
+                "margin_bottom": "16px"
+              },
+              {
+                "id": "body-secondary",
+                "type": "text-marked",
+                "content": "{{instrução de ação em 2 linhas, ex: 'Se você quer ter acesso, o caminho começa no link da bio.'}}",
+                "font_size": "28px",
+                "marking": { "applies_to": "{{trecho de ação}}", "type": "underline" },
+                "margin_bottom": "12px"
+              },
+              {
+                "id": "closing",
+                "type": "text",
+                "content": "{{microtexto final apagado, ex: 'Te espero lá.'}}",
+                "font_color": "#888888"
+              }
+            ]
+          },
+          "image": {
+            "position": "quadrante inferior-direito, cortada pela borda direita e inferior, diagonal 15-20°",
+            "asset_prompt_placeholder": "{{produto/tela real relacionada ao CTA, via json-prompt-generator}}"
+          },
+          "footer": "removido"
+        },
+        "note": "modo [B] vinculado ao produto — produto citado apenas neste slide final, conforme regra de ouro do gate de vinculação. Único CTA do sistema que carrega imagem."
+      }
+    }
+  }
+}
