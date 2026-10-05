@@ -312,9 +312,11 @@ O handoff é interno — garante que nenhuma informação se perca entre skills.
 | Verbatims ausentes + formato Problem-Proof escolhido | Avisar: "Problem-Proof precisa de dado real de dor. Quer minerar verbatims da audiência primeiro? (5 min) Ou prefere mudar de framework?" |
 | Ranking ausente + batch de 5+ posts | Sugerir: "Não tenho histórico de performance para [cliente]. Quer que eu distribua os frameworks de forma equilibrada, ou prefere definir a proporção?" |
 
+**Orquestrador mestre:** este sub-orquestrador é acionado pelo `production-orchestrator` (`SKILL.md` na raiz do repositório) para o CONTEXTO 2 — Social Media, e também pelos CONTEXTOS 3, 4 e 6 quando há produção de copy.
+
 **Nota sobre gate de contexto:** Quando o fluxo passa pelo orquestrador, o contexto é verificado e garantido aqui antes de qualquer skill de criação ser acionada. As skills de criação possuem seu próprio gate de contexto ausente para o caso de serem acionadas diretamente (sem o orquestrador) — esse gate nunca deveria disparar quando o fluxo passou pelo orquestrador.
 
-**Nota sobre video-script-sms:** Esta skill está em `skills/video-script-sms/SKILL.md` (um nível acima de `social-media/`) — diferente de todas as outras skills de criação. O nome de referência `video-script-sms` funciona independentemente do caminho físico.
+**Nota sobre video-script-sms:** Esta skill está em `skills/social-media/video-script-sms/SKILL.md`, junto com as demais skills de criação.
 
 ---
 
@@ -370,7 +372,7 @@ production-orchestrator-sms  ← ESTE ARQUIVO (ponto de entrada)
     │       post-writer-sms          (post único)
     │       thread-writer-sms        (thread / série conectada)
     │       carousel-writer-sms      (carrossel)
-    │       video-script-sms         (reel/vídeo — path: skills/video-script-sms/)
+    │       video-script-sms         (reel/vídeo)
     │       caption-writer-sms       (legenda visual-first)
     │       content-repurposer-sms   (adaptação de conteúdo existente)
     │
