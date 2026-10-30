@@ -35,7 +35,7 @@ Se algum arquivo não existir na máquina, avisar em uma linha e seguir com o qu
 
 ### A. História (o mais forte da marca)
 Cena concreta em 3 a 5 linhas (lugar, hora, personagem com papel: madrinha, diretor, cerimonialista) → tensão → a virada com um item ou atitude real da Mônaco → **resposta/lição em 2 frases** → o que o organizador leva disso (H2 em pergunta) → CTA → FAQ.
-- História hipotética precisa ser apresentada como tal ("Imagine...", "Uma cena comum em..."). História real precisa de confirmação do cliente. Nunca inventar fato apresentado como real.
+- Situação idealizada é autorizada pelo proprietário, desde que aplicável ao contexto Mônaco (acontece no trailer, com itens e serviços que a Mônaco tem ou pode ter junto dos amenities). Pode ser narrada como cena, sem "Imagine". Nunca inventar números, nomes de clientes reais ou depoimentos atribuídos a pessoa real.
 - Diálogo entre aspas, nunca com travessão.
 
 ### B. Guia / pergunta
