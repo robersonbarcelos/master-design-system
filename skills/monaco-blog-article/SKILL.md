@@ -57,7 +57,7 @@ Intro com cenário e promessa concreta → H2 numerados, cada um com o porquê e
 | Listas | Frase completa com verbo ("Ar-condicionado quente e frio, regulado pela equipe"), nunca substantivo solto. Lista de diferenciais no máximo 1 vez, com 4 a 6 itens ligados ao tema. |
 | Dado próprio | Pelo menos 1, do banco liberado, com contexto ("+500 eventos", "montagem em até 2 horas", "chega 1 dia antes"). |
 | Região | Explícita pelo menos 1 vez ("atendemos São Paulo e todo o Brasil"). |
-| CTA | 1 no meio + 1 no fim, qualificador: "Manda no WhatsApp a cidade, a data e o número de convidados: (11) 97628-4782." Proibidos: preço, "a partir de", "o mais barato", "link na bio" sozinho. |
+| CTA | 1 no meio + 1 no fim, frase natural ligada ao tema, com o WhatsApp (11) 97628-4782 (ex.: "Quer levar essa ideia para o seu evento? A gente conversa pelo WhatsApp (11) 97628-4782."). Nunca o formato checklist "Manda a cidade, a data e o número de convidados" (reprovado pelo usuário como forçado). Proibidos: preço, "a partir de", "o mais barato", "link na bio" sozinho. |
 | Links internos | 2 a 3 para artigos relacionados do blog + 1 para a página de orçamento. |
 | FAQ | 3 a 5 perguntas reais (WhatsApp, "Pergunta de quem organiza"), resposta de 2 a 3 frases em tom de atendente. Marcar para schema FAQPage. |
 | Imagens | 2 a 3 fotos reais, com texto alternativo descritivo ("interior do trailer Mônaco com cuba de sobrepor e espelho dourado"). |
