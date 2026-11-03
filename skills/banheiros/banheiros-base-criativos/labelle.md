@@ -51,7 +51,7 @@ Aluguel de cabine de banheiro · banheiro para reforma · banheiro temporário p
 - Os 60 posts atuais são cenários hipotéticos: servem como pauta, nunca como prova ou depoimento.
 
 ## Blog: o que já existe
-60 posts de mar a jun/2026 (texto em `references/site-blog-60-texto.txt`), média de 807 palavras, 3 famílias: cenário operacional (~30), guia educativo (~20), guia de cidade (9).
+60 posts de mar a jun/2026 (lista em `labelle-artigos-publicados.md`, nesta pasta; texto em `references/site-blog-60-texto.txt` do cliente), média de 807 palavras, 3 famílias: cenário operacional (~30), guia educativo (~20), guia de cidade (9).
 - **Corrigir nos antigos:** "cabine climatizada", "30 a 90 min", números de cenário apresentados como fato, estatística sem fonte ("bar aberto aumenta 40%"), citação do CEO repetida em vários posts, travessões (40 de 60), rodapé "transformar a experiência", CTA com lista de dados, post "banheiro Mônaco LABELLE", posts de festa de 1 dia (contradizem a regra de produto), 9 guias de cidade quase iguais (reescrever com conteúdo próprio por cidade ou consolidar).
 - **Lacunas a explorar:** obra residencial por etapas, condomínio em reforma de área comum, evento em local de difícil acesso com içamento, White Label para marca, comparação cabine x container x alvenaria temporária, ligação à rede de esgoto passo a passo, manutenção semanal.
 

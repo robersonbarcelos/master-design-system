@@ -52,7 +52,7 @@ Nomes conhecidos só com confirmação do dono.
 - Casos já usados como história no blog: R$ 12 milhões perdidos no banheiro (fictício), cumprir o combinado à distância (real), primeiro grande evento.
 
 ## Blog: o que já existe
-49 artigos de 05/09/2025 a 08/09/2026 (lista completa na memória `monaco-blog-artigos-publicados` ou em `references/` do cliente).
+48 artigos de 05/09/2025 a 08/09/2026 (lista completa em `monaco-artigos-publicados.md`, nesta pasta).
 - **Saturados:** químico x trailer e "o que é banheiro de luxo" (5+); guia do organizador (quantos banheiros, o que avaliar, esgoto, sítio, clima, mosquito, fornecedores); amenities, ar e kit costura.
 - **Lacunas:** formatura, 15 anos, bodas e aniversário, chá revelação e batizado, esportivos (corrida, rodeio, hípica, polo, golfe), shows e festivais, leilão dedicado, equipe bilíngue e evento internacional, limpeza a noite toda, tanques lacrados e por que não tem cheiro, água não reutilizada, toldo e fechamento inferior, aroma da marca, decoração das cabines, dimensionamento por tipo de evento, bastidor da montagem hora a hora, evento de inverno (ar quente), carnaval, Finados, réveillon.
 - **Corrigir nos antigos:** "90 minutos" (vira "em até 2 horas"), "banheiro químico de luxo" como nome do produto, travessões.

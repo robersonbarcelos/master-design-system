@@ -62,6 +62,7 @@ Além de salvar em `runs/[data]/`, sempre colar o conteúdo completo de cada JSO
 |---|---|
 | Carrossel (qualquer plataforma) | `carousel-writer-sms` |
 | Artigo / long-form / X Article / newsletter | `article-writer-sms` |
+| Artigo de blog / página SEO da Mônaco ou da LABELLE | `skill-banheiros` (carrega `banheiros-base-criativos`) |
 | Post único / post longo | `post-writer-sms` |
 | Thread multi-post | `thread-writer-sms` |
 | Legenda visual (caption) | `caption-writer-sms` |

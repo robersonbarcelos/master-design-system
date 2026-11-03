@@ -17,8 +17,9 @@ Esta skill guarda só a TÉCNICA, comum às duas marcas. Tudo o que é da marca 
 ## Gate 0 : Cliente e base
 1. Identificar a marca: Mônaco ou LaBelle. Se o pedido não disser, perguntar antes de tudo.
 2. Acionar `banheiros-base-criativos` e ler o perfil da marca (`monaco.md` ou `labelle.md`) inteiro.
-3. Se houver, ler também na pasta do cliente (`clients/monaco-banheiros/[marca]/references/`): `diferenciais-produto.md`, `dados-ancora.md` e a lista de artigos publicados. Arquivo ausente: avisar em uma linha e seguir com o perfil.
-4. Nunca misturar as marcas no mesmo texto (nada de "banheiro Mônaco LABELLE").
+3. Ler a lista de artigos já publicados da marca, que fica na mesma pasta: `monaco-artigos-publicados.md` ou `labelle-artigos-publicados.md`.
+4. Se houver, ler também na pasta do cliente (`clients/monaco-banheiros/[marca]/references/`): `diferenciais-produto.md` e `dados-ancora.md` (fonte oficial; vencem o perfil em caso de divergência). Arquivo ausente: avisar em uma linha e seguir com o perfil.
+5. Nunca misturar as marcas no mesmo texto (nada de "banheiro Mônaco LABELLE").
 
 ## Gate 1 : Pauta e intenção de busca
 1. **Tipo de página:** contratação (quem já quer alugar), aplicação (uso específico: casamento, leilão, reforma) ou artigo informativo (quem pesquisa a solução).
@@ -32,6 +33,9 @@ Esta skill guarda só a TÉCNICA, comum às duas marcas. Tudo o que é da marca 
 - **A. História:** cena concreta em 3 a 5 linhas (lugar, hora, personagem com papel: madrinha, diretor, cerimonialista, mestre de obras) → tensão → virada com um item ou atitude real da marca → resposta/lição em 2 frases → o que o organizador leva disso (H2) → CTA → FAQ. Diálogo entre aspas, nunca com travessão.
 - **B. Guia / pergunta:** cena de 2 a 3 linhas OU pergunta do leitor → resposta direta nas 2 primeiras frases do corpo → fatores em H2 → tabela quando houver quantidade ou comparação → erro comum → CTA → FAQ.
 - **C. Lista (N erros, N detalhes, N perguntas):** intro com cenário e promessa concreta → H2 numerados, cada um com o porquê e o que fazer → como a marca resolve, em um parágrafo → CTA → FAQ.
+
+### Ângulo em aberto
+Se o usuário trouxer só o tema, sem ângulo, oferecer o `narrative-framework-sms` com formato = artigo longo antes de escolher o arquétipo. Se o ângulo já vier definido, seguir direto.
 
 ### Tipo de história (obrigatório quando o arquétipo for História ou houver caso no texto)
 Confirmar com o usuário antes de escrever:
@@ -78,13 +82,13 @@ O tamanho não é fator de ranqueamento: o critério é responder bem à pergunt
 | Dado próprio | Pelo menos 1, do banco liberado do perfil, com contexto. |
 | Região | Explícita pelo menos 1 vez, na forma definida no perfil. |
 | Caso real | Quando o tema tiver, citar evento real da categoria (do perfil) como prova de experiência, respeitando a regra de nomes. |
-| Comparação | Quando couber (químico x trailer, cabine x container), com limitações reais de cada opção. |
+| Comparação | Quando couber, com limitações reais de cada opção. Pares permitidos por marca no perfil (Mônaco: químico x trailer; LABELLE: cabine x químico x container x alvenaria temporária, sem citar trailer de marca). |
 | Tabela | Só para quantidade, comparação ou checklist. |
 | Listas | Frase completa com verbo, nunca substantivo solto. Lista de diferenciais no máximo 1 vez, 4 a 6 itens ligados ao tema. |
 | Parágrafos | 1 a 4 frases, ritmo variado. Nunca uma frase por linha o texto inteiro. |
 | CTA | 1 no meio + 1 no fim, no formato convite aprovado do perfil, com o telefone da marca. Nunca o formato checklist "Manda a cidade, a data e o número de convidados". Proibidos: preço, "a partir de", "o mais barato", "link na bio" sozinho. |
 | Links internos | 2 a 3 para artigos relacionados + 1 para a página de orçamento/contratação. |
-| FAQ | 3 a 5 perguntas reais de quem organiza, resposta de 2 a 3 frases em tom de atendente. Marcar para schema FAQPage. Nunca fixar número "obrigatório" de perguntas. |
+| FAQ | Perguntas reais de quem organiza (referência: 3 a 5; menos se o tema for estreito, nunca encher), resposta de 2 a 3 frases em tom de atendente. Marcar para schema FAQPage. |
 | Imagens | 2 a 3 fotos reais, nome de arquivo descritivo e texto alternativo que descreve a imagem (palavra-chave só se descrever de fato). |
 | Fontes | Estatística ou afirmação técnica externa só com fonte citada. Sem fonte, sai. |
 
@@ -114,7 +118,7 @@ Travessão; "experiência completa/premium/cinco estrelas" sem dado; "impecável
    - [ ] Nenhuma posição política
    - [ ] 2 CTAs em convite, nenhum proibido
    - [ ] Links internos e página de orçamento
-   - [ ] FAQ de 3 a 5, marcada para schema
+   - [ ] FAQ com perguntas reais (ref. 3 a 5), marcada para schema
    - [ ] Imagens com nome e texto alternativo
    - [ ] Tamanho dentro da faixa do tipo
    - [ ] Zero travessão; vocabulário da marca respeitado
