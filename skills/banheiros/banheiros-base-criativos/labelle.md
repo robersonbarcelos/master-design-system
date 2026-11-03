@@ -6,18 +6,29 @@ Site: banheiroslabelle.com.br · Blog: banheiroslabelle.com.br/blog · Pasta do 
 - Grafia: sempre **LABELLE**; no texto corrido, "a LABELLE".
 - Produto: cabine sanitária modular (módulo branco), a partir de 1 cabine, para locação de semanas a meses.
 - Frase-âncora: "Conforto de banheiro de casa, pelo tempo que você precisar."
-- Autor: hoje "Equipe LABELLE" (fraco para credibilidade) ⚠️ definir nome e cargo de quem assina.
-- Telefone dos posts e peças: (11) 97695-6565. ⚠️ O rodapé do site usa (11) 97628-4782: confirmar o canal oficial.
+- Autor: hoje "Equipe LABELLE" (57 posts) ou "Banheiros LABELLE" (3), sem pessoa. ⚠️ Definir nome e cargo reais de quem assina.
+- Telefone: ⚠️ CONFLITO A RESOLVER. O usuário indicou (11) 97628-4782 em 2026-11-03, mas o briefing de 22/10 (confirmado pelo Diego) e o perfil de vídeo de portfólio dizem (11) 97695-6565 (Ana Maria) e "nunca o número da Mônaco". Não publicar até confirmar.
 - Região: atende todo o Brasil, prioridade Sudeste, Sul e Centro-Oeste; Norte e parte do Nordeste sob consulta.
 
 ## Regras de produto (do dono)
 - **Módulo sem ar-condicionado.** Nunca prometer climatização. Os posts antigos dizem "cabine climatizada": está errado e precisa ser corrigido.
-- **Não aluga módulo para festa de 1 dia.** Evento só quando o local é de difícil acesso (o módulo é içado por munck, o trailer não chega).
+- **Festa de 1 dia comum não é o produto.** Evento entra quando o módulo é o produto certo: chega onde o trailer não chega (2º andar, dentro do salão, terreno sem acesso de veículo, içado por munck). Casos reais: FIERGS e Bodas de Ouro (briefing de 22/10, confirmado pelo Diego).
+- Material da LABELLE foca só na LABELLE: nunca citar a Mônaco nem comparar com trailer de marca ("trailer de luxo" só como categoria de mercado).
 - Ponto em que compensa: ex. 10 cabines por 1 semana.
 
 ## Especificações
-- Configurações: 1, 2 ou 3 cabines; versão com chuveiro; PCD com rampa (NBR 9050, tamanho de um duplo).
-- Cabine unitária externa 1,20 × 1,00 × 2,60 m, 250 kg; módulo duplo ~500 kg (exige munck). Medida interna 1,90 m alt × 1,15 m prof × 1,00 m larg. ⚠️ O FAQ do site traz 1,0 × 1,2 × 2,7 m: usar a medida do folder e confirmar.
+- Modelos e medidas (site, seção #cabines, lida em 2026-11-03; altura de 2,7 m com caixa/tanque e 2,2 m sem):
+
+| Modelo | Medidas (L × P × A) | Peso | Observação |
+|---|---|---|---|
+| Unitário (1 cabine) | 1,0 × 1,2 × 2,7 m | 200 kg | vaso com descarga; residências, reformas, equipes |
+| Duplo (2 cabines) | 2,0 × 1,2 × 2,7 m | 500 kg | duas cabines independentes; eventos, casamentos, canteiros |
+| Com chuveiro (2 cabines, 1 chuveiro) | 1,0 × 1,2 × 2,7 m ⚠️ igual ao unitário no site, conferir | 500 kg | chuveiro no lugar do vaso, exige ligação à rede |
+| Acessível PNE (1 cabine) | 2,0 × 1,2 × 2,7 m | 500 kg | rampa, corrimões, espelho inclinado, espaço interno maior |
+
+- Todos incluem: espelho, pia, gabinete, cuba de sobrepor, vaso com descarga, formação de baterias modulares, sem odor, indicador livre/ocupado, exaustão, dispensers de papel, toalha e sabonete, uso em área descoberta, fechadura, iluminação interna, garantia de manutenção na locação, pronta entrega.
+- Opcionais: rede de esgoto local ou autonomia (caixa d'água + tanque), sanitário de porcelana com caixa acoplada, chuveiro, adesivagem customizada, enxoval/amenities durante a locação, entrega rápida (sem ligação à rede), guindaste para local de difícil acesso, sucção dos detritos.
+- Preços aparecem no site ("a partir de R$ 2.500/mês" etc.), mas não vão para artigo sem ok do dono.
 - **Ligado à rede de esgoto local:** vaso de porcelana com caixa acoplada de 5 L; experiência de banheiro de casa, sem cheiro.
 - **Autossuficiente:** vaso de pedal, 100 a 200 ml por descarga, tanque lacrado abaixo do piso.
 - Pia, espelho e gabinete.
@@ -45,4 +56,4 @@ Aluguel de cabine de banheiro · banheiro para reforma · banheiro temporário p
 - **Lacunas a explorar:** obra residencial por etapas, condomínio em reforma de área comum, evento em local de difícil acesso com içamento, White Label para marca, comparação cabine x container x alvenaria temporária, ligação à rede de esgoto passo a passo, manutenção semanal.
 
 ## CTAs
-- Convite (adaptado do aprovado da Mônaco): "Quer esse banheiro na sua obra pelo tempo que precisar? A gente monta com você." + "Chama a gente no WhatsApp (11) 97695-6565." ⚠️ Validar com o usuário como CTA aprovado da LABELLE.
+- **CTA aprovado (o mesmo dos vídeos de portfólio):** "Um banheiro, como o banheiro da sua casa, pelo tempo que você precisar." + "Atendemos todo o Brasil · desde 1994" + WhatsApp + banheiroslabelle.com.br. No artigo, usar a frase como fecho e o convite ao WhatsApp em seguida (telefone: ver conflito em Identidade).

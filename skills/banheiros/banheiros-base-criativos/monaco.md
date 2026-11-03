@@ -5,7 +5,7 @@ Site: banheirosmonaco.com.br · Blog: banheirosmonaco.com.br/blog · Pasta do cl
 ## Identidade
 - Nome comercial: Mônaco Mobile Toilet / Banheiros Mônaco. Sempre **"a Mônaco"** (feminino).
 - Produto: trailer de banheiro de luxo para eventos, rebocado por picape, com equipe no local.
-- Autor dos artigos: ⚠️ definir nome e cargo de quem assina (credibilidade para Google e IA).
+- Autor dos artigos: hoje o schema do site assina como "Marcelo Martins" (e "Marcos Oliveira" em outro bloco), sem nome visível na página. ⚠️ Confirmar com o dono se são pessoas reais da equipe; se não forem, trocar por quem responde pelo conteúdo (nome e cargo reais), porque autor inventado prejudica a credibilidade no Google e nas IAs.
 - Telefone: (11) 97628-4782. 2º número (11) 95877-1177 ⚠️ confirmar se pode divulgar.
 - Região no texto público: **"atendemos São Paulo e todo o Brasil"** (decisão do usuário, 2026-11-03).
 
@@ -24,7 +24,7 @@ Site: banheirosmonaco.com.br · Blog: banheirosmonaco.com.br/blog · Pasta do cl
 - Toldos e fechamento inferior que esconde rodas e hidráulica.
 - Equipe limpando o tempo todo; equipe bilíngue ou trilíngue (PT, EN, ES) sob demanda.
 - Chega 1 dia antes do evento.
-- ⚠️ Decorações por cabine (capitonê, bambu, damasco, preto LED): confirmar se é frota fixa ou personalização.
+- Decorações por cabine (capitonê rosa, bambu verde, damasco dourado, preto com LED) são **fixas da frota**: cada trailer tem a sua; não é personalização por evento.
 
 ## Dados liberados
 +500 eventos · +100 casamentos · desde 2019 · ~50% de clientes recorrentes · montagem em até 2 horas · chega 1 dia antes.
@@ -45,7 +45,7 @@ Nomes conhecidos só com confirmação do dono.
 - **Imobiliário**: lançamento, entrega de chaves, evento para corretores; a dor é que só há estande de vendas, sem hidráulica nem rede de esgoto.
 - **Internacionais**: palestra da Serena Williams, Guns N' Roses, Príncipe Charles, inauguração de filial chinesa, congresso de CEOs de multinacional alemã, campeonato de videogame com público estrangeiro.
 - **Shows**: camarim do Guns N' Roses em Cuiabá, Ludmilla, Disney.
-- **Locais difíceis**: trailer puxado por trator ou escavadeira, alto de morro (3 a 4 vezes), base da Marinha em "Iporão", interior de SP ⚠️ conferir grafia (o município do centro nuclear costuma ser grafado Iperó), evento dentro de favela.
+- **Locais difíceis**: trailer puxado por trator ou escavadeira, alto de morro (3 a 4 vezes), base da Marinha em Iporã, interior de SP (grafia confirmada pelo usuário), evento dentro de favela.
 - **Políticos**: lançamento de programa do gás, entrega de obra, evento com ministra. Só como fato logístico.
 - **Datas**: evento em cemitério todo ano em Finados; muitas festas juninas; dia das crianças.
 - Casos já usados como história no blog: R$ 12 milhões perdidos no banheiro (fictício), cumprir o combinado à distância (real), primeiro grande evento.
