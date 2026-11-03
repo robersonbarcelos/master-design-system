@@ -5,7 +5,7 @@ Site: banheirosmonaco.com.br · Blog: banheirosmonaco.com.br/blog · Pasta do cl
 ## Identidade
 - Nome comercial: Mônaco Mobile Toilet / Banheiros Mônaco. Sempre **"a Mônaco"** (feminino).
 - Produto: trailer de banheiro de luxo para eventos, rebocado por picape, com equipe no local.
-- Porta-voz e dono: **Marcelo** (fala pela Mônaco e pela LABELLE). O schema do site já assina os artigos como "Marcelo Martins": usar esse nome como autor, com cargo de fundador/diretor ⚠️ confirmar sobrenome e cargo. "Marcos Oliveira" aparece em outro bloco do schema: ⚠️ conferir se é pessoa real ou trocar por Marcelo.
+- Autor de todos os artigos: **Marcelo Martins, proprietário da Mônaco** (confirmado pelo usuário em 2026-11-03). Assinatura: "Por Marcelo Martins · proprietário da Mônaco". "Marcos Oliveira", que aparece num bloco do schema do site, deve ser trocado por Marcelo Martins (pedido ao desenvolvedor).
 - Não confundir: **Diego é do Intus Hub** (outro cliente), não fala pela Mônaco.
 - Telefone: (11) 97628-4782. 2º número (11) 95877-1177 ⚠️ confirmar se pode divulgar.
 - Região no texto público: **"atendemos São Paulo e todo o Brasil"** (decisão do usuário, 2026-11-03).

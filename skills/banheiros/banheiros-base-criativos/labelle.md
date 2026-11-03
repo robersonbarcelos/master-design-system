@@ -6,7 +6,7 @@ Site: banheiroslabelle.com.br · Blog: banheiroslabelle.com.br/blog · Pasta do 
 - Grafia: sempre **LABELLE**; no texto corrido, "a LABELLE".
 - Produto: cabine sanitária modular (módulo branco), a partir de 1 cabine, para locação de semanas a meses.
 - Frase-âncora: "Conforto de banheiro de casa, pelo tempo que você precisar."
-- Autor: hoje "Equipe LABELLE" (57 posts) ou "Banheiros LABELLE" (3), sem pessoa. Porta-voz e dono: **Marcelo** (o mesmo da Mônaco); assinar como Marcelo ⚠️ confirmar sobrenome e cargo na LABELLE.
+- Autor: hoje "Equipe LABELLE" (57 posts) ou "Banheiros LABELLE" (3), sem pessoa. Autor de todos os artigos daqui em diante: **Marcelo Martins, proprietário da LABELLE** (confirmado em 2026-11-03). Assinatura: "Por Marcelo Martins · proprietário da LABELLE".
 - Telefone oficial: **(11) 97628-4782** (confirmado pelo usuário em 2026-11-03; substitui o (11) 97695-6565 da Ana Maria usado nos posts antigos, no folder e nos vídeos de portfólio).
 - Região: atende todo o Brasil, prioridade Sudeste, Sul e Centro-Oeste; Norte e parte do Nordeste sob consulta.
 

@@ -125,6 +125,7 @@ Travessão; "experiência completa/premium/cinco estrelas" sem dado; "impecável
 Em bloco copiável, nesta ordem:
 ```
 MARCA:
+AUTOR: Marcelo Martins · proprietário da [marca]
 TIPO DE PÁGINA / INTENÇÃO:
 ARQUÉTIPO / TIPO DE HISTÓRIA:
 PALAVRA-CHAVE: principal / relacionadas
