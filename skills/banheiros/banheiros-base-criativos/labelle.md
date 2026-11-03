@@ -7,7 +7,7 @@ Site: banheiroslabelle.com.br · Blog: banheiroslabelle.com.br/blog · Pasta do 
 - Produto: cabine sanitária modular (módulo branco), a partir de 1 cabine, para locação de semanas a meses.
 - Frase-âncora: "Conforto de banheiro de casa, pelo tempo que você precisar."
 - Autor: hoje "Equipe LABELLE" (57 posts) ou "Banheiros LABELLE" (3), sem pessoa. ⚠️ Definir nome e cargo reais de quem assina.
-- Telefone: ⚠️ CONFLITO A RESOLVER. O usuário indicou (11) 97628-4782 em 2026-11-03, mas o briefing de 22/10 (confirmado pelo Diego) e o perfil de vídeo de portfólio dizem (11) 97695-6565 (Ana Maria) e "nunca o número da Mônaco". Não publicar até confirmar.
+- Telefone oficial: **(11) 97628-4782** (confirmado pelo usuário em 2026-11-03; substitui o (11) 97695-6565 da Ana Maria usado nos posts antigos, no folder e nos vídeos de portfólio).
 - Região: atende todo o Brasil, prioridade Sudeste, Sul e Centro-Oeste; Norte e parte do Nordeste sob consulta.
 
 ## Regras de produto (do dono)
@@ -56,4 +56,4 @@ Aluguel de cabine de banheiro · banheiro para reforma · banheiro temporário p
 - **Lacunas a explorar:** obra residencial por etapas, condomínio em reforma de área comum, evento em local de difícil acesso com içamento, White Label para marca, comparação cabine x container x alvenaria temporária, ligação à rede de esgoto passo a passo, manutenção semanal.
 
 ## CTAs
-- **CTA aprovado (o mesmo dos vídeos de portfólio):** "Um banheiro, como o banheiro da sua casa, pelo tempo que você precisar." + "Atendemos todo o Brasil · desde 1994" + WhatsApp + banheiroslabelle.com.br. No artigo, usar a frase como fecho e o convite ao WhatsApp em seguida (telefone: ver conflito em Identidade).
+- **CTA aprovado (o mesmo dos vídeos de portfólio):** "Um banheiro, como o banheiro da sua casa, pelo tempo que você precisar." + "Atendemos todo o Brasil · desde 1994" + WhatsApp + banheiroslabelle.com.br. No artigo, usar a frase como fecho e o convite ao WhatsApp em seguida com (11) 97628-4782.
