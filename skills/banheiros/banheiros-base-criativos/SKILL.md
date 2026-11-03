@@ -15,6 +15,7 @@ metadata:
 4. Dado marcado ⚠️ não vai para texto publicado sem confirmação do dono.
 
 ## Base comum (white label)
+- **Quem fala pelas marcas:** Marcelo, dono da Mônaco e da LABELLE. "O dono" nesta base = Marcelo. Diego é do Intus Hub e não fala por estas marcas.
 - **Histórias:** idealizada pode narrar a cena (no blog, com moldura leve: "Uma cena comum em..."), sem depoimento, sem número do evento e sem nome de cliente. Caso real exige dado e depoimento reais e autorizados.
 - **Nomes conhecidos** (celebridades, políticos, marcas, órgãos públicos): só com confirmação do dono.
 - **Política:** nunca se posicionar. Evento político = fato logístico, sem opinião.

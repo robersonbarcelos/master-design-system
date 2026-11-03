@@ -6,13 +6,13 @@ Site: banheiroslabelle.com.br · Blog: banheiroslabelle.com.br/blog · Pasta do 
 - Grafia: sempre **LABELLE**; no texto corrido, "a LABELLE".
 - Produto: cabine sanitária modular (módulo branco), a partir de 1 cabine, para locação de semanas a meses.
 - Frase-âncora: "Conforto de banheiro de casa, pelo tempo que você precisar."
-- Autor: hoje "Equipe LABELLE" (57 posts) ou "Banheiros LABELLE" (3), sem pessoa. ⚠️ Definir nome e cargo reais de quem assina.
+- Autor: hoje "Equipe LABELLE" (57 posts) ou "Banheiros LABELLE" (3), sem pessoa. Porta-voz e dono: **Marcelo** (o mesmo da Mônaco); assinar como Marcelo ⚠️ confirmar sobrenome e cargo na LABELLE.
 - Telefone oficial: **(11) 97628-4782** (confirmado pelo usuário em 2026-11-03; substitui o (11) 97695-6565 da Ana Maria usado nos posts antigos, no folder e nos vídeos de portfólio).
 - Região: atende todo o Brasil, prioridade Sudeste, Sul e Centro-Oeste; Norte e parte do Nordeste sob consulta.
 
 ## Regras de produto (do dono)
 - **Módulo sem ar-condicionado.** Nunca prometer climatização. Os posts antigos dizem "cabine climatizada": está errado e precisa ser corrigido.
-- **Festa de 1 dia comum não é o produto.** Evento entra quando o módulo é o produto certo: chega onde o trailer não chega (2º andar, dentro do salão, terreno sem acesso de veículo, içado por munck). Casos reais: FIERGS e Bodas de Ouro (briefing de 22/10, confirmado pelo Diego).
+- **Festa de 1 dia comum não é o produto.** Evento entra quando o módulo é o produto certo: chega onde o trailer não chega (2º andar, dentro do salão, terreno sem acesso de veículo, içado por munck). Casos reais: FIERGS e Bodas de Ouro (briefing de 22/10).
 - Material da LABELLE foca só na LABELLE: nunca citar a Mônaco nem comparar com trailer de marca ("trailer de luxo" só como categoria de mercado).
 - Ponto em que compensa: ex. 10 cabines por 1 semana.
 
