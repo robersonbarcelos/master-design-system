@@ -156,3 +156,9 @@ Em 2026-07-14, uma consolidação anterior moveu o conteúdo de 22 skills para `
 - Ao iniciar sessão em qualquer pasta de cliente, ler o CLAUDE.md daquele cliente primeiro
 - Nunca misturar paleta, copy ou identidade visual entre clientes diferentes
 - Sempre confirmar qual cliente está ativo antes de produzir qualquer conteúdo
+
+---
+
+## REGRA CANÔNICA — Adaptação de conteúdo de referência (todos os clientes)
+
+Sempre que o usuário mandar um conteúdo de referência (carrossel, post, roteiro, legenda de outra marca) para um cliente, acionar a skill `adaptacao-referencia-sms` antes da skill de criação. A referência dá a ideia, nunca o texto: manter a base da mensagem (tese, tópicos, lógica da sequência, função de cada slide, tipo de frase; a ordem pode mudar um pouco para disfarçar a origem) e reescrever tom de voz, gancho e escrita no padrão do cliente. Proibido copiar frase da referência e proibido inventar argumento que ela não tem. Sempre entregar 2 versões do storytelling: BASE (fiel à lógica) e ADAPTADA (alguns conceitos ajustados ao cliente, sinalizados). Dado sem fonte vira `[DADO A CONFIRMAR]`. Regra definida pelo usuário em 19 nov 2026.
