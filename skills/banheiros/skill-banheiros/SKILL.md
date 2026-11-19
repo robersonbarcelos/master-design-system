@@ -143,16 +143,27 @@ SLUG:
 FAQ (para schema FAQPage):
 LINKS INTERNOS sugeridos:
 IMAGENS: [foto necessária + nome de arquivo + texto alternativo]
+CAPA (JSON): 3 propostas completas e separadas, no padrão `reference_lock` da banheiros-base-criativos (foto real do produto anexada)
 DERIVADOS: 1 ideia de carrossel + 1 de Reel a partir do artigo
 PEDIDOS AO DESENVOLVEDOR (quando relevantes):
 ```
 Salvar em `clients/monaco-banheiros/[marca]/runs/AAAA-MM-DD/artigo-[slug].md`.
+
+### Pasta de arquivo dos artigos aprovados (canônico)
+Depois que o usuário aprova um artigo, copiar o `.docx` (e o `.md`) para a pasta de produzidos da marca, em uma subpasta com o nome do arquivo, sem o prefixo "artigo-":
+- LABELLE: `C:\ARQUIVOS\JOBS E EMPREGOS\BANHEIROS MONACO\PRODUZIDOS\ARTIGOS LA BELLE\[slug]\`
+- Mônaco: `C:\ARQUIVOS\JOBS E EMPREGOS\BANHEIROS MONACO\PRODUZIDOS\artigos monaco\[slug]\`
+
+Dentro da subpasta ficam o `.docx`, o `.md` e as imagens de capa geradas (`[slug]01.png`, `[slug]02.png`...). Só copiar artigo aprovado; rascunho fica em `runs/`. Não sobrescrever arquivo existente sem avisar. Ao copiar, informar o caminho completo ao usuário.
 
 ### Pedidos ao desenvolvedor (listar à parte quando o artigo depender deles)
 Schema JSON-LD (`Article`, `FAQPage`, `Service`, `Organization` com `areaServed`), H1 real em `<h1>` e não só texto grande, um único H1 por página, sitemap XML atualizado, página indexável (sem `noindex` indevido), robots.txt permitindo `OAI-SearchBot` conforme a política escolhida, conteúdo principal em HTML e não em imagem, imagens comprimidas.
 
 ## Versões em inglês e espanhol
 Quando o perfil indicar artigos para público internacional, escrever o original em português seguindo esta skill e entregar a versão traduzida revisada (não tradução literal), com title, H1, meta e FAQ próprios do idioma.
+
+## Artigo de LinkedIn (formato à parte)
+Esta skill cobre o **blog**. Quando o pedido for artigo de LinkedIn (Pulse) da Mônaco ou da LABELLE, não usar o modelo de blog: seguir `banheiros-base-criativos/artigos-monaco-linkedin.md` ou `artigos-labelle-linkedin.md`, que trazem estrutura, regras da marca, processo passo a passo, entrega e o template de capa.
 
 ## Boundaries
 - Carrossel derivado: `carousel-writer-sms`. Roteiro de Reel: `video-script-sms`. Legenda: `caption-writer-sms`.
