@@ -52,6 +52,7 @@ Nunca escrever ângulos, slides, parágrafos, hooks, falas ou legendas manualmen
 | Legenda visual (caption) | `caption-writer-sms` |
 | Hook / linha de abertura | `hook-writer-sms` |
 | Roteiro de vídeo / script / reel | `video-script-sms` |
+| Produzir o VÍDEO (editar, motion, animação, colagem, IA) | `bob-videos` (orquestrador da central BOB-videos: portões G0-G6, rota, gates de saída; chama video-script-sms, hook-writer-sms e copy-qa-sms por dentro) |
 | Ilustração editorial (artigo/carrossel) | `illustration-writer-sms` |
 | Repurpose de conteúdo existente | `content-repurposer-sms` |
 | Publicação de artigo no X | `x-article-publisher` |
