@@ -1,0 +1,159 @@
+{
+  "instrucao_para_colar_antes": "Vou anexar 5 imagens. IMAGEM 1 = foto do interior da cabine Mônaco que vira o FUNDO desfocado. IMAGEM 2 = bandeja de amenities com kit costura (card 1). IMAGEM 3 = bandeja com Engov (card 2). IMAGEM 4 = pote de cristal com balas douradas (card 3). IMAGEM 5 = símbolo oficial da Mônaco em branco (fundo transparente). Use cada foto exatamente no lugar indicado no JSON e preserve tudo o que existe nelas: objetos, rótulos, embalagens, revestimentos, cores reais e proporções. Não redesenhe, não substitua, não remova e não acrescente nenhum produto ou objeto; aplique só tratamento de cor editorial, upscale de nitidez e, no fundo, o desfoque descrito. A IMAGEM 5 deve ser colocada exatamente como enviada no canto superior direito: não redesenhe, não recolore, não distorça. Monte o layout descrito no JSON.",
+  "prompt": {
+    "scene": {
+      "description": "Slide de carrossel vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, layout 'CARDS DE AVALIAÇÃO' (modelagem de cards de review estilo app, sem pessoas e sem depoimentos). FUNDO: a IMAGEM 1 (interior real da cabine) preenchendo todo o frame, com desfoque gaussiano forte (bokeh suave, nada legível), coberta por véu azul-marinho #100C43 a ~55% de opacidade, mantendo a luz quente do ambiente perceptível. LOGO: no canto superior direito, o símbolo anexado em branco (~90px de altura), aplicado exatamente como enviado, com margem de 64px das bordas. TÍTULO no canto superior esquerdo, alinhado à esquerda, margem 72px, topo ~y 110: serifada editorial de alto contraste (estilo Playfair Display) em 2 linhas, cor off-white #F4F1EA, ~84px, com a segunda linha em ITÁLICO BOLD dourado #E2BE6A. Linha 1: 'Para os imprevistos'. Linha 2 em itálico dourado: 'da pista'. CARDS: 3 cards médios (~300x640px cada), escalonados em ritmo alto-baixo-alto: card 1 à esquerda, de x 64 a x 364, topo ~y 380; card 2 no centro, de x 390 a x 690, topo ~y 520; card 3 à direita, de x 716 a x 1016, topo ~y 380. Card 1: foto da IMAGEM 2 (bandeja de amenities com kit costura), nome 'Kit costura', frase 'A alça soltou ou a barra desceu? Dá para resolver ali mesmo.'. Card 2: foto da IMAGEM 3 (bandeja com Engov), nome 'Engov', frase 'Para aproveitar a festa hoje e acordar bem amanhã.'. Card 3: foto da IMAGEM 4 (pote de cristal com balas douradas), nome 'Balas', frase 'Um mimo que todo mundo comenta depois.'. Cada card: retângulo branco off-white #FBF9F4 com cantos muito arredondados (raio ~44px), 100% flat (sem sombra projetada, sem contorno), contido totalmente dentro do frame. Parte de cima do card = a foto do item correspondente (preservada, tratamento de cor editorial e upscale) recortada por uma DIAGONAL na base que desce da esquerda para a direita, como uma lâmina; a área branca abaixo da diagonal recebe o texto. SELO DE NOTA: um bloco azul-marinho #100C43 com cantos arredondados (raio ~22px), posicionado sobre o encontro da foto com a diagonal no lado esquerdo do card, contendo uma estrela sólida dourada #E2BE6A em cima e o texto '5.0' em sans regular off-white abaixo; logo abaixo do bloco, uma fileira de 5 estrelinhas douradas pequenas. TEXTO DO CARD: nome do item em sans geométrica bold #100C43 e, abaixo, a frase de contexto em sans regular #3A3A4A, alinhados à esquerda com padding interno de 40px. SEM telefone, SEM site, SEM rodapé, SEM nomes de pessoas, SEM avatares. Paleta: marinho #100C43, dourado #E2BE6A, off-white #F4F1EA/#FBF9F4, cores reais das fotos.",
+      "subject": "Itens reais do banheiro Mônaco em cards de avaliação 5 estrelas sobre o interior desfocado da cabine",
+      "setting": "Cabine do trailer de banheiro de luxo da Mônaco",
+      "action": "Estático"
+    },
+    "style": {
+      "primary": "editorial product review card layout, premium hospitality social media design",
+      "rendering_quality": "hyperrealistic product photos with crisp flat UI cards",
+      "surface_textures": "fotos reais nítidas dentro dos cards; cards 100% flat; fundo com desfoque forte",
+      "lighting": "luz quente original das fotos, realçada pelo color grading; fundo escurecido pelo véu marinho"
+    },
+    "technical": {
+      "camera": {
+        "focal_length": "o das fotos anexadas",
+        "aperture": "o das fotos anexadas",
+        "depth_of_field": "cards nítidos; fundo totalmente desfocado",
+        "angle": "o das fotos anexadas"
+      },
+      "resolution": "ultra high definition, upscale limpo",
+      "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+    },
+    "composition": {
+      "perspective": "frontal, cards planos sobre fundo desfocado",
+      "framing": "título no topo esquerdo, cards em alturas alternadas (escalonados) no restante do frame",
+      "subject_placement": "cards escalonados para criar ritmo, nenhum card cobrindo o título",
+      "safe_area": "64px de padding mínimo: todos os cards, textos e logo dentro da zona segura de 952x1222px em 1080x1350px",
+      "ui_elements": [
+        {
+          "text": "símbolo Mônaco (última imagem anexada)",
+          "type": "logo branca aplicada exatamente como enviada",
+          "position": "canto superior direito, ~90px de altura, margem 64px"
+        },
+        {
+          "text": "Para os imprevistos",
+          "font": "serifada editorial alto contraste (Playfair Display Regular)",
+          "font_size": "84px",
+          "color": "#F4F1EA",
+          "position": "canto superior esquerdo, x 72, topo ~y 110, linha 1"
+        },
+        {
+          "text": "da pista",
+          "font": "serifada editorial alto contraste (Playfair Display Bold Italic)",
+          "font_size": "84px",
+          "color": "#E2BE6A",
+          "position": "linha 2, logo abaixo, alinhada à esquerda"
+        },
+        {
+          "text": "card Kit costura",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 2 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "esquerda, x 64 a 364, topo ~y 380"
+        },
+        {
+          "text": "Kit costura",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "28px",
+          "color": "#100C43",
+          "position": "área branca do card Kit costura, alinhado à esquerda"
+        },
+        {
+          "text": "A alça soltou ou a barra desceu? Dá para resolver ali mesmo.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "21px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Kit costura', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Kit costura, abaixo da estrela dourada"
+        },
+        {
+          "text": "card Engov",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 3 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "centro, x 390 a 690, topo ~y 520"
+        },
+        {
+          "text": "Engov",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "28px",
+          "color": "#100C43",
+          "position": "área branca do card Engov, alinhado à esquerda"
+        },
+        {
+          "text": "Para aproveitar a festa hoje e acordar bem amanhã.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "21px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Engov', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Engov, abaixo da estrela dourada"
+        },
+        {
+          "text": "card Balas",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 4 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "direita, x 716 a 1016, topo ~y 380"
+        },
+        {
+          "text": "Balas",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "28px",
+          "color": "#100C43",
+          "position": "área branca do card Balas, alinhado à esquerda"
+        },
+        {
+          "text": "Um mimo que todo mundo comenta depois.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "21px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Balas', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Balas, abaixo da estrela dourada"
+        }
+      ]
+    },
+    "quality": {
+      "include": [
+        "fotos reais dos itens preservadas",
+        "cards brancos flat com cantos generosos",
+        "diagonal limpa entre foto e área de texto",
+        "selo marinho com estrela dourada legível",
+        "título serifado com itálico dourado",
+        "fundo desfocado com véu marinho",
+        "escalonamento equilibrado dos cards",
+        "logo anexada aplicada com fidelidade"
+      ],
+      "avoid": [
+        "inventar produtos, marcas ou rótulos que não estão nas fotos",
+        "nomes de pessoas, avatares ou depoimentos",
+        "sombra ou contorno nos cards",
+        "card cortado pela borda do frame",
+        "fundo nítido competindo com os cards",
+        "telefone, site ou rodapé",
+        "texto fora da zona segura",
+        "dourado metálico brilhante ou alaranjado",
+        "logo redesenhada",
+        "erros de grafia",
+        "travessão",
+        "cards de tamanhos diferentes entre si"
+      ],
+      "reference_standard": "cards de review estilo 'O que dizem nossos clientes' (moodboard Aurum Lux) adaptados à paleta Mônaco, com acabamento de revista de hospitalidade"
+    }
+  }
+}

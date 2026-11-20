@@ -1,0 +1,973 @@
+{
+  "template": "imoveis-em-destaque-bnb",
+  "version": "1.0",
+  "status": "FECHADO (28 out 2026): sequência de 7 cards aprovada pelo Diego, formato 1080x1350 (4:5) travado em todo JSON. Nome da linha: 'Imóveis em Destaque' (nome de trabalho, pode ser renomeado).",
+  "description": "Template de vitrine de imóveis gerenciados pela BNB Connect (pedido da Glauce). Cada imóvel vira uma sequência de cards: capa com ficha (quadrados de informação), galeria interna, vista externa, lazer, mosaico com info e mosaico com CTA. O conteúdo vem da ficha real do imóvel (anúncio do Airbnb), selecionando os itens mais relevantes.",
+  "inspiracao": "Layout inspirado em posts de imóveis da Estadia Carioca (referência externa, só direção de composição: pilha de quadrados na borda esquerda, galeria sem texto, frase sobre vista, quadrados de lazer, mosaicos 3x3). Nenhuma marca, cor, texto ou logo da referência é reaproveitado.",
+  "fonte_da_paleta": "Petróleo BNB #005070, Azul-marinho profundo #052F42, Off-white quente #F8F4EA, Azul-cinza claro #EAF2F5, Dourado fosco #A9782E",
+  "fonte_da_tipografia": "Manrope (títulos), DM Sans (rótulos dos quadrados), Newsreader Italic (1 frase serifada por card, no máximo)",
+  "logo": {
+    "regra": "Neste template a logo BNB Connect é ANEXADA pelo usuário (arquivo oficial) e o gerador deve usar EXATAMENTE o arquivo, sem recriar, redesenhar, distorcer ou recolorir. Esta é uma exceção declarada à regra geral de 'área reservada vazia' dos outros templates.",
+    "versao": "clara (branca/off-white) sobre foto e sobre navy; escura só sobre fundo claro",
+    "posicao_padrao": "topo, centralizada, largura de cerca de 220px"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo para texto, logo e cards; zona segura de 952x1222px. Exceção intencional: os quadrados de informação encostam na borda esquerda do frame (formato de aba)",
+    "imagens": "Todas as fotos são carregadas em anexo pelo usuário e recebem UPSCALE EDITORIAL (nitidez, contraste moderado elevado, saturação levemente reduzida, tons quentes/terrosos, sem dominante fria, sem HDR). Nunca gerar foto nova do zero.",
+    "texto": "Só o texto especificado em cada card. Sem código de imóvel, sem número de referência, sem CRECI.",
+    "serifada": "Newsreader Italic, no máximo 1 frase curta por card",
+    "quadrados": "100% flat, sem sombra, sem contorno, ícones de linha fina consistentes (traço uniforme ~2px, sem preenchimento), rótulo em DM Sans Medium",
+    "dourado": "Dourado fosco #A9782E sólido, tom terroso/mate, nunca alaranjado vibrante nem metálico brilhante",
+    "formato_travado": "1080x1350 px, 4:5, declarado no início da description, em technical.aspect_ratio/canvas_pixels e na lista avoid de todo JSON. Ocorrência: o GPT gerou o mosaico em 1092x1440 (3:4) quando o formato só estava no meio do texto."
+  },
+  "negative_rules_globais": [
+    "NUNCA usar a palavra CRECI (é termo de imobiliária, nunca entra em material da BNB)",
+    "NUNCA linha de código do imóvel, nome estilo código ou número de referência na peça",
+    "NUNCA recriar, redesenhar ou distorcer a logo BNB: usar exatamente o arquivo anexado",
+    "NUNCA inventar dado do imóvel: tudo vem da ficha real (anúncio do Airbnb)",
+    "NUNCA gerar foto nova em vez de usar a imagem anexada",
+    "NUNCA travessão (—) em nenhum texto",
+    "NUNCA pessoas em cena nas fotos de imóvel",
+    "NUNCA sombra ou contorno nos quadrados, cards e faixas",
+    "NUNCA mais de 1 frase em serifada por card",
+    "NUNCA cores fora da paleta BNB",
+    "NUNCA texto acinzentado, opaco ou desbotado"
+  ],
+  "campos_variaveis": {
+    "titulo": "tipo do imóvel + diferencial de localização (ex: 'Flat moderno' + 'a 100 m da Av. Paulista')",
+    "quadrados_da_capa": "5 itens mais relevantes da ficha: capacidade (hóspedes), quartos, cama, banheiros e o maior diferencial de lazer. Sauna, academia, vaga e demais itens ficam para o card de lazer",
+    "fonte_dos_dados": "anúncio do Airbnb do imóvel, lido pelo Claude no Chrome",
+    "frase_do_card_vista_externa": "Sempre perguntar ao usuário antes de gerar, com 3 a 4 opções baseadas na ficha real. Exemplo aprovado: 'Vista para o horizonte da cidade'.",
+    "titulo_do_card_lazer": "'Lazer no prédio' (ajustar ao imóvel); itens e frase de gancho confirmados com o usuário antes de gerar"
+  },
+  "cards_planejados": {
+    "capa": "aprovado (2 variações abaixo)",
+    "galeria-interna": "aprovado (cards 2 e 3 abaixo: foto interna full-bleed + logo topo central, sem texto)",
+    "vista-externa": "aprovado (card 4): foto externa full-bleed + logo + frase com expressão em negrito; frase sempre perguntada antes de gerar",
+    "lazer": "aprovado (card 5): 2 variações, A com quadrados flat e ícones, B com 3 fotos quadradas",
+    "mosaico-com-info": "aprovado (card 6)",
+    "mosaico-com-cta": "aprovado (card 7), logo BNB sempre no centro"
+  },
+  "variacoes": {
+    "capa-A-quadrados-cores-bnb-card-flutuante": {
+      "nome": "Capa A: foto full-bleed + pilha de 5 quadrados em cores BNB + card flutuante navy embaixo",
+      "descricao": "Foto interna ocupando o frame inteiro. Na borda esquerda, 5 quadrados de informação em 4 cores da paleta BNB. Embaixo, card flutuante navy 100% flat, contido, com título em sans extra bold e diferencial em serifada itálica.",
+      "hierarquia": "Foto > logo (topo central) > pilha de quadrados na borda esquerda > card inferior com título e subtítulo",
+      "cores": {
+        "quadrado_1": "Azul-marinho #052F42, ícone e texto off-white",
+        "quadrado_2": "Petróleo #005070, ícone e texto off-white",
+        "quadrado_3": "Dourado fosco #A9782E, ícone e texto off-white",
+        "quadrado_4": "Azul-cinza #EAF2F5, ícone e texto petróleo",
+        "quadrado_5": "Azul-marinho #052F42, ícone e texto off-white",
+        "card": "Azul-marinho #052F42, texto off-white #F8F4EA"
+      },
+      "tipografia": {
+        "rotulos": "DM Sans Medium 500, ~22px",
+        "titulo": "Manrope ExtraBold 800, ~56px",
+        "subtitulo": "Newsreader Italic 400, ~42px"
+      },
+      "imagens_para_carregar": "1) foto interna do imóvel (vertical), 2) logo BNB Connect versão clara",
+      "quando_usar": "Capa de apresentação do imóvel quando a foto de capa é forte em tela cheia.",
+      "aprovado": "sim (fechado em 28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Foto full-bleed documental real de ambiente INTERNO, EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas), ocupando o frame inteiro, passando por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original. No topo, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a SEGUNDA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Colados à borda ESQUERDA do frame, sangrando de propósito até a borda como abas, 5 quadrados sólidos flat empilhados verticalmente, cada um com cerca de 190x136px, com 8px de intervalo entre eles, começando a cerca de 180px do topo, sem sombra e sem contorno. Dentro de cada quadrado, centralizado: um ícone de linha fina (traço uniforme de ~2px, cantos arredondados, sem preenchimento) e abaixo o rótulo em sans-serif medium. Quadrado 1, fundo azul-marinho #052F42, ícone de grupo de pessoas, rótulo '2 Hóspedes'. Quadrado 2, fundo Petróleo BNB #005070, ícone de cama de solteiro com cabeceira, rótulo '1 Quarto'. Quadrado 3, fundo dourado fosco #A9782E (tom terroso/mate, nunca alaranjado vibrante nem metálico brilhante), ícone de cama de casal, rótulo '1 Cama Queen'. Quadrado 4, fundo azul-cinza claro #EAF2F5, ícone de banheiro (vaso e pia), rótulo '1 Banheiro', com ícone e texto em Petróleo BNB #005070. Quadrado 5, fundo azul-marinho #052F42, ícone de piscina com escada, rótulo 'Piscina Aquecida' em até 2 linhas. Nos quadrados 1, 2, 3 e 5, ícone e rótulo em off-white #F8F4EA. Na parte inferior, um card flutuante sólido azul-marinho #052F42, cantos arredondados (raio ~24px), 100% flat, sem contorno e sem sombra, totalmente contido no frame com 64px de margem nos 4 lados, ocupando a largura da zona segura e cerca de 22% da altura, abaixo dos quadrados sem sobrepô-los. Dentro do card, centralizado horizontal e verticalmente: 'Flat moderno' em sans-serif extra bold off-white #F8F4EA, 56px; logo abaixo, 'a 100 m da Av. Paulista' em serifada itálica off-white #F8F4EA, 42px. Nenhum outro texto na peça: sem código, sem número de referência e sem nenhuma linha extra acima ou abaixo do título. Paleta dominante: tons quentes da foto interna anexada, azul-marinho, petróleo, dourado fosco, azul-cinza e off-white nos quadrados e no card.",
+            "subject": "Ambiente interno do imóvel conforme a primeira imagem anexada, com pilha de 5 quadrados de informação na borda esquerda e card de título embaixo",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior, com sistema gráfico de quadrados e card flat",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial, gráficos vetoriais limpos e nítidos",
+            "surface_textures": "texturas reais conforme a foto anexada; quadrados e card 100% flat, sem textura, sem sombra, sem contorno",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos; quadrados e card em cor sólida recortada, cantos lisos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "full-bleed, quadrados colados na borda esquerda (exceção intencional à regra de card contido), card inferior contido nos 4 lados",
+            "subject_placement": "foto ocupa o frame inteiro; logo no topo central; pilha de quadrados na borda esquerda entre ~180px e ~900px do topo; card de título na parte inferior",
+            "safe_area": "64px de padding mínimo em todas as bordas para texto, logo e card; zona segura de 952x1222px dentro do frame de 1080x1350px. Os quadrados são a única exceção e encostam na borda esquerda de propósito",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a segunda imagem anexada (logo, versão clara), sem recriar nem alterar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "2 Hóspedes",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 1 da pilha esquerda, com ícone de grupo de pessoas"
+              },
+              {
+                "text": "1 Quarto",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #005070",
+                "position": "quadrado 2, com ícone de cama"
+              },
+              {
+                "text": "1 Cama Queen",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #A9782E",
+                "position": "quadrado 3, com ícone de cama de casal"
+              },
+              {
+                "text": "1 Banheiro",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#005070 sobre fundo #EAF2F5",
+                "position": "quadrado 4, com ícone de banheiro"
+              },
+              {
+                "text": "Piscina Aquecida",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 5, com ícone de piscina, até 2 linhas"
+              },
+              {
+                "text": "Flat moderno",
+                "font": "sans-serif extra bold (Manrope 800)",
+                "font_size": "56px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "card inferior, centralizado, linha única"
+              },
+              {
+                "text": "a 100 m da Av. Paulista",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "42px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "card inferior, centralizado, logo abaixo do título"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto interna fiel à imagem anexada com upscale editorial",
+              "logo BNB idêntica ao arquivo anexado",
+              "pilha de 5 quadrados nítida, alinhada e com ícones de linha fina consistentes",
+              "cores dos quadrados exatamente na paleta BNB",
+              "card inferior 100% flat, contido e legível, só com título e subtítulo",
+              "texto com contraste alto",
+              "composição limpa que deixa a foto respirar"
+            ],
+            "avoid": [
+              "gerar foto nova em vez de usar a imagem anexada",
+              "recriar, redesenhar ou distorcer a logo BNB",
+              "qualquer menção a CRECI",
+              "linha de código do imóvel, nome estilo código ou número de referência",
+              "texto além dos especificados",
+              "inventar dados do imóvel",
+              "foto com dominante de cor fria sem correção",
+              "HDR artificial",
+              "pessoas em cena",
+              "sombra, contorno ou gradiente nos quadrados e no card",
+              "quadrados sobrepondo o card inferior",
+              "ícones com estilos diferentes entre si ou preenchidos",
+              "mais de uma frase em serifada",
+              "cores fora da paleta BNB",
+              "texto acinzentado, opaco ou desbotado",
+              "travessão em qualquer texto",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "ficha de imóvel editorial de hospitalidade, estilo revista de design e viagens 2025-2026, sistema gráfico de quadrados informativos sobre foto"
+          }
+        }
+      }
+    },
+    "capa-B-quadrados-navy-faixa-base": {
+      "nome": "Capa B: foto 80% + pilha de 5 quadrados navy com filete dourado + faixa navy colada na base",
+      "descricao": "Foto interna nos 80% superiores. Na borda esquerda, 5 quadrados todos azul-marinho separados por filete dourado fino. Faixa navy de largura total e corte reto nos 20% inferiores com título em sans extra bold e diferencial em serifada itálica. Variação mais sóbria; foi a testada visualmente em 28 out 2026.",
+      "hierarquia": "Foto > logo (topo central) > pilha de quadrados navy na borda esquerda > faixa inferior com título e subtítulo",
+      "cores": {
+        "quadrados": "Azul-marinho #052F42 com filete de 2px em dourado fosco #A9782E entre eles, ícone e texto off-white",
+        "faixa": "Azul-marinho #052F42, texto off-white #F8F4EA"
+      },
+      "tipografia": {
+        "rotulos": "DM Sans Medium 500, ~22px",
+        "titulo": "Manrope ExtraBold 800, ~54px",
+        "subtitulo": "Newsreader Italic 400, ~42px"
+      },
+      "imagens_para_carregar": "1) foto interna do imóvel (vertical, ocupa os 80% de cima), 2) logo BNB Connect versão clara",
+      "quando_usar": "Capa mais sóbria e informativa; garante leitura do título em qualquer foto porque a faixa é sólida.",
+      "aprovado": "sim (fechado em 28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350), frame dividido horizontalmente: 80% superior é uma foto documental real de ambiente INTERNO, EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas), passando por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original. 20% inferior é uma faixa sólida azul-marinho #052F42, largura total, corte reto sem arredondamento, 100% flat. No topo da foto, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a SEGUNDA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Colados à borda ESQUERDA do frame, sangrando de propósito até a borda como abas, 5 quadrados sólidos flat, todos em azul-marinho #052F42, empilhados verticalmente sobre a foto, cada um com cerca de 190x136px, separados por um filete de 2px em dourado fosco #A9782E, começando a cerca de 180px do topo, sem sombra e sem contorno. Dentro de cada quadrado, centralizado: um ícone de linha fina (traço uniforme de ~2px, cantos arredondados, sem preenchimento) e abaixo o rótulo em sans-serif medium, tudo em off-white #F8F4EA. Quadrado 1: ícone de grupo de pessoas, '2 Hóspedes'. Quadrado 2: ícone de cama de solteiro com cabeceira, '1 Quarto'. Quadrado 3: ícone de cama de casal, '1 Cama Queen'. Quadrado 4: ícone de banheiro (vaso e pia), '1 Banheiro'. Quadrado 5: ícone de piscina com escada, 'Piscina Aquecida' em até 2 linhas. Dentro da faixa navy inferior, centralizado horizontal e verticalmente: 'Flat moderno' em sans-serif extra bold off-white #F8F4EA, 54px; logo abaixo, 'a 100 m da Av. Paulista' em serifada itálica off-white #F8F4EA, 42px. Nenhum outro texto na peça: sem código, sem número de referência e sem nenhuma linha extra acima ou abaixo do título. Paleta dominante: tons quentes da foto interna anexada, azul-marinho nos quadrados e na faixa, dourado fosco nos filetes, off-white no texto.",
+            "subject": "Ambiente interno do imóvel conforme a primeira imagem anexada, com pilha de 5 quadrados de informação na borda esquerda e faixa de título colada na base",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior, com sistema gráfico de quadrados e faixa flat",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial, gráficos vetoriais limpos e nítidos",
+            "surface_textures": "texturas reais conforme a foto anexada; quadrados e faixa 100% flat, sem textura, sem sombra",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos; quadrados e faixa em cor sólida, cantos lisos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "split horizontal 80/20, corte reto; quadrados colados na borda esquerda sobre a foto (exceção intencional à regra de card contido)",
+            "subject_placement": "foto ocupa os 80% superiores; faixa de título ocupa os 20% inferiores, largura total; logo no topo central; pilha de quadrados na borda esquerda entre ~180px e ~900px do topo",
+            "safe_area": "64px de padding mínimo nas laterais e no topo para texto e logo; dentro da faixa navy, 44px de margem lateral. Os quadrados são a única exceção e encostam na borda esquerda de propósito",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a segunda imagem anexada (logo, versão clara), sem recriar nem alterar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "2 Hóspedes",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 1 da pilha esquerda, com ícone de grupo de pessoas"
+              },
+              {
+                "text": "1 Quarto",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 2, com ícone de cama"
+              },
+              {
+                "text": "1 Cama Queen",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 3, com ícone de cama de casal"
+              },
+              {
+                "text": "1 Banheiro",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 4, com ícone de banheiro"
+              },
+              {
+                "text": "Piscina Aquecida",
+                "font": "sans-serif medium (DM Sans 500)",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre fundo #052F42",
+                "position": "quadrado 5, com ícone de piscina, até 2 linhas"
+              },
+              {
+                "text": "Flat moderno",
+                "font": "sans-serif extra bold (Manrope 800)",
+                "font_size": "54px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "faixa inferior, centralizado, linha única"
+              },
+              {
+                "text": "a 100 m da Av. Paulista",
+                "font": "serifada itálica (Newsreader Italic 400)",
+                "font_size": "42px",
+                "color": "#F8F4EA, sólido e saturado",
+                "position": "faixa inferior, centralizado, logo abaixo do título"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto interna fiel à imagem anexada com upscale editorial",
+              "logo BNB idêntica ao arquivo anexado",
+              "pilha de 5 quadrados navy nítida, com filetes dourados finos e ícones de linha consistentes",
+              "faixa inferior 100% flat, corte reto, só com título e subtítulo",
+              "texto com contraste alto",
+              "composição limpa e sóbria"
+            ],
+            "avoid": [
+              "gerar foto nova em vez de usar a imagem anexada",
+              "recriar, redesenhar ou distorcer a logo BNB",
+              "qualquer menção a CRECI",
+              "linha de código do imóvel, nome estilo código ou número de referência",
+              "texto além dos especificados",
+              "inventar dados do imóvel",
+              "foto com dominante de cor fria sem correção",
+              "HDR artificial",
+              "pessoas em cena",
+              "sombra, contorno ou gradiente nos quadrados e na faixa",
+              "ícones com estilos diferentes entre si ou preenchidos",
+              "mais de uma frase em serifada",
+              "cores fora da paleta BNB",
+              "texto acinzentado, opaco ou desbotado",
+              "travessão em qualquer texto",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "ficha de imóvel editorial de hospitalidade, estilo revista de design e viagens 2025-2026, sistema gráfico de quadrados informativos sobre foto"
+          }
+        }
+      }
+    },
+    "galeria-interna-card-2": {
+      "nome": "Galeria interna 1: foto interna full-bleed + logo, sem texto",
+      "descricao": "Foto interna em tela cheia com upscale editorial e só a logo BNB no topo central. Sem texto, sem quadrados.",
+      "imagens_para_carregar": "1) foto interna do imóvel em vertical (sugestão: quarto com a cama queen), 2) logo BNB Connect versão clara",
+      "quando_usar": "Segundo card do imóvel. Repetível com outra foto.",
+      "aprovado": "sim (fechado em 28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Foto full-bleed documental real de ambiente INTERNO, EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas), ocupando o frame inteiro. Se a foto anexada não for 4:5, enquadrar/cortar de forma inteligente pra 4:5 mantendo o assunto principal inteiro, sem distorcer a proporção. A foto passa por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor da capa e dos demais cards do imóvel. No topo, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a SEGUNDA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Se o topo da foto for claro demais para a logo clara ter contraste, aplicar um escurecimento suave e localizado somente atrás da logo, sem bloco, sem faixa e sem gradiente visível. Nenhum outro elemento na peça: sem texto, sem código, sem número de referência, sem quadrados, sem faixas, sem cards. Paleta dominante: tons quentes da foto interna anexada e logo clara.",
+            "subject": "Ambiente interno do imóvel conforme a primeira imagem anexada, em enquadramento de galeria",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior, galeria sem texto",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "full-bleed, sem texto, sem cards, só a logo no topo",
+            "subject_placement": "foto ocupa o frame inteiro; logo no topo central",
+            "safe_area": "64px de padding mínimo em todas as bordas para a logo; zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a segunda imagem anexada (logo, versão clara), sem recriar nem alterar",
+                "position": "topo, centralizada"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto interna fiel à imagem anexada com upscale editorial",
+              "logo BNB idêntica ao arquivo anexado e legível sobre a foto",
+              "mesma assinatura de cor da capa e dos demais cards",
+              "enquadramento de galeria limpo, com o ambiente respirando",
+              "nitidez alta nos materiais e texturas"
+            ],
+            "avoid": [
+              "gerar foto nova em vez de usar a imagem anexada",
+              "recriar, redesenhar ou distorcer a logo BNB",
+              "qualquer texto, código de imóvel, número de referência ou menção a CRECI",
+              "quadrados, faixas ou cards sobre a foto",
+              "foto com dominante de cor fria sem correção",
+              "HDR artificial",
+              "pessoas em cena",
+              "inventar elementos que não estão na foto",
+              "escurecimento visível ou bloco atrás da logo",
+              "travessão em qualquer texto",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    },
+    "galeria-interna-card-3": {
+      "nome": "Galeria interna 2: outro ambiente interno, mesma estrutura do card 2",
+      "descricao": "Idêntico ao card 2, só muda a foto: ambiente diferente.",
+      "imagens_para_carregar": "1) outra foto interna em vertical, de ambiente diferente do card 2 (sugestão: cozinha ou banheiro), 2) logo BNB Connect versão clara",
+      "quando_usar": "Terceiro card do imóvel.",
+      "aprovado": "sim (fechado em 28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Foto full-bleed documental real de ambiente INTERNO, EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas), ocupando o frame inteiro. Se a foto anexada não for 4:5, enquadrar/cortar de forma inteligente pra 4:5 mantendo o assunto principal inteiro, sem distorcer a proporção. A foto passa por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor da capa e do card 2 do imóvel. No topo, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a SEGUNDA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Se o topo da foto for claro demais para a logo clara ter contraste, aplicar um escurecimento suave e localizado somente atrás da logo, sem bloco, sem faixa e sem gradiente visível. Nenhum outro elemento na peça: sem texto, sem código, sem número de referência, sem quadrados, sem faixas, sem cards. Paleta dominante: tons quentes da foto interna anexada e logo clara.",
+            "subject": "Ambiente interno do imóvel conforme a primeira imagem anexada, em enquadramento de galeria, diferente do ambiente do card 2",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary interior, galeria sem texto",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "full-bleed, sem texto, sem cards, só a logo no topo",
+            "subject_placement": "foto ocupa o frame inteiro; logo no topo central",
+            "safe_area": "64px de padding mínimo em todas as bordas para a logo; zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a segunda imagem anexada (logo, versão clara), sem recriar nem alterar",
+                "position": "topo, centralizada"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto interna fiel à imagem anexada com upscale editorial",
+              "logo BNB idêntica ao arquivo anexado e legível sobre a foto",
+              "mesma assinatura de cor da capa e dos demais cards",
+              "enquadramento de galeria limpo, com o ambiente respirando",
+              "nitidez alta nos materiais e texturas"
+            ],
+            "avoid": [
+              "gerar foto nova em vez de usar a imagem anexada",
+              "recriar, redesenhar ou distorcer a logo BNB",
+              "qualquer texto, código de imóvel, número de referência ou menção a CRECI",
+              "quadrados, faixas ou cards sobre a foto",
+              "foto com dominante de cor fria sem correção",
+              "HDR artificial",
+              "pessoas em cena",
+              "inventar elementos que não estão na foto",
+              "escurecimento visível ou bloco atrás da logo",
+              "travessão em qualquer texto",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    },
+    "vista-externa-card-4": {
+      "nome": "Vista externa: foto externa full-bleed + logo + frase curta com expressão em negrito",
+      "descricao": "Foto externa (vista ou fachada) em tela cheia, logo BNB no topo central, uma frase na base sobre escurecimento navy suave. Expressão-chave em ExtraBold.",
+      "imagens_para_carregar": "1) foto externa do imóvel em vertical (vista da sacada/janela ou fachada), 2) logo BNB Connect versão clara",
+      "regra_da_frase": "ANTES de gerar este card, perguntar ao usuário que frase colocar, oferecendo opções tiradas SÓ de dados confirmados na ficha do imóvel (ex: vista, distância a ponto conhecido, metrô, shopping em frente). Nunca criar frase com adjetivo ou promessa que a ficha não sustente.",
+      "quando_usar": "Quarto card do imóvel.",
+      "aprovado": "sim (28 out 2026, testado pelo Diego)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Foto full-bleed documental real de ambiente EXTERNO (vista do imóvel para a cidade ou fachada do prédio), EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas em destaque), ocupando o frame inteiro. Se a foto anexada não for 4:5, enquadrar/cortar de forma inteligente pra 4:5 mantendo o assunto principal inteiro, sem distorcer a proporção. A foto passa por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria (céu e vidros sem azul frio saturado), sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor da capa e dos cards internos do imóvel. No topo, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a SEGUNDA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Na parte inferior, dentro da zona segura (64px de margem), uma frase curta centralizada em até 3 linhas, em off-white #F8F4EA: [FRASE ESCOLHIDA] em Manrope Medium 500, 52px, com a expressão-chave em Manrope ExtraBold 800 (negrito de destaque, mesma cor e tamanho). Exemplo aprovado: 'Vista para o ' + 'horizonte da cidade'. Para garantir legibilidade, aplicar um escurecimento suave e contínuo da foto só na base do frame (gradiente de azul-marinho #052F42 de 0% a cerca de 55% de opacidade, cobrindo os 35% inferiores), sem faixa dura, sem bloco e sem contorno. Se a foto anexada for clara no topo, aplicar escurecimento suave e localizado somente atrás da logo. Nenhum outro texto na peça: sem código, sem número de referência, sem quadrados, sem CRECI.",
+            "subject": "Vista externa do imóvel conforme a primeira imagem anexada, com frase de destaque na base",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary exterior and view, frase curta sobre foto",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "full-bleed, logo no topo, frase centralizada na base sobre escurecimento suave",
+            "subject_placement": "foto ocupa o frame inteiro; logo no topo central; frase na base, dentro da zona segura",
+            "safe_area": "64px de padding mínimo em todas as bordas para a logo; zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a segunda imagem anexada (logo, versão clara), sem recriar nem alterar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "[FRASE ESCOLHIDA]",
+                "type": "Manrope off-white #F8F4EA, 52px, expressão-chave em ExtraBold 800 e o resto em Medium 500",
+                "position": "base, centralizada, até 3 linhas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto interna fiel à imagem anexada com upscale editorial",
+              "logo BNB idêntica ao arquivo anexado e legível sobre a foto",
+              "mesma assinatura de cor da capa e dos demais cards",
+              "enquadramento de galeria limpo, com o ambiente respirando",
+              "nitidez alta nos materiais e texturas",
+              "frase 100% legível com a expressão-chave claramente em negrito",
+              "escurecimento da base suave e contínuo, sem bloco visível"
+            ],
+            "avoid": [
+              "gerar foto nova em vez de usar a imagem anexada",
+              "recriar, redesenhar ou distorcer a logo BNB",
+              "qualquer texto, código de imóvel, número de referência ou menção a CRECI",
+              "quadrados, faixas ou cards sobre a foto",
+              "foto com dominante de cor fria sem correção",
+              "HDR artificial",
+              "pessoas em cena",
+              "inventar elementos que não estão na foto",
+              "escurecimento visível ou bloco atrás da logo",
+              "travessão em qualquer texto",
+              "mais de uma frase ou texto extra",
+              "faixa dura, bloco, contorno ou sombra atrás do texto",
+              "serifada neste card",
+              "céu com dominante azul fria",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    },
+    "lazer-card-5-A-quadrados-flat": {
+      "nome": "Lazer A: foto externa + título + 3 quadrados flat com ícone na borda esquerda + frase",
+      "descricao": "Foto externa full-bleed, título à esquerda, 3 abas coloridas (navy, petróleo, dourado) com ícone de linha fina e rótulo, frase serifada na base.",
+      "imagens_para_carregar": "1) foto externa do imóvel ou prédio em vertical, 2) logo BNB Connect versão clara",
+      "quando_usar": "Quando só há uma boa foto de lazer ou externa.",
+      "aprovado": "sim (28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Foto full-bleed documental real de ambiente EXTERNO, EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas em destaque), ocupando o frame inteiro. Se a foto anexada não for 4:5, enquadrar/cortar de forma inteligente pra 4:5 mantendo o assunto principal inteiro, sem distorcer a proporção. A foto passam por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria (céu, vidros e água sem azul frio saturado), sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor da capa e dos demais cards do imóvel. No topo, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a SEGUNDA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Abaixo da logo, alinhado à esquerda dentro da zona segura (64px de margem), o título 'Lazer no prédio' em sans-serif Manrope ExtraBold 800, off-white #F8F4EA, 56px, a cerca de 170px do topo. Colados à borda ESQUERDA do frame, sangrando de propósito até a borda como abas, 3 quadrados sólidos flat empilhados verticalmente, cada um com cerca de 190x136px, com 8px de intervalo, começando a cerca de 290px do topo, sem sombra e sem contorno. Dentro de cada quadrado, centralizado: ícone de linha fina (traço ~2px, cantos arredondados, sem preenchimento) e abaixo o rótulo em DM Sans Medium 500, ~22px, off-white #F8F4EA. Quadrado 1, fundo azul-marinho #052F42, ícone de piscina com escada, 'Piscina Aquecida' em até 2 linhas. Quadrado 2, fundo Petróleo BNB #005070, ícone de sauna (banco com ondas de vapor), 'Sauna'. Quadrado 3, fundo dourado fosco #A9782E (tom terroso/mate, nunca alaranjado vibrante nem metálico brilhante), ícone de halter, 'Academia'. Na base, dentro da zona segura, a frase de gancho centralizada em até 2 linhas, em Newsreader Italic 400, off-white #F8F4EA, 44px: 'Piscina, sauna e academia no mesmo endereço', sobre escurecimento suave e contínuo da foto só na base do frame (gradiente de azul-marinho #052F42 de 0% a cerca de 55% de opacidade), sem faixa dura, sem bloco e sem contorno cobrindo os 25% inferiores. Nenhum outro texto na peça: sem código, sem número de referência, sem CRECI.",
+            "subject": "Área de lazer ou fachada do prédio conforme a primeira imagem anexada, com título, 3 quadrados de lazer na borda esquerda e frase de gancho na base",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary exterior and view, frase curta sobre foto",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "foto full-bleed, logo no topo, título à esquerda, 3 abas na borda esquerda, frase centralizada na base",
+            "subject_placement": "manter o assunto principal da foto livre, sem ser coberto pelos quadrados nem pela frase",
+            "safe_area": "64px de padding mínimo em todas as bordas para a logo; zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE o arquivo da logo anexado (versão clara), sem recriar nem alterar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "Lazer no prédio",
+                "type": "Manrope ExtraBold 800, off-white, 56px",
+                "position": "abaixo da logo, à esquerda"
+              },
+              {
+                "text": "Piscina Aquecida | Sauna | Academia",
+                "type": "3 quadrados flat 190x136px com ícone de linha fina e rótulo DM Sans Medium; cores #052F42, #005070, #A9782E",
+                "position": "borda esquerda, empilhados, a partir de 290px do topo"
+              },
+              {
+                "text": "Piscina, sauna e academia no mesmo endereço",
+                "type": "Newsreader Italic 400, off-white, 44px",
+                "position": "base, centralizada"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto fiel à imagem anexada com upscale editorial",
+              "logo idêntica ao arquivo anexado",
+              "3 quadrados flat com ícones de linha fina consistentes",
+              "título e frase legíveis",
+              "escurecimento da base suave, sem bloco"
+            ],
+            "avoid": [
+              "gerar foto nova",
+              "recriar ou distorcer a logo",
+              "código, número de referência ou CRECI",
+              "texto além do especificado",
+              "sombra, contorno ou brilho nos quadrados",
+              "mais de uma frase serifada",
+              "dourado alaranjado ou metálico",
+              "HDR artificial",
+              "céu e água com dominante fria",
+              "travessão",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    },
+    "lazer-card-5-B-3-fotos": {
+      "nome": "Lazer B: foto externa de fundo + título + frase + fileira de 3 fotos quadradas",
+      "descricao": "Foto externa de fundo, título à esquerda, frase serifada e fileira de 3 fotos quadradas (piscina, sauna, academia) com rótulo no canto.",
+      "imagens_para_carregar": "1) foto externa de fundo, 2) foto da piscina, 3) foto da sauna, 4) foto da academia, 5) logo BNB Connect versão clara (nesta ordem)",
+      "quando_usar": "Quando há foto de cada área de lazer.",
+      "aprovado": "sim (28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Foto full-bleed documental real de ambiente EXTERNO, EXATAMENTE a PRIMEIRA imagem anexada pelo usuário a esta mensagem (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas em destaque), ocupando o frame inteiro. Se a foto anexada não for 4:5, enquadrar/cortar de forma inteligente pra 4:5 mantendo o assunto principal inteiro, sem distorcer a proporção. TODAS as fotos deste card (fundo e as 3 fotos quadradas) passam por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria (céu, vidros e água sem azul frio saturado), sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor da capa e dos demais cards do imóvel. No topo, centralizada horizontalmente dentro da zona segura, a logo BNB Connect: usar EXATAMENTE a QUINTA imagem anexada (arquivo da logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px. Abaixo da logo, alinhado à esquerda dentro da zona segura (64px de margem), o título 'Lazer no prédio' em sans-serif Manrope ExtraBold 800, off-white #F8F4EA, 56px, a cerca de 170px do topo. Na parte inferior, dentro da zona segura, uma fileira horizontal de 3 FOTOS QUADRADAS lado a lado, cada uma com cerca de 312x312px, 8px de intervalo, cantos arredondados (raio ~16px), ocupando a largura da zona segura, base da fileira a 64px do fim do frame, sem sombra e sem contorno. Foto quadrada 1: EXATAMENTE a SEGUNDA imagem anexada (piscina aquecida), recortada em quadrado com o assunto centralizado, rótulo 'Piscina Aquecida'. Foto quadrada 2: EXATAMENTE a TERCEIRA imagem anexada (sauna), rótulo 'Sauna'. Foto quadrada 3: EXATAMENTE a QUARTA imagem anexada (academia), rótulo 'Academia'. Em cada foto quadrada, no canto inferior esquerdo com 16px de margem interna, o rótulo em DM Sans Medium 500, 22px, off-white #F8F4EA, sobre escurecimento suave e localizado da própria foto naquele canto (sem pílula, sem bloco, sem contorno). Acima da fileira, ~32px de distância, a frase de gancho centralizada em até 2 linhas, em Newsreader Italic 400, off-white #F8F4EA, 44px: 'Piscina, sauna e academia no mesmo endereço', sobre escurecimento suave e contínuo da foto só na base do frame (gradiente de azul-marinho #052F42 de 0% a cerca de 60% de opacidade), sem faixa dura, sem bloco e sem contorno cobrindo os 45% inferiores. Nenhum outro texto na peça: sem código, sem número de referência, sem CRECI.",
+            "subject": "Foto externa de fundo com título, frase de gancho e fileira de 3 fotos quadradas de lazer (piscina, sauna, academia) conforme as imagens anexadas",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography, documentary exterior and view, frase curta sobre foto",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "materiais e superfícies exatamente como na foto anexada, sem inventar elementos"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "foto de fundo full-bleed; logo no topo; título à esquerda; frase e fileira de 3 fotos quadradas na base",
+            "subject_placement": "manter o assunto principal da foto de fundo visível no meio do frame, sem cobertura pelo título, frase ou fotos",
+            "safe_area": "64px de padding mínimo em todas as bordas para a logo; zona segura de 952x1222px dentro do frame de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a quinta imagem anexada (logo clara), sem recriar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "Lazer no prédio",
+                "type": "Manrope ExtraBold 800, off-white, 56px",
+                "position": "abaixo da logo, à esquerda"
+              },
+              {
+                "text": "Piscina, sauna e academia no mesmo endereço",
+                "type": "Newsreader Italic 400, off-white, 44px",
+                "position": "acima da fileira, centralizada"
+              },
+              {
+                "text": "Piscina Aquecida | Sauna | Academia",
+                "type": "3 fotos quadradas ~312x312px, raio ~16px, rótulo DM Sans Medium 22px no canto inferior esquerdo",
+                "position": "base, fileira horizontal"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fundo fiel à primeira imagem anexada",
+              "3 fotos quadradas fiéis às imagens 2, 3 e 4, na ordem piscina, sauna, academia",
+              "logo idêntica ao arquivo anexado",
+              "mesma assinatura de cor quente nas 4 fotos",
+              "título, frase e rótulos legíveis"
+            ],
+            "avoid": [
+              "gerar fotos novas",
+              "trocar a ordem das fotos quadradas",
+              "recriar ou distorcer a logo",
+              "código, número de referência ou CRECI",
+              "texto além do especificado",
+              "sombra, contorno ou moldura nas fotos",
+              "pílula atrás dos rótulos",
+              "mais de uma frase serifada",
+              "HDR artificial",
+              "fotos com temperaturas de cor diferentes",
+              "travessão",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    },
+    "mosaico-com-info-card-6": {
+      "nome": "Mosaico com info: grade 3x3, 8 fotos + quadrado de texto no centro + logo no topo",
+      "descricao": "Fundo off-white, logo escura no topo, 8 fotos quadradas ao redor de um quadrado navy central com a informação mais relevante (localização).",
+      "imagens_para_carregar": "1 a 8) as 8 fotos do imóvel (internas e externas), 9) logo BNB Connect versão escura",
+      "regra_do_texto": "Texto do quadrado vem da ficha real; perguntar ao usuário a opção antes de gerar. Exemplo: 'A 100 m da Av. Paulista e do metrô Consolação'.",
+      "quando_usar": "Sexto card do imóvel.",
+      "aprovado": "sim (fechado em 28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Mosaico em grade 3x3 sobre fundo sólido off-white quente #F8F4EA, 100% flat. No topo, centralizada, a logo BNB Connect: usar EXATAMENTE a NONA imagem anexada (logo, versão escura), sem recriar, redesenhar, redistorcer nem recolorir, largura de cerca de 220px, a 64px do topo. Abaixo da logo, a grade 3x3 de 952x952px começando a cerca de 250px do topo, 9 células de ~312x312px com 8px de intervalo, cantos arredondados (raio ~16px), sem sombra e sem contorno. As 8 células externas são FOTOS ANEXADAS, cada uma EXATAMENTE a imagem indicada (carregar os arquivos, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas em destaque), recortadas em quadrado de forma inteligente mantendo o assunto principal inteiro e centralizado, sem distorcer a proporção. Ordem, da esquerda para a direita e de cima para baixo, pulando o centro: linha 1: PRIMEIRA, SEGUNDA e TERCEIRA imagens; linha 2: QUARTA à esquerda e QUINTA à direita; linha 3: SEXTA, SÉTIMA e OITAVA. TODAS as 8 fotos passam por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria (céu, vidros e água sem azul frio saturado), sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor quente em todas as fotos e igual à da capa e dos demais cards do imóvel. A célula CENTRAL é um quadrado sólido azul-marinho #052F42, 312x312px, raio ~16px, flat, com texto centralizado, margem interna de 24px, até 4 linhas, Manrope off-white #F8F4EA 34px: 'A 100 m da ' em Medium 500, 'Av. Paulista' em ExtraBold 800, ' e do metrô Consolação' em Medium 500. O texto cabe inteiro, sem corte. Nenhum outro texto na peça: sem código, sem número de referência, sem CRECI, sem legendas nas fotos.",
+            "subject": "Mosaico 3x3 do imóvel: 8 fotos anexadas ao redor de um quadrado central azul-marinho com a informação de localização",
+            "setting": "Fundo sólido off-white quente, composição gráfica flat",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography mosaic, grade limpa 3x3, sistema gráfico flat com tipografia limpa",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "fotos exatamente como nas imagens anexadas; fundo e elementos gráficos 100% flat, sem sombra, sem contorno e sem textura"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "composição gráfica frontal, plana",
+            "framing": "logo no topo; grade 3x3 de 952x952px centralizada abaixo",
+            "subject_placement": "8 fotos nas posições externas; quadrado de texto no centro",
+            "safe_area": "64px de padding mínimo em todas as bordas; zona segura de 952px de largura",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect",
+                "type": "usar EXATAMENTE a nona imagem anexada (logo escura), sem recriar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "8 fotos quadradas",
+                "type": "imagens 1 a 8, ~312x312px, raio ~16px, 8px de intervalo",
+                "position": "grade 3x3, exceto o centro, em ordem de leitura"
+              },
+              {
+                "text": "A 100 m da Av. Paulista e do metrô Consolação",
+                "type": "quadrado navy #052F42 312x312px, Manrope off-white 34px, 'Av. Paulista' em ExtraBold 800",
+                "position": "centro da grade"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "8 fotos fiéis às anexadas na ordem indicada, com upscale editorial",
+              "mesma assinatura de cor quente nas 8 fotos",
+              "logo idêntica ao arquivo anexado",
+              "quadrado central com texto legível e sem corte",
+              "'Av. Paulista' em negrito",
+              "grade alinhada, intervalos de 8px uniformes"
+            ],
+            "avoid": [
+              "gerar fotos novas",
+              "trocar a ordem das fotos",
+              "foto no centro",
+              "recriar ou distorcer a logo",
+              "logo clara sobre o off-white",
+              "código, número de referência ou CRECI",
+              "legendas sobre as fotos",
+              "sombra, contorno ou moldura",
+              "fotos com temperaturas de cor diferentes",
+              "HDR artificial",
+              "travessão",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    },
+    "mosaico-com-cta-card-7": {
+      "nome": "Mosaico com CTA: mesma grade em outra ordem + logo BNB no centro + 2 barras de CTA",
+      "descricao": "Mesmas 8 fotos do card 6 reordenadas, quadrado navy central SEMPRE com a logo BNB clara, 2 barras (dourada e navy) com o CTA.",
+      "imagens_para_carregar": "1 a 8) as mesmas 8 fotos do card 6 na mesma sequência, 9) logo BNB versão escura, 10) logo BNB versão clara",
+      "regra_do_cta": "Texto padrão: 'Reserve sua estadia' + 'Link na bio'. Confirmar com o usuário se a ação for outra.",
+      "regra_centro": "No card final o centro da grade é sempre a logo BNB (decisão do Diego, 28 out 2026).",
+      "quando_usar": "Sétimo e último card do imóvel.",
+      "aprovado": "sim, com logo no centro (28 out 2026)",
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (retrato Instagram Feed), nem 3:4, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese; compor todos os elementos dentro desse canvas. Retrato vertical 4:5 (1080x1350). Mosaico em grade 3x3 com barras de CTA sobre fundo sólido off-white quente #F8F4EA, 100% flat. No topo, centralizada, a logo BNB Connect: usar EXATAMENTE a NONA imagem anexada (logo, versão escura), sem recriar, redesenhar, redistorcer nem recolorir, ~220px, a 64px do topo. Abaixo, a grade 3x3 de 916x916px começando a ~170px do topo, 9 células de ~300x300px com 8px de intervalo, cantos arredondados (raio ~16px), sem sombra e sem contorno. As 8 células externas são as MESMAS 8 fotos do card anterior em OUTRA ORDEM, cada uma EXATAMENTE a imagem indicada (carregar os arquivos, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas em destaque), recortadas em quadrado de forma inteligente mantendo o assunto principal inteiro e centralizado, sem distorcer a proporção. Ordem, da esquerda para a direita e de cima para baixo, pulando o centro: linha 1: QUINTA, SEXTA e SÉTIMA imagens; linha 2: OITAVA à esquerda e PRIMEIRA à direita; linha 3: SEGUNDA, TERCEIRA e QUARTA. TODAS as 8 fotos passam por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada pra tons quentes/terrosos alinhados à paleta da marca, removendo dominante de cor fria (céu, vidros e água sem azul frio saturado), sem HDR artificial, sem alterar a exposição original, com a mesma assinatura de cor quente em todas as fotos e igual à da capa e dos demais cards do imóvel. A célula CENTRAL é um quadrado sólido azul-marinho #052F42, 300x300px, raio ~16px, flat, com a logo BNB Connect centralizada: usar EXATAMENTE a DÉCIMA imagem anexada (logo, versão clara), sem recriar, redesenhar, redistorcer nem recolorir, ~190px de largura, sem nenhum outro elemento. Abaixo da grade, a 24px, 2 BARRAS de CTA empilhadas com a largura da grade (916px), ~80px de altura, 8px de intervalo, raio ~16px, flat. Barra 1: dourado fosco #A9782E (terroso/mate, nunca alaranjado vibrante nem metálico), texto 'Reserve sua estadia' centralizado, Manrope ExtraBold 800, off-white #F8F4EA, 36px. Barra 2: azul-marinho #052F42, texto 'Link na bio' centralizado, Manrope Medium 500, off-white #F8F4EA, 34px. Margem inferior de pelo menos 64px. Nenhum outro texto na peça: sem código, sem número de referência, sem CRECI, sem legendas nas fotos.",
+            "subject": "Mosaico 3x3 com as mesmas 8 fotos do card anterior em nova ordem, quadrado central navy com a logo BNB e 2 barras de CTA",
+            "setting": "Fundo sólido off-white quente, composição gráfica flat",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial real estate photography mosaic, grade limpa 3x3, sistema gráfico flat com tipografia limpa",
+            "rendering_quality": "hyperrealistic, fiel à foto anexada com upscale editorial",
+            "surface_textures": "texturas reais conforme a foto anexada, sem alterar materiais",
+            "lighting": "luz original da foto anexada, com temperatura de cor ajustada pra tons mais quentes"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "conforme a foto anexada",
+              "aperture": "conforme a foto anexada",
+              "depth_of_field": "conforme a foto anexada",
+              "angle": "conforme a foto anexada"
+            },
+            "resolution": "1080x1350 px, proporção exata 4:5 (nunca 3:4)",
+            "rendering": "grain sutil, cores naturais quentes, sem filtro de marca sobre a foto",
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350"
+          },
+          "materials": {
+            "surfaces": "fotos exatamente como nas imagens anexadas; fundo e elementos gráficos 100% flat, sem sombra, sem contorno e sem textura"
+          },
+          "environment": {
+            "atmosphere": "conforme a imagem anexada",
+            "time": "conforme a imagem anexada"
+          },
+          "composition": {
+            "perspective": "composição gráfica frontal, plana",
+            "framing": "logo escura no topo; grade 3x3 de 916x916px; 2 barras de CTA abaixo; margem inferior de 64px",
+            "subject_placement": "8 fotos nas posições externas em ordem diferente do card anterior; logo clara no quadrado navy central; barras abaixo da grade",
+            "safe_area": "64px de padding mínimo em todas as bordas; zona segura de 952px de largura",
+            "ui_elements": [
+              {
+                "text": "logo BNB Connect (topo)",
+                "type": "nona imagem anexada (logo escura), sem recriar",
+                "position": "topo, centralizada"
+              },
+              {
+                "text": "8 fotos quadradas",
+                "type": "imagens 1 a 8, ~300x300px; ordem 5,6,7 / 8,centro,1 / 2,3,4",
+                "position": "grade 3x3, exceto o centro"
+              },
+              {
+                "text": "logo BNB Connect (centro)",
+                "type": "quadrado navy 300x300px com a décima imagem anexada (logo clara), ~190px, sem recriar",
+                "position": "centro da grade"
+              },
+              {
+                "text": "Reserve sua estadia",
+                "type": "barra dourada #A9782E 916x80px, Manrope ExtraBold off-white 36px",
+                "position": "abaixo da grade"
+              },
+              {
+                "text": "Link na bio",
+                "type": "barra navy #052F42 916x80px, Manrope Medium off-white 34px",
+                "position": "abaixo da barra 1"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "8 fotos fiéis às anexadas, ordem diferente do card anterior, com upscale editorial",
+              "mesma assinatura de cor quente nas 8 fotos",
+              "logo do topo idêntica à nona imagem e logo do centro idêntica à décima",
+              "textos das barras legíveis e centralizados",
+              "grade e barras na mesma largura"
+            ],
+            "avoid": [
+              "gerar fotos novas",
+              "repetir a ordem do card anterior",
+              "foto ou ícone no centro no lugar da logo",
+              "recriar ou distorcer qualquer logo",
+              "logo clara sobre o off-white ou escura sobre o navy",
+              "código, número de referência ou CRECI",
+              "legendas sobre as fotos",
+              "texto no quadrado central",
+              "sombra, contorno ou moldura",
+              "dourado alaranjado ou metálico",
+              "fotos com temperaturas de cor diferentes",
+              "HDR artificial",
+              "travessão",
+              "proporção diferente de 4:5, como 3:4 (1092x1440), 1:1 ou 9:16, ou qualquer dimensão diferente de 1080x1350 px"
+            ],
+            "reference_standard": "fotografia editorial de interiores de hospitalidade, estilo revista de design e viagens 2025-2026"
+          }
+        }
+      }
+    }
+  }
+}

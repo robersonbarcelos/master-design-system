@@ -1,0 +1,118 @@
+{
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto principal do painel (interior real de uma cabine do trailer da Mônaco). IMAGEM 2 = símbolo oficial da Mônaco em marinho (3 estrelas, fundo transparente). Da IMAGEM 1, preserve com fidelidade total tudo o que existe nela: objetos, revestimentos, louças, espelhos, cores reais, proporções e enquadramento. Não redesenhe, não substitua, não remova e não acrescente nenhum elemento; aplique somente tratamento de cor editorial, upscale de nitidez e recurso de legibilidade na área do texto. A IMAGEM 2 deve ser colocada exatamente como foi enviada, dentro da aba off-white do canto superior esquerdo: não redesenhe, não recolora, não distorça. Monte o layout descrito no JSON.",
+  "prompt": {
+    "scene": {
+      "description": "Slide de carrossel vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, template BORDAS sem faixa de contato. Fundo externo off-white quente #F4F1EA aparecendo como margem fina (~18px) ao redor de um único painel. PAINEL: cantos bem arredondados (raio ~36px), ocupando de y 18 a y 1332px, preenchido pela IMAGEM 1 anexada, preservada com fidelidade total (sem redesenho, sem substituição, sem remoção e sem acréscimo de elementos), com tratamento de cor editorial de hospitalidade premium (contraste médio-alto, realces suaves, temperatura levemente quente, saturação natural) e upscale de nitidez sem artefatos. LEGIBILIDADE: degradê escuro suave azul-marinho #0F1D45 do topo do painel (~65% de opacidade) até transparente em ~50% da altura; se a parte de cima da foto for clara ou carregada, reforçar com leve desfoque só nessa faixa; se faltar espaço acima do assunto, estender o fundo existente de forma natural sem criar objetos. No canto superior esquerdo do painel, um recorte em forma de aba off-white #F4F1EA (x 18 a 208px, y 18 a 148px, canto inferior direito arredondado com transição curva suave para a borda superior do painel, efeito pasta de arquivo); dentro da aba, centralizada (centro em x 113px, y 83px, altura 95px), a LOGO ANEXADA (IMAGEM 2) aplicada exatamente como enviada. Moldura interna em linha branca fina (1,5px, 70% de opacidade) começando à direita da aba e seguindo pelo topo, lateral direita, base e lateral esquerda, 32px para dentro das bordas do painel, com pontos brancos sólidos de ~10px nos cantos. No canto superior direito, texto branco alinhado à direita: 'MÔNACO MOBILE TOILET' em sans geométrica bold caixa alta bem espaçada e abaixo 'EVENTOS · PRODUÇÕES' em sans regular caixa alta bem espaçada. No terço superior, centralizado: HEADLINE em serifada display de alto contraste (estilo Playfair Display Black) caixa alta em 2 linhas: 'A FESTA JÁ VAI' em dourado degradê #F2D48A a #D4A64A e 'PELA METADE' em branco, com sombra muito sutil; abaixo, com respiro de ~36px, o texto de apoio em sans regular branca, centralizado, 3 linhas, entrelinha confortável: 'O salto aperta, a maquiagem pede retoque' / 'e o vestido precisa de cuidado. A pausa no banheiro' / 'decide como cada convidado volta para a festa.' SEM faixa de contato, SEM telefone, SEM site, SEM rodapé, SEM pílula de local. Paleta do layout: azul-marinho profundo, dourado quente, off-white; a foto mantém suas cores reais.",
+      "subject": "Interior real da cabine Mônaco da IMAGEM 1, preservado sem alterações",
+      "setting": "Cabine do trailer de banheiro de luxo (IMAGEM 1)",
+      "action": "Estático"
+    },
+    "style": {
+      "primary": "editorial hospitality interior, premium print layout",
+      "rendering_quality": "hyperrealistic photo with crisp graphic design overlay",
+      "surface_textures": "texturas reais da foto (revestimentos, louça, metais, espelhos), apenas mais nítidas; elementos gráficos 100% flat",
+      "lighting": "luz original da foto realçada pelo color grading, iluminação quente de lavabo, sem HDR"
+    },
+    "technical": {
+      "camera": {
+        "focal_length": "o da foto anexada",
+        "aperture": "o da foto anexada",
+        "depth_of_field": "manter o da foto anexada",
+        "angle": "manter o da foto anexada"
+      },
+      "resolution": "ultra high definition, upscale limpo",
+      "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+    },
+    "materials": {
+      "surfaces": "manter revestimentos, louças, metais, espelhos e acessórios reais da foto, apenas mais nítidos"
+    },
+    "composition": {
+      "perspective": "manter a da foto anexada; área limpa ou escurecida no terço superior para o texto",
+      "framing": "painel único de foto com moldura interna, sem faixa inferior",
+      "subject_placement": "interior da cabine na posição original; texto centralizado no terço superior",
+      "safe_area": "64px de padding mínimo para todo texto: zona segura de 952x1222px dentro de 1080x1350px",
+      "ui_elements": [
+        {
+          "text": "logo Mônaco (IMAGEM 2 anexada)",
+          "type": "aplicar a logo anexada exatamente como enviada",
+          "position": "aba off-white no canto superior esquerdo (x 18 a 208px, y 18 a 148px), logo centralizada, centro x 113 / y 83, 95px de altura"
+        },
+        {
+          "text": "MÔNACO MOBILE TOILET",
+          "font": "sans-serif geométrica bold caixa alta, tracking +25%",
+          "font_size": "15px",
+          "color": "#FFFFFF",
+          "position": "canto superior direito, alinhado à direita"
+        },
+        {
+          "text": "EVENTOS · PRODUÇÕES",
+          "font": "sans-serif geométrica regular caixa alta, tracking +25%",
+          "font_size": "14px",
+          "color": "#FFFFFF",
+          "position": "abaixo de MÔNACO MOBILE TOILET"
+        },
+        {
+          "text": "A FESTA JÁ VAI",
+          "font": "serifada display alto contraste (Playfair Display Black), caixa alta",
+          "font_size": "104px",
+          "color": "degradê dourado #F2D48A a #D4A64A",
+          "position": "centralizado, ~y 230"
+        },
+        {
+          "text": "PELA METADE",
+          "font": "serifada display alto contraste (Playfair Display Black), caixa alta",
+          "font_size": "104px",
+          "color": "#FFFFFF",
+          "position": "centralizado, logo abaixo"
+        },
+        {
+          "text": "O salto aperta, a maquiagem pede retoque",
+          "font": "sans-serif regular (Plus Jakarta Sans 500)",
+          "font_size": "30px",
+          "color": "#FFFFFF",
+          "position": "centralizado, ~36px abaixo da headline, linha 1"
+        },
+        {
+          "text": "e o vestido precisa de cuidado. A pausa no banheiro",
+          "font": "sans-serif regular (Plus Jakarta Sans 500)",
+          "font_size": "30px",
+          "color": "#FFFFFF",
+          "position": "linha 2"
+        },
+        {
+          "text": "decide como cada convidado volta para a festa.",
+          "font": "sans-serif regular (Plus Jakarta Sans 500)",
+          "font_size": "30px",
+          "color": "#FFFFFF",
+          "position": "linha 3"
+        }
+      ]
+    },
+    "quality": {
+      "include": [
+        "foto real preservada com fidelidade",
+        "color grading editorial de hospitalidade premium",
+        "upscale nítido sem artefatos",
+        "serifada display elegante de alto contraste",
+        "dourado quente legível",
+        "moldura fina e pontos alinhados",
+        "aba com logo anexada aplicada com fidelidade",
+        "slide limpo sem rodapé"
+      ],
+      "avoid": [
+        "redesenhar ou trocar objetos da cabine",
+        "acrescentar pessoas ou produtos",
+        "telefone, site ou faixa de contato",
+        "texto fora da zona segura",
+        "dourado metálico brilhante ou alaranjado",
+        "HDR exagerado",
+        "logo redesenhada ou distorcida",
+        "fonte de sistema genérica",
+        "erros de grafia",
+        "travessão",
+        "texto de apoio com quebras diferentes das especificadas ou cortado"
+      ],
+      "reference_standard": "template BORDAS Mônaco + anúncios editoriais de hospitalidade de luxo (Condé Nast Traveler, Aman Resorts)"
+    }
+  }
+}

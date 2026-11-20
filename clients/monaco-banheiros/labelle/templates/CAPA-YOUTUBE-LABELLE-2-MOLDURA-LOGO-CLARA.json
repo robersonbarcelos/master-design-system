@@ -1,0 +1,85 @@
+{
+  "template": "CAPA-YOUTUBE-LABELLE-2-MOLDURA-LOGO-CLARA",
+  "version": "1.1",
+  "status": "Modelo padrão LA BELLE para capa de YouTube SEM FOTO (versão clara): moldura dourada, logo oficial em destaque, filete e slogan, igual à abertura do vídeo institucional (10/11/2026). Não testada no GPT.",
+  "formato": "Capa (thumbnail) horizontal de YouTube, 16:9. Tela de 1280x720 px (exportar também em 1920x1080). Versão CLARA: fundo branco-creme, moldura dourada, texto petróleo e dourado. SEM foto de fundo.",
+  "anexos": {
+    "imagem_1": "logo oficial LA BELLE (estrela dourada com linha e o texto BANHEIROS LABELLE) em PNG transparente: IMAGEM-2_logo-LA-BELLE-oficial.png. É o único anexo."
+  },
+  "instrucao_para_colar_antes": "Vou anexar 1 imagem: a logo oficial LA BELLE. Aplique exatamente como enviada, sem esticar, girar, recolorir, redesenhar nem adicionar sombra. Não use nenhuma foto nem imagem de fundo. O FUNDO É BRANCO-CREME CLARO (#FAF7F1), liso, como no padrão da LA BELLE; nunca escuro. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+  "prompt": {
+    "scene": {
+      "description": "Capa horizontal 16:9 de um vídeo institucional de YouTube de uma empresa de cabines de banheiro de luxo. FUNDO BRANCO-CREME CLARO (#FAF7F1) liso, com um leve degradê radial quase imperceptível (centro #FFFDF8, bordas #F1EBDD). Uma moldura dourada fina (#B7881D, 3 px, cantos arredondados de ~26 px) contorna a capa a 24 px da borda. Tudo centralizado: no alto, a logo oficial LA BELLE grande e em destaque; logo abaixo um filete dourado curto; depois o slogan em duas linhas centralizadas, a primeira em verde-petróleo e a segunda com destaque dourado itálico. Sem foto, sem ilustração, sem textura. Aparência editorial, clara, limpa e premium, igual à abertura do vídeo.",
+      "subject": "capa tipográfica de YouTube com a logo oficial em destaque e o slogan da marca",
+      "setting": "fundo claro de papel creme",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial, comercial, claro, minimalista",
+      "rendering_quality": "detailed, vetor limpo",
+      "surface_textures": "papel creme liso, sem textura nem foto",
+      "lighting": "sem iluminação adicional; cores chapadas e suaves"
+    },
+    "technical": {
+      "canvas": {
+        "tamanho": "1280x720 px, 16:9",
+        "exportacao": "1920x1080 se disponível; arquivo final abaixo de 2 MB para YouTube"
+      },
+      "rendering": "sem ruído, sem HDR, sem vinheta escura; cores chapadas e suaves"
+    },
+    "composition": {
+      "framing": "tudo centralizado na horizontal, bloco único no centro da capa",
+      "safe_area": "Texto e logo dentro de x 120 a 1160 e y 56 a 600. Nada importante nos 240x70 px do canto inferior direito (a duração do vídeo aparece ali).",
+      "layout": {
+        "fundo": "branco-creme #FAF7F1 liso em toda a tela 1280x720 (nenhuma área escura)",
+        "moldura": "retângulo de cantos arredondados (~26 px) com linha dourada #B7881D de 3 px, a 24 px da borda, em toda a tela",
+        "logo": "IMAGEM 1 centralizada, x 340 a 940 (largura 600 px), topo em y ~64, proporção original (cerca de 2:1)",
+        "filete": "linha dourada #B7881D de 3 px e 110 px de largura, centralizada, em y ~384",
+        "linha_1": "centralizada, y ~418",
+        "linha_2": "centralizada, y ~496"
+      },
+      "ui_elements": {
+        "linha_1": {
+          "texto": "Um banheiro, como o banheiro da sua casa,",
+          "fonte": "Cormorant Garamond Bold, ~54 px",
+          "cor": "#043333"
+        },
+        "linha_2": {
+          "texto_normal": "pelo tempo que ",
+          "texto_destaque": "você precisar",
+          "fonte": "Cormorant Garamond Bold ~60 px para a parte normal (#043333) e Cormorant Garamond Bold Italic ~66 px para o destaque (#B7881D)",
+          "cor": "#043333 e #B7881D"
+        }
+      }
+    },
+    "regras_fixas": [
+      "Texto exatamente como nos campos, com acentos, sem travessão",
+      "Sem foto, imagem de fundo, ilustração, ícone ou textura",
+      "Sem data, ano, telefone, site ou rodapé de contato",
+      "A logo é a anexada, nunca redesenhada, recolorida nem com sombra",
+      "FUNDO BRANCO-CREME CLARO (#FAF7F1); nunca verde escuro, azul, marinho nem preto como fundo",
+      "Sem selos ou logos de terceiros"
+    ],
+    "quality": {
+      "include": [
+        "logo oficial nítida, grande e em destaque",
+        "texto legível sobre o creme, alto contraste",
+        "composição centralizada e equilibrada, com respiro generoso",
+        "hierarquia clara: logo, filete, linha 1, linha 2 com destaque dourado",
+        "acentos corretos em português",
+        "legibilidade em miniatura (tamanho de celular)"
+      ],
+      "avoid": [
+        "foto ou imagem de fundo",
+        "fundo escuro de qualquer tipo",
+        "logo redesenhada, esticada, recolorida ou com sombra",
+        "elementos decorativos inventados",
+        "travessão nos textos",
+        "algo importante no canto inferior direito",
+        "texto pequeno demais para miniatura"
+      ],
+      "reference_standard": "abertura do vídeo institucional da LA BELLE: moldura dourada, logo oficial, filete e slogan sobre creme"
+    }
+  },
+  "como_usar": "Anexar só a logo oficial transparente. Trocar apenas ui_elements.linha_1 e linha_2 (texto_normal + texto_destaque). Variações usadas: (1) \"Um banheiro, como o banheiro da sua casa,\" + \"pelo tempo que *você precisar*\"; (2) a mesma linha 1 + \"conheça a *LA BELLE*\"."
+}

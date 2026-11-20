@@ -1,0 +1,132 @@
+{
+  "instrucao_para_colar_antes": "Vou anexar 4 imagens. IMAGEM 1 = foto do interior da cabine Mônaco que vira o FUNDO desfocado. IMAGEM 2 = cabine com papel de parede de bambu (card 1). IMAGEM 3 = trailer Mônaco visto de fora (card 2). IMAGEM 4 = símbolo oficial da Mônaco em branco (fundo transparente). Use cada foto exatamente no lugar indicado no JSON e preserve tudo o que existe nelas: objetos, rótulos, embalagens, revestimentos, cores reais e proporções. Não redesenhe, não substitua, não remova e não acrescente nenhum produto ou objeto; aplique só tratamento de cor editorial, upscale de nitidez e, no fundo, o desfoque descrito. A IMAGEM 4 deve ser colocada exatamente como enviada no canto superior direito: não redesenhe, não recolore, não distorça. Monte o layout descrito no JSON.",
+  "prompt": {
+    "scene": {
+      "description": "Slide de carrossel vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, layout 'CARDS DE AVALIAÇÃO' (modelagem de cards de review estilo app, sem pessoas e sem depoimentos). FUNDO: a IMAGEM 1 (interior real da cabine) preenchendo todo o frame, com desfoque gaussiano forte (bokeh suave, nada legível), coberta por véu azul-marinho #100C43 a ~55% de opacidade, mantendo a luz quente do ambiente perceptível. LOGO: no canto superior direito, o símbolo anexado em branco (~90px de altura), aplicado exatamente como enviado, com margem de 64px das bordas. TÍTULO no canto superior esquerdo, alinhado à esquerda, margem 72px, topo ~y 110: serifada editorial de alto contraste (estilo Playfair Display) em 2 linhas, cor off-white #F4F1EA, ~84px, com a segunda linha em ITÁLICO BOLD dourado #E2BE6A. Linha 1: 'O que ninguém vê,'. Linha 2 em itálico dourado: 'todo mundo sente'. CARDS: 2 cards grandes (~430x720px cada), escalonados: card 1 à esquerda, de x 72 a x 502, topo ~y 470; card 2 à direita, de x 578 a x 1008, topo ~y 330. Card 1: foto da IMAGEM 2 (cabine com papel de parede de bambu), nome 'Aroma próprio da Mônaco', frase 'Cada cabine tem o cheiro da marca, como a recepção de um hotel.'. Card 2: foto da IMAGEM 3 (trailer Mônaco por fora), nome 'Sem cheiro de banheiro', frase 'Tanques lacrados e tratamento com produtos especiais: garantia de que não existe cheiro durante o evento.'. Cada card: retângulo branco off-white #FBF9F4 com cantos muito arredondados (raio ~44px), 100% flat (sem sombra projetada, sem contorno), contido totalmente dentro do frame. Parte de cima do card = a foto do item correspondente (preservada, tratamento de cor editorial e upscale) recortada por uma DIAGONAL na base que desce da esquerda para a direita, como uma lâmina; a área branca abaixo da diagonal recebe o texto. SELO DE NOTA: um bloco azul-marinho #100C43 com cantos arredondados (raio ~22px), posicionado sobre o encontro da foto com a diagonal no lado esquerdo do card, contendo uma estrela sólida dourada #E2BE6A em cima e o texto '5.0' em sans regular off-white abaixo; logo abaixo do bloco, uma fileira de 5 estrelinhas douradas pequenas. TEXTO DO CARD: nome do item em sans geométrica bold #100C43 e, abaixo, a frase de contexto em sans regular #3A3A4A, alinhados à esquerda com padding interno de 40px. SEM telefone, SEM site, SEM rodapé, SEM nomes de pessoas, SEM avatares. Paleta: marinho #100C43, dourado #E2BE6A, off-white #F4F1EA/#FBF9F4, cores reais das fotos.",
+      "subject": "Itens reais do banheiro Mônaco em cards de avaliação 5 estrelas sobre o interior desfocado da cabine",
+      "setting": "Cabine do trailer de banheiro de luxo da Mônaco",
+      "action": "Estático"
+    },
+    "style": {
+      "primary": "editorial product review card layout, premium hospitality social media design",
+      "rendering_quality": "hyperrealistic product photos with crisp flat UI cards",
+      "surface_textures": "fotos reais nítidas dentro dos cards; cards 100% flat; fundo com desfoque forte",
+      "lighting": "luz quente original das fotos, realçada pelo color grading; fundo escurecido pelo véu marinho"
+    },
+    "technical": {
+      "camera": {
+        "focal_length": "o das fotos anexadas",
+        "aperture": "o das fotos anexadas",
+        "depth_of_field": "cards nítidos; fundo totalmente desfocado",
+        "angle": "o das fotos anexadas"
+      },
+      "resolution": "ultra high definition, upscale limpo",
+      "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+    },
+    "composition": {
+      "perspective": "frontal, cards planos sobre fundo desfocado",
+      "framing": "título no topo esquerdo, cards em alturas alternadas (escalonados) no restante do frame",
+      "subject_placement": "cards escalonados para criar ritmo, nenhum card cobrindo o título",
+      "safe_area": "64px de padding mínimo: todos os cards, textos e logo dentro da zona segura de 952x1222px em 1080x1350px",
+      "ui_elements": [
+        {
+          "text": "símbolo Mônaco (última imagem anexada)",
+          "type": "logo branca aplicada exatamente como enviada",
+          "position": "canto superior direito, ~90px de altura, margem 64px"
+        },
+        {
+          "text": "O que ninguém vê,",
+          "font": "serifada editorial alto contraste (Playfair Display Regular)",
+          "font_size": "84px",
+          "color": "#F4F1EA",
+          "position": "canto superior esquerdo, x 72, topo ~y 110, linha 1"
+        },
+        {
+          "text": "todo mundo sente",
+          "font": "serifada editorial alto contraste (Playfair Display Bold Italic)",
+          "font_size": "84px",
+          "color": "#E2BE6A",
+          "position": "linha 2, logo abaixo, alinhada à esquerda"
+        },
+        {
+          "text": "card Aroma próprio da Mônaco",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 2 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "esquerda, x 72 a 502, topo ~y 470"
+        },
+        {
+          "text": "Aroma próprio da Mônaco",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "30px",
+          "color": "#100C43",
+          "position": "área branca do card Aroma próprio da Mônaco, alinhado à esquerda"
+        },
+        {
+          "text": "Cada cabine tem o cheiro da marca, como a recepção de um hotel.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "24px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Aroma próprio da Mônaco', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Aroma próprio da Mônaco, abaixo da estrela dourada"
+        },
+        {
+          "text": "card Sem cheiro de banheiro",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 3 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "direita, x 578 a 1008, topo ~y 330"
+        },
+        {
+          "text": "Sem cheiro de banheiro",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "30px",
+          "color": "#100C43",
+          "position": "área branca do card Sem cheiro de banheiro, alinhado à esquerda"
+        },
+        {
+          "text": "Tanques lacrados e tratamento com produtos especiais: garantia de que não existe cheiro durante o evento.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "22px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Sem cheiro de banheiro', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Sem cheiro de banheiro, abaixo da estrela dourada"
+        }
+      ]
+    },
+    "quality": {
+      "include": [
+        "fotos reais dos itens preservadas",
+        "cards brancos flat com cantos generosos",
+        "diagonal limpa entre foto e área de texto",
+        "selo marinho com estrela dourada legível",
+        "título serifado com itálico dourado",
+        "fundo desfocado com véu marinho",
+        "escalonamento equilibrado dos cards",
+        "logo anexada aplicada com fidelidade"
+      ],
+      "avoid": [
+        "inventar produtos, marcas ou rótulos que não estão nas fotos",
+        "nomes de pessoas, avatares ou depoimentos",
+        "sombra ou contorno nos cards",
+        "card cortado pela borda do frame",
+        "fundo nítido competindo com os cards",
+        "telefone, site ou rodapé",
+        "texto fora da zona segura",
+        "dourado metálico brilhante ou alaranjado",
+        "logo redesenhada",
+        "erros de grafia",
+        "travessão"
+      ],
+      "reference_standard": "cards de review estilo 'O que dizem nossos clientes' (moodboard Aurum Lux) adaptados à paleta Mônaco, com acabamento de revista de hospitalidade"
+    }
+  }
+}

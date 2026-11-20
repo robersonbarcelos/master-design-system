@@ -1,0 +1,120 @@
+{
+  "variacao": "Slide 6 · CTA · SOMENTE TEXTO + LOGO sobre fundo marinho, pergunta de comentário · ANEXAR: IMAGEM 1 = logo completa branca (nenhuma foto)",
+  "slide": "6",
+  "template": "TEMPLATE-EDITORIAL-FULLBLEED-MONACO",
+  "anexos": [
+    "IMAGEM 1: monaco/references/logo/monaco-logo-completa-branca.png (única imagem; nenhuma foto neste slide)"
+  ],
+  "instrucao_para_colar_antes": "Vou anexar 1 imagem. IMAGEM 1 = logo completa branca da Mônaco. Este slide e somente texto e logo sobre fundo marinho solido. A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra.",
+  "format": {
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5",
+    "platform": "Instagram carrossel",
+    "export": "1080x1350 (gerar 1088x1360 e redimensionar com LANCZOS)"
+  },
+  "zones": {
+    "header": {
+      "status": "vazio por regra do template",
+      "nota": "sem header, sem numeracao de slide, sem handle. A logo fica no footer."
+    },
+    "image": {
+      "modo": "fundo solido navy #0F1D45 (sem foto)",
+      "asset_prompt": {
+        "prompt": {
+          "scene": {
+            "description": "Slide 6 de CTA, somente texto e logo. Fundo solido azul-marinho #0F1D45 com um degrade radial quase imperceptivel (centro levemente mais claro, #16275A) para dar profundidade, sem textura, sem foto, sem ilustracao. Headline serifada branca centralizada no terco superior, linha fina dourada abaixo, e no centro-baixo uma assinatura em serifada menor. No rodape, a logo completa branca da Mônaco centralizada.",
+            "subject": "texto e logo",
+            "setting": "fundo solido marinho",
+            "action": "estatico"
+          },
+          "style": {
+            "primary": "layout editorial flat de hotelaria premium",
+            "rendering_quality": "limpo, vetorial, sem ruido",
+            "surface_textures": "nenhuma, fundo liso",
+            "lighting": "nenhuma; apenas degrade radial sutil"
+          },
+          "technical": {
+            "resolution": "1080x1350",
+            "rendering": "flat, tipografia nitida, sem grão visivel"
+          },
+          "composition": {
+            "framing": "centralizado, muito espaco negativo",
+            "subject_placement": "headline em y ~300 a 620px; linha dourada; assinatura em y ~760px; logo centralizada na base, centro em y ~1170px",
+            "safe_area": "64px de padding minimo"
+          },
+          "quality": {
+            "include": [
+              "tipografia serifada elegante",
+              "muito respiro",
+              "logo fiel ao arquivo anexado",
+              "linha dourada nitida",
+              "contraste alto branco sobre marinho"
+            ],
+            "avoid": [
+              "fotos ou ilustracoes",
+              "icones",
+              "botoes de WhatsApp ou site",
+              "texto extra",
+              "logo distorcida ou recolorida",
+              "travessao",
+              "gradientes fortes"
+            ],
+            "reference_standard": "cartoes de hotelaria de luxo, papelaria editorial minimalista"
+          }
+        }
+      }
+    },
+    "content": {
+      "headline": {
+        "text": "O banheiro do seu evento entra na memória ou é só um item do checklist?",
+        "font": "serifada display de alto contraste, estilo DM Serif Display, peso regular",
+        "font_size": "72px",
+        "line_height": "1.15",
+        "color": "#FFFFFF",
+        "align": "center",
+        "max_width": "860px",
+        "max_lines": 4,
+        "position": "centralizada, bloco com topo em y ~300px"
+      },
+      "divider": {
+        "enabled": true,
+        "estilo": "linha horizontal fina, 3px, 440px, centralizada",
+        "color": "#C9A45C",
+        "position": "40px abaixo da ultima linha da headline"
+      },
+      "assinatura": {
+        "text": "Toda ideia precisa de um lugar à altura. A Mônaco cuida desse lugar.",
+        "font": "serifada display regular",
+        "font_size": "34px",
+        "color": "#EDE7DA",
+        "align": "center",
+        "max_width": "700px",
+        "max_lines": 3,
+        "position": "centralizada, 60px abaixo da linha dourada"
+      }
+    },
+    "footer": {
+      "logo": {
+        "arquivo": "IMAGEM 1 anexada (monaco/references/logo/monaco-logo-completa-branca.png)",
+        "caixa": "sem quadrado; logo solta sobre o fundo marinho",
+        "tamanho": "largura ~300px",
+        "position": "centralizada horizontalmente, centro em y ~1170px",
+        "regra": "A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra."
+      }
+    }
+  },
+  "text_rules": {
+    "travessao": "PROIBIDO",
+    "textos_permitidos_na_imagem": "somente headline, assinatura e texto da logo anexada; sem telefone, site, botoes ou handle neste slide (contato vai na legenda)",
+    "safe_area": "64px de padding minimo",
+    "ortografia": "reproduzir exatamente com acentos"
+  },
+  "negative_rules": [
+    "NUNCA travessao",
+    "NUNCA redesenhar, recriar, estilizar ou recolorir a logo anexada",
+    "NUNCA foto, ilustracao ou icone neste slide",
+    "NUNCA botao de WhatsApp, telefone ou site na imagem",
+    "NUNCA mais de 4 linhas de headline"
+  ]
+}

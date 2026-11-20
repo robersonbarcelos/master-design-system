@@ -1,0 +1,107 @@
+{
+  "template": "TEMPLATE-BORDAS-CLARA-LABELLE-REELS",
+  "version": "1.0",
+  "status": "11/11/2026: equivalente claro do estilo Bordas da Mônaco, com recuo 4:5. Não testado no GPT.",
+  "formato": "Capa de Reel 9:16, 1080x1920 px (exportar 2160x3840 se possível). Versão CLARA da LA BELLE: creme, petróleo e dourado.",
+  "anexos": {
+    "imagem_1": "A FOTO OU QUADRO DE VÍDEO QUE VOCÊ ESCOLHER (interior da cabine, módulo ou evento). Foto vertical com área calma no terço superior (parede, teto ou fundo desfocado) para o título; assunto no meio e embaixo; sem texto ou logo de terceiros em primeiro plano.",
+    "imagem_2": "profiles/_LOGOS-MONACO-LABELLE/labelle/logo_labelle_oficial_transparente.png  (logo oficial LA BELLE, PNG transparente: estrela dourada, linha e BANHEIROS LABELLE)"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da capa. Preserve com fidelidade total tudo o que existe nela, sem redesenhar, substituir, remover ou acrescentar nada; aplique somente leve tom quente, upscale de nitidez e o véu creme descrito. IMAGEM 2 = logo oficial LA BELLE: coloque exatamente como enviada, sem esticar, girar, recolorir, redesenhar nem adicionar sombra. A saída tem proporção 9:16 (1080x1920). O card fica RECUADO no centro: x 108 a 970 e y 383 a 1585, com borda grossa de fundo desfocado em volta; a moldura nunca passa disso. O FUNDO É CLARO (creme #FAF7F1), nunca escuro. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+  "prompt": {
+    "scene": {
+      "description": "Capa vertical 9:16 de um Reel da LA BELLE (cabines de banheiro de luxo). O fundo de toda a tela 1080x1920 é a IMAGEM 1 em escala de capa, muito desfocada e CLAREADA com véu creme #FAF7F1 a 60%. No centro, um card recuado (862x1202, de x 108 a 970 e de y 383 a 1585) com margem externa fina creme #FAF7F1 de 18 px e filete dourado #B7881D de 2 px por fora. Dentro dele, um painel de cantos arredondados (raio ~36 px) preenchido pela IMAGEM 1 nítida e preservada, com um véu creme suave no terço superior (opacidade 85% no topo, chegando a 0% em y ~940) para dar leitura ao texto. No canto superior esquerdo do painel, uma aba em forma de pasta de arquivo, creme #FAF7F1 (x 126 a 316, y 401 a 531), com a logo oficial LA BELLE (IMAGEM 2) centralizada (altura 95 px). No terço superior do card, centralizados: eyebrow dourado, título em 2 linhas (linha 1 em petróleo #043333, linha 2 em dourado itálico) e subtítulo petróleo. Uma pílula de local creme com contorno dourado e pin dourado fica perto da base do painel. NÃO há faixa de contato, site nem telefone. Paleta: creme #FAF7F1, petróleo #043333 (só texto), dourado #B7881D.",
+      "subject": "capa editorial clara com foto de evento ou cabine em card recuado",
+      "setting": "card recuado sobre fundo desfocado e clareado da mesma foto, em 9:16",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial de hospitalidade premium, claro",
+      "rendering_quality": "nítido, limpo, tipografia vetorial",
+      "surface_textures": "foto real preservada; creme liso; fundo desfocado suave",
+      "lighting": "a da foto original, com leve calor editorial (creme nos realces)"
+    },
+    "technical": {
+      "canvas": "Capa de Reel 9:16, 1080x1920 px (exportar 2160x3840 se possível). O feed recorta a capa em 4:5: a faixa visível é y 285 a 1635 (1080x1350). TODO conteúdo (card, moldura, textos, logo) fica dentro dessa faixa. Fora dela só continua o fundo desfocado da mesma foto, clareado com véu creme. O card ocupa apenas x 108 a 970 e y 383 a 1585 (80% da largura e 63% da altura), com borda grossa de fundo desfocado: 108 px à esquerda, 110 à direita, 383 em cima e 334 embaixo.",
+      "rendering": "upscale sem halo nem artefato de IA; véu creme suave sem degrau visível; sem HDR exagerado"
+    },
+    "composition": {
+      "framing": "card recuado e centralizado no canvas 9:16",
+      "safe_area": "Texto e logo dentro de x 160 a 920. Nada importante fora da faixa y 285 a 1635. Evitar a borda direita (botões do Reels).",
+      "layout": {
+        "fundo_desfocado": "IMAGEM 1 cobrindo 1080x1920, desfoque forte, véu creme #FAF7F1 a 60%",
+        "card": "x 108 a 970, y 383 a 1585, margem creme de 18 px com filete dourado 2 px",
+        "painel_foto": "x 126 a 952, y 401 a 1567, raio ~36 px, IMAGEM 1 nítida",
+        "veu_topo": "creme #FAF7F1, 85% em y 401 até 0% em y ~940, só dentro do painel",
+        "aba_logo": "x 126 a 316, y 401 a 531, logo oficial centrada em x 221, y 466, altura 95 px",
+        "eyebrow": "centralizado, y ~563",
+        "titulo_linha_1": "centralizada, y ~618 a 738",
+        "titulo_linha_2": "centralizada, y ~748 a 858",
+        "subtitulo": "centralizado, y ~893 a 968",
+        "pilula_local": "centralizada, y ~1465, ~420x58 px"
+      },
+      "ui_elements": {
+        "eyebrow": {
+          "exemplo": "MÓDULOS LA BELLE",
+          "fonte": "Plus Jakarta Sans Bold, caixa alta, tracking +25%, ~24 px",
+          "cor": "#B7881D"
+        },
+        "titulo_linha_1": {
+          "exemplo": "Um banheiro de casa",
+          "fonte": "Cormorant Garamond Bold, ~92 px",
+          "cor": "#043333"
+        },
+        "titulo_linha_2": {
+          "exemplo": "onde você precisar",
+          "fonte": "Cormorant Garamond Bold Italic, ~100 px",
+          "cor": "#B7881D"
+        },
+        "subtitulo": {
+          "exemplo": "Cabines de luxo para eventos, reformas e gravações.",
+          "fonte": "Plus Jakarta Sans Regular, ~22 px",
+          "cor": "#043333"
+        },
+        "pilula_local": {
+          "exemplo": "EM TODO O BRASIL",
+          "estilo": "pílula creme #FAF7F1 com contorno dourado #B7881D de 2 px e pin dourado à esquerda",
+          "fonte": "Plus Jakarta Sans SemiBold, caixa alta, ~20 px",
+          "cor": "#8A6410"
+        }
+      }
+    },
+    "regras_fixas": [
+      "Sem site, telefone, faixa de contato ou rodapé na capa",
+      "Sem data do evento",
+      "Sem travessão em nenhum texto",
+      "Nunca '1994', nunca 'Mônaco', nunca preço ou tempo de aluguel",
+      "A logo é a anexada, nunca redesenhada, recolorida nem com sombra",
+      "Preservar a foto: não inventar, remover ou redesenhar objetos e pessoas",
+      "CLARA: fundo e véus em creme #FAF7F1; nunca azul, marinho, verde escuro nem preto como fundo",
+      "O véu creme chega a 0% antes da base do texto: o título não fica sobre região escura da foto"
+    ],
+    "quality": {
+      "include": [
+        "card recuado perfeitamente centralizado",
+        "tudo dentro de y 285 a 1635",
+        "foto preservada e nítida",
+        "texto legível sobre o creme",
+        "logo oficial nítida e proporcional",
+        "acentos corretos em português",
+        "aparência clara, editorial e sofisticada"
+      ],
+      "avoid": [
+        "card maior que x 108 a 970 e y 383 a 1585",
+        "título cortado ou fora da zona segura",
+        "logo redesenhada, esticada ou recolorida",
+        "acentos errados ou letras inventadas",
+        "site, telefone ou faixa de contato",
+        "foto redesenhada ou com elementos inventados",
+        "véu creme com faixa ou degrau visível",
+        "qualquer fundo escuro",
+        "sombras e brilhos pesados",
+        "travessão nos textos"
+      ],
+      "reference_standard": "estilo Bordas da Mônaco (card recuado, aba de logo) em versão clara LA BELLE"
+    }
+  }
+}

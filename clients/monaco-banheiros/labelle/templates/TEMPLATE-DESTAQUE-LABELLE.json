@@ -1,0 +1,317 @@
+{
+  "template": "TEMPLATE-DESTAQUE-LABELLE",
+  "marca": "Banheiros LA BELLE",
+  "formato": "4:5 · 1080x1350 · feed Instagram",
+  "status": "aprovado pelo Diego em 23/10/2026",
+  "guia_de_uso": {
+    "o_que_e": "Template de destaque do produto: a foto real do interior do módulo ocupa a peça, o texto fica numa coluna à esquerda sobre véu creme e a foto respira à direita. Duas variações com a mesma coluna de texto (logo, título serifado em 3 linhas com a última em dourado, fio, apoio, contato).",
+    "explicacao_da_modelagem": {
+      "V1 (card-01) Véu creme + moldura": "A foto inteira fica visível; um véu creme apaga suavemente a metade esquerda para dar leitura ao texto; uma moldura fina dourada envolve o post. É a versão 'apresentação': mostra o banheiro inteiro e funciona como capa de carrossel ou post institucional.",
+      "V2 (card-02) Janela de foco": "A mesma foto vira fundo desfocado e clareado; uma janela retangular com fio dourado 'acende' um trecho dela, nítido. O olho vai direto para um único detalhe. É a versão 'série de detalhes': cada post troca o detalhe e o título."
+    },
+    "diferencas": "V1 mostra o todo e tem moldura no quadro inteiro; V2 mostra um detalhe e a moldura fica só na janela. V1 = institucional/capa; V2 = série recorrente.",
+    "melhores_aplicacoes": {
+      "V1": [
+        "capa do carrossel 'Por que a LA BELLE?'",
+        "post de apresentação/fixado",
+        "lançamento de modelo"
+      ],
+      "V2": [
+        "CUBA E / ESPELHO",
+        "BANCADA / DE GRANITO",
+        "SEM CHEIRO / NUNCA",
+        "VASO DE / PORCELANA / DE VERDADE (só com foto do módulo ligado na rede)"
+      ]
+    },
+    "regra_do_titulo": "3 linhas curtas; linhas 1 e 2 em quase-preto, linha 3 em dourado; até ~11 caracteres por linha na V2 (coluna estreita) e até ~8 nas linhas grandes da V1.",
+    "como_escolher_a_foto": "Detalhe principal no lado direito do quadro; lado esquerdo calmo (parede clara). Na V2, o detalhe precisa cair na região da janela (x 550 a 1060).",
+    "atencao": [
+      "Vaso de pedal = modelo autossuficiente; copy de porcelana/caixa acoplada só com foto do módulo ligado na rede.",
+      "Na V2 o gerador tende a duplicar a foto: a instrução proíbe reenquadrar dentro da janela. Se duplicar mesmo assim, trocar o fundo por creme liso abstrato.",
+      "Copy passa pelo copy-qa antes de publicar; sem travessão; nunca citar a Mônaco.",
+      "Paleta LA BELLE: creme/branco + dourado + quase-preto; verde-petróleo #043333 só em detalhes; nunca azul ou marinho."
+    ]
+  },
+  "paleta": {
+    "creme": "#FAF7F1",
+    "branco": "#FFFFFF",
+    "dourado": "#B7881D",
+    "dourado_claro": "#E2C05B",
+    "texto_titulo": "#1C1A15",
+    "texto_corpo": "#4A4238",
+    "apoio_detalhes": "#043333"
+  },
+  "tipografia": {
+    "titulo": "serifada display alto contraste em caixa alta (aprovado assim nas referências); alternativa fiel ao site: Cormorant Garamond",
+    "apoio": "Gilroy / Inter (V1) · Cormorant Garamond (V2)"
+  },
+  "contato_fixo": {
+    "whatsapp": "(11) 95223-2818",
+    "site": "banheiroslabelle.com.br"
+  },
+  "variacoes": [
+    {
+      "id": "card-01",
+      "nome": "V1 · Véu creme + moldura dourada (quem somos / capa)",
+      "imagem_referencia": "TEMPLATE-DESTAQUE-LABELLE-V1-referencia.webp",
+      "linha_editorial": "LB1 Por dentro do módulo (quem somos, capa de carrossel de motivos)",
+      "anexos": {
+        "IMAGEM 1": "interior do módulo com cuba e bancada no lado direito",
+        "IMAGEM 2": "logo LA BELLE original"
+      },
+      "campos": {
+        "{{TITULO_L1}}": "POR QUE",
+        "{{TITULO_L2}}": "A LA",
+        "{{TITULO_L3_DOURADO}}": "BELLE?",
+        "{{SUBTITULO_L1}}": "Banheiro de casa,",
+        "{{SUBTITULO_L2}}": "onde você precisar."
+      },
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto que preenche o quadro inteiro (interior real de uma cabine LA BELLE, com cuba, bancada e espelho no lado direito). IMAGEM 2 = logo oficial da LA BELLE, nas cores originais. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente o véu creme do lado esquerdo, tratamento de cor claro e upscale. A foto aparece uma única vez. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, layout editorial claro. A IMAGEM 1 preenche o quadro inteiro, uma única vez, preservada com fidelidade, com color grading claro e quente (brancos limpos, madeira e granito naturais, sem dominante azul). Do lado esquerdo, degradê de véu creme #FAF7F1 a ~82% cobre os 50% da esquerda e se dissolve até ~65% da largura, deixando cuba, bancada e espelho nítidos à direita. Moldura fina dourada #B7881D (2px) a 22px das bordas. Topo esquerdo: logo LA BELLE (IMAGEM 2). Lado esquerdo, a partir de x 80: título em serifada display de alto contraste, caixa alta, 3 linhas: '{{TITULO_L1}}' (menor) e '{{TITULO_L2}}' (grande) em quase-preto quente #1C1A15, '{{TITULO_L3_DOURADO}}' (grande) em dourado #B7881D; fio dourado #E2C05B de 340px; subtítulo em sans regular marrom-cinza #4A4238, 2 linhas: '{{SUBTITULO_L1}}' / '{{SUBTITULO_L2}}'. Base esquerda: '(11) 95223-2818' em sans bold quase-preto e 'banheiroslabelle.com.br' em sans regular marrom-cinza. Paleta: creme #FAF7F1, branco #FFFFFF, dourado #B7881D / #E2C05B, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Interior real da cabine LA BELLE (IMAGEM 1), preservado",
+          "setting": "Banheiro com acabamento residencial em luz clara de dia",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial claro de arquitetura residencial",
+          "rendering_quality": "foto real hiperdetalhada com tipografia gráfica limpa",
+          "surface_textures": "texturas reais nítidas à direita, suavizadas sob o véu à esquerda; moldura e texto flat",
+          "lighting": "luz clara e difusa de dia, brancos sem estourar, levemente quente"
+        },
+        "technical": {
+          "camera": {
+            "focal_length": "o da foto anexada",
+            "aperture": "o da foto anexada",
+            "depth_of_field": "manter o da foto anexada",
+            "angle": "manter o da foto anexada"
+          },
+          "resolution": "ultra high definition",
+          "rendering": "véu sem bandas, grading limpo, sem HDR, sem grão, moldura de 2px nítida"
+        },
+        "composition": {
+          "framing": "split layout com véu: texto à esquerda sobre creme, banheiro livre à direita, moldura dourada envolvendo tudo",
+          "subject_placement": "logo topo esquerdo; título terço superior esquerdo; subtítulo abaixo; contato na base esquerda",
+          "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px; moldura a 22px das bordas",
+          "ui_elements": [
+            {
+              "text": "logo LA BELLE (IMAGEM 2)",
+              "type": "aplicar exatamente como enviada",
+              "position": "topo esquerdo, x 64 a ~400, y 64 a ~230"
+            },
+            {
+              "text": "{{TITULO_L1}}",
+              "font": "serifada display alto contraste, caixa alta (estilo Playfair Display SemiBold)",
+              "font_size": "64px",
+              "color": "#1C1A15",
+              "position": "x 80, linha de base ~y 390"
+            },
+            {
+              "text": "{{TITULO_L2}}",
+              "font": "mesma serifada",
+              "font_size": "150px",
+              "color": "#1C1A15",
+              "position": "x 80, linha de base ~y 530"
+            },
+            {
+              "text": "{{TITULO_L3_DOURADO}}",
+              "font": "mesma serifada",
+              "font_size": "150px",
+              "color": "#B7881D",
+              "position": "x 80, linha de base ~y 665"
+            },
+            {
+              "text": "fio",
+              "type": "linha 2px",
+              "color": "#E2C05B",
+              "position": "x 80 a x 420, y ~715"
+            },
+            {
+              "text": "{{SUBTITULO_L1}} / {{SUBTITULO_L2}}",
+              "font": "sans geométrica regular (estilo Gilroy)",
+              "font_size": "36px",
+              "color": "#4A4238",
+              "position": "x 80, ~y 785 e linha abaixo"
+            },
+            {
+              "text": "(11) 95223-2818",
+              "font": "sans geométrica bold",
+              "font_size": "38px",
+              "color": "#1C1A15",
+              "position": "x 80, ~y 1290"
+            },
+            {
+              "text": "banheiroslabelle.com.br",
+              "font": "sans geométrica regular",
+              "font_size": "30px",
+              "color": "#4A4238",
+              "position": "x 80, ~y 1335"
+            },
+            {
+              "text": "moldura",
+              "type": "contorno 2px, cantos retos",
+              "color": "#B7881D",
+              "position": "22px das 4 bordas"
+            }
+          ]
+        },
+        "quality": {
+          "include": [
+            "foto real única em luz clara",
+            "véu creme suave",
+            "cuba e bancada nítidas à direita",
+            "serifada caixa alta imponente",
+            "linha final em dourado",
+            "moldura dourada fina",
+            "paleta creme, dourado e quase-preto"
+          ],
+          "avoid": [
+            "qualquer azul ou marinho",
+            "véu escuro",
+            "duplicar a foto",
+            "redesenhar objetos",
+            "véu cobrindo a cuba",
+            "dourado alaranjado",
+            "logo recolorida",
+            "erros de grafia",
+            "travessão"
+          ],
+          "reference_standard": "site banheiroslabelle.com.br e folder oficial LA BELLE; Casa Vogue, Kinfolk Home"
+        }
+      }
+    },
+    {
+      "id": "card-02",
+      "nome": "V2 · Janela de foco dourada (um detalhe por post)",
+      "imagem_referencia": "TEMPLATE-DESTAQUE-LABELLE-V2-referencia.webp",
+      "linha_editorial": "LB1 Por dentro do módulo, série 'O detalhe faz diferença'",
+      "anexos": {
+        "IMAGEM 1": "interior do módulo com o detalhe da vez no lado direito",
+        "IMAGEM 2": "logo LA BELLE original"
+      },
+      "campos": {
+        "{{TITULO_L1}}": "VASO DE",
+        "{{TITULO_L2}}": "PORCELANA",
+        "{{TITULO_L3_DOURADO}}": "DE VERDADE",
+        "{{APOIO_L1}}": "Com caixa acoplada,",
+        "{{APOIO_L2}}": "como o da sua casa.",
+        "{{APOIO_L3}}": "Ligado na rede do local."
+      },
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto que preenche o quadro inteiro (interior real de uma cabine LA BELLE, com o detalhe a destacar no lado direito). IMAGEM 2 = logo oficial da LA BELLE, nas cores originais. A IMAGEM 1 é usada UMA ÚNICA VEZ como fundo de quadro inteiro: a janela dourada apenas revela a MESMA região dessa foto, na mesma escala e posição, nítida; fora da janela a foto fica desfocada e clareada. É PROIBIDO reenquadrar a foto dentro da janela, colar uma segunda cópia ou repetir qualquer objeto (vaso, cuba, dispensers). Não redesenhe, não substitua, não remova e não acrescente elementos. Aplique a IMAGEM 2 exatamente como enviada. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, série 'O detalhe faz diferença', layout claro com janela de foco. A IMAGEM 1 preenche o quadro inteiro uma única vez, preservada com fidelidade. Fora de um retângulo vertical (x 550 a x 1060, y 195 a y 1250), essa mesma foto recebe desfoque gaussiano (~10px) e véu creme #FAF7F1 a ~75%, mais denso à esquerda; dentro do retângulo, a mesma região da foto aparece nítida, na mesma escala e posição, sem véu, com fio dourado #B7881D (3px) e cantos retos. Nada aparece duas vezes. Topo esquerdo: logo LA BELLE (IMAGEM 2). Lado esquerdo, a partir de x 65: título em serifada display de alto contraste, caixa alta, condensada, 3 linhas: '{{TITULO_L1}}' e '{{TITULO_L2}}' em quase-preto quente #1C1A15, '{{TITULO_L3_DOURADO}}' em dourado #B7881D; fio dourado de 150px; texto de apoio em serifada regular quase-preto, 3 linhas: '{{APOIO_L1}}' / '{{APOIO_L2}}' / '{{APOIO_L3}}'. Base esquerda: ícone de telefone dourado + '(11) 95223-2818' em sans bold quase-preto; ícone de globo dourado + 'banheiroslabelle.com.br' em sans regular. Paleta: creme #FAF7F1, branco #FFFFFF, dourado #B7881D / #E2C05B, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Interior real da cabine LA BELLE (IMAGEM 1), com o detalhe revelado nítido na janela",
+          "setting": "Banheiro claro com acabamento residencial, luz de dia",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "comercial claro de produto, catálogo de louças premium",
+          "rendering_quality": "foto real nítida na janela, mesma foto suavizada fora dela",
+          "surface_textures": "dentro: porcelana, granito, madeira e metal nítidos; fora: desfocados e clareados",
+          "lighting": "luz clara e difusa de dia, brancos sem estourar"
+        },
+        "technical": {
+          "camera": {
+            "focal_length": "o da foto anexada",
+            "aperture": "o da foto anexada",
+            "depth_of_field": "nítido na janela, desfoque artificial fora",
+            "angle": "manter o da foto anexada"
+          },
+          "resolution": "ultra high definition",
+          "rendering": "transição exata no fio dourado, véu sem bandas, sem grão"
+        },
+        "composition": {
+          "framing": "split layout: texto à esquerda sobre creme, janela de foco à direita",
+          "subject_placement": "detalhe da vez dentro da janela; logo topo esquerdo; título terço superior; contato na base",
+          "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {
+              "text": "logo LA BELLE (IMAGEM 2)",
+              "type": "aplicar exatamente como enviada",
+              "position": "topo esquerdo, x 65 a ~410, y 55 a ~225"
+            },
+            {
+              "text": "{{TITULO_L1}}",
+              "font": "serifada display alto contraste, caixa alta, condensada",
+              "font_size": "105px",
+              "color": "#1C1A15",
+              "position": "x 65, linha de base ~y 400"
+            },
+            {
+              "text": "{{TITULO_L2}}",
+              "font": "mesma serifada",
+              "font_size": "105px",
+              "color": "#1C1A15",
+              "position": "x 65, linha de base ~y 490, largura máx. 460px"
+            },
+            {
+              "text": "{{TITULO_L3_DOURADO}}",
+              "font": "mesma serifada",
+              "font_size": "105px",
+              "color": "#B7881D",
+              "position": "x 65, linha de base ~y 580, largura máx. 460px"
+            },
+            {
+              "text": "fio",
+              "type": "linha 3px",
+              "color": "#B7881D",
+              "position": "x 65 a x 215, y ~635"
+            },
+            {
+              "text": "{{APOIO_L1}} / {{APOIO_L2}} / {{APOIO_L3}}",
+              "font": "serifada regular (estilo Cormorant Garamond Medium)",
+              "font_size": "38px",
+              "color": "#1C1A15",
+              "position": "x 65, ~y 700 e 2 linhas abaixo"
+            },
+            {
+              "text": "(11) 95223-2818",
+              "font": "sans geométrica bold, com ícone de telefone dourado à esquerda",
+              "font_size": "36px",
+              "color": "#1C1A15",
+              "position": "x 65, ~y 1260"
+            },
+            {
+              "text": "banheiroslabelle.com.br",
+              "font": "sans geométrica regular, com ícone de globo dourado à esquerda",
+              "font_size": "30px",
+              "color": "#1C1A15",
+              "position": "x 65, ~y 1310"
+            },
+            {
+              "text": "janela de foco",
+              "type": "retângulo com fio 3px, cantos retos",
+              "color": "#B7881D",
+              "position": "x 550 a x 1060, y 195 a y 1250"
+            }
+          ]
+        },
+        "quality": {
+          "include": [
+            "foto usada uma única vez",
+            "janela revela a mesma região da foto",
+            "detalhe nítido e claro",
+            "véu creme suave fora da janela",
+            "título condensado com linha dourada",
+            "ícones dourados no contato",
+            "paleta creme, dourado e quase-preto"
+          ],
+          "avoid": [
+            "duplicar a foto ou objetos",
+            "reenquadrar a foto dentro da janela",
+            "qualquer azul ou marinho",
+            "redesenhar o ambiente",
+            "texto invadindo a janela",
+            "brancos estourados",
+            "dourado alaranjado",
+            "erros de grafia",
+            "travessão"
+          ],
+          "reference_standard": "site banheiroslabelle.com.br e folder oficial LA BELLE; catálogos Deca e Roca"
+        }
+      }
+    }
+  ]
+}

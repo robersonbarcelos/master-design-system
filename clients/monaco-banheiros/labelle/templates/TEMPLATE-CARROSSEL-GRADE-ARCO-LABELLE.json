@@ -1,0 +1,339 @@
+{
+  "template": "carrossel-grade-arco-labelle",
+  "familia": "A · Grade em arco",
+  "version": "1.0",
+  "status": "Piloto do sistema de carrossel LA BELLE, criado em 24/10/2026. JSONs prontos; imagens de referência ainda não geradas (salvar como TEMPLATE-CARROSSEL-GRADE-ARCO-LABELLE-<card>-referencia.webp quando aprovadas).",
+  "description": "Sistema de carrossel genérico da família visual 'Grade em arco': fundo creme, grade 3x3 de linhas finas verde-petróleo com quinas côncavas e estrelas douradas de 4 pontas nos cruzamentos. Serve para carrossel de QUALQUER tema. Cada variação é uma peça com uma FUNÇÃO (capa, centro ou CTA); nenhuma cita slide anterior, número de slide ou série. A copy dos json_exemplo é só exemplo: troca-se pelos campos {{ }}.",
+
+  "guia_de_uso": {
+    "como_montar_um_carrossel": "Escolha 1 capa + quantas peças de centro o assunto pedir (podem repetir) + 1 CTA. Exemplo de combinação: capa > centro texto > centro foto + legenda > centro dado > CTA. A ordem é livre; os templates não dependem uns dos outros.",
+    "melhor_para": "carrossel explicativo e institucional: o que é a LA BELLE, como funciona, medidas e modelos, comparativos, histórias (LB6).",
+    "explicacao_rapida_das_pecas": {
+      "capa": "Grade em arco (template salvo) com foto no arco e título de 2 linhas.",
+      "card-01-centro-texto": "Sem foto. Frase grande no centro com palavra em itálico dourado. Para explicar uma ideia ou virada.",
+      "card-02-centro-foto-legenda": "Arco menor com foto + título curto + legenda. Para mostrar detalhe, ambiente ou etapa.",
+      "card-03-centro-dado": "Sem foto. Número enorme dourado + unidade + contexto. Para peso, ano, capacidade, prazo.",
+      "card-04-centro-produto-cotas": "Produto recortado com cotas douradas. Para medidas de qualquer modelo.",
+      "card-05-centro-item-comparativo": "Medalhão com foto + nome do item + 2 mini-blocos. Para listas e comparativos item a item, sem numeração.",
+      "card-06-cta-fechamento": "Grade invertida em verde-petróleo, logo grande, botão amarelo-ouro, WhatsApp e site. Fecha qualquer carrossel."
+    }
+  },
+
+  "logo": {
+    "regra": "SEMPRE anexar a logo oficial LA BELLE como imagem para a IA aplicar exatamente como enviada, sem redesenhar nem recolorir (decisão do Diego, 24/10/2026).",
+    "versao_padrao": "original (estrela dourada + BANHEIROS LABELLE) sobre fundo creme",
+    "versao_clara": "no fundo verde-petróleo (CTA), converter só o texto da logo para creme #FAF7F1, mantendo a estrela dourada",
+    "posicao_padrao": "célula inferior central, pequena (~64 a 70px de altura); no CTA, grande na célula central"
+  },
+
+  "paleta": {
+    "fundo": "creme #FAF7F1",
+    "linhas_grade": "verde-petróleo #043333 (2px); no CTA, dourado claro #E2C05B a 60%",
+    "dourado": "#B7881D (estrelas, itálicos, números, cotas)",
+    "dourado_claro": "#E2C05B (fios, versão escura, botão do CTA)",
+    "titulos": "quase-preto quente #1C1A15",
+    "texto": "marrom-cinza #4A4238",
+    "fundo_escuro": "verde-petróleo #043333 (só no CTA)",
+    "fonte": "site banheiroslabelle.com.br + decisão do Diego 23/10/2026 (ver feedback_labelle_paleta)"
+  },
+  "tipografia": {
+    "titulos_frases_numeros": "Cormorant Garamond SemiBold / Medium (destaques em Italic dourado)",
+    "rotulos_legendas_textos": "Gilroy Light / Regular / SemiBold (fallback Inter)",
+    "rotulos": "Gilroy caixa alta, tracking +40%"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818", "instagram": "@banheiroslabelle"},
+
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5 portrait, 1080x1350px, Instagram Feed",
+    "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+    "grade": "verticais em x 245 e x 835 (no card-04, x 200 e x 880), horizontais em y 300 e y 1060, de ponta a ponta, quinas côncavas raio ~28px, 4 estrelas sólidas de 4 pontas nos cruzamentos: idêntica à capa Grade em arco",
+    "celulas": "superior central = título/rótulo; central = conteúdo; inferior central = logo (exceto CTA); colunas laterais = rótulos verticais opcionais ou vazias",
+    "foto": "quando houver foto, aparece UMA única vez, preservada com fidelidade, só dentro do arco/medalhão",
+    "copy": "sempre passa pelo copy-qa-sms antes de publicar"
+  },
+  "negative_rules_globais": [
+    "NUNCA azul nem marinho (cores da Mônaco)",
+    "NUNCA número de slide, '1/6', nome de série fixo ou referência a outro slide",
+    "NUNCA seta ou 'arraste' fixo no template",
+    "NUNCA travessão (—) em nenhum texto",
+    "NUNCA data",
+    "NUNCA redesenhar ou recolorir a logo (exceto texto em creme no fundo escuro)",
+    "NUNCA foto repetida fora do arco/medalhão",
+    "NUNCA falar mal de outro tipo de banheiro nem citar a Mônaco",
+    "NUNCA medidas, números ou depoimentos inventados: só dados confirmados (references/dados-ancora.md)"
+  ],
+
+  "variacoes": {
+    "capa": {
+      "nome": "Capa Grade em arco",
+      "aponta_para": "TEMPLATE-GRADE-ARCO-LABELLE.json (V1 produto / V2 história) + imagens de referência V1 e V2",
+      "quando_usar": "Primeira peça de qualquer carrossel desta família."
+    },
+
+    "card-01-centro-texto": {
+      "nome": "Centro texto: frase grande na grade",
+      "descricao": "Sem foto. Rótulo curto opcional na célula superior; frase grande em Cormorant na célula central com 1 ou 2 palavras em itálico dourado; fio dourado e linha de apoio; logo pequena embaixo.",
+      "hierarquia": "Frase central > palavras em itálico dourado > apoio > rótulo > logo",
+      "cores": {"fundo": "#FAF7F1", "frase": "#1C1A15", "destaque": "#B7881D", "apoio_rotulo": "#4A4238"},
+      "tipografia": {"frase": "Cormorant Garamond Medium ~60px, 4 a 6 linhas", "rotulo": "Gilroy SemiBold caixa alta 22px", "apoio": "Gilroy Regular 24px"},
+      "quando_usar": "Peça de centro para explicar uma ideia, virada de argumento ou parágrafo-chave.",
+      "campos": {"{{RÓTULO}}": "opcional, até ~22 caracteres", "{{FRASE}}": "até ~180 caracteres, marcar 1 ou 2 palavras-chave", "{{APOIO}}": "opcional, até ~70 caracteres"},
+      "imagens_para_carregar": "IMAGEM 1 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 1 imagem. IMAGEM 1 = logo oficial da LA BELLE: aplique exatamente como enviada, sem redesenhar nem recolorir. Peça sem foto. Monte o layout descrito no JSON e escreva os textos exatamente como estão. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de texto do sistema de carrossel 'Grade em arco'. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060, de ponta a ponta; nas junções as quinas das células curvam para dentro (raio ~28px) e nos 4 cruzamentos há estrelas sólidas de 4 pontas douradas #B7881D (~34px). Célula superior central: rótulo curto em Gilroy caixa alta tracking muito aberto marrom-cinza #4A4238, centralizado. Célula central (x 245 a 835, y 300 a 1060): frase em Cormorant Garamond medium quase-preto quente #1C1A15, centralizada, 4 a 6 linhas, entrelinha 1,2, com 1 ou 2 palavras-chave em itálico dourado #B7881D; abaixo, fio dourado curto (100px) e linha de apoio em Gilroy regular marrom-cinza, 1 a 2 linhas. Colunas laterais vazias, só a grade. Célula inferior central: logo LA BELLE (IMAGEM 1) pequena e centralizada. Paleta: creme #FAF7F1, verde-petróleo #043333 (só linhas), dourado #B7881D, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+            "subject": "Frase editorial no centro da grade",
+            "setting": "Página creme de revista",
+            "action": "Estático"
+          },
+          "style": {"primary": "editorial minimalista de revista de interiores", "rendering_quality": "tipografia impecável, vetores limpos", "surface_textures": "papel creme fosco liso", "lighting": "plano, sem sombras"},
+          "technical": {"resolution": "ultra high definition", "rendering": "vetorial, antialiasing limpo, sem grão"},
+          "composition": {
+            "framing": "grade simétrica 3x3, texto dominante na célula central",
+            "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px; texto central com 40px de respiro interno nas linhas da grade",
+            "ui_elements": [
+              {"text": "{{RÓTULO}}", "font": "Gilroy SemiBold, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "célula superior central, ~y 175", "opcional": true, "exemplo": "COMO FUNCIONA"},
+              {"text": "{{FRASE}}", "font": "Cormorant Garamond Medium; palavras-chave em Italic", "font_size": "60px", "color": "#1C1A15 e palavras-chave #B7881D", "position": "célula central, centralizado verticalmente, largura máx. 520px", "exemplo": "O módulo chega pronto, é içado até o lugar e liga na rede do imóvel. Banheiro de casa, sem obra."},
+              {"text": "fio", "type": "linha 1px, 100px", "color": "#B7881D", "position": "centralizado, 36px abaixo da frase"},
+              {"text": "{{APOIO}}", "font": "Gilroy Regular", "font_size": "24px", "color": "#4A4238", "position": "centralizado, 28px abaixo do fio, 1 a 2 linhas", "opcional": true, "exemplo": "Instalação feita pela nossa equipe."},
+              {"text": "logo LA BELLE (IMAGEM 1)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1205, altura 70px"},
+              {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#B7881D", "position": "(245,300), (835,300), (245,1060), (835,1060)"}
+            ]
+          },
+          "quality": {
+            "include": ["mesma grade da capa Grade em arco", "frase grande e legível", "itálico dourado em palavras-chave", "muito respiro"],
+            "avoid": ["qualquer azul ou marinho", "número de slide", "seta ou 'arraste'", "texto acima de ~180 caracteres", "logo redesenhada", "texto fora da zona segura", "erros de grafia", "travessão"],
+            "reference_standard": "páginas internas Kinfolk; site banheiroslabelle.com.br"
+          }
+        }
+      }
+    },
+
+    "card-02-centro-foto-legenda": {
+      "nome": "Centro foto + legenda: arco menor",
+      "descricao": "Título curto na célula superior; arco menor com UMA foto na célula central e legenda de 2 a 3 linhas abaixo; rótulos verticais opcionais nas laterais; logo pequena embaixo.",
+      "hierarquia": "Foto no arco > título curto > legenda > rótulos > logo",
+      "cores": {"fundo": "#FAF7F1", "titulo": "#1C1A15", "destaque": "#B7881D", "legenda_rotulos": "#4A4238"},
+      "tipografia": {"titulo": "Cormorant Garamond SemiBold ~72px, 1 palavra Italic", "legenda": "Gilroy Regular 26px", "rotulos": "Gilroy Light caixa alta 22px"},
+      "quando_usar": "Peça de centro para mostrar um detalhe, um ambiente ou uma etapa.",
+      "campos": {"{{TÍTULO CURTO}}": "até ~24 caracteres", "{{LEGENDA}}": "até ~120 caracteres", "{{RÓTULO ESQUERDO}} / {{RÓTULO DIREITO}}": "opcionais, até ~22 caracteres"},
+      "imagens_para_carregar": "IMAGEM 1 = foto do slide (interior, módulo ou cena), de preferência vertical · IMAGEM 2 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real que preenche o arco. IMAGEM 2 = logo oficial da LA BELLE. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; só tratamento de cor claro e upscale; a foto aparece uma única vez, só dentro do arco. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de foto com legenda do sistema de carrossel 'Grade em arco'. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060, quinas das células curvadas para dentro (raio ~28px), estrelas sólidas de 4 pontas douradas #B7881D (~34px) nos 4 cruzamentos. Célula superior central: título curto em Cormorant Garamond semibold quase-preto quente #1C1A15, 1 a 2 linhas, com 1 palavra em itálico dourado #B7881D. Célula central: janela em arco menor (topo semicircular, base reta), de x 285 a x 795 e de y 330 a y 840, preenchida pela IMAGEM 1, uma única vez; abaixo do arco, dentro da célula central, legenda em Gilroy regular marrom-cinza #4A4238, centralizada, 2 a 3 linhas. Colunas laterais: rótulos verticais girados 90° em Gilroy light caixa alta tracking muito aberto marrom-cinza (opcionais). Célula inferior central: logo LA BELLE (IMAGEM 2) pequena. Sem azul, sem marinho.",
+            "subject": "Foto real (IMAGEM 1) dentro do arco menor",
+            "setting": "Página creme de revista",
+            "action": "Estático"
+          },
+          "style": {"primary": "editorial minimalista de interiores", "rendering_quality": "foto real nítida com vetores limpos", "surface_textures": "papel creme fosco; foto com texturas reais", "lighting": "luz original da foto; layout plano"},
+          "technical": {"camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter", "angle": "manter"}, "resolution": "ultra high definition", "rendering": "grading claro, sem HDR, sem grão"},
+          "composition": {
+            "framing": "grade 3x3 com arco menor e legenda na célula central",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {"text": "{{TÍTULO CURTO}}", "font": "Cormorant Garamond SemiBold; 1 palavra Italic", "font_size": "72px", "color": "#1C1A15 e palavra #B7881D", "position": "célula superior central, centralizado, ~y 150 a 260", "exemplo": "Bancada de verdade"},
+              {"text": "arco com IMAGEM 1", "type": "topo semicircular, base reta", "position": "x 285 a x 795, y 330 a y 840"},
+              {"text": "{{LEGENDA}}", "font": "Gilroy Regular", "font_size": "26px", "color": "#4A4238", "position": "centralizado, ~y 890 a 1020, largura máx. 520px, 2 a 3 linhas", "exemplo": "Cuba, espelho e bancada com acabamento de casa, em cada cabine."},
+              {"text": "{{RÓTULO ESQUERDO}}", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna esquerda, vertical, centro x 122 / y 680", "opcional": true, "exemplo": "ACABAMENTO"},
+              {"text": "{{RÓTULO DIREITO}}", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna direita, vertical, centro x 958 / y 680", "opcional": true, "exemplo": "POR DENTRO"},
+              {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1205, altura 70px"},
+              {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#B7881D", "position": "(245,300), (835,300), (245,1060), (835,1060)"}
+            ]
+          },
+          "quality": {
+            "include": ["foto real única dentro do arco", "mesma grade da capa", "legenda curta e legível"],
+            "avoid": ["qualquer azul ou marinho", "foto repetida fora do arco", "número de slide", "seta ou 'arraste'", "legenda acima de ~120 caracteres", "logo redesenhada", "texto fora da zona segura", "erros de grafia", "travessão"],
+            "reference_standard": "Kinfolk, Cereal Magazine; site banheiroslabelle.com.br"
+          }
+        }
+      }
+    },
+
+    "card-03-centro-dado": {
+      "nome": "Centro dado: número grande",
+      "descricao": "Sem foto. Rótulo na célula superior; número enorme em Cormorant dourado com unidade em itálico; linha de contexto; fio; explicação curta; logo pequena embaixo.",
+      "hierarquia": "Número > unidade > contexto > explicação > rótulo > logo",
+      "cores": {"fundo": "#FAF7F1", "numero_unidade": "#B7881D", "contexto": "#1C1A15", "explicacao_rotulo": "#4A4238"},
+      "tipografia": {"numero": "Cormorant Garamond SemiBold ~260px", "unidade": "Cormorant Garamond Italic ~90px", "contexto": "Cormorant Garamond Medium 48px", "explicacao": "Gilroy Regular 24px"},
+      "quando_usar": "Peça de centro para destacar um número: peso, ano de fundação, capacidade, quantidade, prazo, distância.",
+      "campos": {"{{RÓTULO}}": "até ~22 caracteres", "{{NÚMERO}}": "até 4 dígitos", "{{UNIDADE}}": "kg, m, anos, cabines, min...", "{{CONTEXTO}}": "até ~40 caracteres", "{{EXPLICAÇÃO}}": "até ~110 caracteres"},
+      "imagens_para_carregar": "IMAGEM 1 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 1 imagem. IMAGEM 1 = logo oficial da LA BELLE: aplique exatamente como enviada. Peça sem foto. Monte o layout descrito no JSON e escreva números e textos exatamente como estão. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de dado em destaque do sistema de carrossel 'Grade em arco'. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060, quinas curvadas para dentro (raio ~28px), estrelas sólidas de 4 pontas douradas #B7881D nos 4 cruzamentos. Célula superior central: rótulo em Gilroy caixa alta tracking muito aberto marrom-cinza #4A4238. Célula central: número enorme em Cormorant Garamond semibold dourado #B7881D, centralizado, com a unidade ao lado em Cormorant itálico dourado menor; abaixo, linha de contexto em Cormorant Garamond medium quase-preto quente #1C1A15, 1 a 2 linhas; fio dourado curto; explicação em Gilroy regular marrom-cinza, 2 a 3 linhas. Célula inferior central: logo LA BELLE (IMAGEM 1) pequena. Sem azul, sem marinho.",
+            "subject": "Número em destaque no centro da grade",
+            "setting": "Página creme de revista, infográfico elegante",
+            "action": "Estático"
+          },
+          "style": {"primary": "editorial minimalista, dado em destaque", "rendering_quality": "tipografia impecável", "surface_textures": "papel creme fosco", "lighting": "plano"},
+          "technical": {"resolution": "ultra high definition", "rendering": "vetorial, sem grão"},
+          "composition": {
+            "framing": "grade 3x3 com número dominante na célula central",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {"text": "{{RÓTULO}}", "font": "Gilroy SemiBold, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "célula superior central, ~y 175", "exemplo": "POR TRÁS DA ENTREGA"},
+              {"text": "{{NÚMERO}}", "font": "Cormorant Garamond SemiBold", "font_size": "260px", "color": "#B7881D", "position": "célula central, centralizado, linha de base ~y 620", "exemplo": "500"},
+              {"text": "{{UNIDADE}}", "font": "Cormorant Garamond Italic", "font_size": "90px", "color": "#B7881D", "position": "à direita do número, alinhada à linha de base", "exemplo": "kg"},
+              {"text": "{{CONTEXTO}}", "font": "Cormorant Garamond Medium", "font_size": "48px", "color": "#1C1A15", "position": "centralizado, ~y 720, 1 a 2 linhas", "exemplo": "é o peso do módulo duplo"},
+              {"text": "fio", "type": "linha 1px, 100px", "color": "#B7881D", "position": "centralizado, ~y 830"},
+              {"text": "{{EXPLICAÇÃO}}", "font": "Gilroy Regular", "font_size": "24px", "color": "#4A4238", "position": "centralizado, ~y 870 a 980, largura máx. 520px, 2 a 3 linhas", "exemplo": "Por isso a entrega é feita com munck, que coloca o módulo no lugar com segurança."},
+              {"text": "logo LA BELLE (IMAGEM 1)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1205, altura 70px"},
+              {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#B7881D", "position": "(245,300), (835,300), (245,1060), (835,1060)"}
+            ]
+          },
+          "quality": {
+            "include": ["número enorme e nítido", "unidade em itálico dourado", "mesma grade da capa", "hierarquia clara"],
+            "avoid": ["qualquer azul ou marinho", "número inventado ou alterado", "ícones ou gráficos extras", "número de slide", "seta ou 'arraste'", "texto fora da zona segura", "erros de grafia", "travessão"],
+            "reference_standard": "infográficos editoriais Monocle e Kinfolk; site banheiroslabelle.com.br"
+          }
+        }
+      }
+    },
+
+    "card-04-centro-produto-cotas": {
+      "nome": "Centro produto com cotas: ficha técnica",
+      "descricao": "Grade com colunas um pouco mais abertas (x 200 / x 880). Título na célula superior; produto recortado sem fundo com cotas douradas de altura, largura e profundidade; rótulos verticais nas laterais; dado extra e logo na célula inferior.",
+      "hierarquia": "Produto > cotas e valores > título > rótulos > dado extra > logo",
+      "cores": {"fundo": "#FAF7F1", "titulo": "#1C1A15", "destaque_cotas": "#B7881D", "valores": "#1C1A15", "rotulos_dado": "#4A4238"},
+      "tipografia": {"titulo": "Cormorant Garamond SemiBold ~76px", "valores": "Gilroy SemiBold 28px", "rotulos": "Gilroy Light caixa alta 22px", "dado_extra": "Gilroy Regular 21px"},
+      "quando_usar": "Peça de centro para medidas de qualquer modelo (unitário, duplo, PNE) ou detalhe técnico de um item.",
+      "campos": {"{{TÍTULO}}": "até ~26 caracteres", "{{ALTURA}} / {{LARGURA}} / {{PROFUNDIDADE}}": "só medidas confirmadas", "{{RÓTULO ESQUERDO}} / {{RÓTULO DIREITO}}": "modelo e peso", "{{DADO EXTRA}}": "opcional, ex.: medida interna"},
+      "atencao": "Medidas externas e peso do unitário ainda a confirmar com o dono (altura 2,60 x 2,70). Medida interna confirmada: 1,90 × 1,15 × 1,00 m.",
+      "imagens_para_carregar": "IMAGEM 1 = foto do módulo ou item, de preferência em 3/4 e com fundo limpo · IMAGEM 2 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real do produto (módulo LA BELLE). IMAGEM 2 = logo oficial da LA BELLE. Recorte o produto da IMAGEM 1 removendo apenas o fundo, sem redesenhar e sem alterar proporções, cores, portas ou detalhes; o produto aparece uma única vez. Aplique a IMAGEM 2 exatamente como enviada. Desenhe as cotas e escreva as medidas exatamente como no JSON. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de produto com cotas do sistema de carrossel 'Grade em arco', linguagem de ficha técnica editorial. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 200 e x 880, horizontais em y 300 e y 1060, quinas curvadas para dentro (raio ~28px), estrelas sólidas de 4 pontas douradas #B7881D nos 4 cruzamentos. Célula superior central: título em Cormorant Garamond semibold quase-preto quente #1C1A15, 1 a 2 linhas, com 1 palavra em itálico dourado #B7881D. Célula central: o produto da IMAGEM 1 recortado sem fundo, centralizado, ocupando ~70% da altura da célula, sombra de contato suave no chão. Cotas finas douradas #B7881D (1,5px, pontas pequenas, linhas de chamada tracejadas): vertical à esquerda do produto com a altura; horizontal na base frontal com a largura; diagonal na base lateral com a profundidade; valores em Gilroy semibold quase-preto. Colunas laterais: rótulos verticais em Gilroy light caixa alta tracking aberto marrom-cinza #4A4238. Célula inferior central: linha de dado extra em Gilroy regular marrom-cinza e, abaixo, logo LA BELLE (IMAGEM 2) pequena. Sem azul, sem marinho.",
+            "subject": "Produto LA BELLE recortado (IMAGEM 1) com cotas",
+            "setting": "Ficha técnica sobre papel creme",
+            "action": "Estático"
+          },
+          "style": {"primary": "ficha técnica editorial elegante", "rendering_quality": "produto real recortado com vetores limpos", "surface_textures": "fundo creme fosco; produto com texturas reais", "lighting": "luz suave de estúdio, sombra de contato leve"},
+          "technical": {"camera": {"focal_length": "o da foto anexada", "angle": "manter o ângulo da foto"}, "resolution": "ultra high definition", "rendering": "recorte limpo sem halo, cotas vetoriais nítidas"},
+          "composition": {
+            "framing": "grade 3x3 sem arco, produto centralizado na célula central",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {"text": "{{TÍTULO}}", "font": "Cormorant Garamond SemiBold; 1 palavra Italic", "font_size": "76px", "color": "#1C1A15 e palavra #B7881D", "position": "célula superior central, ~y 150 a 260", "exemplo": "Cabe onde você precisar"},
+              {"text": "{{ALTURA}}", "font": "Gilroy SemiBold", "font_size": "28px", "color": "#1C1A15", "position": "junto à cota vertical", "exemplo": "2,60 m"},
+              {"text": "{{LARGURA}}", "font": "Gilroy SemiBold", "font_size": "28px", "color": "#1C1A15", "position": "abaixo da cota frontal", "exemplo": "1,20 m"},
+              {"text": "{{PROFUNDIDADE}}", "font": "Gilroy SemiBold", "font_size": "28px", "color": "#1C1A15", "position": "junto à cota lateral", "exemplo": "1,00 m"},
+              {"text": "{{RÓTULO ESQUERDO}}", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna esquerda, vertical, centro x 100 / y 680", "exemplo": "MÓDULO UNITÁRIO"},
+              {"text": "{{RÓTULO DIREITO}}", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna direita, vertical, centro x 980 / y 680", "exemplo": "CERCA DE 250 KG"},
+              {"text": "{{DADO EXTRA}}", "font": "Gilroy Regular", "font_size": "21px", "color": "#4A4238", "position": "célula inferior, centralizado, ~y 1105", "opcional": true, "exemplo": "Por dentro: 1,90 × 1,15 × 1,00 m"},
+              {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1210, altura 64px"},
+              {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#B7881D", "position": "(200,300), (880,300), (200,1060), (880,1060)"}
+            ]
+          },
+          "quality": {
+            "include": ["recorte limpo", "proporções reais do produto", "cotas finas douradas", "valores legíveis", "mesma grade da capa"],
+            "avoid": ["qualquer azul ou marinho", "alterar proporção do produto", "medidas inventadas", "cotas grossas", "halo de recorte", "número de slide", "texto fora da zona segura", "erros de grafia", "travessão"],
+            "reference_standard": "fichas técnicas de mobiliário de alto padrão; site banheiroslabelle.com.br"
+          }
+        }
+      }
+    },
+
+    "card-05-centro-item-comparativo": {
+      "nome": "Centro item / comparativo: medalhão + 2 mini-blocos",
+      "descricao": "Categoria e nome do item na célula superior; medalhão em arco pequeno com UMA foto; dois mini-blocos com título em itálico dourado e texto, separados por fio; logo pequena embaixo. Títulos dos blocos são editáveis (O que é / Quando faz sentido; Vantagem / Atenção; Antes / Depois).",
+      "hierarquia": "Nome do item > medalhão > títulos dos blocos > textos > categoria > logo",
+      "cores": {"fundo": "#FAF7F1", "nome_textos": "#1C1A15", "destaque_titulos_blocos": "#B7881D", "fio": "#E2C05B", "categoria": "#4A4238"},
+      "tipografia": {"nome": "Cormorant Garamond SemiBold ~86px", "titulos_blocos": "Cormorant Garamond SemiBold Italic 40px", "textos": "Gilroy Regular 24px", "categoria": "Gilroy SemiBold caixa alta 20px"},
+      "quando_usar": "Peça de centro para listas e comparativos item a item (tipos de banheiro, modelos, opções), uma peça por item, sem numeração. Tom neutro: nenhum item é tratado como ruim.",
+      "campos": {"{{CATEGORIA}}": "até ~22 caracteres", "{{NOME DO ITEM}}": "até ~18 caracteres", "{{TÍTULO BLOCO 1}} / {{TÍTULO BLOCO 2}}": "até ~20 caracteres", "{{TEXTO BLOCO 1}} / {{TEXTO BLOCO 2}}": "até ~90 caracteres cada"},
+      "imagens_para_carregar": "IMAGEM 1 = foto do item (genérica, sem marca de terceiros) · IMAGEM 2 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto do item deste slide, sem marcas visíveis. IMAGEM 2 = logo oficial da LA BELLE. Preserve a IMAGEM 1: não redesenhe nem acrescente elementos; remova ou desfoque qualquer logotipo de terceiros; a foto aparece uma única vez, só dentro do medalhão. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de item de lista ou comparativo do sistema de carrossel 'Grade em arco'. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060, quinas curvadas para dentro (raio ~28px), estrelas sólidas de 4 pontas douradas #B7881D nos 4 cruzamentos. Célula superior central: rótulo de categoria em Gilroy caixa alta tracking muito aberto marrom-cinza #4A4238 e, abaixo, o nome do item em Cormorant Garamond semibold quase-preto quente #1C1A15, grande, com a segunda palavra em itálico dourado #B7881D se houver. Célula central: medalhão em arco pequeno (topo semicircular, base reta), de x 400 a x 680 e de y 330 a y 560, preenchido pela IMAGEM 1, uma única vez; abaixo, dois mini-blocos empilhados separados por fio dourado fino: cada um com título em Cormorant Garamond itálico dourado e texto em Gilroy regular quase-preto, 2 a 3 linhas, centralizados. Colunas laterais: só a grade. Célula inferior central: logo LA BELLE (IMAGEM 2) pequena. Tom neutro e informativo. Sem azul, sem marinho.",
+            "subject": "Item de lista com medalhão de foto e dois mini-blocos",
+            "setting": "Página creme de revista, ficha comparativa",
+            "action": "Estático"
+          },
+          "style": {"primary": "editorial minimalista, ficha comparativa", "rendering_quality": "foto nítida com tipografia impecável", "surface_textures": "papel creme fosco", "lighting": "luz original da foto; layout plano"},
+          "technical": {"camera": {"focal_length": "o da foto anexada", "angle": "manter"}, "resolution": "ultra high definition", "rendering": "sem HDR, sem grão, vetores limpos"},
+          "composition": {
+            "framing": "grade 3x3, nome no topo, medalhão e dois mini-blocos na célula central",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {"text": "{{CATEGORIA}}", "font": "Gilroy SemiBold, caixa alta, tracking +40%", "font_size": "20px", "color": "#4A4238", "position": "célula superior central, ~y 120", "exemplo": "TIPO DE BANHEIRO"},
+              {"text": "{{NOME DO ITEM}}", "font": "Cormorant Garamond SemiBold; 2ª palavra Italic #B7881D", "font_size": "86px", "color": "#1C1A15", "position": "célula superior central, ~y 170 a 270", "exemplo": "Hidráulico"},
+              {"text": "medalhão com IMAGEM 1", "type": "arco pequeno, topo semicircular, base reta", "position": "x 400 a x 680, y 330 a y 560"},
+              {"text": "{{TÍTULO BLOCO 1}}", "font": "Cormorant Garamond SemiBold Italic", "font_size": "40px", "color": "#B7881D", "position": "centralizado, ~y 615", "exemplo": "O que é"},
+              {"text": "{{TEXTO BLOCO 1}}", "font": "Gilroy Regular", "font_size": "24px", "color": "#1C1A15", "position": "centralizado, ~y 650 a 740, largura máx. 520px", "exemplo": "Cabine ligada na rede, com acabamento simples de obra."},
+              {"text": "fio", "type": "linha 1px, 100px", "color": "#E2C05B", "position": "centralizado, ~y 790"},
+              {"text": "{{TÍTULO BLOCO 2}}", "font": "Cormorant Garamond SemiBold Italic", "font_size": "40px", "color": "#B7881D", "position": "centralizado, ~y 840", "exemplo": "Quando faz sentido"},
+              {"text": "{{TEXTO BLOCO 2}}", "font": "Gilroy Regular", "font_size": "24px", "color": "#1C1A15", "position": "centralizado, ~y 875 a 1000, largura máx. 520px", "exemplo": "Canteiros de obra que já têm ponto de água e esgoto."},
+              {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1205, altura 70px"},
+              {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#B7881D", "position": "(245,300), (835,300), (245,1060), (835,1060)"}
+            ]
+          },
+          "quality": {
+            "include": ["tom neutro e informativo", "medalhão com foto única", "dois mini-blocos equilibrados", "mesma grade da capa"],
+            "avoid": ["falar mal de qualquer item", "marcas ou logos de terceiros", "numeração tipo 1/6", "seta ou 'arraste'", "qualquer azul ou marinho", "texto fora da zona segura", "erros de grafia", "travessão"],
+            "reference_standard": "fichas comparativas editoriais; site banheiroslabelle.com.br"
+          }
+        }
+      }
+    },
+
+    "card-06-cta-fechamento": {
+      "nome": "CTA de fechamento: grade invertida em verde-petróleo",
+      "descricao": "Fundo verde-petróleo com grade e estrelas em dourado claro. Frase de fechamento na célula superior; logo grande, fio, botão amarelo-ouro 'Peça seu orçamento', WhatsApp e site na célula central; @ do Instagram na célula inferior.",
+      "hierarquia": "Logo > botão > frase de fechamento > contatos > @",
+      "cores": {"fundo": "#043333", "grade_estrelas": "#E2C05B", "frase_l1_contatos": "#FAF7F1", "frase_l2": "#E2C05B", "botao": "#E2C05B com texto #043333"},
+      "tipografia": {"frase": "Cormorant Garamond SemiBold ~72px, 2ª linha Italic", "botao": "Gilroy SemiBold 32px", "contatos": "Gilroy Regular 28px"},
+      "quando_usar": "Última peça de qualquer carrossel desta família.",
+      "campos": {"{{FECHAMENTO LINHA 1}} / {{FECHAMENTO LINHA 2}}": "até ~22 caracteres cada; contatos fixos"},
+      "imagens_para_carregar": "IMAGEM 1 = logo LA BELLE (texto da logo vira creme)",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 1 imagem. IMAGEM 1 = logo oficial da LA BELLE: aplique como enviada; se tiver texto escuro, converta só o texto para creme #FAF7F1, mantendo a estrela dourada. Peça sem foto. Monte o layout descrito no JSON e escreva os textos exatamente como estão. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de fechamento com CTA do sistema de carrossel 'Grade em arco', versão escura. Fundo verde-petróleo liso #043333. Grade 3x3 de linhas finas dourado claro #E2C05B a 60% (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060, quinas curvadas para dentro (raio ~28px), estrelas sólidas de 4 pontas dourado claro #E2C05B nos 4 cruzamentos. Célula superior central: frase de fechamento em Cormorant Garamond, 2 linhas: primeira linha em creme #FAF7F1 e segunda em itálico dourado claro #E2C05B. Célula central, empilhado e centralizado: logo LA BELLE (IMAGEM 1) grande, ~300px de largura; fio dourado claro curto; botão retangular de cantos arredondados (raio 40px), preenchido em amarelo-ouro #E2C05B, com o texto 'Peça seu orçamento' em Gilroy semibold verde-petróleo #043333; abaixo, '(11) 95223-2818' e 'banheiroslabelle.com.br' em Gilroy regular creme, 2 linhas. Célula inferior central: '@banheiroslabelle' em Gilroy regular creme a 70%. Sem azul, sem marinho.",
+            "subject": "Logo e chamada para orçamento",
+            "setting": "Página verde-petróleo de fechamento",
+            "action": "Estático"
+          },
+          "style": {"primary": "editorial minimalista escuro", "rendering_quality": "vetores e tipografia impecáveis", "surface_textures": "fundo fosco liso", "lighting": "plano"},
+          "technical": {"resolution": "ultra high definition", "rendering": "vetorial, sem grão"},
+          "composition": {
+            "framing": "grade 3x3 invertida, logo e botão na célula central",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {"text": "{{FECHAMENTO LINHA 1}}", "font": "Cormorant Garamond SemiBold", "font_size": "72px", "color": "#FAF7F1", "position": "célula superior central, ~y 150", "exemplo": "Um banheiro de casa"},
+              {"text": "{{FECHAMENTO LINHA 2}}", "font": "Cormorant Garamond SemiBold Italic", "font_size": "72px", "color": "#E2C05B", "position": "célula superior central, ~y 235", "exemplo": "onde você precisar"},
+              {"text": "logo LA BELLE (IMAGEM 1)", "type": "versão clara, grande", "position": "célula central, centralizado, ~y 420 a 600"},
+              {"text": "fio", "type": "linha 1px, 100px", "color": "#E2C05B", "position": "centralizado, ~y 660"},
+              {"text": "Peça seu orçamento", "type": "botão #E2C05B, raio 40px, ~480x88px", "font": "Gilroy SemiBold", "font_size": "32px", "color": "#043333", "position": "centralizado, ~y 760"},
+              {"text": "(11) 95223-2818", "font": "Gilroy Regular", "font_size": "28px", "color": "#FAF7F1", "position": "centralizado, ~y 880"},
+              {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular", "font_size": "28px", "color": "#FAF7F1", "position": "centralizado, ~y 925"},
+              {"text": "@banheiroslabelle", "font": "Gilroy Regular", "font_size": "24px", "color": "#FAF7F1 a 70%", "position": "célula inferior central, ~y 1205"},
+              {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#E2C05B", "position": "(245,300), (835,300), (245,1060), (835,1060)"}
+            ]
+          },
+          "quality": {
+            "include": ["fundo verde-petróleo sólido", "grade e estrelas douradas", "logo grande e nítida", "botão amarelo-ouro só no CTA", "itálico dourado claro"],
+            "avoid": ["qualquer azul ou marinho", "botão em outra cor", "telefone diferente de (11) 95223-2818", "logo redesenhada", "texto fora da zona segura", "erros de grafia", "travessão"],
+            "reference_standard": "bloco de CTA verde-petróleo do site banheiroslabelle.com.br"
+          }
+        }
+      }
+    }
+  }
+}

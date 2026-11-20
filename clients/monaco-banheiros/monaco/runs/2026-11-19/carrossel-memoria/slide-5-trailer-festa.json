@@ -1,0 +1,153 @@
+{
+  "variacao": "Slide 5 · CENA GERADA SOBRE FOTO REAL: trailer Mônaco por fora com portas abertas no contexto da festa, equipe de limpeza ao lado de um convidado e duas pessoas prestes a entrar · ANEXAR: IMAGEM 1 = foto real do trailer Mônaco por fora com portas abertas; IMAGEM 2 = logo completa branca",
+  "slide": "5",
+  "template": "TEMPLATE-EDITORIAL-FULLBLEED-MONACO",
+  "anexos": [
+    "IMAGEM 1: foto real do trailer Mônaco por fora, de preferência com as portas abertas",
+    "IMAGEM 2: monaco/references/logo/monaco-logo-completa-branca.png"
+  ],
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real do trailer Mônaco por fora; replique esse trailer com fidelidade total (forma, cor, escada, portas e decoração) e construa em volta a cena da festa com a equipe de limpeza, um convidado e duas pessoas prestes a entrar. IMAGEM 2 = logo completa branca; A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra.",
+  "format": {
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5",
+    "platform": "Instagram carrossel",
+    "export": "1080x1350 (gerar 1088x1360 e redimensionar com LANCZOS)"
+  },
+  "zones": {
+    "header": {
+      "status": "vazio por regra do template",
+      "nota": "sem header, sem numeracao de slide, sem handle. A logo fica no footer."
+    },
+    "image": {
+      "modo": "fundo full-bleed 1080x1350 cobrindo todo o canvas",
+      "overlay_legibilidade": {
+        "cor": "#0F1D45",
+        "tipo": "degrade linear sobre a imagem, so para legibilidade",
+        "topo": "55% de opacidade na borda superior ate 0% em ~38% da altura (y ~510px)",
+        "base": "60% de opacidade na borda inferior ate 0% em ~22% da altura (y ~1050px)",
+        "intensidade": "suave"
+      },
+      "asset_prompt": {
+        "prompt": {
+          "scene": {
+            "description": "Vertical 4:5 cinematic editorial photograph at golden hour into dusk: the white luxury Mônaco mobile restroom trailer seen from the outside, both side doors open so the warm lit cabines are visible inside, set on a lawn at an elegant outdoor party with a white tent, string lights and guests softly out of focus in the background. The trailer must replicate IMAGEM 1 exactly (shape, colour, steps, doors, decoration). In the middle ground, right beside the trailer, a member of the Mônaco cleaning team in a neutral navy uniform (no printed logo or text) is wiping the handrail and checking the entrance, while a guest in festive clothes talks with them, relaxed and smiling. At the open steps, two guests (a man in a light suit and a woman in a dress) are walking up, about to enter the cabines, calm and comfortable. Mood: organised, welcoming, five-star hospitality at an outdoor event. Top 340px left as open sky and tent for the headline. Palette: warm gold, white trailer, deep navy dusk sky, navy #0F1D45 gradient at the top.",
+            "subject": "Mônaco trailer with open doors, cleaning team member with a guest, two guests about to enter",
+            "setting": "outdoor party on a lawn with tent and string lights at golden hour",
+            "action": "cleaning crew caring for the entrance while two guests are about to use the cabines"
+          },
+          "style": {
+            "primary": "cinematic editorial event photography",
+            "rendering_quality": "hyperrealistic",
+            "surface_textures": "glossy white paint, brushed metal steps, warm glass, fabric of festive clothing, soft lawn",
+            "lighting": "golden hour key light from camera-right, warm interior glow from the open doors, cool dusk fill in the sky, string lights bokeh in the background"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "35mm",
+              "aperture": "f/4",
+              "depth_of_field": "moderate: trailer, crew and guests sharp, background guests soft",
+              "angle": "eye level, three-quarter view of the trailer"
+            },
+            "resolution": "ultra high definition, upscale to 1088x1360 then resize to 1080x1350",
+            "rendering": "natural skin texture, fine grain, warm editorial colour grade"
+          },
+          "materials": {
+            "skin": "real pores, natural expressions, diverse guests, no plastic smoothing",
+            "fabric": "navy staff uniform without text, linen suit, flowing dress",
+            "surfaces": "white trailer paint with soft reflections, metal steps",
+            "transparency": "warm light visible through open doors"
+          },
+          "environment": {
+            "atmosphere": "clean evening air, light haze",
+            "time": "golden hour fading to dusk",
+            "particles": "faint warm light bloom from string lights"
+          },
+          "composition": {
+            "perspective": "eye level, slightly wide, depth layers: guests, trailer, party",
+            "framing": "trailer fills the middle two thirds, open sky on top for text",
+            "subject_placement": "trailer centred between y 420 and 1180px; crew and guests grouped around the steps; keep the logo square corner free",
+            "safe_area": "keep faces and the doors clear of the logo square (x 880-1080, y 1150-1350) and of the top 340px text zone"
+          },
+          "quality": {
+            "include": [
+              "trailer replicated faithfully from IMAGEM 1",
+              "open doors showing warm cabines",
+              "cleaning crew clearly present",
+              "two guests about to enter",
+              "welcoming hospitality mood",
+              "warm golden light",
+              "clean top third"
+            ],
+            "avoid": [
+              "trailer altered or redrawn",
+              "printed text or logos on uniforms",
+              "queue or crowd waiting",
+              "dirt or mess",
+              "blue plastic portable toilets",
+              "plastic skin",
+              "embarrassing situations",
+              "text in the top 340px"
+            ],
+            "reference_standard": "premium event hospitality campaign photography"
+          }
+        }
+      }
+    },
+    "content": {
+      "headline": {
+        "text": "A Mônaco trata o banheiro como parte do evento, não como item da lista.",
+        "font": "serifada display de alto contraste, estilo DM Serif Display (alternativa: Playfair Display), peso regular, frase em caixa normal",
+        "font_size": "66px",
+        "line_height": "1.15",
+        "color": "#FFFFFF",
+        "align": "center",
+        "max_width": "820px",
+        "max_lines": 3,
+        "position": "bloco centralizado horizontalmente no topo, primeira linha em y ~110px; sombra muito sutil para destacar da imagem"
+      },
+      "divider": {
+        "enabled": true,
+        "estilo": "linha horizontal fina, 3px, 440px de largura, centralizada",
+        "color": "#C9A45C",
+        "position": "36px abaixo da ultima linha da headline"
+      }
+    },
+    "footer": {
+      "tagline": {
+        "text": "Sem cheiro • Aroma próprio • Equipe no local",
+        "font": "serifada display semibold, mesma familia da headline",
+        "font_size": "32px",
+        "color": "#FFFFFF",
+        "align": "center",
+        "position": "centralizada na area x 64 a 850px, base em y ~1300px (maximo 2 linhas)"
+      },
+      "logo": {
+        "arquivo": "IMAGEM 2 anexada (monaco/references/logo/monaco-logo-completa-branca.png)",
+        "caixa": "quadrado navy #0F1D45 colado no canto inferior direito, x 880 a 1080px, y 1150 a 1350px (200x200px), sem cantos arredondados, sem contorno",
+        "logo_dentro": "logo completa branca centralizada no quadrado, largura ~150px, respiro minimo 24px",
+        "regra": "A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra."
+      }
+    }
+  },
+  "text_rules": {
+    "travessao": "PROIBIDO (nenhum travessao em nenhum texto)",
+    "textos_permitidos_na_imagem": "somente os campos headline, tagline e os textos da logo anexada",
+    "safe_area": "64px de padding minimo; zona segura 952x1222px; nenhum texto toca o quadrado da logo (x 880 a 1080, y 1150 a 1350)",
+    "ortografia": "reproduzir cada texto exatamente como esta em 'text', com acentos, sem placeholders visiveis",
+    "termo": "nunca 'banheiro quimico' em texto de slide"
+  },
+  "negative_rules": [
+    "NUNCA travessao",
+    "NUNCA redesenhar, recriar, estilizar ou recolorir a logo anexada",
+    "NUNCA texto cortado pelas bordas ou dentro da area do quadrado da logo",
+    "NUNCA trocar a ordem dos elementos: headline no topo, divisor logo abaixo, tagline na base",
+    "NUNCA fonte de sistema generica (Arial, Times New Roman) na headline",
+    "NUNCA mais de 3 linhas de headline",
+    "NUNCA logos de terceiros, marcas ou textos extras na cena (exceto os itens da prancheta no slide 1)",
+    "NUNCA deixar placeholders {{...}} escritos na imagem",
+    "Pelo template, nesta cena PODE acrescentar pessoas, festa e equipe em volta do trailer; o trailer em si NUNCA e redesenhado",
+    "NUNCA texto ou logo no uniforme da equipe",
+    "NUNCA fila ou aglomeracao esperando para entrar"
+  ]
+}

@@ -1,0 +1,689 @@
+{
+  "template": "TEMPLATE-BORDAS-MONACO",
+  "version": "1.0",
+  "status": "Estrutura modelada em 13 out 2026 a partir da referência enviada pelo Diego (card Chapada Diamantina). Aguardando primeiro teste com foto real + logo anexadas.",
+  "description": "Template 'Bordas': foto livre (qualquer cena) num painel de cantos arredondados com aba de logo no canto superior esquerdo e moldura fina com pontos nos cantos; eyebrow + headline serifada em 2 cores + subtítulo no terço superior; pílula de local opcional; faixa navy inferior com assinatura e botões fixos de WhatsApp e site.",
+  "linhas_editoriais": [
+    "M5 Onde a Mônaco chega (principal)",
+    "M1 Abre a porta",
+    "capa de carrossel de qualquer linha com foto externa do trailer"
+  ],
+  "fonte_da_paleta": "monaco/brand-spec.md + valores observados na referência aprovada",
+  "fonte_da_tipografia": "monaco/brand-spec.md e DESIGN.md (serifada clássica para display, Plus Jakarta Sans para texto) + leitura da referência",
+  "logica_padrao_templates_monaco": {
+    "1_imagem_livre": "A foto é sempre ANEXADA (IMAGEM 1) e pode ser qualquer cena. O prompt nunca descreve a cena: só manda preservar tudo e aplicar tratamento de cor editorial + upscale + legibilidade.",
+    "2_logo_em_local_definido": "A logo é ANEXADA (IMAGEM 2: monaco/references/logo/monaco-simbolo-marinho.png) e aplicada exatamente como enviada num local com coordenadas fixas. Plano B: colar o PNG por cima.",
+    "3_dados_fixos": "Header, assinatura, telefone e site têm texto, fonte, cor e posição travados.",
+    "4_copy_em_campos": "Onde vai copy, o template define posição, fonte, tamanho, cor e limite de caracteres, mas o texto entra por campos {{...}} preenchidos a cada post."
+  },
+  "anexos": {
+    "imagem_1": "foto principal do post (qualquer cena)",
+    "imagem_2": "monaco/references/logo/monaco-simbolo-marinho.png"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto principal do painel (pode ser qualquer cena: trailer, interior, casa, rua, evento, paisagem, objeto ou pessoas). IMAGEM 2 = logo oficial da Mônaco (símbolo de 3 estrelas em marinho, fundo transparente). Da IMAGEM 1, preserve com fidelidade total tudo o que existe nela: objetos, pessoas, rostos, textos, placas, cores reais dos materiais, proporções e enquadramento. Não redesenhe, não substitua, não remova e não acrescente nenhum elemento à cena; aplique somente tratamento de cor editorial, upscale de nitidez e recurso de legibilidade na área do texto. A IMAGEM 2 deve ser colocada exatamente como foi enviada, dentro da aba off-white do canto superior esquerdo, centralizada: não redesenhe, não recrie, não estilize, não recolora, não distorça e não acrescente sombra ou contorno à logo. Monte o layout descrito no JSON.",
+  "logo": {
+    "arquivo_para_aplicar": "monaco/references/logo/monaco-simbolo-marinho.png (só o símbolo de 3 estrelas, marinho, PNG transparente 216x206)",
+    "outros_arquivos": {
+      "simbolo_branco": "monaco/references/logo/monaco-simbolo-branco.png (para fundo escuro)",
+      "logo_completa_marinho": "monaco/references/logo/monaco-logo-completa-marinho.png (símbolo + MÔNACO + MOBILE + TOILET)",
+      "logo_completa_branca": "monaco/references/logo/monaco-logo-completa-branca.png"
+    },
+    "versao_neste_template": "símbolo MARINHO (a aba é off-white #F4F1EA, fundo claro). Nunca a logo completa com texto: o nome já aparece no header 'MÔNACO MOBILE TOILET'.",
+    "area_da_aba": "retângulo off-white do canto superior esquerdo: x 18 a 208px, y 18 a 148px (190x130px) no canvas 1080x1350",
+    "posicao_exata_do_simbolo": "centralizado na aba: centro em x 113px, y 83px; altura 95px (largura proporcional ~100px), ou seja caixa aproximada x 63 a 163px, y 36 a 131px",
+    "margem_minima": "pelo menos 16px de respiro entre o símbolo e as bordas da aba",
+    "como_aplicar": "1) anexar monaco-simbolo-marinho.png como IMAGEM 2 junto com a foto; 2) o prompt posiciona a logo na aba; 3) conferir fidelidade: se vier distorcida, colar o PNG manualmente na mesma posição (plano B).",
+    "proibido": "esticar, girar, recolorir para dourado, aplicar sombra ou contorno, usar o símbolo branco sobre a aba clara"
+  },
+  "tratamento_da_foto": {
+    "regra": "Vale para QUALQUER imagem carregada, independente da cena. Toda foto recebe o mesmo tratamento para o feed ficar consistente.",
+    "preservacao": "Fidelidade total ao conteúdo da foto: nenhum objeto, pessoa, rosto, texto, placa, material ou cor real é redesenhado, trocado, removido ou acrescentado. Não mudar enquadramento nem perspectiva.",
+    "upscale": "Upscale para 1080x1350 (ou 2160x2700 para exportação), nitidez de detalhe sem halo, sem artefato de IA, sem suavização plástica; em pessoas, manter textura real de pele.",
+    "color_grading": "Grade editorial de hospitalidade premium aplicada sobre as cores originais: contraste médio-alto, pretos levemente elevados, realces suaves, temperatura levemente quente, saturação natural e equilibrada, leve harmonização com a paleta da marca (marinho nas sombras, dourado nos realces). Nunca trocar a cor real de um objeto.",
+    "legibilidade": "O texto fica no terço superior. Se essa área já for limpa (céu, parede, fundo desfocado), usar como está. Se for carregada ou clara demais, aplicar degradê escuro suave azul-marinho #0F1D45 (~55% de opacidade no topo até transparente em ~45% da altura do painel) e, se necessário, desfoque leve só nessa faixa. Se faltar espaço acima do assunto, estender o fundo existente de forma natural (outpainting) seguindo o que já está na imagem, sem criar objetos novos.",
+    "vinheta": "vinheta muito leve nas bordas do painel",
+    "proibido": "redesenhar a cena; inventar ou remover objetos/pessoas; trocar ambiente ou paisagem; HDR exagerado; filtro chapado (laranja, sépia, teal-orange forte); aparência de render 3D; pele plástica"
+  },
+  "estrutura_do_layout": {
+    "canvas": "4:5 portrait, 1080x1350px. Fundo externo off-white quente #F4F1EA aparecendo como margem fina (~18px) ao redor dos dois blocos.",
+    "bloco_1_painel_foto": "Painel retangular com cantos arredondados (raio ~36px) ocupando ~83% da altura (topo até ~1120px). A foto preenche todo o painel. No canto superior esquerdo, o painel tem um RECORTE em forma de aba: um retângulo off-white #F4F1EA de ~190x130px com canto inferior direito arredondado e transição curva suave para a borda superior do painel (efeito 'pasta de arquivo'), onde fica a logo.",
+    "moldura_interna": "Linha fina branca (1,5px, 70% de opacidade) formando um retângulo interno: começa no ponto à direita da aba (topo, ~205px da esquerda), segue pelo topo até ~32px da borda direita, desce pela direita até ~1080px e fecha pela base e pela esquerda até ~175px do topo. Pontos brancos sólidos de ~10px em 4 posições: fim esquerdo da linha do topo, canto superior direito, canto inferior esquerdo, canto inferior direito.",
+    "bloco_2_faixa_contato": "Faixa sólida azul-marinho #0F1D45 com cantos arredondados (raio ~36px), separada do painel por ~10px de off-white, ocupando a base (~1130px até ~1330px). Contém a assinatura e os 2 botões.",
+    "safe_area": "64px de padding mínimo para todo texto e botão em relação às bordas do canvas: zona segura de 952x1222px dentro de 1080x1350px."
+  },
+  "elementos_fixos": {
+    "logo": {
+      "posicao": "aba off-white do canto superior esquerdo, centro em x 113px / y 83px",
+      "conteudo": "logo ANEXADA (IMAGEM 2: monaco-simbolo-marinho.png) aplicada exatamente como enviada",
+      "tamanho": "95px de altura"
+    },
+    "header_marca": {
+      "texto_linha_1": "MÔNACO MOBILE TOILET",
+      "texto_linha_2": "EVENTOS · PRODUÇÕES",
+      "posicao": "canto superior direito, alinhado à direita, acima da linha da moldura",
+      "fonte": "sans-serif geométrica, caixa alta, tracking +25%; linha 1 bold ~15px; linha 2 regular ~14px",
+      "cor": "branco #FFFFFF"
+    },
+    "assinatura_rodape": {
+      "texto": "SEU EVENTO MERECE MAIS.",
+      "posicao": "faixa navy, centralizado, topo da faixa",
+      "fonte": "sans-serif regular caixa alta, tracking muito aberto (+40%), ~22px",
+      "cor": "off-white #EDE7DA"
+    },
+    "botao_whatsapp": {
+      "texto": "(11) 97628-4782",
+      "icone": "ícone do WhatsApp em linha, mesma cor do texto, à esquerda",
+      "posicao": "faixa navy, metade esquerda",
+      "estilo": "pílula com contorno dourado #C9A45C 2px, fundo transparente (navy), cantos totalmente arredondados, ~450x76px",
+      "fonte": "sans-serif regular ~34px",
+      "cor_texto": "off-white #F4F1EA"
+    },
+    "botao_site": {
+      "texto": "www.banheirosmonaco.com.br",
+      "posicao": "faixa navy, metade direita",
+      "estilo": "mesma pílula do botão WhatsApp, ~485x76px",
+      "fonte": "sans-serif regular ~28px",
+      "cor_texto": "off-white #F4F1EA"
+    }
+  },
+  "slots_variaveis": {
+    "eyebrow": {
+      "exemplo": "VOCÊ JÁ IMAGINOU UM",
+      "regra": "frase-ponte curta (até 26 caracteres), caixa alta, prepara a headline",
+      "fonte": "sans-serif caixa alta tracking +30%, ~30px; 1 palavra pode ir em bold para ênfase (no exemplo, 'IMAGINOU')",
+      "cor": "branco #FFFFFF",
+      "posicao": "centralizado, ~180px do topo"
+    },
+    "headline_linha_1": {
+      "exemplo": "BANHEIRO",
+      "regra": "1 a 2 palavras, a palavra-chave da peça",
+      "fonte": "serifada display de alto contraste (didone/transicional bold, estilo Playfair Display Black ou Bodoni Moda Bold), caixa alta, ~130px, entrelinha apertada",
+      "cor": "dourado em degradê vertical suave #F2D48A → #D4A64A (dourado de marca, sem brilho metálico exagerado)",
+      "posicao": "centralizado logo abaixo do eyebrow"
+    },
+    "headline_linha_2": {
+      "exemplo": "DE LUXO AQUI?",
+      "regra": "complemento da linha 1, até 14 caracteres",
+      "fonte": "mesma serifada display, caixa alta, ~120px",
+      "cor": "branco #FFFFFF com sombra muito sutil para destacar do céu",
+      "posicao": "centralizado abaixo da linha 1"
+    },
+    "subtitulo": {
+      "exemplo": "Tem lugar que parece impossível levar estrutura. / A Mônaco chega.",
+      "regra": "1 a 2 linhas, até 50 caracteres por linha, frase de virada",
+      "fonte": "sans-serif regular, caixa normal, ~26px, tracking leve",
+      "cor": "branco #FFFFFF",
+      "posicao": "centralizado abaixo da headline"
+    },
+    "local": {
+      "exemplo": "CHAPADA DIAMANTINA · BA",
+      "regra": "OPCIONAL. Cidade/região do evento no formato 'LUGAR · UF'. Se não houver local, remover a pílula inteira (não deixar vazia).",
+      "estilo": "pílula navy #0F1D45 com contorno dourado #C9A45C 2px, ícone de pin de localização dourado à esquerda, ~470x64px",
+      "fonte": "sans-serif semibold caixa alta tracking +12%, ~24px",
+      "cor_texto": "dourado #E2BE6A",
+      "posicao": "centralizada horizontalmente, ~1095px do topo, sobre o chão da foto"
+    }
+  },
+  "regras_fixas": {
+    "telefone_e_site": "Telefone (11) 97628-4782 e site www.banheirosmonaco.com.br são FIXOS em todas as peças, sempre nessa grafia.",
+    "header": "'MÔNACO MOBILE TOILET / EVENTOS · PRODUÇÕES' é fixo, sempre no canto superior direito.",
+    "travessao": "NUNCA usar travessão (—) em nenhum texto. Usar ponto, vírgula ou '·'.",
+    "termo": "Nunca 'banheiro químico' na headline. Usar 'banheiro de luxo', 'banheiro VIP', 'trailer'.",
+    "dourado": "Dourado só na headline linha 1, no ícone e texto da pílula de local e nos contornos dos botões.",
+    "hierarquia": "Eyebrow < Headline (2 cores) > Subtítulo > Local > Faixa de contato. Nunca mais de 4 blocos de texto na área da foto."
+  },
+  "negative_rules_globais": [
+    "NUNCA redesenhar ou recriar a logo: usar só o arquivo anexado, exatamente como enviado",
+    "NUNCA redesenhar, recolorir ou inventar o trailer: usar exatamente o da foto anexada",
+    "NUNCA adicionar pessoas que não estejam na foto",
+    "NUNCA texto cortado pelas bordas ou fora da zona segura",
+    "NUNCA trocar a ordem dos botões (WhatsApp à esquerda, site à direita)",
+    "NUNCA fonte de sistema genérica (Arial, Times New Roman) no lugar da serifada display",
+    "NUNCA travessão",
+    "NUNCA banheiro químico azul de plástico na cena"
+  ],
+  "variacoes": {
+    "card-01-bordas-com-local": {
+      "nome": "Bordas com pílula de local",
+      "quando_usar": "Post estático ou capa de carrossel com foto de um lugar identificável (fazenda, praia, serra, cidade, evento). Linha M5 principalmente.",
+      "aprovado": false,
+      "preencher": {
+        "EYEBROW": "",
+        "EYEBROW_PALAVRA_BOLD": "",
+        "HEADLINE_LINHA_1": "",
+        "HEADLINE_LINHA_2": "",
+        "SUBTITULO_LINHA_1": "",
+        "SUBTITULO_LINHA_2": "",
+        "LOCAL": "CIDADE · UF"
+      },
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Peça editorial vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet. Fundo externo off-white quente #F4F1EA aparecendo como margem fina (~18px) ao redor de dois blocos. Bloco superior: painel de cantos bem arredondados (raio ~36px), do topo até ~1120px, preenchido pela IMAGEM ANEXADA principal (IMAGEM 1), qualquer que seja a cena. A imagem é preservada com fidelidade total: todos os objetos, pessoas, textos, materiais, cores reais e proporções permanecem exatamente como estão, sem redesenho, sem substituição, sem remoção e sem acréscimo de elementos. Sobre ela aplica-se apenas tratamento de cor editorial de hospitalidade premium (contraste médio-alto, realces suaves, temperatura levemente quente, saturação natural) e upscale de nitidez sem artefatos. Para legibilidade do texto no terço superior: se a área já for limpa, manter; se for carregada ou clara, aplicar degradê escuro suave azul-marinho #0F1D45 do topo até ~45% do painel; se faltar espaço acima do assunto, estender o fundo existente de forma natural sem criar objetos. No canto superior esquerdo do painel, um recorte em forma de aba off-white #F4F1EA (x 18 a 208px, y 18 a 148px, canto inferior direito arredondado com transição curva suave para a borda superior do painel, efeito pasta de arquivo). Dentro da aba, centralizada (centro em x 113px, y 83px, altura 95px, largura proporcional), a LOGO ANEXADA (IMAGEM 2) aplicada exatamente como foi enviada: mesmo desenho, mesma cor marinho, mesmas proporções, sem redesenho, sem estilização, sem sombra e sem contorno. Se nenhuma logo for anexada, deixar a aba lisa e vazia. Moldura interna em linha branca fina (1,5px, 70% de opacidade) começando à direita da aba e seguindo pelo topo, lateral direita e base, com pontos brancos sólidos de ~10px nos cantos. No canto superior direito, texto branco alinhado à direita: 'MÔNACO MOBILE TOILET' em sans geométrica bold caixa alta bem espaçada e abaixo 'EVENTOS · PRODUÇÕES' em sans regular caixa alta bem espaçada. No terço superior, centralizado: eyebrow '{{EYEBROW}}' em sans caixa alta muito espaçada branca (palavra de ênfase '{{EYEBROW_PALAVRA_BOLD}}' em bold); abaixo a headline em serifada display de alto contraste (estilo Playfair Display Black / Bodoni Moda Bold) caixa alta em 2 linhas: '{{HEADLINE_LINHA_1}}' em dourado degradê #F2D48A a #D4A64A e '{{HEADLINE_LINHA_2}}' em branco com sombra muito sutil; abaixo o subtítulo em sans regular branca, centralizado: '{{SUBTITULO_LINHA_1}}' / '{{SUBTITULO_LINHA_2}}'. Perto da base do painel, centralizada, uma pílula azul-marinho #0F1D45 com contorno dourado #C9A45C, ícone de pin dourado e texto '{{LOCAL}}' em sans semibold caixa alta dourada #E2BE6A (SE {{LOCAL}} ESTIVER VAZIO, NÃO DESENHAR A PÍLULA). Bloco inferior: faixa sólida azul-marinho #0F1D45 com cantos arredondados (raio ~36px), de ~1130px a ~1330px, contendo centralizado 'SEU EVENTO MERECE MAIS.' em sans caixa alta com espaçamento muito aberto cor off-white #EDE7DA, e abaixo dois botões pílula com contorno dourado #C9A45C de 2px lado a lado: à esquerda ícone do WhatsApp em linha + '(11) 97628-4782', à direita 'www.banheirosmonaco.com.br', texto off-white #F4F1EA. Paleta do layout: azul-marinho profundo, dourado quente, off-white; a foto mantém suas cores reais com o tratamento editorial.",
+            "subject": "Conteúdo da IMAGEM 1 anexada (qualquer cena), preservado sem alterações",
+            "setting": "O ambiente da IMAGEM 1",
+            "action": "O que acontece na IMAGEM 1, sem alterar"
+          },
+          "style": {
+            "primary": "editorial travel and hospitality advertising, premium print layout",
+            "rendering_quality": "hyperrealistic photo with crisp graphic design overlay",
+            "surface_textures": "texturas reais da imagem anexada, apenas mais nítidas; elementos gráficos 100% flat e nítidos",
+            "lighting": "luz original da imagem anexada, realçada pelo color grading editorial, contraste médio-alto, sem HDR"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter o da foto anexada",
+              "angle": "manter o da foto anexada"
+            },
+            "resolution": "ultra high definition, upscale limpo",
+            "rendering": "color grading editorial, grão quase invisível, nitidez de detalhe sem halo"
+          },
+          "materials": {
+            "surfaces": "manter todos os materiais e texturas reais da imagem anexada, apenas mais nítidos pelo upscale",
+            "skin": "se houver pessoas: textura real de pele preservada, poros visíveis, sem retoque nem suavização"
+          },
+          "environment": {
+            "atmosphere": "a da imagem anexada",
+            "time": "a da imagem anexada"
+          },
+          "composition": {
+            "perspective": "manter a perspectiva e o enquadramento da imagem anexada",
+            "framing": "painel de foto com moldura interna + faixa de contato inferior separada",
+            "subject_placement": "assunto principal na posição original da imagem; texto centralizado no terço superior; pílula de local centralizada perto da base do painel",
+            "safe_area": "64px de padding mínimo para todo texto e botão: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo Mônaco (IMAGEM 2 anexada)",
+                "type": "aplicar a logo anexada exatamente como enviada, sem redesenhar, recolorir ou distorcer; se não houver logo anexada, aba vazia",
+                "position": "dentro da aba off-white do canto superior esquerdo (aba: x 18 a 208px, y 18 a 148px); logo centralizada com centro em x 113px, y 83px, altura 95px, mínimo 16px de respiro até as bordas da aba"
+              },
+              {
+                "text": "MÔNACO MOBILE TOILET",
+                "font": "sans-serif geométrica bold caixa alta, tracking +25%",
+                "font_size": "15px",
+                "color": "#FFFFFF",
+                "position": "canto superior direito, alinhado à direita"
+              },
+              {
+                "text": "EVENTOS · PRODUÇÕES",
+                "font": "sans-serif geométrica regular caixa alta, tracking +25%",
+                "font_size": "14px",
+                "color": "#FFFFFF",
+                "position": "abaixo de MÔNACO MOBILE TOILET"
+              },
+              {
+                "text": "{{EYEBROW}}",
+                "font": "sans-serif caixa alta tracking +30%, '{{EYEBROW_PALAVRA_BOLD}}' em bold",
+                "font_size": "30px",
+                "color": "#FFFFFF",
+                "position": "centralizado, ~180px do topo"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_1}}",
+                "font": "serifada display de alto contraste bold, caixa alta",
+                "font_size": "130px",
+                "color": "degradê dourado #F2D48A a #D4A64A",
+                "position": "centralizado abaixo do eyebrow"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_2}}",
+                "font": "serifada display de alto contraste bold, caixa alta",
+                "font_size": "120px",
+                "color": "#FFFFFF",
+                "position": "centralizado abaixo de {{HEADLINE_LINHA_1}}"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_1}}",
+                "font": "sans-serif regular",
+                "font_size": "26px",
+                "color": "#FFFFFF",
+                "position": "centralizado abaixo da headline, linha 1"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_2}}",
+                "font": "sans-serif regular",
+                "font_size": "26px",
+                "color": "#FFFFFF",
+                "position": "centralizado, linha 2 do subtítulo"
+              },
+              {
+                "text": "{{LOCAL}}",
+                "font": "sans-serif semibold caixa alta tracking +12%",
+                "font_size": "24px",
+                "color": "#E2BE6A",
+                "position": "pílula navy com contorno dourado e ícone de pin, centralizada ~1095px do topo; OMITIR a pílula inteira se {{LOCAL}} estiver vazio"
+              },
+              {
+                "text": "SEU EVENTO MERECE MAIS.",
+                "font": "sans-serif regular caixa alta tracking +40%",
+                "font_size": "22px",
+                "color": "#EDE7DA",
+                "position": "faixa navy, centralizado no topo"
+              },
+              {
+                "text": "(11) 97628-4782",
+                "font": "sans-serif regular",
+                "font_size": "34px",
+                "color": "#F4F1EA",
+                "position": "botão pílula esquerdo com contorno dourado #C9A45C e ícone WhatsApp"
+              },
+              {
+                "text": "www.banheirosmonaco.com.br",
+                "font": "sans-serif regular",
+                "font_size": "28px",
+                "color": "#F4F1EA",
+                "position": "botão pílula direito com contorno dourado #C9A45C"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "imagem anexada preservada com fidelidade total",
+              "color grading editorial de hospitalidade premium",
+              "upscale nítido sem artefatos",
+              "degradê de legibilidade discreto quando necessário",
+              "serifada display elegante de alto contraste",
+              "dourado quente legível",
+              "moldura fina e pontos alinhados",
+              "aba off-white com curva suave",
+              "botões pílula simétricos",
+              "layout limpo de revista",
+              "logo anexada aplicada com fidelidade na aba"
+            ],
+            "avoid": [
+              "redesenhar, substituir ou remover qualquer elemento da imagem",
+              "acrescentar objetos ou pessoas",
+              "trocar ambiente, paisagem ou cores reais",
+              "texto fora da zona segura",
+              "dourado metálico brilhante ou alaranjado",
+              "HDR exagerado",
+              "filtro chapado",
+              "pele plástica",
+              "fonte de sistema genérica",
+              "travessão",
+              "deixar placeholders {{...}} escritos na imagem",
+              "pílula de local vazia",
+              "redesenhar, recriar, estilizar ou recolorir a logo anexada",
+              "logo distorcida, esticada ou com sombra/contorno",
+              "logo fora da aba ou em tamanho diferente do especificado"
+            ],
+            "reference_standard": "anúncios editoriais de hospitalidade de luxo (Condé Nast Traveler, Aman Resorts) com layout de pôster de viagem premium"
+          }
+        }
+      }
+    },
+    "card-02-bordas-sem-local": {
+      "nome": "Bordas sem pílula de local",
+      "quando_usar": "Quando o local não importa ou não pode ser divulgado (interior do trailer, detalhe, amenities, bastidor). Linhas M1, M2, M3, M4.",
+      "aprovado": true,
+      "preencher": {
+        "EYEBROW": "",
+        "EYEBROW_PALAVRA_BOLD": "",
+        "HEADLINE_LINHA_1": "",
+        "HEADLINE_LINHA_2": "",
+        "SUBTITULO_LINHA_1": "",
+        "SUBTITULO_LINHA_2": ""
+      },
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Peça editorial vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet. Fundo externo off-white quente #F4F1EA aparecendo como margem fina (~18px) ao redor de dois blocos. Bloco superior: painel de cantos bem arredondados (raio ~36px), do topo até ~1120px, preenchido pela IMAGEM ANEXADA principal (IMAGEM 1), qualquer que seja a cena. A imagem é preservada com fidelidade total: todos os objetos, pessoas, textos, materiais, cores reais e proporções permanecem exatamente como estão, sem redesenho, sem substituição, sem remoção e sem acréscimo de elementos. Sobre ela aplica-se apenas tratamento de cor editorial de hospitalidade premium (contraste médio-alto, realces suaves, temperatura levemente quente, saturação natural) e upscale de nitidez sem artefatos. Para legibilidade do texto no terço superior: se a área já for limpa, manter; se for carregada ou clara, aplicar degradê escuro suave azul-marinho #0F1D45 do topo até ~45% do painel; se faltar espaço acima do assunto, estender o fundo existente de forma natural sem criar objetos. No canto superior esquerdo do painel, um recorte em forma de aba off-white #F4F1EA (x 18 a 208px, y 18 a 148px, canto inferior direito arredondado com transição curva suave para a borda superior do painel, efeito pasta de arquivo). Dentro da aba, centralizada (centro em x 113px, y 83px, altura 95px, largura proporcional), a LOGO ANEXADA (IMAGEM 2) aplicada exatamente como foi enviada: mesmo desenho, mesma cor marinho, mesmas proporções, sem redesenho, sem estilização, sem sombra e sem contorno. Se nenhuma logo for anexada, deixar a aba lisa e vazia. Moldura interna em linha branca fina (1,5px, 70% de opacidade) começando à direita da aba e seguindo pelo topo, lateral direita e base, com pontos brancos sólidos de ~10px nos cantos. No canto superior direito, texto branco alinhado à direita: 'MÔNACO MOBILE TOILET' em sans geométrica bold caixa alta bem espaçada e abaixo 'EVENTOS · PRODUÇÕES' em sans regular caixa alta bem espaçada. No terço superior, centralizado: eyebrow '{{EYEBROW}}' em sans caixa alta muito espaçada branca (palavra de ênfase '{{EYEBROW_PALAVRA_BOLD}}' em bold); abaixo a headline em serifada display de alto contraste (estilo Playfair Display Black / Bodoni Moda Bold) caixa alta em 2 linhas: '{{HEADLINE_LINHA_1}}' em dourado degradê #F2D48A a #D4A64A e '{{HEADLINE_LINHA_2}}' em branco com sombra muito sutil; abaixo o subtítulo em sans regular branca, centralizado: '{{SUBTITULO_LINHA_1}}' / '{{SUBTITULO_LINHA_2}}'. Sem pílula de localização. Bloco inferior: faixa sólida azul-marinho #0F1D45 com cantos arredondados (raio ~36px), de ~1130px a ~1330px, contendo centralizado 'SEU EVENTO MERECE MAIS.' em sans caixa alta com espaçamento muito aberto cor off-white #EDE7DA, e abaixo dois botões pílula com contorno dourado #C9A45C de 2px lado a lado: à esquerda ícone do WhatsApp em linha + '(11) 97628-4782', à direita 'www.banheirosmonaco.com.br', texto off-white #F4F1EA. Paleta do layout: azul-marinho profundo, dourado quente, off-white; a foto mantém suas cores reais com o tratamento editorial.",
+            "subject": "Conteúdo da IMAGEM 1 anexada (qualquer cena), preservado sem alterações",
+            "setting": "O ambiente da IMAGEM 1",
+            "action": "O que acontece na IMAGEM 1, sem alterar"
+          },
+          "style": {
+            "primary": "editorial travel and hospitality advertising, premium print layout",
+            "rendering_quality": "hyperrealistic photo with crisp graphic design overlay",
+            "surface_textures": "texturas reais da imagem anexada, apenas mais nítidas; elementos gráficos 100% flat e nítidos",
+            "lighting": "luz original da imagem anexada, realçada pelo color grading editorial, contraste médio-alto, sem HDR"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter o da foto anexada",
+              "angle": "manter o da foto anexada"
+            },
+            "resolution": "ultra high definition, upscale limpo",
+            "rendering": "color grading editorial, grão quase invisível, nitidez de detalhe sem halo"
+          },
+          "materials": {
+            "surfaces": "manter todos os materiais e texturas reais da imagem anexada, apenas mais nítidos pelo upscale",
+            "skin": "se houver pessoas: textura real de pele preservada, poros visíveis, sem retoque nem suavização"
+          },
+          "environment": {
+            "atmosphere": "a da imagem anexada",
+            "time": "a da imagem anexada"
+          },
+          "composition": {
+            "perspective": "manter a perspectiva e o enquadramento da imagem anexada",
+            "framing": "painel de foto com moldura interna + faixa de contato inferior separada",
+            "subject_placement": "assunto principal na posição original da imagem; texto centralizado no terço superior",
+            "safe_area": "64px de padding mínimo para todo texto e botão: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo Mônaco (IMAGEM 2 anexada)",
+                "type": "aplicar a logo anexada exatamente como enviada, sem redesenhar, recolorir ou distorcer; se não houver logo anexada, aba vazia",
+                "position": "dentro da aba off-white do canto superior esquerdo (aba: x 18 a 208px, y 18 a 148px); logo centralizada com centro em x 113px, y 83px, altura 95px, mínimo 16px de respiro até as bordas da aba"
+              },
+              {
+                "text": "MÔNACO MOBILE TOILET",
+                "font": "sans-serif geométrica bold caixa alta, tracking +25%",
+                "font_size": "15px",
+                "color": "#FFFFFF",
+                "position": "canto superior direito, alinhado à direita"
+              },
+              {
+                "text": "EVENTOS · PRODUÇÕES",
+                "font": "sans-serif geométrica regular caixa alta, tracking +25%",
+                "font_size": "14px",
+                "color": "#FFFFFF",
+                "position": "abaixo de MÔNACO MOBILE TOILET"
+              },
+              {
+                "text": "{{EYEBROW}}",
+                "font": "sans-serif caixa alta tracking +30%, '{{EYEBROW_PALAVRA_BOLD}}' em bold",
+                "font_size": "30px",
+                "color": "#FFFFFF",
+                "position": "centralizado, ~180px do topo"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_1}}",
+                "font": "serifada display de alto contraste bold, caixa alta",
+                "font_size": "130px",
+                "color": "degradê dourado #F2D48A a #D4A64A",
+                "position": "centralizado abaixo do eyebrow"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_2}}",
+                "font": "serifada display de alto contraste bold, caixa alta",
+                "font_size": "120px",
+                "color": "#FFFFFF",
+                "position": "centralizado abaixo de {{HEADLINE_LINHA_1}}"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_1}}",
+                "font": "sans-serif regular",
+                "font_size": "26px",
+                "color": "#FFFFFF",
+                "position": "centralizado abaixo da headline, linha 1"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_2}}",
+                "font": "sans-serif regular",
+                "font_size": "26px",
+                "color": "#FFFFFF",
+                "position": "centralizado, linha 2 do subtítulo"
+              },
+              {
+                "text": "SEU EVENTO MERECE MAIS.",
+                "font": "sans-serif regular caixa alta tracking +40%",
+                "font_size": "22px",
+                "color": "#EDE7DA",
+                "position": "faixa navy, centralizado no topo"
+              },
+              {
+                "text": "(11) 97628-4782",
+                "font": "sans-serif regular",
+                "font_size": "34px",
+                "color": "#F4F1EA",
+                "position": "botão pílula esquerdo com contorno dourado #C9A45C e ícone WhatsApp"
+              },
+              {
+                "text": "www.banheirosmonaco.com.br",
+                "font": "sans-serif regular",
+                "font_size": "28px",
+                "color": "#F4F1EA",
+                "position": "botão pílula direito com contorno dourado #C9A45C"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "imagem anexada preservada com fidelidade total",
+              "color grading editorial de hospitalidade premium",
+              "upscale nítido sem artefatos",
+              "degradê de legibilidade discreto quando necessário",
+              "serifada display elegante de alto contraste",
+              "dourado quente legível",
+              "moldura fina e pontos alinhados",
+              "aba off-white com curva suave",
+              "botões pílula simétricos",
+              "layout limpo de revista",
+              "logo anexada aplicada com fidelidade na aba"
+            ],
+            "avoid": [
+              "redesenhar, substituir ou remover qualquer elemento da imagem",
+              "acrescentar objetos ou pessoas",
+              "trocar ambiente, paisagem ou cores reais",
+              "texto fora da zona segura",
+              "dourado metálico brilhante ou alaranjado",
+              "HDR exagerado",
+              "filtro chapado",
+              "pele plástica",
+              "fonte de sistema genérica",
+              "travessão",
+              "deixar placeholders {{...}} escritos na imagem",
+              "redesenhar, recriar, estilizar ou recolorir a logo anexada",
+              "logo distorcida, esticada ou com sombra/contorno",
+              "logo fora da aba ou em tamanho diferente do especificado"
+            ],
+            "reference_standard": "anúncios editoriais de hospitalidade de luxo (Condé Nast Traveler, Aman Resorts) com layout de pôster de viagem premium"
+          }
+        }
+      },
+      "status": "Testado na capa do carrossel 'Memória' em 19 nov 2026: funcionou."
+    },
+    "card-03-bordas-interno-sem-faixa": {
+      "nome": "Bordas interno, sem faixa de contato",
+      "quando_usar": "Slides INTERNOS de carrossel (2 em diante, exceto se quiser contato). A capa e posts estáticos continuam no card-01/card-02 com faixa. Evita repetir telefone e site em todos os slides.",
+      "aprovado": true,
+      "status": "Aprovado em 19 nov 2026 pelo Diego após teste dos slides 2 e 3 do carrossel 'Memória' (ver runs/2026-11-19).",
+      "ajuste_layout_slides_internos": "SEM a faixa navy inferior: não desenhar 'SEU EVENTO MERECE MAIS.', nem o botão de WhatsApp, nem o botão do site. O painel de foto se estende até ~1332px de altura (margem off-white fina de ~18px ao redor) e a moldura interna fina com pontos desce junto (linha e pontos inferiores em ~1292px). Todo o resto é idêntico ao card-02.",
+      "preencher": {
+        "EYEBROW": "",
+        "EYEBROW_PALAVRA_BOLD": "",
+        "HEADLINE_LINHA_1": "",
+        "HEADLINE_LINHA_2": "",
+        "SUBTITULO_LINHA_1": "",
+        "SUBTITULO_LINHA_2": ""
+      },
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Peça editorial vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet. Fundo externo off-white quente #F4F1EA aparecendo como margem fina (~18px) ao redor de um único bloco. Bloco único: painel de cantos bem arredondados (raio ~36px), do topo até ~1332px (SEM faixa inferior de contato), preenchido pela IMAGEM ANEXADA principal (IMAGEM 1), qualquer que seja a cena. A imagem é preservada com fidelidade total: todos os objetos, pessoas, textos, materiais, cores reais e proporções permanecem exatamente como estão, sem redesenho, sem substituição, sem remoção e sem acréscimo de elementos. Sobre ela aplica-se apenas tratamento de cor editorial de hospitalidade premium (contraste médio-alto, realces suaves, temperatura levemente quente, saturação natural) e upscale de nitidez sem artefatos. Para legibilidade do texto no terço superior: se a área já for limpa, manter; se for carregada ou clara, aplicar degradê escuro suave azul-marinho #0F1D45 do topo até ~45% do painel; se faltar espaço acima do assunto, estender o fundo existente de forma natural sem criar objetos. No canto superior esquerdo do painel, um recorte em forma de aba off-white #F4F1EA (x 18 a 208px, y 18 a 148px, canto inferior direito arredondado com transição curva suave para a borda superior do painel, efeito pasta de arquivo). Dentro da aba, centralizada (centro em x 113px, y 83px, altura 95px, largura proporcional), a LOGO ANEXADA (IMAGEM 2) aplicada exatamente como foi enviada: mesmo desenho, mesma cor marinho, mesmas proporções, sem redesenho, sem estilização, sem sombra e sem contorno. Se nenhuma logo for anexada, deixar a aba lisa e vazia. Moldura interna em linha branca fina (1,5px, 70% de opacidade) começando à direita da aba e seguindo pelo topo, lateral direita e base, com pontos brancos sólidos de ~10px nos cantos; a linha inferior e os pontos inferiores ficam em ~y 1292px. No canto superior direito, texto branco alinhado à direita: 'MÔNACO MOBILE TOILET' em sans geométrica bold caixa alta bem espaçada e abaixo 'EVENTOS · PRODUÇÕES' em sans regular caixa alta bem espaçada. No terço superior, centralizado: eyebrow '{{EYEBROW}}' em sans caixa alta muito espaçada branca (palavra de ênfase '{{EYEBROW_PALAVRA_BOLD}}' em bold); abaixo a headline em serifada display de alto contraste (estilo Playfair Display Black / Bodoni Moda Bold) caixa alta em 2 linhas: '{{HEADLINE_LINHA_1}}' em dourado degradê #F2D48A a #D4A64A e '{{HEADLINE_LINHA_2}}' em branco com sombra muito sutil; abaixo o subtítulo em sans regular branca, centralizado: '{{SUBTITULO_LINHA_1}}' / '{{SUBTITULO_LINHA_2}}'. Sem pílula de localização. SEM faixa navy inferior, SEM 'SEU EVENTO MERECE MAIS.', SEM botões de WhatsApp ou site. Paleta do layout: azul-marinho profundo, dourado quente, off-white; a foto mantém suas cores reais com o tratamento editorial.",
+            "subject": "Conteúdo da IMAGEM 1 anexada (qualquer cena), preservado sem alterações",
+            "setting": "O ambiente da IMAGEM 1",
+            "action": "O que acontece na IMAGEM 1, sem alterar"
+          },
+          "style": {
+            "primary": "editorial travel and hospitality advertising, premium print layout",
+            "rendering_quality": "hyperrealistic photo with crisp graphic design overlay",
+            "surface_textures": "texturas reais da imagem anexada, apenas mais nítidas; elementos gráficos 100% flat e nítidos",
+            "lighting": "luz original da imagem anexada, realçada pelo color grading editorial, contraste médio-alto, sem HDR"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter o da foto anexada",
+              "angle": "manter o da foto anexada"
+            },
+            "resolution": "ultra high definition, upscale limpo",
+            "rendering": "color grading editorial, grão quase invisível, nitidez de detalhe sem halo"
+          },
+          "materials": {
+            "surfaces": "manter todos os materiais e texturas reais da imagem anexada, apenas mais nítidos pelo upscale",
+            "skin": "se houver pessoas: textura real de pele preservada, poros visíveis, sem retoque nem suavização"
+          },
+          "environment": {
+            "atmosphere": "a da imagem anexada",
+            "time": "a da imagem anexada"
+          },
+          "composition": {
+            "perspective": "manter a perspectiva e o enquadramento da imagem anexada",
+            "framing": "painel único de foto com moldura interna, sem faixa de contato",
+            "subject_placement": "assunto principal na posição original da imagem; texto centralizado no terço superior",
+            "safe_area": "64px de padding mínimo para todo texto e botão: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo Mônaco (IMAGEM 2 anexada)",
+                "type": "aplicar a logo anexada exatamente como enviada, sem redesenhar, recolorir ou distorcer; se não houver logo anexada, aba vazia",
+                "position": "dentro da aba off-white do canto superior esquerdo (aba: x 18 a 208px, y 18 a 148px); logo centralizada com centro em x 113px, y 83px, altura 95px, mínimo 16px de respiro até as bordas da aba"
+              },
+              {
+                "text": "MÔNACO MOBILE TOILET",
+                "font": "sans-serif geométrica bold caixa alta, tracking +25%",
+                "font_size": "15px",
+                "color": "#FFFFFF",
+                "position": "canto superior direito, alinhado à direita"
+              },
+              {
+                "text": "EVENTOS · PRODUÇÕES",
+                "font": "sans-serif geométrica regular caixa alta, tracking +25%",
+                "font_size": "14px",
+                "color": "#FFFFFF",
+                "position": "abaixo de MÔNACO MOBILE TOILET"
+              },
+              {
+                "text": "{{EYEBROW}}",
+                "font": "sans-serif caixa alta tracking +30%, '{{EYEBROW_PALAVRA_BOLD}}' em bold",
+                "font_size": "30px",
+                "color": "#FFFFFF",
+                "position": "centralizado, ~180px do topo"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_1}}",
+                "font": "serifada display de alto contraste bold, caixa alta",
+                "font_size": "130px",
+                "color": "degradê dourado #F2D48A a #D4A64A",
+                "position": "centralizado abaixo do eyebrow"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_2}}",
+                "font": "serifada display de alto contraste bold, caixa alta",
+                "font_size": "120px",
+                "color": "#FFFFFF",
+                "position": "centralizado abaixo de {{HEADLINE_LINHA_1}}"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_1}}",
+                "font": "sans-serif regular",
+                "font_size": "26px",
+                "color": "#FFFFFF",
+                "position": "centralizado abaixo da headline, linha 1"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_2}}",
+                "font": "sans-serif regular",
+                "font_size": "26px",
+                "color": "#FFFFFF",
+                "position": "centralizado, linha 2 do subtítulo"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "imagem anexada preservada com fidelidade total",
+              "color grading editorial de hospitalidade premium",
+              "upscale nítido sem artefatos",
+              "degradê de legibilidade discreto quando necessário",
+              "serifada display elegante de alto contraste",
+              "dourado quente legível",
+              "moldura fina e pontos alinhados",
+              "aba off-white com curva suave",
+              "botões pílula simétricos",
+              "layout limpo de revista",
+              "logo anexada aplicada com fidelidade na aba"
+            ],
+            "avoid": [
+              "redesenhar, substituir ou remover qualquer elemento da imagem",
+              "acrescentar objetos ou pessoas",
+              "trocar ambiente, paisagem ou cores reais",
+              "texto fora da zona segura",
+              "dourado metálico brilhante ou alaranjado",
+              "HDR exagerado",
+              "filtro chapado",
+              "pele plástica",
+              "fonte de sistema genérica",
+              "travessão",
+              "deixar placeholders {{...}} escritos na imagem",
+              "redesenhar, recriar, estilizar ou recolorir a logo anexada",
+              "logo distorcida, esticada ou com sombra/contorno",
+              "logo fora da aba ou em tamanho diferente do especificado",
+              "faixa de contato, botões de WhatsApp ou site"
+            ],
+            "reference_standard": "anúncios editoriais de hospitalidade de luxo (Condé Nast Traveler, Aman Resorts) com layout de pôster de viagem premium"
+          }
+        }
+      }
+    }
+  },
+  "referencia_original": {
+    "nota": "Peça que originou o template (Chapada Diamantina), só para consulta visual. Não usar como prompt.",
+    "copy": {
+      "EYEBROW": "VOCÊ JÁ IMAGINOU UM",
+      "EYEBROW_PALAVRA_BOLD": "IMAGINOU",
+      "HEADLINE_LINHA_1": "BANHEIRO",
+      "HEADLINE_LINHA_2": "DE LUXO AQUI?",
+      "SUBTITULO_LINHA_1": "Tem lugar que parece impossível levar estrutura.",
+      "SUBTITULO_LINHA_2": "A Mônaco chega.",
+      "LOCAL": "CHAPADA DIAMANTINA · BA"
+    }
+  },
+  "banco_de_copy_exemplos": [
+    {
+      "linha": "M5",
+      "eyebrow": "VOCÊ JÁ IMAGINOU UM",
+      "l1": "BANHEIRO",
+      "l2": "DE LUXO AQUI?",
+      "subtitulo": "Tem lugar que parece impossível levar estrutura. / A Mônaco chega.",
+      "local": "CHAPADA DIAMANTINA · BA"
+    },
+    {
+      "linha": "M5",
+      "eyebrow": "CASAMENTO NO CAMPO,",
+      "l1": "CONFORTO",
+      "l2": "DE CIDADE.",
+      "subtitulo": "A fazenda não tinha banheiro. / Agora tem um de hotel.",
+      "local": "CAMPOS DO JORDÃO · SP"
+    },
+    {
+      "linha": "M1",
+      "eyebrow": "POR FORA, UM TRAILER.",
+      "l1": "POR DENTRO,",
+      "l2": "UM HOTEL.",
+      "subtitulo": "Louça, ar-condicionado e som ambiente. / Nada de banheiro químico.",
+      "local": ""
+    },
+    {
+      "linha": "M4",
+      "eyebrow": "DO TRAILER CHEGANDO",
+      "l1": "AO PRIMEIRO",
+      "l2": "CONVIDADO.",
+      "subtitulo": "Montagem rápida, equipe o evento inteiro. / Você só cuida da festa.",
+      "local": ""
+    }
+  ],
+  "indice_rapido": {
+    "card-01-bordas-com-local": "Foto livre + moldura + headline 2 cores + pílula de local + faixa de contato.",
+    "card-02-bordas-sem-local": "Mesma estrutura sem a pílula de local.",
+    "card-03-bordas-interno-sem-faixa": "Igual ao card-02, sem a faixa de contato; painel até ~1332px. Para slides internos de carrossel."
+  },
+  "guia_de_uso": {
+    "diferenca_v1_v2": {
+      "card-01 (com local)": "Lugar identificável e divulgável (fazenda, praia, serra, cidade, evento). Pílula 'LUGAR · UF'.",
+      "card-02 (sem local)": "Interior, detalhe, amenities, bastidor, ou local que não pode ser divulgado.",
+      "card-03 (interno sem faixa)": "Slides internos de carrossel. Capa e estáticos usam card-01/02 com faixa de contato."
+    },
+    "foto_ideal": "Precisa de área limpa (céu, parede, fundo desfocado) no terço superior para o título. Se não tiver, o prompt escurece ou estende o fundo, mas o resultado é melhor com espaço natural.",
+    "melhores_aplicacoes": [
+      "Onde a Mônaco chega (M5): trailer em locação marcante",
+      "Abre a porta (M1): interior com área limpa em cima",
+      "Capa de carrossel com foto externa"
+    ]
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "template": "TEMPLATE-EDITORIAL-FULLBLEED-MONACO",
+  "version": "1.0",
+  "status": "Criado em 19 nov 2026 a partir de 3 referencias de estilo enviadas pelo Diego (foto full-bleed, headline serifada, linha fina, tagline com pontos, logo em quadrado no canto). Aguardando primeiro teste de geracao.",
+  "description": "Template 'Editorial Full-bleed': foto ou cena gerada cobrindo todo o 1080x1350, degrade navy so para legibilidade, headline serifada branca no topo (ate 3 linhas), linha fina dourada, tagline curta na base e logo completa branca em quadrado navy colado no canto inferior direito. Slide de CTA: fundo navy solido, so texto e logo.",
+  "linhas_editoriais": [
+    "M3 O detalhe que vira assunto (principal)",
+    "M1 Abre a porta",
+    "M4 Bastidores",
+    "capas e slides de carrossel"
+  ],
+  "logica_padrao_templates_monaco": {
+    "1_imagem_livre": "A foto e ANEXADA (IMAGEM 1). Em foto real: preservar tudo. Em cena gerada (historia idealizada): o trailer da IMAGEM 1 e replicado sem redesenho e o JSON pode acrescentar pessoas e festa.",
+    "2_logo_em_local_definido": "Logo completa branca anexada (IMAGEM 2) no quadrado navy 200x200 do canto inferior direito (x 880-1080, y 1150-1350).",
+    "3_dados_fixos": "Logo e tagline na base. Telefone e site NAO entram nos slides: vao na legenda e no CTA.",
+    "4_copy_em_campos": "HEADLINE (topo), TAGLINE (base). Slide CTA: HEADLINE + ASSINATURA."
+  },
+  "anexos": {
+    "imagem_1": "foto real ou referencia do trailer (slide CTA: a logo)",
+    "imagem_2": "monaco/references/logo/monaco-logo-completa-branca.png"
+  },
+  "instrucao_para_colar_antes": "Ver o campo instrucao_para_colar_antes de cada JSON (varia por slide).",
+  "logo": {
+    "arquivo_para_aplicar": "monaco/references/logo/monaco-logo-completa-branca.png",
+    "outros_arquivos": {
+      "simbolo_branco": "monaco/references/logo/monaco-simbolo-branco.png",
+      "logo_completa_marinho": "monaco/references/logo/monaco-logo-completa-marinho.png"
+    },
+    "area": "quadrado navy #0F1D45, x 880 a 1080px, y 1150 a 1350px, colado no canto",
+    "tamanho": "logo ~150px de largura centralizada no quadrado",
+    "proibido": "redesenhar, recolorir, esticar, girar, sombra, contorno"
+  },
+  "tratamento_da_foto": {
+    "preservacao": "Fidelidade total ao conteudo da foto real; nada redesenhado, trocado, removido ou acrescentado.",
+    "color_grading": "Editorial de hospitalidade premium: contraste medio-alto, realces suaves, temperatura levemente quente, saturacao natural.",
+    "legibilidade": "Degrade navy #0F1D45: topo 55% a 0% em ~38% da altura; base 60% a 0% em ~22% da altura.",
+    "proibido": "HDR exagerado, filtro chapado, render 3D, pele plastica"
+  },
+  "estrutura_do_layout": {
+    "canvas": "4:5 portrait, 1080x1350px, imagem full-bleed",
+    "headline": "topo, centralizada, serifada ~66px, ate 3 linhas, max 820px, primeira linha em y ~110px",
+    "divisor": "linha 3px, 440px, dourada #C9A45C, 36px abaixo da headline",
+    "tagline": "base, serifada semibold ~34px, centralizada em x 64-850, ate 2 linhas",
+    "logo": "quadrado navy canto inferior direito",
+    "safe_area": "64px; zona segura 952x1222px"
+  },
+  "elementos_fixos": {
+    "logo": "quadrado navy com logo completa branca",
+    "divisor": "linha dourada abaixo da headline",
+    "tipografia": "DM Serif Display (alternativa Playfair Display)"
+  },
+  "slots_variaveis": {
+    "HEADLINE": "ate 3 linhas, ~75 caracteres no maximo, sem travessao",
+    "TAGLINE": "ate 2 linhas, ~50 caracteres; itens separados por ' • '",
+    "ASSINATURA (so CTA)": "frase aprovada da marca"
+  },
+  "regras_fixas": {
+    "travessao": "NUNCA (usar ponto, virgula ou ' • ')",
+    "termo": "Nunca 'banheiro quimico' em texto de slide; blue plastic so no contraste visual",
+    "luxo": "palavra 'luxo' no maximo 2 vezes por peca",
+    "contato": "telefone e site fora da imagem; vao na legenda"
+  },
+  "negative_rules_globais": [
+    "NUNCA travessao",
+    "NUNCA redesenhar, recriar, estilizar ou recolorir a logo anexada",
+    "NUNCA texto cortado pelas bordas ou dentro da area do quadrado da logo",
+    "NUNCA trocar a ordem dos elementos: headline no topo, divisor logo abaixo, tagline na base",
+    "NUNCA fonte de sistema generica (Arial, Times New Roman) na headline",
+    "NUNCA mais de 3 linhas de headline",
+    "NUNCA logos de terceiros, marcas ou textos extras na cena (exceto os itens da prancheta no slide 1)",
+    "NUNCA deixar placeholders {{...}} escritos na imagem"
+  ],
+  "variacoes": {
+    "card-01-foto-real-preservada": {
+      "quando_usar": "Slides com foto real do interior, amenities ou trailer.",
+      "preencher": {
+        "HEADLINE": "",
+        "TAGLINE": ""
+      },
+      "json_exemplo": {
+        "variacao": "{{TITULO_RESUMIDO_DA_CENA + ANEXOS}}",
+        "slide": "{{N}}",
+        "template": "TEMPLATE-EDITORIAL-FULLBLEED-MONACO",
+        "anexos": [
+          "IMAGEM 1: {{FOTO_REAL_OU_REFERENCIA}}",
+          "IMAGEM 2: monaco/references/logo/monaco-logo-completa-branca.png"
+        ],
+        "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = {{FOTO}}. Da IMAGEM 1, preserve com fidelidade total tudo o que existe nela: objetos, materiais, cores reais, proporções, enquadramento e textos. Nao redesenhe, nao substitua, nao remova e nao acrescente nenhum elemento. Aplique somente tratamento de cor editorial, upscale de nitidez e degrade de legibilidade. IMAGEM 2 = logo completa branca; A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra.",
+        "format": {
+          "width": 1080,
+          "height": 1350,
+          "ratio": "4:5",
+          "platform": "Instagram carrossel",
+          "export": "1080x1350 (gerar 1088x1360 e redimensionar com LANCZOS)"
+        },
+        "zones": {
+          "header": {
+            "status": "vazio por regra do template",
+            "nota": "sem header, sem numeracao de slide, sem handle. A logo fica no footer."
+          },
+          "image": {
+            "modo": "fundo full-bleed 1080x1350 cobrindo todo o canvas",
+            "overlay_legibilidade": {
+              "cor": "#0F1D45",
+              "tipo": "degrade linear sobre a imagem, so para legibilidade",
+              "topo": "55% de opacidade na borda superior ate 0% em ~38% da altura (y ~510px)",
+              "base": "60% de opacidade na borda inferior ate 0% em ~22% da altura (y ~1050px)",
+              "intensidade": "suave"
+            },
+            "asset_prompt": {
+              "prompt": {
+                "scene": {
+                  "description": "Foto full-bleed a partir da IMAGEM 1 anexada, preservada com fidelidade total, com tratamento editorial.",
+                  "subject": "conteudo da IMAGEM 1",
+                  "setting": "ambiente da IMAGEM 1",
+                  "action": "o da IMAGEM 1"
+                },
+                "style": {
+                  "primary": "editorial hospitality photography, premium interior",
+                  "rendering_quality": "hyperrealistic, preservation of the attached photo",
+                  "surface_textures": "texturas reais da IMAGEM 1, apenas mais nitidas",
+                  "lighting": "luz original da IMAGEM 1, realcada por color grading editorial quente"
+                },
+                "technical": {
+                  "camera": {
+                    "focal_length": "o da foto anexada",
+                    "aperture": "o da foto anexada",
+                    "depth_of_field": "manter o da foto anexada",
+                    "angle": "manter o da foto anexada"
+                  },
+                  "resolution": "ultra high definition, upscale limpo para 1088x1360 e resize para 1080x1350",
+                  "rendering": "color grading editorial de hospitalidade premium: contraste medio-alto, realces suaves, temperatura levemente quente, saturacao natural; sem HDR; sem filtro chapado"
+                },
+                "materials": {
+                  "surfaces": "manter todos os materiais e texturas reais da IMAGEM 1, apenas mais nitidos"
+                },
+                "composition": {
+                  "perspective": "manter",
+                  "framing": "full-bleed",
+                  "subject_placement": "original",
+                  "safe_area": "fora do quadrado da logo e da zona de texto"
+                },
+                "quality": {
+                  "include": [
+                    "foto preservada"
+                  ],
+                  "avoid": [
+                    "redesenhar"
+                  ],
+                  "reference_standard": "fotografia editorial de hotelaria de alto padrao, interiores de boutique hotel"
+                }
+              }
+            }
+          },
+          "content": {
+            "headline": {
+              "text": "{{HEADLINE}}",
+              "font": "serifada display de alto contraste, estilo DM Serif Display (alternativa: Playfair Display), peso regular, frase em caixa normal",
+              "font_size": "66px",
+              "line_height": "1.15",
+              "color": "#FFFFFF",
+              "align": "center",
+              "max_width": "820px",
+              "max_lines": 3,
+              "position": "bloco centralizado horizontalmente no topo, primeira linha em y ~110px; sombra muito sutil para destacar da imagem"
+            },
+            "divider": {
+              "enabled": true,
+              "estilo": "linha horizontal fina, 3px, 440px de largura, centralizada",
+              "color": "#C9A45C",
+              "position": "36px abaixo da ultima linha da headline"
+            }
+          },
+          "footer": {
+            "tagline": {
+              "text": "{{TAGLINE}}",
+              "font": "serifada display semibold, mesma familia da headline",
+              "font_size": "34px",
+              "color": "#FFFFFF",
+              "align": "center",
+              "position": "centralizada na area x 64 a 850px, base em y ~1300px (maximo 2 linhas)"
+            },
+            "logo": {
+              "arquivo": "IMAGEM 2 anexada (monaco/references/logo/monaco-logo-completa-branca.png)",
+              "caixa": "quadrado navy #0F1D45 colado no canto inferior direito, x 880 a 1080px, y 1150 a 1350px (200x200px), sem cantos arredondados, sem contorno",
+              "logo_dentro": "logo completa branca centralizada no quadrado, largura ~150px, respiro minimo 24px",
+              "regra": "A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra."
+            }
+          }
+        },
+        "text_rules": {
+          "travessao": "PROIBIDO (nenhum travessao em nenhum texto)",
+          "textos_permitidos_na_imagem": "somente os campos headline, tagline e os textos da logo anexada",
+          "safe_area": "64px de padding minimo; zona segura 952x1222px; nenhum texto toca o quadrado da logo (x 880 a 1080, y 1150 a 1350)",
+          "ortografia": "reproduzir cada texto exatamente como esta em 'text', com acentos, sem placeholders visiveis",
+          "termo": "nunca 'banheiro quimico' em texto de slide"
+        },
+        "negative_rules": [
+          "NUNCA travessao",
+          "NUNCA redesenhar, recriar, estilizar ou recolorir a logo anexada",
+          "NUNCA texto cortado pelas bordas ou dentro da area do quadrado da logo",
+          "NUNCA trocar a ordem dos elementos: headline no topo, divisor logo abaixo, tagline na base",
+          "NUNCA fonte de sistema generica (Arial, Times New Roman) na headline",
+          "NUNCA mais de 3 linhas de headline",
+          "NUNCA logos de terceiros, marcas ou textos extras na cena (exceto os itens da prancheta no slide 1)",
+          "NUNCA deixar placeholders {{...}} escritos na imagem"
+        ]
+      }
+    },
+    "card-02-cena-gerada": {
+      "quando_usar": "Historia idealizada ou contraste (cena gerada sobre foto real do trailer). Ver slides 1, 2 e 5 do carrossel Memoria.",
+      "preencher": {
+        "HEADLINE": "",
+        "TAGLINE": "",
+        "CENA": ""
+      },
+      "referencia": "runs/2026-11-19/carrossel-memoria/slide-1-capa-prancheta.json"
+    },
+    "card-03-so-texto-cta": {
+      "quando_usar": "Ultimo slide: so texto e logo sobre navy.",
+      "preencher": {
+        "HEADLINE": "",
+        "ASSINATURA": ""
+      },
+      "referencia": "runs/2026-11-19/carrossel-memoria/slide-6-cta.json"
+    }
+  },
+  "indice_rapido": {
+    "card-01-foto-real-preservada": "Foto real full-bleed + headline topo + tagline + logo quadrado.",
+    "card-02-cena-gerada": "Cena gerada com trailer replicado da foto real.",
+    "card-03-so-texto-cta": "Fundo navy, pergunta, assinatura, logo."
+  }
+}

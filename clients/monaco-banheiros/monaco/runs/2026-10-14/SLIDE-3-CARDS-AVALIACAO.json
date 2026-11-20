@@ -1,0 +1,132 @@
+{
+  "instrucao_para_colar_antes": "Vou anexar 4 imagens. IMAGEM 1 = foto do interior da cabine Mônaco que vira o FUNDO desfocado. IMAGEM 2 = enxaguante bucal e itens da bancada (card 1). IMAGEM 3 = lenços umedecidos na bandeja (card 2). IMAGEM 4 = símbolo oficial da Mônaco em branco (fundo transparente). Use cada foto exatamente no lugar indicado no JSON e preserve tudo o que existe nelas: objetos, rótulos, embalagens, revestimentos, cores reais e proporções. Não redesenhe, não substitua, não remova e não acrescente nenhum produto ou objeto; aplique só tratamento de cor editorial, upscale de nitidez e, no fundo, o desfoque descrito. A IMAGEM 4 deve ser colocada exatamente como enviada no canto superior direito: não redesenhe, não recolore, não distorça. Monte o layout descrito no JSON.",
+  "prompt": {
+    "scene": {
+      "description": "Slide de carrossel vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, layout 'CARDS DE AVALIAÇÃO' (modelagem de cards de review estilo app, sem pessoas e sem depoimentos). FUNDO: a IMAGEM 1 (interior real da cabine) preenchendo todo o frame, com desfoque gaussiano forte (bokeh suave, nada legível), coberta por véu azul-marinho #100C43 a ~55% de opacidade, mantendo a luz quente do ambiente perceptível. LOGO: no canto superior direito, o símbolo anexado em branco (~90px de altura), aplicado exatamente como enviado, com margem de 64px das bordas. TÍTULO no canto superior esquerdo, alinhado à esquerda, margem 72px, topo ~y 110: serifada editorial de alto contraste (estilo Playfair Display) em 2 linhas, cor off-white #F4F1EA, ~84px, com a segunda linha em ITÁLICO BOLD dourado #E2BE6A. Linha 1: 'Depois do jantar,'. Linha 2 em itálico dourado: 'antes da foto'. CARDS: 2 cards grandes (~430x720px cada), escalonados: card 1 à esquerda, de x 72 a x 502, topo ~y 470; card 2 à direita, de x 578 a x 1008, topo ~y 330 (mais alto). Card 1: foto da IMAGEM 2 (enxaguante bucal e itens da bancada), nome 'Enxaguante bucal e fio dental', frase 'Para sorrir na foto com os noivos sem pensar no jantar.'. Card 2: foto da IMAGEM 3 (lenços umedecidos na bandeja espelhada), nome 'Lenços umedecidos e papel Neve', frase 'O mesmo conforto que você tem em casa, no meio da festa.'. Cada card: retângulo branco off-white #FBF9F4 com cantos muito arredondados (raio ~44px), 100% flat (sem sombra projetada, sem contorno), contido totalmente dentro do frame. Parte de cima do card = a foto do item correspondente (preservada, tratamento de cor editorial e upscale) recortada por uma DIAGONAL na base que desce da esquerda para a direita, como uma lâmina; a área branca abaixo da diagonal recebe o texto. SELO DE NOTA: um bloco azul-marinho #100C43 com cantos arredondados (raio ~22px), posicionado sobre o encontro da foto com a diagonal no lado esquerdo do card, contendo uma estrela sólida dourada #E2BE6A em cima e o texto '5.0' em sans regular off-white abaixo; logo abaixo do bloco, uma fileira de 5 estrelinhas douradas pequenas. TEXTO DO CARD: nome do item em sans geométrica bold #100C43 e, abaixo, a frase de contexto em sans regular #3A3A4A, alinhados à esquerda com padding interno de 40px. SEM telefone, SEM site, SEM rodapé, SEM nomes de pessoas, SEM avatares. Paleta: marinho #100C43, dourado #E2BE6A, off-white #F4F1EA/#FBF9F4, cores reais das fotos.",
+      "subject": "Itens reais do banheiro Mônaco em cards de avaliação 5 estrelas sobre o interior desfocado da cabine",
+      "setting": "Cabine do trailer de banheiro de luxo da Mônaco",
+      "action": "Estático"
+    },
+    "style": {
+      "primary": "editorial product review card layout, premium hospitality social media design",
+      "rendering_quality": "hyperrealistic product photos with crisp flat UI cards",
+      "surface_textures": "fotos reais nítidas dentro dos cards; cards 100% flat; fundo com desfoque forte",
+      "lighting": "luz quente original das fotos, realçada pelo color grading; fundo escurecido pelo véu marinho"
+    },
+    "technical": {
+      "camera": {
+        "focal_length": "o das fotos anexadas",
+        "aperture": "o das fotos anexadas",
+        "depth_of_field": "cards nítidos; fundo totalmente desfocado",
+        "angle": "o das fotos anexadas"
+      },
+      "resolution": "ultra high definition, upscale limpo",
+      "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+    },
+    "composition": {
+      "perspective": "frontal, cards planos sobre fundo desfocado",
+      "framing": "título no topo esquerdo, cards em alturas alternadas (escalonados) no restante do frame",
+      "subject_placement": "cards escalonados para criar ritmo, nenhum card cobrindo o título",
+      "safe_area": "64px de padding mínimo: todos os cards, textos e logo dentro da zona segura de 952x1222px em 1080x1350px",
+      "ui_elements": [
+        {
+          "text": "símbolo Mônaco (última imagem anexada)",
+          "type": "logo branca aplicada exatamente como enviada",
+          "position": "canto superior direito, ~90px de altura, margem 64px"
+        },
+        {
+          "text": "Depois do jantar,",
+          "font": "serifada editorial alto contraste (Playfair Display Regular)",
+          "font_size": "84px",
+          "color": "#F4F1EA",
+          "position": "canto superior esquerdo, x 72, topo ~y 110, linha 1"
+        },
+        {
+          "text": "antes da foto",
+          "font": "serifada editorial alto contraste (Playfair Display Bold Italic)",
+          "font_size": "84px",
+          "color": "#E2BE6A",
+          "position": "linha 2, logo abaixo, alinhada à esquerda"
+        },
+        {
+          "text": "card Enxaguante bucal e fio dental",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 2 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "esquerda, x 72 a 502, topo ~y 470"
+        },
+        {
+          "text": "Enxaguante bucal e fio dental",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "30px",
+          "color": "#100C43",
+          "position": "área branca do card Enxaguante bucal e fio dental, alinhado à esquerda"
+        },
+        {
+          "text": "Para sorrir na foto com os noivos sem pensar no jantar.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "24px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Enxaguante bucal e fio dental', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Enxaguante bucal e fio dental, abaixo da estrela dourada"
+        },
+        {
+          "text": "card Lenços umedecidos e papel Neve",
+          "type": "card branco #FBF9F4 raio 44px, foto da IMAGEM 3 no topo com corte diagonal, selo marinho com estrela dourada e '5.0' + 5 estrelinhas",
+          "position": "direita, x 578 a 1008, topo ~y 330"
+        },
+        {
+          "text": "Lenços umedecidos e papel Neve",
+          "font": "sans-serif geométrica bold (Poppins SemiBold)",
+          "font_size": "30px",
+          "color": "#100C43",
+          "position": "área branca do card Lenços umedecidos e papel Neve, alinhado à esquerda"
+        },
+        {
+          "text": "O mesmo conforto que você tem em casa, no meio da festa.",
+          "font": "sans-serif regular (Poppins Regular)",
+          "font_size": "24px",
+          "color": "#3A3A4A",
+          "position": "abaixo de 'Lenços umedecidos e papel Neve', máximo 3 linhas"
+        },
+        {
+          "text": "5.0",
+          "font": "sans-serif regular",
+          "font_size": "30px",
+          "color": "#F4F1EA",
+          "position": "selo marinho do card Lenços umedecidos e papel Neve, abaixo da estrela dourada"
+        }
+      ]
+    },
+    "quality": {
+      "include": [
+        "fotos reais dos itens preservadas",
+        "cards brancos flat com cantos generosos",
+        "diagonal limpa entre foto e área de texto",
+        "selo marinho com estrela dourada legível",
+        "título serifado com itálico dourado",
+        "fundo desfocado com véu marinho",
+        "escalonamento equilibrado dos cards",
+        "logo anexada aplicada com fidelidade"
+      ],
+      "avoid": [
+        "inventar produtos, marcas ou rótulos que não estão nas fotos",
+        "nomes de pessoas, avatares ou depoimentos",
+        "sombra ou contorno nos cards",
+        "card cortado pela borda do frame",
+        "fundo nítido competindo com os cards",
+        "telefone, site ou rodapé",
+        "texto fora da zona segura",
+        "dourado metálico brilhante ou alaranjado",
+        "logo redesenhada",
+        "erros de grafia",
+        "travessão"
+      ],
+      "reference_standard": "cards de review estilo 'O que dizem nossos clientes' (moodboard Aurum Lux) adaptados à paleta Mônaco, com acabamento de revista de hospitalidade"
+    }
+  }
+}

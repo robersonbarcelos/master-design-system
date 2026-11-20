@@ -1,0 +1,97 @@
+{
+  "template": "CAPA-YOUTUBE-MONACO-MOLDURA-FADE-16x9-FESTA-JUNINA",
+  "version": "1.0",
+  "status": "Adaptado do CAPA-REELS-MONACO-ADZEP-2-moldura-fade (9:16) para 16:9. Não testada no GPT.",
+  "titulo_anexos": "ANEXAR 2 IMAGENS. IMAGEM 1 = a foto ou quadro de vídeo que VOCÊ escolher. IMAGEM 2 = símbolo da Mônaco em BRANCO (monaco-simbolo-branco.png), fundo transparente, que vai no canto superior direito do card.",
+  "anexos": {
+    "imagem_1": "A FOTO OU QUADRO DE VÍDEO QUE VOCÊ ESCOLHER (arte FP49, bandeirinhas ou o trailer aceso na rua). Horizontal, com o assunto principal no lado direito e área mais escura ou calma no lado esquerdo, onde fica o título sobre o degradê marinho. Sem close de crianças.",
+    "imagem_2": "profiles/_LOGOS-MONACO-LABELLE/monaco/monaco-simbolo-branco.png  (símbolo da Mônaco em BRANCO, PNG transparente)"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da capa. Preserve com fidelidade total tudo o que existe nela, sem redesenhar, substituir, remover ou acrescentar nada; aplique somente tratamento de cor editorial, upscale de nitidez, o degradê marinho de legibilidade e o fade descrito. IMAGEM 2 = símbolo oficial da Mônaco em branco: coloque-o exatamente como enviado, no canto superior direito do card, sem redesenhar, recolorir, distorcer nem adicionar sombra ou contorno. A saída tem proporção 16:9 (1280x720). O card fica RECUADO no centro: x 80 a 1200 e y 48 a 672, com borda de fundo desfocado em volta; a moldura nunca passa disso. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+  "prompt": {
+    "scene": {
+      "description": "Capa horizontal 16:9 de um vídeo de YouTube da marca Mônaco Mobile Toilet, tema festa junina. O fundo de toda a tela 1280x720 é a IMAGEM 1 em escala de capa, muito desfocada e escurecida com véu azul-marinho #100C43 a 50%. No centro, um card recuado (1120x624, de x 80 a 1200 e de y 48 a 672) preenchido pela IMAGEM 1 NÍTIDA e preservada, em tela cheia dentro do card, com um degradê azul-marinho #100C43 que entra da esquerda: quase sólido (92%) na borda esquerda e transparente a partir de cerca de 62% da largura do card. Uma moldura dourada fina (#FFBD59, 3 px, cantos arredondados de ~32 px) fica na própria borda do card. Alinhados à esquerda em x 128, na altura do meio do card: eyebrow dourado com bolinha, linha 1 do título em branco e linha 2 em dourado. No canto superior direito do card, o símbolo branco da Mônaco (IMAGEM 2). NÃO há site, telefone nem faixa de contato. Paleta: marinho #100C43, dourado #FFBD59, branco.",
+      "subject": "card recuado com foto da festa junina, moldura dourada e título sobre degradê marinho",
+      "setting": "card centralizado sobre fundo desfocado da mesma foto, em 16:9",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial de hospitalidade premium",
+      "rendering_quality": "nítido, limpo, tipografia vetorial",
+      "surface_textures": "foto real preservada; degradê liso; fundo desfocado suave",
+      "lighting": "a da foto original, com leve calor editorial"
+    },
+    "technical": {
+      "canvas": "Capa de YouTube 16:9, 1280x720 px (exportar 2560x1440 se possível). Margem de segurança de 64 px. Canto inferior direito (x 1040 a 1280, y 640 a 720) livre para a duração do vídeo. O card ocupa x 80 a 1200 e y 48 a 672.",
+      "rendering": "upscale sem halo nem artefato de IA; degradê suave sem degrau visível; sem HDR exagerado"
+    },
+    "composition": {
+      "framing": "card recuado e centralizado no canvas 16:9; texto no lado esquerdo do card",
+      "safe_area": "Texto dentro de x 128 a 700 e y 100 a 620. Logo dentro do card. Nada no canto inferior direito.",
+      "layout": {
+        "fundo_desfocado": "IMAGEM 1 cobrindo 1280x720, desfoque forte, véu marinho #100C43 a 50%",
+        "card": "x 80 a 1200, y 48 a 672, IMAGEM 1 nítida em tela cheia do card",
+        "degrade_marinho": "da borda esquerda do card (92%) até x ~775 (0%)",
+        "moldura": "retângulo de cantos arredondados, x 80 a 1200, y 48 a 672, raio ~32 px, traço 3 px dourado #FFBD59",
+        "eyebrow": "alinhado à esquerda em x 128, y ~250",
+        "titulo_linha_1": "x 128, y ~290 a 370",
+        "titulo_linha_2": "x 128, y ~385 a 485",
+        "simbolo": "IMAGEM 2 no canto superior direito, centrada em x 1110, y 130, largura 110 px"
+      },
+      "ui_elements": {
+        "eyebrow": {
+          "texto": "NA ROÇA OU NA RUA",
+          "fonte": "Plus Jakarta Sans Bold, caixa alta, tracking +20%, ~22 px",
+          "cor": "dourado #FFBD59",
+          "detalhe": "bolinha dourada sólida de ~10 px à esquerda"
+        },
+        "titulo_linha_1": {
+          "texto": "ONDE FICA",
+          "fonte": "Cinzel Bold, caixa alta, ~66 px",
+          "cor": "branco #FFFFFF",
+          "sombra": "sutil, marinho"
+        },
+        "titulo_linha_2": {
+          "texto": "O BANHEIRO?",
+          "fonte": "Cinzel ExtraBold, caixa alta, ~96 px",
+          "cor": "dourado #FFBD59",
+          "sombra": "sutil, marinho"
+        }
+      }
+    },
+    "regras_fixas": [
+      "Sem site, telefone, faixa de contato ou rodapé na capa",
+      "Sem data do evento",
+      "Sem travessão em nenhum texto",
+      "Nunca 'banheiro químico' no texto",
+      "A logo é a anexada, nunca redesenhada",
+      "Preservar a foto: não inventar, remover ou redesenhar objetos e pessoas",
+      "Sem close de crianças",
+      "O título não pode ser cortado: ajustar o tamanho para caber em x 128 a 700"
+    ],
+    "quality": {
+      "include": [
+        "card recuado perfeitamente centralizado",
+        "moldura dourada fina e contínua",
+        "degradê marinho suave e contínuo",
+        "título legível sobre o degradê",
+        "O BANHEIRO? em dourado em destaque",
+        "símbolo branco nítido",
+        "foto preservada e nítida",
+        "acentos corretos em português"
+      ],
+      "avoid": [
+        "card maior que x 80 a 1200 e y 48 a 672",
+        "título cortado ou fora da zona segura",
+        "logo redesenhada, esticada ou recolorida",
+        "acentos errados ou letras inventadas",
+        "site, telefone ou faixa de contato",
+        "foto redesenhada ou com elementos inventados",
+        "degradê com faixa ou degrau visível",
+        "texto no canto inferior direito",
+        "travessão nos textos"
+      ],
+      "reference_standard": "CAPA-REELS-MONACO-ADZEP-2-moldura-fade, adaptada para 16:9"
+    }
+  }
+}

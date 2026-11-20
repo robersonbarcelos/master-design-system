@@ -1,0 +1,95 @@
+{
+  "template": "TEMPLATE-MOLDURA-FADE-CLARA-LABELLE-REELS",
+  "version": "1.0",
+  "status": "11/11/2026: equivalente claro do estilo Moldura fade da Mônaco, com recuo 4:5. Não testado no GPT.",
+  "formato": "Capa de Reel 9:16, 1080x1920 px (exportar 2160x3840 se possível). Versão CLARA da LA BELLE: creme, petróleo e dourado.",
+  "anexos": {
+    "imagem_1": "A FOTO OU QUADRO DE VÍDEO QUE VOCÊ ESCOLHER. Foto vertical com o assunto principal na metade de cima ou no centro e chão, parede ou sombra na parte de baixo, onde o título fica sobre o fade creme.",
+    "imagem_2": "profiles/_LOGOS-MONACO-LABELLE/labelle/logo_labelle_oficial_transparente.png  (logo oficial LA BELLE, PNG transparente: estrela dourada, linha e BANHEIROS LABELLE)"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da capa. Preserve com fidelidade total tudo o que existe nela, sem redesenhar, substituir, remover ou acrescentar nada; aplique somente leve tom quente, upscale de nitidez e o véu creme descrito. IMAGEM 2 = logo oficial LA BELLE: coloque exatamente como enviada, sem esticar, girar, recolorir, redesenhar nem adicionar sombra. A saída tem proporção 9:16 (1080x1920). O card fica RECUADO no centro: x 108 a 970 e y 383 a 1585, com borda grossa de fundo desfocado em volta; a moldura nunca passa disso. O FUNDO É CLARO (creme #FAF7F1), nunca escuro. Todo texto vem dos campos abaixo, letra por letra, com acentos. A logo vai centralizada no rodapé do card.",
+  "prompt": {
+    "scene": {
+      "description": "Capa vertical 9:16 de um Reel da LA BELLE. O fundo de toda a tela 1080x1920 é a IMAGEM 1 em escala de capa, muito desfocada e CLAREADA com véu creme #FAF7F1 a 60%. No centro, um card recuado (862x1202, de x 108 a 970 e de y 383 a 1585) preenchido pela IMAGEM 1 NÍTIDA e preservada, com um degradê creme #FAF7F1 que sobe da base: transparente até cerca de 35% da altura do card e quase sólido (94%) na base. Uma moldura dourada fina (#B7881D, 3 px, cantos arredondados de ~44 px) na própria borda do card. Na parte baixa do card, alinhados à esquerda em x 176: eyebrow dourado com bolinha, linha 1 do título em petróleo #043333 e linha 2 em dourado itálico. No rodapé do card, centralizada, a logo oficial LA BELLE (IMAGEM 2). NÃO há site, telefone nem faixa de contato. Paleta: creme #FAF7F1, petróleo #043333 (só texto), dourado #B7881D.",
+      "subject": "capa editorial clara com foto de evento ou cabine em card recuado",
+      "setting": "card recuado sobre fundo desfocado e clareado da mesma foto, em 9:16",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial de hospitalidade premium, claro",
+      "rendering_quality": "nítido, limpo, tipografia vetorial",
+      "surface_textures": "foto real preservada; creme liso; fundo desfocado suave",
+      "lighting": "a da foto original, com leve calor editorial (creme nos realces)"
+    },
+    "technical": {
+      "canvas": "Capa de Reel 9:16, 1080x1920 px (exportar 2160x3840 se possível). O feed recorta a capa em 4:5: a faixa visível é y 285 a 1635 (1080x1350). TODO conteúdo (card, moldura, textos, logo) fica dentro dessa faixa. Fora dela só continua o fundo desfocado da mesma foto, clareado com véu creme. O card ocupa apenas x 108 a 970 e y 383 a 1585 (80% da largura e 63% da altura), com borda grossa de fundo desfocado: 108 px à esquerda, 110 à direita, 383 em cima e 334 embaixo.",
+      "rendering": "upscale sem halo nem artefato de IA; véu creme suave sem degrau visível; sem HDR exagerado"
+    },
+    "composition": {
+      "framing": "card recuado e centralizado no canvas 9:16",
+      "safe_area": "Texto e logo dentro de x 160 a 920. Nada importante fora da faixa y 285 a 1635. Evitar a borda direita (botões do Reels).",
+      "layout": {
+        "fundo_desfocado": "IMAGEM 1 cobrindo 1080x1920, desfoque forte, véu creme #FAF7F1 a 60%",
+        "card": "x 108 a 970, y 383 a 1585 (862 x 1202 px), IMAGEM 1 nítida em tela cheia do card",
+        "degrade_creme": "do card y ~804 (0%) até a base y 1585 (94%)",
+        "moldura": "retângulo de cantos arredondados, x 108 a 970, y 383 a 1585, raio ~44 px, traço 3 px dourado #B7881D",
+        "eyebrow": "alinhado à esquerda em x 176, y ~1195",
+        "titulo_linha_1": "alinhada à esquerda em x 176, y ~1240",
+        "titulo_linha_2": "alinhada à esquerda em x 176, y ~1320",
+        "logo": "IMAGEM 2 centralizada em x 540, base em y 1510, largura 240 px, proporção original"
+      },
+      "ui_elements": {
+        "eyebrow": {
+          "exemplo": "MÓDULOS LA BELLE",
+          "fonte": "Plus Jakarta Sans Bold, caixa alta, tracking +20%, ~26 px",
+          "cor": "#B7881D",
+          "detalhe": "bolinha dourada sólida de ~12 px à esquerda"
+        },
+        "titulo_linha_1": {
+          "exemplo": "Subiu pela escada.",
+          "fonte": "Cormorant Garamond SemiBold, ~76 px",
+          "cor": "#043333"
+        },
+        "titulo_linha_2": {
+          "exemplo": "Desceu pelo ar.",
+          "fonte": "Cormorant Garamond Bold Italic, ~92 px",
+          "cor": "#B7881D"
+        }
+      }
+    },
+    "regras_fixas": [
+      "Sem site, telefone, faixa de contato ou rodapé na capa",
+      "Sem data do evento",
+      "Sem travessão em nenhum texto",
+      "Nunca '1994', nunca 'Mônaco', nunca preço ou tempo de aluguel",
+      "A logo é a anexada, nunca redesenhada, recolorida nem com sombra",
+      "Preservar a foto: não inventar, remover ou redesenhar objetos e pessoas",
+      "CLARA: fundo e véus em creme #FAF7F1; nunca azul, marinho, verde escuro nem preto como fundo",
+      "O título não pode ser cortado: ajustar o tamanho para caber na largura de x 176 a 907"
+    ],
+    "quality": {
+      "include": [
+        "card recuado perfeitamente centralizado",
+        "tudo dentro de y 285 a 1635",
+        "foto preservada e nítida",
+        "texto legível sobre o creme",
+        "logo oficial nítida e proporcional",
+        "acentos corretos em português",
+        "aparência clara, editorial e sofisticada"
+      ],
+      "avoid": [
+        "card maior que x 108 a 970 e y 383 a 1585",
+        "título cortado ou fora da zona segura",
+        "logo redesenhada, esticada ou recolorida",
+        "acentos errados ou letras inventadas",
+        "site, telefone ou faixa de contato",
+        "foto redesenhada ou com elementos inventados",
+        "véu creme com faixa ou degrau visível",
+        "qualquer fundo escuro",
+        "sombras e brilhos pesados",
+        "travessão nos textos"
+      ],
+      "reference_standard": "estilo Moldura fade da Mônaco em versão clara LA BELLE"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "variacao": "Slide 3 · FOTO REAL: banheiro Mônaco por dentro (pia, espelho, louça) com tratamento editorial, para mostrar a qualidade · ANEXAR: IMAGEM 1 = foto real do interior da cabine Mônaco (pia + espelho); IMAGEM 2 = logo completa branca",
+  "slide": "3",
+  "template": "TEMPLATE-EDITORIAL-FULLBLEED-MONACO",
+  "anexos": [
+    "IMAGEM 1: foto real do interior da cabine Mônaco (pia, espelho e louça visíveis, área mais limpa no topo)",
+    "IMAGEM 2: monaco/references/logo/monaco-logo-completa-branca.png"
+  ],
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real do interior da cabine Mônaco, usada como fundo full-bleed. Da IMAGEM 1, preserve com fidelidade total tudo o que existe nela: objetos, materiais, cores reais, proporções, enquadramento e textos. Nao redesenhe, nao substitua, nao remova e nao acrescente nenhum elemento. Aplique somente tratamento de cor editorial, upscale de nitidez e degrade de legibilidade. IMAGEM 2 = logo completa branca; A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra. Monte o layout descrito no JSON.",
+  "format": {
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4:5",
+    "platform": "Instagram carrossel",
+    "export": "1080x1350 (gerar 1088x1360 e redimensionar com LANCZOS)"
+  },
+  "zones": {
+    "header": {
+      "status": "vazio por regra do template",
+      "nota": "sem header, sem numeracao de slide, sem handle. A logo fica no footer."
+    },
+    "image": {
+      "modo": "fundo full-bleed 1080x1350 cobrindo todo o canvas",
+      "overlay_legibilidade": {
+        "cor": "#0F1D45",
+        "tipo": "degrade linear sobre a imagem, so para legibilidade",
+        "topo": "55% de opacidade na borda superior ate 0% em ~38% da altura (y ~510px)",
+        "base": "60% de opacidade na borda inferior ate 0% em ~22% da altura (y ~1050px)",
+        "intensidade": "suave"
+      },
+      "asset_prompt": {
+        "prompt": {
+          "scene": {
+            "description": "Fotografia editorial vertical 4:5 do INTERIOR de uma cabine de banheiro da Mônaco, usando a IMAGEM 1 anexada como fundo full-bleed. A cena e a foto real: pia/bancada, louca, espelho com iluminacao, parede decorada, torneira, itens de apoio. Tudo preservado exatamente como esta. Apenas color grading editorial quente, upscale de nitidez e degrade de legibilidade navy no topo e na base.",
+            "subject": "interior real da cabine Mônaco, preservado",
+            "setting": "banheiro de luxo dentro do trailer, limpo, iluminado",
+            "action": "estatico"
+          },
+          "style": {
+            "primary": "editorial hospitality photography, premium interior",
+            "rendering_quality": "hyperrealistic, preservation of the attached photo",
+            "surface_textures": "texturas reais da IMAGEM 1, apenas mais nitidas",
+            "lighting": "luz original da IMAGEM 1, realcada por color grading editorial quente"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter o da foto anexada",
+              "angle": "manter o da foto anexada"
+            },
+            "resolution": "ultra high definition, upscale limpo para 1088x1360 e resize para 1080x1350",
+            "rendering": "color grading editorial de hospitalidade premium: contraste medio-alto, realces suaves, temperatura levemente quente, saturacao natural; sem HDR; sem filtro chapado"
+          },
+          "materials": {
+            "surfaces": "manter todos os materiais e texturas reais da IMAGEM 1, apenas mais nitidos"
+          },
+          "composition": {
+            "perspective": "manter a perspectiva e o enquadramento da IMAGEM 1",
+            "framing": "foto full-bleed; texto no topo e na base sobre degrade navy",
+            "subject_placement": "assunto principal na posicao original da foto; se faltar espaco no topo, estender o fundo existente de forma natural (sem criar objetos)",
+            "safe_area": "manter o assunto fora do quadrado da logo (x 880-1080, y 1150-1350) e da zona de texto do topo (y 90-340)"
+          },
+          "quality": {
+            "include": [
+              "foto real preservada com fidelidade total",
+              "color grading editorial quente",
+              "interior limpo e iluminado",
+              "degrade navy discreto",
+              "textura real das superficies",
+              "nitidez sem halo"
+            ],
+            "avoid": [
+              "redesenhar o interior",
+              "acrescentar objetos, pessoas ou decoracao",
+              "trocar cores reais",
+              "HDR exagerado",
+              "sujeira ou fila",
+              "banheiro quimico azul",
+              "aparencia de render 3D"
+            ],
+            "reference_standard": "fotografia editorial de hotelaria de alto padrao, interiores de boutique hotel"
+          }
+        }
+      }
+    },
+    "content": {
+      "headline": {
+        "text": "O convidado não lembra do que funcionou, lembra de como se sentiu.",
+        "font": "serifada display de alto contraste, estilo DM Serif Display (alternativa: Playfair Display), peso regular, frase em caixa normal",
+        "font_size": "66px",
+        "line_height": "1.15",
+        "color": "#FFFFFF",
+        "align": "center",
+        "max_width": "820px",
+        "max_lines": 3,
+        "position": "bloco centralizado horizontalmente no topo, primeira linha em y ~110px; sombra muito sutil para destacar da imagem"
+      },
+      "divider": {
+        "enabled": true,
+        "estilo": "linha horizontal fina, 3px, 440px de largura, centralizada",
+        "color": "#C9A45C",
+        "position": "36px abaixo da ultima linha da headline"
+      }
+    },
+    "footer": {
+      "tagline": {
+        "text": "Cheiro • Limpeza • Cuidado",
+        "font": "serifada display semibold, mesma familia da headline",
+        "font_size": "34px",
+        "color": "#FFFFFF",
+        "align": "center",
+        "position": "centralizada na area x 64 a 850px, base em y ~1300px (maximo 2 linhas)"
+      },
+      "logo": {
+        "arquivo": "IMAGEM 2 anexada (monaco/references/logo/monaco-logo-completa-branca.png)",
+        "caixa": "quadrado navy #0F1D45 colado no canto inferior direito, x 880 a 1080px, y 1150 a 1350px (200x200px), sem cantos arredondados, sem contorno",
+        "logo_dentro": "logo completa branca centralizada no quadrado, largura ~150px, respiro minimo 24px",
+        "regra": "A logo anexada deve ser aplicada exatamente como enviada, sem redesenhar, recolorir, esticar, girar ou aplicar sombra."
+      }
+    }
+  },
+  "text_rules": {
+    "travessao": "PROIBIDO (nenhum travessao em nenhum texto)",
+    "textos_permitidos_na_imagem": "somente os campos headline, tagline e os textos da logo anexada",
+    "safe_area": "64px de padding minimo; zona segura 952x1222px; nenhum texto toca o quadrado da logo (x 880 a 1080, y 1150 a 1350)",
+    "ortografia": "reproduzir cada texto exatamente como esta em 'text', com acentos, sem placeholders visiveis",
+    "termo": "nunca 'banheiro quimico' em texto de slide"
+  },
+  "negative_rules": [
+    "NUNCA travessao",
+    "NUNCA redesenhar, recriar, estilizar ou recolorir a logo anexada",
+    "NUNCA texto cortado pelas bordas ou dentro da area do quadrado da logo",
+    "NUNCA trocar a ordem dos elementos: headline no topo, divisor logo abaixo, tagline na base",
+    "NUNCA fonte de sistema generica (Arial, Times New Roman) na headline",
+    "NUNCA mais de 3 linhas de headline",
+    "NUNCA logos de terceiros, marcas ou textos extras na cena (exceto os itens da prancheta no slide 1)",
+    "NUNCA deixar placeholders {{...}} escritos na imagem",
+    "NUNCA acrescentar, remover ou redesenhar qualquer objeto do interior da foto anexada"
+  ]
+}

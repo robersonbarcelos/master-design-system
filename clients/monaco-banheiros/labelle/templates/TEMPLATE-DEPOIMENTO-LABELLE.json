@@ -1,0 +1,151 @@
+{
+  "template": "CARD DE DEPOIMENTO COM POLAROID : LA BELLE",
+  "versao": "1.0 (aprovado 23/10/2026)",
+  "origem": "Referência 'o que os clientes dizem no Google' (card arredondado + polaroid + título com script), adaptada à paleta e às fontes da LA BELLE",
+  "imagens_referencia": {
+    "V1": "TEMPLATE-DEPOIMENTO-LABELLE-V1-referencia.webp",
+    "V2": "TEMPLATE-DEPOIMENTO-LABELLE-V2-referencia.webp",
+    "ATENCAO": "Os depoimentos, nomes e iniciais que aparecem nas imagens de referência (Ana Ribeiro, Marina Carvalho) são FICTÍCIOS, gerados só para visualizar o layout. Nunca publicar essas imagens."
+  },
+
+  "guia_de_uso": {
+    "o_que_e": "Post vertical 4:5 de prova social. Fundo com foto desfocada sob véu de cor. No topo esquerdo, título em 3 níveis: 'o que os' em Gilroy fina, 'clientes' em script caligráfico dourado grande, e a terceira linha em Gilroy espaçada. No centro, um card claro com cantos bem arredondados, aspas douradas grandes saindo dos cantos, 5 estrelas douradas, o depoimento, avatar redondo (foto ou iniciais douradas), nome e rótulo. Uma polaroid girada ~4° com a foto do módulo sobrepõe o canto superior direito do card. Logo centralizada no rodapé.",
+    "explicacao_da_modelagem": {
+      "V1": "Versão CLARA, 'dizem no Google' (avaliações do Google, casos de reforma e uso residencial/comercial, LB2). Fundo creme-areia desfocado; título em quase-preto com script em dourado #B7881D; card creme/branco; nome em Gilroy bold; rótulo em marrom-cinza; logo original. Tom acolhedor e diurno.",
+      "V2": "Versão ESCURA, 'contam do evento' (depoimentos de evento, LB3 Onde a LA BELLE chega). Fundo verde-petróleo #043333 com bokeh dourado discreto; título em creme com script em dourado claro #E2C05B; card creme em alto contraste; nome em Cormorant Garamond; rótulo em dourado; logo com texto em creme. Tom de festa sofisticada."
+    },
+    "diferencas": "V1 clara, diurna, avaliação do Google. V2 escura com bokeh, evento. Estrutura de card, polaroid, aspas, estrelas e avatar idêntica.",
+    "melhores_aplicacoes": [
+      "Repostar avaliações reais do Google (V1)",
+      "Depoimento de cliente após evento (V2), combinando com o post de evento da semana",
+      "Série de prova social fixa no feed, alternando V1 e V2",
+      "Stories de prova social (recortar o card)"
+    ],
+    "regra_do_texto": "Depoimento: SEMPRE real, com autorização do cliente; até ~230 caracteres (5 a 6 linhas). Pode encurtar o original sem mudar o sentido. Rótulo: tipo de uso + cidade (ex.: 'Reforma residencial · São Paulo', 'Bodas de Ouro · Rio de Janeiro'). Nunca colocar data. Sem travessão.",
+    "como_escolher_as_fotos": "IMAGEM 1 (fundo) vai desfocada, então qualquer foto do local ou do evento serve. IMAGEM 2 (polaroid) é o módulo daquele cliente, nítido, vertical. IMAGEM 3 é a foto de perfil (do Google ou enviada); sem ela, entram as iniciais em círculo dourado.",
+    "atencao": [
+      "NUNCA inventar depoimento, nome ou cliente: os campos {{ }} só recebem texto real",
+      "As imagens de referência têm depoimentos fictícios: não publicar",
+      "Cada foto aparece UMA única vez (a da polaroid não se repete no fundo)",
+      "Nunca azul nem marinho (cores da Mônaco)",
+      "Estrelas douradas, nunca amarelo-limão",
+      "Copy passa pelo copy-qa-sms antes de publicar"
+    ],
+    "imagens_para_carregar": {
+      "V1": "IMAGEM 1 = foto de fundo do ambiente · IMAGEM 2 = foto da polaroid (módulo no local do cliente) · IMAGEM 3 = foto de perfil do cliente (opcional) · IMAGEM 4 = logo LA BELLE original",
+      "V2": "IMAGEM 1 = foto do evento ou do local (fundo) · IMAGEM 2 = foto da polaroid (módulo no evento) · IMAGEM 3 = foto de perfil do cliente (opcional) · IMAGEM 4 = logo LA BELLE (texto vira creme)"
+    }
+  },
+
+  "paleta": {
+    "fundo_claro": "#EFE8DA creme-areia (V1)",
+    "fundo_escuro": "#043333 verde-petróleo (V2)",
+    "card": "#FAF7F1 creme / #FFFFFF branco",
+    "dourado": "#B7881D (aspas, estrelas, script V1, rótulo V2, avatar)",
+    "dourado_claro": "#E2C05B (script V2, aspas de fechamento, bokeh)",
+    "titulos": "#1C1A15 quase-preto quente",
+    "texto": "#4A4238 marrom-cinza",
+    "proibido": "qualquer azul ou marinho"
+  },
+  "tipografia": {
+    "titulo": "Gilroy Light / Regular + script caligráfico fino (estilo Allura / Great Vibes) em 'clientes'",
+    "aspas_e_nome_V2": "Cormorant Garamond Bold / SemiBold",
+    "depoimento_nome_V1_rotulo": "Gilroy Regular / Bold (fallback Inter)"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818"},
+
+  "variacoes": {
+    "V1_clara_dizem_no_google": {
+      "instrucao_para_colar_antes": "Vou anexar até 4 imagens. IMAGEM 1 = foto de fundo do ambiente. IMAGEM 2 = foto principal dentro da moldura polaroid (módulo LA BELLE instalado no local do cliente). IMAGEM 3 = foto de perfil do cliente para o avatar (se não houver, usar círculo dourado com as iniciais). IMAGEM 4 = logo oficial da LA BELLE. Preserve IMAGEM 1, 2 e 3 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique só o tratamento descrito e upscale; cada foto aparece uma única vez. Aplique a IMAGEM 4 exatamente como enviada. Substitua os campos entre {{ }} pelo texto real que eu informar; nunca invente depoimento. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) de prova social para Instagram da marca Banheiros LA BELLE, estética clara e acolhedora. Fundo: a IMAGEM 1 preenche o quadro inteiro, com desfoque forte (~10px), dessaturação parcial e véu creme-areia #EFE8DA a ~65%, deixando só manchas suaves de luz. Topo esquerdo, a partir de x 90, título em 3 níveis: 'o que os' em Gilroy regular caixa baixa quase-preto quente #1C1A15; 'clientes' em script caligráfico fino dourado #B7881D, bem maior, com a cauda da última letra estendida para a direita; 'dizem no Google' em Gilroy regular quase-preto. Centro: card creme claro #FAF7F1 de x 80 a x 1040 e de y 500 a y 1245, cantos muito arredondados (raio ~70px), sombra difusa muito leve. Saindo do topo esquerdo do card, aspas de abertura grandes em Cormorant Garamond Bold dourado #B7881D com leve textura metálica fosca (~190px). Sobreposta ao canto superior direito do card, foto polaroid girada ~4° horário, de x 600 a x 1085 e de y 60 a y 720, borda creme grossa (~22px, mais larga embaixo) e sombra suave, preenchida pela IMAGEM 2. Dentro do card, a partir de x 160: 5 estrelas sólidas douradas #B7881D (~48px) com leve brilho; depoimento em Gilroy regular quase-preto #1C1A15, alinhado à esquerda, ~5 linhas, entrelinha 1,35: '{{DEPOIMENTO}}'; avatar redondo (~118px) com a IMAGEM 3 ou círculo dourado com iniciais em creme serifado e, ao lado, '{{NOME DO CLIENTE}}' em Gilroy bold quase-preto e '{{RÓTULO}}' em Gilroy regular marrom-cinza #4A4238. Canto inferior direito do card, aspas de fechamento grandes em Cormorant Garamond Bold dourado claro #E2C05B a 60%. Rodapé centralizado em y ~1325: logo LA BELLE (IMAGEM 4). Paleta: creme-areia #EFE8DA, creme #FAF7F1, dourado #B7881D / #E2C05B, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Card de depoimento real de cliente com polaroid do módulo LA BELLE (IMAGEM 2)",
+          "setting": "Composição gráfica sobre foto de ambiente desfocada em tom creme-areia",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial acolhedor de prova social",
+          "rendering_quality": "design gráfico limpo com fotos reais nítidas",
+          "surface_textures": "fundo desfocado; card liso fosco; polaroid de papel fosco; aspas e estrelas douradas foscas",
+          "lighting": "luz suave e difusa; sombras leves sob card e polaroid"
+        },
+        "technical": {
+          "camera": {"focal_length": "o das fotos anexadas", "aperture": "o das fotos anexadas", "depth_of_field": "fundo desfocado; polaroid nítida", "angle": "manter o das fotos anexadas"},
+          "resolution": "ultra high definition",
+          "rendering": "véu uniforme, desfoque suave, sem grão, tipografia limpa"
+        },
+        "composition": {
+          "framing": "card central dominante, título no topo esquerdo, polaroid quebrando a borda superior direita do card",
+          "subject_placement": "título de y 100 a y 400; polaroid de y 60 a y 720; card de y 500 a y 1245; logo no rodapé",
+          "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px; card, aspas e polaroid podem avançar até 40px das bordas",
+          "ui_elements": [
+            {"text": "o que os", "font": "Gilroy Regular, caixa baixa", "font_size": "64px", "color": "#1C1A15", "position": "x 90, ~y 160"},
+            {"text": "clientes", "font": "script caligráfico fino (estilo Allura / Great Vibes)", "font_size": "170px", "color": "#B7881D", "position": "x 75, ~y 290, cauda até ~x 590"},
+            {"text": "dizem no Google", "font": "Gilroy Regular", "font_size": "60px", "color": "#1C1A15", "position": "x 90, ~y 395"},
+            {"text": "“", "font": "Cormorant Garamond Bold", "font_size": "200px", "color": "#B7881D", "position": "topo esquerdo do card, ~x 140 / y 460"},
+            {"text": "★★★★★", "type": "5 estrelas sólidas", "font_size": "48px", "color": "#B7881D", "position": "x 160, ~y 700"},
+            {"text": "{{DEPOIMENTO}}", "font": "Gilroy Regular", "font_size": "40px", "color": "#1C1A15", "position": "x 160 a x 940, ~y 760 a ~y 1060, alinhado à esquerda", "exemplo_apenas_para_visualizar": "Durante a reforma, ter um banheiro completo no quintal fez toda diferença."},
+            {"text": "avatar (IMAGEM 3)", "type": "círculo de 118px; sem foto, círculo dourado #B7881D com iniciais em creme serifado", "position": "x 155, ~y 1090"},
+            {"text": "{{NOME DO CLIENTE}}", "font": "Gilroy Bold", "font_size": "36px", "color": "#1C1A15", "position": "x 305, ~y 1130"},
+            {"text": "{{RÓTULO}}", "font": "Gilroy Regular", "font_size": "26px", "color": "#4A4238", "position": "x 305, ~y 1175", "exemplo_apenas_para_visualizar": "Reforma residencial · São Paulo"},
+            {"text": "”", "font": "Cormorant Garamond Bold", "font_size": "230px", "color": "#E2C05B a 60%", "position": "canto inferior direito do card, ~x 920 / y 1160"},
+            {"text": "logo LA BELLE (IMAGEM 4)", "type": "aplicar exatamente como enviada", "position": "rodapé centralizado, ~y 1325, altura 110px"}
+          ]
+        },
+        "quality": {
+          "include": ["card creme com cantos bem arredondados", "aspas douradas foscas", "polaroid girada com sombra suave", "script dourado elegante", "estrelas douradas", "depoimento grande e legível", "fundo creme-areia calmo"],
+          "avoid": ["inventar depoimento", "qualquer azul ou marinho", "estrelas amarelo-limão", "script ilegível", "sombra dura", "foto repetida", "data no post", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "posts de depoimento de estúdios de interiores; site banheiroslabelle.com.br"
+        }
+      }
+    },
+
+    "V2_escura_contam_do_evento": {
+      "instrucao_para_colar_antes": "Vou anexar até 4 imagens. IMAGEM 1 = foto de fundo do evento ou do local. IMAGEM 2 = foto principal dentro da moldura polaroid (módulo LA BELLE no evento). IMAGEM 3 = foto de perfil do cliente (se não houver, usar círculo dourado com iniciais). IMAGEM 4 = logo oficial da LA BELLE, em versão clara. Preserve IMAGEM 1, 2 e 3 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique só o tratamento descrito e upscale; cada foto aparece uma única vez. Aplique a IMAGEM 4 como enviada; se tiver texto escuro, converta só o texto para creme. Substitua os campos entre {{ }} pelo texto real que eu informar; nunca invente depoimento. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) de prova social para Instagram da marca Banheiros LA BELLE, versão escura e sofisticada. Fundo: a IMAGEM 1 preenche o quadro inteiro, com desfoque forte (~10px) e véu verde-petróleo #043333 a ~78%, deixando luzes do evento como bokeh dourado #E2C05B suave nas laterais e na base. Topo esquerdo, a partir de x 125, título em 3 níveis: 'o que os' em Gilroy regular caixa baixa creme #FAF7F1 com tracking aberto; 'clientes' em script caligráfico fino dourado claro #E2C05B com leve brilho metálico, bem maior, com a cauda estendida para a direita; 'contam do evento' em Gilroy regular creme com tracking muito aberto. Centro: card creme #FAF7F1 de x 65 a x 1055 e de y 385 a y 1220, cantos muito arredondados (raio ~70px), sombra difusa escura suave. Saindo do topo esquerdo do card, aspas de abertura grandes em Cormorant Garamond Bold dourado #B7881D (~190px). Sobreposta ao canto superior direito do card, polaroid girada ~4° horário, de x 575 a x 1090 e de y 85 a y 700, borda creme grossa (~22px) e sombra suave, preenchida pela IMAGEM 2. Dentro do card, a partir de x 145: 5 estrelas sólidas douradas #B7881D; depoimento em Gilroy regular marrom-escuro #4A4238, alinhado à esquerda, ~6 linhas: '{{DEPOIMENTO}}'; avatar redondo (~125px) com a IMAGEM 3 ou círculo dourado com iniciais em creme serifado e, ao lado, '{{NOME DO CLIENTE}}' em Cormorant Garamond Bold quase-preto quente #1C1A15 e '{{RÓTULO}}' em Gilroy regular dourado #B7881D. Canto inferior direito do card, aspas de fechamento grandes em Cormorant Garamond Bold dourado claro #E2C05B a 60%. Rodapé centralizado em y ~1300: logo LA BELLE (IMAGEM 4) com estrela dourada e texto creme. Paleta: verde-petróleo #043333, creme #FAF7F1, dourado #B7881D / #E2C05B, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Card de depoimento real de cliente com polaroid do módulo LA BELLE em evento (IMAGEM 2)",
+          "setting": "Composição gráfica sobre foto de evento desfocada sob véu verde-petróleo com bokeh dourado",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial sofisticado de prova social, clima de evento",
+          "rendering_quality": "design gráfico limpo com fotos reais nítidas",
+          "surface_textures": "fundo com bokeh dourado discreto; card liso fosco; polaroid de papel fosco",
+          "lighting": "luzes quentes do evento suavizadas pelo véu; sombras leves"
+        },
+        "technical": {
+          "camera": {"focal_length": "o das fotos anexadas", "aperture": "o das fotos anexadas", "depth_of_field": "fundo desfocado; polaroid nítida", "angle": "manter o das fotos anexadas"},
+          "resolution": "ultra high definition",
+          "rendering": "véu uniforme, bokeh suave, sem grão, tipografia limpa"
+        },
+        "environment": {"time": "noite, luzes de festa ao fundo", "atmosphere": "bokeh dourado discreto sob o véu"},
+        "composition": {
+          "framing": "card central dominante, título no topo esquerdo, polaroid quebrando a borda superior direita do card",
+          "subject_placement": "título de y 80 a y 330; polaroid de y 85 a y 700; card de y 385 a y 1220; logo no rodapé",
+          "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px; card, aspas e polaroid podem avançar até 40px das bordas",
+          "ui_elements": [
+            {"text": "o que os", "font": "Gilroy Regular, caixa baixa, tracking +12%", "font_size": "46px", "color": "#FAF7F1", "position": "x 125, ~y 120"},
+            {"text": "clientes", "font": "script caligráfico fino (estilo Allura / Great Vibes)", "font_size": "170px", "color": "#E2C05B", "position": "x 85, ~y 240, cauda até ~x 580"},
+            {"text": "contam do evento", "font": "Gilroy Regular, tracking +18%", "font_size": "44px", "color": "#FAF7F1", "position": "x 125, ~y 320"},
+            {"text": "“", "font": "Cormorant Garamond Bold", "font_size": "190px", "color": "#B7881D", "position": "topo esquerdo do card, ~x 110 / y 420"},
+            {"text": "★★★★★", "type": "5 estrelas sólidas", "font_size": "44px", "color": "#B7881D", "position": "x 145, ~y 620"},
+            {"text": "{{DEPOIMENTO}}", "font": "Gilroy Regular", "font_size": "40px", "color": "#4A4238", "position": "x 145 a x 760, ~y 680 a ~y 1010, alinhado à esquerda", "exemplo_apenas_para_visualizar": "Foi muito mais confortável do que imaginávamos e os convidados elogiaram."},
+            {"text": "avatar (IMAGEM 3)", "type": "círculo de 125px; sem foto, círculo dourado com iniciais em creme serifado", "position": "x 140, ~y 1060"},
+            {"text": "{{NOME DO CLIENTE}}", "font": "Cormorant Garamond Bold", "font_size": "40px", "color": "#1C1A15", "position": "x 300, ~y 1100"},
+            {"text": "{{RÓTULO}}", "font": "Gilroy Regular", "font_size": "28px", "color": "#B7881D", "position": "x 300, ~y 1145", "exemplo_apenas_para_visualizar": "Bodas de Ouro · Rio de Janeiro"},
+            {"text": "”", "font": "Cormorant Garamond Bold", "font_size": "230px", "color": "#E2C05B a 60%", "position": "canto inferior direito do card, ~x 920 / y 1110"},
+            {"text": "logo LA BELLE (IMAGEM 4)", "type": "versão clara", "position": "rodapé centralizado, ~y 1300, altura 130px"}
+          ]
+        },
+        "quality": {
+          "include": ["véu verde-petróleo com bokeh dourado discreto", "card creme em alto contraste", "script em dourado claro", "aspas douradas", "polaroid girada", "estrelas douradas", "depoimento grande e legível"],
+          "avoid": ["inventar depoimento", "qualquer azul ou marinho", "véu preto", "bokeh exagerado", "script ilegível", "estrelas amarelo-limão", "sombra dura", "foto repetida", "data no post", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "bloco verde-petróleo do site LA BELLE; posts de depoimento de casas de evento premium"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "template": "MITO x VERDADE : LA BELLE",
+  "versao": "1.0 (aprovado 23/10/2026)",
+  "origem": "Referência Belgard (Myth x Fact com arcos tracejados), adaptada à paleta e às fontes da LA BELLE",
+  "imagens_referencia": {
+    "V1": "TEMPLATE-MITO-VERDADE-LABELLE-V1-referencia.webp",
+    "V2": "TEMPLATE-MITO-VERDADE-LABELLE-V2-referencia.webp"
+  },
+
+  "guia_de_uso": {
+    "o_que_e": "Post vertical 4:5 educativo que derruba uma crença. A foto ocupa o quadro inteiro (UMA vez) sob um véu de cor. Dois arcos tracejados dourados dividem a peça em diagonal: 'Mito' no canto superior direito, 'Verdade' no canto inferior esquerdo. Palavras-chave enormes em Cormorant Garamond, frases curtas em Gilroy, logo no topo esquerdo e rodapé com WhatsApp e site.",
+    "explicacao_da_modelagem": {
+      "V1": "Versão ESCURA (LB5 Cada banheiro no seu lugar). Véu verde-petróleo #043333 a ~68% sobre a foto; 'Mito' e frases em creme; 'Verdade' em itálico dourado claro #E2C05B; arcos em dourado claro; logo com texto em creme. Tom sóbrio, ideal para mitos sobre higiene, cheiro e tipo de banheiro.",
+      "V2": "Versão CLARA (LB4 Pergunta de quem contrata). Véu creme #FAF7F1 mais forte onde há texto e leve no centro, para o módulo continuar visível; 'Mito' e frases em quase-preto #1C1A15; 'Verdade' em itálico dourado #B7881D; arcos dourados; rodapé em faixa creme sólida. Tom leve, ideal para dúvidas práticas de quem vai contratar."
+    },
+    "diferencas": "V1 escura e dramática (véu petróleo, texto claro). V2 clara e de dia (véu creme, texto escuro, faixa de rodapé). Estrutura, diagonal de leitura, arcos e fontes iguais.",
+    "melhores_aplicacoes": [
+      "LB5: mitos sobre banheiro portátil (cheiro, químico, conforto)",
+      "LB4: dúvidas de contratação (obra, instalação, espaço, munck)",
+      "Série recorrente: alternar V1 e V2 no feed",
+      "Respostas a objeções que aparecem no WhatsApp"
+    ],
+    "regra_do_texto": "Mito: frase da crença em até ~35 caracteres (2 a 3 linhas). Verdade: resposta em até ~70 caracteres (3 a 4 linhas). Nunca prometer o que depende da versão: 'ligado na rede' e 'sem caminhão limpa-fossa' só para a versão ligada na rede. Sem travessão.",
+    "como_escolher_a_foto": "Foto com áreas calmas no canto superior direito e no inferior esquerdo (onde entram os textos). Na V2 o módulo ou a bancada devem ficar visíveis no centro.",
+    "atencao": [
+      "A foto aparece UMA única vez",
+      "Nunca azul nem marinho (cores da Mônaco); véu escuro é sempre verde-petróleo",
+      "Na V2 não usar dourado claro #E2C05B em texto (fica ilegível no fundo claro)",
+      "Validar a Verdade com dados-ancora.md antes de publicar",
+      "Copy passa pelo copy-qa-sms antes de publicar"
+    ],
+    "imagens_para_carregar": {
+      "V1": "IMAGEM 1 = interior do módulo, com área calma em cima à direita e embaixo à esquerda · IMAGEM 2 = logo LA BELLE (texto da logo vira creme)",
+      "V2": "IMAGEM 1 = módulo instalado (jardim, varanda, garagem) ou interior, em luz de dia · IMAGEM 2 = logo LA BELLE original"
+    }
+  },
+
+  "paleta": {
+    "veu_escuro": "#043333 verde-petróleo (V1)",
+    "veu_claro": "#FAF7F1 creme (V2)",
+    "dourado": "#B7881D (Verdade e arcos na V2)",
+    "dourado_claro": "#E2C05B (Verdade e arcos na V1)",
+    "titulos_claro": "#1C1A15 quase-preto quente",
+    "texto_rodape_claro": "#4A4238 marrom-cinza",
+    "proibido": "qualquer azul ou marinho"
+  },
+  "tipografia": {
+    "palavras_chave": "Cormorant Garamond SemiBold (Verdade em Italic)",
+    "frases_e_rodape": "Gilroy Regular (fallback Inter)"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818"},
+
+  "variacoes": {
+    "V1_LB5_escura_verde_petroleo": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo que preenche o quadro inteiro (interior real de uma cabine LA BELLE). IMAGEM 2 = logo oficial da LA BELLE, em versão clara. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente o véu verde-petróleo, tratamento de cor e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 como enviada; se tiver texto escuro, converta só o texto para creme, mantendo a estrela dourada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, formato editorial 'Mito x Verdade', versão escura. A IMAGEM 1 preenche o quadro inteiro, uma única vez, coberta por um véu uniforme verde-petróleo #043333 a ~68% de opacidade com leve vinheta, deixando a foto visível porém rebaixada, em clima sóbrio e elegante. Dois arcos tracejados finos dourado claro #E2C05B (1,5px, traço 10px, intervalo 8px, 80%): o primeiro nasce no topo em x ~480, curva para a direita e sai pela borda direita em y ~700, envolvendo o Mito; o segundo nasce na borda esquerda em y ~700 e curva até sair pela base em x ~700, envolvendo a Verdade. Topo esquerdo: logo LA BELLE (IMAGEM 2) em versão clara. Canto superior direito, alinhado à esquerda a partir de x 640: 'Mito' em Cormorant Garamond creme #FAF7F1, muito grande, e abaixo 'Banheiro portátil sempre tem cheiro' em Gilroy regular creme, 2 linhas. Canto inferior esquerdo, a partir de x 80: 'Verdade' em Cormorant Garamond itálico dourado claro #E2C05B, muito grande, e abaixo 'Ligado na rede, funciona como o banheiro da sua casa' em Gilroy regular creme, 3 linhas. Rodapé: '(11) 95223-2818' à esquerda e 'banheiroslabelle.com.br' à direita, em Gilroy regular creme. Paleta: verde-petróleo #043333, creme #FAF7F1, dourado claro #E2C05B. Sem azul, sem marinho.",
+          "subject": "Interior real da cabine LA BELLE (IMAGEM 1) como fundo, rebaixado pelo véu verde-petróleo",
+          "setting": "Banheiro com acabamento residencial em clima editorial sóbrio",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial de interiores, conteúdo educativo premium",
+          "rendering_quality": "foto real nítida sob véu de cor, tipografia gráfica limpa",
+          "surface_textures": "texturas reais suavizadas pelo véu; elementos gráficos flat",
+          "lighting": "luz original da foto rebaixada pelo véu, contraste suficiente para o texto claro"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition",
+          "rendering": "véu uniforme, vinheta leve, sem HDR, sem grão, tracejado nítido"
+        },
+        "composition": {
+          "framing": "diagonal de leitura: Mito no canto superior direito, Verdade no canto inferior esquerdo",
+          "subject_placement": "logo no topo esquerdo; Mito no quadrante superior direito; Verdade no quadrante inferior esquerdo; rodapé na base",
+          "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px; os arcos podem sair pelas bordas",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "versão clara", "position": "topo esquerdo, x 64 a ~400, y 64 a ~160"},
+            {"text": "Mito", "font": "Cormorant Garamond SemiBold", "font_size": "160px", "color": "#FAF7F1", "position": "x 640, linha de base ~y 270"},
+            {"text": "Banheiro portátil / sempre tem cheiro", "font": "Gilroy Regular", "font_size": "46px", "color": "#FAF7F1", "position": "x 640, ~y 360, 2 linhas"},
+            {"text": "Verdade", "font": "Cormorant Garamond SemiBold Italic", "font_size": "160px", "color": "#E2C05B", "position": "x 80, linha de base ~y 930"},
+            {"text": "Ligado na rede, funciona / como o banheiro / da sua casa", "font": "Gilroy Regular", "font_size": "50px", "color": "#FAF7F1", "position": "x 80, ~y 1030, 3 linhas"},
+            {"text": "(11) 95223-2818", "font": "Gilroy Regular", "font_size": "28px", "color": "#FAF7F1", "position": "rodapé à esquerda, x 64, y ~1290"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular", "font_size": "28px", "color": "#FAF7F1", "position": "rodapé à direita, alinhado em x 1016, y ~1290"}
+          ]
+        },
+        "quality": {
+          "include": ["véu verde-petróleo uniforme", "texto creme com contraste alto", "Cormorant grande e elegante", "Verdade em itálico dourado claro", "arcos tracejados finos", "leitura em diagonal", "rodapé discreto"],
+          "avoid": ["qualquer azul ou marinho", "véu preto ou marrom", "redesenhar objetos", "foto repetida", "arcos grossos ou sólidos", "dourado alaranjado", "texto fora da zona segura", "palavra 'químico' em destaque", "erros de grafia", "travessão"],
+          "reference_standard": "bloco de CTA verde-petróleo do site banheiroslabelle.com.br; Architectural Digest"
+        }
+      }
+    },
+
+    "V2_LB4_clara_creme": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo que preenche o quadro inteiro (módulo LA BELLE instalado em casa, jardim ou garagem, ou interior da cabine). IMAGEM 2 = logo oficial da LA BELLE, nas cores originais. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente o véu creme, tratamento de cor e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, formato 'Mito x Verdade', versão clara. A IMAGEM 1 preenche o quadro inteiro, uma única vez, coberta por um véu creme #FAF7F1 a ~62%, mais forte nos quadrantes superior direito e inferior esquerdo onde ficam os textos e mais leve no centro, para o módulo continuar reconhecível. Dois arcos tracejados finos dourados #B7881D (1,5px, traço 10px, intervalo 8px): um nasce no topo em x ~480 e sai pela borda direita em y ~700, envolvendo o Mito; outro nasce na borda esquerda em y ~700 e sai pela base em x ~700, envolvendo a Verdade. Topo esquerdo: logo LA BELLE (IMAGEM 2). Canto superior direito, a partir de x 640: 'Mito' em Cormorant Garamond quase-preto quente #1C1A15, muito grande, e abaixo 'Para ter banheiro extra, preciso de obra' em Gilroy regular quase-preto, 3 linhas. Canto inferior esquerdo, a partir de x 80: 'Verdade' em Cormorant Garamond itálico dourado #B7881D, muito grande, e abaixo 'Sem quebrar parede: o módulo chega pronto e é instalado onde você precisar' em Gilroy regular quase-preto, 4 linhas. Rodapé em faixa creme sólida de 90px: '(11) 95223-2818' à esquerda e 'banheiroslabelle.com.br' à direita, em Gilroy regular marrom-cinza #4A4238. Paleta: creme #FAF7F1, dourado #B7881D, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Módulo LA BELLE (IMAGEM 1) como fundo, clareado pelo véu",
+          "setting": "Ambiente em luz de dia, clima leve e limpo",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial claro, conteúdo educativo premium",
+          "rendering_quality": "foto real nítida sob véu claro, tipografia limpa",
+          "surface_textures": "texturas reais suavizadas pelo véu; gráficos flat",
+          "lighting": "luz natural de dia clareada pelo véu"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition",
+          "rendering": "véu com gradação suave, sem HDR, sem grão, tracejado nítido"
+        },
+        "composition": {
+          "framing": "diagonal de leitura: Mito em cima à direita, Verdade embaixo à esquerda",
+          "subject_placement": "módulo visível no centro; logo no topo esquerdo; rodapé em faixa sólida",
+          "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "topo esquerdo, x 64 a ~400, y 64 a ~160"},
+            {"text": "Mito", "font": "Cormorant Garamond SemiBold", "font_size": "160px", "color": "#1C1A15", "position": "x 640, linha de base ~y 270"},
+            {"text": "Para ter banheiro / extra, preciso / de obra", "font": "Gilroy Regular", "font_size": "44px", "color": "#1C1A15", "position": "x 640, ~y 355, 3 linhas"},
+            {"text": "Verdade", "font": "Cormorant Garamond SemiBold Italic", "font_size": "160px", "color": "#B7881D", "position": "x 80, linha de base ~y 900"},
+            {"text": "Sem quebrar parede: / o módulo chega pronto / e é instalado onde / você precisar", "font": "Gilroy Regular", "font_size": "44px", "color": "#1C1A15", "position": "x 80, ~y 990, 4 linhas"},
+            {"text": "(11) 95223-2818", "font": "Gilroy Regular", "font_size": "28px", "color": "#4A4238", "position": "rodapé à esquerda, x 64, ~y 1305"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular", "font_size": "28px", "color": "#4A4238", "position": "rodapé à direita, alinhado em x 1016, ~y 1305"}
+          ]
+        },
+        "quality": {
+          "include": ["módulo reconhecível no centro", "véu creme suave", "texto quase-preto legível", "Verdade em itálico dourado", "arcos tracejados finos", "faixa de rodapé limpa", "visual de dia"],
+          "avoid": ["qualquer azul ou marinho", "véu que esconda o módulo", "dourado claro ilegível no fundo claro", "operários ou cara de canteiro", "foto repetida", "logo recolorida", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "site e folder oficial LA BELLE; Casa Vogue, Kinfolk"
+        }
+      }
+    }
+  }
+}

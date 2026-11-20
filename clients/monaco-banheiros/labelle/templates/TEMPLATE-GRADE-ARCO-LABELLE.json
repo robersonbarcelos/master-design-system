@@ -1,0 +1,140 @@
+{
+  "template": "GRADE EM ARCO : LA BELLE",
+  "versao": "1.0 (aprovado 23/10/2026)",
+  "origem": "Referência Decvilla (grade 3x3 com janela em arco), adaptada à paleta e às fontes da LA BELLE",
+  "imagens_referencia": {
+    "V1": "TEMPLATE-GRADE-ARCO-LABELLE-V1-referencia.webp",
+    "V2": "TEMPLATE-GRADE-ARCO-LABELLE-V2-referencia.webp"
+  },
+
+  "guia_de_uso": {
+    "o_que_e": "Post vertical 4:5 de revista de interiores. Fundo creme, uma grade 3x3 de linhas finas verde-petróleo com estrelas douradas de 4 pontas (o símbolo da marca) nos cruzamentos, e uma janela em arco no centro onde entra UMA foto real. Título em cima, rótulos verticais nas laterais, logo e chamada embaixo.",
+    "explicacao_da_modelagem": {
+      "V1": "Post único de produto (LB1 Por dentro do módulo). Título afirmativo de 2 linhas, a segunda em itálico dourado. Rótulos laterais são atributos do produto (VASO DE PORCELANA / LIGADO NA REDE). Fecha com logo + 'Peça seu orçamento' + site. Função: vender o padrão 'banheiro de casa'.",
+      "V2": "Capa de carrossel narrativo (LB6 Histórias de banheiro). Título com uma palavra em itálico dourado ('história'). Rótulos laterais situam a história (série + duração). Fecha com logo + 'Arraste para ler →' + nota obrigatória 'História de ficção inspirada em situações reais'. Função: abrir uma história e puxar o arrasto."
+    },
+    "diferencas": "V1 vende (atributos + CTA de orçamento). V2 conta (série + gancho de arraste + nota de ficção). Grade, arco, paleta e fontes são idênticos.",
+    "melhores_aplicacoes": [
+      "LB1: interior do módulo, acabamentos, cuba e bancada",
+      "LB6: capas de histórias (sempre com a nota de ficção)",
+      "LB2: capas por público (reforma, restaurante, escritório) trocando título e rótulos",
+      "Post fixado ou de apresentação quando a foto do interior for forte"
+    ],
+    "regra_do_titulo": "2 linhas, até ~24 caracteres por linha. Cormorant Garamond; o destaque (linha 2 inteira na V1, uma palavra na V2) em itálico dourado #B7881D. Sem travessão.",
+    "regra_dos_rotulos": "Gilroy light caixa alta, tracking muito aberto, até ~22 caracteres cada. Esquerda lê de baixo para cima, direita de cima para baixo.",
+    "como_escolher_a_foto": "Foto vertical do interior ou da cena, com o assunto principal no centro (o topo do arco corta os cantos). Evitar foto com elemento importante nas laterais extremas.",
+    "atencao": [
+      "A foto aparece UMA única vez, só dentro do arco",
+      "Nunca azul nem marinho (cores da Mônaco)",
+      "V2 sem a nota de ficção não sai",
+      "Copy passa pelo copy-qa-sms antes de publicar",
+      "'Ligado na rede' só quando a foto/peça é da versão ligada na rede"
+    ],
+    "imagens_para_carregar": {
+      "V1": "IMAGEM 1 = interior do módulo (bancada, cuba, espelho), vertical · IMAGEM 2 = logo LA BELLE original",
+      "V2": "IMAGEM 1 = cena da história (ex.: módulo no jardim de casa em obra, fim de tarde) · IMAGEM 2 = logo LA BELLE original"
+    }
+  },
+
+  "paleta": {
+    "fundo": "#FAF7F1 creme",
+    "linhas_grade": "#043333 verde-petróleo (2px)",
+    "destaque_estrelas": "#B7881D dourado",
+    "titulos": "#1C1A15 quase-preto quente",
+    "texto": "#4A4238 marrom-cinza",
+    "proibido": "qualquer azul ou marinho"
+  },
+  "tipografia": {
+    "titulo": "Cormorant Garamond SemiBold (destaque em Italic dourado)",
+    "rotulos_e_texto": "Gilroy Light / Regular / SemiBold (fallback Inter)"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818"},
+
+  "variacoes": {
+    "V1_LB1_por_dentro_do_modulo": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto que deve preencher a janela em arco central (interior real de uma cabine LA BELLE). IMAGEM 2 = logo oficial da LA BELLE (estrela dourada de 4 pontas + BANHEIROS LABELLE). Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique só tratamento de cor claro e upscale; a foto aparece uma única vez, só dentro do arco. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, layout editorial minimalista de revista de interiores. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060; nas junções as quinas das células curvam para dentro (raio ~28px) e em cada um dos 4 cruzamentos há uma estrela sólida de 4 pontas dourada #B7881D (~34px). Célula superior central: título em Cormorant Garamond, centralizado em 2 linhas: 'Um banheiro de casa' em quase-preto quente #1C1A15 e 'pelo tempo que precisar' em itálico dourado #B7881D. Célula central: janela em arco (topo semicircular, base reta, de x 245 a x 835, de y 340 a y 1060) preenchida pela IMAGEM 1, uma única vez, preservada com fidelidade. Coluna esquerda: texto vertical girado 90° 'VASO DE PORCELANA'; coluna direita: texto vertical girado 90° 'LIGADO NA REDE'; ambos em Gilroy light caixa alta, tracking muito aberto, marrom-cinza #4A4238. Célula inferior central: logo LA BELLE (IMAGEM 2), abaixo 'Peça seu orçamento' em Gilroy semibold quase-preto e 'banheiroslabelle.com.br' em Gilroy regular marrom-cinza. Paleta: creme #FAF7F1, verde-petróleo #043333 (só linhas), dourado #B7881D, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Interior real da cabine LA BELLE (IMAGEM 1) dentro do arco, preservado",
+          "setting": "Composição gráfica plana sobre papel creme, linguagem de revista de arquitetura",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial minimalista de interiores",
+          "rendering_quality": "foto real nítida com design gráfico vetorial limpo",
+          "surface_textures": "fundo creme fosco liso, linhas vetoriais perfeitas, foto com texturas reais apenas mais nítidas",
+          "lighting": "luz original da foto, clara e levemente quente; layout plano sem sombras"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition, qualidade de impressão editorial",
+          "rendering": "grading claro e quente, sem HDR, sem grão, linhas com antialiasing limpo"
+        },
+        "composition": {
+          "framing": "grade simétrica 3x3 com arco central (frame-within-frame)",
+          "subject_placement": "arco no centro; título no terço superior; logo e contato no terço inferior; rótulos verticais à meia altura do arco",
+          "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px; as linhas da grade podem tocar as bordas",
+          "ui_elements": [
+            {"text": "Um banheiro de casa", "font": "Cormorant Garamond SemiBold", "font_size": "80px", "color": "#1C1A15", "position": "célula superior central, centralizado, ~y 135"},
+            {"text": "pelo tempo que precisar", "font": "Cormorant Garamond SemiBold Italic", "font_size": "80px", "color": "#B7881D", "position": "centralizado, ~y 220"},
+            {"text": "VASO DE PORCELANA", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna esquerda, girado 90° de baixo para cima, centro x 122 / y 700"},
+            {"text": "LIGADO NA REDE", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna direita, girado 90° de cima para baixo, centro x 958 / y 700"},
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1130, altura 80px"},
+            {"text": "Peça seu orçamento", "font": "Gilroy SemiBold", "font_size": "30px", "color": "#1C1A15", "position": "centralizado, ~y 1215"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular", "font_size": "28px", "color": "#4A4238", "position": "centralizado, ~y 1260"},
+            {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas, flat", "color": "#B7881D", "position": "cruzamentos (245,300), (835,300), (245,1060), (835,1060)"}
+          ]
+        },
+        "quality": {
+          "include": ["grade fina verde-petróleo alinhada", "cantos côncavos nas células", "estrelas douradas nos cruzamentos", "arco limpo com foto real única", "Cormorant com itálico dourado", "rótulos verticais espaçados", "muito respiro", "paleta creme, dourado e quase-preto"],
+          "avoid": ["qualquer azul ou marinho", "redesenhar objetos da foto", "foto repetida fora do arco", "sombras ou relevo no layout", "linhas grossas", "dourado alaranjado", "logo distorcida", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "site banheiroslabelle.com.br; Kinfolk, Cereal Magazine, Architectural Digest"
+        }
+      }
+    },
+
+    "V2_LB6_historias_de_banheiro": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto que deve preencher a janela em arco central (módulo LA BELLE instalado em uma casa em reforma). IMAGEM 2 = logo oficial da LA BELLE. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique só tratamento de cor quente suave e upscale; a foto aparece uma única vez, só dentro do arco. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Capa de carrossel vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, série 'Histórias de banheiro', layout editorial minimalista com tom de capa de conto. Fundo creme liso #FAF7F1. Grade 3x3 de linhas finas verde-petróleo #043333 (2px): verticais em x 245 e x 835, horizontais em y 300 e y 1060; quinas das células curvadas para dentro (raio ~28px) e estrelas sólidas de 4 pontas douradas #B7881D (~34px) nos 4 cruzamentos. Célula superior central: título em Cormorant Garamond, 2 linhas: 'Toda reforma' em quase-preto quente #1C1A15 e 'tem uma história', com 'tem uma' em quase-preto e 'história' em itálico dourado #B7881D. Célula central: janela em arco (x 245 a x 835, y 340 a y 1060) preenchida pela IMAGEM 1, uma única vez. Coluna esquerda: texto vertical 'HISTÓRIAS DE BANHEIRO'; coluna direita: texto vertical 'REFORMA DE 4 MESES'; Gilroy light caixa alta, tracking muito aberto, marrom-cinza #4A4238. Célula inferior central: logo LA BELLE (IMAGEM 2); abaixo 'Arraste para ler' em Gilroy semibold quase-preto com seta fina dourada →; por último 'História de ficção inspirada em situações reais' em Gilroy regular pequena, marrom-cinza. Paleta: creme #FAF7F1, verde-petróleo #043333 (só linhas), dourado #B7881D, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Cena da história (IMAGEM 1) dentro do arco, preservada",
+          "setting": "Composição gráfica plana sobre papel creme, linguagem de capa de conto em revista",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial minimalista com tom literário",
+          "rendering_quality": "foto real nítida com design gráfico vetorial limpo",
+          "surface_textures": "fundo creme fosco liso, linhas vetoriais perfeitas, foto com texturas reais",
+          "lighting": "luz original da foto, levemente aquecida em tom de fim de tarde; layout plano"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition, qualidade de impressão editorial",
+          "rendering": "grading quente suave, sem HDR, sem grão, linhas limpas"
+        },
+        "composition": {
+          "framing": "grade simétrica 3x3 com arco central",
+          "subject_placement": "arco no centro; título no terço superior; logo, chamada e nota de ficção no terço inferior",
+          "safe_area": "64px de padding mínimo para todo texto e logo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "Toda reforma", "font": "Cormorant Garamond SemiBold", "font_size": "86px", "color": "#1C1A15", "position": "célula superior central, centralizado, ~y 135"},
+            {"text": "tem uma história", "font": "Cormorant Garamond SemiBold; 'história' em Italic", "font_size": "86px", "color": "#1C1A15 com 'história' em #B7881D", "position": "centralizado, ~y 225"},
+            {"text": "HISTÓRIAS DE BANHEIRO", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna esquerda, girado 90°, centro x 122 / y 700"},
+            {"text": "REFORMA DE 4 MESES", "font": "Gilroy Light, caixa alta, tracking +40%", "font_size": "22px", "color": "#4A4238", "position": "coluna direita, girado 90°, centro x 958 / y 700"},
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "célula inferior central, ~y 1120, altura 76px"},
+            {"text": "Arraste para ler →", "font": "Gilroy SemiBold; seta fina vetorial", "font_size": "30px", "color": "#1C1A15 com seta #B7881D", "position": "centralizado, ~y 1205"},
+            {"text": "História de ficção inspirada em situações reais", "font": "Gilroy Regular", "font_size": "18px", "color": "#4A4238", "position": "centralizado, ~y 1255"},
+            {"text": "estrelas", "type": "4 estrelas sólidas de 4 pontas", "color": "#B7881D", "position": "cruzamentos (245,300), (835,300), (245,1060), (835,1060)"}
+          ]
+        },
+        "quality": {
+          "include": ["grade fina verde-petróleo", "estrelas douradas nos cruzamentos", "arco limpo com foto única", "itálico dourado em 'história'", "tom literário", "nota de ficção legível", "paleta creme, dourado e quase-preto"],
+          "avoid": ["qualquer azul ou marinho", "omitir a nota de ficção", "foto repetida fora do arco", "redesenhar elementos da foto", "sombras no layout", "dourado alaranjado", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "site banheiroslabelle.com.br; Kinfolk; capas de contos da The New Yorker em versão minimalista"
+        }
+      }
+    }
+  }
+}

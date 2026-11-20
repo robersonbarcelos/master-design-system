@@ -1,0 +1,99 @@
+{
+ "template": "CAPA-REELS-MONACO-MOLDURA-FADE-9x16-ADZEP",
+ "version": "1.1",
+ "status": "30/10/2026: recuo ajustado (card x 108 a 970, y 383 a 1585), versão estática da abertura dos Reels aprovados. Não testada no GPT.",
+ "titulo_anexos": "ANEXAR 2 IMAGENS. IMAGEM 1 = a foto ou quadro de vídeo que VOCÊ escolher. IMAGEM 2 = símbolo da Mônaco em BRANCO (monaco-simbolo-branco.png), fundo transparente, que vai no rodapé do card.",
+ "anexos": {
+  "imagem_1": "A FOTO OU QUADRO DE VÍDEO QUE VOCÊ ESCOLHER (qualquer cena do evento). Para esta capa: foto vertical (ou quadro de vídeo) com o assunto principal na metade de cima ou no centro e chão, grama ou sombra na parte de baixo, onde fica o título sobre o degradê marinho.",
+  "imagem_2": "profiles/_LOGOS-MONACO-LABELLE/monaco/monaco-simbolo-branco.png  (símbolo da Mônaco em BRANCO, PNG transparente)"
+ },
+ "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da capa. Preserve com fidelidade total tudo o que existe nela, sem redesenhar, substituir, remover ou acrescentar nada; aplique somente tratamento de cor editorial, upscale de nitidez, o degradê marinho de legibilidade e o fade descrito. IMAGEM 2 = símbolo oficial da Mônaco em branco: coloque-o exatamente como enviado, centralizado no rodapé do card, sem redesenhar, recolorir, distorcer nem adicionar sombra ou contorno. A saída tem proporção 9:16 (1080x1920). O card fica RECUADO no centro: x 108 a 970 e y 383 a 1585 (80% da largura e 63% da altura), com borda grossa de fundo desfocado em volta (108 px nas laterais, 383 px em cima, 334 px embaixo); a moldura nunca passa disso. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+ "prompt": {
+  "scene": {
+   "description": "Capa vertical 9:16 de um Reel da marca Mônaco Mobile Toilet. O fundo de toda a tela 1080x1920 é a IMAGEM 1 em escala de capa, muito desfocada e escurecida com véu azul-marinho #100C43 a 50%. No centro, um card recuado (862x1202, de x 108 a 970 e de y 383 a 1585) preenchido pela IMAGEM 1 NÍTIDA e preservada, em tela cheia dentro do card, com um degradê azul-marinho #100C43 que sobe da base: transparente até cerca de 35% da altura do card e quase sólido (92%) na base, para dar leitura ao texto. Uma moldura dourada fina (#FFBD59, 3 px, cantos arredondados de ~44 px) fica na própria borda do card (x 108 a 970, y 383 a 1585). Na parte baixa do card, alinhados à esquerda em x 176: eyebrow dourado com bolinha, linha 1 do título em branco e linha 2 em dourado. No rodapé do card, centralizado, o símbolo branco da Mônaco (IMAGEM 2). NÃO há site, telefone nem faixa de contato. Paleta: marinho #100C43, dourado #FFBD59, branco.",
+   "subject": "card recuado com foto do evento, moldura dourada e título sobre degradê marinho",
+   "setting": "card centralizado sobre fundo desfocado da mesma foto, em 9:16",
+   "action": "static"
+  },
+  "style": {
+   "primary": "editorial de hospitalidade premium",
+   "rendering_quality": "nítido, limpo, tipografia vetorial",
+   "surface_textures": "foto real preservada; degradê liso; fundo desfocado suave",
+   "lighting": "a da foto original, com leve calor editorial"
+  },
+  "technical": {
+   "canvas": "Capa de Reel 9:16, 1080x1920 px (exportar 2160x3840 se possível). O feed recorta a capa em 4:5: a faixa visível é y 285 a 1635 (1080x1350). TODO conteúdo (card, moldura, textos, logo) fica dentro dessa faixa. Fora dela só continua o fundo desfocado da mesma foto. O card ocupa apenas x 108 a 970 e y 383 a 1585 (80% da largura e 63% da altura), com borda grossa de fundo desfocado: 108 px à esquerda, 110 à direita, 383 em cima e 334 embaixo.",
+   "rendering": "upscale sem halo nem artefato de IA; degradê suave sem degrau visível; sem HDR exagerado"
+  },
+  "composition": {
+   "framing": "card recuado e centralizado no canvas 9:16; texto na parte baixa do card",
+   "safe_area": "Texto e logo dentro do card, de x 176 a 907. Nada fora de x 108 a 970 e y 383 a 1585. Evitar a borda direita (botões do Reels).",
+   "layout": {
+    "fundo_desfocado": "IMAGEM 1 cobrindo 1080x1920, desfoque forte, véu marinho #100C43 a 50%",
+    "card": "x 108 a 970, y 383 a 1585 (862 x 1202 px), IMAGEM 1 nítida em tela cheia do card",
+    "degrade_marinho": "do card y ~804 (0%) até a base y 1585 (92%)",
+    "moldura": "retângulo de cantos arredondados, x 108 a 970, y 383 a 1585 (na borda do card), raio ~44 px, traço 3 px dourado #FFBD59",
+    "eyebrow": "alinhado à esquerda em x 176, y ~1195",
+    "titulo_linha_1": "alinhada à esquerda em x 176, y ~1240",
+    "titulo_linha_2": "alinhada à esquerda em x 176, logo abaixo da linha 1, y ~1315",
+    "simbolo": "IMAGEM 2 centralizada em x 540, base em y 1500, largura 150 px"
+   },
+   "ui_elements": {
+    "eyebrow": {
+     "texto": "EVENTO DE CORRIDA DE ALTO PADRÃO",
+     "fonte": "Plus Jakarta Sans Bold, caixa alta, tracking +20%, ~26 px",
+     "cor": "dourado #FFBD59",
+     "detalhe": "bolinha dourada sólida de ~12 px à esquerda"
+    },
+    "titulo_linha_1": {
+     "texto": "O PIT STOP DE LUXO",
+     "fonte": "Cinzel Bold, caixa alta, ~70 px",
+     "cor": "branco #FFFFFF",
+     "sombra": "sutil, marinho"
+    },
+    "titulo_linha_2": {
+     "texto": "DO TRACK DAY",
+     "fonte": "Cinzel ExtraBold, caixa alta, ~92 px",
+     "cor": "dourado #FFBD59",
+     "sombra": "sutil, marinho"
+    }
+   }
+  },
+  "regras_fixas": [
+   "Sem site, telefone, faixa de contato ou rodapé na capa",
+   "Sem data do evento",
+   "Sem travessão em nenhum texto",
+   "Nunca 'banheiro químico' no texto",
+   "A logo é a anexada, nunca redesenhada",
+   "Preservar a foto: não inventar, remover ou redesenhar objetos e pessoas",
+   "O título não pode ser cortado: ajustar o tamanho para caber na largura de x 176 a 907"
+  ],
+  "quality": {
+   "include": [
+    "card recuado perfeitamente centralizado",
+    "moldura dourada fina e contínua",
+    "degradê marinho suave e contínuo",
+    "título legível sobre o degradê",
+    "linha 2 dourada em destaque",
+    "símbolo branco nítido e proporcional",
+    "foto preservada e nítida",
+    "fundo desfocado discreto",
+    "acentos corretos em português",
+    "aparência editorial sofisticada"
+   ],
+   "avoid": [
+    "card maior que x 108 a 970 e y 383 a 1585",
+    "título cortado ou fora da zona segura",
+    "logo redesenhada, esticada ou recolorida",
+    "acentos errados ou letras inventadas",
+    "site, telefone ou faixa de contato",
+    "foto redesenhada ou com elementos inventados",
+    "degradê com faixa ou degrau visível",
+    "fonte genérica de sistema",
+    "sombras e brilhos pesados",
+    "travessão nos textos"
+   ],
+   "reference_standard": "capa 9:16 aprovada da Unimed e a abertura dos Reels Mônaco Adzep v3 e Coopama v2"
+  }
+ }
+}

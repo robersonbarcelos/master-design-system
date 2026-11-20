@@ -1,0 +1,423 @@
+{
+  "template": "carrossel-destaque-labelle",
+  "familia": "D · Destaque",
+  "version": "1.0",
+  "status": "Criado em 24/10/2026 no sistema de carrossel LA BELLE. JSONs prontos; imagens de referência ainda não geradas (salvar como <template>-<card>-referencia.webp quando aprovadas).",
+  "description": "Sistema de carrossel genérico da família 'Destaque': fundo claro (creme ou foto com véu creme), moldura fina dourada a 22px das bordas e título em serifada display caixa alta com a última linha em dourado. Família clara, para carrossel curto e de impacto. Serve para QUALQUER tema; nenhuma peça cita outra.",
+  "guia_de_uso": {
+    "como_montar_um_carrossel": "1 capa Destaque (V1 véu + moldura ou V2 janela de foco) + 1 a 4 peças de centro + 1 CTA. Ordem livre.",
+    "melhor_para": "carrossel curto e de impacto: motivos para escolher a LA BELLE, série de detalhes, apresentação.",
+    "explicacao_rapida_das_pecas": {
+      "capa": "Destaque V1 (véu creme + moldura) ou V2 (janela de foco).",
+      "card-01-centro-texto": "Sem foto. Fundo creme com moldura; título caixa alta (última linha dourada) + fio + parágrafo.",
+      "card-02-centro-foto-legenda": "Foto inteira com véu creme na base; título caixa alta em 2 linhas + legenda.",
+      "card-03-cta-fechamento": "Fundo creme com moldura; logo grande, título caixa alta, botão amarelo-ouro e contatos."
+    }
+  },
+  "logo": {
+    "regra": "SEMPRE anexar a logo oficial LA BELLE como imagem para a IA aplicar exatamente como enviada, sem redesenhar nem recolorir (decisão do Diego, 24/10/2026).",
+    "versao_clara": "sobre fundo escuro (verde-petróleo ou véu escuro), converter só o texto da logo para creme #FAF7F1, mantendo a estrela dourada"
+  },
+  "paleta": {
+    "creme": "#FAF7F1",
+    "branco": "#FFFFFF",
+    "dourado": "#B7881D",
+    "dourado_claro": "#E2C05B",
+    "titulos": "#1C1A15",
+    "texto": "#4A4238",
+    "verde_petroleo": "#043333 (versão escura)",
+    "proibido": "qualquer azul ou marinho (cores da Mônaco)"
+  },
+  "tipografia": {
+    "titulos": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+    "textos": "Gilroy Regular / SemiBold / Bold (fallback Inter)"
+  },
+  "contato_fixo": {
+    "site": "banheiroslabelle.com.br",
+    "whatsapp": "(11) 95223-2818",
+    "instagram": "@banheiroslabelle"
+  },
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "4:5, 1080x1350px",
+    "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px; moldura a 22px das bordas",
+    "moldura": "fina dourada #B7881D, 2px, cantos retos, a 22px das 4 bordas, em todas as peças",
+    "titulo": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond), última linha sempre em dourado #B7881D",
+    "foto": "quando houver, aparece UMA única vez",
+    "copy": "sempre passa pelo copy-qa-sms antes de publicar"
+  },
+  "negative_rules_globais": [
+    "NUNCA azul nem marinho (cores da Mônaco)",
+    "NUNCA número de slide, '1/6', nome de série fixo ou referência a outro slide",
+    "NUNCA seta ou 'arraste' fixo no template",
+    "NUNCA travessão (—) em nenhum texto",
+    "NUNCA data",
+    "NUNCA redesenhar ou recolorir a logo (exceto texto em creme no fundo escuro)",
+    "NUNCA foto repetida: cada foto aparece uma única vez",
+    "NUNCA trailers, outros banheiros ou marcas de terceiros na foto",
+    "NUNCA falar mal de outro tipo de banheiro nem citar a Mônaco",
+    "NUNCA medidas, números ou depoimentos inventados: só dados confirmados (references/dados-ancora.md)"
+  ],
+  "variacoes": {
+    "capa": {
+      "nome": "Capa Destaque",
+      "aponta_para": "TEMPLATE-DESTAQUE-LABELLE.json (card-01 véu creme + moldura / card-02 janela de foco)",
+      "quando_usar": "Primeira peça de qualquer carrossel desta família."
+    },
+    "card-01-centro-texto": {
+      "nome": "Centro texto: título caixa alta e parágrafo na moldura",
+      "descricao": "Sem foto. Fundo creme liso com a moldura dourada. Logo pequena no topo esquerdo; título em serifada display caixa alta, 2 a 3 linhas, última em dourado; fio dourado claro; parágrafo em Gilroy de 3 a 5 linhas.",
+      "hierarquia": "Título > linha dourada > parágrafo > logo",
+      "cores": {
+        "fundo": "#FAF7F1",
+        "titulo": "#1C1A15",
+        "ultima_linha": "#B7881D",
+        "fio": "#E2C05B",
+        "paragrafo": "#4A4238"
+      },
+      "tipografia": {
+        "titulo": "serifada display caixa alta ~130px",
+        "paragrafo": "Gilroy Regular 32px"
+      },
+      "quando_usar": "Peça de centro para um motivo, argumento ou explicação curta com título forte.",
+      "campos": {
+        "{{TÍTULO L1}} / {{TÍTULO L2}}": "até ~10 caracteres por linha",
+        "{{TÍTULO L3 DOURADO}}": "opcional, até ~10 caracteres",
+        "{{PARÁGRAFO}}": "até ~200 caracteres"
+      },
+      "imagens_para_carregar": "IMAGEM 1 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 1 imagem. IMAGEM 1 = logo oficial da LA BELLE: aplique exatamente como enviada, sem redesenhar nem recolorir. Peça sem foto. Monte o layout descrito no JSON e escreva os textos exatamente como estão. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de texto do sistema de carrossel 'Destaque'. Fundo creme liso #FAF7F1 e moldura fina dourada #B7881D (2px, cantos retos) a 22px das 4 bordas. Topo esquerdo: logo LA BELLE (IMAGEM 1) pequena. Lado esquerdo, a partir de x 80: título em serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond), 2 a 3 linhas, as primeiras em quase-preto quente #1C1A15 e a última em dourado #B7881D; fio dourado claro #E2C05B de 340px; parágrafo em Gilroy regular marrom-cinza #4A4238, 3 a 5 linhas, largura máx. 800px. Base esquerda: 'banheiroslabelle.com.br' em Gilroy regular marrom-cinza. Sem azul, sem marinho.",
+            "subject": "Título forte e parágrafo dentro da moldura dourada",
+            "setting": "Página creme de revista",
+            "action": "Estático"
+          },
+          "style": {
+            "primary": "editorial de interiores premium",
+            "rendering_quality": "tipografia impecável, vetores limpos",
+            "surface_textures": "fundo fosco liso",
+            "lighting": "plano, sem sombras"
+          },
+          "technical": {
+            "resolution": "ultra high definition",
+            "rendering": "sem HDR, véu/degradê sem bandas, linhas nítidas, sem grão"
+          },
+          "composition": {
+            "framing": "coluna de texto à esquerda dentro da moldura",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo LA BELLE (IMAGEM 1)",
+                "type": "aplicar exatamente como enviada",
+                "position": "topo esquerdo, x 80, y 80 a ~200"
+              },
+              {
+                "text": "{{TÍTULO L1}} / {{TÍTULO L2}}",
+                "font": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+                "font_size": "130px",
+                "color": "#1C1A15",
+                "position": "x 80, ~y 330 a 600",
+                "exemplo": "SEM / CHEIRO"
+              },
+              {
+                "text": "{{TÍTULO L3 DOURADO}}",
+                "font": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+                "font_size": "130px",
+                "color": "#B7881D",
+                "position": "x 80, linha de base ~y 730",
+                "opcional": true,
+                "exemplo": "NUNCA"
+              },
+              {
+                "text": "fio",
+                "type": "linha 2px, 340px",
+                "color": "#E2C05B",
+                "position": "x 80, ~y 790"
+              },
+              {
+                "text": "{{PARÁGRAFO}}",
+                "font": "Gilroy Regular",
+                "font_size": "32px",
+                "color": "#4A4238",
+                "position": "x 80, ~y 850 a 1100, largura máx. 800px",
+                "exemplo": "Ligado na rede, o módulo não guarda detrito: tudo segue direto para o esgoto do imóvel, como no banheiro de casa."
+              },
+              {
+                "text": "banheiroslabelle.com.br",
+                "font": "Gilroy Regular",
+                "font_size": "28px",
+                "color": "#4A4238",
+                "position": "x 80, ~y 1270"
+              },
+              {
+                "text": "moldura",
+                "type": "contorno 2px, cantos retos",
+                "color": "#B7881D",
+                "position": "22px das 4 bordas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "mesma moldura e título da capa Destaque",
+              "última linha dourada",
+              "parágrafo legível",
+              "muito respiro"
+            ],
+            "avoid": [
+              "qualquer azul ou marinho",
+              "número de slide",
+              "seta ou 'arraste'",
+              "logo redesenhada",
+              "texto fora da zona segura",
+              "erros de grafia",
+              "travessão",
+              "texto acima de ~200 caracteres no parágrafo",
+              "moldura grossa ou com cantos arredondados"
+            ],
+            "reference_standard": "capa Destaque LA BELLE; Casa Vogue"
+          }
+        }
+      }
+    },
+    "card-02-centro-foto-legenda": {
+      "nome": "Centro foto + legenda: foto inteira com véu creme na base",
+      "descricao": "Foto inteira (UMA vez) com véu creme subindo da base até ~40% e a moldura dourada. Embaixo à esquerda: título em serifada display caixa alta em 2 linhas (2ª dourada) e legenda curta em Gilroy.",
+      "hierarquia": "Foto > título > legenda > logo",
+      "cores": {
+        "veu": "#FAF7F1 a ~85% na base",
+        "titulo": "#1C1A15",
+        "linha_2": "#B7881D",
+        "legenda": "#4A4238"
+      },
+      "tipografia": {
+        "titulo": "serifada display caixa alta ~110px",
+        "legenda": "Gilroy Regular 30px"
+      },
+      "quando_usar": "Peça de centro para mostrar um detalhe ou ambiente com título forte (série de detalhes).",
+      "campos": {
+        "{{TÍTULO L1}}": "até ~11 caracteres",
+        "{{TÍTULO L2 DOURADO}}": "até ~11 caracteres",
+        "{{LEGENDA}}": "até ~120 caracteres"
+      },
+      "imagens_para_carregar": "IMAGEM 1 = foto do detalhe ou ambiente com a parte de baixo calma · IMAGEM 2 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real do detalhe ou ambiente que preenche o quadro inteiro. IMAGEM 2 = logo oficial da LA BELLE: aplique exatamente como enviada, sem redesenhar nem recolorir. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos nem pessoas; aplique somente o tratamento descrito e upscale; a foto aparece uma única vez. Monte o layout descrito no JSON e escreva os textos exatamente como estão. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de foto com legenda do sistema de carrossel 'Destaque'. A IMAGEM 1 preenche o quadro inteiro, uma única vez, com grading claro e quente e um véu creme #FAF7F1 subindo da base até ~40% da altura (de ~85% na base a 0%). Moldura fina dourada #B7881D (2px, cantos retos) a 22px das 4 bordas. Topo esquerdo: logo LA BELLE (IMAGEM 2) pequena. Parte inferior esquerda, sobre o véu, a partir de x 80: título em serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond), 2 linhas, a primeira em quase-preto quente #1C1A15 e a segunda em dourado #B7881D; abaixo, legenda em Gilroy regular marrom-cinza #4A4238, 2 a 3 linhas, largura máx. 800px. Sem azul, sem marinho.",
+            "subject": "Foto real (IMAGEM 1) com título e legenda na base",
+            "setting": "Ambiente real em luz clara",
+            "action": "Estático"
+          },
+          "style": {
+            "primary": "editorial de interiores premium",
+            "rendering_quality": "foto real nítida com tipografia fina e vetores limpos",
+            "surface_textures": "texturas reais da foto; grade, arcos, texto e moldura flat",
+            "lighting": "luz original da foto, sem luz inventada"
+          },
+          "technical": {
+            "resolution": "ultra high definition",
+            "rendering": "sem HDR, véu/degradê sem bandas, linhas nítidas, sem grão",
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter",
+              "angle": "manter"
+            }
+          },
+          "composition": {
+            "framing": "foto inteira, texto na base esquerda sobre véu creme",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo LA BELLE (IMAGEM 2)",
+                "type": "aplicar exatamente como enviada",
+                "position": "topo esquerdo, x 80, y 80 a ~190"
+              },
+              {
+                "text": "{{TÍTULO L1}}",
+                "font": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+                "font_size": "110px",
+                "color": "#1C1A15",
+                "position": "x 80, linha de base ~y 1000",
+                "exemplo": "CUBA E"
+              },
+              {
+                "text": "{{TÍTULO L2 DOURADO}}",
+                "font": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+                "font_size": "110px",
+                "color": "#B7881D",
+                "position": "x 80, linha de base ~y 1110",
+                "exemplo": "ESPELHO"
+              },
+              {
+                "text": "{{LEGENDA}}",
+                "font": "Gilroy Regular",
+                "font_size": "30px",
+                "color": "#4A4238",
+                "position": "x 80, ~y 1150 a 1260, largura máx. 800px",
+                "exemplo": "Em todas as cabines, com bancada e acabamento de casa."
+              },
+              {
+                "text": "moldura",
+                "type": "contorno 2px, cantos retos",
+                "color": "#B7881D",
+                "position": "22px das 4 bordas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "foto real única em luz clara",
+              "véu creme suave na base",
+              "moldura dourada fina",
+              "título caixa alta com linha dourada"
+            ],
+            "avoid": [
+              "qualquer azul ou marinho",
+              "número de slide",
+              "seta ou 'arraste'",
+              "logo redesenhada",
+              "texto fora da zona segura",
+              "erros de grafia",
+              "travessão",
+              "foto repetida ou reenquadrada",
+              "véu cobrindo mais da metade da foto"
+            ],
+            "reference_standard": "capa Destaque LA BELLE; Casa Vogue"
+          }
+        }
+      }
+    },
+    "card-03-cta-fechamento": {
+      "nome": "CTA de fechamento: logo e botão na moldura",
+      "descricao": "Fundo creme liso com a moldura dourada. Centralizado: logo grande, título em serifada display caixa alta em 2 linhas (2ª dourada), fio, botão amarelo-ouro 'Peça seu orçamento', WhatsApp e site.",
+      "hierarquia": "Logo > título > botão > contatos",
+      "cores": {
+        "fundo": "#FAF7F1",
+        "titulo": "#1C1A15",
+        "linha_2": "#B7881D",
+        "botao": "#E2C05B com texto #1C1A15",
+        "contatos": "#1C1A15 / #4A4238"
+      },
+      "tipografia": {
+        "titulo": "serifada display caixa alta ~96px",
+        "botao": "Gilroy SemiBold 32px",
+        "contatos": "Gilroy Bold 34px / Regular 28px"
+      },
+      "quando_usar": "Última peça de qualquer carrossel desta família.",
+      "campos": {
+        "{{TÍTULO L1}} / {{TÍTULO L2 DOURADO}}": "até ~12 caracteres cada; contatos fixos"
+      },
+      "imagens_para_carregar": "IMAGEM 1 = logo LA BELLE original",
+      "aprovado": false,
+      "json_exemplo": {
+        "instrucao_para_colar_antes": "Vou anexar 1 imagem. IMAGEM 1 = logo oficial da LA BELLE: aplique exatamente como enviada, sem redesenhar nem recolorir. Peça sem foto. Monte o layout descrito no JSON e escreva os textos exatamente como estão. Não use azul nem marinho.",
+        "prompt": {
+          "scene": {
+            "description": "Peça vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, peça de fechamento com CTA do sistema de carrossel 'Destaque'. Fundo creme liso #FAF7F1 e moldura fina dourada #B7881D (2px, cantos retos) a 22px das 4 bordas. Centralizado e empilhado: logo LA BELLE (IMAGEM 1) grande (~340px de largura); título em serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond), 2 linhas, a primeira em quase-preto quente #1C1A15 e a segunda em dourado #B7881D; fio dourado claro #E2C05B; botão retangular de cantos arredondados (raio 40px) preenchido em amarelo-ouro #E2C05B com 'Peça seu orçamento' em Gilroy semibold quase-preto; '(11) 95223-2818' em Gilroy bold quase-preto e 'banheiroslabelle.com.br' em Gilroy regular marrom-cinza #4A4238. Sem azul, sem marinho.",
+            "subject": "Logo e chamada para orçamento dentro da moldura dourada",
+            "setting": "Página creme de fechamento",
+            "action": "Estático"
+          },
+          "style": {
+            "primary": "editorial de interiores premium",
+            "rendering_quality": "tipografia impecável, vetores limpos",
+            "surface_textures": "fundo fosco liso",
+            "lighting": "plano, sem sombras"
+          },
+          "technical": {
+            "resolution": "ultra high definition",
+            "rendering": "sem HDR, véu/degradê sem bandas, linhas nítidas, sem grão"
+          },
+          "composition": {
+            "framing": "composição centralizada dentro da moldura",
+            "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "logo LA BELLE (IMAGEM 1)",
+                "type": "aplicar exatamente como enviada, grande",
+                "position": "centralizado, ~y 200 a 420"
+              },
+              {
+                "text": "{{TÍTULO L1}}",
+                "font": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+                "font_size": "96px",
+                "color": "#1C1A15",
+                "position": "centralizado, linha de base ~y 590",
+                "exemplo": "SEU BANHEIRO"
+              },
+              {
+                "text": "{{TÍTULO L2 DOURADO}}",
+                "font": "serifada display de alto contraste em caixa alta (a mesma da capa Destaque; alternativa fiel ao site: Cormorant Garamond)",
+                "font_size": "96px",
+                "color": "#B7881D",
+                "position": "centralizado, linha de base ~y 700",
+                "exemplo": "DE CASA"
+              },
+              {
+                "text": "fio",
+                "type": "linha 2px, 200px",
+                "color": "#E2C05B",
+                "position": "centralizado, ~y 760"
+              },
+              {
+                "text": "Peça seu orçamento",
+                "type": "botão #E2C05B, raio 40px, ~480x88px",
+                "font": "Gilroy SemiBold",
+                "font_size": "32px",
+                "color": "#1C1A15",
+                "position": "centralizado, ~y 870"
+              },
+              {
+                "text": "(11) 95223-2818",
+                "font": "Gilroy Bold",
+                "font_size": "34px",
+                "color": "#1C1A15",
+                "position": "centralizado, ~y 1000"
+              },
+              {
+                "text": "banheiroslabelle.com.br",
+                "font": "Gilroy Regular",
+                "font_size": "28px",
+                "color": "#4A4238",
+                "position": "centralizado, ~y 1050"
+              },
+              {
+                "text": "moldura",
+                "type": "contorno 2px, cantos retos",
+                "color": "#B7881D",
+                "position": "22px das 4 bordas"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "fundo creme",
+              "moldura dourada fina",
+              "logo grande e nítida",
+              "botão amarelo-ouro só no CTA"
+            ],
+            "avoid": [
+              "qualquer azul ou marinho",
+              "número de slide",
+              "seta ou 'arraste'",
+              "logo redesenhada",
+              "texto fora da zona segura",
+              "erros de grafia",
+              "travessão",
+              "botão em outra cor",
+              "telefone diferente de (11) 95223-2818"
+            ],
+            "reference_standard": "capa Destaque LA BELLE; site banheiroslabelle.com.br"
+          }
+        }
+      }
+    }
+  }
+}

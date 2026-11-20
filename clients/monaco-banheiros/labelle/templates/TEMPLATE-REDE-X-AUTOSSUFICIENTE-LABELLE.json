@@ -1,0 +1,124 @@
+{
+  "template": "LIGADO NA REDE x AUTOSSUFICIENTE : LA BELLE",
+  "versao": "1.0 (aprovado 23/10/2026)",
+  "origem": "Adaptação do template MITO x VERDADE (TEMPLATE-MITO-VERDADE-LABELLE.json): mesma diagonal e arcos, trocando Mito/Verdade pelas duas versões do módulo",
+  "imagens_referencia": {
+    "V1": "TEMPLATE-REDE-X-AUTOSSUFICIENTE-LABELLE-V1-referencia.webp (escura, verde-petróleo)",
+    "V2": "TEMPLATE-REDE-X-AUTOSSUFICIENTE-LABELLE-V2-referencia.webp (clara, creme)",
+    "ATENCAO": "As imagens de referência foram geradas por IA só para mostrar o layout: cena, pessoas e módulo não são reais e há trailers ao fundo. Nunca publicar; no post real a IMAGEM 1 é foto verdadeira do módulo LA BELLE."
+  },
+
+  "guia_de_uso": {
+    "o_que_e": "Post vertical 4:5 que apresenta as duas versões do módulo com o mesmo peso. A foto ocupa o quadro inteiro (UMA vez) sob véu de cor. Dois arcos tracejados dourados criam a diagonal: 'Ligado / na rede' no canto superior direito e 'Autossuficiente' no inferior esquerdo, em Cormorant grande com itálico dourado. Cada lado tem 2 linhas de quando usar / o que muda. No centro, selo 'AS DUAS SÃO LA BELLE' com estrela. Logo no topo esquerdo, rodapé com contato.",
+    "explicacao_da_modelagem": {
+      "V1": "Versão ESCURA: véu verde-petróleo #043333, 'Ligado' em creme e 'na rede' e 'Autossuficiente' em itálico dourado claro #E2C05B, frases em creme, selo em pílula com contorno dourado, rodapé com WhatsApp e site. Post único explicativo (LB5).",
+      "V2": "Versão CLARA: véu creme #FAF7F1 forte nos cantos de texto, 'Ligado' em quase-preto e destaques em itálico dourado #B7881D, selo discreto sobre o centro, rodapé em faixa creme com 'Arraste e veja qual é a sua →'. Capa do carrossel desse tema (LB4)."
+    },
+    "diferencas": "V1 escura e autossuficiente como post único (WhatsApp no rodapé). V2 clara e pensada como capa de carrossel (chamada de arraste no rodapé). Estrutura igual.",
+    "melhores_aplicacoes": [
+      "Pauta 2 do briefing do dono (tema-chave, várias peças)",
+      "Capa do carrossel 'Ligado na rede ou autossuficiente?' (V2)",
+      "Resposta rápida no WhatsApp para quem pergunta a diferença (V1)",
+      "Base visual para artigo de blog e LinkedIn do mesmo tema"
+    ],
+    "regra_do_texto": "Cada lado: 2 linhas de até ~42 caracteres. Ligado na rede: porcelana, caixa acoplada, sem limpa-fossa, para lugar com esgoto. Autossuficiente: tanque lacrado abaixo do piso, descarga econômica (vaso de pedal), para lugar sem esgoto. Nunca trocar os atributos de lado. Sem travessão.",
+    "como_escolher_a_foto": "Módulo instalado ou interior, com o assunto no centro e áreas calmas no canto superior direito e inferior esquerdo. Sem trailers nem outros banheiros na foto.",
+    "atencao": [
+      "As duas opções sempre com o mesmo peso visual: nenhuma é 'ruim'",
+      "A foto aparece UMA única vez",
+      "Sem trailers ou outros banheiros na foto",
+      "Evitar a palavra 'químico' em destaque",
+      "Nunca azul nem marinho; véu escuro é verde-petróleo",
+      "Copy passa pelo copy-qa-sms antes de publicar"
+    ],
+    "imagens_para_carregar": {
+      "V1": "IMAGEM 1 = módulo ou interior com área calma em cima à direita e embaixo à esquerda · IMAGEM 2 = logo LA BELLE (texto vira creme)",
+      "V2": "IMAGEM 1 = módulo instalado ou interior em luz de dia, módulo no centro · IMAGEM 2 = logo LA BELLE original"
+    }
+  },
+
+  "paleta": {
+    "veu_escuro": "#043333 verde-petróleo (V1)",
+    "veu_claro": "#FAF7F1 creme (V2)",
+    "dourado": "#B7881D (destaques e arcos na V2)",
+    "dourado_claro": "#E2C05B (destaques, arcos e selo na V1)",
+    "titulos_claro": "#1C1A15",
+    "texto_claro": "#4A4238",
+    "proibido": "qualquer azul ou marinho"
+  },
+  "tipografia": {
+    "titulos": "Cormorant Garamond SemiBold (destaques em Italic)",
+    "frases_selo_rodape": "Gilroy Regular / SemiBold (fallback Inter)"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818"},
+
+  "variacoes": {
+    "V1_escura_verde_petroleo": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo que preenche o quadro inteiro (módulo LA BELLE ou interior da cabine). IMAGEM 2 = logo oficial da LA BELLE, em versão clara. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente o véu verde-petróleo, tratamento de cor e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 como enviada; se tiver texto escuro, converta só o texto para creme. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, comparativo 'Ligado na rede x Autossuficiente', versão escura. A IMAGEM 1 preenche o quadro inteiro, uma única vez, sob véu verde-petróleo #043333 a ~65% com vinheta mais forte nas bordas. Dois arcos tracejados finos dourado claro #E2C05B (1,5px, traço 10px, intervalo 8px): o primeiro nasce no topo em x ~450, curva para a direita e sai pela borda direita em y ~550, envolvendo 'Ligado na rede'; o segundo nasce na borda esquerda em y ~740 e curva até a base em x ~620, envolvendo 'Autossuficiente'. No centro (~y 990), selo em pílula com contorno dourado claro fino e fundo petróleo escuro: estrela dourada de 4 pontas + 'AS DUAS SÃO LA BELLE' em Gilroy semibold caixa alta tracking aberto creme. Topo esquerdo: logo LA BELLE (IMAGEM 2) versão clara. Canto superior direito, alinhado à direita em x 1060: 'Ligado' em Cormorant Garamond Bold creme #FAF7F1 e 'na rede' em itálico dourado claro #E2C05B, enormes; abaixo, Gilroy regular creme, 2 linhas: 'Para casa, empresa e salão com esgoto.' / 'Vaso de porcelana e nada de limpa-fossa.' Canto inferior esquerdo, a partir de x 45: 'Autossuficiente' em Cormorant Garamond Bold itálico dourado claro, enorme; abaixo, Gilroy regular creme, 2 linhas: 'Para fazenda, campo e lugar sem esgoto.' / 'Tanque lacrado abaixo do piso, fora da vista.' Rodapé: '(11) 95223-2818' à esquerda e 'banheiroslabelle.com.br' à direita, Gilroy regular creme. Sem azul, sem marinho.",
+          "subject": "Módulo LA BELLE (IMAGEM 1) como fundo sob véu verde-petróleo",
+          "setting": "Ambiente real do módulo em clima sóbrio",
+          "action": "Estático"
+        },
+        "style": {"primary": "editorial educativo premium", "rendering_quality": "foto real nítida sob véu, tipografia limpa", "surface_textures": "texturas reais suavizadas; gráficos flat", "lighting": "luz original rebaixada pelo véu"},
+        "technical": {"camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter", "angle": "manter"}, "resolution": "ultra high definition", "rendering": "véu uniforme, vinheta, sem HDR, tracejado nítido"},
+        "composition": {
+          "framing": "diagonal: Ligado na rede em cima à direita, Autossuficiente embaixo à esquerda, selo no centro inferior",
+          "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px; arcos podem sair pelas bordas",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "versão clara", "position": "topo esquerdo, x 60 a ~400, y 40 a ~200"},
+            {"text": "Ligado", "font": "Cormorant Garamond Bold", "font_size": "150px", "color": "#FAF7F1", "position": "alinhado à direita em x 1060, linha de base ~y 170"},
+            {"text": "na rede", "font": "Cormorant Garamond Bold Italic", "font_size": "150px", "color": "#E2C05B", "position": "alinhado à direita em x 1060, linha de base ~y 275"},
+            {"text": "Para casa, empresa e salão com esgoto. / Vaso de porcelana e nada de limpa-fossa.", "font": "Gilroy Regular", "font_size": "22px", "color": "#FAF7F1", "position": "alinhado à direita em x 1060, ~y 305, 2 linhas"},
+            {"text": "AS DUAS SÃO LA BELLE", "font": "Gilroy SemiBold, caixa alta, tracking +30%, estrela dourada à esquerda, pílula com contorno #E2C05B", "font_size": "20px", "color": "#FAF7F1", "position": "centralizado, ~y 990"},
+            {"text": "Autossuficiente", "font": "Cormorant Garamond Bold Italic", "font_size": "130px", "color": "#E2C05B", "position": "x 45, linha de base ~y 1175"},
+            {"text": "Para fazenda, campo e lugar sem esgoto. / Tanque lacrado abaixo do piso, fora da vista.", "font": "Gilroy Regular", "font_size": "22px", "color": "#FAF7F1", "position": "x 45, ~y 1205, 2 linhas"},
+            {"text": "(11) 95223-2818", "font": "Gilroy Regular", "font_size": "26px", "color": "#FAF7F1", "position": "rodapé esquerdo, x 45, ~y 1340"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular", "font_size": "26px", "color": "#FAF7F1", "position": "rodapé direito, alinhado em x 1065, ~y 1340"}
+          ]
+        },
+        "quality": {
+          "include": ["véu verde-petróleo", "contraste alto", "itálico dourado claro", "arcos tracejados finos", "selo em pílula", "mesmo peso visual para as duas opções"],
+          "avoid": ["qualquer azul ou marinho", "trailers ou outros banheiros na foto", "tratar uma opção como ruim", "palavra 'químico' em destaque", "foto repetida", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "bloco verde-petróleo do site LA BELLE; Architectural Digest"
+        }
+      }
+    },
+
+    "V2_clara_creme_capa_carrossel": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo que preenche o quadro inteiro (módulo LA BELLE instalado ou interior, em luz de dia). IMAGEM 2 = logo oficial da LA BELLE, nas cores originais. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente o véu creme, tratamento de cor e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Post vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, comparativo 'Ligado na rede x Autossuficiente', versão clara, capa de carrossel. A IMAGEM 1 preenche o quadro inteiro, uma única vez, sob véu creme #FAF7F1 forte (~85%) no topo e no canto inferior esquerdo, onde ficam os textos, e leve no centro, deixando o módulo bem visível. Dois arcos tracejados finos dourados #B7881D: o primeiro nasce no topo em x ~420 e desce em curva até ~x 680 / y 185, contornando o título superior; o segundo nasce na borda esquerda em y ~680 e desce em curva até ~x 190 / y 1180, contornando o bloco inferior. Sobre o centro do módulo (~y 600), selo discreto: pequena estrela dourada e 'AS DUAS SÃO LA BELLE' em Gilroy semibold caixa alta tracking muito aberto quase-preto, sem pílula. Topo esquerdo: logo LA BELLE (IMAGEM 2). Canto superior direito, alinhado à direita em x 1040: 'Ligado' em Cormorant Garamond Bold quase-preto #1C1A15 e 'na rede' em itálico dourado #B7881D, enormes; abaixo, Gilroy regular quase-preto, 2 linhas: 'Funciona como o banheiro da sua casa:' / 'porcelana, caixa acoplada, sem limpa-fossa.' Canto inferior esquerdo, a partir de x 50: 'Autossuficiente' em Cormorant Garamond itálico dourado #B7881D, grande; abaixo, Gilroy regular quase-preto, 2 linhas: 'Leva o banheiro onde não há esgoto,' / 'com tanque lacrado e descarga econômica.' Rodapé em faixa creme sólida de y 1350 a 1440 (proporcional): 'Arraste e veja qual é a sua' com seta dourada → à esquerda em Gilroy semibold quase-preto e 'banheiroslabelle.com.br' à direita em Gilroy regular marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Módulo LA BELLE (IMAGEM 1) visível no centro, clareado nas bordas",
+          "setting": "Ambiente real do módulo em luz de dia ou fim de tarde",
+          "action": "Estático"
+        },
+        "style": {"primary": "editorial claro, educativo premium", "rendering_quality": "foto real nítida sob véu claro, tipografia limpa", "surface_textures": "texturas reais; gráficos flat", "lighting": "luz natural clareada pelo véu"},
+        "technical": {"camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter", "angle": "manter"}, "resolution": "ultra high definition", "rendering": "véu com gradação suave, sem HDR, tracejado nítido"},
+        "composition": {
+          "framing": "diagonal: Ligado na rede em cima à direita, Autossuficiente embaixo à esquerda, módulo livre no centro",
+          "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "topo esquerdo, x 60 a ~340, y 45 a ~175"},
+            {"text": "Ligado", "font": "Cormorant Garamond Bold", "font_size": "135px", "color": "#1C1A15", "position": "alinhado à direita em x 1020, linha de base ~y 170"},
+            {"text": "na rede", "font": "Cormorant Garamond Regular Italic", "font_size": "135px", "color": "#B7881D", "position": "alinhado à direita em x 1030, linha de base ~y 270"},
+            {"text": "Funciona como o banheiro da sua casa: / porcelana, caixa acoplada, sem limpa-fossa.", "font": "Gilroy Regular; 'Funciona' em SemiBold", "font_size": "21px", "color": "#1C1A15", "position": "alinhado à direita em x 1045, ~y 300, 2 linhas"},
+            {"text": "AS DUAS SÃO LA BELLE", "font": "Gilroy SemiBold, caixa alta, tracking +45%, estrela dourada acima", "font_size": "17px", "color": "#1C1A15", "position": "centralizado sobre o módulo, ~y 600"},
+            {"text": "Autossuficiente", "font": "Cormorant Garamond Regular Italic", "font_size": "100px", "color": "#B7881D", "position": "x 50, linha de base ~y 1240"},
+            {"text": "Leva o banheiro onde não há esgoto, / com tanque lacrado e descarga econômica.", "font": "Gilroy Regular", "font_size": "21px", "color": "#1C1A15", "position": "x 50, ~y 1265, 2 linhas"},
+            {"text": "Arraste e veja qual é a sua →", "font": "Gilroy SemiBold; seta dourada", "font_size": "26px", "color": "#1C1A15 com seta #B7881D", "position": "faixa de rodapé, esquerda, x 50"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular", "font_size": "22px", "color": "#4A4238", "position": "faixa de rodapé, direita, alinhado em x 1040"}
+          ]
+        },
+        "quality": {
+          "include": ["módulo reconhecível no centro", "véu creme suave nas bordas", "texto quase-preto legível", "itálico dourado", "arcos tracejados finos", "selo discreto", "faixa de rodapé com chamada de arraste"],
+          "avoid": ["qualquer azul ou marinho", "trailers ou outros banheiros na foto", "tratar uma opção como ruim", "palavra 'químico' em destaque", "dourado claro em texto sobre fundo claro", "foto repetida", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "site e folder oficial LA BELLE; Casa Vogue, Kinfolk"
+        }
+      }
+    }
+  }
+}

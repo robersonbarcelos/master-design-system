@@ -1,0 +1,121 @@
+{
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da bancada de amenities da cabine Mônaco. IMAGEM 2 = símbolo oficial da Mônaco em branco (fundo transparente). Da IMAGEM 1, preserve com fidelidade total tudo o que existe nela: produtos, rótulos, bandeja, revestimentos, cores reais e proporções. Não redesenhe, não substitua, não remova e não acrescente nenhum produto; aplique somente tratamento de cor editorial, upscale de nitidez e o escurecimento de legibilidade descrito. Os cartões de destaque devem apontar para produtos que EXISTEM na IMAGEM 1, e a miniatura de cada cartão é um recorte desse mesmo produto da foto. A IMAGEM 2 deve ser colocada exatamente como foi enviada, no espaço indicado na barra superior. Monte o layout descrito no JSON.",
+  "prompt": {
+    "scene": {
+      "description": "Slide de carrossel vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, no estilo 'visualizador interativo de ambiente'. Fundo: a IMAGEM 1 (bancada de amenities: enxaguante bucal, lenços umedecidos, difusor de aroma, bandeja) ocupando o frame inteiro, preservada com fidelidade total, com tratamento de cor editorial de hospitalidade premium e upscale de nitidez. LENTE CIRCULAR de linha branca fina 1,5px a 80%, centro ~x 760 y 700, raio ~640px; fora do círculo, véu azul-marinho #100C43 a 35%. Degradê #100C43 subindo da base (85% até transparente em ~45% da altura). BARRA SUPERIOR de vidro fosco (~560x66px, borda direita x ~1000, topo y ~80) com: símbolo da marca (IMAGEM 2, branco, exatamente como enviado), pílula branca 85% 'Mônaco Mobile Toilet' em Poppins Medium 17px #100C43, três ícones circulares #100C43 com ícones de linha brancos (floco de neve, nota musical, gota) e pílula branca 85% 'Banheiro VIP' com ícone de menu. HOTSPOTS: 2 cartões de vidro fosco (fundo #100C43 a 45% com desfoque, contorno branco 1px a 30%, raio ~12px, ~250x96px), cada um com miniatura ~64px à esquerda (recorte do próprio produto da foto), uma fileira de 5 estrelinhas douradas #E2BE6A e o rótulo em Poppins Regular 21px branco, ligados ao produto real por linha branca 1,5px em cotovelo: cartão 1 'Enxaguante bucal e fio dental' apontando para o frasco de enxaguante; cartão 2 'Lenços umedecidos e papel Neve' apontando para o pacote de lenços. Uma órbita: elipse fina branca com pequena seta em volta do frasco de enxaguante. TÍTULO no canto inferior esquerdo, x 104, alinhado à esquerda: linha 1 'Depois do jantar,' em Poppins Light 88px branco; linha 2 'antes da foto' em Poppins SemiBold 88px dourado champanhe #F6D58E. Abaixo, em Poppins Regular 30px branco, 2 linhas começando em x ~300: 'O retoque rápido para voltar' / 'para a pista sem pensar no jantar.' onde 'pista' fica num retângulo sólido índigo #3533CD com texto branco. SEM rodapé, SEM telefone, SEM site. Fonte única: Poppins.",
+      "subject": "Bancada real de amenities da cabine Mônaco (IMAGEM 1) com 2 produtos destacados",
+      "setting": "Cabine do trailer de banheiro de luxo",
+      "action": "Estático"
+    },
+    "style": {
+      "primary": "editorial interior photography with interactive visualizer UI overlay (glassmorphism)",
+      "rendering_quality": "hyperrealistic photo with crisp flat UI overlay",
+      "surface_textures": "texturas reais da foto, mais nítidas; UI em vidro fosco limpo",
+      "lighting": "luz quente original da foto realçada pelo color grading; véu fora da lente e degradê na base"
+    },
+    "technical": {
+      "camera": {
+        "focal_length": "o da foto anexada",
+        "aperture": "o da foto anexada",
+        "depth_of_field": "manter o da foto anexada",
+        "angle": "manter o da foto anexada"
+      },
+      "resolution": "ultra high definition, upscale limpo",
+      "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+    },
+    "composition": {
+      "perspective": "manter a da foto anexada",
+      "framing": "full-bleed com lente circular, barra UI no topo, 2 hotspots no terço médio, título no terço inferior esquerdo",
+      "subject_placement": "produtos na posição original da foto; cartões sem cobrir o título",
+      "safe_area": "64px de padding mínimo: zona segura de 952x1222px dentro de 1080x1350px",
+      "ui_elements": [
+        {
+          "text": "símbolo Mônaco (IMAGEM 2)",
+          "type": "logo branca aplicada exatamente como enviada",
+          "position": "primeiro espaço à esquerda da barra superior"
+        },
+        {
+          "text": "Mônaco Mobile Toilet",
+          "font": "Poppins Medium",
+          "font_size": "17px",
+          "color": "#100C43",
+          "position": "pílula branca 85% na barra superior"
+        },
+        {
+          "text": "Banheiro VIP",
+          "font": "Poppins Medium",
+          "font_size": "17px",
+          "color": "#100C43",
+          "position": "pílula branca 85% no fim da barra, com ícone de menu"
+        },
+        {
+          "text": "Enxaguante bucal e fio dental",
+          "font": "Poppins Regular, 2 linhas, com 5 estrelinhas douradas acima",
+          "font_size": "21px",
+          "color": "#FFFFFF",
+          "position": "cartão de vidro com miniatura, linha em cotovelo até o frasco de enxaguante"
+        },
+        {
+          "text": "Lenços umedecidos e papel Neve",
+          "font": "Poppins Regular, 2 linhas, com 5 estrelinhas douradas acima",
+          "font_size": "21px",
+          "color": "#FFFFFF",
+          "position": "cartão de vidro com miniatura, linha em cotovelo até o pacote de lenços"
+        },
+        {
+          "text": "Depois do jantar,",
+          "font": "Poppins Light",
+          "font_size": "88px",
+          "color": "#FFFFFF",
+          "position": "canto inferior esquerdo, x 104, ~y 1000"
+        },
+        {
+          "text": "antes da foto",
+          "font": "Poppins SemiBold",
+          "font_size": "88px",
+          "color": "#F6D58E",
+          "position": "logo abaixo, alinhado à esquerda"
+        },
+        {
+          "text": "O retoque rápido para voltar",
+          "font": "Poppins Regular",
+          "font_size": "30px",
+          "color": "#FFFFFF",
+          "position": "x ~300, abaixo do título"
+        },
+        {
+          "text": "para a pista sem pensar no jantar.",
+          "font": "Poppins Regular",
+          "font_size": "30px",
+          "color": "#FFFFFF",
+          "position": "linha 2; 'pista' em retângulo sólido #3533CD"
+        }
+      ]
+    },
+    "quality": {
+      "include": [
+        "foto real preservada",
+        "lente circular fina com véu externo",
+        "glassmorphism limpo",
+        "linhas em cotovelo precisas",
+        "miniaturas recortadas da própria foto",
+        "estrelinhas douradas legíveis",
+        "Poppins em todo o card",
+        "logo anexada aplicada com fidelidade"
+      ],
+      "avoid": [
+        "hotspot apontando para produto inexistente",
+        "miniatura inventada",
+        "inventar rótulos ou marcas",
+        "telefone, site ou rodapé",
+        "cartões cobrindo o título",
+        "fonte diferente de Poppins",
+        "laranja",
+        "logo redesenhada",
+        "erros de grafia",
+        "travessão"
+      ],
+      "reference_standard": "TEMPLATE-HOTSPOTS-MONACO aplicado ao carrossel 5 estrelas"
+    }
+  }
+}

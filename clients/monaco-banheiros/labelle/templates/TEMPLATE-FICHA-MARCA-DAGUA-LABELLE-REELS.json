@@ -1,0 +1,113 @@
+{
+  "template": "TEMPLATE-FICHA-MARCA-DAGUA-LABELLE-REELS",
+  "version": "1.0",
+  "formato": "Capa de Reel 9:16, 1080x1920. A grade do feed recorta em 4:5 (y 285 a 1635), por isso moldura e conteúdo ficam dentro dessa faixa.",
+  "anexos": {
+    "imagem_1": "foto de fundo (prédio, içamento ou evento; qualquer cena). Aparece SOMENTE como marca d'água desfocada e apagada",
+    "imagem_2": "logo LA BELLE dourada em PNG transparente (logo_labelle_dourado.png ou logo_labelle_insta.png)"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo: use como marca d'água desfocada e muito apagada sobre fundo creme, sem redesenhar a cena. IMAGEM 2 = logo LA BELLE: aplique exatamente como enviada, sem esticar, girar, recolorir, redesenhar nem adicionar sombra. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+  "prompt": {
+    "scene": {
+      "description": "Capa vertical 9:16 de um Reel de uma empresa de banheiros modulares. Fundo creme claro (#FAF7F1) coberto pela foto anexada em escala de capa, muito desfocada e com apenas 18 a 22% de opacidade, como marca d'água pastel. Uma moldura dourada fina de cantos arredondados fica bem recuada das bordas, dentro da faixa central 4:5. Dentro dela, textos centralizados: eyebrow dourado com bolinha, duas linhas de título (a primeira em verde-petróleo, a segunda em dourado itálico maior), uma linha de local em itálico, e a logo LA BELLE anexada no rodapé da moldura. Paleta: creme #FAF7F1, verde-petróleo #043333, dourado #B7881D. Aparência limpa, editorial e calma.",
+      "subject": "ficha tipográfica com logo, sobre marca d'água fotográfica",
+      "setting": "fundo claro de papel creme com foto apagada",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial, comercial, minimalista",
+      "rendering_quality": "detailed, vetor limpo",
+      "surface_textures": "papel creme liso; foto de fundo desfocada e lavada, sem detalhe nítido",
+      "lighting": "sem iluminação; superfície plana e suave"
+    },
+    "technical": {
+      "canvas": {
+        "tamanho": "1080x1920 px, 9:16",
+        "area_visivel_feed_4_5": "y 285 a 1635 (1080x1350)",
+        "exportacao": "2160x3840 se disponível"
+      },
+      "rendering": "sem ruído, sem HDR, sem vinheta forte; cores chapadas e suaves"
+    },
+    "composition": {
+      "framing": "simétrico e centralizado no eixo x=540",
+      "subject_placement": "bloco de texto no centro da moldura, logo no rodapé da moldura",
+      "safe_area": "Texto e logo dentro de x 132 a 948 e y 395 a 1525 (60 px para dentro da moldura). Nada importante fora da faixa 4:5 (y 285 a 1635) nem a menos de 250 px do topo e da base do 9:16. Longe da borda direita (botões do Reels).",
+      "layout": {
+        "fundo": "creme #FAF7F1 em toda a tela 1080x1920",
+        "marca_dagua": "IMAGEM 1 cobrindo 1080x1920 (recorte central), desfoque forte (raio ~30 px), opacidade 18 a 22%, levemente dessaturada, sem áreas escuras",
+        "moldura": "retângulo de cantos arredondados, x 72 a 1008, y 335 a 1585, raio ~64 px, traço 3 px dourado #B7881D, sem preenchimento, sem sombra",
+        "icone_opcional": "centro em x 540, y 430 a 560, linha dourada, largura máxima 140 px. DESLIGADO por padrão",
+        "linha_1": "centro x 540, y ~800",
+        "linha_2": "centro x 540, y ~925",
+        "eyebrow": "centro x 540, y ~1020",
+        "local_opcional": "centro x 540, y ~1090",
+        "logo": "IMAGEM 2 centralizada em x 540, base em y 1500, largura 320 px, proporção original"
+      },
+      "ui_elements": {
+        "linha_1": {
+          "exemplo": "Subiu pela escada.",
+          "fonte": "Cormorant Garamond SemiBold, ~84 px, centralizada",
+          "cor": "#043333"
+        },
+        "linha_2": {
+          "exemplo": "Desceu pelo ar.",
+          "fonte": "Cormorant Garamond Bold Italic, ~104 px, centralizada",
+          "cor": "#B7881D"
+        },
+        "eyebrow": {
+          "exemplo": "MÓDULOS LA BELLE",
+          "fonte": "Plus Jakarta Sans Bold, 26 px, caixa alta, espaçamento entre letras ~5 px",
+          "cor": "#B7881D",
+          "detalhe": "bolinha dourada sólida de ~14 px à esquerda do texto, com 18 px de distância"
+        },
+        "local_opcional": {
+          "exemplo": "São Paulo · SP",
+          "fonte": "Cormorant Garamond SemiBold Italic, ~54 px",
+          "cor": "#043333"
+        }
+      }
+    },
+    "slots_variaveis": {
+      "linha_1": "até 20 caracteres, frase ou palavra-chave da peça",
+      "linha_2": "até 16 caracteres, complemento em dourado itálico",
+      "eyebrow": "até 30 caracteres, caixa alta",
+      "local_opcional": "formato 'Lugar · UF', até 22 caracteres; se vazio, omitir a linha",
+      "caixa_dos_titulos": "mista, como digitado. Se o campo vier em maiúscula, manter maiúscula"
+    },
+    "regras_fixas": [
+      "Sem data do evento na capa",
+      "Sem site, telefone ou rodapé de contato",
+      "Sem travessão em nenhum texto",
+      "A logo é a anexada, nunca redesenhada",
+      "A foto de fundo só aparece desfocada e apagada, nunca nítida",
+      "Nunca azul nem marinho"
+    ],
+    "quality": {
+      "include": [
+        "fundo creme limpo",
+        "moldura dourada fina e uniforme",
+        "marca d'água fotográfica suave e desfocada",
+        "tipografia serifada elegante",
+        "hierarquia clara entre as duas linhas",
+        "bom espaço em volta dos textos",
+        "centralização perfeita",
+        "acentos corretos em português",
+        "logo nítida e proporcional",
+        "aparência de ficha editorial calma"
+      ],
+      "avoid": [
+        "foto nítida ou com contraste forte no fundo",
+        "moldura rente à borda do canvas",
+        "texto fora da área central 4:5",
+        "logo redesenhada, esticada ou recolorida",
+        "acentos errados ou letras inventadas",
+        "sombras, brilhos e gradientes pesados",
+        "azul ou marinho",
+        "mais de 4 blocos de texto",
+        "ícones ou elementos decorativos inventados",
+        "travessão nos textos"
+      ],
+      "reference_standard": "fichas do portfólio LA BELLE (Bertolotti, Içamento): creme, dourado e Cormorant, com a marca d'água da cena"
+    }
+  }
+}

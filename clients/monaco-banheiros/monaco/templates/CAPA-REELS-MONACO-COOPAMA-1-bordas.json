@@ -1,0 +1,109 @@
+{
+ "template": "CAPA-REELS-MONACO-BORDAS-9x16-COOPAMA",
+ "version": "1.1",
+ "status": "30/10/2026: recuo ajustado (card x 108 a 970, y 383 a 1585) sobre o TEMPLATE-BORDAS-MONACO. Não testada no GPT.",
+ "titulo_anexos": "ANEXAR 2 IMAGENS. IMAGEM 1 = a foto ou quadro de vídeo que VOCÊ escolher. IMAGEM 2 = símbolo da Mônaco em MARINHO (monaco-simbolo-marinho.png), fundo transparente, que vai dentro da aba clara do canto superior esquerdo.",
+ "anexos": {
+  "imagem_1": "A FOTO OU QUADRO DE VÍDEO QUE VOCÊ ESCOLHER (qualquer cena do evento). Para esta capa: foto vertical (ou quadro de vídeo) com área calma no terço superior (céu, toldo, parede ou fundo desfocado) para o título e com o assunto principal no meio e embaixo; evitar foto com texto ou logo de terceiros em primeiro plano.",
+  "imagem_2": "profiles/_LOGOS-MONACO-LABELLE/monaco/monaco-simbolo-marinho.png  (símbolo da Mônaco em MARINHO, PNG transparente)"
+ },
+ "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da capa. Preserve com fidelidade total tudo o que existe nela: objetos, pessoas, textos, placas, cores reais e proporções; não redesenhe, não substitua, não remova e não acrescente nada à cena; aplique somente tratamento de cor editorial, upscale de nitidez e a legibilidade descrita. IMAGEM 2 = símbolo oficial da Mônaco em marinho: coloque-o exatamente como enviado, dentro da aba off-white, centralizado, sem redesenhar, estilizar, recolorir, distorcer nem adicionar sombra ou contorno. A saída tem proporção 9:16 (1080x1920). O card fica RECUADO no centro: x 108 a 970 e y 383 a 1585 (80% da largura e 63% da altura), com borda grossa de fundo desfocado em volta (108 px nas laterais, 383 px em cima, 334 px embaixo); a moldura nunca passa disso. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+ "prompt": {
+  "scene": {
+   "description": "Capa vertical 9:16 de um Reel da marca Mônaco Mobile Toilet (trailer de banheiro de luxo para eventos). O fundo de toda a tela 1080x1920 é a IMAGEM 1 em escala de capa, muito desfocada (desfoque forte) e escurecida com véu azul-marinho #100C43 a 45%. No centro, um card recuado (862x1202, de x 108 a 970 e de y 383 a 1585) com margem externa fina off-white quente #F4F1EA de 18 px. Dentro dele, um painel de cantos arredondados (raio ~36 px) preenchido pela IMAGEM 1 nítida, preservada com fidelidade total. No canto superior esquerdo do painel, uma aba em forma de pasta de arquivo, off-white #F4F1EA (x 126 a 316, y 401 a 531), com o símbolo marinho (IMAGEM 2) centralizado (altura 95 px). Moldura interna em linha branca fina (1,5 px, 70% de opacidade) com pontos brancos de 10 px nos cantos, começando à direita da aba. Canto superior direito: 'MÔNACO MOBILE TOILET' (sans bold, caixa alta, bem espaçada) e abaixo 'EVENTOS · PRODUÇÕES' (sans regular), em branco. No terço superior do card: eyebrow, headline em 2 linhas (linha 1 em dourado degradê, linha 2 em branco) e subtítulo, todos centralizados. Uma pílula de local marinho com contorno dourado e pin dourado fica perto da base do painel. NÃO há faixa de contato, site nem telefone nesta capa. Paleta: marinho #100C43, off-white #F4F1EA, dourado #F2D48A para #D4A64A, branco.",
+   "subject": "capa editorial com foto do evento em painel com aba de logo",
+   "setting": "card recuado sobre fundo desfocado da mesma foto, em 9:16",
+   "action": "static"
+  },
+  "style": {
+   "primary": "editorial de hospitalidade premium",
+   "rendering_quality": "nítido, limpo, tipografia vetorial",
+   "surface_textures": "foto real preservada; margem off-white lisa; fundo desfocado suave",
+   "lighting": "a da foto original, com leve calor editorial (marinho nas sombras, dourado nos realces)"
+  },
+  "technical": {
+   "canvas": "Capa de Reel 9:16, 1080x1920 px (exportar 2160x3840 se possível). O feed recorta a capa em 4:5: a faixa visível é y 285 a 1635 (1080x1350). TODO conteúdo (card, moldura, textos, logo) fica dentro dessa faixa. Fora dela só continua o fundo desfocado da mesma foto. O card ocupa apenas x 108 a 970 e y 383 a 1585 (80% da largura e 63% da altura), com borda grossa de fundo desfocado: 108 px à esquerda, 110 à direita, 383 em cima e 334 embaixo.",
+   "rendering": "upscale sem halo nem artefato de IA; sem HDR exagerado; sem filtro chapado"
+  },
+  "composition": {
+   "framing": "card recuado e centralizado no canvas 9:16",
+   "safe_area": "Texto e logo dentro de x 160 a 920. Nada importante fora da faixa y 285 a 1635. Evitar a borda direita (botões do Reels).",
+   "layout": {
+    "fundo_desfocado": "IMAGEM 1 cobrindo 1080x1920, desfoque forte, véu marinho #100C43 a 45%",
+    "card": "x 108 a 970, y 383 a 1585, margem off-white #F4F1EA de 18 px",
+    "painel_foto": "x 126 a 952, y 401 a 1567, raio ~36 px, IMAGEM 1 nítida",
+    "aba_logo": "x 126 a 316, y 401 a 531, símbolo marinho centrado em x 221, y 466, altura 95 px",
+    "header_marca": "canto superior direito, alinhado à direita em x 920, y 420 a 470, branco",
+    "eyebrow": "centralizado, y ~563",
+    "headline_linha_1": "centralizada, y ~618 a 738, dourado degradê",
+    "headline_linha_2": "centralizada, y ~748 a 858, branco",
+    "subtitulo": "centralizado, y ~893 a 968",
+    "pilula_local": "centralizada, y ~1465, ~420x58 px"
+   },
+   "ui_elements": {
+    "eyebrow": {
+     "texto": "INAUGURAÇÃO COOPAMA",
+     "palavra_em_bold": "COOPAMA",
+     "fonte": "sans geométrica caixa alta, tracking +30%, ~24 px",
+     "cor": "branco #FFFFFF"
+    },
+    "headline_linha_1": {
+     "texto": "NO CAMPO",
+     "fonte": "serifada display de alto contraste (Playfair Display Black ou Bodoni Moda Bold), caixa alta, ~104 px",
+     "cor": "dourado degradê vertical #F2D48A para #D4A64A"
+    },
+    "headline_linha_2": {
+     "texto": "COM QUALIDADE",
+     "fonte": "mesma serifada, caixa alta, ~88 px",
+     "cor": "branco #FFFFFF com sombra sutil"
+    },
+    "subtitulo": {
+     "texto": "A Mônaco chega onde o evento está.",
+     "fonte": "sans regular, caixa normal, ~22 px",
+     "cor": "branco #FFFFFF"
+    },
+    "pilula_local": {
+     "texto": "CAREAÇU · MG",
+     "estilo": "pílula marinho #100C43 com contorno dourado #C9A45C de 2 px e pin dourado à esquerda",
+     "fonte": "sans semibold caixa alta, ~20 px",
+     "cor": "dourado #E2BE6A"
+    }
+   }
+  },
+  "regras_fixas": [
+   "Sem site, telefone, faixa de contato ou rodapé na capa",
+   "Sem data do evento",
+   "Sem travessão em nenhum texto",
+   "Nunca 'banheiro químico' no texto",
+   "A logo é a anexada, nunca redesenhada",
+   "Preservar a foto: não inventar, remover ou redesenhar objetos e pessoas"
+  ],
+  "quality": {
+   "include": [
+    "card recuado perfeitamente centralizado",
+    "margem off-white fina e uniforme",
+    "aba de logo com transição curva suave",
+    "símbolo marinho nítido e proporcional",
+    "headline em duas cores bem legível",
+    "foto preservada e nítida",
+    "fundo desfocado discreto",
+    "acentos corretos em português",
+    "moldura interna fina com pontos",
+    "aparência editorial calma e sofisticada"
+   ],
+   "avoid": [
+    "card maior que x 108 a 970 e y 383 a 1585",
+    "texto fora da zona segura",
+    "logo redesenhada, esticada ou recolorida",
+    "acentos errados ou letras inventadas",
+    "faixa de contato, site ou telefone",
+    "foto redesenhada ou com elementos inventados",
+    "banheiro químico azul de plástico na cena",
+    "fonte genérica de sistema",
+    "sombras e brilhos pesados",
+    "travessão nos textos"
+   ],
+   "reference_standard": "TEMPLATE-BORDAS-MONACO e a capa 9:16 'Banheiros Mônaco na 55ª Convenção Nacional da Unimed'"
+  }
+ }
+}

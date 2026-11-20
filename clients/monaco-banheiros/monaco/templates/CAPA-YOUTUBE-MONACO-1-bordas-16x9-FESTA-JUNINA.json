@@ -1,0 +1,102 @@
+{
+  "template": "CAPA-YOUTUBE-MONACO-BORDAS-16x9-FESTA-JUNINA",
+  "version": "1.0",
+  "status": "Adaptado do CAPA-REELS-MONACO-ADZEP-1-bordas (9:16) para 16:9. Não testada no GPT.",
+  "titulo_anexos": "ANEXAR 2 IMAGENS. IMAGEM 1 = a foto ou quadro de vídeo que VOCÊ escolher. IMAGEM 2 = símbolo da Mônaco em MARINHO (monaco-simbolo-marinho.png), fundo transparente, que vai dentro da aba clara do canto superior esquerdo.",
+  "anexos": {
+    "imagem_1": "A FOTO OU QUADRO DE VÍDEO QUE VOCÊ ESCOLHER (arte da festa junina FP49, bandeirinhas, ou o trailer aceso na rua). Horizontal, com área calma (céu, fundo desfocado) no lado esquerdo para o título; evitar texto ou logo de terceiros em primeiro plano e close de crianças.",
+    "imagem_2": "profiles/_LOGOS-MONACO-LABELLE/monaco/monaco-simbolo-marinho.png  (símbolo da Mônaco em MARINHO, PNG transparente)"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da capa. Preserve com fidelidade total tudo o que existe nela: objetos, pessoas, textos, placas, cores reais e proporções; não redesenhe, não substitua, não remova e não acrescente nada à cena; aplique somente tratamento de cor editorial, upscale de nitidez e a legibilidade descrita. IMAGEM 2 = símbolo oficial da Mônaco em marinho: coloque-o exatamente como enviado, dentro da aba off-white, centralizado, sem redesenhar, estilizar, recolorir, distorcer nem adicionar sombra ou contorno. A saída tem proporção 16:9 (1280x720). O card fica RECUADO no centro: x 80 a 1200 e y 48 a 672, com borda de fundo desfocado em volta (80 px nas laterais, 48 px em cima e embaixo); a moldura nunca passa disso. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+  "prompt": {
+    "scene": {
+      "description": "Capa horizontal 16:9 de um vídeo de YouTube da marca Mônaco Mobile Toilet (trailer de banheiro de luxo para eventos), tema festa junina. O fundo de toda a tela 1280x720 é a IMAGEM 1 em escala de capa, muito desfocada e escurecida com véu azul-marinho #100C43 a 45%. No centro, um card recuado (1120x624, de x 80 a 1200 e de y 48 a 672) com margem externa fina off-white quente #F4F1EA de 12 px. Dentro dele, um painel de cantos arredondados (raio ~28 px) preenchido pela IMAGEM 1 nítida, preservada com fidelidade total, com leve degradê marinho #100C43 da esquerda (75%) para o centro (0%) para dar leitura ao texto. No canto superior esquerdo do painel, uma aba em forma de pasta de arquivo, off-white #F4F1EA (x 92 a 232, y 60 a 168), com o símbolo marinho (IMAGEM 2) centralizado (altura 72 px). Moldura interna em linha branca fina (1,5 px, 70% de opacidade) com pontos brancos de 8 px nos cantos, começando à direita da aba. Canto superior direito: 'MÔNACO MOBILE TOILET' (sans bold, caixa alta, bem espaçada) e abaixo 'EVENTOS · PRODUÇÕES' (sans regular), em branco. À esquerda do painel, alinhados em x 120: eyebrow, headline em 2 linhas (linha 1 em dourado degradê, linha 2 em branco) e uma pílula marinho com contorno dourado e pin dourado perto da base. NÃO há faixa de contato, site nem telefone nesta capa. Paleta: marinho #100C43, off-white #F4F1EA, dourado #F2D48A para #D4A64A, branco.",
+      "subject": "capa editorial com foto da festa junina em painel com aba de logo",
+      "setting": "card recuado sobre fundo desfocado da mesma foto, em 16:9",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial de hospitalidade premium",
+      "rendering_quality": "nítido, limpo, tipografia vetorial",
+      "surface_textures": "foto real preservada; margem off-white lisa; fundo desfocado suave",
+      "lighting": "a da foto original, com leve calor editorial (marinho nas sombras, dourado nos realces)"
+    },
+    "technical": {
+      "canvas": "Capa de YouTube 16:9, 1280x720 px (exportar 2560x1440 se possível). Margem de segurança de 64 px em todas as bordas. O canto inferior direito (x 1040 a 1280, y 640 a 720) fica livre, pois o YouTube coloca a duração do vídeo ali. O card ocupa x 80 a 1200 e y 48 a 672.",
+      "rendering": "upscale sem halo nem artefato de IA; sem HDR exagerado; sem filtro chapado"
+    },
+    "composition": {
+      "framing": "card recuado e centralizado no canvas 16:9; texto no lado esquerdo",
+      "safe_area": "Texto e logo dentro de x 120 a 1160 e y 80 a 640. Nada no canto inferior direito.",
+      "layout": {
+        "fundo_desfocado": "IMAGEM 1 cobrindo 1280x720, desfoque forte, véu marinho #100C43 a 45%",
+        "card": "x 80 a 1200, y 48 a 672, margem off-white #F4F1EA de 12 px",
+        "painel_foto": "x 92 a 1188, y 60 a 660, raio ~28 px, IMAGEM 1 nítida, degradê marinho da esquerda",
+        "aba_logo": "x 92 a 232, y 60 a 168, símbolo marinho centrado em x 162, y 114, altura 72 px",
+        "header_marca": "canto superior direito, alinhado à direita em x 1160, y 82 a 122, branco",
+        "eyebrow": "alinhado à esquerda em x 120, y ~270",
+        "headline_linha_1": "x 120, y ~305 a 405, dourado degradê",
+        "headline_linha_2": "x 120, y ~415 a 515, branco",
+        "pilula": "x 120, y ~575, ~380x48 px"
+      },
+      "ui_elements": {
+        "eyebrow": {
+          "texto": "MÔNACO · FESTA JUNINA",
+          "palavra_em_bold": "FESTA JUNINA",
+          "fonte": "Plus Jakarta Sans, caixa alta, tracking +30%, ~22 px",
+          "cor": "branco #FFFFFF"
+        },
+        "headline_linha_1": {
+          "texto": "ONDE FICA",
+          "fonte": "serifada display de alto contraste (Cinzel ExtraBold), caixa alta, ~84 px",
+          "cor": "dourado degradê vertical #F2D48A para #D4A64A"
+        },
+        "headline_linha_2": {
+          "texto": "O BANHEIRO?",
+          "fonte": "mesma serifada, caixa alta, ~92 px",
+          "cor": "branco #FFFFFF com sombra sutil"
+        },
+        "pilula": {
+          "texto": "NA ROÇA OU NA RUA",
+          "estilo": "pílula marinho #100C43 com contorno dourado #C9A45C de 2 px e pin dourado à esquerda",
+          "fonte": "sans semibold caixa alta, ~18 px",
+          "cor": "dourado #E2BE6A"
+        }
+      }
+    },
+    "regras_fixas": [
+      "Sem site, telefone, faixa de contato ou rodapé na capa",
+      "Sem data do evento",
+      "Sem travessão em nenhum texto",
+      "Nunca 'banheiro químico' no texto",
+      "A logo é a anexada, nunca redesenhada",
+      "Preservar a foto: não inventar, remover ou redesenhar objetos e pessoas",
+      "Sem close de crianças",
+      "Nada no canto inferior direito (duração do YouTube)"
+    ],
+    "quality": {
+      "include": [
+        "card recuado perfeitamente centralizado",
+        "margem off-white fina e uniforme",
+        "aba de logo com transição curva suave",
+        "símbolo marinho nítido e proporcional",
+        "headline legível com a linha 1 dourada",
+        "foto preservada e nítida",
+        "acentos corretos em português",
+        "moldura interna fina com pontos"
+      ],
+      "avoid": [
+        "card maior que x 80 a 1200 e y 48 a 672",
+        "texto fora da zona segura",
+        "logo redesenhada, esticada ou recolorida",
+        "acentos errados ou letras inventadas",
+        "faixa de contato, site ou telefone",
+        "foto redesenhada ou com elementos inventados",
+        "texto no canto inferior direito",
+        "fonte genérica de sistema",
+        "travessão nos textos"
+      ],
+      "reference_standard": "CAPA-REELS-MONACO-ADZEP-1-bordas, adaptada para 16:9"
+    }
+  }
+}

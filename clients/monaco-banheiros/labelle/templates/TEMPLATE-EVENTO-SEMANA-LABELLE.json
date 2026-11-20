@@ -1,0 +1,155 @@
+{
+  "template": "EVENTO DA SEMANA : LA BELLE",
+  "versao": "1.0 (aprovado 23/10/2026)",
+  "origem": "Adaptação do template EDITORIAL COM GRADE FINA (TEMPLATE-GRADE-FINA-LABELLE.json) para a pauta recorrente de evento da semana (LB3 Onde a LA BELLE chega)",
+  "imagens_referencia": {
+    "V1": "TEMPLATE-EVENTO-SEMANA-LABELLE-V1-referencia.webp (escura, verde-petróleo)",
+    "V2": "TEMPLATE-EVENTO-SEMANA-LABELLE-V2-referencia.webp (clara, creme)",
+    "ATENCAO": "As imagens de referência foram geradas por IA só para mostrar o layout: a cena, as pessoas e o módulo não são reais e há trailers ao fundo. Nunca publicar essas imagens; no post real a IMAGEM 1 é sempre foto verdadeira do evento atendido."
+  },
+
+  "guia_de_uso": {
+    "o_que_e": "Post vertical 4:5 recorrente que mostra um evento real atendido na semana. A foto do evento ocupa o quadro inteiro (UMA vez) com degradê de cor à esquerda. Mesma grade de 1px com estrelas douradas da Grade fina. Texto empilhado à esquerda: rótulo 'EVENTO DA SEMANA', título com o tipo de evento (2 ou 3 linhas, a última em itálico dourado), fio, frase de acesso e parágrafo. Assinatura fixa 'Chegamos / onde precisar.' no canto inferior direito. Rodapé com cidade (ícone de pin) e site (ícone de globo). Nunca leva data.",
+    "explicacao_da_modelagem": {
+      "V1": "Versão ESCURA: degradê verde-petróleo #043333 à esquerda, texto creme, destaques em dourado claro #E2C05B, logo com texto creme, rodapé direto sobre a foto. Para eventos noturnos, de salão, casamentos, festas e eventos corporativos em fim de tarde.",
+      "V2": "Versão CLARA: véu creme #FAF7F1 à esquerda, texto quase-preto #1C1A15, destaques em dourado #B7881D, rodapé em faixa creme sólida com divisor vertical. Para eventos de dia e ao ar livre: leilão, feira, campo, casamento diurno."
+    },
+    "diferencas": "V1 noite/salão (petróleo + creme). V2 dia/ar livre (creme + quase-preto + faixa de rodapé). Estrutura, assinatura e regras iguais.",
+    "melhores_aplicacoes": [
+      "Post semanal do evento atendido (pauta 4 do briefing do dono)",
+      "Gancho 'chega onde o trailer não chega': 2º andar, dentro do salão, terreno sem acesso de veículo",
+      "Base para post de blog que junta 3 ou 4 eventos",
+      "Capa de carrossel do evento (slides seguintes com mais fotos)"
+    ],
+    "campos_para_preencher": {
+      "{{TIPO}}": "tipo de evento em 2 ou 3 linhas curtas, última em itálico dourado (ex.: 'Bodas / de Ouro', 'Evento / corporativo / ao ar livre')",
+      "{{FRASE DE ACESSO}}": "onde ficou e por que o módulo era o certo, até ~55 caracteres em 2 linhas (ex.: 'No 2º andar do salão, / onde o trailer não chega.')",
+      "{{PARÁGRAFO}}": "3 a 4 linhas sobre a operação real (içamento, versão ligada na rede ou autossuficiente, quem usou)",
+      "{{CIDADE}}": "cidade ou região, nunca o endereço"
+    },
+    "como_escolher_a_foto": "Foto real do evento com o módulo LA BELLE bem visível do centro para a direita e o lado esquerdo calmo (céu, parede, gramado, área desfocada). Evitar foto com outros banheiros ou trailers aparecendo.",
+    "atencao": [
+      "Só evento REAL; nada de cena inventada",
+      "NUNCA data no post (regra do portfólio)",
+      "A foto aparece UMA única vez",
+      "Sem trailers, outros banheiros ou marcas concorrentes na foto",
+      "Não citar nome do cliente sem autorização",
+      "Nunca azul nem marinho; degradê escuro é sempre verde-petróleo",
+      "'Ligado na rede' ou 'autossuficiente' só conforme a versão usada no evento",
+      "Copy passa pelo copy-qa-sms antes de publicar"
+    ],
+    "imagens_para_carregar": {
+      "V1": "IMAGEM 1 = foto real do evento com o módulo visível e o lado esquerdo calmo · IMAGEM 2 = logo LA BELLE (texto vira creme)",
+      "V2": "IMAGEM 1 = foto real do evento de dia com o módulo visível e o lado esquerdo calmo · IMAGEM 2 = logo LA BELLE original"
+    }
+  },
+
+  "paleta": {
+    "degrade_escuro": "#043333 verde-petróleo (V1)",
+    "veu_claro": "#FAF7F1 creme (V2)",
+    "dourado": "#B7881D (destaques, ícones e estrelas na V2)",
+    "dourado_claro": "#E2C05B (destaques e estrelas na V1, fio na V2)",
+    "titulos_claro": "#1C1A15 quase-preto quente",
+    "texto_claro": "#4A4238 marrom-cinza",
+    "proibido": "qualquer azul ou marinho"
+  },
+  "tipografia": {
+    "titulo_e_assinatura": "Cormorant Garamond SemiBold (destaques em Italic)",
+    "rotulo_frase_paragrafo_rodape": "Gilroy Regular / SemiBold (fallback Inter)"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818"},
+
+  "variacoes": {
+    "V1_escura_verde_petroleo": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real de um evento atendido pela LA BELLE, com o módulo visível. IMAGEM 2 = logo oficial da LA BELLE, em versão clara. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos nem pessoas; aplique somente tratamento de cor, o degradê verde-petróleo do lado esquerdo e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 como enviada; se tiver texto escuro, converta só o texto para creme. Monte o layout descrito no JSON. Não use azul nem marinho. Não escreva nenhuma data.",
+      "prompt": {
+        "scene": {
+          "description": "Post editorial vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, série 'evento da semana', estilo revista de eventos e interiores de luxo, versão escura. A IMAGEM 1 preenche o quadro inteiro, uma única vez, com color grading quente e natural e um degradê verde-petróleo #043333 a ~75% cobrindo os 55% da esquerda e sumindo até a direita. Grade de linhas finíssimas creme #FAF7F1 a 30% (1px): horizontais em y 45 e y 1300, verticais em x 55 e x 1065, de ponta a ponta; nos 4 cruzamentos e no ponto (560,1300), pequenas estrelas de brilho de 4 pontas dourado claro #E2C05B (~22px). Topo esquerdo: logo LA BELLE (IMAGEM 2) em versão clara, grande. Rótulo 'EVENTO DA SEMANA' em Gilroy caixa alta tracking aberto dourado claro. Título em Cormorant Garamond, creme, enorme, 2 ou 3 linhas: '{{TIPO}}' com a última linha em itálico dourado claro #E2C05B (exemplo: 'Evento' / 'Corporativo'). Fio creme de x 92 a x 360. Frase em Gilroy semibold creme, 2 linhas: '{{FRASE DE ACESSO}}'. Parágrafo em Gilroy regular creme a 90%, 3 linhas: '{{PARÁGRAFO}}'. Canto inferior direito, alinhado à direita, assinatura em Cormorant Garamond 2 linhas: 'Chegamos' em creme e 'onde precisar.' em itálico dourado claro. Rodapé abaixo da grade: ícone de pin fino + '{{CIDADE}}' à esquerda e ícone de globo + 'banheiroslabelle.com.br' à direita, Gilroy semibold creme. Paleta: verde-petróleo #043333, creme #FAF7F1, dourado claro #E2C05B, tons reais da foto. Sem azul, sem marinho, sem data.",
+          "subject": "Evento real com módulo LA BELLE (IMAGEM 1)",
+          "setting": "Evento social ou corporativo, clima elegante",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial de eventos de luxo",
+          "rendering_quality": "foto real hiperdetalhada com tipografia fina",
+          "surface_textures": "texturas reais nítidas à direita; grade, estrelas e texto flat",
+          "lighting": "luz original do evento realçada pelo grading; sem luz inventada"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition, qualidade editorial",
+          "rendering": "degradê sem bandas, grão muito fino, linhas de 1px nítidas"
+        },
+        "composition": {
+          "framing": "texto empilhado à esquerda, evento e módulo livres do centro para a direita, grade emoldurando",
+          "subject_placement": "logo topo esquerdo; rótulo + título terço superior; frase e parágrafo abaixo; assinatura canto inferior direito; rodapé abaixo da grade",
+          "safe_area": "64px de padding mínimo para todo texto, ícone e logo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "versão clara", "position": "topo esquerdo, x 92, y 75 a ~245"},
+            {"text": "EVENTO DA SEMANA", "font": "Gilroy SemiBold, caixa alta, tracking +20%", "font_size": "22px", "color": "#E2C05B", "position": "x 92, ~y 320"},
+            {"text": "{{TIPO}} linhas 1 a 2", "font": "Cormorant Garamond SemiBold", "font_size": "130 a 150px", "color": "#FAF7F1", "position": "x 92, ~y 360 a 450", "exemplo": "Evento"},
+            {"text": "{{TIPO}} última linha", "font": "Cormorant Garamond SemiBold Italic", "font_size": "130 a 150px", "color": "#E2C05B", "position": "x 92, linha de base ~y 545", "exemplo": "Corporativo"},
+            {"text": "fio", "type": "linha 1px", "color": "#FAF7F1 a 70%", "position": "x 92 a x 360, y ~585"},
+            {"text": "{{FRASE DE ACESSO}}", "font": "Gilroy SemiBold", "font_size": "30px", "color": "#FAF7F1", "position": "x 92, ~y 630, 2 linhas", "exemplo": "No 2º andar do salão, / onde o trailer não chega."},
+            {"text": "{{PARÁGRAFO}}", "font": "Gilroy Regular", "font_size": "22px", "color": "#FAF7F1 a 90%", "position": "x 92, ~y 715, 3 linhas", "exemplo": "Módulos içados por munck até o terraço. / Vaso de porcelana, cuba e espelho / para os convidados durante toda a festa."},
+            {"text": "Chegamos / onde precisar.", "font": "Cormorant Garamond SemiBold; 2ª linha Italic", "font_size": "58px", "color": "#FAF7F1 e #E2C05B", "position": "alinhado à direita em x 1045, ~y 1160 a 1260"},
+            {"text": "{{CIDADE}}", "font": "Gilroy SemiBold, ícone de pin fino", "font_size": "24px", "color": "#FAF7F1", "position": "rodapé esquerdo, x 80, ~y 1335", "exemplo": "São Paulo"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy SemiBold, ícone de globo fino", "font_size": "22px", "color": "#FAF7F1", "position": "rodapé direito, alinhado em x 1045, ~y 1335"},
+            {"text": "estrelas de brilho", "type": "5 estrelas finas de 4 pontas", "color": "#E2C05B", "position": "(55,45), (1065,45), (55,1300), (1065,1300), (560,1300)"}
+          ]
+        },
+        "quality": {
+          "include": ["degradê verde-petróleo suave", "módulo visível na foto", "grade de 1px e estrelas douradas", "Cormorant enorme com itálico dourado", "assinatura elegante", "clima de evento sofisticado"],
+          "avoid": ["qualquer data", "qualquer azul ou marinho", "pessoas, trailers ou banheiros inventados", "redesenhar a foto", "foto repetida", "dourado alaranjado", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "bloco verde-petróleo do site LA BELLE; revistas de casamento e eventos de luxo"
+        }
+      }
+    },
+
+    "V2_clara_creme": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto real de um evento diurno atendido pela LA BELLE, com o módulo visível. IMAGEM 2 = logo oficial da LA BELLE, nas cores originais. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos nem pessoas; aplique somente tratamento de cor claro, véu creme do lado esquerdo e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho. Não escreva nenhuma data.",
+      "prompt": {
+        "scene": {
+          "description": "Post editorial vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, série 'evento da semana', versão clara de dia. A IMAGEM 1 preenche o quadro inteiro, uma única vez, com grading claro e natural e um degradê de véu creme #FAF7F1 a ~72% cobrindo os 50% da esquerda e sumindo até o centro, deixando o evento e o módulo visíveis à direita. Grade de linhas finíssimas quase-preto #1C1A15 a 20% (1px): horizontais em y 55 e y 1285, verticais em x 50 e x 1070; nos 4 cruzamentos e nos pontos (560,55) e (560,1285), pequenas estrelas de 4 pontas douradas #B7881D (~22px). Topo esquerdo: logo LA BELLE (IMAGEM 2). Rótulo 'EVENTO DA SEMANA' em Gilroy caixa alta tracking muito aberto dourado #B7881D. Título em Cormorant Garamond, enorme, 2 ou 3 linhas: '{{TIPO}}' em quase-preto quente #1C1A15 com a última linha em itálico dourado #B7881D (exemplo: 'Evento' / 'corporativo' / 'ao ar livre'). Fio dourado de x 75 a x 240. Frase em Gilroy regular quase-preto, 2 linhas: '{{FRASE DE ACESSO}}'. Parágrafo em Gilroy regular marrom-cinza #4A4238, 3 a 4 linhas: '{{PARÁGRAFO}}'. Canto inferior direito, alinhado à direita, assinatura em Cormorant Garamond 2 linhas: 'Chegamos' em creme com sombra suave e 'onde precisar.' em itálico dourado claro, legível sobre a foto. Rodapé em faixa creme sólida de y 1315 a 1350+ com divisor vertical dourado fino no centro: ícone de pin dourado + '{{CIDADE}}' à esquerda e ícone de globo dourado + 'banheiroslabelle.com.br' à direita, Gilroy regular quase-preto. Paleta: creme #FAF7F1, dourado #B7881D / #E2C05B, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho, sem data.",
+          "subject": "Evento diurno real com módulo LA BELLE (IMAGEM 1)",
+          "setting": "Evento ao ar livre ou de dia, luz natural, clima leve",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial claro de eventos",
+          "rendering_quality": "foto real hiperdetalhada com tipografia fina",
+          "surface_textures": "texturas reais nítidas; grade, estrelas e texto flat",
+          "lighting": "luz natural de dia ou fim de tarde, suave"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition, qualidade editorial",
+          "rendering": "grading claro, véu sem bandas, linhas de 1px nítidas, sem grão"
+        },
+        "composition": {
+          "framing": "texto à esquerda sobre o véu, evento e módulo livres do centro para a direita",
+          "subject_placement": "logo topo esquerdo; rótulo + título terço superior; frase e parágrafo abaixo; assinatura canto inferior direito; rodapé em faixa sólida",
+          "safe_area": "64px de padding mínimo para todo texto, ícone e logo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "topo esquerdo, x 75, y 75 a ~170"},
+            {"text": "EVENTO DA SEMANA", "font": "Gilroy SemiBold, caixa alta, tracking +45%", "font_size": "22px", "color": "#B7881D", "position": "x 75, ~y 230"},
+            {"text": "{{TIPO}} linhas 1 a 2", "font": "Cormorant Garamond SemiBold", "font_size": "100 a 130px", "color": "#1C1A15", "position": "x 75, ~y 260 a 410", "exemplo": "Evento / corporativo"},
+            {"text": "{{TIPO}} última linha", "font": "Cormorant Garamond Regular Italic", "font_size": "100 a 130px", "color": "#B7881D", "position": "x 75, linha de base ~y 475", "exemplo": "ao ar livre"},
+            {"text": "fio", "type": "linha 1px", "color": "#B7881D", "position": "x 75 a x 240, y ~510"},
+            {"text": "{{FRASE DE ACESSO}}", "font": "Gilroy Regular", "font_size": "30px", "color": "#1C1A15", "position": "x 75, ~y 555, 2 linhas", "exemplo": "Onde nenhum veículo / chegava perto."},
+            {"text": "{{PARÁGRAFO}}", "font": "Gilroy Regular", "font_size": "21px", "color": "#4A4238", "position": "x 75, ~y 640, 3 a 4 linhas", "exemplo": "O módulo foi içado até o ponto do evento, / em versão autossuficiente com tanque lacrado. / Banheiro limpo e confortável para / convidados e equipe o dia todo."},
+            {"text": "Chegamos / onde precisar.", "font": "Cormorant Garamond SemiBold; 2ª linha Italic", "font_size": "58px", "color": "#FAF7F1 e #E2C05B, sombra suave", "position": "alinhado à direita em x 1045, ~y 1150 a 1250"},
+            {"text": "{{CIDADE}}", "font": "Gilroy Regular, ícone de pin dourado", "font_size": "26px", "color": "#1C1A15", "position": "faixa de rodapé, esquerda, x 175, ~y 1340", "exemplo": "Interior de São Paulo"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular, ícone de globo dourado", "font_size": "24px", "color": "#1C1A15", "position": "faixa de rodapé, direita, alinhado em x 980, ~y 1340"},
+            {"text": "estrelas", "type": "6 estrelas finas de 4 pontas", "color": "#B7881D", "position": "(50,55), (1070,55), (50,1285), (1070,1285), (560,55), (560,1285)"}
+          ]
+        },
+        "quality": {
+          "include": ["evento e módulo visíveis à direita", "véu creme suave", "texto quase-preto legível", "itálico dourado no título", "grade de 1px e estrelas douradas", "faixa de rodapé com divisor"],
+          "avoid": ["qualquer data", "qualquer azul ou marinho", "pessoas, trailers ou banheiros inventados", "véu que apague a foto", "foto repetida", "dourado claro em texto sobre fundo claro", "logo recolorida", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "site e folder oficial LA BELLE; Casa Vogue, revistas de eventos ao ar livre"
+        }
+      }
+    }
+  }
+}

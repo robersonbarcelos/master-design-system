@@ -1,0 +1,395 @@
+{
+  "template": "depoimentos-de-proprietarios-bnb",
+  "version": "1.0",
+  "status": "FECHADO (12 nov 2026): cards 1, 2 e as 2 variações de CTA (A e B) aprovados pelo usuário após teste",
+  "description": "Linha editorial BNB Connect de depoimentos de proprietários: 3 cards (2 de depoimento + 1 de CTA). Inspirada em post de depoimento de outra marca (pílula de título, card grande com a citação e colagem de fotos do imóvel ao redor), reescrita com paleta, tipografia e flat da BNB.",
+  "fonte_da_paleta": "Petróleo #005070, azul-marinho #052F42, off-white #F8F4EA, dourado fosco #A9782E",
+  "regras_fixas_em_toda_variacao": {
+    "aspect_ratio": "1080x1350 px, 4:5, declarado no início da description, em technical e na lista avoid. O GPT tende a gerar 1092x1440 (3:4): se vier assim, cortar para 1080x1350 (o conteúdo tem folga).",
+    "texto": "O depoimento é reproduzido palavra por palavra do proprietário, dividido em 2 cards sem mudar nada. Sem aspas de fechamento (só o glifo dourado de abertura). Sem travessão, sem CRECI, sem código de imóvel.",
+    "logo": "Em TODOS os cards a logo NÃO é anexada: o JSON reserva uma área vazia (240x90px) e a logo é aplicada depois no Canva (escura sobre card off-white, clara sobre foto).",
+    "fotos": "4 fotos por card de depoimento (cards 1 e 2) e 1 foto no card 3 (CTA). Sempre originais, sem interface do Airbnb. Upscale editorial. Carregar 8 ou mais fotos num card foi descartado por ser pouco prático.",
+    "serifada": "Newsreader Italic, no máximo 1 frase por card",
+    "peso": "Texto do depoimento em Manrope Bold 700 (nunca Regular ou Medium)",
+    "dourado": "Dourado fosco #A9782E, terroso e mate, nunca alaranjado vibrante nem metálico"
+  },
+  "campos_variaveis": {
+    "nome": "Nome do proprietário (autorizado por ele)",
+    "frase_serifada": "Ex.: Proprietário de 2 imóveis em Ilhabela (só dado confirmado)",
+    "selo_gestao": "Selo dourado do card 1: Contratou a gestão completa da BNB Connect (só se for verdade)",
+    "texto": "Depoimento do proprietário, dividido em 2 partes no corte de frase"
+  },
+  "variacoes": {
+    "card-01-depoimento-parte-1": {
+      "nome": "Card 1: título + card grande com início do depoimento, selo gestão completa e colagem 2x2",
+      "imagens_para_carregar": "4 fotos do imóvel 1 (sup. esq., sup. dir., inf. esq., inf. dir.). Sem logo.",
+      "quando_usar": "Abertura do carrossel de depoimento",
+      "aprovado": true,
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (largura 1080, altura 1350), nem 3:4, nem 1092x1440, nem 1:1, nem 9:16. Card de carrossel de Instagram da BNB Connect, linha Depoimentos de Proprietários, card 1 de 3. Fundo em colagem 2x2 com as 4 fotos anexadas (imagens 1 a 4) do imóvel do proprietário, preenchendo todo o canvas, com intervalos de 8px em off-white quente #F8F4EA e cantos arredondados de aproximadamente 16px em cada foto. Cada foto aparece EXATAMENTE como a imagem anexada (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento), em enquadramento cover. UPSCALE EDITORIAL em todas as fotos: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada para tons quentes e terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original. Sobre a colagem: uma pílula navy #052F42 no topo com o título e, centralizado, um card grande off-white quente #F8F4EA de cantos arredondados (raio ~24px), contido com respiro nos 4 lados, 100% flat, SEM sombra projetada e SEM contorno. No topo do card, centralizada, fica uma ÁREA RESERVADA VAZIA de aproximadamente 240x90px para a logo BNB Connect, que será aplicada depois em outro programa: NÃO gerar logo, NÃO gerar ícone, NÃO gerar texto BNB nem qualquer marca nessa área, deixar apenas o off-white liso do card. Abaixo da área reservada, de cima para baixo: aspas douradas, o texto do depoimento em Manrope Bold petróleo, uma divisória dourada curta, o nome do proprietário, uma frase serifada itálica e um selo dourado plano. Paleta: petróleo #005070, azul-marinho profundo #052F42, off-white quente #F8F4EA, dourado fosco #A9782E (terroso e mate, nunca alaranjado vibrante nem metálico). Visual editorial de revista de design, limpo, premium, flat.",
+            "subject": "Card de depoimento de proprietário sobre colagem de 4 fotos de um chalé de temporada em Ilhabela, com espaço reservado vazio para logo",
+            "setting": "Composição gráfica 2D para feed do Instagram, sem cena nova além das fotos anexadas",
+            "action": "static"
+          },
+          "style": {
+            "primary": "editorial, design gráfico flat de marca premium de hospitalidade",
+            "rendering_quality": "high-resolution, bordas nítidas, tipografia limpa",
+            "surface_textures": "blocos 100% flat sem sombra, sem gradiente e sem contorno; as fotos mantêm a textura real original",
+            "lighting": "as fotos preservam a luz natural original, com tom quente uniformizado; os blocos gráficos não têm iluminação simulada"
+          },
+          "technical": {
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350",
+            "resolution": "editorial print quality, 1080x1350 pixels exatos",
+            "rendering": "composição gráfica nítida, texto vetorial sem borrão, cores chapadas fiéis aos hex indicados"
+          },
+          "composition": {
+            "perspective": "frontal 2D, sem perspectiva",
+            "framing": "colagem 2x2 de fundo (cada foto 536x671px, intervalo de 8px) com card grande central sobreposto",
+            "subject_placement": "Eixo central. Pílula do título no topo, card quase em tela cheia no centro com todo o conteúdo dentro dele. As fotos aparecem nas faixas ao redor do card.",
+            "safe_area": "mínimo de 64px em todos os lados, nenhum texto ou ícone encosta nas bordas. Zona segura de 952x1222px dentro do canvas de 1080x1350px.",
+            "ui_elements": [
+              "Pílula do título: raio máximo, 600x76px, navy #052F42, centralizada, topo em y=64px. Texto exato: DEPOIMENTO DE PROPRIETÁRIO. Manrope ExtraBold 800, caixa alta, 28px, espaçamento entre letras +2px, off-white #F8F4EA.",
+              "Card: retângulo arredondado raio 24px, 904x1010px, off-white #F8F4EA, 100% flat, sem sombra e sem contorno, x=88px, y=176px, contido nos 4 lados.",
+              "ÁREA RESERVADA PARA LOGO: retângulo imaginário de 240x90px, centralizado horizontalmente no topo do card (y~216px a y~306px), VAZIO, apenas o off-white liso do card, sem nenhum elemento, sem logo, sem ícone, sem texto, sem placeholder, sem bloco colorido.",
+              "Aspas de abertura: glifo grande em dourado fosco #A9782E, Manrope ExtraBold, ~100px, centralizado abaixo da área reservada (y~320px). É o único sinal de aspas da peça: NÃO colocar aspas de fechamento nem aspas retas no fim do texto.",
+              "Texto do depoimento, centralizado, margem interna de 64px: Administrar meu imóvel no Airbnb exigia um tempo e uma dedicação que eu não tinha disponíveis. A BNB Connect transformou essa experiência, assumindo toda a gestão com profissionalismo, agilidade e transparência. Manrope Bold 700 (traço grosso, nunca Regular nem Medium), 44px, entrelinha 1.35, cor petróleo #005070. As palavras toda a gestão em Manrope ExtraBold 800, cor dourado fosco #A9782E. O texto termina em transparência. e nada mais depois do ponto final. Reproduzir o texto palavra por palavra, sem trocar, sem cortar e sem acrescentar nada.",
+              "Divisória: traço dourado fosco #A9782E, 96x4px, cantos arredondados, centralizado (y~950px).",
+              "Nome: texto exato Eduardo, Manrope ExtraBold 800, 40px, azul-marinho #052F42, centralizado (y~980px).",
+              "Frase serifada: texto exato Proprietário de 2 imóveis em Ilhabela, Newsreader Italic 400, 30px, petróleo #005070, centralizada, logo abaixo do nome.",
+              "Selo dourado: pílula 700x56px, raio máximo, dourado fosco #A9782E 100% flat, centralizada (y~1090px). Texto exato: Contratou a gestão completa da BNB Connect. DM Sans SemiBold 600, 24px, off-white #F8F4EA, centralizado. Dentro do card, com respiro mínimo de 40px até a borda inferior."
+            ]
+          },
+          "quality": {
+            "include": [
+              "formato exato 1080x1350 px, proporção 4:5",
+              "fotos anexadas fiéis ao original",
+              "upscale editorial com tom quente",
+              "tipografia Manrope Bold com traço grosso e contraste alto",
+              "dourado fosco terroso como cor de apoio",
+              "blocos 100% flat",
+              "área reservada da logo totalmente vazia e limpa",
+              "texto do depoimento idêntico ao fornecido",
+              "margens de 64px respeitadas",
+              "intervalos de 8px uniformes na colagem"
+            ],
+            "avoid": [
+              "proporção 3:4, 1092x1440, 1:1 ou 9:16",
+              "dimensões diferentes de 1080x1350",
+              "gerar, desenhar ou inventar qualquer logo, ícone de casa ou texto BNB na área reservada",
+              "bloco, pílula ou retângulo colorido na área reservada da logo",
+              "aspas de fechamento ou aspas retas no fim do texto",
+              "sombra, brilho, glow ou contorno nos blocos",
+              "gradientes e texturas nos blocos gráficos",
+              "alterar o texto do depoimento ou acrescentar palavras",
+              "texto em peso Regular ou Medium",
+              "inventar elementos novos nas fotos",
+              "travessão no texto",
+              "código de imóvel, CRECI ou rótulos não pedidos",
+              "dourado alaranjado vibrante ou metálico",
+              "mais de uma frase serifada no card"
+            ],
+            "reference_standard": "Design editorial de marcas de hospitalidade premium; linguagem visual dos templates BNB Connect Casas com Alma (card off-white flutuante flat, área reservada vazia para logo) e Imóveis em Destaque (dourado fosco, Manrope ExtraBold, serifada itálica, rótulos em DM Sans)."
+          }
+        }
+      }
+    },
+    "card-02-depoimento-parte-2": {
+      "nome": "Card 2: parte final do depoimento, sem selo, colagem 2x2 do segundo imóvel",
+      "imagens_para_carregar": "4 fotos do imóvel 2 (sup. esq., sup. dir., inf. esq., inf. dir.). Sem logo.",
+      "quando_usar": "Segundo slide do carrossel de depoimento",
+      "aprovado": true,
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (largura 1080, altura 1350), nem 3:4, nem 1092x1440, nem 1:1, nem 9:16. Card de carrossel de Instagram da BNB Connect, linha Depoimentos de Proprietários, card 2 de 3. Fundo em colagem 2x2 com as 4 fotos anexadas (imagens 1 a 4) do segundo imóvel do proprietário, preenchendo todo o canvas, com intervalos de 8px em off-white quente #F8F4EA e cantos arredondados de aproximadamente 16px em cada foto. Cada foto aparece EXATAMENTE como a imagem anexada (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento), em enquadramento cover. UPSCALE EDITORIAL em todas as fotos: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada para tons quentes e terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original. Sobre a colagem: uma pílula navy #052F42 no topo com o título e, centralizado, um card grande off-white quente #F8F4EA de cantos arredondados (raio ~24px), contido com respiro nos 4 lados, 100% flat, SEM sombra projetada e SEM contorno. No topo do card, centralizada, fica uma ÁREA RESERVADA VAZIA de aproximadamente 240x90px para a logo BNB Connect, que será aplicada depois em outro programa: NÃO gerar logo, NÃO gerar ícone, NÃO gerar texto BNB nem qualquer marca nessa área, deixar apenas o off-white liso do card. Abaixo da área reservada, de cima para baixo: aspas douradas, o texto do depoimento em Manrope Bold petróleo, uma divisória dourada curta, o nome do proprietário e uma frase serifada itálica. Neste card NÃO há selo dourado. Paleta: petróleo #005070, azul-marinho profundo #052F42, off-white quente #F8F4EA, dourado fosco #A9782E (terroso e mate, nunca alaranjado vibrante nem metálico). Visual editorial de revista de design, limpo, premium, flat.",
+            "subject": "Card de depoimento de proprietário (parte final) sobre colagem de 4 fotos do segundo chalé em Ilhabela, com espaço reservado vazio para logo",
+            "setting": "Composição gráfica 2D para feed do Instagram, sem cena nova além das fotos anexadas",
+            "action": "static"
+          },
+          "style": {
+            "primary": "editorial, design gráfico flat de marca premium de hospitalidade",
+            "rendering_quality": "high-resolution, bordas nítidas, tipografia limpa",
+            "surface_textures": "blocos 100% flat sem sombra, sem gradiente e sem contorno; as fotos mantêm a textura real original",
+            "lighting": "as fotos preservam a luz natural original, com tom quente uniformizado; os blocos gráficos não têm iluminação simulada"
+          },
+          "technical": {
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350",
+            "resolution": "editorial print quality, 1080x1350 pixels exatos",
+            "rendering": "composição gráfica nítida, texto vetorial sem borrão, cores chapadas fiéis aos hex indicados"
+          },
+          "composition": {
+            "perspective": "frontal 2D, sem perspectiva",
+            "framing": "colagem 2x2 de fundo (cada foto 536x671px, intervalo de 8px) com card grande central sobreposto, mais baixo que o card 1",
+            "subject_placement": "Eixo central. Pílula do título no topo, card quase em tela cheia no centro com todo o conteúdo dentro dele. As fotos aparecem nas faixas ao redor do card.",
+            "safe_area": "mínimo de 64px em todos os lados, nenhum texto ou ícone encosta nas bordas. Zona segura de 952x1222px dentro do canvas de 1080x1350px.",
+            "ui_elements": [
+              "Pílula do título: raio máximo, 600x76px, navy #052F42, centralizada, topo em y=64px. Texto exato: DEPOIMENTO DE PROPRIETÁRIO. Manrope ExtraBold 800, caixa alta, 28px, espaçamento entre letras +2px, off-white #F8F4EA.",
+              "Card: retângulo arredondado raio 24px, 904x930px, off-white #F8F4EA, 100% flat, sem sombra e sem contorno, x=88px, y=176px, contido nos 4 lados.",
+              "ÁREA RESERVADA PARA LOGO: retângulo imaginário de 240x90px, centralizado horizontalmente no topo do card (y~216px a y~306px), VAZIO, apenas o off-white liso do card, sem nenhum elemento, sem logo, sem ícone, sem texto, sem placeholder, sem bloco colorido.",
+              "Aspas de abertura: glifo grande em dourado fosco #A9782E, Manrope ExtraBold, ~100px, centralizado abaixo da área reservada (y~320px). É o único sinal de aspas da peça: NÃO colocar aspas de fechamento nem aspas retas no fim do texto.",
+              "Texto do depoimento, centralizado, margem interna de 64px: Hoje, sou acionado apenas quando necessário e tenho a tranquilidade de saber que tudo está em boas mãos. Essa parceria foi essencial para que eu continuasse oferecendo meu imóvel no Airbnb. Manrope Bold 700 (traço grosso, nunca Regular nem Medium), 44px, entrelinha 1.35, cor petróleo #005070. As palavras sou acionado apenas quando necessário em Manrope ExtraBold 800, cor dourado fosco #A9782E. O texto termina em Airbnb. e nada mais depois do ponto final. Reproduzir o texto palavra por palavra, sem trocar, sem cortar e sem acrescentar nada.",
+              "Divisória: traço dourado fosco #A9782E, 96x4px, cantos arredondados, centralizado (y~930px).",
+              "Nome: texto exato Eduardo, Manrope ExtraBold 800, 40px, azul-marinho #052F42, centralizado (y~960px).",
+              "Frase serifada: texto exato Proprietário de 2 imóveis em Ilhabela, Newsreader Italic 400, 30px, petróleo #005070, centralizada, logo abaixo do nome, com respiro mínimo de 40px até a borda inferior do card."
+            ]
+          },
+          "quality": {
+            "include": [
+              "formato exato 1080x1350 px, proporção 4:5",
+              "fotos anexadas fiéis ao original",
+              "upscale editorial com tom quente",
+              "tipografia Manrope Bold com traço grosso e contraste alto",
+              "dourado fosco terroso como cor de apoio",
+              "blocos 100% flat",
+              "área reservada da logo totalmente vazia e limpa",
+              "texto do depoimento idêntico ao fornecido",
+              "margens de 64px respeitadas",
+              "intervalos de 8px uniformes na colagem"
+            ],
+            "avoid": [
+              "proporção 3:4, 1092x1440, 1:1 ou 9:16",
+              "dimensões diferentes de 1080x1350",
+              "gerar, desenhar ou inventar qualquer logo, ícone de casa ou texto BNB na área reservada",
+              "bloco, pílula ou retângulo colorido na área reservada da logo",
+              "aspas de fechamento ou aspas retas no fim do texto",
+              "sombra, brilho, glow ou contorno nos blocos",
+              "gradientes e texturas nos blocos gráficos",
+              "alterar o texto do depoimento ou acrescentar palavras",
+              "texto em peso Regular ou Medium",
+              "inventar elementos novos nas fotos",
+              "travessão no texto",
+              "código de imóvel, CRECI ou rótulos não pedidos",
+              "dourado alaranjado vibrante ou metálico",
+              "mais de uma frase serifada no card",
+              "selo dourado ou qualquer pílula dentro do card neste card 2"
+            ],
+            "reference_standard": "Design editorial de marcas de hospitalidade premium; linguagem visual dos templates BNB Connect Casas com Alma (card off-white flutuante flat, área reservada vazia para logo) e Imóveis em Destaque (dourado fosco, Manrope ExtraBold, serifada itálica, rótulos em DM Sans)."
+          }
+        }
+      }
+    },
+    "card-03-cta-A-foto-card-flutuante": {
+      "nome": "Card 3 (CTA) A: foto full-bleed + card off-white flutuante com chamada",
+      "imagens_para_carregar": "1 foto do imóvel (a melhor do conjunto). Sem logo.",
+      "quando_usar": "Fechamento mais limpo e leve",
+      "aprovado": true,
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (largura 1080, altura 1350), nem 3:4, nem 1092x1440, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese. Card final (CTA) de carrossel de Instagram da BNB Connect, linha Depoimentos de Proprietários, card 3 de 3, versão A. Retrato vertical 4:5. Fundo: foto documental real de ambiente interno de chalé de temporada, EXATAMENTE a primeira imagem anexada pelo usuário (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas), em full-bleed ocupando o canvas inteiro, passando por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada para tons quentes e terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original. ÁREA RESERVADA PARA LOGO: retângulo imaginário de 240x90px, centralizado horizontalmente no topo da foto (y~64px a y~154px), VAZIO, sem logo, sem ícone, sem texto, sem placeholder e sem bloco colorido, mantendo só a foto original; a logo BNB Connect (versão clara) será aplicada depois em outro programa. NÃO gerar logo. Centralizado no frame, na metade inferior, um card sólido off-white quente #F8F4EA de cantos bem arredondados (raio ~24px), 904x560px, x=88px, y=640px, CONTIDO com respiro visível nos 4 lados (não encosta, não é cortado, não sangra por nenhuma borda), 100% flat: SEM nenhuma linha de contorno ou stroke e SEM nenhuma sombra projetada. A separação vem só do contraste entre o off-white e a foto. Dentro do card, texto alinhado à esquerda, margem interna de 56px: título em duas linhas, 'Seu imóvel também pode estar' em Manrope Bold petróleo #005070, seguido de 'em boas mãos.' em serifada itálica dourado fosco #A9782E (mesma altura de linha), abaixo com respiro um subtítulo menor em Manrope Regular petróleo 'Faça sua avaliação gratuita.', e na base do card uma barra dourada fosco #A9782E flat, 792x72px, com o texto 'Link na bio' em Manrope ExtraBold off-white. Paleta: petróleo #005070, azul-marinho profundo #052F42, off-white quente #F8F4EA, dourado fosco #A9782E (terroso e mate, nunca alaranjado vibrante nem metálico). Visual editorial de revista de design, limpo, premium, flat.",
+            "subject": "Interior de chalé de temporada conforme a primeira imagem anexada, com card off-white flutuante de chamada",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial, design gráfico flat de marca premium de hospitalidade sobre fotografia real de interiores",
+            "rendering_quality": "high-resolution, bordas nítidas, tipografia limpa",
+            "surface_textures": "blocos 100% flat sem sombra, sem gradiente e sem contorno; a foto mantém a textura real original",
+            "lighting": "a foto preserva a luz natural original, com tom quente uniformizado; os blocos gráficos não têm iluminação simulada"
+          },
+          "technical": {
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350",
+            "resolution": "editorial print quality, 1080x1350 pixels exatos",
+            "rendering": "composição gráfica nítida, texto vetorial sem borrão, cores chapadas fiéis aos hex indicados"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "foto full-bleed com card off-white flutuante contido nos 4 lados, na metade inferior",
+            "subject_placement": "foto ocupa o frame inteiro; área reservada da logo no topo central; card de chamada ocupa a metade inferior, centralizado horizontalmente.",
+            "safe_area": "mínimo de 64px em todos os lados para texto e logo, nenhum texto encosta nas bordas. Zona segura de 952x1222px dentro do canvas de 1080x1350px.",
+            "ui_elements": [
+              {
+                "text": "área reservada para a logo BNB Connect",
+                "type": "VAZIA, não gerar: 240x90px, topo central sobre a foto",
+                "position": "y~64px a y~154px"
+              },
+              {
+                "text": "Seu imóvel também pode estar",
+                "font": "Manrope Bold 700",
+                "font_size": "50px",
+                "color": "#005070",
+                "position": "card, alinhado à esquerda, linha 1 do título"
+              },
+              {
+                "text": "em boas mãos.",
+                "font": "Newsreader Italic 400 (serifada)",
+                "font_size": "50px",
+                "color": "#A9782E",
+                "position": "card, linha 2 do título, logo abaixo da linha 1"
+              },
+              {
+                "text": "Faça sua avaliação gratuita.",
+                "font": "Manrope Regular 400",
+                "font_size": "30px",
+                "color": "#005070",
+                "position": "card, abaixo do título com respiro de ~32px"
+              },
+              {
+                "text": "Link na bio",
+                "font": "Manrope ExtraBold 800",
+                "font_size": "34px",
+                "color": "#F8F4EA",
+                "position": "barra dourada #A9782E 792x72px, raio máximo, na base do card, texto centralizado"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "formato exato 1080x1350 px, proporção 4:5",
+              "foto anexada fiel ao original",
+              "upscale editorial com tom quente",
+              "card off-white flat, sem sombra e sem contorno",
+              "título Manrope Bold com serifada dourada em 'em boas mãos.'",
+              "barra dourada fosco terrosa",
+              "área reservada da logo limpa e vazia",
+              "margens de 64px respeitadas"
+            ],
+            "avoid": [
+              "proporção 3:4, 1092x1440, 1:1 ou 9:16",
+              "dimensões diferentes de 1080x1350",
+              "gerar, desenhar ou inventar qualquer logo, ícone de casa ou texto BNB na área reservada",
+              "sombra, brilho, glow ou contorno nos blocos",
+              "gradientes nos blocos gráficos",
+              "inventar elementos novos na foto",
+              "pessoas na foto",
+              "travessão no texto",
+              "código de imóvel, CRECI ou rótulos não pedidos",
+              "dourado alaranjado vibrante ou metálico",
+              "mais de uma frase serifada na peça",
+              "alterar os textos especificados ou acrescentar palavras",
+              "card encostando ou sangrando em qualquer borda do frame",
+              "bloco ou retângulo colorido na área reservada da logo"
+            ],
+            "reference_standard": "Linguagem visual dos templates BNB Connect Casas com Alma (card 4, card off-white flutuante flat sobre foto full-bleed) e Autoridade (card 6, card flutuante com tagline e serifada dourada)."
+          }
+        }
+      }
+    },
+    "card-03-cta-B-foto-faixa-navy-abas": {
+      "nome": "Card 3 (CTA) B: foto 62% + 3 abas navy com filete dourado + faixa navy com chamada",
+      "imagens_para_carregar": "1 foto do imóvel (a melhor do conjunto). Sem logo.",
+      "quando_usar": "Fechamento com mais contexto (gestão completa, 2 imóveis, avaliação gratuita)",
+      "aprovado": true,
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "FORMATO OBRIGATÓRIO: canvas de EXATAMENTE 1080x1350 pixels, proporção 4:5 (largura 1080, altura 1350), nem 3:4, nem 1092x1440, nem 1:1, nem 9:16. Não alterar a proporção em nenhuma hipótese. Card final (CTA) de carrossel de Instagram da BNB Connect, linha Depoimentos de Proprietários, card 3 de 3, versão B. Retrato vertical 4:5 (1080x1350), frame dividido horizontalmente: 62% superior (altura de 837px) é uma foto documental real de ambiente INTERNO de chalé de temporada, EXATAMENTE a primeira imagem anexada pelo usuário (carregar o arquivo, não gerar cena nova do zero, sem inventar nenhum elemento que não esteja na foto original, sem pessoas), passando por UPSCALE EDITORIAL: nitidez aumentada preservando detalhe real, contraste moderado elevado, saturação levemente reduzida, temperatura de cor ajustada para tons quentes e terrosos alinhados à paleta da marca, removendo dominante de cor fria, sem HDR artificial, sem alterar a exposição original. 38% inferior (513px) é uma faixa sólida azul-marinho #052F42, largura total, corte reto sem arredondamento, 100% flat. ÁREA RESERVADA PARA LOGO: retângulo imaginário de 240x90px, centralizado horizontalmente no topo da foto (y~64px a y~154px), VAZIO, sem logo, sem ícone, sem texto, sem placeholder e sem bloco colorido, mantendo só a foto original; a logo BNB Connect (versão clara) será aplicada depois em outro programa. NÃO gerar logo. Colados à borda ESQUERDA do frame, sangrando de propósito até a borda como abas, 3 quadrados sólidos flat, todos em azul-marinho #052F42, empilhados verticalmente sobre a foto, cada um com cerca de 190x136px, separados por um filete de 2px em dourado fosco #A9782E, começando a cerca de 200px do topo, sem sombra e sem contorno. Dentro de cada quadrado, centralizado: um ícone de linha fina (traço uniforme de ~2px, cantos arredondados, sem preenchimento) e abaixo o rótulo em sans-serif medium, tudo em off-white #F8F4EA. Quadrado 1: ícone de prancheta com check, 'Gestão completa'. Quadrado 2: ícone de duas casas lado a lado, '2 imóveis em Ilhabela'. Quadrado 3: ícone de lupa com check, 'Avaliação gratuita'. Dentro da faixa navy inferior, alinhado à esquerda, margem de 64px: título em duas linhas 'Eduardo confiou 2 imóveis' / 'à BNB Connect.' em Manrope ExtraBold off-white #F8F4EA; abaixo, em serifada itálica off-white, 'Faça sua avaliação gratuita.'; e na base da faixa uma barra dourada fosco #A9782E flat, 952x80px, com o texto 'Link na bio' em Manrope ExtraBold off-white. Nenhum outro texto na peça: sem código, sem número de referência. Paleta: petróleo #005070, azul-marinho profundo #052F42, off-white quente #F8F4EA, dourado fosco #A9782E (terroso e mate, nunca alaranjado vibrante nem metálico). Visual editorial de revista de design, limpo, premium, flat.",
+            "subject": "Interior de chalé conforme a primeira imagem anexada, com pilha de 3 quadrados de informação na borda esquerda e faixa navy de título e chamada colada na base",
+            "setting": "Conforme a imagem anexada",
+            "action": "Estático, ambiente vazio, sem pessoas em cena"
+          },
+          "style": {
+            "primary": "editorial, design gráfico flat de marca premium de hospitalidade sobre fotografia real de interiores",
+            "rendering_quality": "high-resolution, bordas nítidas, tipografia limpa",
+            "surface_textures": "blocos 100% flat sem sombra, sem gradiente e sem contorno; a foto mantém a textura real original",
+            "lighting": "a foto preserva a luz natural original, com tom quente uniformizado; os blocos gráficos não têm iluminação simulada"
+          },
+          "technical": {
+            "aspect_ratio": "4:5",
+            "canvas_pixels": "1080x1350",
+            "resolution": "editorial print quality, 1080x1350 pixels exatos",
+            "rendering": "composição gráfica nítida, texto vetorial sem borrão, cores chapadas fiéis aos hex indicados"
+          },
+          "composition": {
+            "perspective": "conforme a foto anexada",
+            "framing": "split horizontal 62/38, corte reto sem transição, pilha de abas à esquerda sobre a foto",
+            "subject_placement": "foto nos 62% superiores; área reservada da logo no topo central; 3 abas na borda esquerda a partir de y~200px; faixa navy nos 38% inferiores com título, serifada e barra de chamada.",
+            "safe_area": "mínimo de 64px em todos os lados para texto e logo, nenhum texto encosta nas bordas. Zona segura de 952x1222px dentro do canvas de 1080x1350px. Exceção intencional: os 3 quadrados encostam na borda esquerda do frame (formato de aba).",
+            "ui_elements": [
+              {
+                "text": "área reservada para a logo BNB Connect",
+                "type": "VAZIA, não gerar: 240x90px, topo central sobre a foto",
+                "position": "y~64px a y~154px"
+              },
+              {
+                "text": "Gestão completa",
+                "font": "DM Sans Medium 500",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre #052F42",
+                "position": "quadrado 1 da pilha, com ícone de prancheta com check"
+              },
+              {
+                "text": "2 imóveis em Ilhabela",
+                "font": "DM Sans Medium 500",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre #052F42",
+                "position": "quadrado 2, com ícone de duas casas, até 2 linhas"
+              },
+              {
+                "text": "Avaliação gratuita",
+                "font": "DM Sans Medium 500",
+                "font_size": "22px",
+                "color": "#F8F4EA sobre #052F42",
+                "position": "quadrado 3, com ícone de lupa com check"
+              },
+              {
+                "text": "Eduardo confiou 2 imóveis / à BNB Connect.",
+                "font": "Manrope ExtraBold 800",
+                "font_size": "52px",
+                "color": "#F8F4EA",
+                "position": "faixa navy, alinhado à esquerda, 2 linhas, topo da faixa com ~48px de respiro"
+              },
+              {
+                "text": "Faça sua avaliação gratuita.",
+                "font": "Newsreader Italic 400 (serifada)",
+                "font_size": "38px",
+                "color": "#F8F4EA",
+                "position": "faixa navy, alinhado à esquerda, logo abaixo do título"
+              },
+              {
+                "text": "Link na bio",
+                "font": "Manrope ExtraBold 800",
+                "font_size": "34px",
+                "color": "#F8F4EA",
+                "position": "barra dourada #A9782E 952x80px, raio ~16px, x=64px, y~1170px, texto centralizado"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "formato exato 1080x1350 px, proporção 4:5",
+              "foto anexada fiel ao original",
+              "upscale editorial com tom quente",
+              "abas navy coladas à borda esquerda com filete dourado",
+              "faixa navy 100% flat de corte reto",
+              "título Manrope ExtraBold com contraste alto",
+              "ícones de linha fina consistentes",
+              "área reservada da logo limpa e vazia",
+              "margens de 64px respeitadas (exceto as abas)"
+            ],
+            "avoid": [
+              "proporção 3:4, 1092x1440, 1:1 ou 9:16",
+              "dimensões diferentes de 1080x1350",
+              "gerar, desenhar ou inventar qualquer logo, ícone de casa ou texto BNB na área reservada",
+              "sombra, brilho, glow ou contorno nos blocos",
+              "gradientes nos blocos gráficos",
+              "inventar elementos novos na foto",
+              "pessoas na foto",
+              "travessão no texto",
+              "código de imóvel, CRECI ou rótulos não pedidos",
+              "dourado alaranjado vibrante ou metálico",
+              "mais de uma frase serifada na peça",
+              "alterar os textos especificados ou acrescentar palavras",
+              "quadrados com sombra ou contorno",
+              "ícones preenchidos ou coloridos",
+              "mais de 3 quadrados",
+              "faixa inferior com cantos arredondados"
+            ],
+            "reference_standard": "Linguagem visual do template BNB Connect Imóveis em Destaque (capa B: foto + pilha de quadrados navy com filete dourado + faixa navy colada na base) e Autoridade (card 4: split horizontal foto + bloco de texto)."
+          }
+        }
+      }
+    }
+  },
+  "cards_planejados": [
+    "Card 1: depoimento parte 1 (4 fotos do imóvel 1)",
+    "Card 2: depoimento parte 2 (4 fotos do imóvel 2)",
+    "Card 3: CTA, usar A (foto + card flutuante) ou B (foto + abas navy + faixa de contexto), 1 foto"
+  ],
+  "como_usar": "Trocar o texto do depoimento (dividir em 2 partes no corte de frase, palavra por palavra do proprietário), nome, frase serifada e selo; carregar as fotos de cada card conforme imagens_para_carregar; aplicar a logo no Canva na área reservada; se o GPT gerar 1092x1440, cortar para 1080x1350."
+}

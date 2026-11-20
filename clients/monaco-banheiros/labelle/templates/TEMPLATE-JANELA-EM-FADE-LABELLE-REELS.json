@@ -1,0 +1,108 @@
+{
+  "template": "TEMPLATE-JANELA-EM-FADE-LABELLE-REELS",
+  "version": "1.0",
+  "formato": "Capa de Reel 9:16, 1080x1920. A grade do feed recorta em 4:5 (y 285 a 1635), por isso moldura e conteúdo ficam dentro dessa faixa.",
+  "anexos": {
+    "imagem_1": "foto vertical da cena, com o ASSUNTO na metade de cima (y 400 a 1000 do canvas), sem texto dentro. A metade de baixo da foto fica coberta pelo fade e pode ser qualquer coisa",
+    "imagem_2": "logo LA BELLE dourada em PNG transparente (logo_labelle_dourado.png ou logo_labelle_insta.png)"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto da cena: mostre-a nítida na metade de cima da moldura, dissolvendo suavemente para o creme, sem redesenhar a cena, sem remover pessoas ou objetos, com apenas leve tom quente. IMAGEM 2 = logo LA BELLE: aplique exatamente como enviada, sem esticar, girar, recolorir, redesenhar nem adicionar sombra. Todo texto vem dos campos abaixo, letra por letra, com acentos.",
+  "prompt": {
+    "scene": {
+      "description": "Capa vertical 9:16 de um Reel de uma empresa de banheiros modulares. Fundo creme claro (#FAF7F1). Dentro de uma moldura dourada fina e recuada, de cantos arredondados, a foto anexada aparece nítida e levemente quente na metade de cima, e dissolve em gradiente suave até o creme na altura de y 1190. Sobre o creme limpo da metade de baixo da moldura ficam um eyebrow dourado com bolinha, duas linhas de título (a primeira em verde-petróleo, a segunda em dourado itálico maior) e, no rodapé, a logo LA BELLE anexada. Fora da moldura, um traço quase invisível da mesma foto desfocada (6 a 8%) evita que o 9:16 pareça vazio. Paleta: creme #FAF7F1, verde-petróleo #043333, dourado #B7881D.",
+      "subject": "cena fotográfica em janela com fade, e ficha tipográfica abaixo",
+      "setting": "fundo claro de papel creme",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial, comercial",
+      "rendering_quality": "detailed, fiel à foto original",
+      "surface_textures": "foto natural e nítida na janela; creme liso no restante",
+      "lighting": "a da foto original, com leve calor editorial; sem relighting"
+    },
+    "technical": {
+      "canvas": {
+        "tamanho": "1080x1920 px, 9:16",
+        "area_visivel_feed_4_5": "y 285 a 1635 (1080x1350)",
+        "exportacao": "2160x3840 se disponível"
+      },
+      "rendering": "fade com gradiente linear suave, sem faixa nem degrau visível; sem ruído nem HDR"
+    },
+    "composition": {
+      "framing": "foto no terço superior e central da moldura, texto centralizado abaixo, logo no rodapé",
+      "subject_placement": "assunto da foto entre y 400 e 1000; título entre y 1215 e 1400",
+      "safe_area": "Texto e logo dentro de x 132 a 948 e y 395 a 1525. Nada importante fora da faixa 4:5 (y 285 a 1635) nem a menos de 250 px do topo e da base do 9:16. Longe da borda direita (botões do Reels).",
+      "layout": {
+        "fundo": "creme #FAF7F1 em toda a tela",
+        "traco_externo_da_foto": "mesma foto desfocada (raio ~30 px) com 6 a 8% de opacidade fora da moldura",
+        "moldura": "retângulo de cantos arredondados, x 72 a 1008, y 335 a 1585, raio ~64 px, traço 3 px dourado #B7881D",
+        "janela_da_foto": "IMAGEM 1 dentro da moldura de y 335 a 1190, recortada pelos cantos arredondados do topo; opacidade 100% até y ~900 e gradiente linear de 100% a 0% entre y 900 e y 1190",
+        "eyebrow": "centro x 540, y ~1215",
+        "linha_1": "centro x 540, y ~1290",
+        "linha_2": "centro x 540, y ~1390",
+        "logo": "IMAGEM 2 centralizada em x 540, base em y 1520, largura 260 px, proporção original"
+      },
+      "ui_elements": {
+        "eyebrow": {
+          "exemplo": "MÓDULOS LA BELLE",
+          "fonte": "Plus Jakarta Sans Bold, 24 px, caixa alta, espaçamento ~5 px",
+          "cor": "#B7881D",
+          "detalhe": "bolinha dourada sólida de ~12 px à esquerda do texto"
+        },
+        "linha_1": {
+          "exemplo": "Subiu pela escada.",
+          "fonte": "Cormorant Garamond SemiBold, ~76 px, centralizada",
+          "cor": "#043333"
+        },
+        "linha_2": {
+          "exemplo": "Desceu pelo ar.",
+          "fonte": "Cormorant Garamond Bold Italic, ~92 px, centralizada",
+          "cor": "#B7881D"
+        }
+      }
+    },
+    "slots_variaveis": {
+      "linha_1": "até 20 caracteres",
+      "linha_2": "até 16 caracteres",
+      "eyebrow": "até 30 caracteres, caixa alta",
+      "caixa_dos_titulos": "mista, como digitado. Se o campo vier em maiúscula, manter maiúscula",
+      "sem_linha_de_local": "nesta versão o espaço é do título e da logo; se precisar de local, ponha no eyebrow"
+    },
+    "regras_fixas": [
+      "Sem data do evento na capa",
+      "Sem site, telefone ou rodapé de contato",
+      "Sem travessão em nenhum texto",
+      "A logo é a anexada, nunca redesenhada",
+      "Preservar a foto: não redesenhar a cena, não remover nem inventar pessoas ou objetos",
+      "O fade chega a 0% antes do texto: o título nunca fica sobre a foto",
+      "Nunca azul nem marinho"
+    ],
+    "quality": {
+      "include": [
+        "fade suave e contínuo sem degrau",
+        "foto nítida e fiel na janela",
+        "moldura dourada fina contínua",
+        "cantos arredondados do topo recortando a foto",
+        "título legível sobre creme limpo",
+        "hierarquia clara entre as duas linhas",
+        "bom espaço em volta dos textos",
+        "acentos corretos em português",
+        "logo nítida e proporcional",
+        "aparência editorial calma"
+      ],
+      "avoid": [
+        "foto invadindo a área do texto",
+        "faixa ou corte duro entre foto e creme",
+        "cena redesenhada, objetos inventados ou removidos",
+        "moldura rente à borda do canvas",
+        "texto fora da área central 4:5",
+        "logo redesenhada, esticada ou recolorida",
+        "acentos errados ou letras inventadas",
+        "sombras, brilhos e gradientes pesados",
+        "azul ou marinho",
+        "travessão nos textos"
+      ],
+      "reference_standard": "fichas do portfólio LA BELLE (creme, dourado e Cormorant) com a cena em destaque, como o Destaque V2 da família de templates"
+    }
+  }
+}

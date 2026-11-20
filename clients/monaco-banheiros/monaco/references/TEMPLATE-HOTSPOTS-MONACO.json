@@ -1,0 +1,553 @@
+{
+  "template": "TEMPLATE-HOTSPOTS-MONACO",
+  "version": "1.0",
+  "status": "Estrutura absorvida em 13 out 2026 da referência 'Pitch Smarter' (visualizador 3D de interiores). Paleta e logo trocadas para Mônaco; fonte Poppins mantida da referência. Aguardando teste com foto real + símbolo anexados.",
+  "description": "Template 'Hotspots': foto livre full-bleed com lente circular gigante, barra de UI em vidro fosco no topo (marca + ícones de diferenciais), cartões de destaque com miniatura apontando objetos reais da foto, órbitas 360°, headline 2 pesos no canto inferior esquerdo e subtítulo com palavra em caixa índigo.",
+  "linhas_editoriais": [
+    "M3 O detalhe que vira assunto (principal: amenities, louça, ar, espelho)",
+    "M1 Abre a porta (interior revelado)",
+    "M2 Pergunta de quem organiza (o que tem dentro)"
+  ],
+  "fonte_da_paleta": "monaco/brand-spec.md: marinho #100C43, índigo #3533CD, dourado #FFBD59 (aqui em tom champanhe #F6D58E para a headline)",
+  "fonte_da_tipografia": "MANTIDA DA REFERÊNCIA: Poppins (Regular/Light na linha 1, SemiBold na linha 2, Medium nas pílulas, Regular nos rótulos e subtítulo). Fonte única no card.",
+  "logica_padrao_templates_monaco": {
+    "1_imagem_livre": "A foto é sempre ANEXADA (IMAGEM 1) e pode ser qualquer cena. O prompt nunca descreve a cena: só manda preservar tudo e aplicar tratamento de cor editorial + upscale + legibilidade.",
+    "2_logo_em_local_definido": "A logo é ANEXADA (IMAGEM 2: monaco/references/logo/monaco-simbolo-marinho.png) e aplicada exatamente como enviada num local com coordenadas fixas. Plano B: colar o PNG por cima.",
+    "3_dados_fixos": "Header, assinatura, telefone e site têm texto, fonte, cor e posição travados.",
+    "4_copy_em_campos": "Onde vai copy, o template define posição, fonte, tamanho, cor e limite de caracteres, mas o texto entra por campos {{...}} preenchidos a cada post."
+  },
+  "anexos": {
+    "imagem_1": "foto principal do post (qualquer cena; ideal: interior do trailer ou cena com 2 a 4 objetos claros)",
+    "imagem_2": "monaco/references/logo/monaco-simbolo-branco.png"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto principal (pode ser qualquer cena: interior do trailer, trailer por fora, evento, casa, rua, objeto ou pessoas). IMAGEM 2 = símbolo oficial da Mônaco em branco (3 estrelas, fundo transparente). Da IMAGEM 1, preserve com fidelidade total tudo o que existe nela: objetos, pessoas, textos, cores reais, proporções e enquadramento. Não redesenhe, não substitua, não remova e não acrescente nenhum elemento à cena; aplique somente tratamento de cor editorial, upscale de nitidez e o escurecimento de legibilidade descrito. Os cartões de destaque (hotspots) devem apontar para objetos que EXISTEM na IMAGEM 1, e a miniatura de cada cartão é um recorte desse mesmo objeto da foto, nunca um objeto inventado. A IMAGEM 2 deve ser colocada exatamente como foi enviada, no espaço indicado na barra superior: não redesenhe, não recolora, não distorça. Monte o layout descrito no JSON.",
+  "logo": {
+    "arquivo_para_aplicar": "monaco/references/logo/monaco-simbolo-branco.png",
+    "versao_neste_template": "símbolo BRANCO, porque fica sobre a barra de vidro fosco escura/translúcida",
+    "posicao_exata": "primeiro espaço à esquerda dentro da barra superior, quadrado de ~40px, centro aprox. x 470px, y 308px",
+    "plano_b": "se o gerador distorcer, colar o PNG branco manualmente na mesma posição",
+    "proibido": "esticar, girar, recolorir, sombra ou contorno"
+  },
+  "tratamento_da_foto": {
+    "regra": "Vale para QUALQUER imagem carregada, independente da cena. Toda foto recebe o mesmo tratamento para o feed ficar consistente.",
+    "preservacao": "Fidelidade total ao conteúdo da foto: nenhum objeto, pessoa, rosto, texto, placa, material ou cor real é redesenhado, trocado, removido ou acrescentado. Não mudar enquadramento nem perspectiva.",
+    "upscale": "Upscale para 1080x1350 (ou 2160x2700 para exportação), nitidez de detalhe sem halo, sem artefato de IA, sem suavização plástica; em pessoas, manter textura real de pele.",
+    "color_grading": "Grade editorial de hospitalidade premium aplicada sobre as cores originais: contraste médio-alto, pretos levemente elevados, realces suaves, temperatura levemente quente, saturação natural e equilibrada, leve harmonização com a paleta da marca (marinho nas sombras, dourado nos realces). Nunca trocar a cor real de um objeto.",
+    "legibilidade": "Véu azul-marinho #100C43 ~35% fora da lente circular + degradê #100C43 subindo da base (~85% até transparente em ~45% da altura). Não escurecer o interior da lente.",
+    "vinheta": "vinheta muito leve nas bordas do painel",
+    "proibido": "redesenhar a cena; inventar ou remover objetos/pessoas; trocar ambiente ou paisagem; HDR exagerado; filtro chapado (laranja, sépia, teal-orange forte); aparência de render 3D; pele plástica"
+  },
+  "estrutura_do_layout": {
+    "canvas": "4:5, 1080x1350, foto full-bleed sem margem externa",
+    "lente_circular": "círculo de linha branca 1,5px/80%, centro ~x 760 y 760, raio ~680px; dentro foto normal; fora véu marinho 35% + leve dessaturação",
+    "barra_superior": "pílula de vidro fosco ~560x66px, borda direita x ~1000, topo y ~275",
+    "hotspots": "2 a 4 cartões de vidro ~200x76px com miniatura 64px + rótulo 2 linhas, linha em cotovelo até o objeto real",
+    "orbitas": "1 ou 2 elipses finas com seta em volta de objetos de destaque",
+    "texto": "headline no canto inferior esquerdo (x 104) + subtítulo deslocado (x ~352) com palavra em caixa índigo",
+    "rodape": "site + telefone em linha discreta na base direita",
+    "safe_area": "952x1222px dentro de 1080x1350px"
+  },
+  "elementos_fixos": {
+    "barra_superior": {
+      "logo": "símbolo branco anexado (IMAGEM 2)",
+      "pilula_1": "Mônaco Mobile Toilet",
+      "icones": "ar-condicionado, som, água (diferenciais do produto)",
+      "pilula_2": "Banheiro VIP + ícone de menu"
+    },
+    "rodape": {
+      "texto": "banheirosmonaco.com.br · (11) 97628-4782",
+      "fonte": "Poppins Regular 20px",
+      "cor": "branco 85%",
+      "posicao": "base direita, margem 64px"
+    },
+    "lente_e_orbitas": "sempre presentes, linha branca fina"
+  },
+  "slots_variaveis": {
+    "HOTSPOT_1..4": {
+      "regra": "2 a 4 rótulos curtos de objetos REAIS visíveis na foto, até 2 palavras, quebrados em 2 linhas (ex: 'Cuba / de louça'). Vazio = cartão removido.",
+      "fonte": "Poppins Regular 22px branco"
+    },
+    "HEADLINE_LINHA_1": {
+      "regra": "1 palavra curta, tom leve (ex: 'Banheiro', 'Detalhe', 'Conforto')",
+      "fonte": "Poppins Regular/Light 110px",
+      "cor": "#FFFFFF"
+    },
+    "HEADLINE_LINHA_2": {
+      "regra": "1 palavra de impacto, até 10 caracteres (ex: 'de hotel.', 'VIP.', 'premium.')",
+      "fonte": "Poppins SemiBold 110px",
+      "cor": "#F6D58E"
+    },
+    "SUBTITULO_LINHA_1/2": {
+      "regra": "frase de até 2 linhas, ~28 caracteres por linha",
+      "fonte": "Poppins Regular 40px",
+      "cor": "#FFFFFF"
+    },
+    "PALAVRA_DESTAQUE": {
+      "regra": "1 palavra do subtítulo que ganha caixa índigo #3533CD",
+      "estilo": "retângulo sólido de cantos retos, texto branco"
+    }
+  },
+  "regras_fixas": {
+    "fonte": "Só Poppins no card inteiro.",
+    "hotspots_reais": "Hotspot só aponta para objeto que existe na foto; miniatura = recorte do próprio objeto.",
+    "cor": "Laranja da referência foi substituído: destaque de palavra = índigo #3533CD; headline linha 2 = dourado champanhe #F6D58E; véus e cartões = marinho #100C43.",
+    "travessao": "NUNCA travessão.",
+    "termo": "Nunca 'banheiro químico' nos rótulos ou headline."
+  },
+  "negative_rules_globais": [
+    "NUNCA redesenhar ou recriar a logo: usar o arquivo anexado",
+    "NUNCA inventar objetos para justificar um hotspot",
+    "NUNCA usar laranja",
+    "NUNCA fonte diferente de Poppins",
+    "NUNCA travessão",
+    "NUNCA cartões cobrindo rostos ou o texto principal"
+  ],
+  "variacoes": {
+    "card-01-hotspots-4": {
+      "nome": "Hotspots com 3 a 4 destaques",
+      "quando_usar": "Interior do trailer ou cena rica em detalhes (cuba, espelho, ar, amenities). Linha M3.",
+      "aprovado": false,
+      "preencher": {
+        "QTD_HOTSPOTS": "2 a 4",
+        "HOTSPOT_1": "",
+        "HOTSPOT_2": "",
+        "HOTSPOT_3": "",
+        "HOTSPOT_4": "",
+        "HEADLINE_LINHA_1": "",
+        "HEADLINE_LINHA_2": "",
+        "SUBTITULO_LINHA_1": "",
+        "SUBTITULO_LINHA_2": "",
+        "PALAVRA_DESTAQUE": ""
+      },
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Peça editorial vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, no estilo 'visualizador interativo de ambiente'. Fundo: a IMAGEM ANEXADA principal (IMAGEM 1) ocupando o frame inteiro (full-bleed, sem bordas), qualquer que seja a cena, preservada com fidelidade total (todos os objetos, pessoas, textos, materiais, cores reais e proporções exatamente como estão, sem redesenho, sem substituição, sem remoção e sem acréscimo). Sobre ela, tratamento de cor editorial de hospitalidade premium (contraste médio-alto, realces suaves, temperatura levemente quente, saturação natural) e upscale de nitidez sem artefatos. LENTE CIRCULAR: um círculo muito grande, de linha branca fina (1,5px, 80% de opacidade), com centro aproximado em x 760px, y 760px e raio ~680px, cortando o frame: entra pela borda direita no topo, passa à esquerda por x ~100px e sai pela base. A área DENTRO do círculo fica com a foto normal, levemente mais clara; a área FORA do círculo recebe um véu escuro azul-marinho #100C43 de ~35% de opacidade e leve dessaturação, criando efeito de lente/foco. Degradê escuro azul-marinho #100C43 subindo da base do frame (opacidade ~85% na base até transparente em ~45% da altura) para sustentar o texto. BARRA SUPERIOR (fixa): uma pílula horizontal de vidro fosco (glassmorphism: fundo branco 18% de opacidade com desfoque do que está atrás, contorno branco 1px a 35%, cantos totalmente arredondados) de ~560x66px, posicionada com borda direita em x ~1000px e topo em y ~275px. Dentro dela, da esquerda para a direita: espaço quadrado de ~40px para o símbolo da marca (IMAGEM 2, branco, aplicado exatamente como enviado); uma pílula interna branca 85% com o texto 'Mônaco Mobile Toilet' em Poppins Medium 17px cor #100C43; três ícones circulares pequenos (~34px) em fundo #100C43 com ícones de linha brancos (floco de neve = ar-condicionado, nota musical = som, gota = água); e uma pílula interna branca 85% com o texto 'Banheiro VIP' em Poppins Medium 17px cor #100C43 seguido de um ícone de menu de 3 linhas. HOTSPOTS: {{QTD_HOTSPOTS}} cartões de destaque flutuantes de vidro fosco (fundo azul-marinho #100C43 a 45% de opacidade com desfoque, contorno branco 1px a 30%, cantos arredondados raio ~12px, ~200x76px), cada um com uma miniatura quadrada ~64px com cantos arredondados à esquerda (fundo off-white #F4F1EA, contendo um recorte do próprio objeto apontado, retirado da foto) e à direita um rótulo em 2 linhas em Poppins Regular 22px branco. Cada cartão é ligado ao objeto real da foto por uma linha branca fina de 1,5px em formato de cotovelo (um trecho horizontal e um vertical em ângulo reto), terminando encostada no objeto. Cartões espalhados em alturas diferentes, sem se sobrepor, sem cobrir rostos nem o texto principal. Rótulos: {{HOTSPOT_1}}, {{HOTSPOT_2}}, {{HOTSPOT_3}}, {{HOTSPOT_4}}. ÓRBITAS: em volta de 1 ou 2 objetos de destaque, uma elipse fina de linha branca 1,5px a 70% com uma pequena seta indicando rotação, sugerindo visualização 360°. TEXTO PRINCIPAL (canto inferior esquerdo, alinhado à esquerda, margem esquerda 104px): linha 1 '{{HEADLINE_LINHA_1}}' em Poppins Regular/Light 110px branco #FFFFFF, entrelinha apertada; linha 2 '{{HEADLINE_LINHA_2}}' logo abaixo em Poppins SemiBold 110px dourado claro #F6D58E (tom champanhe do dourado Mônaco). SUBTÍTULO (abaixo da headline, começando em x ~352px, alinhado à esquerda, 2 linhas): '{{SUBTITULO_LINHA_1}}' / '{{SUBTITULO_LINHA_2}}' em Poppins Regular 40px branco, onde a palavra '{{PALAVRA_DESTAQUE}}' fica dentro de um retângulo sólido índigo Mônaco #3533CD (cantos retos, padding horizontal ~10px) com o texto branco. RODAPÉ (fixo): na base, alinhado à direita com margem de 64px, texto 'banheirosmonaco.com.br · (11) 97628-4782' em Poppins Regular 20px branco a 85% de opacidade. Paleta do layout: azul-marinho #100C43, índigo #3533CD, dourado champanhe #F6D58E, branco e vidro fosco; a foto mantém suas cores reais com o tratamento editorial. Fonte única em todo o card: Poppins (geométrica, arredondada).",
+            "subject": "Conteúdo da IMAGEM 1 anexada (qualquer cena), preservado sem alterações, com objetos reais destacados por hotspots",
+            "setting": "O ambiente da IMAGEM 1",
+            "action": "O que acontece na IMAGEM 1, sem alterar"
+          },
+          "style": {
+            "primary": "editorial interior photography with interactive 3D-visualizer UI overlay (glassmorphism)",
+            "rendering_quality": "hyperrealistic photo with crisp flat UI overlay",
+            "surface_textures": "texturas reais da imagem anexada, apenas mais nítidas; UI em vidro fosco limpo, linhas finas nítidas",
+            "lighting": "luz original da imagem anexada, realçada pelo color grading editorial; véu escuro fora da lente circular e degradê escuro na base"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter o da foto anexada",
+              "angle": "manter o da foto anexada"
+            },
+            "resolution": "ultra high definition, upscale limpo",
+            "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+          },
+          "materials": {
+            "surfaces": "manter materiais e texturas reais da foto; painéis de vidro fosco com desfoque real do fundo",
+            "skin": "se houver pessoas: textura real de pele preservada, poros visíveis, sem retoque"
+          },
+          "environment": {
+            "atmosphere": "a da imagem anexada",
+            "time": "a da imagem anexada"
+          },
+          "composition": {
+            "perspective": "manter a perspectiva e o enquadramento da imagem anexada",
+            "framing": "full-bleed com lente circular gigante, barra de UI no topo, hotspots no meio, texto no terço inferior esquerdo",
+            "subject_placement": "objetos destacados na posição original da foto; barra superior no terço superior à direita; headline e subtítulo no terço inferior",
+            "safe_area": "64px de padding mínimo para todo texto, cartão e barra: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "símbolo Mônaco (IMAGEM 2)",
+                "type": "aplicar a logo anexada exatamente como enviada (versão branca), sem redesenhar ou recolorir",
+                "position": "primeiro espaço à esquerda dentro da barra superior de vidro, quadrado de ~40px, centro aprox. x 470px, y 308px"
+              },
+              {
+                "text": "Mônaco Mobile Toilet",
+                "font": "Poppins Medium",
+                "font_size": "17px",
+                "color": "#100C43",
+                "position": "pílula interna branca 85% na barra superior, após o símbolo"
+              },
+              {
+                "text": "ícones ar-condicionado / som / água",
+                "type": "3 círculos ~34px fundo #100C43 com ícones de linha brancos",
+                "position": "barra superior, ao centro"
+              },
+              {
+                "text": "Banheiro VIP",
+                "font": "Poppins Medium",
+                "font_size": "17px",
+                "color": "#100C43",
+                "position": "pílula interna branca 85% no fim da barra superior, com ícone de menu de 3 linhas"
+              },
+              {
+                "text": "{{HOTSPOT_1}}",
+                "font": "Poppins Regular, 2 linhas",
+                "font_size": "22px",
+                "color": "#FFFFFF",
+                "position": "cartão de vidro com miniatura, ligado por linha em cotovelo ao objeto real correspondente na foto"
+              },
+              {
+                "text": "{{HOTSPOT_2}}",
+                "font": "Poppins Regular, 2 linhas",
+                "font_size": "22px",
+                "color": "#FFFFFF",
+                "position": "cartão de vidro com miniatura, ligado ao objeto real correspondente"
+              },
+              {
+                "text": "{{HOTSPOT_3}}",
+                "font": "Poppins Regular, 2 linhas",
+                "font_size": "22px",
+                "color": "#FFFFFF",
+                "position": "cartão de vidro com miniatura, ligado ao objeto real correspondente (OMITIR se vazio)"
+              },
+              {
+                "text": "{{HOTSPOT_4}}",
+                "font": "Poppins Regular, 2 linhas",
+                "font_size": "22px",
+                "color": "#FFFFFF",
+                "position": "cartão de vidro com miniatura, ligado ao objeto real correspondente (OMITIR se vazio)"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_1}}",
+                "font": "Poppins Regular/Light",
+                "font_size": "110px",
+                "color": "#FFFFFF",
+                "position": "canto inferior esquerdo, x 104px, topo ~y 910px"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_2}}",
+                "font": "Poppins SemiBold",
+                "font_size": "110px",
+                "color": "#F6D58E",
+                "position": "logo abaixo da linha 1, alinhada à esquerda"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_1}}",
+                "font": "Poppins Regular",
+                "font_size": "40px",
+                "color": "#FFFFFF",
+                "position": "início x ~352px, abaixo da headline; '{{PALAVRA_DESTAQUE}}' dentro de retângulo sólido #3533CD"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_2}}",
+                "font": "Poppins Regular",
+                "font_size": "40px",
+                "color": "#FFFFFF",
+                "position": "linha 2 do subtítulo, mesmo alinhamento"
+              },
+              {
+                "text": "banheirosmonaco.com.br · (11) 97628-4782",
+                "font": "Poppins Regular",
+                "font_size": "20px",
+                "color": "#FFFFFF a 85%",
+                "position": "base do frame, alinhado à direita, margem 64px"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "imagem anexada preservada com fidelidade total",
+              "color grading editorial de hospitalidade premium",
+              "upscale nítido sem artefatos",
+              "lente circular fina com véu escuro externo",
+              "glassmorphism limpo e legível",
+              "linhas de conexão em cotovelo precisas",
+              "miniaturas recortadas da própria foto",
+              "Poppins em todo o card",
+              "dourado champanhe legível",
+              "destaque índigo sólido na palavra-chave",
+              "logo anexada aplicada com fidelidade"
+            ],
+            "avoid": [
+              "redesenhar, substituir ou remover qualquer elemento da imagem",
+              "hotspot apontando para objeto que não existe na foto",
+              "miniatura com objeto inventado",
+              "cartões sobrepostos ou cobrindo rostos e o texto principal",
+              "laranja da referência original (usar paleta Mônaco)",
+              "fonte diferente de Poppins",
+              "redesenhar ou recolorir a logo",
+              "texto fora da zona segura",
+              "HDR exagerado",
+              "pele plástica",
+              "erros de grafia",
+              "travessão",
+              "deixar placeholders {{...}} escritos na imagem"
+            ],
+            "reference_standard": "anúncios de visualizador 3D de interiores / proptech (estilo apresentações de arquitetura e realidade aumentada), com acabamento de revista de hospitalidade"
+          }
+        }
+      }
+    },
+    "card-02-hotspots-2": {
+      "nome": "Hotspots minimalista com 2 destaques",
+      "quando_usar": "Foto mais limpa ou com poucos objetos claros (ex: trailer por fora, um detalhe). Linhas M1 e M2.",
+      "aprovado": false,
+      "preencher": {
+        "HOTSPOT_1": "",
+        "HOTSPOT_2": "",
+        "HEADLINE_LINHA_1": "",
+        "HEADLINE_LINHA_2": "",
+        "SUBTITULO_LINHA_1": "",
+        "SUBTITULO_LINHA_2": "",
+        "PALAVRA_DESTAQUE": ""
+      },
+      "json_exemplo": {
+        "prompt": {
+          "scene": {
+            "description": "Peça editorial vertical 4:5 (1080x1350) para Instagram da marca Mônaco Mobile Toilet, no estilo 'visualizador interativo de ambiente'. Fundo: a IMAGEM ANEXADA principal (IMAGEM 1) ocupando o frame inteiro (full-bleed, sem bordas), qualquer que seja a cena, preservada com fidelidade total (todos os objetos, pessoas, textos, materiais, cores reais e proporções exatamente como estão, sem redesenho, sem substituição, sem remoção e sem acréscimo). Sobre ela, tratamento de cor editorial de hospitalidade premium (contraste médio-alto, realces suaves, temperatura levemente quente, saturação natural) e upscale de nitidez sem artefatos. LENTE CIRCULAR: um círculo muito grande, de linha branca fina (1,5px, 80% de opacidade), com centro aproximado em x 760px, y 760px e raio ~680px, cortando o frame: entra pela borda direita no topo, passa à esquerda por x ~100px e sai pela base. A área DENTRO do círculo fica com a foto normal, levemente mais clara; a área FORA do círculo recebe um véu escuro azul-marinho #100C43 de ~35% de opacidade e leve dessaturação, criando efeito de lente/foco. Degradê escuro azul-marinho #100C43 subindo da base do frame (opacidade ~85% na base até transparente em ~45% da altura) para sustentar o texto. BARRA SUPERIOR (fixa): uma pílula horizontal de vidro fosco (glassmorphism: fundo branco 18% de opacidade com desfoque do que está atrás, contorno branco 1px a 35%, cantos totalmente arredondados) de ~560x66px, posicionada com borda direita em x ~1000px e topo em y ~275px. Dentro dela, da esquerda para a direita: espaço quadrado de ~40px para o símbolo da marca (IMAGEM 2, branco, aplicado exatamente como enviado); uma pílula interna branca 85% com o texto 'Mônaco Mobile Toilet' em Poppins Medium 17px cor #100C43; três ícones circulares pequenos (~34px) em fundo #100C43 com ícones de linha brancos (floco de neve = ar-condicionado, nota musical = som, gota = água); e uma pílula interna branca 85% com o texto 'Banheiro VIP' em Poppins Medium 17px cor #100C43 seguido de um ícone de menu de 3 linhas. HOTSPOTS: 2 cartões de destaque flutuantes de vidro fosco (fundo azul-marinho #100C43 a 45% de opacidade com desfoque, contorno branco 1px a 30%, cantos arredondados raio ~12px, ~200x76px), cada um com uma miniatura quadrada ~64px com cantos arredondados à esquerda (fundo off-white #F4F1EA, contendo um recorte do próprio objeto apontado, retirado da foto) e à direita um rótulo em 2 linhas em Poppins Regular 22px branco. Cada cartão é ligado ao objeto real da foto por uma linha branca fina de 1,5px em formato de cotovelo (um trecho horizontal e um vertical em ângulo reto), terminando encostada no objeto. Cartões espalhados em alturas diferentes, sem se sobrepor, sem cobrir rostos nem o texto principal. Rótulos: {{HOTSPOT_1}}, {{HOTSPOT_2}}. ÓRBITAS: em volta de 1 ou 2 objetos de destaque, uma elipse fina de linha branca 1,5px a 70% com uma pequena seta indicando rotação, sugerindo visualização 360°. TEXTO PRINCIPAL (canto inferior esquerdo, alinhado à esquerda, margem esquerda 104px): linha 1 '{{HEADLINE_LINHA_1}}' em Poppins Regular/Light 110px branco #FFFFFF, entrelinha apertada; linha 2 '{{HEADLINE_LINHA_2}}' logo abaixo em Poppins SemiBold 110px dourado claro #F6D58E (tom champanhe do dourado Mônaco). SUBTÍTULO (abaixo da headline, começando em x ~352px, alinhado à esquerda, 2 linhas): '{{SUBTITULO_LINHA_1}}' / '{{SUBTITULO_LINHA_2}}' em Poppins Regular 40px branco, onde a palavra '{{PALAVRA_DESTAQUE}}' fica dentro de um retângulo sólido índigo Mônaco #3533CD (cantos retos, padding horizontal ~10px) com o texto branco. RODAPÉ (fixo): na base, alinhado à direita com margem de 64px, texto 'banheirosmonaco.com.br · (11) 97628-4782' em Poppins Regular 20px branco a 85% de opacidade. Paleta do layout: azul-marinho #100C43, índigo #3533CD, dourado champanhe #F6D58E, branco e vidro fosco; a foto mantém suas cores reais com o tratamento editorial. Fonte única em todo o card: Poppins (geométrica, arredondada).",
+            "subject": "Conteúdo da IMAGEM 1 anexada (qualquer cena), preservado sem alterações, com objetos reais destacados por hotspots",
+            "setting": "O ambiente da IMAGEM 1",
+            "action": "O que acontece na IMAGEM 1, sem alterar"
+          },
+          "style": {
+            "primary": "editorial interior photography with interactive 3D-visualizer UI overlay (glassmorphism)",
+            "rendering_quality": "hyperrealistic photo with crisp flat UI overlay",
+            "surface_textures": "texturas reais da imagem anexada, apenas mais nítidas; UI em vidro fosco limpo, linhas finas nítidas",
+            "lighting": "luz original da imagem anexada, realçada pelo color grading editorial; véu escuro fora da lente circular e degradê escuro na base"
+          },
+          "technical": {
+            "camera": {
+              "focal_length": "o da foto anexada",
+              "aperture": "o da foto anexada",
+              "depth_of_field": "manter o da foto anexada",
+              "angle": "manter o da foto anexada"
+            },
+            "resolution": "ultra high definition, upscale limpo",
+            "rendering": "color grading editorial, grão quase invisível, nitidez sem halo"
+          },
+          "materials": {
+            "surfaces": "manter materiais e texturas reais da foto; painéis de vidro fosco com desfoque real do fundo",
+            "skin": "se houver pessoas: textura real de pele preservada, poros visíveis, sem retoque"
+          },
+          "environment": {
+            "atmosphere": "a da imagem anexada",
+            "time": "a da imagem anexada"
+          },
+          "composition": {
+            "perspective": "manter a perspectiva e o enquadramento da imagem anexada",
+            "framing": "full-bleed com lente circular gigante, barra de UI no topo, hotspots no meio, texto no terço inferior esquerdo",
+            "subject_placement": "objetos destacados na posição original da foto; barra superior no terço superior à direita; headline e subtítulo no terço inferior",
+            "safe_area": "64px de padding mínimo para todo texto, cartão e barra: zona segura de 952x1222px dentro de 1080x1350px",
+            "ui_elements": [
+              {
+                "text": "símbolo Mônaco (IMAGEM 2)",
+                "type": "aplicar a logo anexada exatamente como enviada (versão branca), sem redesenhar ou recolorir",
+                "position": "primeiro espaço à esquerda dentro da barra superior de vidro, quadrado de ~40px, centro aprox. x 470px, y 308px"
+              },
+              {
+                "text": "Mônaco Mobile Toilet",
+                "font": "Poppins Medium",
+                "font_size": "17px",
+                "color": "#100C43",
+                "position": "pílula interna branca 85% na barra superior, após o símbolo"
+              },
+              {
+                "text": "ícones ar-condicionado / som / água",
+                "type": "3 círculos ~34px fundo #100C43 com ícones de linha brancos",
+                "position": "barra superior, ao centro"
+              },
+              {
+                "text": "Banheiro VIP",
+                "font": "Poppins Medium",
+                "font_size": "17px",
+                "color": "#100C43",
+                "position": "pílula interna branca 85% no fim da barra superior, com ícone de menu de 3 linhas"
+              },
+              {
+                "text": "{{HOTSPOT_1}}",
+                "font": "Poppins Regular, 2 linhas",
+                "font_size": "22px",
+                "color": "#FFFFFF",
+                "position": "cartão de vidro com miniatura, ligado por linha em cotovelo ao objeto real correspondente na foto"
+              },
+              {
+                "text": "{{HOTSPOT_2}}",
+                "font": "Poppins Regular, 2 linhas",
+                "font_size": "22px",
+                "color": "#FFFFFF",
+                "position": "cartão de vidro com miniatura, ligado ao objeto real correspondente"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_1}}",
+                "font": "Poppins Regular/Light",
+                "font_size": "110px",
+                "color": "#FFFFFF",
+                "position": "canto inferior esquerdo, x 104px, topo ~y 910px"
+              },
+              {
+                "text": "{{HEADLINE_LINHA_2}}",
+                "font": "Poppins SemiBold",
+                "font_size": "110px",
+                "color": "#F6D58E",
+                "position": "logo abaixo da linha 1, alinhada à esquerda"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_1}}",
+                "font": "Poppins Regular",
+                "font_size": "40px",
+                "color": "#FFFFFF",
+                "position": "início x ~352px, abaixo da headline; '{{PALAVRA_DESTAQUE}}' dentro de retângulo sólido #3533CD"
+              },
+              {
+                "text": "{{SUBTITULO_LINHA_2}}",
+                "font": "Poppins Regular",
+                "font_size": "40px",
+                "color": "#FFFFFF",
+                "position": "linha 2 do subtítulo, mesmo alinhamento"
+              },
+              {
+                "text": "banheirosmonaco.com.br · (11) 97628-4782",
+                "font": "Poppins Regular",
+                "font_size": "20px",
+                "color": "#FFFFFF a 85%",
+                "position": "base do frame, alinhado à direita, margem 64px"
+              }
+            ]
+          },
+          "quality": {
+            "include": [
+              "imagem anexada preservada com fidelidade total",
+              "color grading editorial de hospitalidade premium",
+              "upscale nítido sem artefatos",
+              "lente circular fina com véu escuro externo",
+              "glassmorphism limpo e legível",
+              "linhas de conexão em cotovelo precisas",
+              "miniaturas recortadas da própria foto",
+              "Poppins em todo o card",
+              "dourado champanhe legível",
+              "destaque índigo sólido na palavra-chave",
+              "logo anexada aplicada com fidelidade"
+            ],
+            "avoid": [
+              "redesenhar, substituir ou remover qualquer elemento da imagem",
+              "hotspot apontando para objeto que não existe na foto",
+              "miniatura com objeto inventado",
+              "cartões sobrepostos ou cobrindo rostos e o texto principal",
+              "laranja da referência original (usar paleta Mônaco)",
+              "fonte diferente de Poppins",
+              "redesenhar ou recolorir a logo",
+              "texto fora da zona segura",
+              "HDR exagerado",
+              "pele plástica",
+              "erros de grafia",
+              "travessão",
+              "deixar placeholders {{...}} escritos na imagem"
+            ],
+            "reference_standard": "anúncios de visualizador 3D de interiores / proptech (estilo apresentações de arquitetura e realidade aumentada), com acabamento de revista de hospitalidade"
+          }
+        }
+      }
+    }
+  },
+  "banco_de_copy_exemplos": [
+    {
+      "linha": "M3",
+      "hotspots": [
+        "Cuba / de louça",
+        "Espelho / iluminado",
+        "Ar- / condicionado",
+        "Amenities / premium"
+      ],
+      "l1": "Banheiro",
+      "l2": "de hotel.",
+      "sub": "Cada detalhe pensado / para o seu convidado.",
+      "destaque": "convidado."
+    },
+    {
+      "linha": "M1",
+      "hotspots": [
+        "Trailer / climatizado",
+        "Escada / segura"
+      ],
+      "l1": "Isso é",
+      "l2": "evento.",
+      "sub": "Por fora um trailer, / por dentro um hotel.",
+      "destaque": "hotel."
+    },
+    {
+      "linha": "M2",
+      "hotspots": [
+        "Caixa / lacrada",
+        "Água / corrente",
+        "Exaustão",
+        "Perfume"
+      ],
+      "l1": "Tem",
+      "l2": "cheiro?",
+      "sub": "Não. E a gente mostra / por que.",
+      "destaque": "mostra"
+    }
+  ],
+  "referencia_original": {
+    "nota": "Card 'Pitch Smarter' (sala de reunião laranja, visualizador 3D). Só estrutura. Paleta e copy substituídas."
+  },
+  "indice_rapido": {
+    "card-01-hotspots-4": "Foto full-bleed + lente circular + barra UI + 3-4 hotspots + headline 2 pesos.",
+    "card-02-hotspots-2": "Mesma estrutura com 2 hotspots."
+  },
+  "guia_de_uso": {
+    "diferenca_v1_v2": {
+      "card-01 (4 hotspots)": "3 a 4 cartões, 1 ou 2 órbitas. Foto rica em detalhes (interior com cuba, espelho, ar, amenities). Sensação de 'tour' pela cabine. Linha M3.",
+      "card-02 (2 hotspots)": "2 cartões, 1 órbita. Foto limpa ou com poucos objetos claros (trailer por fora, um detalhe, cenário). Mais respiro, foco na foto e no título. Linhas M1 e M2.",
+      "igual_nas_duas": "foto full-bleed, lente circular, barra de vidro com símbolo + 'Mônaco Mobile Toilet' + 3 ícones + 'Banheiro VIP', título 2 linhas inferior esquerdo, subtítulo com palavra em caixa índigo, rodapé site + telefone, Poppins, paleta Mônaco."
+    },
+    "como_escolher": [
+      "Contar quantos objetos reais e bem visíveis a foto tem para apontar: 4 ou mais = card-01; 1 a 2 = card-02.",
+      "Se os objetos ficam todos no mesmo canto da foto, preferir card-02 (cartões não podem se sobrepor).",
+      "Se a foto tem rostos em destaque, card-02 (menos cartões, menos risco de cobrir rosto)."
+    ],
+    "regra_tamanho_do_titulo": {
+      "titulo_curto": "Até ~10 caracteres por linha (ex: 'Banheiro' / 'de hotel.'): 110px; linha 1 Light branca, linha 2 SemiBold dourada inteira.",
+      "titulo_longo": "Linhas com 14 a 20 caracteres (ex: 'Por fora um trailer,' / 'por dentro um LUXO.'): reduzir para ~82px; linhas em Light branca e só a PALAVRA DE DESTAQUE em SemiBold dourada #F6D58E dentro da frase. Topo do título sobe para ~y 860.",
+      "limite": "Acima de 20 caracteres por linha, reescrever a copy: não reduzir abaixo de 72px."
+    },
+    "regra_subtitulo": "2 linhas de até ~28 caracteres; 1 só palavra em caixa índigo #3533CD; em título longo usar 38px.",
+    "regra_hotspots": "Rótulos de até 2 palavras, sempre de objetos visíveis na foto. Se a foto não tiver o objeto, trocar o rótulo, nunca forçar.",
+    "melhores_aplicacoes": [
+      "Tour do interior (M3): 'Banheiro / de hotel.'",
+      "Quebra de objeção (M2): 'Tem / cheiro?' com Vaso de louça, Exaustão, Perfume, Água corrente",
+      "Reveal por fora (M1): 'Por fora um trailer, / por dentro um LUXO.'",
+      "Backstage/camarim (M5): 'Camarim / de artista.' com Cabine privativa, Som ambiente"
+    ]
+  },
+  "exemplos_preenchidos": {
+    "card-02-copy-luxo": {
+      "status": "gerado em 13 out 2026, aguardando teste com foto",
+      "hotspots": [
+        "Trailer climatizado",
+        "Escada segura"
+      ],
+      "titulo": [
+        "Por fora um trailer,",
+        "por dentro um LUXO."
+      ],
+      "destaque_titulo": "LUXO.",
+      "tamanho_titulo": "82px",
+      "subtitulo": [
+        "Cada detalhe pensado",
+        "para o seu convidado."
+      ],
+      "destaque_subtitulo": "convidado."
+    },
+    "card-01-copy-hotel": {
+      "status": "teste em TESTE-HOTSPOTS-MONACO.json",
+      "hotspots": [
+        "Cuba de louça",
+        "Espelho iluminado",
+        "Ar-condicionado",
+        "Amenities premium"
+      ],
+      "titulo": [
+        "Banheiro",
+        "de hotel."
+      ],
+      "subtitulo": [
+        "Cada detalhe pensado",
+        "para o seu convidado."
+      ],
+      "destaque_subtitulo": "convidado."
+    }
+  }
+}

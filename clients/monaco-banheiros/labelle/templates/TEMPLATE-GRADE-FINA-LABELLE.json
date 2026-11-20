@@ -1,0 +1,144 @@
+{
+  "template": "EDITORIAL COM GRADE FINA : LA BELLE",
+  "versao": "1.0 (aprovado 23/10/2026)",
+  "origem": "Referência Living Standard (anúncio editorial com grade de 1px e estrelas de brilho), adaptada à paleta e às fontes da LA BELLE",
+  "imagens_referencia": {
+    "V1": "TEMPLATE-GRADE-FINA-LABELLE-V1-referencia.webp",
+    "V2": "TEMPLATE-GRADE-FINA-LABELLE-V2-referencia.webp"
+  },
+
+  "guia_de_uso": {
+    "o_que_e": "Anúncio vertical 4:5 de revista de interiores de luxo. A foto ocupa o quadro inteiro (UMA vez) e um degradê de cor cobre o lado esquerdo para dar leitura ao texto. Uma grade de linhas finíssimas (2 horizontais + 2 verticais, de ponta a ponta) emoldura a peça, com pequenas estrelas de brilho de 4 pontas nos cruzamentos. Texto empilhado à esquerda em 4 níveis: título enorme em 2 linhas (segunda em itálico dourado), fio, frase de apoio e parágrafo. Assinatura em Cormorant no canto inferior direito e rodapé com chamada + site.",
+    "explicacao_da_modelagem": {
+      "V1": "Versão ESCURA (LB1 Por dentro do módulo). Degradê verde-petróleo #043333 cobrindo a esquerda; título, frase e parágrafo em creme; destaque do título e 2ª linha da assinatura em dourado claro #E2C05B; grade creme translúcida; estrelas em dourado claro; logo com texto em creme. Função: vender o padrão do produto com clima premium.",
+      "V2": "Versão CLARA (LB2 Pra quem é a LA BELLE). Véu creme #FAF7F1 cobrindo a esquerda; título e frase em quase-preto #1C1A15; parágrafo em marrom-cinza #4A4238; destaque do título e da assinatura em itálico dourado #B7881D; grade escura translúcida; estrelas douradas; rodapé em faixa creme sólida com divisor vertical. Função: falar com um público específico (reforma, restaurante, escritório) em tom de dia."
+    },
+    "diferencas": "V1 escura e de produto (petróleo + creme + dourado claro). V2 clara e de público (creme + quase-preto + dourado, faixa de rodapé). Grade, estrelas, hierarquia de 4 níveis e assinatura iguais.",
+    "melhores_aplicacoes": [
+      "LB1: acabamento, porcelana, bancada, espelho",
+      "LB2: um post por público (reforma residencial, restaurante, escritório, empresa)",
+      "Anúncio pago (Meta Ads) por ser autoexplicativo em uma peça só",
+      "Post de apresentação quando houver mais texto que caiba em uma imagem"
+    ],
+    "regra_do_texto": "Título: 2 linhas curtas (até ~10 caracteres cada), 2ª em itálico dourado. Frase: até ~55 caracteres. Parágrafo: 3 a 4 linhas de até ~45 caracteres. Assinatura: 2 linhas, 2ª em itálico dourado. 'Ligado na rede' e 'sem caminhão limpa-fossa' só para a versão ligada na rede. Sem travessão.",
+    "como_escolher_a_foto": "Foto com o lado esquerdo calmo (parede lisa, céu, gramado) e o assunto principal do centro para a direita. Interior da cabine ou módulo instalado em área externa funcionam nas duas versões.",
+    "atencao": [
+      "A foto aparece UMA única vez",
+      "Nunca azul nem marinho (cores da Mônaco); degradê escuro é sempre verde-petróleo",
+      "Na V2 não usar dourado claro #E2C05B em texto (fica ilegível no fundo claro)",
+      "Na V2 nada de pedreiro, entulho ou cara de canteiro (LA BELLE não é banheiro de obra)",
+      "Copy passa pelo copy-qa-sms antes de publicar"
+    ],
+    "imagens_para_carregar": {
+      "V1": "IMAGEM 1 = interior do módulo com o lado esquerdo calmo · IMAGEM 2 = logo LA BELLE (texto da logo vira creme)",
+      "V2": "IMAGEM 1 = módulo instalado no jardim/garagem ou interior da cabine, em luz de dia · IMAGEM 2 = logo LA BELLE original"
+    }
+  },
+
+  "paleta": {
+    "degrade_escuro": "#043333 verde-petróleo (V1)",
+    "veu_claro": "#FAF7F1 creme (V2)",
+    "dourado": "#B7881D (destaques e estrelas na V2)",
+    "dourado_claro": "#E2C05B (destaques e estrelas na V1, fio na V2)",
+    "titulos_claro": "#1C1A15 quase-preto quente",
+    "texto_claro": "#4A4238 marrom-cinza",
+    "proibido": "qualquer azul ou marinho"
+  },
+  "tipografia": {
+    "titulo_e_assinatura": "Cormorant Garamond SemiBold / Regular (destaques em Italic)",
+    "frase_parágrafo_rodape": "Gilroy Regular / Light (fallback Inter)"
+  },
+  "contato_fixo": {"site": "banheiroslabelle.com.br", "whatsapp": "(11) 95223-2818"},
+
+  "variacoes": {
+    "V1_LB1_escura_verde_petroleo": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo que preenche o quadro inteiro (interior real de uma cabine LA BELLE). IMAGEM 2 = logo oficial da LA BELLE, em versão clara. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente tratamento de cor, o degradê verde-petróleo do lado esquerdo e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 como enviada; se tiver texto escuro, converta só o texto para creme. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Anúncio editorial vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, estilo revista de interiores de luxo, versão escura. A IMAGEM 1 preenche o quadro inteiro, uma única vez, com color grading quente e natural e um degradê verde-petróleo #043333 a ~72% cobrindo os 55% da esquerda e sumindo até a direita, para dar leitura ao texto. Grade de linhas finíssimas creme #FAF7F1 a 30% (1px): horizontais em y 70 e y 1265, verticais em x 60 e x 1020, todas de ponta a ponta; nos 4 cruzamentos e no ponto (540,1265), pequenas estrelas de brilho de 4 pontas dourado claro #E2C05B (~22px). Topo esquerdo: logo LA BELLE (IMAGEM 2) em versão clara. Lado esquerdo, a partir de x 92: título em Cormorant Garamond, creme, enorme, 2 linhas: 'Banheiro' e 'de casa', com 'de casa' em itálico dourado claro #E2C05B; fio creme a 50% de x 92 a x 555; frase 'Do lado de fora, um módulo. Por dentro, um lavabo.' em Gilroy semibold creme, 2 linhas; parágrafo em Gilroy regular creme a 90%, 3 linhas: 'Vaso de porcelana, cuba, espelho e bancada.' / 'Ligado na rede de água e esgoto do local,' / 'sem cheiro e sem caminhão limpa-fossa.' Canto inferior direito, alinhado à direita: assinatura em Cormorant Garamond, 2 linhas: 'Pelo tempo' em creme e 'que você precisar.' em itálico dourado claro. Rodapé abaixo da grade: 'Peça seu orçamento →' à esquerda e ícone de globo + 'banheiroslabelle.com.br' à direita, Gilroy semibold creme. Paleta: verde-petróleo #043333, creme #FAF7F1, dourado claro #E2C05B, tons reais da foto. Sem azul, sem marinho.",
+          "subject": "Interior real da cabine LA BELLE (IMAGEM 1) como fundo",
+          "setting": "Banheiro com acabamento residencial, linguagem de revista de interiores",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial de interiores de luxo",
+          "rendering_quality": "foto real hiperdetalhada com tipografia fina",
+          "surface_textures": "texturas reais nítidas à direita; grade, estrelas e texto flat",
+          "lighting": "luz original quente realçada pelo grading; sem luz inventada"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition, qualidade editorial",
+          "rendering": "degradê sem bandas, grão muito fino, linhas de 1px nítidas"
+        },
+        "composition": {
+          "framing": "texto empilhado à esquerda, foto livre no centro e à direita, grade emoldurando",
+          "subject_placement": "logo topo esquerdo; título terço superior; frase e parágrafo abaixo; assinatura canto inferior direito; rodapé abaixo da grade",
+          "safe_area": "64px de padding mínimo para todo texto, ícone e logo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "versão clara", "position": "topo esquerdo, x 92, y 95 a ~250"},
+            {"text": "Banheiro", "font": "Cormorant Garamond SemiBold", "font_size": "150px", "color": "#FAF7F1", "position": "x 92, linha de base ~y 455"},
+            {"text": "de casa", "font": "Cormorant Garamond SemiBold Italic", "font_size": "150px", "color": "#E2C05B", "position": "x 92, linha de base ~y 575"},
+            {"text": "fio", "type": "linha 1px", "color": "#FAF7F1 a 50%", "position": "x 92 a x 555, y ~625"},
+            {"text": "Do lado de fora, um módulo. / Por dentro, um lavabo.", "font": "Gilroy SemiBold", "font_size": "32px", "color": "#FAF7F1", "position": "x 92, ~y 670, 2 linhas"},
+            {"text": "Vaso de porcelana, cuba, espelho e bancada. / Ligado na rede de água e esgoto do local, / sem cheiro e sem caminhão limpa-fossa.", "font": "Gilroy Regular", "font_size": "22px", "color": "#FAF7F1 a 90%", "position": "x 92, ~y 775, 3 linhas"},
+            {"text": "Pelo tempo / que você precisar.", "font": "Cormorant Garamond SemiBold; 2ª linha Italic", "font_size": "62px", "color": "#FAF7F1 e #E2C05B", "position": "alinhado à direita em x 990, ~y 1110 a 1220"},
+            {"text": "Peça seu orçamento →", "font": "Gilroy SemiBold", "font_size": "28px", "color": "#FAF7F1", "position": "rodapé esquerdo, x 92, ~y 1310"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy SemiBold, com ícone de globo fino", "font_size": "28px", "color": "#FAF7F1", "position": "rodapé direito, alinhado em x 990, ~y 1310"},
+            {"text": "estrelas de brilho", "type": "5 estrelas finas de 4 pontas", "color": "#E2C05B", "position": "(60,70), (1020,70), (60,1265), (1020,1265), (540,1265)"}
+          ]
+        },
+        "quality": {
+          "include": ["degradê verde-petróleo suave", "grade de 1px alinhada", "estrelas douradas pequenas", "Cormorant enorme com itálico dourado", "hierarquia em 4 níveis", "assinatura elegante em Cormorant", "foto real única"],
+          "avoid": ["qualquer azul ou marinho", "véu preto ou marrom", "inventar luz ou móveis", "foto repetida", "estrelas grandes", "dourado alaranjado", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "bloco verde-petróleo do site LA BELLE; anúncios de interiores Architectural Digest e Minotti"
+        }
+      }
+    },
+
+    "V2_LB2_clara_creme": {
+      "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = foto de fundo que preenche o quadro inteiro (módulo LA BELLE instalado no jardim, varanda ou garagem, ou interior da cabine). IMAGEM 2 = logo oficial da LA BELLE, nas cores originais. Preserve a IMAGEM 1 com fidelidade total: não redesenhe, não substitua, não remova e não acrescente elementos; aplique somente tratamento de cor claro, véu creme do lado esquerdo e upscale; a foto aparece uma única vez. Aplique a IMAGEM 2 exatamente como enviada. Monte o layout descrito no JSON. Não use azul nem marinho.",
+      "prompt": {
+        "scene": {
+          "description": "Anúncio editorial vertical 4:5 (1080x1350) para Instagram da marca Banheiros LA BELLE, versão clara de dia. A IMAGEM 1 preenche o quadro inteiro, uma única vez, com grading claro e natural e um degradê de véu creme #FAF7F1 a ~72% cobrindo os 50% da esquerda e sumindo até o centro, deixando o assunto bem visível à direita. Grade de linhas finíssimas quase-preto #1C1A15 a 20% (1px): horizontais em y 180 e y 1265, verticais em x 55 e x 1035; nos 4 cruzamentos e nos pontos (390,180) e (595,1265), pequenas estrelas de 4 pontas douradas #B7881D (~22px). Topo esquerdo, acima da grade: logo LA BELLE (IMAGEM 2). Lado esquerdo, a partir de x 88: título em Cormorant Garamond, enorme, 2 linhas: 'Reforma' em quase-preto quente #1C1A15 e 'sem pausa' em itálico dourado #B7881D; fio dourado claro #E2C05B de x 88 a x 365; frase 'A casa em obra, a rotina em dia.' em Cormorant Garamond regular quase-preto; parágrafo em Gilroy regular marrom-cinza #4A4238, 4 linhas: 'O módulo fica no jardim, na garagem' / 'ou na varanda, ligado na rede do imóvel.' / 'Família, clientes e equipe seguem com' / 'um banheiro de verdade até o fim da obra.' Canto inferior direito, alinhado à direita: assinatura em Cormorant Garamond, 2 linhas: 'Um banheiro de verdade,' em creme com sombra suave e 'enquanto a obra acontece.' em itálico dourado claro, legível sobre a foto. Rodapé em faixa creme sólida de y 1290 a 1350 com divisor vertical fino no centro: 'Peça seu orçamento' com seta dourada → à esquerda e ícone de globo dourado + 'banheiroslabelle.com.br' à direita, quase-preto. Paleta: creme #FAF7F1, dourado #B7881D / #E2C05B, quase-preto quente #1C1A15, marrom-cinza #4A4238. Sem azul, sem marinho.",
+          "subject": "Módulo LA BELLE (IMAGEM 1), instalado ou por dentro",
+          "setting": "Ambiente residencial claro em luz de dia, sem cara de canteiro",
+          "action": "Estático"
+        },
+        "style": {
+          "primary": "editorial claro de arquitetura residencial",
+          "rendering_quality": "foto real hiperdetalhada com tipografia fina",
+          "surface_textures": "texturas reais nítidas; grade, estrelas e texto flat",
+          "lighting": "luz natural de dia, suave e difusa"
+        },
+        "technical": {
+          "camera": {"focal_length": "o da foto anexada", "aperture": "o da foto anexada", "depth_of_field": "manter o da foto anexada", "angle": "manter o da foto anexada"},
+          "resolution": "ultra high definition, qualidade editorial",
+          "rendering": "grading claro, véu sem bandas, linhas de 1px nítidas, sem grão"
+        },
+        "composition": {
+          "framing": "texto à esquerda sobre o véu, assunto livre do centro para a direita",
+          "subject_placement": "logo topo esquerdo; título terço superior; frase e parágrafo abaixo; assinatura canto inferior direito; rodapé em faixa sólida",
+          "safe_area": "64px de padding mínimo para todo texto, ícone e logo: zona segura de 952x1222px dentro de 1080x1350px",
+          "ui_elements": [
+            {"text": "logo LA BELLE (IMAGEM 2)", "type": "aplicar exatamente como enviada", "position": "topo esquerdo, x 120, y 50 a ~150"},
+            {"text": "Reforma", "font": "Cormorant Garamond SemiBold", "font_size": "150px", "color": "#1C1A15", "position": "x 88, linha de base ~y 435"},
+            {"text": "sem pausa", "font": "Cormorant Garamond Regular Italic", "font_size": "150px", "color": "#B7881D", "position": "x 88, linha de base ~y 545"},
+            {"text": "fio", "type": "linha 1px", "color": "#E2C05B", "position": "x 88 a x 365, y ~590"},
+            {"text": "A casa em obra, a rotina em dia.", "font": "Cormorant Garamond Medium", "font_size": "36px", "color": "#1C1A15", "position": "x 88, ~y 645"},
+            {"text": "O módulo fica no jardim, na garagem / ou na varanda, ligado na rede do imóvel. / Família, clientes e equipe seguem com / um banheiro de verdade até o fim da obra.", "font": "Gilroy Regular", "font_size": "24px", "color": "#4A4238", "position": "x 88, ~y 710, 4 linhas"},
+            {"text": "Um banheiro de verdade, / enquanto a obra acontece.", "font": "Cormorant Garamond Medium; 2ª linha Italic", "font_size": "34px", "color": "#FAF7F1 e #E2C05B, sombra suave", "position": "alinhado à direita em x 1000, ~y 1185 a 1230"},
+            {"text": "Peça seu orçamento →", "font": "Gilroy Regular; seta dourada", "font_size": "32px", "color": "#1C1A15 com seta #B7881D", "position": "faixa de rodapé, esquerda, x 80, ~y 1320"},
+            {"text": "banheiroslabelle.com.br", "font": "Gilroy Regular, ícone de globo dourado", "font_size": "30px", "color": "#1C1A15", "position": "faixa de rodapé, direita, alinhado em x 1000, ~y 1320"},
+            {"text": "estrelas", "type": "6 estrelas finas de 4 pontas", "color": "#B7881D", "position": "(55,180), (1035,180), (55,1265), (1035,1265), (390,180), (595,1265)"}
+          ]
+        },
+        "quality": {
+          "include": ["assunto bem visível à direita", "véu creme suave", "texto quase-preto legível", "itálico dourado no título", "grade de 1px e estrelas douradas", "faixa de rodapé com divisor", "visual de dia coerente com o site"],
+          "avoid": ["qualquer azul ou marinho", "pedreiros, entulho ou canteiro", "véu que apague a foto", "foto repetida", "dourado claro em texto sobre fundo claro", "logo recolorida", "texto fora da zona segura", "erros de grafia", "travessão"],
+          "reference_standard": "site e folder oficial LA BELLE; Casa Vogue, Kinfolk Home"
+        }
+      }
+    }
+  }
+}

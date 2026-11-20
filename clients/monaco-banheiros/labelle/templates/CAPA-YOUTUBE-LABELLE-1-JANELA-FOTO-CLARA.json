@@ -1,0 +1,101 @@
+{
+  "template": "CAPA-YOUTUBE-LABELLE-1-JANELA-FOTO-CLARA",
+  "version": "1.1",
+  "formato": "Capa (thumbnail) horizontal de YouTube, 16:9. Tela de 1280x720 px (exportar também em 1920x1080). Versão CLARA: fundo branco-creme, petróleo e dourado.",
+  "anexos": {
+    "imagem_1": "a foto que EU anexar (interior da cabine com pia e espelho, módulo ou evento). Aparece nítida em uma janela à direita que se dissolve no creme",
+    "imagem_2": "logo oficial LA BELLE (estrela dourada com linha e o texto BANHEIROS LABELLE) em PNG transparente: logo_labelle_oficial_transparente.png"
+  },
+  "instrucao_para_colar_antes": "Vou anexar 2 imagens. IMAGEM 1 = a foto da capa: use como está, sem redesenhar, sem trocar objetos nem inventar elementos. IMAGEM 2 = logo oficial LA BELLE: aplique exatamente como enviada, sem esticar, girar, recolorir, redesenhar nem adicionar sombra. Todo texto vem dos campos abaixo, letra por letra, com acentos. O FUNDO É BRANCO-CREME CLARO (#FAF7F1) em toda a tela, como nos materiais da LA BELLE; nunca escuro.",
+  "prompt": {
+    "scene": {
+      "description": "Capa horizontal 16:9 de um vídeo de YouTube de uma empresa de cabines de banheiro de luxo. FUNDO BRANCO-CREME CLARO (#FAF7F1), liso, em toda a tela. À direita, uma janela retangular com a IMAGEM 1 nítida, ocupando toda a altura, cuja borda esquerda se dissolve suavemente no creme (fade de ~160 px). À esquerda, texto alinhado à esquerda sobre o creme: eyebrow dourado com bolinha, três linhas de título (as duas primeiras em verde-petróleo, a terceira em dourado itálico maior) e a logo oficial LA BELLE anexada no canto inferior esquerdo. Uma linha dourada fina de 3 px percorre a base. Paleta: creme #FAF7F1, verde-petróleo #043333 (só nos textos), dourado #B7881D. Aparência editorial, clara, limpa e premium.",
+      "subject": "capa de YouTube com gancho tipográfico e foto real em janela",
+      "setting": "fundo claro de papel creme",
+      "action": "static"
+    },
+    "style": {
+      "primary": "editorial, comercial, claro",
+      "rendering_quality": "detailed, vetor limpo",
+      "surface_textures": "papel creme liso; foto nítida só na janela da direita",
+      "lighting": "a da foto original; sem iluminação adicional"
+    },
+    "technical": {
+      "canvas": {
+        "tamanho": "1280x720 px, 16:9",
+        "exportacao": "1920x1080 se disponível; arquivo final abaixo de 2 MB para YouTube"
+      },
+      "rendering": "sem ruído, sem HDR, sem vinheta; cores chapadas e suaves"
+    },
+    "composition": {
+      "framing": "duas zonas: texto à esquerda, foto à direita, divididas na vertical em x ~700",
+      "safe_area": "Texto e logo dentro de x 64 a 690 e y 60 a 650. Nada importante nos 240x70 px do canto inferior direito (a duração do vídeo aparece ali). Nenhum texto sobre a foto.",
+      "layout": {
+        "fundo": "branco-creme #FAF7F1 liso em toda a tela 1280x720 (nenhuma área escura)",
+        "janela_foto": "IMAGEM 1 em x 640 a 1280, y 0 a 720, recorte centrado no assunto principal da foto; a borda esquerda da janela dissolve no creme (gradiente de opacidade 0 a 100% entre x 640 e 800)",
+        "linha_base": "linha dourada #B7881D de 3 px de x 64 a 640 em y 676",
+        "eyebrow": "x 64, y ~92",
+        "linha_1": "x 64, y ~150",
+        "linha_2": "x 64, y ~246",
+        "linha_3": "x 64, y ~352",
+        "logo": "IMAGEM 2 em x 64, base em y 640, largura 300 px, proporção original (cerca de 2:1)"
+      },
+      "ui_elements": {
+        "eyebrow": {
+          "texto": "BANHEIROS DE LUXO",
+          "fonte": "Plus Jakarta Sans Bold, 22 px, caixa alta, espaçamento ~5 px",
+          "cor": "#B7881D",
+          "detalhe": "bolinha dourada sólida de ~12 px à esquerda, a 16 px do texto"
+        },
+        "linha_1": {
+          "texto": "Conheça a LA BELLE:",
+          "fonte": "Cormorant Garamond Bold, ~72 px",
+          "cor": "#043333"
+        },
+        "linha_2": {
+          "texto": "o banheiro de casa",
+          "fonte": "Cormorant Garamond Bold, ~72 px",
+          "cor": "#043333"
+        },
+        "linha_3": {
+          "texto": "onde você precisar",
+          "fonte": "Cormorant Garamond Bold Italic, ~84 px",
+          "cor": "#B7881D"
+        }
+      }
+    },
+    "regras_fixas": [
+      "Texto exatamente como nos campos, com acentos, sem travessão",
+      "Sem data, ano, telefone, site ou rodapé de contato",
+      "A foto não é redesenhada nem recebe elementos novos",
+      "A logo é a anexada, nunca redesenhada",
+      "FUNDO BRANCO-CREME CLARO (#FAF7F1); nunca verde escuro, azul, marinho nem preto como fundo",
+      "Nenhum texto sobre a foto",
+      "Sem selos ou logos de terceiros"
+    ],
+    "quality": {
+      "include": [
+        "texto legível sobre o creme, alto contraste",
+        "foto nítida e bem recortada na janela",
+        "fade suave entre a foto e o creme",
+        "hierarquia clara: linhas 1 e 2 menores, linha 3 dourada maior",
+        "acentos corretos em português",
+        "logo nítida e proporcional",
+        "legibilidade em miniatura (tamanho de celular)"
+      ],
+      "avoid": [
+        "texto sobre a foto",
+        "foto nítida fora da janela da direita",
+        "painel escuro ou verde atrás do texto",
+        "fundo escuro de qualquer tipo",
+        "logo redesenhada, esticada ou recolorida",
+        "elementos decorativos inventados",
+        "travessão nos textos",
+        "algo importante no canto inferior direito"
+      ],
+      "reference_standard": "templates claros da LA BELLE (ficha com marca d'água e janela em fade): creme, dourado e Cormorant"
+    }
+  },
+  "status": "Modelo padrão LA BELLE para capa de YouTube COM FOTO anexada (versão clara). Origem: capa do Rei Charles (aprovada) generalizada para o institucional (10/11/2026). Não testada no GPT com foto de cabine.",
+  "como_usar": "Anexar 2 imagens: IMAGEM 1 = a foto que você escolher (interior da cabine, módulo, evento) e IMAGEM 2 = logo oficial LA BELLE transparente (_LOGOS-MONACO-LABELLE/labelle/logo_labelle_oficial_transparente.png). Trocar só os textos de ui_elements (eyebrow, linha_1, linha_2, linha_3). Exemplo abaixo: \"Conheça a LA BELLE: / o banheiro de casa / onde você precisar\" ou \"... / cabines de luxo / em todo o Brasil\"."
+}
